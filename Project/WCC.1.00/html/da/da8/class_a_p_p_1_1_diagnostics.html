@@ -114,10 +114,10 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Startup hardware check singleton. </p>
-<p>Checks flash, both INA219 power monitors, TMP102, DS18B20, ST25R100 and PGA460. A device that does not answer does not stop the boot; it is beeped once (see "indicate()") and reported to the ESP32 as a bit of "Commands::DeviceFault" in "STATUS_RESPONSE".</p>
-<p>"startRuntimeDiagnostics()" re-checks every "Impl::RUNTIME_CHECK_PERIOD" (5 min) after that, without disturbing the modules that now own most of the hardware: the flash is re-probed directly (the only check that is mutex-serialized against concurrent callers), while the INA219/TMP102, the ST25R100 and the PGA460 instead mirror the already-published health of "APP::PowerSupply", "APP::RFID" and "APP::DistanceMeter" (and the DS18B20 that of "APP::ExternalThermometer"), so no second, independent transaction races the one already running on that bus. A device whose owning module is disabled (see "APP::Application::ENABLE_*") simply keeps its last known status instead of being re-evaluated.</p>
-<p>The controller normally stays powered continuously, so the one-time "run()" at start-up only happens again after an actual reset/power cycle; "APP::Application::ENABLE_RUNTIME_DIAGNOSTICS" (independent of "ENABLE_STARTUP_DIAGNOSTICS") is what keeps "getFaultMask()" an up-to-date, ongoing signal in between.</p>
-<p>The state and the private checks live in an <em>Impl</em> defined in "Diagnostics.cpp". </p>
+<p>Checks flash, both INA219 power monitors, TMP102, DS18B20, ST25R100 and PGA460. A device that does not answer does not stop the boot; it is beeped once (see <a class="el" href="#ab5d75a7112346b4dd19c2cbdce8fd148" title="indicate()">indicate()</a>) and reported to the ESP32 as a bit of <a class="el" href="../../d6/dc5/group___a_p_p.html#gab7dddd440070a1dbdfec9cb40c01c43a" title="Commands::DeviceFault">Commands::DeviceFault</a> in 'STATUS_RESPONSE'.</p>
+<p><a class="el" href="#a3ba0b420dcad65fef592b6bc8a6e06a0" title="startRuntimeDiagnostics()">startRuntimeDiagnostics()</a> re-checks every <b>Impl::RUNTIME_CHECK_PERIOD</b> (5 min) after that, without disturbing the modules that now own most of the hardware: the flash is re-probed directly (the only check that is mutex-serialized against concurrent callers), while the INA219/TMP102, the ST25R100 and the PGA460 instead mirror the already-published health of <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>, <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html" title="APP::RFID">APP::RFID</a> and <a class="el" href="../../d7/dc4/class_a_p_p_1_1_distance_meter.html" title="APP::DistanceMeter">APP::DistanceMeter</a> (and the DS18B20 that of <a class="el" href="../../d6/d63/class_a_p_p_1_1_external_thermometer.html" title="APP::ExternalThermometer">APP::ExternalThermometer</a>), so no second, independent transaction races the one already running on that bus. A device whose owning module is disabled (see 'APP::Application::ENABLE_*') simply keeps its last known status instead of being re-evaluated.</p>
+<p>The controller normally stays powered continuously, so the one-time <a class="el" href="#a7a5356423fdf2fbe9e447492babaee54" title="run()">run()</a> at start-up only happens again after an actual reset/power cycle; <a class="el" href="../../db/d62/class_a_p_p_1_1_application.html#ac8aaa5e820b063c819fb8a96a42dc064" title="APP::Application::ENABLE_RUNTIME_DIAGNOSTICS">APP::Application::ENABLE_RUNTIME_DIAGNOSTICS</a> (independent of <a class="el" href="../../db/d62/class_a_p_p_1_1_application.html#a2d207c42bb27130963db5abe468da539" title="APP::Application::ENABLE_STARTUP_DIAGNOSTICS">APP::Application::ENABLE_STARTUP_DIAGNOSTICS</a>) is what keeps <a class="el" href="#ac1f67f20b561e873a1956a9c2385b1b9" title="getFaultMask()">getFaultMask()</a> an up-to-date, ongoing signal in between.</p>
+<p>The state and the private checks live in an <b>Impl</b> defined in 'Diagnostics.cpp'. </p>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for APP::Diagnostics:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -128,20 +128,20 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Report" id="r_Report"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html">Report</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outcome of one device check each; "isAllOk()" folds them into one flag.  <a href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outcome of one device check each; <a class="el" href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html#a890530176d6a46bd9131014625dfae1c" title="isAllOk()">isAllOk()</a> folds them into one flag.  <a href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7a5356423fdf2fbe9e447492babaee54" id="r_a7a5356423fdf2fbe9e447492babaee54"><td class="memItemLeft"><a class="el" href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html">Report</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7a5356423fdf2fbe9e447492babaee54">run</a> () noexcept</td></tr>
 <tr class="memdesc:a7a5356423fdf2fbe9e447492babaee54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs every device check once and publishes the result.  <br /></td></tr>
 <tr class="memitem:a3ba0b420dcad65fef592b6bc8a6e06a0" id="r_a3ba0b420dcad65fef592b6bc8a6e06a0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3ba0b420dcad65fef592b6bc8a6e06a0">startRuntimeDiagnostics</a> () noexcept</td></tr>
-<tr class="memdesc:a3ba0b420dcad65fef592b6bc8a6e06a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the runtime diagnostic task (first poll after "Impl::RUNTIME_CHECK_PERIOD").  <br /></td></tr>
+<tr class="memdesc:a3ba0b420dcad65fef592b6bc8a6e06a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the runtime diagnostic task (first poll after <b>Impl::RUNTIME_CHECK_PERIOD</b>).  <br /></td></tr>
 <tr class="memitem:a00455713f07c107a3164202e277298ab" id="r_a00455713f07c107a3164202e277298ab"><td class="memItemLeft"><a class="el" href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html">Report</a>&#160;</td><td class="memItemRight"><a class="el" href="#a00455713f07c107a3164202e277298ab">getReport</a> () const noexcept</td></tr>
-<tr class="memdesc:a00455713f07c107a3164202e277298ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the last "run()".  <br /></td></tr>
+<tr class="memdesc:a00455713f07c107a3164202e277298ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the last <a class="el" href="#a7a5356423fdf2fbe9e447492babaee54" title="run()">run()</a>.  <br /></td></tr>
 <tr class="memitem:ac1f67f20b561e873a1956a9c2385b1b9" id="r_ac1f67f20b561e873a1956a9c2385b1b9"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ac1f67f20b561e873a1956a9c2385b1b9">getFaultMask</a> () const noexcept</td></tr>
-<tr class="memdesc:ac1f67f20b561e873a1956a9c2385b1b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fault mask reported to the ESP32 in "STATUS_RESPONSE".  <br /></td></tr>
+<tr class="memdesc:ac1f67f20b561e873a1956a9c2385b1b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the fault mask reported to the ESP32 in 'STATUS_RESPONSE'.  <br /></td></tr>
 <tr class="memitem:ab5d75a7112346b4dd19c2cbdce8fd148" id="r_ab5d75a7112346b4dd19c2cbdce8fd148"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab5d75a7112346b4dd19c2cbdce8fd148">indicate</a> () noexcept</td></tr>
-<tr class="memdesc:ab5d75a7112346b4dd19c2cbdce8fd148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Beeps once per failed device, then a 1 s tone; does nothing if the last "run()" found no fault.  <br /></td></tr>
+<tr class="memdesc:ab5d75a7112346b4dd19c2cbdce8fd148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Beeps once per failed device, then a 1 s tone; does nothing if the last <a class="el" href="#a7a5356423fdf2fbe9e447492babaee54" title="run()">run()</a> found no fault.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -151,10 +151,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a3a66714ca5ae4847906e1b6d1ffd844e" id="r_a3a66714ca5ae4847906e1b6d1ffd844e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3a66714ca5ae4847906e1b6d1ffd844e">Diagnostics</a> () noexcept=default</td></tr>
+<tr class="memdesc:a3a66714ca5ae4847906e1b6d1ffd844e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private: use <a class="el" href="#a4ed59bc1c90726039ce43c0f435aa4e0" title="instance()">instance()</a>.  <br /></td></tr>
 <tr class="memitem:ab3b831e655500ad782fc687aafabecd2" id="r_ab3b831e655500ad782fc687aafabecd2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab3b831e655500ad782fc687aafabecd2">Diagnostics</a> (const Diagnostics &amp;)=delete</td></tr>
+<tr class="memdesc:ab3b831e655500ad782fc687aafabecd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: a singleton.  <br /></td></tr>
 <tr class="memitem:a73b1020cd6db0c089423ce9718c9d383" id="r_a73b1020cd6db0c089423ce9718c9d383"><td class="memItemLeft"><a class="el" href="#a3a66714ca5ae4847906e1b6d1ffd844e">Diagnostics</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a73b1020cd6db0c089423ce9718c9d383">operator=</a> (const <a class="el" href="#a3a66714ca5ae4847906e1b6d1ffd844e">Diagnostics</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a73b1020cd6db0c089423ce9718c9d383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: a singleton.  <br /></td></tr>
 <tr class="memitem:ac316dfefc26e3d5d9e23c3ded3ad6e7e" id="r_ac316dfefc26e3d5d9e23c3ded3ad6e7e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac316dfefc26e3d5d9e23c3ded3ad6e7e">Diagnostics</a> (Diagnostics &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:ac316dfefc26e3d5d9e23c3ded3ad6e7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: a singleton.  <br /></td></tr>
 <tr class="memitem:ae8396bb300d3edf2d2208cc0cb5de9cb" id="r_ae8396bb300d3edf2d2208cc0cb5de9cb"><td class="memItemLeft"><a class="el" href="#a3a66714ca5ae4847906e1b6d1ffd844e">Diagnostics</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae8396bb300d3edf2d2208cc0cb5de9cb">operator=</a> (<a class="el" href="#a3a66714ca5ae4847906e1b6d1ffd844e">Diagnostics</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:ae8396bb300d3edf2d2208cc0cb5de9cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: a singleton.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -185,6 +190,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Private: use <a class="el" href="#a4ed59bc1c90726039ce43c0f435aa4e0" title="instance()">instance()</a>. </p>
+
 <p class="reference">Referenced by <a class="el" href="#ab3b831e655500ad782fc687aafabecd2">Diagnostics()</a>, <a class="el" href="#ac316dfefc26e3d5d9e23c3ded3ad6e7e">Diagnostics()</a>, <a class="el" href="#a4ed59bc1c90726039ce43c0f435aa4e0">instance()</a>, <a class="el" href="#a73b1020cd6db0c089423ce9718c9d383">operator=()</a>, and <a class="el" href="#ae8396bb300d3edf2d2208cc0cb5de9cb">operator=()</a>.</p>
 
 </div>
@@ -211,6 +218,8 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Non-copyable: a singleton. </p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
@@ -242,6 +251,8 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Non-movable: a singleton. </p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -275,8 +286,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the fault mask reported to the ESP32 in "STATUS_RESPONSE". </p>
-<dl class="section return"><dt>Returns</dt><dd>"Commands::DeviceFault" bits of every device that failed the last "run()"; 0 if all passed or before the first run. </dd></dl>
+<p>Returns the fault mask reported to the ESP32 in 'STATUS_RESPONSE'. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d6/dc5/group___a_p_p.html#gab7dddd440070a1dbdfec9cb40c01c43a" title="Commands::DeviceFault">Commands::DeviceFault</a> bits of every device that failed the last <a class="el" href="#a7a5356423fdf2fbe9e447492babaee54" title="run()">run()</a>; 0 if all passed or before the first run. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#ac1f67f20b561e873a1956a9c2385b1b9">getFaultMask()</a>.</p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -311,8 +322,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the result of the last "run()". </p>
-<dl class="section return"><dt>Returns</dt><dd>Last report; all fields <em>false</em> before the first run. </dd></dl>
+<p>Returns the result of the last <a class="el" href="#a7a5356423fdf2fbe9e447492babaee54" title="run()">run()</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Last report; all fields <b>false</b> before the first run. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a00455713f07c107a3164202e277298ab">getReport()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -383,7 +394,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Beeps once per failed device, then a 1 s tone; does nothing if the last "run()" found no fault. </p>
+<p>Beeps once per failed device, then a 1 s tone; does nothing if the last <a class="el" href="#a7a5356423fdf2fbe9e447492babaee54" title="run()">run()</a> found no fault. </p>
 
 <p class="reference">Referenced by <a class="el" href="#ab5d75a7112346b4dd19c2cbdce8fd148">indicate()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -451,6 +462,9 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Non-copyable: a singleton. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -482,6 +496,9 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Non-movable: a singleton. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
@@ -550,9 +567,9 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Starts the runtime diagnostic task (first poll after "Impl::RUNTIME_CHECK_PERIOD"). </p>
-<p>Safe to call whether or not the owning modules it reads from ("APP::PowerSupply", "APP::RFID", "APP::DistanceMeter", "APP::ExternalThermometer") have started yet or are enabled at all; a disabled one just leaves its bits as the last "run()"/re-check found them.</p>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> if the task is running. </dd></dl>
+<p>Starts the runtime diagnostic task (first poll after <b>Impl::RUNTIME_CHECK_PERIOD</b>). </p>
+<p>Safe to call whether or not the owning modules it reads from (<a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>, <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html" title="APP::RFID">APP::RFID</a>, <a class="el" href="../../d7/dc4/class_a_p_p_1_1_distance_meter.html" title="APP::DistanceMeter">APP::DistanceMeter</a>, <a class="el" href="../../d6/d63/class_a_p_p_1_1_external_thermometer.html" title="APP::ExternalThermometer">APP::ExternalThermometer</a>) have started yet or are enabled at all; a disabled one just leaves its bits as the last <a class="el" href="#a7a5356423fdf2fbe9e447492babaee54" title="run()">run()</a> or re-check found them.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the task is running. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a3ba0b420dcad65fef592b6bc8a6e06a0">startRuntimeDiagnostics()</a>.</p>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>

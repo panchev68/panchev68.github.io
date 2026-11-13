@@ -115,8 +115,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Flash-backed service card number list singleton. </p>
-<p>A service card (maintenance of the container, emptied by the collection truck) is a normally verified "CardRecord" whose number is also listed here; "RFID" checks this list instead of the "Blocklist" and, if the number is present, hands the card to "UserInterface::requestServiceOpen()", which opens the two client doors and the main container door ("OUT3") one at a time, instead of the usual 5/20 l amount selection.</p>
-<p>The list is an append-only log of 8-byte slots in a reserved flash region, same layout as "Blocklist":</p>
+<p>A service card (maintenance of the container, emptied by the collection truck) is a normally verified <a class="el" href="../../d1/deb/namespace_a_p_p.html#a2bf194f119a7399d53cf62fd363a483a" title="CardRecord">CardRecord</a> whose number is also listed here; 'RFID' checks this list instead of the <a class="el" href="../../db/da7/class_a_p_p_1_1_blocklist.html" title="Blocklist">Blocklist</a> and, if the number is present, hands the card to <a class="el" href="../../d4/dba/class_a_p_p_1_1_user_interface.html#a38e2c6c65ce3e12848af7a75efcba9cb" title="UserInterface::requestServiceOpen()">UserInterface::requestServiceOpen()</a>, which opens the two client doors and the main container door ('OUT3') one at a time, instead of the usual 5/20 l amount selection.</p>
+<p>The list is an append-only log of 8-byte slots in a reserved flash region, same layout as <a class="el" href="../../db/da7/class_a_p_p_1_1_blocklist.html" title="APP::Blocklist">APP::Blocklist</a> -</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Word  </th><th class="markdownTableHeadNone">Erased  </th><th class="markdownTableHeadNone">Active  </th><th class="markdownTableHeadNone">Removed  </th></tr>
@@ -125,8 +125,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone">0xFFFFFFFF  </td><td class="markdownTableBodyNone">0x5A5A5A5A  </td><td class="markdownTableBodyNone">0x00000000  </td></tr>
 </table>
-<p>Removal only clears bits of word 1, which NOR flash allows without erasing. A slot interrupted by a power loss is neither erased nor active and is skipped. Only "clear()" erases the region; a full region rejects further adds until then. "clear()" itself can be interrupted (e.g. a brown-out mid-erase, up to several seconds): "open()" does not assume the first erased slot marks the end of the log, so a later un-erased sector still reporting an active number is never silently dropped from the index; "clear()" stays callable after a failed attempt so the caller can simply retry it to finish erasing.</p>
-<p>"open()" reads the region once into a sorted RAM index (number and slot), so "contains()" never touches the flash and "add()" / "remove()" each program one slot. </p>
+<p>Removal only clears bits of word 1, which NOR flash allows without erasing. A slot interrupted by a power loss is neither erased nor active and is skipped. Only <a class="el" href="#a11f8910b0ac55013cfa386e651b024d4" title="clear()">clear()</a> erases the region; a full region rejects further adds until then. <a class="el" href="#a11f8910b0ac55013cfa386e651b024d4" title="clear()">clear()</a> itself can be interrupted (e.g. a brown-out mid-erase, up to several seconds): <a class="el" href="#a3f0876ffccc28db4f01afa94d4bdb558" title="open()">open()</a> does not assume the first erased slot marks the end of the log, so a later un-erased sector still reporting an active number is never silently dropped from the index; <a class="el" href="#a11f8910b0ac55013cfa386e651b024d4" title="clear()">clear()</a> stays callable after a failed attempt so the caller can simply retry it to finish erasing.</p>
+<p><a class="el" href="#a3f0876ffccc28db4f01afa94d4bdb558" title="open()">open()</a> reads the region once into a sorted RAM index (number and slot), so <a class="el" href="#ab45d45ee23c876821c2e13fbf98902f6" title="contains()">contains()</a> never touches the flash and <a class="el" href="#af9e47a85d4476e199894ac886f48b113" title="add()">add()</a> / <a class="el" href="#a536bfab107e1225476c49050508749fd" title="remove()">remove()</a> each program one slot. </p>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for APP::ServiceList:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -167,7 +167,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad1775707001e52ce1edf98996faeee93" id="r_ad1775707001e52ce1edf98996faeee93"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ad1775707001e52ce1edf98996faeee93">getCount</a> () const noexcept</td></tr>
 <tr class="memdesc:ad1775707001e52ce1edf98996faeee93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of service card numbers.  <br /></td></tr>
 <tr class="memitem:a49668a404ebe69f4f829de16bd2d1e5e" id="r_a49668a404ebe69f4f829de16bd2d1e5e"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a49668a404ebe69f4f829de16bd2d1e5e">getFreeSlots</a> () const noexcept</td></tr>
-<tr class="memdesc:a49668a404ebe69f4f829de16bd2d1e5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many more numbers "add()" can accept before "Status::FULL".  <br /></td></tr>
+<tr class="memdesc:a49668a404ebe69f4f829de16bd2d1e5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many more numbers <a class="el" href="#af9e47a85d4476e199894ac886f48b113" title="add()">add()</a> can accept before <a class="el" href="#a171fca641c4bfec07b6fbdeb4f89645caba7de5bc6888294e5884b024a4c894f1" title="Status::FULL">Status::FULL</a>.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -177,7 +177,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:aad0818a641bffbd29f59ac0815c2157c" id="r_aad0818a641bffbd29f59ac0815c2157c"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aad0818a641bffbd29f59ac0815c2157c">REGION_START</a> = 0x050000U</td></tr>
-<tr class="memdesc:aad0818a641bffbd29f59ac0815c2157c"><td class="mdescLeft">&#160;</td><td class="mdescRight">First flash byte of the region, after "RecordStore".  <br /></td></tr>
+<tr class="memdesc:aad0818a641bffbd29f59ac0815c2157c"><td class="mdescLeft">&#160;</td><td class="mdescRight">First flash byte of the region, after <a class="el" href="../../db/d32/class_a_p_p_1_1_record_store.html" title="RecordStore">RecordStore</a>.  <br /></td></tr>
 <tr class="memitem:ade3e0a750ade74f2fc68d62612afda33" id="r_ade3e0a750ade74f2fc68d62612afda33"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ade3e0a750ade74f2fc68d62612afda33">REGION_SIZE</a> = 0x10000U</td></tr>
 <tr class="memdesc:ade3e0a750ade74f2fc68d62612afda33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Region length: 64 KiB, 16 sectors.  <br /></td></tr>
 <tr class="memitem:aad931e8588b85cf88d11d7fa56668721" id="r_aad931e8588b85cf88d11d7fa56668721"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aad931e8588b85cf88d11d7fa56668721">SLOT_SIZE</a> = 8U</td></tr>
@@ -190,10 +190,15 @@ Static Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ac2e78339ee74a3ac8c83b2540c6ce6fc" id="r_ac2e78339ee74a3ac8c83b2540c6ce6fc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac2e78339ee74a3ac8c83b2540c6ce6fc">ServiceList</a> () noexcept=default</td></tr>
+<tr class="memdesc:ac2e78339ee74a3ac8c83b2540c6ce6fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private: use <a class="el" href="#a6199cbf15a04e909ee080255851a4a35" title="instance()">instance()</a>.  <br /></td></tr>
 <tr class="memitem:a8299d2bc6b695fa79edac479babaf2a7" id="r_a8299d2bc6b695fa79edac479babaf2a7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8299d2bc6b695fa79edac479babaf2a7">ServiceList</a> (const ServiceList &amp;)=delete</td></tr>
+<tr class="memdesc:a8299d2bc6b695fa79edac479babaf2a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: a singleton.  <br /></td></tr>
 <tr class="memitem:a72bfd997170305d58ea169714a08b723" id="r_a72bfd997170305d58ea169714a08b723"><td class="memItemLeft"><a class="el" href="#ac2e78339ee74a3ac8c83b2540c6ce6fc">ServiceList</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a72bfd997170305d58ea169714a08b723">operator=</a> (const <a class="el" href="#ac2e78339ee74a3ac8c83b2540c6ce6fc">ServiceList</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a72bfd997170305d58ea169714a08b723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: a singleton.  <br /></td></tr>
 <tr class="memitem:ab289b184c5cdfb07b44c9dc718f023ec" id="r_ab289b184c5cdfb07b44c9dc718f023ec"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab289b184c5cdfb07b44c9dc718f023ec">ServiceList</a> (ServiceList &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:ab289b184c5cdfb07b44c9dc718f023ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: a singleton.  <br /></td></tr>
 <tr class="memitem:a090ef7c7947380e7537a3bc484f8c952" id="r_a090ef7c7947380e7537a3bc484f8c952"><td class="memItemLeft"><a class="el" href="#ac2e78339ee74a3ac8c83b2540c6ce6fc">ServiceList</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a090ef7c7947380e7537a3bc484f8c952">operator=</a> (<a class="el" href="#ac2e78339ee74a3ac8c83b2540c6ce6fc">ServiceList</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a090ef7c7947380e7537a3bc484f8c952"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: a singleton.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -225,15 +230,15 @@ Static Private Member Functions</h2></td></tr>
 <table class="fieldtable">
 <tr><th colspan="3">Enumerator</th></tr><tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cae0aa021e21dddbd6d8cecec71e9cf564" name="a171fca641c4bfec07b6fbdeb4f89645cae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fieldinit">0x00U&#160;</td><td class="fielddoc"><p>Done. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cae2acab845d328d706912d37050a463c5" name="a171fca641c4bfec07b6fbdeb4f89645cae2acab845d328d706912d37050a463c5"></a>ALREADY_PRESENT&#160;</td><td class="fieldinit">0x01U&#160;</td><td class="fielddoc"><p>"add()": number was already listed; nothing written. </p>
+<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cae2acab845d328d706912d37050a463c5" name="a171fca641c4bfec07b6fbdeb4f89645cae2acab845d328d706912d37050a463c5"></a>ALREADY_PRESENT&#160;</td><td class="fieldinit">0x01U&#160;</td><td class="fielddoc"><p><a class="el" href="#af9e47a85d4476e199894ac886f48b113" title="add()">add()</a> - number was already listed; nothing written. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645ca8c02547a8a3b02382bac3557bcb2280d" name="a171fca641c4bfec07b6fbdeb4f89645ca8c02547a8a3b02382bac3557bcb2280d"></a>NOT_FOUND&#160;</td><td class="fieldinit">0x02U&#160;</td><td class="fielddoc"><p>"remove()": number was not listed. </p>
+<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645ca8c02547a8a3b02382bac3557bcb2280d" name="a171fca641c4bfec07b6fbdeb4f89645ca8c02547a8a3b02382bac3557bcb2280d"></a>NOT_FOUND&#160;</td><td class="fieldinit">0x02U&#160;</td><td class="fielddoc"><p><a class="el" href="#a536bfab107e1225476c49050508749fd" title="remove()">remove()</a> - number was not listed. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645caba7de5bc6888294e5884b024a4c894f1" name="a171fca641c4bfec07b6fbdeb4f89645caba7de5bc6888294e5884b024a4c894f1"></a>FULL&#160;</td><td class="fieldinit">0x03U&#160;</td><td class="fielddoc"><p>"add()": no free slot or "MAX_ACTIVE" reached; "clear()" and resend the list. </p>
+<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645caba7de5bc6888294e5884b024a4c894f1" name="a171fca641c4bfec07b6fbdeb4f89645caba7de5bc6888294e5884b024a4c894f1"></a>FULL&#160;</td><td class="fieldinit">0x03U&#160;</td><td class="fielddoc"><p><a class="el" href="#af9e47a85d4476e199894ac886f48b113" title="add()">add()</a> - no free slot or <a class="el" href="#a50f9cc32db584b5ae1a43ab4609127d3" title="MAX_ACTIVE">MAX_ACTIVE</a> reached; <a class="el" href="#a11f8910b0ac55013cfa386e651b024d4" title="clear()">clear()</a> and resend the list. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645ca7ae7f2a13f0d5a18b0db91af9c5aef34" name="a171fca641c4bfec07b6fbdeb4f89645ca7ae7f2a13f0d5a18b0db91af9c5aef34"></a>STORAGE_ERROR&#160;</td><td class="fieldinit">0x04U&#160;</td><td class="fielddoc"><p>Flash access failed or the list is not open. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cab8c9d7ce4c399c56136475f36309020f" name="a171fca641c4bfec07b6fbdeb4f89645cab8c9d7ce4c399c56136475f36309020f"></a>INVALID_REQUEST&#160;</td><td class="fieldinit">0x05U&#160;</td><td class="fielddoc"><p>Reported by "ComModule" for a malformed request; never returned here. </p>
+<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cab8c9d7ce4c399c56136475f36309020f" name="a171fca641c4bfec07b6fbdeb4f89645cab8c9d7ce4c399c56136475f36309020f"></a>INVALID_REQUEST&#160;</td><td class="fieldinit">0x05U&#160;</td><td class="fielddoc"><p>Reported by <a class="el" href="../../d6/dcf/class_a_p_p_1_1_com_module.html" title="APP::ComModule">APP::ComModule</a> for a malformed request; never returned here. </p>
 </td></tr>
 </table>
 
@@ -263,6 +268,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Private: use <a class="el" href="#a6199cbf15a04e909ee080255851a4a35" title="instance()">instance()</a>. </p>
+
 <p class="reference">Referenced by <a class="el" href="#a8299d2bc6b695fa79edac479babaf2a7">ServiceList()</a>, <a class="el" href="#ab289b184c5cdfb07b44c9dc718f023ec">ServiceList()</a>, <a class="el" href="#a6199cbf15a04e909ee080255851a4a35">instance()</a>, <a class="el" href="#a72bfd997170305d58ea169714a08b723">operator=()</a>, and <a class="el" href="#a090ef7c7947380e7537a3bc484f8c952">operator=()</a>.</p>
 
 </div>
@@ -289,6 +296,8 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Non-copyable: a singleton. </p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
@@ -320,6 +329,8 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Non-movable: a singleton. </p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -396,7 +407,7 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Erases the whole list. </p>
-<p>Blocks the caller for the 16 sector erases (up to several seconds). Safe to retry after a "Status::STORAGE_ERROR", including one from a previous, interrupted call.</p>
+<p>Blocks the caller for the 16 sector erases (up to several seconds). Safe to retry after a <a class="el" href="#a171fca641c4bfec07b6fbdeb4f89645ca7ae7f2a13f0d5a18b0db91af9c5aef34" title="Status::STORAGE_ERROR">Status::STORAGE_ERROR</a>, including one from a previous, interrupted call.</p>
 <dl class="section return"><dt>Returns</dt><dd>Update outcome. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a11f8910b0ac55013cfa386e651b024d4">clear()</a>.</p>
@@ -440,7 +451,7 @@ Static Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> if the number is listed and the list is open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the number is listed and the list is open. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#ab45d45ee23c876821c2e13fbf98902f6">contains()</a>.</p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -511,8 +522,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns how many more numbers "add()" can accept before "Status::FULL". </p>
-<dl class="section return"><dt>Returns</dt><dd>Remaining capacity, limited by both free slots and "MAX_ACTIVE". </dd></dl>
+<p>Returns how many more numbers <a class="el" href="#af9e47a85d4476e199894ac886f48b113" title="add()">add()</a> can accept before <a class="el" href="#a171fca641c4bfec07b6fbdeb4f89645caba7de5bc6888294e5884b024a4c894f1" title="Status::FULL">Status::FULL</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Remaining capacity, limited by both free slots and <a class="el" href="#a50f9cc32db584b5ae1a43ab4609127d3" title="MAX_ACTIVE">MAX_ACTIVE</a>. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a49668a404ebe69f4f829de16bd2d1e5e">getFreeSlots()</a>.</p>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -618,8 +629,8 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Opens the list: reads the region once to build the RAM index and find the first free slot. </p>
-<dl class="section pre"><dt>Precondition</dt><dd>"StorageManager::start()" succeeded. </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> on success; <em>false</em> on a flash failure or more than "MAX_ACTIVE" active slots. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="../../da/d74/class_a_p_p_1_1_storage_manager.html#a0641fe5449b330fc8893f239ed309783" title="StorageManager::start()">StorageManager::start()</a> succeeded. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success; <b>false</b> on a flash failure or more than <a class="el" href="#a50f9cc32db584b5ae1a43ab4609127d3" title="MAX_ACTIVE">MAX_ACTIVE</a> active slots. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a3f0876ffccc28db4f01afa94d4bdb558">open()</a>.</p>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -653,6 +664,9 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Non-copyable: a singleton. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary">
 </div>
@@ -684,6 +698,9 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Non-movable: a singleton. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
@@ -828,7 +845,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>First flash byte of the region, after "RecordStore". </p>
+<p>First flash byte of the region, after <a class="el" href="../../db/d32/class_a_p_p_1_1_record_store.html" title="RecordStore">RecordStore</a>. </p>
 
 </div>
 </div>

@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Exposes the board ST25R100 and its discovery manager as singletons bound to SPI3. </p>
-<p>The implementation lives in the shared library ('Lib::BSP::RFID::ST25R100', 'Lib::BSP::RFID::NfcManager'); this class only supplies the board wiring and the project's wake-up (LPCD) tuning: the reader on <a class="el" href="../../da/d1a/class_h_a_l_1_1_s_p_i3_port.html" title="HAL::SPI3Port">HAL::SPI3Port</a> and its nIRQ line ST25R100_NIRQ (PD0, EXTI0 rising edge, 'EXTI0_IRQn' at priority 5, FreeRTOS-safe). The library's 'Lib::HAL::GPIO::ExtInterrupt' owns the HAL EXTI callbacks and runs the bound handler in its worker task, which wakes the reader task. </p>
+<p>The implementation lives in the shared library (<a class="elRef" href="https://panchev68.github.io/Lib/d3/d6e/a04628.html" title="Lib::BSP::RFID::ST25R100">Lib::BSP::RFID::ST25R100</a>, <a class="elRef" href="https://panchev68.github.io/Lib/d3/dba/a04608.html" title="Lib::BSP::RFID::NfcManager">Lib::BSP::RFID::NfcManager</a>); this class only supplies the board wiring and the project's wake-up (LPCD) tuning: the reader on <a class="el" href="../../da/d1a/class_h_a_l_1_1_s_p_i3_port.html" title="HAL::SPI3Port">HAL::SPI3Port</a> and its nIRQ line 'ST25R100_NIRQ' ('PD0', EXTI0 rising edge, 'EXTI0_IRQn' at priority 5, FreeRTOS-safe). The library's <a class="elRef" href="https://panchev68.github.io/Lib/db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> owns the HAL EXTI callbacks and runs the bound handler in its worker task, which wakes the reader task. </p>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::ST25R100:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -145,7 +145,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a6c0ac9d97ea90f0582def684fc0f1c83" id="r_a6c0ac9d97ea90f0582def684fc0f1c83"><td class="memItemLeft">static constexpr <a class="elRef" href="https://panchev68.github.io/Lib/de/d02/a01026.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6c0ac9d97ea90f0582def684fc0f1c83">MODE</a> = Lib::HAL::DriverMode::BLOCKING</td></tr>
-<tr class="memdesc:a6c0ac9d97ea90f0582def684fc0f1c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer mode of HAL::SPI3Port.  <br /></td></tr>
+<tr class="memdesc:a6c0ac9d97ea90f0582def684fc0f1c83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer mode of <a class="el" href="../../da/d1a/class_h_a_l_1_1_s_p_i3_port.html" title="HAL::SPI3Port">HAL::SPI3Port</a>.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="a227073a6af68aafa2eb585938bfd5713" name="a227073a6af68aafa2eb585938bfd5713"></a>
@@ -205,7 +205,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Stops forwarding nIRQ edges to the reader, without touching the reader or the manager. </p>
-<dl class="section important"><dt>Important</dt><dd>Call before 'manager().stop()' (e.g. in <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html#ad222b8d17fe68d904e911b19d0aa2a59" title="APP::RFID::pause()">APP::RFID::pause()</a>), so a card-detect edge arriving while the reader task is being stopped is dropped instead of notifying a task that is about to be deleted. Call <a class="el" href="#addcfe6e121a5b3f0c356595da5f6ca06" title="enableInterrupt()">enableInterrupt()</a> again once the reader is reopened. </dd></dl>
+<dl class="section important"><dt>Important</dt><dd>Call before the discovery manager is stopped (e.g. in <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html#ad222b8d17fe68d904e911b19d0aa2a59" title="APP::RFID::pause()">APP::RFID::pause()</a>), so a card-detect edge arriving while the reader task is being stopped is dropped instead of notifying a task that is about to be deleted. Call <a class="el" href="#addcfe6e121a5b3f0c356595da5f6ca06" title="enableInterrupt()">enableInterrupt()</a> again once the reader is reopened. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a893edc64b54314ecb1cfb13afa215bf0">disableInterrupt()</a>.</p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -242,7 +242,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Applies the project's wake-up (LPCD) tuning, then lets nIRQ edges reach the reader task. </p>
 <p>The threshold and the measurement period are tuned for a longer card-detect range and a faster reaction than the library defaults, at the cost of a higher standby current. A transient caused by the reconfiguration is still dropped, since forwarding starts only afterwards.</p>
-<dl class="section important"><dt>Important</dt><dd>Call it once the reader opened successfully: the reader task is created inside 'open()', and notifying it earlier asserts. </dd></dl>
+<dl class="section important"><dt>Important</dt><dd>Call it once the reader opened successfully: the reader task is created inside <b>open()</b>, and notifying it earlier asserts. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#addcfe6e121a5b3f0c356595da5f6ca06">enableInterrupt()</a>.</p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -379,14 +379,14 @@ Static Public Attributes</h2></td></tr>
 
 <p>Switches the wake-up (LPCD) measurement period between the normal, faster tuning and a slower one. </p>
 <p>The slower timing lowers the standby current and is meant only for while <a class="el" href="../../da/d3b/class_a_p_p_1_1_power_supply_1_1_charge_idle.html" title="APP::PowerSupply::ChargeIdle">APP::PowerSupply::ChargeIdle</a> reports no charge.</p>
-<dl class="section important"><dt>Important</dt><dd>Call it between 'pause()' and 'resume()' of <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html" title="APP::RFID">APP::RFID</a>, so the SPI writes never race an in-progress discovery.</dd></dl>
+<dl class="section important"><dt>Important</dt><dd>Call it between <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html#ad222b8d17fe68d904e911b19d0aa2a59" title="APP::RFID::pause()">APP::RFID::pause()</a> and <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html#a85db7318a7f5db5f21b5f6e2d6dd7145" title="APP::RFID::resume()">APP::RFID::resume()</a>, so the SPI writes never race an in-progress discovery.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">isIdle</td><td>'true' selects the slower, lower-power timing; 'false' returns to the normal, faster one. </td></tr>
+    <tr><td class="paramname">isIdle</td><td><b>true</b> selects the slower, lower-power timing; <b>false</b> returns to the normal, faster one. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' if the SPI writes succeeded. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the SPI writes succeeded. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a29d4b59cf4dc02025cf362a5b0517ee4">setIdleWakeupTiming()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -419,7 +419,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Transfer mode of HAL::SPI3Port. </p>
+<p>Transfer mode of <a class="el" href="../../da/d1a/class_h_a_l_1_1_s_p_i3_port.html" title="HAL::SPI3Port">HAL::SPI3Port</a>. </p>
 
 </div>
 </div>

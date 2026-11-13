@@ -111,12 +111,12 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 
-<p>Buzzer singleton.  
+<p>Piezo buzzer singleton driven with a square wave on TIM1 CH3 / CH3N.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Buzzer singleton. </p>
-<p>CubeMX configures TIM1 CH3 as output compare (timing mode). This class switches the channel to toggle mode and sets the period for the tone frequency ("FREQUENCY_HZ" unless "setFrequency()" changed it); CH3 and CH3N toggle in antiphase, so the buzzer sees twice the swing.</p>
-<p>Buzzer part: PT-1240PQ (confirmed by schematic, 18.10.2026), 4.1 kHz resonance, rated 20 Vp-p drive, 13.8 mm diameter, driven through TC118S from PE12/PE13. </p>
+<div class="textblock"><p>Piezo buzzer singleton driven with a square wave on TIM1 CH3 / CH3N. </p>
+<p>CubeMX configures TIM1 CH3 as output compare (timing mode). This class switches the channel to toggle mode and sets the period for the tone frequency (<a class="el" href="#a08967c2e7d183a3f8a74d7ce6ef54081" title="FREQUENCY_HZ">FREQUENCY_HZ</a> unless <a class="el" href="#a26d8d8091c55775575a7955fbcb427ad" title="setFrequency()">setFrequency()</a> changed it); CH3 and CH3N toggle in antiphase, so the buzzer sees twice the swing.</p>
+<p>The part is a PT-1240PQ (confirmed by the schematic, 18.10.2026): 4.1 kHz resonance, rated 20 Vp-p drive, 13.8 mm diameter, driven through a TC118S from 'PE12' / 'PE13'. </p>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::Buzzer:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -143,7 +143,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a08967c2e7d183a3f8a74d7ce6ef54081" id="r_a08967c2e7d183a3f8a74d7ce6ef54081"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a08967c2e7d183a3f8a74d7ce6ef54081">FREQUENCY_HZ</a> = 4100U</td></tr>
-<tr class="memdesc:a08967c2e7d183a3f8a74d7ce6ef54081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tone frequency: PT-1240PQ resonance (confirmed, see class doc).  <br /></td></tr>
+<tr class="memdesc:a08967c2e7d183a3f8a74d7ce6ef54081"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tone frequency: PT-1240PQ resonance (see the class doc).  <br /></td></tr>
 <tr class="memitem:a539d2c5ae4c5448b75623b9408ce16a9" id="r_a539d2c5ae4c5448b75623b9408ce16a9"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a539d2c5ae4c5448b75623b9408ce16a9">BEEP_TIME</a> {100}</td></tr>
 <tr class="memdesc:a539d2c5ae4c5448b75623b9408ce16a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of one beep.  <br /></td></tr>
 <tr class="memitem:afdaf77809b25f44367dc0169fa7652f3" id="r_afdaf77809b25f44367dc0169fa7652f3"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#afdaf77809b25f44367dc0169fa7652f3">BEEP_PAUSE</a> {100}</td></tr>
@@ -152,12 +152,17 @@ Static Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a93cabd8258c1dc214448840ce1657f02" id="r_a93cabd8258c1dc214448840ce1657f02"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a93cabd8258c1dc214448840ce1657f02">Buzzer</a> () noexcept=default</td></tr>
+<tr class="memdesc:a93cabd8258c1dc214448840ce1657f02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Private: use <a class="el" href="#a00aa8ec2d690567c9bf8a860f0313034" title="instance()">instance()</a>.  <br /></td></tr>
 <tr class="memitem:a19e8d3293bf12297a180de4799bcc776" id="r_a19e8d3293bf12297a180de4799bcc776"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a19e8d3293bf12297a180de4799bcc776">Buzzer</a> (const Buzzer &amp;)=delete</td></tr>
+<tr class="memdesc:a19e8d3293bf12297a180de4799bcc776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: a singleton.  <br /></td></tr>
 <tr class="memitem:aae7f70c2f8efc4d3cc19ad5d11d19b9c" id="r_aae7f70c2f8efc4d3cc19ad5d11d19b9c"><td class="memItemLeft"><a class="el" href="#a93cabd8258c1dc214448840ce1657f02">Buzzer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aae7f70c2f8efc4d3cc19ad5d11d19b9c">operator=</a> (const <a class="el" href="#a93cabd8258c1dc214448840ce1657f02">Buzzer</a> &amp;)=delete</td></tr>
+<tr class="memdesc:aae7f70c2f8efc4d3cc19ad5d11d19b9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: a singleton.  <br /></td></tr>
 <tr class="memitem:a55d27de99474f9bc725b470f2321af2d" id="r_a55d27de99474f9bc725b470f2321af2d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a55d27de99474f9bc725b470f2321af2d">Buzzer</a> (Buzzer &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a55d27de99474f9bc725b470f2321af2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: a singleton.  <br /></td></tr>
 <tr class="memitem:a8a869e11456c0f75e963c80a6f50fd73" id="r_a8a869e11456c0f75e963c80a6f50fd73"><td class="memItemLeft"><a class="el" href="#a93cabd8258c1dc214448840ce1657f02">Buzzer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8a869e11456c0f75e963c80a6f50fd73">operator=</a> (<a class="el" href="#a93cabd8258c1dc214448840ce1657f02">Buzzer</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a8a869e11456c0f75e963c80a6f50fd73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: a singleton.  <br /></td></tr>
 <tr class="memitem:a285ccbb6056ccb77926774d96256344e" id="r_a285ccbb6056ccb77926774d96256344e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a285ccbb6056ccb77926774d96256344e">applyFrequency</a> () noexcept</td></tr>
-<tr class="memdesc:a285ccbb6056ccb77926774d96256344e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timer period for "frequencyHz" and loads it at once.  <br /></td></tr>
+<tr class="memdesc:a285ccbb6056ccb77926774d96256344e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timer period for <a class="el" href="#a0df725015167c61a6ea0e1de925aa213" title="frequencyHz">frequencyHz</a> and loads it at once.  <br /></td></tr>
 <tr class="memitem:a577e03753c73f1f6ca2d8c9d2c5c889a" id="r_a577e03753c73f1f6ca2d8c9d2c5c889a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a577e03753c73f1f6ca2d8c9d2c5c889a">configure</a> () noexcept</td></tr>
 <tr class="memdesc:a577e03753c73f1f6ca2d8c9d2c5c889a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timer period and the channel to toggle mode.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -166,9 +171,9 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a0df725015167c61a6ea0e1de925aa213" id="r_a0df725015167c61a6ea0e1de925aa213"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a0df725015167c61a6ea0e1de925aa213">frequencyHz</a> = <a class="el" href="#a08967c2e7d183a3f8a74d7ce6ef54081">FREQUENCY_HZ</a></td></tr>
 <tr class="memdesc:a0df725015167c61a6ea0e1de925aa213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tone frequency in use.  <br /></td></tr>
 <tr class="memitem:ab7d2ed7f8ac796a6bf82db0a53a7e7ba" id="r_ab7d2ed7f8ac796a6bf82db0a53a7e7ba"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab7d2ed7f8ac796a6bf82db0a53a7e7ba">isConfigured</a> = false</td></tr>
-<tr class="memdesc:ab7d2ed7f8ac796a6bf82db0a53a7e7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em>true</em> once the channel runs in toggle mode.  <br /></td></tr>
+<tr class="memdesc:ab7d2ed7f8ac796a6bf82db0a53a7e7ba"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>true</b> once the channel runs in toggle mode.  <br /></td></tr>
 <tr class="memitem:a591e6f1493550a793c10b7a541d9e27f" id="r_a591e6f1493550a793c10b7a541d9e27f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a591e6f1493550a793c10b7a541d9e27f">isSounding</a> = false</td></tr>
-<tr class="memdesc:a591e6f1493550a793c10b7a541d9e27f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em>true</em> while the outputs toggle.  <br /></td></tr>
+<tr class="memdesc:a591e6f1493550a793c10b7a541d9e27f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><b>true</b> while the outputs toggle.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-attribs" class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
@@ -203,6 +208,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Private: use <a class="el" href="#a00aa8ec2d690567c9bf8a860f0313034" title="instance()">instance()</a>. </p>
+
 <p class="reference">Referenced by <a class="el" href="#a55d27de99474f9bc725b470f2321af2d">Buzzer()</a>, <a class="el" href="#a19e8d3293bf12297a180de4799bcc776">Buzzer()</a>, <a class="el" href="#a00aa8ec2d690567c9bf8a860f0313034">instance()</a>, <a class="el" href="#a8a869e11456c0f75e963c80a6f50fd73">operator=()</a>, and <a class="el" href="#aae7f70c2f8efc4d3cc19ad5d11d19b9c">operator=()</a>.</p>
 
 </div>
@@ -229,6 +236,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Non-copyable: a singleton. </p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
@@ -260,6 +269,8 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Non-movable: a singleton. </p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -293,16 +304,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the timer period for "frequencyHz" and loads it at once. </p>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> on success. </dd></dl>
-
-<p class="reference">Referenced by <a class="el" href="#a285ccbb6056ccb77926774d96256344e">applyFrequency()</a>.</p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_a285ccbb6056ccb77926774d96256344e_cgraph.svg" width="248" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Sets the timer period for <a class="el" href="#a0df725015167c61a6ea0e1de925aa213" title="frequencyHz">frequencyHz</a> and loads it at once. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success. </dd></dl>
 
 </div>
 </div>
@@ -330,7 +333,8 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sounds a number of short beeps and leaves the buzzer off. </p>
-<p>Blocks the caller for "count" * ("BEEP_TIME" + "BEEP_PAUSE"). Do not call while another task drives the buzzer.</p>
+<p>Blocks the caller for 'count' * (<a class="el" href="#a539d2c5ae4c5448b75623b9408ce16a9" title="BEEP_TIME">BEEP_TIME</a> + <a class="el" href="#afdaf77809b25f44367dc0169fa7652f3" title="BEEP_PAUSE">BEEP_PAUSE</a>).</p>
+<dl class="section warning"><dt>Warning</dt><dd>Do not call while another task drives the buzzer.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">count</td><td>Number of beeps. </td></tr>
@@ -339,10 +343,10 @@ Static Private Attributes</h2></td></tr>
 </dl>
 
 <p class="reference">Referenced by <a class="el" href="#a1b2594af65ce0d973d1a4f889f58c371">beep()</a>.</p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
 </div>
-<div id="dynsection-4-content" class="dyncontent hidden">
+<div id="dynsection-3-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_a1b2594af65ce0d973d1a4f889f58c371_cgraph.svg" width="168" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -372,13 +376,13 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the timer period and the channel to toggle mode. </p>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> on success. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a577e03753c73f1f6ca2d8c9d2c5c889a">configure()</a>.</p>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
+<div id="dynsection-4-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_a577e03753c73f1f6ca2d8c9d2c5c889a_cgraph.svg" width="208" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -408,13 +412,13 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports whether the tone is on. </p>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> while sounding. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> while sounding. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a5267ea7cbafc46c7635ed5a0b9013b06">getIsOn()</a>.</p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
+<div id="dynsection-5-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_a5267ea7cbafc46c7635ed5a0b9013b06_cgraph.svg" width="192" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -445,10 +449,10 @@ Static Private Attributes</h2></td></tr>
 
 <p>Returns the unique buzzer instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the buzzer. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
+<div id="dynsection-6-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_a00aa8ec2d690567c9bf8a860f0313034_cgraph.svg" width="422" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -476,11 +480,14 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+
+<p>Non-movable: a singleton. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_a8a869e11456c0f75e963c80a6f50fd73_cgraph.svg" width="430" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_a8a869e11456c0f75e963c80a6f50fd73_cgraph.svg" width="430" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -507,11 +514,14 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
+
+<p>Non-copyable: a singleton. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_aae7f70c2f8efc4d3cc19ad5d11d19b9c_cgraph.svg" width="430" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_aae7f70c2f8efc4d3cc19ad5d11d19b9c_cgraph.svg" width="430" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -542,17 +552,17 @@ Static Private Attributes</h2></td></tr>
 <p>Starts or stops the tone. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">isOn</td><td><em>true</em> to sound the buzzer. </td></tr>
+    <tr><td class="paramname">isOn</td><td><b>true</b> to sound the buzzer. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> if the timer accepted the change. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the timer accepted the change. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a0121be4fc715e521aaa2c38836a9b570">set()</a>.</p>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
-<div id="dynsection-10-content" class="dyncontent hidden">
+<div id="dynsection-9-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_a0121be4fc715e521aaa2c38836a9b570_cgraph.svg" width="160" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -588,13 +598,13 @@ Static Private Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> if the timer accepted the change. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the timer accepted the change. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a26d8d8091c55775575a7955fbcb427ad">setFrequency()</a>.</p>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
 </div>
-<div id="dynsection-11-content" class="dyncontent hidden">
+<div id="dynsection-10-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d5f/class_b_s_p_1_1_buzzer_a26d8d8091c55775575a7955fbcb427ad_cgraph.svg" width="232" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -693,7 +703,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Tone frequency: PT-1240PQ resonance (confirmed, see class doc). </p>
+<p>Tone frequency: PT-1240PQ resonance (see the class doc). </p>
 
 </div>
 </div>
@@ -741,7 +751,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><em>true</em> once the channel runs in toggle mode. </p>
+<p><b>true</b> once the channel runs in toggle mode. </p>
 
 </div>
 </div>
@@ -765,7 +775,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><em>true</em> while the outputs toggle. </p>
+<p><b>true</b> while the outputs toggle. </p>
 
 <p class="reference">Referenced by <a class="el" href="#a5267ea7cbafc46c7635ed5a0b9013b06">getIsOn()</a>.</p>
 

@@ -115,13 +115,14 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>ESP32 communication module singleton. </p>
-<p>The ESP32 sends commands and the controller only answers them (see Protocol.md and Commands.hpp). Disposal records wait in a buffer until the ESP32 reads and acknowledges them with GET_DISPOSAL_RECORDS. A presented card only reaches the ESP32 once it leads to a disposal record or is found "BLOCKED" ("GET_BLOCKLIST_REMOVE_REQUESTS"); "notifyActivity()" wakes the ESP32 in advance so it is ready, but any other rejection is never reported. The controller never removes a number from the "Blocklist" by itself — a "BLOCKED" card only queues a request for the ESP32, which removes it on its own initiative with "BLOCKLIST_REMOVE".</p>
-<p>The controller itself handles the supply and the wake-up. It powers the ESP32 ("ESP32_POW_EN") after its own start-up. POWER_OFF from the ESP32 cuts the supply and may carry a time in seconds after which it is switched on again. A new event ("notifyActivity()", "queueDisposalRecord()", "queueBlocklistRemoval()" or a due time synchronization) powers the ESP32 on and waits "BOOT_TIME" for it to start.</p>
-<p>A powered ESP32 may sleep. It is assumed awake for "AWAKE_WINDOW" after power-on or its last frame. When items are pending and it is not assumed awake, a "WAKE_PULSE" on "ESP32_WAKEUP" wakes it and the module waits up to "WAKE_TIMEOUT" for its ready frame (HEARTBEAT). Items pending with no frame for "RESPONSE_TIMEOUT" power-cycle the ESP32.</p>
-<p>Disposal records wait in a "RecordBuffer". Below "LOW_BATTERY_VOLTAGE" on the accumulator, or after "MAX_RESTARTS" ESP32 restarts in a row with records pending, they move to the flash ("RecordStore"). They are not loaded back; GET_DISPOSAL_RECORDS returns the flash records first, oldest first, then the RAM records.</p>
-<p>Requests from the ESP32 run in the "ComService" receiver task. Its frame counters arrive through the model hooks in ComModel.cpp.</p>
-<p>The service card list ("ServiceList") is managed from the ESP32 exactly like the "Blocklist", through its own SERVICE_LIST_* commands and SERVICE_LIST_RESPONSE.</p>
-<p>SET_LOCATION reports the site's approximate coordinates (e.g. GSM cell-ID based, from the ESP32's LTE modem) once known; "APP::PowerSupply" reads them through "getLatitude()"/"getLongitude()" for its sunrise/sunset night window, falling back to a fixed reference position until "getIsLocationSet()" is <em>true</em>. </p>
+<p>The ESP32 sends commands and the controller only answers them (see <b>Protocol.md</b> and <a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html" title="APP::Commands">APP::Commands</a>). Disposal records wait in a buffer until the ESP32 reads and acknowledges them with 'GET_DISPOSAL_RECORDS'. A presented card only reaches the ESP32 once it leads to a disposal record or is found 'BLOCKED' ('GET_BLOCKLIST_REMOVE_REQUESTS'); <a class="el" href="#a69ed1d167f03e2435d416caede18bb24" title="notifyActivity()">notifyActivity()</a> wakes the ESP32 in advance so it is ready, but any other rejection is never reported. The controller never removes a number from the <a class="el" href="../../db/da7/class_a_p_p_1_1_blocklist.html" title="APP::Blocklist">APP::Blocklist</a> by itself: a 'BLOCKED' card only queues a request for the ESP32, which removes it on its own initiative with 'BLOCKLIST_REMOVE'.</p>
+<p>The controller itself handles the supply and the wake-up. It powers the ESP32 ('ESP32_POW_EN') after its own start-up. 'POWER_OFF' from the ESP32 cuts the supply and may carry a time in seconds after which it is switched on again. A new event (<a class="el" href="#a69ed1d167f03e2435d416caede18bb24" title="notifyActivity()">notifyActivity()</a>, <a class="el" href="#a0e8c7e4d6edda845b4c9ac151a19b0ed" title="queueDisposalRecord()">queueDisposalRecord()</a>, <a class="el" href="#af43e41fb6733a4213eeb769087133f04" title="queueBlocklistRemoval()">queueBlocklistRemoval()</a> or a due time synchronization) powers the ESP32 on and waits <a class="el" href="#abbd3632e82f751451c78fa51c4bab319" title="BOOT_TIME">BOOT_TIME</a> for it to start.</p>
+<p>A powered ESP32 may sleep. It is assumed awake for <a class="el" href="#a80db1230e6a88db34e6d9c3b67b999a8" title="AWAKE_WINDOW">AWAKE_WINDOW</a> after power-on or its last frame. When items are pending and it is not assumed awake, a <a class="el" href="#a45924e75257b90d079e0f7c6a40e5609" title="WAKE_PULSE">WAKE_PULSE</a> on 'ESP32_WAKEUP' wakes it and the module waits up to <a class="el" href="#a95304907f5e7b541fbb7790005a82330" title="WAKE_TIMEOUT">WAKE_TIMEOUT</a> for its ready frame ('HEARTBEAT'). Items pending with no frame for <a class="el" href="#af0825bec6dad612f6a6bc7e8a949e8af" title="RESPONSE_TIMEOUT">RESPONSE_TIMEOUT</a> power-cycle the ESP32.</p>
+<p>Disposal records wait in a <a class="el" href="../../d6/d5d/class_a_p_p_1_1_record_buffer.html" title="APP::RecordBuffer">APP::RecordBuffer</a>. Below <a class="el" href="#a2ad0289ad5618e54088b601106df24b7" title="LOW_BATTERY_VOLTAGE">LOW_BATTERY_VOLTAGE</a> on the accumulator, or after <a class="el" href="#a6d064953cfc07fd33a2884fa4017aa7a" title="MAX_RESTARTS">MAX_RESTARTS</a> ESP32 restarts in a row with records pending, they move to the flash (<a class="el" href="../../db/d32/class_a_p_p_1_1_record_store.html" title="APP::RecordStore">APP::RecordStore</a>). They are not loaded back; 'GET_DISPOSAL_RECORDS' returns the flash records first, oldest first, then the RAM records.</p>
+<p>Requests from the ESP32 run in the <a class="el" href="../../dd/df7/class_com_service.html" title="ComService">ComService</a> receiver task. Its frame counters arrive through the model hooks in 'ComModel.cpp'.</p>
+<p>The service card list (<a class="el" href="../../d0/d9b/class_a_p_p_1_1_service_list.html" title="APP::ServiceList">APP::ServiceList</a>) is managed from the ESP32 exactly like the <a class="el" href="../../db/da7/class_a_p_p_1_1_blocklist.html" title="APP::Blocklist">APP::Blocklist</a>, through its own 'SERVICE_LIST_*' commands and 'SERVICE_LIST_RESPONSE'.</p>
+<p>'SET_LOCATION' reports the site's approximate coordinates (e.g. GSM cell-ID based, from the ESP32's LTE modem) once known; <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a> reads them through <a class="el" href="#a16624df3e29f9423305ad7e82d839be0" title="getLatitude()">getLatitude()</a> and <a class="el" href="#a80d392016b7c1d3f2fc65aa1de252c68" title="getLongitude()">getLongitude()</a> for its sunrise/sunset night window, falling back to a fixed reference position until <a class="el" href="#a3873bb65c9b82c1e54b4b8d93bdab358" title="getIsLocationSet()">getIsLocationSet()</a> is <b>true</b>.</p>
+<p>The state, the tasks and the private methods live in <b>Impl</b>, defined in 'ComModule.cpp'. </p>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for APP::ComModule:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -132,16 +133,16 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Counters" id="r_Counters"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters.html">Counters</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame and error statistics published by "ComService".  <a href="../../dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame and error statistics published by <a class="el" href="../../dd/df7/class_com_service.html" title="ComService">ComService</a>.  <a href="../../dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a991610dcc331c6b50af4d1098012187f" id="r_a991610dcc331c6b50af4d1098012187f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a991610dcc331c6b50af4d1098012187f">start</a> () noexcept</td></tr>
-<tr class="memdesc:a991610dcc331c6b50af4d1098012187f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the receiver and the "ComLink" task, which powers the ESP32.  <br /></td></tr>
+<tr class="memdesc:a991610dcc331c6b50af4d1098012187f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the receiver and the 'ComLink' task, which powers the ESP32.  <br /></td></tr>
 <tr class="memitem:a69ed1d167f03e2435d416caede18bb24" id="r_a69ed1d167f03e2435d416caede18bb24"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a69ed1d167f03e2435d416caede18bb24">notifyActivity</a> () noexcept</td></tr>
 <tr class="memdesc:a69ed1d167f03e2435d416caede18bb24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Powers the ESP32 on and wakes it in advance; call when a card is presented.  <br /></td></tr>
 <tr class="memitem:a0e8c7e4d6edda845b4c9ac151a19b0ed" id="r_a0e8c7e4d6edda845b4c9ac151a19b0ed"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a0e8c7e4d6edda845b4c9ac151a19b0ed">queueDisposalRecord</a> (uint32_t cardNumber, uint8_t litres, uint32_t unixTime, <a class="el" href="../../d6/dc5/group___a_p_p.html#ga5186e98dedb05c54d817d2063a204812">Commands::DoorEvent</a> event, std::span&lt; const uint8_t &gt; uid) noexcept</td></tr>
-<tr class="memdesc:a0e8c7e4d6edda845b4c9ac151a19b0ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffers a disposal record; the ESP32 reads it with GET_DISPOSAL_RECORDS.  <br /></td></tr>
+<tr class="memdesc:a0e8c7e4d6edda845b4c9ac151a19b0ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Buffers a disposal record; the ESP32 reads it with 'GET_DISPOSAL_RECORDS'.  <br /></td></tr>
 <tr class="memitem:af43e41fb6733a4213eeb769087133f04" id="r_af43e41fb6733a4213eeb769087133f04"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#af43e41fb6733a4213eeb769087133f04">queueBlocklistRemoval</a> (uint32_t cardNumber) noexcept</td></tr>
 <tr class="memdesc:af43e41fb6733a4213eeb769087133f04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queues a blocklist removal request; the ESP32 removes the number on its own initiative.  <br /></td></tr>
 <tr class="memitem:a1b9f6e3180d66b9f8f45c047a4751f71" id="r_a1b9f6e3180d66b9f8f45c047a4751f71"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1b9f6e3180d66b9f8f45c047a4751f71">getIsEsp32Powered</a> () const noexcept</td></tr>
@@ -157,11 +158,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa6370a8036b0fb8d01916caf5e0c6d95" id="r_aa6370a8036b0fb8d01916caf5e0c6d95"><td class="memItemLeft"><a class="el" href="../../dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters.html">Counters</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa6370a8036b0fb8d01916caf5e0c6d95">getCounters</a> () noexcept</td></tr>
 <tr class="memdesc:aa6370a8036b0fb8d01916caf5e0c6d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the frame and error statistics.  <br /></td></tr>
 <tr class="memitem:a3873bb65c9b82c1e54b4b8d93bdab358" id="r_a3873bb65c9b82c1e54b4b8d93bdab358"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3873bb65c9b82c1e54b4b8d93bdab358">getIsLocationSet</a> () const noexcept</td></tr>
-<tr class="memdesc:a3873bb65c9b82c1e54b4b8d93bdab358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether the ESP32 has reported the site's approximate coordinates with SET_LOCATION.  <br /></td></tr>
+<tr class="memdesc:a3873bb65c9b82c1e54b4b8d93bdab358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether the ESP32 has reported the site's approximate coordinates with 'SET_LOCATION'.  <br /></td></tr>
 <tr class="memitem:a16624df3e29f9423305ad7e82d839be0" id="r_a16624df3e29f9423305ad7e82d839be0"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a16624df3e29f9423305ad7e82d839be0">getLatitude</a> () const noexcept</td></tr>
-<tr class="memdesc:a16624df3e29f9423305ad7e82d839be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the site latitude last reported by SET_LOCATION.  <br /></td></tr>
+<tr class="memdesc:a16624df3e29f9423305ad7e82d839be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the site latitude last reported by 'SET_LOCATION'.  <br /></td></tr>
 <tr class="memitem:a80d392016b7c1d3f2fc65aa1de252c68" id="r_a80d392016b7c1d3f2fc65aa1de252c68"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a80d392016b7c1d3f2fc65aa1de252c68">getLongitude</a> () const noexcept</td></tr>
-<tr class="memdesc:a80d392016b7c1d3f2fc65aa1de252c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the site longitude last reported by SET_LOCATION.  <br /></td></tr>
+<tr class="memdesc:a80d392016b7c1d3f2fc65aa1de252c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the site longitude last reported by 'SET_LOCATION'.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -171,13 +172,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a922d7cebb841edfb5e8820a5131181fb" id="r_a922d7cebb841edfb5e8820a5131181fb"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a922d7cebb841edfb5e8820a5131181fb">ESP32_POWER_ON_LEVEL</a> = true</td></tr>
-<tr class="memdesc:a922d7cebb841edfb5e8820a5131181fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Level of "ESP32_POW_EN" that powers the ESP32.  <br /></td></tr>
+<tr class="memdesc:a922d7cebb841edfb5e8820a5131181fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Level of 'ESP32_POW_EN' that powers the ESP32.  <br /></td></tr>
 <tr class="memitem:ac64da79639456e5b029affdfc65e7a96" id="r_ac64da79639456e5b029affdfc65e7a96"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#ac64da79639456e5b029affdfc65e7a96">ESP32_WAKEUP_LEVEL</a> = true</td></tr>
-<tr class="memdesc:ac64da79639456e5b029affdfc65e7a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active level of the "ESP32_WAKEUP" pulse.  <br /></td></tr>
+<tr class="memdesc:ac64da79639456e5b029affdfc65e7a96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Active level of the 'ESP32_WAKEUP' pulse.  <br /></td></tr>
 <tr class="memitem:abbd3632e82f751451c78fa51c4bab319" id="r_abbd3632e82f751451c78fa51c4bab319"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#abbd3632e82f751451c78fa51c4bab319">BOOT_TIME</a> {3000}</td></tr>
 <tr class="memdesc:abbd3632e82f751451c78fa51c4bab319"><td class="mdescLeft">&#160;</td><td class="mdescRight">ESP32 start-up after power-on.  <br /></td></tr>
 <tr class="memitem:a45924e75257b90d079e0f7c6a40e5609" id="r_a45924e75257b90d079e0f7c6a40e5609"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a45924e75257b90d079e0f7c6a40e5609">WAKE_PULSE</a> {20}</td></tr>
-<tr class="memdesc:a45924e75257b90d079e0f7c6a40e5609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of the "ESP32_WAKEUP" pulse.  <br /></td></tr>
+<tr class="memdesc:a45924e75257b90d079e0f7c6a40e5609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of the 'ESP32_WAKEUP' pulse.  <br /></td></tr>
 <tr class="memitem:a95304907f5e7b541fbb7790005a82330" id="r_a95304907f5e7b541fbb7790005a82330"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a95304907f5e7b541fbb7790005a82330">WAKE_TIMEOUT</a> {3000}</td></tr>
 <tr class="memdesc:a95304907f5e7b541fbb7790005a82330"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest wait for the ready frame after the pulse.  <br /></td></tr>
 <tr class="memitem:a80db1230e6a88db34e6d9c3b67b999a8" id="r_a80db1230e6a88db34e6d9c3b67b999a8"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a80db1230e6a88db34e6d9c3b67b999a8">AWAKE_WINDOW</a> {5000}</td></tr>
@@ -185,7 +186,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:af0825bec6dad612f6a6bc7e8a949e8af" id="r_af0825bec6dad612f6a6bc7e8a949e8af"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#af0825bec6dad612f6a6bc7e8a949e8af">RESPONSE_TIMEOUT</a> {30000}</td></tr>
 <tr class="memdesc:af0825bec6dad612f6a6bc7e8a949e8af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Silence with items pending before the ESP32 counts as hung.  <br /></td></tr>
 <tr class="memitem:a255d1ed89b9e5bc6eb59a61b3ae3c68c" id="r_a255d1ed89b9e5bc6eb59a61b3ae3c68c"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga4e9b1d44e4c500ff23749d1d2191ab5a">std::chrono::hours</a>&#160;</td><td class="memItemRight"><a class="el" href="#a255d1ed89b9e5bc6eb59a61b3ae3c68c">MAX_OFF_TIME</a> {24}</td></tr>
-<tr class="memdesc:a255d1ed89b9e5bc6eb59a61b3ae3c68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest off time asked for by POWER_OFF.  <br /></td></tr>
+<tr class="memdesc:a255d1ed89b9e5bc6eb59a61b3ae3c68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest off time asked for by 'POWER_OFF'.  <br /></td></tr>
 <tr class="memitem:a432c4d54d23b1b56cef8f021a05a30cf" id="r_a432c4d54d23b1b56cef8f021a05a30cf"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a432c4d54d23b1b56cef8f021a05a30cf">POWER_OFF_TIME</a> {1000}</td></tr>
 <tr class="memdesc:a432c4d54d23b1b56cef8f021a05a30cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supply off time of a power cycle.  <br /></td></tr>
 <tr class="memitem:a6d064953cfc07fd33a2884fa4017aa7a" id="r_a6d064953cfc07fd33a2884fa4017aa7a"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a6d064953cfc07fd33a2884fa4017aa7a">MAX_RESTARTS</a> = 2U</td></tr>
@@ -202,13 +203,13 @@ Private Member Functions</h2></td></tr>
 <tr class="memitem:a86c8c4cf1a7c73773a2c1fa8038a140a" id="r_a86c8c4cf1a7c73773a2c1fa8038a140a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a86c8c4cf1a7c73773a2c1fa8038a140a">ComModule</a> () noexcept=default</td></tr>
 <tr class="memdesc:a86c8c4cf1a7c73773a2c1fa8038a140a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the module without starting anything.  <br /></td></tr>
 <tr class="memitem:a43f29f92e60bb6e2e5db78952a00def3" id="r_a43f29f92e60bb6e2e5db78952a00def3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a43f29f92e60bb6e2e5db78952a00def3">ComModule</a> (const ComModule &amp;)=delete</td></tr>
-<tr class="memdesc:a43f29f92e60bb6e2e5db78952a00def3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is not allowed.  <br /></td></tr>
+<tr class="memdesc:a43f29f92e60bb6e2e5db78952a00def3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: a singleton.  <br /></td></tr>
 <tr class="memitem:af7258a0897dd012c198212fe949f7ff5" id="r_af7258a0897dd012c198212fe949f7ff5"><td class="memItemLeft"><a class="el" href="#a86c8c4cf1a7c73773a2c1fa8038a140a">ComModule</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af7258a0897dd012c198212fe949f7ff5">operator=</a> (const <a class="el" href="#a86c8c4cf1a7c73773a2c1fa8038a140a">ComModule</a> &amp;)=delete</td></tr>
-<tr class="memdesc:af7258a0897dd012c198212fe949f7ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is not allowed.  <br /></td></tr>
+<tr class="memdesc:af7258a0897dd012c198212fe949f7ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: a singleton.  <br /></td></tr>
 <tr class="memitem:afce2838cafc9d95b78a5c45104ed2884" id="r_afce2838cafc9d95b78a5c45104ed2884"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afce2838cafc9d95b78a5c45104ed2884">ComModule</a> (ComModule &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:afce2838cafc9d95b78a5c45104ed2884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is not allowed.  <br /></td></tr>
+<tr class="memdesc:afce2838cafc9d95b78a5c45104ed2884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: a singleton.  <br /></td></tr>
 <tr class="memitem:a498e7350a1547c871776cc57fd8b8bd8" id="r_a498e7350a1547c871776cc57fd8b8bd8"><td class="memItemLeft"><a class="el" href="#a86c8c4cf1a7c73773a2c1fa8038a140a">ComModule</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a498e7350a1547c871776cc57fd8b8bd8">operator=</a> (<a class="el" href="#a86c8c4cf1a7c73773a2c1fa8038a140a">ComModule</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a498e7350a1547c871776cc57fd8b8bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is not allowed.  <br /></td></tr>
+<tr class="memdesc:a498e7350a1547c871776cc57fd8b8bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: a singleton.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
 Static Private Member Functions</h2></td></tr>
@@ -240,7 +241,7 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates the module without starting anything. </p>
-<p>The tasks start in "start()". </p>
+<p>The tasks start in <a class="el" href="#a991610dcc331c6b50af4d1098012187f" title="start()">start()</a>. </p>
 
 <p class="reference">Referenced by <a class="el" href="#afce2838cafc9d95b78a5c45104ed2884">ComModule()</a>, <a class="el" href="#a43f29f92e60bb6e2e5db78952a00def3">ComModule()</a>, <a class="el" href="#a3294b1eb839c0d377a3c73612b39c035">instance()</a>, <a class="el" href="#a498e7350a1547c871776cc57fd8b8bd8">operator=()</a>, and <a class="el" href="#af7258a0897dd012c198212fe949f7ff5">operator=()</a>.</p>
 
@@ -269,7 +270,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is not allowed. </p>
+<p>Non-copyable: a singleton. </p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
@@ -302,7 +303,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is not allowed. </p>
+<p>Non-movable: a singleton. </p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
@@ -373,7 +374,7 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports whether the ESP32 supply is on and the start-up time has elapsed. </p>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> while the ESP32 is powered. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> while the ESP32 is powered. </dd></dl>
 
 </div>
 </div>
@@ -400,8 +401,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reports whether the ESP32 has reported the site's approximate coordinates with SET_LOCATION. </p>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> once a SET_LOCATION frame has been accepted since the start. </dd></dl>
+<p>Reports whether the ESP32 has reported the site's approximate coordinates with 'SET_LOCATION'. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> once a 'SET_LOCATION' frame has been accepted since the start. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a3873bb65c9b82c1e54b4b8d93bdab358">getIsLocationSet()</a>.</p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -436,8 +437,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the site latitude last reported by SET_LOCATION. </p>
-<dl class="section return"><dt>Returns</dt><dd>Latitude in degrees, positive north; meaningless while "getIsLocationSet()" is <em>false</em>. </dd></dl>
+<p>Returns the site latitude last reported by 'SET_LOCATION'. </p>
+<dl class="section return"><dt>Returns</dt><dd>Latitude in degrees, positive north; meaningless while <a class="el" href="#a3873bb65c9b82c1e54b4b8d93bdab358" title="getIsLocationSet()">getIsLocationSet()</a> is <b>false</b>. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a16624df3e29f9423305ad7e82d839be0">getLatitude()</a>.</p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -472,8 +473,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the site longitude last reported by SET_LOCATION. </p>
-<dl class="section return"><dt>Returns</dt><dd>Longitude in degrees, positive east; meaningless while "getIsLocationSet()" is <em>false</em>. </dd></dl>
+<p>Returns the site longitude last reported by 'SET_LOCATION'. </p>
+<dl class="section return"><dt>Returns</dt><dd>Longitude in degrees, positive east; meaningless while <a class="el" href="#a3873bb65c9b82c1e54b4b8d93bdab358" title="getIsLocationSet()">getIsLocationSet()</a> is <b>false</b>. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a80d392016b7c1d3f2fc65aa1de252c68">getLongitude()</a>.</p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -581,7 +582,7 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the number of supply power cycles caused by a silent ESP32 since start. </p>
-<dl class="section return"><dt>Returns</dt><dd>Power cycles triggered by "RESPONSE_TIMEOUT". </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Power cycles triggered by <a class="el" href="#af0825bec6dad612f6a6bc7e8a949e8af" title="RESPONSE_TIMEOUT">RESPONSE_TIMEOUT</a>. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a8f3487c6ec946483346f5239bc073d62">getPowerCycleCount()</a>.</p>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -617,7 +618,7 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the session number, which changes at every controller start. </p>
-<dl class="section return"><dt>Returns</dt><dd>Session, 1..255. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Session, <b>1</b> to <b>255</b>. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#aae674dfa3e44b4868e698d07158cc20a">getSession()</a>.</p>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -715,7 +716,7 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Powers the ESP32 on and wakes it in advance; call when a card is presented. </p>
-<p>Returns at once; the "ComLink" task does the work. Safe to call from any task. </p>
+<p>Returns at once; the 'ComLink' task does the work. Safe to call from any task. </p>
 
 </div>
 </div>
@@ -742,7 +743,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is not allowed. </p>
+<p>Non-movable: a singleton. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
@@ -775,7 +777,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is not allowed. </p>
+<p>Non-copyable: a singleton. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 <div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary">
 </div>
@@ -809,14 +812,14 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Queues a blocklist removal request; the ESP32 removes the number on its own initiative. </p>
-<p>Read with GET_BLOCKLIST_REMOVE_REQUESTS. The controller itself never calls "Blocklist::remove()". The ESP32 is powered on and woken.</p>
+<p>Read with 'GET_BLOCKLIST_REMOVE_REQUESTS'. The controller itself never calls <a class="el" href="../../db/da7/class_a_p_p_1_1_blocklist.html#ae247c763edcda6351a57ec9ea1e900d7" title="APP::Blocklist::remove()">APP::Blocklist::remove()</a>. The ESP32 is powered on and woken.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cardNumber</td><td>Number of the card that was found "BLOCKED". </td></tr>
+    <tr><td class="paramname">cardNumber</td><td>Number of the card that was found 'BLOCKED'. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Sequence number of the request, or 0 if it could not be buffered. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Sequence number of the request, or <b>0</b> if it could not be buffered. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#af43e41fb6733a4213eeb769087133f04">queueBlocklistRemoval()</a>.</p>
 <div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -870,7 +873,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Buffers a disposal record; the ESP32 reads it with GET_DISPOSAL_RECORDS. </p>
+<p>Buffers a disposal record; the ESP32 reads it with 'GET_DISPOSAL_RECORDS'. </p>
 <p>The ESP32 is powered on and woken.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -878,11 +881,11 @@ Static Private Member Functions</h2></td></tr>
     <tr><td class="paramname">litres</td><td>Disposed amount. </td></tr>
     <tr><td class="paramname">unixTime</td><td>RTC time of the event, 0 if unknown. </td></tr>
     <tr><td class="paramname">event</td><td>Door event. </td></tr>
-    <tr><td class="paramname">uid</td><td>Card UID; at most "Commands::DISPOSAL_RECORD_UID_SIZE" bytes are kept. </td></tr>
+    <tr><td class="paramname">uid</td><td>Card UID; at most 'APP::Commands::DISPOSAL_RECORD_UID_SIZE' bytes are kept. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Sequence number of the record, or 0 if it could not be buffered (not open, or already full). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Sequence number of the record, or <b>0</b> if it could not be buffered (not open, or already full). </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a0e8c7e4d6edda845b4c9ac151a19b0ed">queueDisposalRecord()</a>.</p>
 <div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -917,8 +920,8 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Starts the receiver and the "ComLink" task, which powers the ESP32. </p>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> if both run. </dd></dl>
+<p>Starts the receiver and the 'ComLink' task, which powers the ESP32. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if both run. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a991610dcc331c6b50af4d1098012187f">start()</a>.</p>
 <div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
@@ -999,7 +1002,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Level of "ESP32_POW_EN" that powers the ESP32. </p>
+<p>Level of 'ESP32_POW_EN' that powers the ESP32. </p>
 <dl class="section note"><dt>Note</dt><dd>Assumed active-high; check against the schematic. </dd></dl>
 
 </div>
@@ -1024,7 +1027,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Active level of the "ESP32_WAKEUP" pulse. </p>
+<p>Active level of the 'ESP32_WAKEUP' pulse. </p>
 <dl class="section note"><dt>Note</dt><dd>Assumed active-high; check against the schematic and the ESP32 firmware. </dd></dl>
 
 </div>
@@ -1073,7 +1076,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Longest off time asked for by POWER_OFF. </p>
+<p>Longest off time asked for by 'POWER_OFF'. </p>
 
 </div>
 </div>
@@ -1217,7 +1220,7 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Length of the "ESP32_WAKEUP" pulse. </p>
+<p>Length of the 'ESP32_WAKEUP' pulse. </p>
 
 </div>
 </div>
