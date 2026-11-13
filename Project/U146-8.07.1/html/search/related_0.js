@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['lib_3a_3acanbus_3a_3aservice_3c_20lib_3a_3acanbus_3a_3amode_3a_3aserver_2c_20server_20_3e_0',['Service&lt; Lib::Canbus::Mode::SERVER, Server &gt;',['../d1/d2d/class_canbus_1_1_server.html#acfff856af28469cd61e53895bba6d54e',1,'Canbus::Server']]]
+  ['base_0',['Base',['https://panchev68.github.io/Lib/d4/d70/a04684.html#a563861f233361c18a30fd9049d7abd7a',1,'Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;']]],
+  ['basicdispatcher_1',['BasicDispatcher',['https://panchev68.github.io/Lib/d7/d64/a05180.html#a060ae75c87b3adbafa835f181f4d19c5',1,'Lib::Errors::Error::BasicDispatcher()'],['https://panchev68.github.io/Lib/d3/dd2/a05176.html#a060ae75c87b3adbafa835f181f4d19c5',1,'Lib::Errors::ErrorBase::BasicDispatcher()']]]
 ];

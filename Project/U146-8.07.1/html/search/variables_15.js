@@ -1,8 +1,28 @@
 var searchData=
 [
-  ['x_0',['x',['../d0/d34/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_position.html#a694908cc0831ee4963abebf710d8788c',1,'Lib::BSP::XPT2046::Position']]],
-  ['xbee_1',['xbee',['../dc/d2c/struct_hardware_profile.html#ad1d9ac78f649ca27e0489a20c3a18545',1,'HardwareProfile::xbee'],['../d1/d75/class_model_base.html#ad8c8c94e113d376775ec9c333f83cce8',1,'ModelBase::xbee']]],
-  ['xmax_2',['xMax',['../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ad7faa3502a791114bf456c98c0dbf644',1,'Lib::BSP::XPT2046::Parameters']]],
-  ['xmin_3',['xMin',['../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aca3ae32e6bdecc7bc919ef20ed75beac',1,'Lib::BSP::XPT2046::Parameters']]],
-  ['xrst_4',['xrst',['../db/d31/struct_lib_1_1_xbee_1_1_core_1_1_com_driver_1_1_config.html#ac303a14dbe038b9efd6862b6f84b2548',1,'Lib::Xbee::Core::ComDriver::Config::xrst'],['../d5/dcc/class_lib_1_1_xbee_1_1_core_1_1_com_driver.html#a104a09e2d20102931b503a96ef27b08a',1,'Lib::Xbee::Core::ComDriver::xrst']]]
+  ['value_0',['value',['https://panchev68.github.io/Lib/d4/d6d/a04636.html#ac1e3de78a37a7229dfb525e2b82a1b4b',1,'Lib::BSP::RFID::ST25R100::RegisterWrite::value'],['https://panchev68.github.io/Lib/d4/de8/a05660.html#aeb95036baf576efe55bbdca1daf8c864',1,'Lib::HAL::USBSetupPacket::value'],['https://panchev68.github.io/Lib/d8/d78/a05732.html#a036bbd4435de7509f8854ca2adf96d41',1,'Lib::Helper::FindPeaks::PeakInfo::value'],['https://panchev68.github.io/Lib/d9/d19/a05804.html#a9083872d6be2774cad6b5e7a7741f9e6',1,'Lib::Math::Filter::Kalman::Config::value']]],
+  ['vapvanen_1',['VAPVANEN',['https://panchev68.github.io/Lib/dd/d48/a00995.html#a4a5baa065e1f33f03e2af5cb8e96abbaa1285283afbf9c3085840c9c1b9ab63df',1,'Lib::BSP::Display']]],
+  ['vbusdetectpin_2',['vbusDetectPin',['../da/d32/struct_hardware_profile_1_1_usb_config.html#a1f2b2ad6f115e27015d70329c5deaef6',1,'HardwareProfile::UsbConfig']]],
+  ['vcmofset_3',['VCMOFSET',['https://panchev68.github.io/Lib/dd/d48/a00995.html#a4a5baa065e1f33f03e2af5cb8e96abbaacb62c87f8dba86c95cb45b522ebe4c14',1,'Lib::BSP::Display']]],
+  ['vcoms_4',['VCOMS',['https://panchev68.github.io/Lib/dd/d48/a00995.html#a4a5baa065e1f33f03e2af5cb8e96abbaa15f09a53a4d9cb3030c03b11ab537bb7',1,'Lib::BSP::Display']]],
+  ['vdvs_5',['VDVS',['https://panchev68.github.io/Lib/dd/d48/a00995.html#a4a5baa065e1f33f03e2af5cb8e96abbaa07a8be7c95b14a74972ea6be5ee60b71',1,'Lib::BSP::Display']]],
+  ['vdvvrhen_6',['VDVVRHEN',['https://panchev68.github.io/Lib/dd/d48/a00995.html#a4a5baa065e1f33f03e2af5cb8e96abbaa2a4e7761b31c3ce747611f87c75b4e72',1,'Lib::BSP::Display']]],
+  ['vendorid_7',['vendorId',['https://panchev68.github.io/Lib/dc/d0a/a06084.html#a901d8fbdeedadd519352ef01e124ebaa',1,'Lib::USB::CDCDevice::Config']]],
+  ['version_8',['version',['../df/d69/struct_hardware_profile_1_1_digital_peripherals_config_1_1_outputs.html#ac6558f02d7fc7974db3147d571819866',1,'HardwareProfile::DigitalPeripheralsConfig::Outputs']]],
+  ['version_5fid_5f403_9',['VERSION_ID_403',['../d7/d3e/class_system_1_1_hardware_version.html#a0f5e0af91f019c335a1122376fc2af70',1,'System::HardwareVersion']]],
+  ['version_5fid_5f404_10',['VERSION_ID_404',['../d7/d3e/class_system_1_1_hardware_version.html#aa3441a86664d6897868d6639d4c573d8',1,'System::HardwareVersion']]],
+  ['version_5fid_5f405_11',['VERSION_ID_405',['../d7/d3e/class_system_1_1_hardware_version.html#acb32c6c9a8b53c78cb99f18fcafacbe6',1,'System::HardwareVersion']]],
+  ['version_5fid_5fold_12',['VERSION_ID_OLD',['../d7/d3e/class_system_1_1_hardware_version.html#a7b0539a15e7aced6e7ed845318cca80e',1,'System::HardwareVersion']]],
+  ['versions_13',['versions',['https://panchev68.github.io/Lib/de/d1b/a04948.html#a8af2e6c665db207944c0e30fdf610763',1,'Lib::Digi::API::NodeInfo']]],
+  ['violet_14',['VIOLET',['https://panchev68.github.io/Lib/df/d42/a04656.html#adcce34027bfb4e02c6112b5e951ae35d',1,'Color']]],
+  ['vmctr1_15',['VMCTR1',['https://panchev68.github.io/Lib/dd/d48/a00995.html#aa079b641f0d5c91c7219aa446879acf2a429fb5d36816f6cec9d104a1c3098ef1',1,'Lib::BSP::Display']]],
+  ['vmctr2_16',['VMCTR2',['https://panchev68.github.io/Lib/dd/d48/a00995.html#aa079b641f0d5c91c7219aa446879acf2a46487ad0c24c2b10e0145a3699304f31',1,'Lib::BSP::Display']]],
+  ['voltage_17',['voltage',['https://panchev68.github.io/Lib/d6/df3/a05008.html#a9ee4423766190b01b3381ae41455bf2d',1,'Lib::Digi::API::Service::Parameters::Data::voltage'],['https://panchev68.github.io/Lib/de/dd0/a06004.html#aed376e2d8eced1f376c8d5aa79e1d0c6',1,'Lib::SolarControl::MPPT::Measurement::voltage'],['https://panchev68.github.io/Lib/df/de6/a06016.html#a1e7c41cc6f1e458a928298f16e3913df',1,'Lib::SolarControl::PerturbAndObserve::Measurement::voltage']]],
+  ['voltageforerase_18',['VoltageForErase',['https://panchev68.github.io/HALF4/db/dff/a01432.html#aac2fd0eb2907b7317b0f620fb5303c21',1,'FLASH_ProcessTypeDef']]],
+  ['voltagerange_19',['VoltageRange',['https://panchev68.github.io/HALF4/dc/d85/a01436.html#a3a2a0c2c4ed573bb84c768c6dbb92cc9',1,'FLASH_EraseInitTypeDef']]],
+  ['voltagevalue_20',['voltageValue',['https://panchev68.github.io/Lib/d5/d64/a04968.html#a8dfb3d30a434e5346c20ac691dfe3595',1,'Lib::Digi::API::NodeInfo::Monitor']]],
+  ['vrhs_21',['VRHS',['https://panchev68.github.io/Lib/dd/d48/a00995.html#a4a5baa065e1f33f03e2af5cb8e96abbaaa98ceff6bde8bd403668e20249ff4a37',1,'Lib::BSP::Display']]],
+  ['vscrdef_22',['VSCRDEF',['https://panchev68.github.io/Lib/dd/d48/a00995.html#a4a5baa065e1f33f03e2af5cb8e96abbaa9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display::VSCRDEF'],['https://panchev68.github.io/Lib/dd/d48/a00995.html#a4a5baa065e1f33f03e2af5cb8e96abbaa9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display::VSCRDEF']]],
+  ['vscrsadd_23',['VSCRSADD',['https://panchev68.github.io/Lib/dd/d48/a00995.html#aa079b641f0d5c91c7219aa446879acf2adaaf3d170f76e19ffeed8fe25ef2a750',1,'Lib::BSP::Display']]],
+  ['vscsad_24',['VSCSAD',['https://panchev68.github.io/Lib/dd/d48/a00995.html#a4a5baa065e1f33f03e2af5cb8e96abbaa2c040526ab31d930a82ffcb730cbd399',1,'Lib::BSP::Display']]]
 ];

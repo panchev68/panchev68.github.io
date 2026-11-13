@@ -1,26 +1,6 @@
 var searchData=
 [
-  ['bandmask_5fconfiguration_5ffailed_0',['BANDMASK_CONFIGURATION_FAILED',['../d6/dbc/class_lib_1_1_xbee_1_1_core_1_1_frame0x8a.html#ad860b80ce37d47c71c6a9064b916291aa22d48f412577f387714ef93f7da484db',1,'Lib::Xbee::Core::Frame0x8a']]],
-  ['beige_1',['BEIGE',['../d8/d78/class_lib_1_1_touch_g_f_x_1_1_color.html#ab515c0a4f545f7dbd32c9a579aefb865a8f8136e2cde757bade629f94dedf3e34',1,'Lib::TouchGFX::Color']]],
-  ['bisque_2',['BISQUE',['../d8/d78/class_lib_1_1_touch_g_f_x_1_1_color.html#ab515c0a4f545f7dbd32c9a579aefb865a6582e30973b622a272736b0f9e7a8ee4',1,'Lib::TouchGFX::Color']]],
-  ['black_3',['BLACK',['../d8/d78/class_lib_1_1_touch_g_f_x_1_1_color.html#ab515c0a4f545f7dbd32c9a579aefb865ace82977468a80ad6dec71714cb47721c',1,'Lib::TouchGFX::Color']]],
-  ['blanchedalmond_4',['BLANCHEDALMOND',['../d8/d78/class_lib_1_1_touch_g_f_x_1_1_color.html#ab515c0a4f545f7dbd32c9a579aefb865af983729e9bcdce2a3b0dafcd4dcf4dda',1,'Lib::TouchGFX::Color']]],
-  ['ble_5fconnect_5',['BLE_CONNECT',['../d6/dbc/class_lib_1_1_xbee_1_1_core_1_1_frame0x8a.html#ad860b80ce37d47c71c6a9064b916291aac0772455e76024e94186291c6f4ba453',1,'Lib::Xbee::Core::Frame0x8a']]],
-  ['ble_5fdisconnect_6',['BLE_DISCONNECT',['../d6/dbc/class_lib_1_1_xbee_1_1_core_1_1_frame0x8a.html#ad860b80ce37d47c71c6a9064b916291aa8ea39dff8822b2319506f783bcaec692',1,'Lib::Xbee::Core::Frame0x8a']]],
-  ['ble_5funlock_5frequest_7',['BLE_UNLOCK_REQUEST',['../db/d67/namespace_lib_1_1_xbee_1_1_core_1_1_frame.html#a361d75ddf171b3341c37025eaa1546afa188cb903f20d4dcc70002b4e965de8b0',1,'Lib::Xbee::Core::Frame']]],
-  ['ble_5funlock_5fresponse_8',['BLE_UNLOCK_RESPONSE',['../db/d67/namespace_lib_1_1_xbee_1_1_core_1_1_frame.html#a361d75ddf171b3341c37025eaa1546afa0a4e750071bfc92415a934efe06bc6dc',1,'Lib::Xbee::Core::Frame']]],
-  ['blinking_9',['BLINKING',['../d2/d32/class_b_s_p_1_1_leds.html#a9561184da29922c427f66a35873a6620abe7deb11199b4708da1beaafc2e0f2bc',1,'BSP::Leds']]],
-  ['block_10',['BLOCK',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a9de00459d7bcd95866936fd723022743ac319d275b176e5cfa9aeb35b1f1b37c4',1,'Lib::HAL']]],
-  ['block_5ferase_5f32k_11',['BLOCK_ERASE_32K',['../d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html#aabc3443b669ce544be387bf73a334b2ba27cde1a68e65ba519cffb74e89e0ce63',1,'Lib::BSP::W25Q128JVSIQ']]],
-  ['block_5ferase_5f64k_12',['BLOCK_ERASE_64K',['../d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html#aabc3443b669ce544be387bf73a334b2bab3562ef4b8a70831d4e5eae1023b58e1',1,'Lib::BSP::W25Q128JVSIQ']]],
-  ['blue_13',['BLUE',['../d8/d78/class_lib_1_1_touch_g_f_x_1_1_color.html#ab515c0a4f545f7dbd32c9a579aefb865a2c6dc997f25e3c98adb3072852730401',1,'Lib::TouchGFX::Color']]],
-  ['blueviolet_14',['BLUEVIOLET',['../d8/d78/class_lib_1_1_touch_g_f_x_1_1_color.html#ab515c0a4f545f7dbd32c9a579aefb865a5822268f9ae060dbb8d1778911a9e2e8',1,'Lib::TouchGFX::Color']]],
-  ['brown_15',['BROWN',['../d8/d78/class_lib_1_1_touch_g_f_x_1_1_color.html#ab515c0a4f545f7dbd32c9a579aefb865a7f79524909affaf5f1704791a197844f',1,'Lib::TouchGFX::Color']]],
-  ['brownout_5freset_16',['BROWNOUT_RESET',['../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html#acbb27a2ae09130bb349c6105ac88e354a6c84682a5c427172331e0e944730cac9',1,'Lib::HAL::LastResetState']]],
-  ['burlywood_17',['BURLYWOOD',['../d8/d78/class_lib_1_1_touch_g_f_x_1_1_color.html#ab515c0a4f545f7dbd32c9a579aefb865a58b4c839ddbc931246bebe514baf44c0',1,'Lib::TouchGFX::Color']]],
-  ['but_5fpull_18',['BUT_PULL',['../d0/d32/class_lib_1_1_b_s_p_1_1_encoder_pins.html#a3d70fc806259e45b7b770cb932beba3fa33a5524041986baf515293cd1d0c67e4',1,'Lib::BSP::EncoderPins']]],
-  ['but_5fpush_19',['BUT_PUSH',['../d0/d32/class_lib_1_1_b_s_p_1_1_encoder_pins.html#a3d70fc806259e45b7b770cb932beba3faec99b17e69f307181424c4145f5f6490',1,'Lib::BSP::EncoderPins']]],
-  ['button_5fhold_20',['BUTTON_HOLD',['../d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a67ccf91c0a82cde5193c97d2c3e52120aa9ac7af6781d04fe7e05a387f285044e',1,'Lib::BSP::EncoderTimer']]],
-  ['button_5fpush_21',['BUTTON_PUSH',['../d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a67ccf91c0a82cde5193c97d2c3e52120ac36aee6215a48ebf1e92e42dd6a0cf4c',1,'Lib::BSP::EncoderTimer']]],
-  ['button_5frelease_22',['BUTTON_RELEASE',['../d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a67ccf91c0a82cde5193c97d2c3e52120aa2fad10c887dc8ab2209fbf83526bbef',1,'Lib::BSP::EncoderTimer']]]
+  ['blinking_0',['BLINKING',['../d2/d32/class_b_s_p_1_1_leds.html#a9561184da29922c427f66a35873a6620abe7deb11199b4708da1beaafc2e0f2bc',1,'BSP::Leds']]],
+  ['block_1',['block',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#gab511a0eef21ba5813dd03bda276604a7a14511f2f5564650d129ca7cabc333278',1,'std::filesystem::block'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#gab511a0eef21ba5813dd03bda276604a7a14511f2f5564650d129ca7cabc333278',1,'std::filesystem::block'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01658.html#ga5088b41ab96d68a5db87b76c180fb0f8a14511f2f5564650d129ca7cabc333278',1,'std::experimental::filesystem::v1::block']]],
+  ['broken_5fpromise_2',['broken_promise',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga61938f7ac25df97b5362109e61bb46a6a2c6bc6062e72db1c0915032943cb6452',1,'std::broken_promise'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga61938f7ac25df97b5362109e61bb46a6a2c6bc6062e72db1c0915032943cb6452',1,'std::broken_promise']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['key_0',['Key',['../d3/dc4/class_function_ref_detail_1_1_base_1_1_key.html',1,'FunctionRefDetail::Base']]]
+  ['kalman_0',['Kalman',['https://panchev68.github.io/Lib/d0/d5d/a05800.html',1,'Lib::Math::Filter']]],
+  ['kernel_1',['Kernel',['https://panchev68.github.io/Lib/db/d0d/a05876.html',1,'RTOS']]]
 ];

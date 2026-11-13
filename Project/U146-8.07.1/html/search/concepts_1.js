@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['pausable_0',['Pausable',['../d5/d11/concept_lib_1_1_xbee_1_1_a_p_i_1_1_pausable.html',1,'Lib::Xbee::API']]]
+  ['errorkind_0',['ErrorKind',['https://panchev68.github.io/Lib/d0/d2a/a06142.html',1,'Lib::Errors']]],
+  ['escaccess_1',['EscAccess',['https://panchev68.github.io/Lib/d7/dc5/a06143.html',1,'Lib::Ethercat::SOES']]]
 ];

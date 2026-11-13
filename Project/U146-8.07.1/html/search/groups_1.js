@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['application_20layer_0',['Data Application Layer',['../d3/d4c/group___d_a_l.html',1,'']]]
+  ['2_20sampling_20phases_0',['ADC Delay Between 2 Sampling Phases',['https://panchev68.github.io/HALF4/df/d1b/a00687.html',1,'']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['xbee_2fapi_2fclientbase_2ehpp_0',['ClientBase.hpp',['../dc/dc0/_x_b_e_e_2_a_p_i_2_client_base_8hpp.html',1,'']]],
-  ['xbee_2fapi_2fserverbase_2ehpp_1',['ServerBase.hpp',['../da/db5/_x_b_e_e_2_a_p_i_2_server_base_8hpp.html',1,'']]],
-  ['xbee_2fapi_2fservices_2fservicebase_2ehpp_2',['ServiceBase.hpp',['../db/db7/_x_b_e_e_2_a_p_i_2_services_2_service_base_8hpp.html',1,'']]],
-  ['xpt2046_2ehpp_3',['XPT2046.hpp',['../d9/dc4/_x_p_t2046_8hpp.html',1,'']]]
+  ['x86_5f64_2dpc_2dlinux_2dgnu_2fbits_2fcompatibility_2eh_0',['x86_64-pc-linux-gnu/bits/compatibility.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a18617.html',1,'']]],
+  ['xcom_2fprotocol_2ehpp_1',['XCOM/Protocol.hpp',['https://panchev68.github.io/Lib/d6/d08/a08367.html',1,'']]],
+  ['xcom_2fservicebase_2ehpp_2',['XCOM/ServiceBase.hpp',['https://panchev68.github.io/Lib/dd/d4f/a08358.html',1,'']]],
+  ['xpt2046_2ehpp_3',['XPT2046.hpp',['https://panchev68.github.io/Lib/dd/de2/a00320.html',1,'']]]
 ];

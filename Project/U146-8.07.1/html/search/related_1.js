@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['manager_0',['Manager',['../d9/df6/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_service_base.html#adddd5c43ff870a047aa66db4edf82a7e',1,'Lib::Xbee::API::Service::ServiceBase']]]
+  ['call_5fonce_0',['call_once',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02818.html#a50268ad23026fe8b50904bb17b39afec',1,'std::once_flag']]]
 ];

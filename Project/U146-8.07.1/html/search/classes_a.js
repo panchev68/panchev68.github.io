@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['jaggedarray_0',['JaggedArray',['../d8/d0c/class_lib_1_1_helper_1_1_jagged_array.html',1,'Lib::Helper']]],
-  ['jaggedarray_3c_20row_3c_20t_20_3e_20_3e_1',['JaggedArray&lt; Row&lt; T &gt; &gt;',['../d8/d0c/class_lib_1_1_helper_1_1_jagged_array.html',1,'Lib::Helper']]]
+  ['jaggedarraybase_0',['JaggedArrayBase',['https://panchev68.github.io/Lib/d5/d12/a05744.html',1,'Lib::Helper']]],
+  ['jaggedarraybase_3c_20jaggedarrayrow_3c_20t_5felement_20_3e_20_3e_1',['JaggedArrayBase&lt; JaggedArrayRow&lt; T_ELEMENT &gt; &gt;',['https://panchev68.github.io/Lib/d5/d12/a05744.html',1,'Lib::Helper']]],
+  ['jaggedarraybase_3c_20t_5felement_20_3e_2',['JaggedArrayBase&lt; T_ELEMENT &gt;',['https://panchev68.github.io/Lib/d5/d12/a05744.html',1,'Lib::Helper']]],
+  ['join_5ferror_3',['join_error',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a11614.html',1,'__gnu_pbds']]]
 ];

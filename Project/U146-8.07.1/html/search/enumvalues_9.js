@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['jan_0',['JAN',['../d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa8de35eaa5968c478c5b2086b3cc4badf',1,'Lib::Helper::DateTime::Date']]],
-  ['joined_5fnetwork_1',['JOINED_NETWORK',['../d6/dbc/class_lib_1_1_xbee_1_1_core_1_1_frame0x8a.html#ad860b80ce37d47c71c6a9064b916291aa31c040e73875a28a2998346bbf88d686',1,'Lib::Xbee::Core::Frame0x8a']]],
-  ['jul_2',['JUL',['../d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa8585542e0ab980c5f29166a4767b0b4b',1,'Lib::Helper::DateTime::Date']]],
-  ['jun_3',['JUN',['../d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa70993ae907799296b4bed0a03244d55a',1,'Lib::Helper::DateTime::Date']]]
+  ['preferred_0',['preferred',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01617.html#ga9fab6cf004cd3194f8b89580f6453106ae4e5ef276d7ffb582d6c44f837a1e11e',1,'std::preferred'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01617.html#ga9fab6cf004cd3194f8b89580f6453106ae4e5ef276d7ffb582d6c44f837a1e11e',1,'std::preferred']]],
+  ['promise_5falready_5fsatisfied_1',['promise_already_satisfied',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga61938f7ac25df97b5362109e61bb46a6a9327d6f7b9aca59b62b436696fd17a00',1,'std::promise_already_satisfied'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga61938f7ac25df97b5362109e61bb46a6a9327d6f7b9aca59b62b436696fd17a00',1,'std::promise_already_satisfied']]]
 ];
