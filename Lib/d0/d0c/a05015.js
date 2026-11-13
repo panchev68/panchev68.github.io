@@ -1,13 +1,20 @@
 var a05015 =
 [
-    [ "Config", "de/d93/a05019.html", "de/d93/a05019" ],
-    [ "ComDriver", "d0/d0c/a05015.html#ababf68659e9af31a588761f3b7019ee4", null ],
-    [ "ComDriver", "d0/d0c/a05015.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
-    [ "~ComDriver", "d0/d0c/a05015.html#ac84fd480c15423c989d3f9f367f99045", null ],
-    [ "init", "d0/d0c/a05015.html#a43649d6474cd7c536e4e76c7a3374725", null ],
-    [ "operator=", "d0/d0c/a05015.html#a39956162d031d237c8741f20d1de0b4d", null ],
-    [ "reset", "d0/d0c/a05015.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
-    [ "send", "d0/d0c/a05015.html#adb3898389cd892854bac73d239b647fc", null ],
-    [ "diagnostic", "d0/d0c/a05015.html#a567a1a6ed97de4267cfec4531f60a373", null ],
-    [ "xrst", "d0/d0c/a05015.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
+    [ "Data", "de/d93/a05019.html", "de/d93/a05019" ],
+    [ "Parameters", "d0/d0c/a05015.html#ae9b1083d9afe5ce37684ee479065c08d", null ],
+    [ "Parameters", "d0/d0c/a05015.html#a751f186c85cc8d58f16fc12d907ebe1f", null ],
+    [ "close", "d0/d0c/a05015.html#a1a7e321a9bac36794a93524ee2265f1e", null ],
+    [ "getChannel", "d0/d0c/a05015.html#abb0d4e0ff08a92ff38e3627964f0c50f", null ],
+    [ "getData", "d0/d0c/a05015.html#ac793ef8a47bb6b900a9b96ef741286fc", null ],
+    [ "getPanId", "d0/d0c/a05015.html#a002de6a62eca987fb68d0134d291d7a3", null ],
+    [ "isRunning", "d0/d0c/a05015.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "isWritePending", "d0/d0c/a05015.html#a2444246733f1cf2dfb8d6fb114e10f9e", null ],
+    [ "open", "d0/d0c/a05015.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "d0/d0c/a05015.html#a0036b61cadf6ca50a98425c13efd17e9", null ],
+    [ "pauseReadDynamicParameters", "d0/d0c/a05015.html#a5ceaf511d2672fa9d60b960c563e6a47", null ],
+    [ "read", "d0/d0c/a05015.html#a0b95648ab79c354ae5ed07e87775a4e4", null ],
+    [ "setChannel", "d0/d0c/a05015.html#a1a9c64e3e6603a03c17294851fc407a5", null ],
+    [ "setPanId", "d0/d0c/a05015.html#a2f50f7e3fb88c475ffbc15f2c0203698", null ],
+    [ "update", "d0/d0c/a05015.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
+    [ "writeChanges", "d0/d0c/a05015.html#aab4960dbba120dcbeddf25b42f53d85a", null ]
 ];

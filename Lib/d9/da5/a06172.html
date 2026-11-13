@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::Ultrasonic::PGA460TPWRQ1</title>
+<title>IAR EWARM Library: Lib::BSP::SK6812</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,108 +112,59 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/da5/a06172.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::Ultrasonic::PGA460TPWRQ1</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::SK6812</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Reads the distance from a PGA460 ultrasonic sensor with <a class="el" href="../../d9/da5/a06172.html" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a> in <a class="el" href="../../db/d23/a01025.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> mode.</p>
-<p>Reads the distance from a PGA460 ultrasonic sensor with <a class="el" href="../../d9/da5/a06172.html" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a> in <a class="el" href="../../db/d23/a01025.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> mode.The driver does not own the UART port; pass the 'Lib::HAL::UARTPort' wired to the PGA460 RXD/TXD pins. 'readDistance()' blocks the calling task for about the listen duration plus two UART transfers and yields via <a class="el" href="../../de/d91/a01034.html#a9457a17b234e2e6b6336f69c9f756021" title="RTOS::delay()">RTOS::delay()</a>, so call it from a task, never from an ISR. The driver is not thread-safe: use one instance from a single task, or guard it with a mutex.</p>
-<h1 class="doxsection"><a class="anchor" id="lib_bsp_ultrasonic_pga460tpwrq1_usage"></a>
+<p>Demonstrates a ring of 12 SK6812 RGBW LEDs sent out through a PWM timer channel with DMA.</p>
+<p>Demonstrates a ring of 12 SK6812 RGBW LEDs sent out through a PWM timer channel with DMA.TIM3 channel 1 is set up in CubeMX as PWM with a word-sized memory-to-peripheral DMA stream. The DMA completion callback stops the PWM, so the line stays low long enough for the LEDs to latch the frame. Colors are linear: the class gamma corrects them while encoding.</p>
+<dl class="section important"><dt>Important</dt><dd>The TIM3 ARR must be <b>219</b>, which the compare values assume.</dd>
+<dd>
+Start the next frame only after the callback has stopped the PWM.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>A program that also includes '<a class="el" href="../../d2/d94/a00716.html" title="Configures an event-driven, hardware One-Pulse (Monostable) interface using STM32 Timers.">Lib/HAL/TIM/TimOnePulse.hpp</a>' cannot define this callback, since that header defines it too.</dd></dl>
+<h1 class="doxsection"><a class="anchor" id="lib_bsp_sk6812_usage"></a>
 Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="pga460_usage_hw"></a>
-Hardware assumptions</h2>
-<ul>
-<li>Two-wire UART on RXD/TXD; the IO pin is unused (pulled up), so transmitted bytes are not echoed back.</li>
-<li>TEST pin tied to GND at power-up, so the digital I/O runs at 3.3 V.</li>
-<li>Factory 'UART_ADDR' of <b>0</b>; set <a class="el" href="../../de/db5/a04695.html#a07cd324da0adf0baf2262a0b33404164" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1::Config::uartAddress">Lib::BSP::Ultrasonic::PGA460TPWRQ1::Config::uartAddress</a> only if the EEPROM address was reprogrammed.</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="pga460_usage_basic"></a>
-Single measurement</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/de0/a00317.html">Lib/BSP/Ultrasonic/PGA460TPWRQ1.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> measureOnce(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; uartPort) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/d12/a04691.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor({</div>
-<div class="line">        .uart = uartPort,</div>
-<div class="line">        .timeout = <a id="a1" name="a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
-<div class="line">        .listenDuration = <a id="a2" name="a2"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
-<div class="line">        .ambientTemperatureCelsius = 22.0F,</div>
-<div class="line">    });</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!sensor.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> distanceMeters = sensor.readDistance(); distanceMeters.has_value()) {</div>
-<div class="line">        <span class="comment">// Use *distanceMeters.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sensor.close());</div>
+<h2 class="doxsection"><a class="anchor" id="sk6812_usage_frame"></a>
+Fill the ring and send one frame</h2>
+<p><a class="el" href="../../db/da5/a04663.html#a31d240cb8095311a4ae5575a19d4dda0" title="Lib::BSP::SK6812::setColor()">Lib::BSP::SK6812::setColor()</a> fills one LED; the <a class="el" href="../../da/d19/a04667.html" title="Lib::BSP::SK6812::Ring">Lib::BSP::SK6812::Ring</a> hands its whole buffer to the PWM DMA start call. The frame is sent when the DMA transfer starts, not when <a class="el" href="../../db/da5/a04663.html#a31d240cb8095311a4ae5575a19d4dda0" title="Lib::BSP::SK6812::setColor()">Lib::BSP::SK6812::setColor()</a> is called.</p>
+<div class="fragment"><div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><span class="preprocessor">#include &quot;main.h&quot;</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aa00317_html"><div class="ttname"><a href="../../da/de0/a00317.html">PGA460TPWRQ1.hpp</a></div><div class="ttdoc">UART driver for the Texas Instruments PGA460 ultrasonic signal processor, reading distance and transd...</div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01610_html_ga5688b0ad006994a28a4bb5c2fd1a715d"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a></div><div class="ttdeci">duration&lt; int64_t, micro &gt; microseconds</div></div>
-<div class="ttc" id="aa04691_html"><div class="ttname"><a href="../../d6/d12/a04691.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a></div><div class="ttdoc">Reads the current distance from a PGA460 ultrasonic sensor connected over UART.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:54</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="pga460_usage_task"></a>
-Periodic measurement task</h2>
-<p>The first reading after power-up may be rejected because the diagnostic byte still carries a stale error flag; treat an empty result as a skipped sample, not a fatal error.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/de0/a00317.html">Lib/BSP/Ultrasonic/PGA460TPWRQ1.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d3c/a00971.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d95/a00299.html">Lib/BSP/RGBWLed/SK6812.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>LevelMonitor final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">explicit</span> LevelMonitor(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; uartPort) noexcept :</div>
-<div class="line">        sensor({</div>
-<div class="line">            .uart = uartPort,</div>
-<div class="line">            .timeout = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
-<div class="line">            .listenDuration = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
-<div class="line">        }),</div>
-<div class="line">        task(<a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../d5/dc4/a05975.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Level&quot;</span>, 512, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d8/d33/a05959.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> htim3; <span class="comment">// TIM3 CH1 PWM, ARR = 219, DMA memory-to-peripheral, word size.</span></div>
+<div class="line"> </div>
+<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_class" href="../../da/d19/a04667.html">Lib::BSP::SK6812::Ring&lt;12&gt;</a> ring;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/de/df6/a01141.html#ga07e5fc4d223b16bec2fd6bed547cf91d">HAL_TIM_PWM_PulseFinishedCallback</a>(<a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * htim) {</div>
+<div class="line">    <span class="keywordflow">if</span> (htim == &amp;htim3) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d61/a01350.html#gad77367f9b8d8d17842a913f7d6ce274b">HAL_TIM_PWM_Stop_DMA</a>(&amp;htim3, <a id="_a4" name="_a4"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>)); <span class="comment">// Line stays low: reset gap.</span></div>
 <div class="line">    }</div>
+<div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> PERIOD{1000};</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t MAX_CONSECUTIVE_FAILURES = 5;</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="../../d6/d12/a04691.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor; <span class="comment">// Constructed before the task starts using it.</span></div>
-<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d0/d5d/a05955.html">RTOS::Task</a> task;          <span class="comment">// Must stay the last member.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!sensor.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d6/d12/a04691.html#a50accfabb3897779a4b26e4c6b8e7566">open</a>()) {</div>
-<div class="line">            assert(!<span class="stringliteral">&quot;LevelMonitor: failed to open sensor UART&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        uint32_t failures = 0;</div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> distanceMeters = sensor.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d6/d12/a04691.html#ab5b14fe14cfea3451683b86f1cc54952">readDistance</a>(); distanceMeters.has_value()) {</div>
-<div class="line">                failures = 0;</div>
-<div class="line">                <span class="comment">// Publish *distanceMeters.</span></div>
-<div class="line">            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (++failures &gt;= MAX_CONSECUTIVE_FAILURES) {</div>
-<div class="line">                failures = 0;</div>
-<div class="line">                <span class="comment">// Report a sensor fault.</span></div>
-<div class="line">            }</div>
-<div class="line">            <a id="a9" name="a9"></a><a class="code hl_function" href="../../de/d91/a01034.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(PERIOD);</div>
-<div class="line">        }</div>
+<div class="line"><span class="keywordtype">void</span> showFrame() {</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> index = 0; index &lt; ring.<a id="a5" name="a5"></a><a class="code hl_function" href="../../da/d19/a04667.html#af4a392521ab650682a14d889199c50c1">count</a>(); ++index) {</div>
+<div class="line">        ring[index].setColor(index % 2 == 0 ? <a id="_a6" name="_a6"></a><a class="code hl_variable" href="../../d0/d5e/a04655.html#aa51ce6120321dbe5f2ba9fac1f5971c5">::Color::SALMON</a> : <a id="_a7" name="_a7"></a><a class="code hl_variable" href="../../d0/d5e/a04655.html#a2dfa191b025fbc94268dd2261439cca8">::Color::INDIANRED</a>);</div>
 <div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00971_html"><div class="ttname"><a href="../../d0/d3c/a00971.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01034_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d91/a01034.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:604</div></div>
-<div class="ttc" id="aa04691_html_a50accfabb3897779a4b26e4c6b8e7566"><div class="ttname"><a href="../../d6/d12/a04691.html#a50accfabb3897779a4b26e4c6b8e7566">Lib::BSP::Ultrasonic::PGA460TPWRQ1::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes the underlying UART peripheral.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:139</div></div>
-<div class="ttc" id="aa04691_html_ab5b14fe14cfea3451683b86f1cc54952"><div class="ttname"><a href="../../d6/d12/a04691.html#ab5b14fe14cfea3451683b86f1cc54952">Lib::BSP::Ultrasonic::PGA460TPWRQ1::readDistance</a></div><div class="ttdeci">std::optional&lt; float &gt; readDistance() noexcept</div><div class="ttdoc">Triggers a measurement and reads back the distance to the closest detected object.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:163</div></div>
-<div class="ttc" id="aa05955_html"><div class="ttname"><a href="../../d0/d5d/a05955.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:52</div></div>
-<div class="ttc" id="aa05959_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d8/d33/a05959.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:85</div></div>
-<div class="ttc" id="aa05975_html"><div class="ttname"><a href="../../d5/dc4/a05975.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="pga460_usage_address"></a>
-Non-default UART address</h2>
-<div class="fragment"><div class="line"><a class="code hl_class" href="../../d6/d12/a04691.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor({</div>
-<div class="line">    .uart = uartPort,</div>
-<div class="line">    .timeout = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
-<div class="line">    .listenDuration = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
-<div class="line">    .uartAddress = 3, <span class="comment">// Must match UART_ADDR programmed in the device EEPROM.</span></div>
-<div class="line">});</div>
+<div class="line">    ring[0].setColor(0, 0, 0, 255); <span class="comment">// White channel only.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="_a8" name="_a8"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d61/a01350.html#ga3621f6126e33c1abb80cb572499f335c">HAL_TIM_PWM_Start_DMA</a>(&amp;htim3, <a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>, ring.<a id="a9" name="a9"></a><a class="code hl_function" href="../../da/d19/a04667.html#a897e123e376e08a2741c3498d764166d">getData</a>(), <span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(ring.<a id="a10" name="a10"></a><a class="code hl_function" href="../../da/d19/a04667.html#abc62b9f95eec80b7b24f428ecb35349b">getSize</a>())));</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00299_html"><div class="ttname"><a href="../../df/d95/a00299.html">SK6812.hpp</a></div><div class="ttdoc">Declares the BSP SK6812 RGBW LED encoder and its fixed-size ring; header-only, no HAL dependency.</div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
+<div class="ttc" id="aa01141_html_ga07e5fc4d223b16bec2fd6bed547cf91d"><div class="ttname"><a href="https://panchev68.github.io/HALF4/de/df6/a01141.html#ga07e5fc4d223b16bec2fd6bed547cf91d">HAL_TIM_PWM_PulseFinishedCallback</a></div><div class="ttdeci">void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)</div><div class="ttdef"><b>Definition</b> TimOnePulse.hpp:195</div></div>
+<div class="ttc" id="aa01350_html_ga3621f6126e33c1abb80cb572499f335c"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d61/a01350.html#ga3621f6126e33c1abb80cb572499f335c">HAL_TIM_PWM_Start_DMA</a></div><div class="ttdeci">HAL_StatusTypeDef HAL_TIM_PWM_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, const uint32_t *pData, uint16_t Length)</div></div>
+<div class="ttc" id="aa01350_html_gad77367f9b8d8d17842a913f7d6ce274b"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d61/a01350.html#gad77367f9b8d8d17842a913f7d6ce274b">HAL_TIM_PWM_Stop_DMA</a></div><div class="ttdeci">HAL_StatusTypeDef HAL_TIM_PWM_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel)</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa04655_html_a2dfa191b025fbc94268dd2261439cca8"><div class="ttname"><a href="../../d0/d5e/a04655.html#a2dfa191b025fbc94268dd2261439cca8">Color::INDIANRED</a></div><div class="ttdeci">static constexpr uint32_t INDIANRED</div><div class="ttdoc">Indian red (205, 92, 92).</div><div class="ttdef"><b>Definition</b> Color.hpp:153</div></div>
+<div class="ttc" id="aa04655_html_aa51ce6120321dbe5f2ba9fac1f5971c5"><div class="ttname"><a href="../../d0/d5e/a04655.html#aa51ce6120321dbe5f2ba9fac1f5971c5">Color::SALMON</a></div><div class="ttdeci">static constexpr uint32_t SALMON</div><div class="ttdoc">Salmon (250, 128, 114).</div><div class="ttdef"><b>Definition</b> Color.hpp:150</div></div>
+<div class="ttc" id="aa04667_html"><div class="ttname"><a href="../../da/d19/a04667.html">Lib::BSP::SK6812::Ring</a></div><div class="ttdoc">Fixed number of SK6812 LEDs sharing one contiguous compare buffer for a single DMA transfer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:201</div></div>
+<div class="ttc" id="aa04667_html_a897e123e376e08a2741c3498d764166d"><div class="ttname"><a href="../../da/d19/a04667.html#a897e123e376e08a2741c3498d764166d">Lib::BSP::SK6812::Ring::getData</a></div><div class="ttdeci">uint32_t * getData() noexcept</div><div class="ttdoc">Gets the compare buffer for the DMA transfer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:279</div></div>
+<div class="ttc" id="aa04667_html_abc62b9f95eec80b7b24f428ecb35349b"><div class="ttname"><a href="../../da/d19/a04667.html#abc62b9f95eec80b7b24f428ecb35349b">Lib::BSP::SK6812::Ring::getSize</a></div><div class="ttdeci">static constexpr size_t getSize() noexcept</div><div class="ttdoc">Gets the length of the compare buffer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:288</div></div>
+<div class="ttc" id="aa04667_html_af4a392521ab650682a14d889199c50c1"><div class="ttname"><a href="../../da/d19/a04667.html#af4a392521ab650682a14d889199c50c1">Lib::BSP::SK6812::Ring::count</a></div><div class="ttdeci">static constexpr size_t count() noexcept</div><div class="ttdoc">Gets the number of LEDs.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:270</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

@@ -1,10 +1,20 @@
 var a04755 =
 [
-    [ "WolfSSH", "df/d9b/a04755.html#acda587d771e0b88270bdf9263d156fd0", null ],
-    [ "~WolfSSH", "df/d9b/a04755.html#ad07d509cc2a825d9165ab30739d84515", null ],
-    [ "WolfSSH", "df/d9b/a04755.html#ab03771dcd75546ec452cb768b0a29da5", null ],
-    [ "WolfSSH", "df/d9b/a04755.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
-    [ "isOpen", "df/d9b/a04755.html#aac3ff36b57e422860d83792bb84c84f3", null ],
-    [ "operator=", "df/d9b/a04755.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
-    [ "operator=", "df/d9b/a04755.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
+    [ "Diagnostic", "df/d9b/a04755.html#a74fdde35a787cd13d6069871c0ff8976", null ],
+    [ "Node", "df/d9b/a04755.html#ab091b12fa34f220a5e75b16695a26a92", null ],
+    [ "RxMessage", "df/d9b/a04755.html#aee877c41a31b08b00ee86c56bdd9cd28", null ],
+    [ "Service", "df/d9b/a04755.html#a34d4fbaded08b287de47655b7713556a", null ],
+    [ "~Service", "df/d9b/a04755.html#aa70d5f9fd723805cc64c383864a55d17", null ],
+    [ "errorCallback", "df/d9b/a04755.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
+    [ "getDiagnostic", "df/d9b/a04755.html#a568458f9461115a1ea8f443f2dfde355", null ],
+    [ "messageReceivedCallback", "df/d9b/a04755.html#a42b0a1623b22a41e003e2abafd67c9f2", null ],
+    [ "postScanCallback", "df/d9b/a04755.html#a41b59ad5c5b3ad1f6a7220fbbb325c88", null ],
+    [ "receive", "df/d9b/a04755.html#a24358bc730156fbe1517606352fbf513", null ],
+    [ "send", "df/d9b/a04755.html#a2e0c631d402e3175044158dded2de545", null ],
+    [ "send", "df/d9b/a04755.html#a58523c22bcfd875e9c77077eb5f3e24c", null ],
+    [ "send", "df/d9b/a04755.html#a5249db04ea2b2e64223f6656ddd774dc", null ],
+    [ "start", "df/d9b/a04755.html#a93223c3fff4c00dc1af2fb2189a857ee", null ],
+    [ "start", "df/d9b/a04755.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
+    [ "stop", "df/d9b/a04755.html#a7ddbb1abfc9d0f93b2d9e809819651cb", null ],
+    [ "taskFn", "df/d9b/a04755.html#ada9602bb96ff9a1d8ef9d91580113505", null ]
 ];

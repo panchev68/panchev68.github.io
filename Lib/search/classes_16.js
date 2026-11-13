@@ -13,7 +13,7 @@ var searchData=
   ['versionbase_10',['VersionBase',['../d8/d7a/a06083.html',1,'Lib::System']]],
   ['versionbase_3c_20firmwareversion_20_3e_11',['VersionBase&lt; FirmwareVersion &gt;',['../d8/d7a/a06083.html',1,'Lib::System']]],
   ['versionbase_3c_20hardwareversion_20_3e_12',['VersionBase&lt; HardwareVersion &gt;',['../d8/d7a/a06083.html',1,'Lib::System']]],
-  ['versions_13',['Versions',['../d3/d16/a04935.html',1,'Lib::Digi::API::NodeInfo']]],
+  ['versions_13',['Versions',['../de/d42/a04975.html',1,'Lib::Digi::API::NodeInfo']]],
   ['view_5finterface_14',['view_interface',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05974.html',0,'std::ranges']]],
-  ['voltmeter_15',['Voltmeter',['../d6/d8c/a04703.html',1,'Lib::BSP']]]
+  ['voltmeter_15',['Voltmeter',['../dd/d07/a04743.html',1,'Lib::BSP']]]
 ];

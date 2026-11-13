@@ -1,14 +1,18 @@
 var a04759 =
 [
-    [ "PasswordAuthHandler", "d0/dfa/a04759.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
-    [ "WolfSSHServerContext", "d0/dfa/a04759.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
-    [ "~WolfSSHServerContext", "d0/dfa/a04759.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
-    [ "WolfSSHServerContext", "d0/dfa/a04759.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
-    [ "WolfSSHServerContext", "d0/dfa/a04759.html#a41d71d3b7597c69631a274d39e0fa345", null ],
-    [ "native", "d0/dfa/a04759.html#a188293485b26e63785504b3f63d346fe", null ],
-    [ "operator=", "d0/dfa/a04759.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
-    [ "operator=", "d0/dfa/a04759.html#ac889915b8b230867843bb316a9bad1fc", null ],
-    [ "setBanner", "d0/dfa/a04759.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
-    [ "setPasswordAuthHandler", "d0/dfa/a04759.html#a72301d8027efc740d10b7d0d660c198f", null ],
-    [ "usePrivateKey", "d0/dfa/a04759.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
+    [ "RxMessage", "de/d5f/a04763.html", "de/d5f/a04763" ],
+    [ "Node", "d6/d67/a04767.html", "d6/d67/a04767" ],
+    [ "Diagnostic", "d8/def/a04771.html", "d8/def/a04771" ],
+    [ "ServiceBase", "d0/dfa/a04759.html#acbfceb92cefef5281785b7d5db81df5d", null ],
+    [ "~ServiceBase", "d0/dfa/a04759.html#a6594894f460fcebe7b8705a3ebca6938", null ],
+    [ "errorCallback", "d0/dfa/a04759.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
+    [ "getDiagnostic", "d0/dfa/a04759.html#aa6e2069cd0ca82608d533788d367dddf", null ],
+    [ "messageReceivedCallback", "d0/dfa/a04759.html#abe37221a89d42b0ec836894d481128b4", null ],
+    [ "receive", "d0/dfa/a04759.html#a24358bc730156fbe1517606352fbf513", null ],
+    [ "send", "d0/dfa/a04759.html#a9e61e58322c0a574320d57ad9da13966", null ],
+    [ "send", "d0/dfa/a04759.html#ae9698dff358c5494704ad558fcf82d22", null ],
+    [ "send", "d0/dfa/a04759.html#a26cd3541d7c850c5151fe7281e917a94", null ],
+    [ "start", "d0/dfa/a04759.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
+    [ "stop", "d0/dfa/a04759.html#a3d0252842f197249fff9649618458fee", null ],
+    [ "taskFn", "d0/dfa/a04759.html#a3f461c3e0f637c2be89463249c736b46", null ]
 ];

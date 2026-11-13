@@ -1,5 +1,6 @@
 var a04971 =
 [
-    [ "localAtCommand", "da/dd4/a04971.html#a62c4d2c354626705c34bc850c039b5f7", null ],
-    [ "remoteAtCommand", "da/dd4/a04971.html#aa56356e688d34101ce88fae45dd6fa4a", null ]
+    [ "getIdentifier", "da/dd4/a04971.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
+    [ "setIdentifier", "da/dd4/a04971.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
+    [ "identifier", "da/dd4/a04971.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
 ];

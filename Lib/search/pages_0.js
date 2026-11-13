@@ -73,7 +73,7 @@ var searchData=
   ['and_20sleep_20callbacks_70',['Setup and sleep callbacks',['../X:/Lib/IAR/Project/Examples/RTOS_PowerManager.dox#power_manager_usage_setup',1,'']]],
   ['and_20stopping_71',['Starting and stopping',['../X:/Lib/IAR/Project/Examples/RTOS_TickClient.dox#tick_client_usage_run',1,'']]],
   ['and_20storage_20on_20a_20shared_20bus_72',['New chip driver and storage on a shared bus',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EEPROM_I2C_Driver.dox#eeprom_usage_bus',1,'']]],
-  ['and_20stored_20setting_73',['Power cycle, network report and stored setting',['../X:/Lib/IAR/Project/Examples/Lib_GSM_A7670E.dox#a7670e_usage_report',1,'']]],
+  ['and_20stored_20setting_73',['Power cycle, network report and stored setting',['../X:/Lib/IAR/Project/Examples/Lib_BSP_GSM_A7670E.dox#a7670e_usage_report',1,'']]],
   ['and_20the_20pin_20macro_74',['Handle and the PIN() macro',['../X:/Lib/IAR/Project/Examples/Lib_HAL_GPIO.dox#gpio_usage_handle',1,'']]],
   ['and_20the_20set_75',['Declaring the members and the set',['../X:/Lib/IAR/Project/Examples/RTOS_QueueSet.dox#queue_set_usage_declare',1,'']]],
   ['and_20time_76',['Read and set date and time',['../X:/Lib/IAR/Project/Examples/Lib_HAL_RTCDevice.dox#rtc_usage_read',1,'']]],

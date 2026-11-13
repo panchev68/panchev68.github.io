@@ -1,27 +1,15 @@
 var a05231 =
 [
-    [ "Mode", "d4/d54/a05231.html#a82f2526628e3e74c1232ccf24df036af", [
-      [ "READ", "d4/d54/a05231.html#a82f2526628e3e74c1232ccf24df036afa3466fab4975481651940ed328aa990e4", null ],
-      [ "WRITE", "d4/d54/a05231.html#a82f2526628e3e74c1232ccf24df036afad4b9e47f65b6e79b010582f15785867e", null ],
-      [ "APPEND", "d4/d54/a05231.html#a82f2526628e3e74c1232ccf24df036afa375ffb668aa90f1c7fcae55e9734a752", null ]
-    ] ],
-    [ "Origin", "d4/d54/a05231.html#adc0bb84f9957a428032fe84b094ff7af", [
-      [ "BEGIN", "d4/d54/a05231.html#adc0bb84f9957a428032fe84b094ff7afa19aad9f2fe3ce0023298ab83f7e75775", null ],
-      [ "CURRENT", "d4/d54/a05231.html#adc0bb84f9957a428032fe84b094ff7afaa2770969c827f0f2910f6179418462df", null ],
-      [ "END", "d4/d54/a05231.html#adc0bb84f9957a428032fe84b094ff7afab1a326c06d88bf042f73d70f50197905", null ]
-    ] ],
-    [ "File", "d4/d54/a05231.html#a6410b3e4efbeafb5b572eef2c50d3a5c", null ],
-    [ "~File", "d4/d54/a05231.html#aa5e98a86481b56ecdfe15d0dd0705c0d", null ],
-    [ "File", "d4/d54/a05231.html#aabdc0b1677af6f2f24e3832b1e462b96", null ],
-    [ "File", "d4/d54/a05231.html#a2be63c46403727141b66d86197d6378c", null ],
-    [ "close", "d4/d54/a05231.html#a1d8a686c8e2b54b05b1a4f2cb56c0503", null ],
-    [ "isOpen", "d4/d54/a05231.html#a74e821d2b8a14cc2fa7bb4ba4c14ed00", null ],
-    [ "open", "d4/d54/a05231.html#af3a174021237cab4dfa82aa7aee929eb", null ],
-    [ "operator=", "d4/d54/a05231.html#a81556ddc21aaad19dcd4de346f6e84db", null ],
-    [ "operator=", "d4/d54/a05231.html#a8355b4e6686abcc948762c9a449d0f15", null ],
-    [ "read", "d4/d54/a05231.html#a309ff07e9b6c587a4c424cf9c8713b31", null ],
-    [ "seek", "d4/d54/a05231.html#af95ff87e1f57105a35a88079323afec4", null ],
-    [ "size", "d4/d54/a05231.html#a97646b793419f6c4c50b5405f777dfa0", null ],
-    [ "tell", "d4/d54/a05231.html#a5b4ddec74cc06338f7ebca1389e2fc0a", null ],
-    [ "write", "d4/d54/a05231.html#a8906d9e00058fa515114bea3fbbcb3e1", null ]
+    [ "dnsIp", "d4/d54/a05231.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
+    [ "dnsName", "d4/d54/a05231.html#a2b21f67fcea486054df4fbece648ef7f", null ],
+    [ "gateway", "d4/d54/a05231.html#ae526dc3391066f8447e665e962d7f3e1", null ],
+    [ "hasDnsIp", "d4/d54/a05231.html#ab1307f2487c4d9d8a056679335c62d47", null ],
+    [ "hasDnsName", "d4/d54/a05231.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
+    [ "hasGateway", "d4/d54/a05231.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
+    [ "hasIp", "d4/d54/a05231.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
+    [ "hasMac", "d4/d54/a05231.html#a44b23d072f52c270d4c722d93a8b6117", null ],
+    [ "hasSubnet", "d4/d54/a05231.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
+    [ "ip", "d4/d54/a05231.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
+    [ "mac", "d4/d54/a05231.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
+    [ "subnet", "d4/d54/a05231.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
 ];

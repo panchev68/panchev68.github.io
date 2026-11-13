@@ -1,5 +1,5 @@
 var a08358 =
 [
-    [ "Lib::Digi::Core::Frame::Helper", "d3/dd5/a05047.html", "d3/dd5/a05047" ],
-    [ "Lib::Digi::Core::Frame::Helper::Convert", "d6/d32/a05051.html", null ]
+    [ "Lib::Digi::Core::Frame::Helper", "d2/d78/a05087.html", "d2/d78/a05087" ],
+    [ "Lib::Digi::Core::Frame::Helper::Convert", "d9/de1/a05091.html", null ]
 ];

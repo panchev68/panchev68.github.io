@@ -1,5 +1,5 @@
 var a00311 =
 [
-    [ "Lib::BSP::Thermometer::TMP102&lt; T_MODE &gt;", "db/da5/a04663.html", "db/da5/a04663" ],
-    [ "Lib::BSP::Thermometer::TMP102&lt; T_MODE &gt;::Config", "da/d19/a04667.html", "da/d19/a04667" ]
+    [ "Lib::BSP::Thermometer::OneWire::DS18B20", "de/db5/a04695.html", "de/db5/a04695" ],
+    [ "Lib::BSP::Thermometer::OneWire::DS18B20::Config", "df/d5e/a04699.html", "df/d5e/a04699" ]
 ];

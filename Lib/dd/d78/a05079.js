@@ -1,8 +1,14 @@
 var a05079 =
 [
-    [ "writeTo", "dd/d78/a05079.html#a46342f730043bd2cb721cafd68faf502", null ],
-    [ "dstAddress", "dd/d78/a05079.html#a681024a962d2609634ac216a9325a808", null ],
-    [ "frameId", "dd/d78/a05079.html#a30b2f9e311fce068c3facfca4084a959", null ],
-    [ "options", "dd/d78/a05079.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
-    [ "rfData", "dd/d78/a05079.html#a647a428c66648b2c7897b90431917f0b", null ]
+    [ "append", "dd/d78/a05079.html#a668dfbfff0a73062240c2b9d4a20bc28", null ],
+    [ "append", "dd/d78/a05079.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
+    [ "assign", "dd/d78/a05079.html#a3552b4d8b71ae5386a62d2b831cc4754", null ],
+    [ "clear", "dd/d78/a05079.html#a203088c695cf3b7a7190c9a52d8a143c", null ],
+    [ "data", "dd/d78/a05079.html#aaf5bb127946bfccf2adfc318d584894e", null ],
+    [ "empty", "dd/d78/a05079.html#afc7cdfcb2f5ea010a814513b9f7e9692", null ],
+    [ "insert", "dd/d78/a05079.html#ae409c8ac34780b163e1044b9959a2f81", null ],
+    [ "reserve", "dd/d78/a05079.html#aa059b03866b8797af025cf959e3dee4e", null ],
+    [ "reset", "dd/d78/a05079.html#ab7425c54f798a024d87678d5f1495d0e", null ],
+    [ "size", "dd/d78/a05079.html#aea29854e97878274b63e4a5e3e4c9475", null ],
+    [ "type", "dd/d78/a05079.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ]
 ];

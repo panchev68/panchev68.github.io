@@ -22,7 +22,7 @@ var searchData=
   ['region_20before_20use_19',['Check the region before use',['../X:/Lib/IAR/Project/Examples/Lib_HAL_OTP.dox#otp_usage_bounds',1,'']]],
   ['rejecting_20malformed_20input_20',['Rejecting malformed input',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_Bcd.dox#bcd_usage_invalid',1,'']]],
   ['reload_20timer_21',['Auto-reload timer',['../X:/Lib/IAR/Project/Examples/RTOS_Timer.dox#timer_usage_blink',1,'']]],
-  ['report_20and_20stored_20setting_22',['Power cycle, network report and stored setting',['../X:/Lib/IAR/Project/Examples/Lib_GSM_A7670E.dox#a7670e_usage_report',1,'']]],
+  ['report_20and_20stored_20setting_22',['Power cycle, network report and stored setting',['../X:/Lib/IAR/Project/Examples/Lib_BSP_GSM_A7670E.dox#a7670e_usage_report',1,'']]],
   ['report_20the_20cause_20of_20the_20last_20reset_23',['Report the cause of the last reset',['../X:/Lib/IAR/Project/Examples/Lib_HAL_Reset.dox#reset_usage_cause',1,'']]],
   ['request_20a_20software_20reset_24',['Request a software reset',['../X:/Lib/IAR/Project/Examples/Lib_HAL_Reset.dox#reset_usage_request',1,'']]],
   ['reset_25',['reset',['../X:/Lib/IAR/Project/Examples/Lib_HAL_Reset.dox#reset_usage_cause',1,'Report the cause of the last reset'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_Reset.dox#reset_usage_request',1,'Request a software reset'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_BackupRamDomain.dox#backup_usage_store',1,'Store a value across a reset']]],

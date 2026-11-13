@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Errors::Detail</title>
+<title>IAR EWARM Library: Lib::Errors</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,37 +112,54 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('db/daf/a01019.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Errors::Detail</div></div>
+  <div class="headertitle"><div class="title">Lib::Errors</div></div>
 </div><!--header-->
 <div class="contents">
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a4aa716a71feabe9eb092678479bdfa78" id="r_a4aa716a71feabe9eb092678479bdfa78"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01934.html">std::atomic</a>&lt; uint32_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a4aa716a71feabe9eb092678479bdfa78">errorIdCounter</a> {0U}</td></tr>
-<tr class="memdesc:a4aa716a71feabe9eb092678479bdfa78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counter shared by all error types to assign unique ids.  <br /></td></tr>
+
+<p>Centralized error creation, state tracking and observation.  
+<a href="#details">More...</a></p>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Centralized error creation, state tracking and observation. </p>
+<p>The "Dispatcher" singleton owns every "Error" created via "createError()" and periodically scans it for state transitions; "Observer" provides the pull-based, group-filterable read side. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:Detail" id="r_Detail"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d43/a01020.html">Detail</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:BasicDispatcher" id="r_BasicDispatcher"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d48/a05183.html">BasicDispatcher</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owns every constructed error and periodically scans it for state changes through an <a class="el" href="../../d8/d0b/a06280.html" title="RTOS::TickClient">RTOS::TickClient</a>.  <a href="../../d7/d48/a05183.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Error" id="r_Error"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d61/a05191.html">Error</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ready-made error without extra behavior, used by the default '<a class="el" href="#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher for the plain &#39;Error&#39; type.">Dispatcher</a>'.  <a href="../../de/d61/a05191.html#details">More...</a><br /></td></tr>
+<tr class="memitem:ErrorBase" id="r_ErrorBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/d48/a05187.html">ErrorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP foundation tracking a single error condition through an explicit lifecycle.  <a href="../../db/d48/a05187.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Group" id="r_Group"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d65/a05195.html">Group</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A named category that '<a class="el" href="../../de/d61/a05191.html" title="Ready-made error without extra behavior, used by the default &#39;Dispatcher&#39;.">Error</a>' instances can be tagged with, and that '<a class="el" href="../../de/d1b/a05203.html" title="Ready-made observer using the default group filter of &#39;ObserverBase&#39;.">Observer</a>' can filter by.  <a href="../../dc/d65/a05195.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Observer" id="r_Observer"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d1b/a05203.html">Observer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ready-made observer using the default group filter of '<a class="el" href="../../d4/ddd/a05199.html" title="CRTP foundation reading active errors from the &#39;Dispatcher&#39;, optionally restricted to a single &#39;Group...">ObserverBase</a>'.  <a href="../../de/d1b/a05203.html#details">More...</a><br /></td></tr>
+<tr class="memitem:ObserverBase" id="r_ObserverBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d4/ddd/a05199.html">ObserverBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP foundation reading active errors from the '<a class="el" href="#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher for the plain &#39;Error&#39; type.">Dispatcher</a>', optionally restricted to a single '<a class="el" href="../../dc/d65/a05195.html" title="A named category that &#39;Error&#39; instances can be tagged with, and that &#39;Observer&#39; can filter by.">Group</a>'.  <a href="../../d4/ddd/a05199.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a32937fedfac156d84189cbf2133bd0ab" id="r_a32937fedfac156d84189cbf2133bd0ab"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a32937fedfac156d84189cbf2133bd0ab">Dispatcher</a> = <a class="el" href="../../d7/d48/a05183.html">BasicDispatcher</a>&lt;<a class="el" href="../../de/d61/a05191.html">Error</a>&gt;</td></tr>
+<tr class="memdesc:a32937fedfac156d84189cbf2133bd0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher for the plain &#39;Error&#39; type.">Dispatcher</a> for the plain '<a class="el" href="../../de/d61/a05191.html" title="Ready-made error without extra behavior, used by the default &#39;Dispatcher&#39;.">Error</a>' type.  <br /></td></tr>
 </table>
-<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a4aa716a71feabe9eb092678479bdfa78" name="a4aa716a71feabe9eb092678479bdfa78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4aa716a71feabe9eb092678479bdfa78">&#9670;&#160;</a></span>errorIdCounter</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a id="a32937fedfac156d84189cbf2133bd0ab" name="a32937fedfac156d84189cbf2133bd0ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32937fedfac156d84189cbf2133bd0ab">&#9670;&#160;</a></span>Dispatcher</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01934.html">std::atomic</a>&lt;uint32_t&gt; Lib::Errors::Detail::errorIdCounter {0U}</td>
+          <td class="memname">using <a class="el" href="#a32937fedfac156d84189cbf2133bd0ab">Lib::Errors::Dispatcher</a> = <a class="el" href="../../d7/d48/a05183.html">BasicDispatcher</a>&lt;<a class="el" href="../../de/d61/a05191.html">Error</a>&gt;</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Counter shared by all error types to assign unique ids. </p>
+<p><a class="el" href="#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher for the plain &#39;Error&#39; type.">Dispatcher</a> for the plain '<a class="el" href="../../de/d61/a05191.html" title="Ready-made error without extra behavior, used by the default &#39;Dispatcher&#39;.">Error</a>' type. </p>
 
 </div>
 </div>
@@ -159,7 +176,7 @@ Variables</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dd/d7a/a00990.html">Lib</a></li><li class="navelem"><a href="../../d3/d08/a01018.html">Errors</a></li><li class="navelem"><a href="../../db/daf/a01019.html">Detail</a></li>
+    <li class="navelem"><a href="../../dd/d7a/a00990.html">Lib</a></li><li class="navelem"><a href="../../db/daf/a01019.html">Errors</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

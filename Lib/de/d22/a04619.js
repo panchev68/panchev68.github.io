@@ -1,8 +1,13 @@
 var a04619 =
 [
-    [ "operator==", "de/d22/a04619.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
-    [ "blue", "de/d22/a04619.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
-    [ "green", "de/d22/a04619.html#aaac4b49f8ced6f8a10842162f110217d", null ],
-    [ "red", "de/d22/a04619.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
-    [ "white", "de/d22/a04619.html#a272f822cae4bd3b8e993080e2317636e", null ]
+    [ "Bytes", "de/d22/a04619.html#aaa924b52936a11a36f991b92270eb1b6", null ],
+    [ "Digest", "de/d22/a04619.html#a97d15161e3e4d29994672b77e28ea856", null ],
+    [ "Message", "de/d22/a04619.html#a8ba002cb2db8c1b57b6534f88d77e2ab", null ],
+    [ "Uid", "de/d22/a04619.html#ab823c89537a28891f90d448eeb6122c1", null ],
+    [ "Result", "de/d22/a04619.html#ae690657e7ab3cf073f0d03abc2ee488b", [
+      [ "VALID", "de/d22/a04619.html#ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea", null ],
+      [ "BAD_FORMAT", "de/d22/a04619.html#ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a", null ],
+      [ "UNKNOWN_KEY", "de/d22/a04619.html#ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb", null ],
+      [ "BAD_SIGNATURE", "de/d22/a04619.html#ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a", null ]
+    ] ]
 ];

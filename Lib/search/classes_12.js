@@ -53,8 +53,8 @@ var searchData=
   ['regex_5ftraits_50',['regex_traits',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06066.html',0,'std']]],
   ['register_51',['Register',['../d2/d71/a04503.html',1,'Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register'],['../d7/ddc/a04523.html',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['registers_52',['Registers',['../d8/dc4/a04487.html',1,'Lib::BSP::Ethercat::PDI::LAN9252']]],
-  ['registerwrite_53',['RegisterWrite',['../dd/dec/a04595.html',1,'Lib::BSP::RFID::ST25R100']]],
-  ['remoteatcommand_54',['RemoteAtCommand',['../d8/d5e/a05103.html',1,'Lib::Digi::Core']]],
+  ['registerwrite_53',['RegisterWrite',['../d5/d6d/a04635.html',1,'Lib::BSP::RFID::ST25R100']]],
+  ['remoteatcommand_54',['RemoteAtCommand',['../db/d58/a05143.html',1,'Lib::Digi::Core']]],
   ['remove_5fall_5fextents_55',['remove_all_extents',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a03318.html',0,'std']]],
   ['remove_5fconst_56',['remove_const',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a03498.html',0,'std']]],
   ['remove_5fcv_57',['remove_cv',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a03106.html',0,'std']]],
@@ -66,11 +66,11 @@ var searchData=
   ['resize_5fpolicy_63',['resize_policy',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a12086.html',0,'__gnu_pbds::detail']]],
   ['resize_5fpolicy_3c_20_5falloc_3a_3asize_5ftype_20_3e_64',['resize_policy&lt; _Alloc::size_type &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a12086.html',0,'__gnu_pbds::detail']]],
   ['response_65',['Response',['../d1/d9a/a05795.html',1,'Lib::HTTP']]],
-  ['responseevents_66',['ResponseEvents',['../da/d41/a05107.html',1,'Lib::Digi::Core']]],
+  ['responseevents_66',['ResponseEvents',['../d2/d38/a05147.html',1,'Lib::Digi::Core']]],
   ['result_67',['Result',['../d3/d67/a05971.html',1,'RTOS::Task::Notify']]],
   ['result_5fof_68',['result_of',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a03682.html',0,'std']]],
   ['reverse_5fiterator_69',['reverse_iterator',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07058.html',0,'std']]],
-  ['ring_70',['Ring',['../d8/da0/a04627.html',1,'Lib::BSP::SK6812']]],
+  ['ring_70',['Ring',['../da/d19/a04667.html',1,'Lib::BSP::SK6812']]],
   ['ringbuffer_71',['RingBuffer',['../d8/d36/a05763.html',1,'Lib::Helper']]],
   ['rope_72',['rope',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a08546.html',0,'__gnu_cxx']]],
   ['rotationcylinder_73',['RotationCylinder',['../d2/dea/a05863.html',1,'Lib::Pneumatics']]],
@@ -82,5 +82,5 @@ var searchData=
   ['rtc_5ftimetypedef_79',['RTC_TimeTypeDef',['https://panchev68.github.io/HALF4/de/d65/a01500.html',0,'']]],
   ['rtcdevice_80',['RTCDevice',['../d1/dab/a05515.html',1,'Lib::HAL']]],
   ['runtime_5ferror_81',['runtime_error',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02902.html',0,'std']]],
-  ['rxmessage_82',['RxMessage',['../dc/d12/a04723.html',1,'Lib::Canbus::ServiceBase']]]
+  ['rxmessage_82',['RxMessage',['../de/d5f/a04763.html',1,'Lib::Canbus::ServiceBase']]]
 ];

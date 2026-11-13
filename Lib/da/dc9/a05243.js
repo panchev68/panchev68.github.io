@@ -1,8 +1,7 @@
 var a05243 =
 [
-    [ "Node", "da/dc9/a05243.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
-    [ "Node", "da/dc9/a05243.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
-    [ "set", "da/dc9/a05243.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
-    [ "ip", "da/dc9/a05243.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
-    [ "port", "da/dc9/a05243.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
+    [ "close", "da/dc9/a05243.html#ab9d284c5cdff31383f99dea75c7f9e89", null ],
+    [ "open", "da/dc9/a05243.html#a2f27b571e2674aeb90f9773efe5d47c5", null ],
+    [ "read", "da/dc9/a05243.html#a53a2f54f254565a80c92924936564fb0", null ],
+    [ "write", "da/dc9/a05243.html#ae649720e51a2f29cd3f226e0c91e40f4", null ]
 ];

@@ -1,8 +1,6 @@
 var a04963 =
 [
-    [ "Node", "d5/d18/a04963.html#ae77243ef5154f0127b188cb07ee7b730", null ],
-    [ "Node", "d5/d18/a04963.html#ade2b76a4bad3907d0779b98753dbe88b", null ],
-    [ "macAddress", "d5/d18/a04963.html#ab4f01a998762165160e1c5f287e33b36", null ],
-    [ "nodeAddr16", "d5/d18/a04963.html#a047c25d839ad49f40c973b610050fa18", null ],
-    [ "nodeIdentifier", "d5/d18/a04963.html#a66f046134b60cff03864ca23d0ff54fa", null ]
+    [ "operator uint64_t", "d5/d18/a04963.html#aebc72338217669721612422f138da4e6", null ],
+    [ "leastSignificant", "d5/d18/a04963.html#af020cae181d7b432faf85061911c84dd", null ],
+    [ "mostSignificant", "d5/d18/a04963.html#abd19bd98e154f92791c281037281c222", null ]
 ];

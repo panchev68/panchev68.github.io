@@ -1,20 +1,16 @@
 var a04951 =
 [
-    [ "Channel", "db/de9/a04955.html", "db/de9/a04955" ],
-    [ "ChannelArray", "d9/d31/a04951.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
-    [ "QualityMode", "d9/d31/a04951.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
-    [ "Error", "d9/d31/a04951.html#acb54f9ec6751a18eda393e2c5bd0675c", [
-      [ "NONE", "d9/d31/a04951.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "MODULE_IS_NOT_CONNECTED", "d9/d31/a04951.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
-      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d9/d31/a04951.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
-    ] ],
-    [ "ChannelScanner", "d9/d31/a04951.html#a4e65a2b73399e5ba18d5090993f64487", null ],
-    [ "ChannelScanner", "d9/d31/a04951.html#a1b11f5df668c4629836c71101e686990", null ],
-    [ "close", "d9/d31/a04951.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "getChannels", "d9/d31/a04951.html#a124a962ad28c0688ab38329f7a7b034e", null ],
-    [ "isRunning", "d9/d31/a04951.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d9/d31/a04951.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "d9/d31/a04951.html#aed5af8462cac9a996e73489e369434d3", null ],
-    [ "update", "d9/d31/a04951.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
-    [ "onError", "d9/d31/a04951.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
+    [ "Period", "d9/d31/a04951.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
+    [ "Period", "d9/d31/a04951.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
+    [ "beginMeasurement", "d9/d31/a04951.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
+    [ "clearMinMax", "d9/d31/a04951.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
+    [ "endMeasurement", "d9/d31/a04951.html#a764b89843884696c66a1e499e466bb51", null ],
+    [ "getMaximum", "d9/d31/a04951.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
+    [ "getMinimum", "d9/d31/a04951.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
+    [ "getRawValue", "d9/d31/a04951.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
+    [ "getValue", "d9/d31/a04951.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
+    [ "operator uint32_t", "d9/d31/a04951.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
+    [ "operator=", "d9/d31/a04951.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
+    [ "reset", "d9/d31/a04951.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
+    [ "stopMeasurement", "d9/d31/a04951.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
 ];

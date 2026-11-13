@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Core::FunctionRef</title>
+<title>IAR EWARM Library: Lib::BSP::Ultrasonic::PGA460TPWRQ1</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,47 +112,108 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d17/a06174.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Core::FunctionRef</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Ultrasonic::PGA460TPWRQ1</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Binds a 'FunctionRef&lt;int(int)&gt;' to a lambda, to a functor and to a free function, then calls it.</p>
-<p>Binds a 'FunctionRef&lt;int(int)&gt;' to a lambda, to a functor and to a free function, then calls it.'<a class="el" href="../../d2/df3/a04787.html" title="Primary template; only the function-signature specializations below are defined.">FunctionRef</a>' owns nothing: it stores a capture-less lambda or a free function by value, and any callable as wide as a pointer and trivially copyable, such as a 4-byte functor on this 32-bit target or a lambda capturing 'this'. Any other callable is referenced, so an lvalue of it must outlive the reference, and a larger temporary is rejected at compile time. The reference is not thread-safe to rebind while another task calls it.</p>
-<h1 class="doxsection"><a class="anchor" id="lib_core_functionref_usage"></a>
+<p>Reads the distance from a PGA460 ultrasonic sensor with <a class="el" href="../../d4/d17/a06174.html" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a> in <a class="el" href="../../db/d23/a01025.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> mode.</p>
+<p>Reads the distance from a PGA460 ultrasonic sensor with <a class="el" href="../../d4/d17/a06174.html" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a> in <a class="el" href="../../db/d23/a01025.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> mode.The driver does not own the UART port; pass the 'Lib::HAL::UARTPort' wired to the PGA460 RXD/TXD pins. 'readDistance()' blocks the calling task for about the listen duration plus two UART transfers and yields via <a class="el" href="../../de/d91/a01034.html#a9457a17b234e2e6b6336f69c9f756021" title="RTOS::delay()">RTOS::delay()</a>, so call it from a task, never from an ISR. The driver is not thread-safe: use one instance from a single task, or guard it with a mutex.</p>
+<h1 class="doxsection"><a class="anchor" id="lib_bsp_ultrasonic_pga460tpwrq1_usage"></a>
 Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="functionref_usage_rebind"></a>
-Bind and rebind</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d10/a00350.html">Lib/Core/FunctionRef.hpp</a>&gt;</span></div>
+<h2 class="doxsection"><a class="anchor" id="pga460_usage_hw"></a>
+Hardware assumptions</h2>
+<ul>
+<li>Two-wire UART on RXD/TXD; the IO pin is unused (pulled up), so transmitted bytes are not echoed back.</li>
+<li>TEST pin tied to GND at power-up, so the digital I/O runs at 3.3 V.</li>
+<li>Factory 'UART_ADDR' of <b>0</b>; set <a class="el" href="../../d9/d06/a04735.html#a07cd324da0adf0baf2262a0b33404164" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1::Config::uartAddress">Lib::BSP::Ultrasonic::PGA460TPWRQ1::Config::uartAddress</a> only if the EEPROM address was reprogrammed.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="pga460_usage_basic"></a>
+Single measurement</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/de2/a00320.html">Lib/BSP/Ultrasonic/PGA460TPWRQ1.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
+<div class="line"><span class="keywordtype">void</span> measureOnce(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; uartPort) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d6b/a04731.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor({</div>
+<div class="line">        .uart = uartPort,</div>
+<div class="line">        .timeout = <a id="a1" name="a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
+<div class="line">        .listenDuration = <a id="a2" name="a2"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
+<div class="line">        .ambientTemperatureCelsius = 22.0F,</div>
+<div class="line">    });</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">struct </span>Adder {</div>
-<div class="line">    <span class="keywordtype">int</span> base;</div>
-<div class="line">    Adder(<span class="keywordtype">int</span> b) :</div>
-<div class="line">        base(b) {</div>
+<div class="line">    <span class="keywordflow">if</span> (!sensor.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordtype">int</span> operator()(<span class="keywordtype">int</span> x)<span class="keyword"> const </span>{</div>
-<div class="line">        <span class="keywordflow">return</span> base + x;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> distanceMeters = sensor.readDistance(); distanceMeters.has_value()) {</div>
+<div class="line">        <span class="comment">// Use *distanceMeters.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sensor.close());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00320_html"><div class="ttname"><a href="../../dd/de2/a00320.html">PGA460TPWRQ1.hpp</a></div><div class="ttdoc">UART driver for the Texas Instruments PGA460 ultrasonic signal processor, reading distance and transd...</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01610_html_ga5688b0ad006994a28a4bb5c2fd1a715d"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a></div><div class="ttdeci">duration&lt; int64_t, micro &gt; microseconds</div></div>
+<div class="ttc" id="aa04731_html"><div class="ttname"><a href="../../dc/d6b/a04731.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a></div><div class="ttdoc">Reads the current distance from a PGA460 ultrasonic sensor connected over UART.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:56</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="pga460_usage_task"></a>
+Periodic measurement task</h2>
+<p>The first reading after power-up may be rejected because the diagnostic byte still carries a stale error flag; treat an empty result as a skipped sample, not a fatal error.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/de2/a00320.html">Lib/BSP/Ultrasonic/PGA460TPWRQ1.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d3c/a00971.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>LevelMonitor final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">explicit</span> LevelMonitor(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; uartPort) noexcept :</div>
+<div class="line">        sensor({</div>
+<div class="line">            .uart = uartPort,</div>
+<div class="line">            .timeout = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
+<div class="line">            .listenDuration = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
+<div class="line">        }),</div>
+<div class="line">        task(<a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../d5/dc4/a05975.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Level&quot;</span>, 512, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d8/d33/a05959.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> PERIOD{1000};</div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t MAX_CONSECUTIVE_FAILURES = 5;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="../../dc/d6b/a04731.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor; <span class="comment">// Constructed before the task starts using it.</span></div>
+<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d0/d5d/a05955.html">RTOS::Task</a> task;          <span class="comment">// Must stay the last member.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!sensor.<a id="a7" name="a7"></a><a class="code hl_function" href="../../dc/d6b/a04731.html#a50accfabb3897779a4b26e4c6b8e7566">open</a>()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;LevelMonitor: failed to open sensor UART&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        uint32_t failures = 0;</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> distanceMeters = sensor.<a id="a8" name="a8"></a><a class="code hl_function" href="../../dc/d6b/a04731.html#ab5b14fe14cfea3451683b86f1cc54952">readDistance</a>(); distanceMeters.has_value()) {</div>
+<div class="line">                failures = 0;</div>
+<div class="line">                <span class="comment">// Publish *distanceMeters.</span></div>
+<div class="line">            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (++failures &gt;= MAX_CONSECUTIVE_FAILURES) {</div>
+<div class="line">                failures = 0;</div>
+<div class="line">                <span class="comment">// Report a sensor fault.</span></div>
+<div class="line">            }</div>
+<div class="line">            <a id="a9" name="a9"></a><a class="code hl_function" href="../../de/d91/a01034.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(PERIOD);</div>
+<div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> functionRefExample() {</div>
-<div class="line">    <span class="comment">// A capture-less lambda is stored by value, so the temporary is fine.</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d2/df3/a04787.html">FunctionRef</a>&lt;int(<span class="keywordtype">int</span>)&gt; callable = [](<span class="keywordtype">int</span> x) { <span class="keywordflow">return</span> x * 2; };</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; callable(5) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// prints 10</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// A functor as wide as a pointer is stored by value too.</span></div>
-<div class="line">    callable = Adder{3};</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; callable(5) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// prints 8</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// A free function, or a lambda assigned through its own lvalue.</span></div>
-<div class="line">    <span class="keyword">auto</span> square = [](<span class="keywordtype">int</span> v) { <span class="keywordflow">return</span> v * v; };</div>
-<div class="line">    callable = square;</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; callable(4) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// prints 16</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
-<div class="ttc" id="aa00350_html"><div class="ttname"><a href="../../db/d10/a00350.html">FunctionRef.hpp</a></div><div class="ttdoc">Non-owning callable reference modelled on C++26 std::function_ref, without heap, RTTI or virtual disp...</div></div>
-<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
-<div class="ttc" id="aa04787_html"><div class="ttname"><a href="../../d2/df3/a04787.html">FunctionRef</a></div><div class="ttdoc">Primary template; only the function-signature specializations below are defined.</div><div class="ttdef"><b>Definition</b> FunctionRef.hpp:34</div></div>
+<div class="ttc" id="aa00971_html"><div class="ttname"><a href="../../d0/d3c/a00971.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01034_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d91/a01034.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:604</div></div>
+<div class="ttc" id="aa04731_html_a50accfabb3897779a4b26e4c6b8e7566"><div class="ttname"><a href="../../dc/d6b/a04731.html#a50accfabb3897779a4b26e4c6b8e7566">Lib::BSP::Ultrasonic::PGA460TPWRQ1::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes the underlying UART peripheral.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:141</div></div>
+<div class="ttc" id="aa04731_html_ab5b14fe14cfea3451683b86f1cc54952"><div class="ttname"><a href="../../dc/d6b/a04731.html#ab5b14fe14cfea3451683b86f1cc54952">Lib::BSP::Ultrasonic::PGA460TPWRQ1::readDistance</a></div><div class="ttdeci">std::optional&lt; float &gt; readDistance() noexcept</div><div class="ttdoc">Triggers a measurement and reads back the distance to the closest detected object.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:165</div></div>
+<div class="ttc" id="aa05955_html"><div class="ttname"><a href="../../d0/d5d/a05955.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:52</div></div>
+<div class="ttc" id="aa05959_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d8/d33/a05959.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:85</div></div>
+<div class="ttc" id="aa05975_html"><div class="ttname"><a href="../../d5/dc4/a05975.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="pga460_usage_address"></a>
+Non-default UART address</h2>
+<div class="fragment"><div class="line"><a class="code hl_class" href="../../dc/d6b/a04731.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor({</div>
+<div class="line">    .uart = uartPort,</div>
+<div class="line">    .timeout = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
+<div class="line">    .listenDuration = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
+<div class="line">    .uartAddress = 3, <span class="comment">// Must match UART_ADDR programmed in the device EEPROM.</span></div>
+<div class="line">});</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

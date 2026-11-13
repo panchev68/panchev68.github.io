@@ -9,6 +9,7 @@ var dir_4f517acdbe9bc35e0af7a62669e9b8b9 =
     [ "Encoder", "dir_007ecd879f4d44cca4b7c98e95ebc72e.html", "dir_007ecd879f4d44cca4b7c98e95ebc72e" ],
     [ "Ethercat", "dir_3171ebaef30f93c4a10b9f9717a6a563.html", "dir_3171ebaef30f93c4a10b9f9717a6a563" ],
     [ "FlashMemory", "dir_5508e5af08ded39ca1c62077553f925e.html", "dir_5508e5af08ded39ca1c62077553f925e" ],
+    [ "GSM", "dir_6b5f61f90fd4d0ae97ff89e3e6e6e3b1.html", "dir_6b5f61f90fd4d0ae97ff89e3e6e6e3b1" ],
     [ "RAM", "dir_646e1bd31e9514219739ca7cd670c4f9.html", "dir_646e1bd31e9514219739ca7cd670c4f9" ],
     [ "RFID", "dir_6d0a38027755fa184600345ff0fa6ec9.html", "dir_6d0a38027755fa184600345ff0fa6ec9" ],
     [ "RGBWLed", "dir_a68c20eb5950e752ccbe34cf145b30c5.html", "dir_a68c20eb5950e752ccbe34cf145b30c5" ],

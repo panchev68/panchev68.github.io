@@ -23,7 +23,7 @@ var searchData=
   ['position_20from_20encoder_20events_20',['Menu position from encoder events',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EncoderPins.dox#encpins_usage_menu',1,'']]],
   ['position_20from_20timer_20and_20button_20events_21',['Menu position from timer and button events',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EncoderTimer.dox#enctimer_usage_menu',1,'']]],
   ['post_20and_20plain_20http_20get_20over_20the_20modem_22',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]],
-  ['power_20cycle_20network_20report_20and_20stored_20setting_23',['Power cycle, network report and stored setting',['../X:/Lib/IAR/Project/Examples/Lib_GSM_A7670E.dox#a7670e_usage_report',1,'']]],
+  ['power_20cycle_20network_20report_20and_20stored_20setting_23',['Power cycle, network report and stored setting',['../X:/Lib/IAR/Project/Examples/Lib_BSP_GSM_A7670E.dox#a7670e_usage_report',1,'']]],
   ['power_20down_24',['Power down',['../X:/Lib/IAR/Project/Examples/Lib_BSP_FlashMemory_OSPI_W25Q128JVSIQ.dox#w25q128_usage_power',1,'']]],
   ['probing_20a_20device_20before_20use_25',['Probing a device before use',['../X:/Lib/IAR/Project/Examples/Lib_HAL_I2C.dox#i2c_usage_probe',1,'']]],
   ['producer_20task_26',['Producer task',['../X:/Lib/IAR/Project/Examples/RTOS_Queue.dox#queue_usage_producer',1,'']]],

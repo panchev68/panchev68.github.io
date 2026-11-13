@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Ethercat::SOES::EoE</title>
+<title>IAR EWARM Library: Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,149 +112,147 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/ddd/a05199.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::EoE<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p><a class="el" href="../../d1/dd8/a01022.html" title="Ethernet networking primitives.">Ethernet</a> over EtherCAT (<a class="el" href="../../d4/ddd/a05199.html" title="Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.">EoE</a>): the <a class="el" href="../../d1/dd8/a01022.html" title="Ethernet networking primitives.">Ethernet</a> frame tunnel of an EtherCAT slave. </p>
-<p>Carries <a class="el" href="../../d1/dd8/a01022.html" title="Ethernet networking primitives.">Ethernet</a> frames between the master and a network stack on the slave over the mailbox. A frame is cut into fragments that fit a mailbox message; this class puts the fragments of a received frame together and hands the frame to the application, and cuts a frame the application queues into fragments and sends them. It also answers the requests that set and get the IP parameters of the slave. It does not contain a network stack: the application passes received frames to its stack and queues the frames the stack wants to send.</p>
-<p>Use it from the mailbox handler of a '<a class="el" href="../../d3/d6e/a05227.html" title="EtherCAT slave: the application layer state machine, the process data and the mailbox of one slave co...">Slave</a>': pass every message to <a class="el" href="#a41416e8882dd613876cb3a6bcbfc9b44" title="handle()">handle()</a> and call <a class="el" href="#a4d41465f94d62fdbab816ab8d8ebd674" title="service()">service()</a> in the idle hook, which sends the fragments. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Ethercat::SOES::EoE:</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived, ErrorKind T_ERROR = Error&gt;<br />
+class Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;</div><p>CRTP foundation reading active errors from the '<a class="el" href="../../db/daf/a01019.html#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher for the plain &#39;Error&#39; type.">Dispatcher</a>', optionally restricted to a single '<a class="el" href="../../dc/d65/a05195.html" title="A named category that &#39;Error&#39; instances can be tagged with, and that &#39;Observer&#39; can filter by.">Group</a>'. </p>
+<p>Constructing from an existing '<a class="el" href="../../dc/d65/a05195.html" title="A named category that &#39;Error&#39; instances can be tagged with, and that &#39;Observer&#39; can filter by.">Group</a>' filters by that external, caller-owned group. Constructing from a caption instead creates and owns a new '<a class="el" href="../../dc/d65/a05195.html" title="A named category that &#39;Error&#39; instances can be tagged with, and that &#39;Observer&#39; can filter by.">Group</a>' for the lifetime of this observer. With neither, every active error in the '<a class="el" href="../../db/daf/a01019.html#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher for the plain &#39;Error&#39; type.">Dispatcher</a>' is observed. A derived class replaces the filter by defining its own "bool matches(const Error &amp;) const', which hides the default one; it can still call '<a class="el" href="../../d4/ddd/a05199.html" title="CRTP foundation reading active errors from the &#39;Dispatcher&#39;, optionally restricted to a single &#39;Group...">ObserverBase</a>'::matches() for the group filter.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Derived</td><td>Concrete observer class; its '<a class="el" href="#abc1b7f5285e87adc24a4969a47113543" title="Default filter: the error is &#39;ACTIVE&#39; and in the filtered group (or no group is filtered).">matches()</a>' decides which errors are observed. </td></tr>
+    <tr><td class="paramname">T_ERROR</td><td><a class="el" href="../../de/d61/a05191.html" title="Ready-made error without extra behavior, used by the default &#39;Dispatcher&#39;.">Error</a> type held by the observed '<a class="el" href="../../d7/d48/a05183.html" title="Owns every constructed error and periodically scans it for state changes through an RTOS::TickClient.">BasicDispatcher</a>'. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/dd3/a05197.svg" width="214" height="343"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/dd3/a05197.svg" width="302" height="431"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a57ce3b2cab796d2623bc80be2bc75e80" id="r_a57ce3b2cab796d2623bc80be2bc75e80"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> (std::span&lt; uint8_t &gt; frameBuffer) noexcept</td></tr>
-<tr class="memdesc:a57ce3b2cab796d2623bc80be2bc75e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the tunnel.  <br /></td></tr>
-<tr class="memitem:a5babb7f332ba38f3e2e33203e39e615d" id="r_a5babb7f332ba38f3e2e33203e39e615d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5babb7f332ba38f3e2e33203e39e615d">~EoE</a> ()=default</td></tr>
-<tr class="memdesc:a5babb7f332ba38f3e2e33203e39e615d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the tunnel.  <br /></td></tr>
-<tr class="memitem:a07829bbfc5250b03c81968ebd709bf4e" id="r_a07829bbfc5250b03c81968ebd709bf4e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a07829bbfc5250b03c81968ebd709bf4e">EoE</a> (const EoE &amp;other)=delete</td></tr>
-<tr class="memdesc:a07829bbfc5250b03c81968ebd709bf4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the tunnel holds the state of the frames in transit.  <br /></td></tr>
-<tr class="memitem:ac52aa3b6cbf2a17e467cfba61ddbf48e" id="r_ac52aa3b6cbf2a17e467cfba61ddbf48e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac52aa3b6cbf2a17e467cfba61ddbf48e">EoE</a> (EoE &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ac52aa3b6cbf2a17e467cfba61ddbf48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the tunnel holds the state of the frames in transit.  <br /></td></tr>
-<tr class="memitem:a82f98b2311b36aea43517d9a31df5d08" id="r_a82f98b2311b36aea43517d9a31df5d08"><td class="memItemLeft"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a82f98b2311b36aea43517d9a31df5d08">operator=</a> (const <a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a82f98b2311b36aea43517d9a31df5d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the tunnel holds the state of the frames in transit.  <br /></td></tr>
-<tr class="memitem:ae9237ef17cddb3bf83d5e2b41580c4af" id="r_ae9237ef17cddb3bf83d5e2b41580c4af"><td class="memItemLeft"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae9237ef17cddb3bf83d5e2b41580c4af">operator=</a> (<a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ae9237ef17cddb3bf83d5e2b41580c4af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the tunnel holds the state of the frames in transit.  <br /></td></tr>
-<tr class="memitem:a6b26ad71662f36a666db683b5755a119" id="r_a6b26ad71662f36a666db683b5755a119"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6b26ad71662f36a666db683b5755a119">setHandlers</a> (const <a class="el" href="#a272ea34043ce0f3bb7014fc2c4df927e">Handlers</a> &amp;newHandlers) noexcept</td></tr>
-<tr class="memdesc:a6b26ad71662f36a666db683b5755a119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the network stack hooks.  <br /></td></tr>
-<tr class="memitem:a85ee64bff9f15d5ace7999ebdb5643ef" id="r_a85ee64bff9f15d5ace7999ebdb5643ef"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a85ee64bff9f15d5ace7999ebdb5643ef">reset</a> () noexcept</td></tr>
-<tr class="memdesc:a85ee64bff9f15d5ace7999ebdb5643ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops the frame being put together and the one being sent.  <br /></td></tr>
-<tr class="memitem:a2afc345b5bcd9326d015eb678e620201" id="r_a2afc345b5bcd9326d015eb678e620201"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2afc345b5bcd9326d015eb678e620201">queueFrame</a> (std::span&lt; const uint8_t &gt; frame, uint8_t port=0U) noexcept</td></tr>
-<tr class="memdesc:a2afc345b5bcd9326d015eb678e620201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queues an <a class="el" href="../../d1/dd8/a01022.html" title="Ethernet networking primitives.">Ethernet</a> frame for the master.  <br /></td></tr>
-<tr class="memitem:a91f842049f97f5f7055e5a7f6de7c6ac" id="r_a91f842049f97f5f7055e5a7f6de7c6ac"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a91f842049f97f5f7055e5a7f6de7c6ac">isSendPending</a> () const noexcept</td></tr>
-<tr class="memdesc:a91f842049f97f5f7055e5a7f6de7c6ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a queued frame is still being sent.  <br /></td></tr>
-<tr class="memitem:a4d41465f94d62fdbab816ab8d8ebd674" id="r_a4d41465f94d62fdbab816ab8d8ebd674"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
-<tr class="memitem:a4d41465f94d62fdbab816ab8d8ebd674 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4d41465f94d62fdbab816ab8d8ebd674">service</a> (T_MAILBOX &amp;mailbox) noexcept</td></tr>
-<tr class="memdesc:a4d41465f94d62fdbab816ab8d8ebd674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the next fragment of the queued frame.  <br /></td></tr>
-<tr class="memitem:a41416e8882dd613876cb3a6bcbfc9b44" id="r_a41416e8882dd613876cb3a6bcbfc9b44"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
-<tr class="memitem:a41416e8882dd613876cb3a6bcbfc9b44 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a41416e8882dd613876cb3a6bcbfc9b44">handle</a> (T_MAILBOX &amp;mailbox, const <a class="el" href="../../d1/d50/a05211.html">MailboxHeader</a> &amp;header, std::span&lt; const uint8_t &gt; payload) noexcept</td></tr>
-<tr class="memdesc:a41416e8882dd613876cb3a6bcbfc9b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a mailbox message.  <br /></td></tr>
+<tr class="memitem:a32d97a053bd59655ba3e484167b856f6" id="r_a32d97a053bd59655ba3e484167b856f6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> (const ObserverBase &amp;other)=delete</td></tr>
+<tr class="memdesc:a32d97a053bd59655ba3e484167b856f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: an owned group must not be shared between observers.  <br /></td></tr>
+<tr class="memitem:af0f8f28571cd95c78515fc20c696b688" id="r_af0f8f28571cd95c78515fc20c696b688"><td class="memItemLeft"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af0f8f28571cd95c78515fc20c696b688">operator=</a> (const <a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:af0f8f28571cd95c78515fc20c696b688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: an owned group must not be shared between observers.  <br /></td></tr>
+<tr class="memitem:a9eaaa64f41d017b0542fd19e23e4b4eb" id="r_a9eaaa64f41d017b0542fd19e23e4b4eb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9eaaa64f41d017b0542fd19e23e4b4eb">ObserverBase</a> (ObserverBase &amp;&amp;other) noexcept=default</td></tr>
+<tr class="memdesc:a9eaaa64f41d017b0542fd19e23e4b4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-constructs an observer, transferring ownership of any owned group.  <br /></td></tr>
+<tr class="memitem:a5bef52360bbd4cdd83f4cd41fb610c4a" id="r_a5bef52360bbd4cdd83f4cd41fb610c4a"><td class="memItemLeft"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5bef52360bbd4cdd83f4cd41fb610c4a">operator=</a> (<a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;&amp;other) noexcept=default</td></tr>
+<tr class="memdesc:a5bef52360bbd4cdd83f4cd41fb610c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-assigns an observer, transferring ownership of any owned group.  <br /></td></tr>
+<tr class="memitem:ac245a085bf28b893f98cbc8943c50939" id="r_ac245a085bf28b893f98cbc8943c50939"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac245a085bf28b893f98cbc8943c50939">check</a> () const</td></tr>
+<tr class="memdesc:ac245a085bf28b893f98cbc8943c50939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether any active error currently matches this observer's filter.  <br /></td></tr>
+<tr class="memitem:ae9c2b90078fb4baacc77df620dd6affc" id="r_ae9c2b90078fb4baacc77df620dd6affc"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; const T_ERROR * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae9c2b90078fb4baacc77df620dd6affc">read</a> () const</td></tr>
+<tr class="memdesc:ae9c2b90078fb4baacc77df620dd6affc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects every active error matching this observer's filter.  <br /></td></tr>
+<tr class="memitem:a6dcac43dde13eaf06dff704610eb7f8f" id="r_a6dcac43dde13eaf06dff704610eb7f8f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6dcac43dde13eaf06dff704610eb7f8f">forEach</a> (<a class="el" href="../../d6/da6/a04827.html">FunctionRef</a>&lt; void(const T_ERROR &amp;)&gt; visit) const</td></tr>
+<tr class="memdesc:a6dcac43dde13eaf06dff704610eb7f8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for every active error matching this observer's filter, without allocating.  <br /></td></tr>
+<tr class="memitem:a446e9c28defc96197acdcd260d4706f6" id="r_a446e9c28defc96197acdcd260d4706f6"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a446e9c28defc96197acdcd260d4706f6">number</a> () const</td></tr>
+<tr class="memdesc:a446e9c28defc96197acdcd260d4706f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the active errors matching this observer's filter, without allocating.  <br /></td></tr>
+<tr class="memitem:abc1b7f5285e87adc24a4969a47113543" id="r_abc1b7f5285e87adc24a4969a47113543"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abc1b7f5285e87adc24a4969a47113543">matches</a> (const T_ERROR &amp;error) const noexcept</td></tr>
+<tr class="memdesc:abc1b7f5285e87adc24a4969a47113543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default filter: the error is 'ACTIVE' and in the filtered group (or no group is filtered).  <br /></td></tr>
+<tr class="memitem:a2973edaf7f9a66d9900fe3adf841146c" id="r_a2973edaf7f9a66d9900fe3adf841146c"><td class="memItemLeft">const <a class="el" href="../../dc/d65/a05195.html">Group</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a2973edaf7f9a66d9900fe3adf841146c">getGroup</a> () const noexcept</td></tr>
+<tr class="memdesc:a2973edaf7f9a66d9900fe3adf841146c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the group this observer filters by.  <br /></td></tr>
+<tr class="memitem:a68975b48ce0a7e2e846ed67f6851be04" id="r_a68975b48ce0a7e2e846ed67f6851be04"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a68975b48ce0a7e2e846ed67f6851be04">operator const Group *</a> () const noexcept</td></tr>
+<tr class="memdesc:a68975b48ce0a7e2e846ed67f6851be04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts this observer to its filtered group pointer.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a533552093d254aaf91e8aa506abe97eb" id="r_a533552093d254aaf91e8aa506abe97eb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a533552093d254aaf91e8aa506abe97eb">ObserverBase</a> ()=default</td></tr>
+<tr class="memdesc:a533552093d254aaf91e8aa506abe97eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an observer with no group filter, observing every active error.  <br /></td></tr>
+<tr class="memitem:a04d21933596b0c1dd78bfb671ef811cd" id="r_a04d21933596b0c1dd78bfb671ef811cd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a04d21933596b0c1dd78bfb671ef811cd">ObserverBase</a> (const <a class="el" href="../../dc/d65/a05195.html">Group</a> &amp;group) noexcept</td></tr>
+<tr class="memdesc:a04d21933596b0c1dd78bfb671ef811cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an observer filtered to an existing, externally-owned group.  <br /></td></tr>
+<tr class="memitem:a48c400abfb1256b145f494a80a4602fd" id="r_a48c400abfb1256b145f494a80a4602fd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a48c400abfb1256b145f494a80a4602fd">ObserverBase</a> (const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> groupCaption)</td></tr>
+<tr class="memdesc:a48c400abfb1256b145f494a80a4602fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an observer with a new group, owned by this observer, created from the given caption.  <br /></td></tr>
+<tr class="memitem:a5335bb5ae20c789e034de9dbc451d7eb" id="r_a5335bb5ae20c789e034de9dbc451d7eb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5335bb5ae20c789e034de9dbc451d7eb">~ObserverBase</a> ()=default</td></tr>
+<tr class="memdesc:a5335bb5ae20c789e034de9dbc451d7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the observer, releasing its owned group, if any.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a272ea34043ce0f3bb7014fc2c4df927e" name="a272ea34043ce0f3bb7014fc2c4df927e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a272ea34043ce0f3bb7014fc2c4df927e">&#9670;&#160;</a></span>Handlers</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a272ea34043ce0f3bb7014fc2c4df927e">Lib::Ethercat::SOES::EoE::Handlers</a> = <a class="el" href="../../dc/d65/a05195.html">EoEHandlers</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The network stack of the slave. </p>
-
-</div>
-</div>
-<a id="a4d66198ad9a9b1a75925e1a97dbc5fb9" name="a4d66198ad9a9b1a75925e1a97dbc5fb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d66198ad9a9b1a75925e1a97dbc5fb9">&#9670;&#160;</a></span>Parameters</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a4d66198ad9a9b1a75925e1a97dbc5fb9">Lib::Ethercat::SOES::EoE::Parameters</a> = <a class="el" href="../../de/d61/a05191.html">EoEParameters</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Network parameters of a port. </p>
-
-</div>
-</div>
-<a id="a6870bc1d903b1d83b238ba51088eb134" name="a6870bc1d903b1d83b238ba51088eb134"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6870bc1d903b1d83b238ba51088eb134">&#9670;&#160;</a></span>Result</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d5/dfb/a01021.html#a4955423819d7bf676954f73daa32972b">Lib::Ethercat::SOES::EoE::Result</a> = <a class="el" href="../../d5/dfb/a01021.html#a4955423819d7bf676954f73daa32972b">EoEResult</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Results of an <a class="el" href="../../d4/ddd/a05199.html" title="Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.">EoE</a> request. </p>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a57ce3b2cab796d2623bc80be2bc75e80" name="a57ce3b2cab796d2623bc80be2bc75e80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a57ce3b2cab796d2623bc80be2bc75e80">&#9670;&#160;</a></span>EoE() <span class="overload">[1/3]</span></h2>
+<a id="a32d97a053bd59655ba3e484167b856f6" name="a32d97a053bd59655ba3e484167b856f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32d97a053bd59655ba3e484167b856f6">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethercat::SOES::EoE::EoE </td>
+          <td class="memname"><a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>frameBuffer</em></span></td><td>)</td>
+          <td class="paramtype">const ObserverBase&lt; Derived, T_ERROR &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the tunnel. </p>
+<p>Copying is deleted: an owned group must not be shared between observers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameBuffer</td><td>Buffer a received frame is put together in; it must hold the largest frame the master sends (1522 bytes with a VLAN tag) and outlive the tunnel. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/ddd/a05199_a57ce3b2cab796d2623bc80be2bc75e80_icgraph.svg" width="614" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a5babb7f332ba38f3e2e33203e39e615d" name="a5babb7f332ba38f3e2e33203e39e615d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5babb7f332ba38f3e2e33203e39e615d">&#9670;&#160;</a></span>~EoE()</h2>
+<a id="a9eaaa64f41d017b0542fd19e23e4b4eb" name="a9eaaa64f41d017b0542fd19e23e4b4eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eaaa64f41d017b0542fd19e23e4b4eb">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[2/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethercat::SOES::EoE::~EoE </td>
+          <td class="memname"><a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
+          <td>(</td>
+          <td class="paramtype">ObserverBase&lt; Derived, T_ERROR &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move-constructs an observer, transferring ownership of any owned group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a533552093d254aaf91e8aa506abe97eb" name="a533552093d254aaf91e8aa506abe97eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533552093d254aaf91e8aa506abe97eb">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -262,159 +260,194 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the tunnel. </p>
+<p>Constructs an observer with no group filter, observing every active error. </p>
 
 </div>
 </div>
-<a id="a07829bbfc5250b03c81968ebd709bf4e" name="a07829bbfc5250b03c81968ebd709bf4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07829bbfc5250b03c81968ebd709bf4e">&#9670;&#160;</a></span>EoE() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Ethercat::SOES::EoE::EoE </td>
-          <td>(</td>
-          <td class="paramtype">const EoE &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copying is deleted: the tunnel holds the state of the frames in transit. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/ddd/a05199_a07829bbfc5250b03c81968ebd709bf4e_cgraph.svg" width="566" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac52aa3b6cbf2a17e467cfba61ddbf48e" name="ac52aa3b6cbf2a17e467cfba61ddbf48e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac52aa3b6cbf2a17e467cfba61ddbf48e">&#9670;&#160;</a></span>EoE() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Ethercat::SOES::EoE::EoE </td>
-          <td>(</td>
-          <td class="paramtype">EoE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moving is deleted: the tunnel holds the state of the frames in transit. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/ddd/a05199_ac52aa3b6cbf2a17e467cfba61ddbf48e_cgraph.svg" width="566" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a41416e8882dd613876cb3a6bcbfc9b44" name="a41416e8882dd613876cb3a6bcbfc9b44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41416e8882dd613876cb3a6bcbfc9b44">&#9670;&#160;</a></span>handle()</h2>
+<a id="a04d21933596b0c1dd78bfb671ef811cd" name="a04d21933596b0c1dd78bfb671ef811cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04d21933596b0c1dd78bfb671ef811cd">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_MAILBOX&gt; </div>
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Ethercat::SOES::EoE::handle </td>
+          <td class="memname"><a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
           <td>(</td>
-          <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="../../dc/d65/a05195.html">Group</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>group</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d1/d50/a05211.html">MailboxHeader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>header</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Handles a mailbox message. </p>
-<p>Does nothing for a protocol other than <a class="el" href="../../d4/ddd/a05199.html" title="Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.">EoE</a>. For <a class="el" href="../../d4/ddd/a05199.html" title="Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.">EoE</a> it collects a fragment of a frame, or answers a request.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_MAILBOX</td><td>A '<a class="el" href="../../d3/dd2/a05215.html" title="EtherCAT slave mailbox transport, written directly on the ESC registers.">Mailbox</a>' type. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructs an observer filtered to an existing, externally-owned group. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mailbox</td><td>The mailbox the message came from; the answer is sent through it. </td></tr>
-    <tr><td class="paramname">header</td><td>Header of the message. </td></tr>
-    <tr><td class="paramname">payload</td><td>Payload of the message. </td></tr>
+    <tr><td class="paramname">group</td><td><a class="el" href="../../dc/d65/a05195.html" title="A named category that &#39;Error&#39; instances can be tagged with, and that &#39;Observer&#39; can filter by.">Group</a> to filter by; must outlive this observer. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the message was an <a class="el" href="../../d4/ddd/a05199.html" title="Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.">EoE</a> message. </dd></dl>
 
 </div>
 </div>
-<a id="a91f842049f97f5f7055e5a7f6de7c6ac" name="a91f842049f97f5f7055e5a7f6de7c6ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91f842049f97f5f7055e5a7f6de7c6ac">&#9670;&#160;</a></span>isSendPending()</h2>
+<a id="a48c400abfb1256b145f494a80a4602fd" name="a48c400abfb1256b145f494a80a4602fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48c400abfb1256b145f494a80a4602fd">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Ethercat::SOES::EoE::isSendPending </td>
+          <td class="memname"><a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>groupCaption</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs an observer with a new group, owned by this observer, created from the given caption. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">groupCaption</td><td>Caption for the new, owned group. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5335bb5ae20c789e034de9dbc451d7eb" name="a5335bb5ae20c789e034de9dbc451d7eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5335bb5ae20c789e034de9dbc451d7eb">&#9670;&#160;</a></span>~ObserverBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::~<a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the observer, releasing its owned group, if any. </p>
+<p>Protected and non-virtual: it is never destroyed through a base pointer. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ac245a085bf28b893f98cbc8943c50939" name="ac245a085bf28b893f98cbc8943c50939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac245a085bf28b893f98cbc8943c50939">&#9670;&#160;</a></span>check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::check </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether any active error currently matches this observer's filter. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if at least one matching active error exists. </dd></dl>
+
+</div>
+</div>
+<a id="a6dcac43dde13eaf06dff704610eb7f8f" name="a6dcac43dde13eaf06dff704610eb7f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dcac43dde13eaf06dff704610eb7f8f">&#9670;&#160;</a></span>forEach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::forEach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/da6/a04827.html">FunctionRef</a>&lt; void(const T_ERROR &amp;)&gt;</td>          <td class="paramname"><span class="paramname"><em>visit</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calls a function for every active error matching this observer's filter, without allocating. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">visit</td><td>Function called with each matching error; it must not create errors. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2973edaf7f9a66d9900fe3adf841146c" name="a2973edaf7f9a66d9900fe3adf841146c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2973edaf7f9a66d9900fe3adf841146c">&#9670;&#160;</a></span>getGroup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../dc/d65/a05195.html">Group</a> * <a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::getGroup </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -427,109 +460,27 @@ template&lt;typename T_MAILBOX&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Checks whether a queued frame is still being sent. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> until its last fragment was written. </dd></dl>
+<p>Returns the group this observer filters by. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the filtered '<a class="el" href="../../dc/d65/a05195.html" title="A named category that &#39;Error&#39; instances can be tagged with, and that &#39;Observer&#39; can filter by.">Group</a>', or 'nullptr' if observing every error. </dd></dl>
 
 </div>
 </div>
-<a id="a82f98b2311b36aea43517d9a31df5d08" name="a82f98b2311b36aea43517d9a31df5d08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82f98b2311b36aea43517d9a31df5d08">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="abc1b7f5285e87adc24a4969a47113543" name="abc1b7f5285e87adc24a4969a47113543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1b7f5285e87adc24a4969a47113543">&#9670;&#160;</a></span>matches()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp; Lib::Ethercat::SOES::EoE::operator= </td>
+          <td class="memname">bool <a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::matches </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy assignment is deleted: the tunnel holds the state of the frames in transit. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/ddd/a05199_a82f98b2311b36aea43517d9a31df5d08_cgraph.svg" width="614" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ae9237ef17cddb3bf83d5e2b41580c4af" name="ae9237ef17cddb3bf83d5e2b41580c4af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9237ef17cddb3bf83d5e2b41580c4af">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp; Lib::Ethercat::SOES::EoE::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move assignment is deleted: the tunnel holds the state of the frames in transit. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/ddd/a05199_ae9237ef17cddb3bf83d5e2b41580c4af_cgraph.svg" width="614" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a2afc345b5bcd9326d015eb678e620201" name="a2afc345b5bcd9326d015eb678e620201"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2afc345b5bcd9326d015eb678e620201">&#9670;&#160;</a></span>queueFrame()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Ethercat::SOES::EoE::queueFrame </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
+          <td class="paramtype">const T_ERROR &amp;</td>          <td class="paramname"><span class="paramname"><em>error</em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -539,125 +490,176 @@ template&lt;typename T_MAILBOX&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Queues an <a class="el" href="../../d1/dd8/a01022.html" title="Ethernet networking primitives.">Ethernet</a> frame for the master. </p>
-<p>The fragments go out from <a class="el" href="#a4d41465f94d62fdbab816ab8d8ebd674" title="service()">service()</a>.</p>
+<p>Default filter: the error is 'ACTIVE' and in the filtered group (or no group is filtered). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frame</td><td>The frame; it must stay valid until <a class="el" href="#a91f842049f97f5f7055e5a7f6de7c6ac" title="isSendPending()">isSendPending()</a> is false. </td></tr>
-    <tr><td class="paramname">port</td><td><a class="el" href="../../d4/ddd/a05199.html" title="Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.">EoE</a> port, 0 to 15. </td></tr>
+    <tr><td class="paramname">error</td><td><a class="el" href="../../de/d61/a05191.html" title="Ready-made error without extra behavior, used by the default &#39;Dispatcher&#39;.">Error</a> to test. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the frame was queued; <b>false</b> if another one is still being sent or the frame is empty or too long to describe (above 2016 bytes). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the error is observed. </dd></dl>
 
 </div>
 </div>
-<a id="a85ee64bff9f15d5ace7999ebdb5643ef" name="a85ee64bff9f15d5ace7999ebdb5643ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85ee64bff9f15d5ace7999ebdb5643ef">&#9670;&#160;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Ethercat::SOES::EoE::reset </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Drops the frame being put together and the one being sent. </p>
-<p>Call it when the mailbox stops. </p>
-
-</div>
-</div>
-<a id="a4d41465f94d62fdbab816ab8d8ebd674" name="a4d41465f94d62fdbab816ab8d8ebd674"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d41465f94d62fdbab816ab8d8ebd674">&#9670;&#160;</a></span>service()</h2>
+<a id="a446e9c28defc96197acdcd260d4706f6" name="a446e9c28defc96197acdcd260d4706f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446e9c28defc96197acdcd260d4706f6">&#9670;&#160;</a></span>number()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_MAILBOX&gt; </div>
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Ethercat::SOES::EoE::service </td>
+          <td class="memname">size_t <a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::number </td>
           <td>(</td>
-          <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span></td><td>)</td>
-          <td></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sends the next fragment of the queued frame. </p>
-<p>Call it periodically, for example from the idle hook of the slave; it does nothing while the master has not read the previous message.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_MAILBOX</td><td>A '<a class="el" href="../../d3/dd2/a05215.html" title="EtherCAT slave mailbox transport, written directly on the ESC registers.">Mailbox</a>' type. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mailbox</td><td>The mailbox to send through. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/ddd/a05199_a4d41465f94d62fdbab816ab8d8ebd674_cgraph.svg" width="454" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Counts the active errors matching this observer's filter, without allocating. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of matching active errors. </dd></dl>
 
 </div>
 </div>
-<a id="a6b26ad71662f36a666db683b5755a119" name="a6b26ad71662f36a666db683b5755a119"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b26ad71662f36a666db683b5755a119">&#9670;&#160;</a></span>setHandlers()</h2>
+<a id="a68975b48ce0a7e2e846ed67f6851be04" name="a68975b48ce0a7e2e846ed67f6851be04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68975b48ce0a7e2e846ed67f6851be04">&#9670;&#160;</a></span>operator const Group *()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Ethercat::SOES::EoE::setHandlers </td>
+          <td class="memname"><a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a> const <a class="el" href="../../dc/d65/a05195.html">Group</a> * </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a272ea34043ce0f3bb7014fc2c4df927e">Handlers</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newHandlers</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts this observer to its filtered group pointer. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the filtered '<a class="el" href="../../dc/d65/a05195.html" title="A named category that &#39;Error&#39; instances can be tagged with, and that &#39;Observer&#39; can filter by.">Group</a>', or 'nullptr' if observing every error. </dd></dl>
+
+</div>
+</div>
+<a id="af0f8f28571cd95c78515fc20c696b688" name="af0f8f28571cd95c78515fc20c696b688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0f8f28571cd95c78515fc20c696b688">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp; <a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a>&lt; Derived, T_ERROR &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the network stack hooks. </p>
+<p>Copy assignment is deleted: an owned group must not be shared between observers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">newHandlers</td><td>The hooks. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this observer. </dd></dl>
+
+</div>
+</div>
+<a id="a5bef52360bbd4cdd83f4cd41fb610c4a" name="a5bef52360bbd4cdd83f4cd41fb610c4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bef52360bbd4cdd83f4cd41fb610c4a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp; <a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a>&lt; Derived, T_ERROR &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move-assigns an observer, transferring ownership of any owned group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this observer. </dd></dl>
+
+</div>
+</div>
+<a id="ae9c2b90078fb4baacc77df620dd6affc" name="ae9c2b90078fb4baacc77df620dd6affc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c2b90078fb4baacc77df620dd6affc">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; const T_ERROR * &gt; <a class="el" href="../../d4/ddd/a05199.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::read </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Collects every active error matching this observer's filter. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointers to all matching active errors, owned by the '<a class="el" href="../../db/daf/a01019.html#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher for the plain &#39;Error&#39; type.">Dispatcher</a>'. </dd></dl>
 
 </div>
 </div>
@@ -674,7 +676,7 @@ template&lt;typename T_MAILBOX&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dd/d7a/a00990.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">Ethercat</a></li><li class="navelem"><a href="../../d5/dfb/a01021.html">SOES</a></li><li class="navelem"><a href="../../d4/ddd/a05199.html">EoE</a></li>
+    <li class="navelem"><a href="../../dd/d7a/a00990.html">Lib</a></li><li class="navelem"><a href="../../db/daf/a01019.html">Errors</a></li><li class="navelem"><a href="../../d4/ddd/a05199.html">ObserverBase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

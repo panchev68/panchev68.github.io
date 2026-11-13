@@ -1,4 +1,4 @@
 var a00413 =
 [
-    [ "Lib::Digi::Core::EscapedCode", "d1/d9f/a05035.html", "d1/d9f/a05035" ]
+    [ "Lib::Digi::Core::DigiApiFrameBuffer", "db/d78/a05071.html", "db/d78/a05071" ]
 ];

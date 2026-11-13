@@ -1,16 +1,12 @@
 var a05143 =
 [
-    [ "Container", "db/d58/a05143.html#aee7408e236983dfe716699922a20e848", null ],
-    [ "Status", "db/d58/a05143.html#abfa34fca2a40d9f990c238a66f2611aa", [
-      [ "STATUS_CHANGED", "db/d58/a05143.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
-      [ "ALL_ERRORS_CLEARED", "db/d58/a05143.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
-    ] ],
-    [ "BasicDispatcher", "db/d58/a05143.html#a8888661e1979a2b522e456f3e143e065", null ],
-    [ "BasicDispatcher", "db/d58/a05143.html#add10f2d01f474243d9fa895cff993e07", null ],
-    [ "createError", "db/d58/a05143.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
-    [ "operator=", "db/d58/a05143.html#a663a1359b4c59113e160a2da62046222", null ],
-    [ "operator=", "db/d58/a05143.html#a45f56f6db82a8095e39231ccf05639dc", null ],
-    [ "start", "db/d58/a05143.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
-    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "db/d58/a05143.html#a650ea0ef5048343da33f94d14c44e548", null ],
-    [ "statusChangedHook", "db/d58/a05143.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
+    [ "Command", "db/d58/a05143.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
+    [ "RemoteAtCommand", "db/d58/a05143.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
+    [ "RemoteAtCommand", "db/d58/a05143.html#a772786f4856c6806756c33743f038855", null ],
+    [ "close", "db/d58/a05143.html#acfc9182b712685cd72276c7c645330ec", null ],
+    [ "open", "db/d58/a05143.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
+    [ "operator=", "db/d58/a05143.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
+    [ "receive", "db/d58/a05143.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
+    [ "send", "db/d58/a05143.html#a68565e1939553aa4b73a44d4c6adf059", null ],
+    [ "send", "db/d58/a05143.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
 ];

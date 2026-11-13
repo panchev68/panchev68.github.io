@@ -1,6 +1,5 @@
 var a00314 =
 [
-    [ "Lib::BSP::XPT2046", "db/dc1/a04671.html", "db/dc1/a04671" ],
-    [ "Lib::BSP::XPT2046::Config", "d1/d64/a04675.html", "d1/d64/a04675" ],
-    [ "Lib::BSP::XPT2046::Parameters", "de/d69/a04679.html", "de/d69/a04679" ]
+    [ "Lib::BSP::Thermometer::TMP102&lt; T_MODE &gt;", "d6/d8c/a04703.html", "d6/d8c/a04703" ],
+    [ "Lib::BSP::Thermometer::TMP102&lt; T_MODE &gt;::Config", "d6/d7d/a04707.html", "d6/d7d/a04707" ]
 ];

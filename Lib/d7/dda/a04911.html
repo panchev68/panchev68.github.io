@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Digi::API::Connection::Info::Period</title>
+<title>IAR EWARM Library: Lib::Crypto::WolfSSLRsa</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,50 +112,54 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/dda/a04911.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Digi::API::Connection::Info::Period<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSLRsa<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Transmit period measurement in scheduler ticks with smoothing and min/max capture. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Digi::API::Connection::Info::Period:</div>
+<div class="textblock"><p>RSA key generation, PKCS#1 v1.5 signatures and encryption on wolfCrypt (CubeMX: RSA Support). </p>
+<p><a class="el" href="#a43de0d37ba0f47417c537dba6ce37ad4" title="generateKey()">generateKey()</a> also attaches the generator to the key, since wolfCrypt's RSA blinding needs it for private key operations. Signatures and encrypted blocks are exactly <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes long.</p>
+<dl class="section important"><dt>Important</dt><dd><a class="el" href="#aaa7fa629597c530db9a29c108a50c076" title="sign()">sign()</a> pads the given bytes as they are, without the DigestInfo header: for interoperability with other PKCS#1 v1.5 verifiers, pass the DER DigestInfo of the hash, not the bare hash.</dd>
+<dd>
+The <a class="el" href="../../d7/d46/a04895.html" title="WolfSSLRandom">WolfSSLRandom</a> passed to <a class="el" href="#a43de0d37ba0f47417c537dba6ce37ad4" title="Generates a new key pair, replacing any key this instance held, and attaches the generator to it.">generateKey()</a> must outlive the key, or be replaced by a later <a class="el" href="#a43de0d37ba0f47417c537dba6ce37ad4" title="Generates a new key pair, replacing any key this instance held, and attaches the generator to it.">generateKey()</a> call.</dd>
+<dd>
+Not thread-safe: give each task its own instance, or guard a shared one with an <a class="el" href="../../da/d8a/a06262.html" title="RTOS::Mutex">RTOS::Mutex</a>. </dd></dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Crypto::WolfSSLRsa:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/dc4/a04909.svg" width="342" height="367"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/dc4/a04909.svg" width="206" height="343"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7f7af906ef5f495d7957fd7fe7349c71" id="r_a7f7af906ef5f495d7957fd7fe7349c71"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7f7af906ef5f495d7957fd7fe7349c71">Period</a> () noexcept=default</td></tr>
-<tr class="memdesc:a7f7af906ef5f495d7957fd7fe7349c71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty measurement.  <br /></td></tr>
-<tr class="memitem:a8bc1db9ac5e84c7e42f9548a8d3e288a" id="r_a8bc1db9ac5e84c7e42f9548a8d3e288a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8bc1db9ac5e84c7e42f9548a8d3e288a">Period</a> (const Period &amp;other) noexcept</td></tr>
-<tr class="memdesc:a8bc1db9ac5e84c7e42f9548a8d3e288a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a snapshot of the published values of another measurement; a running measurement is not copied.  <br /></td></tr>
-<tr class="memitem:a1a97d8d689212e349a8cbecb29d65f0a" id="r_a1a97d8d689212e349a8cbecb29d65f0a"><td class="memItemLeft"><a class="el" href="#a7f7af906ef5f495d7957fd7fe7349c71">Period</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1a97d8d689212e349a8cbecb29d65f0a">operator=</a> (const <a class="el" href="#a7f7af906ef5f495d7957fd7fe7349c71">Period</a> &amp;other) noexcept</td></tr>
-<tr class="memdesc:a1a97d8d689212e349a8cbecb29d65f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies a snapshot of the published values of another measurement; stops a running measurement.  <br /></td></tr>
-<tr class="memitem:a0b8a0d37bcd05be8e1459ae918c09b94" id="r_a0b8a0d37bcd05be8e1459ae918c09b94"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0b8a0d37bcd05be8e1459ae918c09b94">operator uint32_t</a> () const noexcept</td></tr>
-<tr class="memdesc:a0b8a0d37bcd05be8e1459ae918c09b94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filtered period.  <br /></td></tr>
-<tr class="memitem:a71da6e6c3fc829f3870dc4effdc01cb1" id="r_a71da6e6c3fc829f3870dc4effdc01cb1"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a71da6e6c3fc829f3870dc4effdc01cb1">getValue</a> () const noexcept</td></tr>
-<tr class="memdesc:a71da6e6c3fc829f3870dc4effdc01cb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the filtered period.  <br /></td></tr>
-<tr class="memitem:a9ff26a811598dade38bf9cb9a59e1b8f" id="r_a9ff26a811598dade38bf9cb9a59e1b8f"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a9ff26a811598dade38bf9cb9a59e1b8f">getRawValue</a> () const noexcept</td></tr>
-<tr class="memdesc:a9ff26a811598dade38bf9cb9a59e1b8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last measured period.  <br /></td></tr>
-<tr class="memitem:aa1549dc6f6312b52fea31758d6dcc6ba" id="r_aa1549dc6f6312b52fea31758d6dcc6ba"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aa1549dc6f6312b52fea31758d6dcc6ba">getMinimum</a> () const noexcept</td></tr>
-<tr class="memdesc:aa1549dc6f6312b52fea31758d6dcc6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the shortest period since the last min/max clear.  <br /></td></tr>
-<tr class="memitem:ad790a1b93a5c67dbc4d8c38e038f972e" id="r_ad790a1b93a5c67dbc4d8c38e038f972e"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ad790a1b93a5c67dbc4d8c38e038f972e">getMaximum</a> () const noexcept</td></tr>
-<tr class="memdesc:ad790a1b93a5c67dbc4d8c38e038f972e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the longest period since the last min/max clear.  <br /></td></tr>
-<tr class="memitem:a36bbf2f2c509a1d11eb9ae7f95c0b4ce" id="r_a36bbf2f2c509a1d11eb9ae7f95c0b4ce"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a36bbf2f2c509a1d11eb9ae7f95c0b4ce">beginMeasurement</a> () noexcept</td></tr>
-<tr class="memdesc:a36bbf2f2c509a1d11eb9ae7f95c0b4ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a measurement unless one is already running.  <br /></td></tr>
-<tr class="memitem:a764b89843884696c66a1e499e466bb51" id="r_a764b89843884696c66a1e499e466bb51"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a764b89843884696c66a1e499e466bb51">endMeasurement</a> () noexcept</td></tr>
-<tr class="memdesc:a764b89843884696c66a1e499e466bb51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the running measurement and updates the filtered, raw, minimum and maximum periods.  <br /></td></tr>
-<tr class="memitem:a4207cfc354a9e7da3ceb9ef0f63c10fa" id="r_a4207cfc354a9e7da3ceb9ef0f63c10fa"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4207cfc354a9e7da3ceb9ef0f63c10fa">stopMeasurement</a> () noexcept</td></tr>
-<tr class="memdesc:a4207cfc354a9e7da3ceb9ef0f63c10fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abandons the running measurement without updating the statistics.  <br /></td></tr>
-<tr class="memitem:a4b8e80addff577311c7f18d581c6a2f4" id="r_a4b8e80addff577311c7f18d581c6a2f4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4b8e80addff577311c7f18d581c6a2f4">clearMinMax</a> () noexcept</td></tr>
-<tr class="memdesc:a4b8e80addff577311c7f18d581c6a2f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the minimum and maximum and abandons the running measurement.  <br /></td></tr>
-<tr class="memitem:ae0d5ca7503e29010b4d318246a40ff5e" id="r_ae0d5ca7503e29010b4d318246a40ff5e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae0d5ca7503e29010b4d318246a40ff5e">reset</a> () noexcept</td></tr>
-<tr class="memdesc:ae0d5ca7503e29010b4d318246a40ff5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all statistics and abandons the running measurement.  <br /></td></tr>
+<tr class="memitem:a8886d49ea9dc962dd7e5dfded3314703" id="r_a8886d49ea9dc962dd7e5dfded3314703"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703">encryptedSize</a> () const noexcept</td></tr>
+<tr class="memdesc:a8886d49ea9dc962dd7e5dfded3314703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the modulus size of the current key.  <br /></td></tr>
+<tr class="memitem:a43de0d37ba0f47417c537dba6ce37ad4" id="r_a43de0d37ba0f47417c537dba6ce37ad4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a43de0d37ba0f47417c537dba6ce37ad4">generateKey</a> (int sizeBits, long publicExponent, <a class="el" href="../../d7/d46/a04895.html">WolfSSLRandom</a> &amp;rng) noexcept</td></tr>
+<tr class="memdesc:a43de0d37ba0f47417c537dba6ce37ad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new key pair, replacing any key this instance held, and attaches the generator to it.  <br /></td></tr>
+<tr class="memitem:aaa7fa629597c530db9a29c108a50c076" id="r_aaa7fa629597c530db9a29c108a50c076"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaa7fa629597c530db9a29c108a50c076">sign</a> (std::span&lt; const uint8_t &gt; digest, <a class="el" href="../../d7/d46/a04895.html">WolfSSLRandom</a> &amp;rng, std::span&lt; uint8_t &gt; signature) noexcept</td></tr>
+<tr class="memdesc:aaa7fa629597c530db9a29c108a50c076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signs data with the private key, with PKCS#1 v1.5 type 1 padding.  <br /></td></tr>
+<tr class="memitem:a8efa778b2f9627a75054ee625e3a5c2e" id="r_a8efa778b2f9627a75054ee625e3a5c2e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8efa778b2f9627a75054ee625e3a5c2e">verify</a> (std::span&lt; const uint8_t &gt; signature, std::span&lt; uint8_t &gt; digest, size_t &amp;digestLength) noexcept</td></tr>
+<tr class="memdesc:a8efa778b2f9627a75054ee625e3a5c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies a signature with the public key and recovers the signed bytes.  <br /></td></tr>
+<tr class="memitem:a5e86c36f992625c03945c115ab436f54" id="r_a5e86c36f992625c03945c115ab436f54"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5e86c36f992625c03945c115ab436f54">encrypt</a> (std::span&lt; const uint8_t &gt; plaintext, <a class="el" href="../../d7/d46/a04895.html">WolfSSLRandom</a> &amp;rng, std::span&lt; uint8_t &gt; ciphertext) noexcept</td></tr>
+<tr class="memdesc:a5e86c36f992625c03945c115ab436f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypts data with the public key, with PKCS#1 v1.5 type 2 padding.  <br /></td></tr>
+<tr class="memitem:a690ac94f5fdb51b1a82a680b427e80f6" id="r_a690ac94f5fdb51b1a82a680b427e80f6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a690ac94f5fdb51b1a82a680b427e80f6">decrypt</a> (std::span&lt; const uint8_t &gt; ciphertext, std::span&lt; uint8_t &gt; plaintext, size_t &amp;plaintextLength) noexcept</td></tr>
+<tr class="memdesc:a690ac94f5fdb51b1a82a680b427e80f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypts data with the private key.  <br /></td></tr>
+<tr class="memitem:a1308729d8ff35f469e9f9b371d525d28" id="r_a1308729d8ff35f469e9f9b371d525d28"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> () noexcept</td></tr>
+<tr class="memdesc:a1308729d8ff35f469e9f9b371d525d28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the RSA context without a key.  <br /></td></tr>
+<tr class="memitem:ab6ae34e7912a123c6835ee6840762239" id="r_ab6ae34e7912a123c6835ee6840762239"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab6ae34e7912a123c6835ee6840762239">~WolfSSLRsa</a> () noexcept</td></tr>
+<tr class="memdesc:ab6ae34e7912a123c6835ee6840762239"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfCrypt RSA context.  <br /></td></tr>
+<tr class="memitem:acc7f398f326414a4d2f5bea6b308a0b0" id="r_acc7f398f326414a4d2f5bea6b308a0b0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acc7f398f326414a4d2f5bea6b308a0b0">WolfSSLRsa</a> (const WolfSSLRsa &amp;)=delete</td></tr>
+<tr class="memdesc:acc7f398f326414a4d2f5bea6b308a0b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the key.  <br /></td></tr>
+<tr class="memitem:a0767271bfdf8f54002f922c2ee09944a" id="r_a0767271bfdf8f54002f922c2ee09944a"><td class="memItemLeft"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0767271bfdf8f54002f922c2ee09944a">operator=</a> (const <a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a0767271bfdf8f54002f922c2ee09944a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the key.  <br /></td></tr>
+<tr class="memitem:a3814f988249760683546ddc093b8ba4e" id="r_a3814f988249760683546ddc093b8ba4e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3814f988249760683546ddc093b8ba4e">WolfSSLRsa</a> (WolfSSLRsa &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a3814f988249760683546ddc093b8ba4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the key.  <br /></td></tr>
+<tr class="memitem:a09d6b1e65a5e85ce8c839c0001917c96" id="r_a09d6b1e65a5e85ce8c839c0001917c96"><td class="memItemLeft"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a09d6b1e65a5e85ce8c839c0001917c96">operator=</a> (<a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a09d6b1e65a5e85ce8c839c0001917c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the key.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7f7af906ef5f495d7957fd7fe7349c71" name="a7f7af906ef5f495d7957fd7fe7349c71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f7af906ef5f495d7957fd7fe7349c71">&#9670;&#160;</a></span>Period() <span class="overload">[1/2]</span></h2>
+<a id="a1308729d8ff35f469e9f9b371d525d28" name="a1308729d8ff35f469e9f9b371d525d28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1308729d8ff35f469e9f9b371d525d28">&#9670;&#160;</a></span>WolfSSLRsa() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,42 +168,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Digi::API::Connection::Info::Period::Period </td>
+          <td class="memname">Lib::Crypto::WolfSSLRsa::WolfSSLRsa </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates an empty measurement. </p>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a7f7af906ef5f495d7957fd7fe7349c71_icgraph.svg" width="614" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a8bc1db9ac5e84c7e42f9548a8d3e288a" name="a8bc1db9ac5e84c7e42f9548a8d3e288a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bc1db9ac5e84c7e42f9548a8d3e288a">&#9670;&#160;</a></span>Period() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Digi::API::Connection::Info::Period::Period </td>
-          <td>(</td>
-          <td class="paramtype">const Period &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -210,25 +181,113 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copies a snapshot of the published values of another measurement; a running measurement is not copied. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Measurement to copy. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Prepares the RSA context without a key. </p>
+<p>Call <a class="el" href="#a43de0d37ba0f47417c537dba6ce37ad4" title="generateKey()">generateKey()</a> before signing, verifying, encrypting or decrypting. </p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a1308729d8ff35f469e9f9b371d525d28_icgraph.svg" width="662" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab6ae34e7912a123c6835ee6840762239" name="ab6ae34e7912a123c6835ee6840762239"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6ae34e7912a123c6835ee6840762239">&#9670;&#160;</a></span>~WolfSSLRsa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Crypto::WolfSSLRsa::~WolfSSLRsa </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Releases the wolfCrypt RSA context. </p>
+
+</div>
+</div>
+<a id="acc7f398f326414a4d2f5bea6b308a0b0" name="acc7f398f326414a4d2f5bea6b308a0b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc7f398f326414a4d2f5bea6b308a0b0">&#9670;&#160;</a></span>WolfSSLRsa() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Crypto::WolfSSLRsa::WolfSSLRsa </td>
+          <td>(</td>
+          <td class="paramtype">const WolfSSLRsa &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: owns a wolfCrypt context holding the key. </p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a8bc1db9ac5e84c7e42f9548a8d3e288a_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_acc7f398f326414a4d2f5bea6b308a0b0_cgraph.svg" width="662" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3814f988249760683546ddc093b8ba4e" name="a3814f988249760683546ddc093b8ba4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3814f988249760683546ddc093b8ba4e">&#9670;&#160;</a></span>WolfSSLRsa() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Crypto::WolfSSLRsa::WolfSSLRsa </td>
+          <td>(</td>
+          <td class="paramtype">WolfSSLRsa &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: owns a wolfCrypt context holding the key. </p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a3814f988249760683546ddc093b8ba4e_cgraph.svg" width="662" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a36bbf2f2c509a1d11eb9ae7f95c0b4ce" name="a36bbf2f2c509a1d11eb9ae7f95c0b4ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36bbf2f2c509a1d11eb9ae7f95c0b4ce">&#9670;&#160;</a></span>beginMeasurement()</h2>
+<a id="a690ac94f5fdb51b1a82a680b427e80f6" name="a690ac94f5fdb51b1a82a680b427e80f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a690ac94f5fdb51b1a82a680b427e80f6">&#9670;&#160;</a></span>decrypt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -237,31 +296,44 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Info::Period::beginMeasurement </td>
+          <td class="memname">bool Lib::Crypto::WolfSSLRsa::decrypt </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>ciphertext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>plaintext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>plaintextLength</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Starts a measurement unless one is already running. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a36bbf2f2c509a1d11eb9ae7f95c0b4ce_cgraph.svg" width="755" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Decrypts data with the private key. </p>
+<p>Uses the generator attached by <a class="el" href="#a43de0d37ba0f47417c537dba6ce37ad4" title="generateKey()">generateKey()</a> for blinding.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">ciphertext</td><td>Encrypted block, <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes long. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">plaintext</td><td>Destination; should hold <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">plaintextLength</td><td>Number of bytes recovered. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
 
 </div>
 </div>
-<a id="a4b8e80addff577311c7f18d581c6a2f4" name="a4b8e80addff577311c7f18d581c6a2f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b8e80addff577311c7f18d581c6a2f4">&#9670;&#160;</a></span>clearMinMax()</h2>
+<a id="a5e86c36f992625c03945c115ab436f54" name="a5e86c36f992625c03945c115ab436f54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e86c36f992625c03945c115ab436f54">&#9670;&#160;</a></span>encrypt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -270,31 +342,151 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Info::Period::clearMinMax </td>
+          <td class="memname">bool Lib::Crypto::WolfSSLRsa::encrypt </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>plaintext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d46/a04895.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>ciphertext</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encrypts data with the public key, with PKCS#1 v1.5 type 2 padding. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">plaintext</td><td>Data to encrypt; at most <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> minus 11 bytes. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">rng</td><td>Seeded random generator. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ciphertext</td><td>Destination; must hold <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
+
+</div>
+</div>
+<a id="a8886d49ea9dc962dd7e5dfded3314703" name="a8886d49ea9dc962dd7e5dfded3314703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8886d49ea9dc962dd7e5dfded3314703">&#9670;&#160;</a></span>encryptedSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Lib::Crypto::WolfSSLRsa::encryptedSize </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the modulus size of the current key. </p>
+<dl class="section return"><dt>Returns</dt><dd>Modulus size in bytes, which is the length of every signature and encrypted block, or a negative wolfCrypt error code if no key is set. </dd></dl>
+
+</div>
+</div>
+<a id="a43de0d37ba0f47417c537dba6ce37ad4" name="a43de0d37ba0f47417c537dba6ce37ad4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43de0d37ba0f47417c537dba6ce37ad4">&#9670;&#160;</a></span>generateKey()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Crypto::WolfSSLRsa::generateKey </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sizeBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>publicExponent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d46/a04895.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a new key pair, replacing any key this instance held, and attaches the generator to it. </p>
+<p>Exists only with 'WOLFSSL_KEY_GEN' in the wolfSSL configuration. A 2048-bit key takes seconds on a Cortex-M4, so call it from a low-priority task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sizeBits</td><td>Modulus size, in bits, such as 2048. </td></tr>
+    <tr><td class="paramname">publicExponent</td><td>Public exponent, normally 65537. </td></tr>
+    <tr><td class="paramname">rng</td><td>Seeded random generator; must outlive the key. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
+
+</div>
+</div>
+<a id="a0767271bfdf8f54002f922c2ee09944a" name="a0767271bfdf8f54002f922c2ee09944a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0767271bfdf8f54002f922c2ee09944a">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp; Lib::Crypto::WolfSSLRsa::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Clears the minimum and maximum and abandons the running measurement. </p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<p>Non-copyable: owns a wolfCrypt context holding the key. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a4b8e80addff577311c7f18d581c6a2f4_icgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a0767271bfdf8f54002f922c2ee09944a_cgraph.svg" width="654" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a764b89843884696c66a1e499e466bb51" name="a764b89843884696c66a1e499e466bb51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a764b89843884696c66a1e499e466bb51">&#9670;&#160;</a></span>endMeasurement()</h2>
+<a id="a09d6b1e65a5e85ce8c839c0001917c96" name="a09d6b1e65a5e85ce8c839c0001917c96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09d6b1e65a5e85ce8c839c0001917c96">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,32 +495,32 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Info::Period::endMeasurement </td>
+          <td class="memname"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp; Lib::Crypto::WolfSSLRsa::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Ends the running measurement and updates the filtered, raw, minimum and maximum periods. </p>
-<p>The filter follows a step of "JUMP_TICKS" or more at once and smooths smaller jitter. </p>
+<p>Non-movable: owns a wolfCrypt context holding the key. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a764b89843884696c66a1e499e466bb51_cgraph.svg" width="1136" height="322"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a09d6b1e65a5e85ce8c839c0001917c96_cgraph.svg" width="654" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ad790a1b93a5c67dbc4d8c38e038f972e" name="ad790a1b93a5c67dbc4d8c38e038f972e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad790a1b93a5c67dbc4d8c38e038f972e">&#9670;&#160;</a></span>getMaximum()</h2>
+<a id="aaa7fa629597c530db9a29c108a50c076" name="aaa7fa629597c530db9a29c108a50c076"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa7fa629597c530db9a29c108a50c076">&#9670;&#160;</a></span>sign()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -337,208 +529,43 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::Digi::API::Connection::Info::Period::getMaximum </td>
+          <td class="memname">bool Lib::Crypto::WolfSSLRsa::sign </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the longest period since the last min/max clear. </p>
-<dl class="section return"><dt>Returns</dt><dd>Maximum period in ticks, 0 if none measured. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_ad790a1b93a5c67dbc4d8c38e038f972e_icgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aa1549dc6f6312b52fea31758d6dcc6ba" name="aa1549dc6f6312b52fea31758d6dcc6ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1549dc6f6312b52fea31758d6dcc6ba">&#9670;&#160;</a></span>getMinimum()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::Digi::API::Connection::Info::Period::getMinimum </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the shortest period since the last min/max clear. </p>
-<dl class="section return"><dt>Returns</dt><dd>Minimum period in ticks, 0 if none measured. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_aa1549dc6f6312b52fea31758d6dcc6ba_icgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a9ff26a811598dade38bf9cb9a59e1b8f" name="a9ff26a811598dade38bf9cb9a59e1b8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ff26a811598dade38bf9cb9a59e1b8f">&#9670;&#160;</a></span>getRawValue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t Lib::Digi::API::Connection::Info::Period::getRawValue </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the last measured period. </p>
-<dl class="section return"><dt>Returns</dt><dd>Raw period in ticks. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a9ff26a811598dade38bf9cb9a59e1b8f_icgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a71da6e6c3fc829f3870dc4effdc01cb1" name="a71da6e6c3fc829f3870dc4effdc01cb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71da6e6c3fc829f3870dc4effdc01cb1">&#9670;&#160;</a></span>getValue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t Lib::Digi::API::Connection::Info::Period::getValue </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the filtered period. </p>
-<dl class="section return"><dt>Returns</dt><dd>Filtered period in ticks, 0 before the first measurement. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a71da6e6c3fc829f3870dc4effdc01cb1_icgraph.svg" width="614" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a0b8a0d37bcd05be8e1459ae918c09b94" name="a0b8a0d37bcd05be8e1459ae918c09b94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b8a0d37bcd05be8e1459ae918c09b94">&#9670;&#160;</a></span>operator uint32_t()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Digi::API::Connection::Info::Period::operator uint32_t </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the filtered period. </p>
-<dl class="section return"><dt>Returns</dt><dd>Filtered period in ticks, 0 before the first measurement. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a0b8a0d37bcd05be8e1459ae918c09b94_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a1a97d8d689212e349a8cbecb29d65f0a" name="a1a97d8d689212e349a8cbecb29d65f0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a97d8d689212e349a8cbecb29d65f0a">&#9670;&#160;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a7f7af906ef5f495d7957fd7fe7349c71">Period</a> &amp; Lib::Digi::API::Connection::Info::Period::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a7f7af906ef5f495d7957fd7fe7349c71">Period</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="../../d7/d46/a04895.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copies a snapshot of the published values of another measurement; stops a running measurement. </p>
+<p>Signs data with the private key, with PKCS#1 v1.5 type 1 padding. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Measurement to copy. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">digest</td><td>Bytes to sign, normally a DER DigestInfo of a hash; see the class description. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">rng</td><td>Seeded random generator. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">signature</td><td>Destination; must hold <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this measurement. </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_a1a97d8d689212e349a8cbecb29d65f0a_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
 
 </div>
 </div>
-<a id="ae0d5ca7503e29010b4d318246a40ff5e" name="ae0d5ca7503e29010b4d318246a40ff5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0d5ca7503e29010b4d318246a40ff5e">&#9670;&#160;</a></span>reset()</h2>
+<a id="a8efa778b2f9627a75054ee625e3a5c2e" name="a8efa778b2f9627a75054ee625e3a5c2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8efa778b2f9627a75054ee625e3a5c2e">&#9670;&#160;</a></span>verify()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -547,53 +574,39 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Info::Period::reset </td>
+          <td class="memname">bool Lib::Crypto::WolfSSLRsa::verify </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Clears all statistics and abandons the running measurement. </p>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dda/a04911_ae0d5ca7503e29010b4d318246a40ff5e_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4207cfc354a9e7da3ceb9ef0f63c10fa" name="a4207cfc354a9e7da3ceb9ef0f63c10fa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4207cfc354a9e7da3ceb9ef0f63c10fa">&#9670;&#160;</a></span>stopMeasurement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Info::Period::stopMeasurement </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>digestLength</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Abandons the running measurement without updating the statistics. </p>
+<p>Verifies a signature with the public key and recovers the signed bytes. </p>
+<p>Compare the recovered bytes with the expected digest yourself: a successful return only means the padding was valid.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">signature</td><td>Signature to verify. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">digest</td><td>Destination for the recovered bytes; should hold <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">digestLength</td><td>Number of bytes recovered. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the padding verified, <b>false</b> if the context failed to initialize or the signature is invalid. </dd></dl>
 
 </div>
 </div>
@@ -610,7 +623,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dd/d7a/a00990.html">Lib</a></li><li class="navelem"><a href="../../d7/d59/a01013.html">Digi</a></li><li class="navelem"><a href="../../d0/d56/a01014.html">API</a></li><li class="navelem"><a href="../../d3/d3a/a04891.html">Connection</a></li><li class="navelem"><a href="../../df/d7b/a04903.html">Info</a></li><li class="navelem"><a href="../../d7/dda/a04911.html">Period</a></li>
+    <li class="navelem"><a href="../../dd/d7a/a00990.html">Lib</a></li><li class="navelem"><a href="../../d7/d59/a01013.html">Crypto</a></li><li class="navelem"><a href="../../d7/dda/a04911.html">WolfSSLRsa</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

@@ -1,4 +1,4 @@
 var a00521 =
 [
-    [ "Lib::Ethernet::MacAddress", "d5/d5a/a05239.html", "d5/d5a/a05239" ]
+    [ "Lib::Ethernet::IpAddress", "d1/dd1/a05275.html", "d1/dd1/a05275" ]
 ];

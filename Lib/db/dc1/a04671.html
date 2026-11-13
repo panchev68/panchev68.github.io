@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::XPT2046</title>
+<title>IAR EWARM Library: Lib::BSP::Thermometer::DTH::Base&lt; T_DERIVED &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,143 +112,138 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('db/dc1/a04671.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::XPT2046<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Thermometer::DTH::Base&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Resistive touch screen controller driver for the <a class="el" href="../../db/dc1/a04671.html" title="Resistive touch screen controller driver for the XPT2046.">XPT2046</a>. </p>
-<p>This class manages the communication, data acquisition, filtering, and coordinate transformation for an <a class="el" href="../../db/dc1/a04671.html" title="Resistive touch screen controller driver for the XPT2046.">XPT2046</a> controller. It utilizes an internal <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task for asynchronous processing. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::XPT2046:</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::BSP::Thermometer::DTH::Base&lt; T_DERIVED &gt;</div><p>CRTP base for DHT sensor driver implementations. </p>
+<p>Manages low-level one-wire communication timing using a hardware timer and a GPIO pin. The background polling task launched by <a class="el" href="#a5413ce6c3ea6e0e7f1a36a6835ca9247" title="start()">start()</a> dispatches each cycle to 'T_DERIVED::taskEntry()' at compile time, with no vtable involved.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete driver implementing 'taskEntry()'. Must publicly inherit from 'Base&lt;T_DERIVED&gt;'. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::Thermometer::DTH::Base&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/d7c/a04669.svg" width="158" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/d7c/a04669.svg" width="535" height="1256"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d64/a04675.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware interface pin configuration.  <a href="../../d1/d64/a04675.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Parameters" id="r_Parameters"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../de/d69/a04679.html">Parameters</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Touch screen calibration and operational parameters.  <a href="../../de/d69/a04679.html#details">More...</a><br /></td></tr>
+<tr class="memitem:TimerHandler" id="r_TimerHandler"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d64/a04675.html">TimerHandler</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware timer handle and input capture channel used for signal timing.  <a href="../../d1/d64/a04675.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../de/d69/a04679.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration parameters for the DHT sensor driver.  <a href="../../de/d69/a04679.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a0dda6dc35a85166d57bd689d629e6846" id="r_a0dda6dc35a85166d57bd689d629e6846"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> (const <a class="el" href="../../d1/d64/a04675.html">Config</a> &amp;config, const <a class="el" href="../../de/d69/a04679.html">Parameters</a> &amp;parameters) noexcept</td></tr>
-<tr class="memdesc:a0dda6dc35a85166d57bd689d629e6846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the hardware interface and calibration parameters, then start the monitoring task.  <br /></td></tr>
-<tr class="memitem:a9edd1a086623e54cbb23781f0d989d53" id="r_a9edd1a086623e54cbb23781f0d989d53"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9edd1a086623e54cbb23781f0d989d53">~XPT2046</a> () noexcept</td></tr>
-<tr class="memdesc:a9edd1a086623e54cbb23781f0d989d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind the interrupt callback and stop the sampling task before the object is destroyed.  <br /></td></tr>
-<tr class="memitem:aa40395fe163fa53055c2381264eee169" id="r_aa40395fe163fa53055c2381264eee169"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa40395fe163fa53055c2381264eee169">XPT2046</a> (const XPT2046 &amp;other)=delete</td></tr>
-<tr class="memdesc:aa40395fe163fa53055c2381264eee169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy construction is deleted: the driver owns a bound interrupt callback and a running <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task.  <br /></td></tr>
-<tr class="memitem:a0b37858e0ef9dc2bc3c8a2494e0d30d0" id="r_a0b37858e0ef9dc2bc3c8a2494e0d30d0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0b37858e0ef9dc2bc3c8a2494e0d30d0">XPT2046</a> (XPT2046 &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a0b37858e0ef9dc2bc3c8a2494e0d30d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move construction is deleted: the driver owns a bound interrupt callback and a running <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task.  <br /></td></tr>
-<tr class="memitem:a187bc2ba23928588fb3e435ff1a0ffab" id="r_a187bc2ba23928588fb3e435ff1a0ffab"><td class="memItemLeft"><a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a187bc2ba23928588fb3e435ff1a0ffab">operator=</a> (const <a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a187bc2ba23928588fb3e435ff1a0ffab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the driver owns a bound interrupt callback and a running <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task.  <br /></td></tr>
-<tr class="memitem:a0a0bca74a5312b24895a6b947c35e11a" id="r_a0a0bca74a5312b24895a6b947c35e11a"><td class="memItemLeft"><a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0a0bca74a5312b24895a6b947c35e11a">operator=</a> (<a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a0a0bca74a5312b24895a6b947c35e11a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the driver owns a bound interrupt callback and a running <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task.  <br /></td></tr>
-<tr class="memitem:adbf7069f002f1074ffe599970a15c399" id="r_adbf7069f002f1074ffe599970a15c399"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adbf7069f002f1074ffe599970a15c399">read</a> (int32_t &amp;x, int32_t &amp;y) const noexcept</td></tr>
-<tr class="memdesc:adbf7069f002f1074ffe599970a15c399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the current touch coordinates.  <br /></td></tr>
-<tr class="memitem:ada371f317a4f0551dc84dcf51749ee60" id="r_ada371f317a4f0551dc84dcf51749ee60"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ada371f317a4f0551dc84dcf51749ee60">setRotation</a> (bool shouldFlip) noexcept</td></tr>
-<tr class="memdesc:ada371f317a4f0551dc84dcf51749ee60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the touch screen rotation.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a9c9b1adf3f4cdaad9fee54301cb21f1f" id="r_a9c9b1adf3f4cdaad9fee54301cb21f1f"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a9c9b1adf3f4cdaad9fee54301cb21f1f">PinHandle</a> = <a class="el" href="../../d5/dc5/a05419.html">Lib::HAL::GPIO::Handle</a></td></tr>
+<tr class="memdesc:a9c9b1adf3f4cdaad9fee54301cb21f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin handle type.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:af14f0b64c88d8857e32beeba9d6c6493" id="r_af14f0b64c88d8857e32beeba9d6c6493"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af14f0b64c88d8857e32beeba9d6c6493">Base</a> (const <a class="el" href="../../de/d69/a04679.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:af14f0b64c88d8857e32beeba9d6c6493"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the driver with the given hardware configuration.  <br /></td></tr>
+<tr class="memitem:a07a6568f25502674c91a864497867548" id="r_a07a6568f25502674c91a864497867548"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a07a6568f25502674c91a864497867548">~Base</a> () noexcept</td></tr>
+<tr class="memdesc:a07a6568f25502674c91a864497867548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-virtual: an instance is never destroyed through a base pointer, so the CRTP base stays free of a vtable.  <br /></td></tr>
+<tr class="memitem:a5413ce6c3ea6e0e7f1a36a6835ca9247" id="r_a5413ce6c3ea6e0e7f1a36a6835ca9247"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5413ce6c3ea6e0e7f1a36a6835ca9247">start</a> () noexcept</td></tr>
+<tr class="memdesc:a5413ce6c3ea6e0e7f1a36a6835ca9247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the DHT sensor driver.  <br /></td></tr>
+<tr class="memitem:a049430e063b46db8f7e7401c0af75df7" id="r_a049430e063b46db8f7e7401c0af75df7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a049430e063b46db8f7e7401c0af75df7">writePinState</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d7/d60/a00816.html#ga5b3ef0486b179415581eb342e0ea6b43">GPIO_PinState</a> state) noexcept</td></tr>
+<tr class="memdesc:a049430e063b46db8f7e7401c0af75df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a GPIO pin state for sensor communication.  <br /></td></tr>
+<tr class="memitem:ab0b91e6ca971b92cc9b60de925eeceae" id="r_ab0b91e6ca971b92cc9b60de925eeceae"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab0b91e6ca971b92cc9b60de925eeceae">startupImpulse</a> (uint32_t impulseDuration) noexcept</td></tr>
+<tr class="memdesc:ab0b91e6ca971b92cc9b60de925eeceae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the startup impulse to the DHT sensor.  <br /></td></tr>
+<tr class="memitem:a63785a9b88d7556f54e1e71118a760d4" id="r_a63785a9b88d7556f54e1e71118a760d4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a63785a9b88d7556f54e1e71118a760d4">endReceivedData</a> () noexcept</td></tr>
+<tr class="memdesc:a63785a9b88d7556f54e1e71118a760d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Completes data reception and releases the sensor line.  <br /></td></tr>
+<tr class="memitem:a9e2aee6a61daef81b7ccc8c2b3a73031" id="r_a9e2aee6a61daef81b7ccc8c2b3a73031"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9e2aee6a61daef81b7ccc8c2b3a73031">beginReceiveData</a> (uint32_t *data, size_t length) noexcept</td></tr>
+<tr class="memdesc:a9e2aee6a61daef81b7ccc8c2b3a73031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates DMA-based input capture for sensor data reception.  <br /></td></tr>
+<tr class="memitem:a9b5b96a6106c15c974463750529471d0" id="r_a9b5b96a6106c15c974463750529471d0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9b5b96a6106c15c974463750529471d0">waitForComplete</a> (uint32_t timeout) noexcept</td></tr>
+<tr class="memdesc:a9b5b96a6106c15c974463750529471d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for data reception completion.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a3b31347dab82ede045f6e076046e5762" id="r_a3b31347dab82ede045f6e076046e5762"><td class="memItemLeft"><a class="el" href="../../de/d69/a04679.html">Config</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3b31347dab82ede045f6e076046e5762">config</a></td></tr>
+<tr class="memdesc:a3b31347dab82ede045f6e076046e5762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensor driver configuration.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="af8a3b5e266b12d8f829d1e5c4858f36f" name="af8a3b5e266b12d8f829d1e5c4858f36f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8a3b5e266b12d8f829d1e5c4858f36f">&#9670;&#160;</a></span>Rotation</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a9c9b1adf3f4cdaad9fee54301cb21f1f" name="a9c9b1adf3f4cdaad9fee54301cb21f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c9b1adf3f4cdaad9fee54301cb21f1f">&#9670;&#160;</a></span>PinHandle</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#af8a3b5e266b12d8f829d1e5c4858f36f">Lib::BSP::XPT2046::Rotation</a> : uint8_t</td>
+          <td class="memname">using <a class="el" href="../../db/dc1/a04671.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; T_DERIVED &gt;<a class="el" href="../../dd/dc0/a00611.html#acd389cc92a6a175118816d170af42e10">::PinHandle</a> = <a class="el" href="../../d5/dc5/a05419.html">Lib::HAL::GPIO::Handle</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Screen rotation configurations. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af8a3b5e266b12d8f829d1e5c4858f36fa5b39c8b553c821e7cddc6da64b5bd2ee" name="af8a3b5e266b12d8f829d1e5c4858f36fa5b39c8b553c821e7cddc6da64b5bd2ee"></a>DEFAULT&#160;</td><td class="fielddoc"><p>Standard orientation. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="af8a3b5e266b12d8f829d1e5c4858f36fac039a0e505a57a288c0de3334649f17b" name="af8a3b5e266b12d8f829d1e5c4858f36fac039a0e505a57a288c0de3334649f17b"></a>FLIP_X&#160;</td><td class="fielddoc"><p>Flipped along the X-axis. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="af8a3b5e266b12d8f829d1e5c4858f36fa6340c446a18eee835ff5ebf2ef438ca1" name="af8a3b5e266b12d8f829d1e5c4858f36fa6340c446a18eee835ff5ebf2ef438ca1"></a>FLIP_XY&#160;</td><td class="fielddoc"><p>Flipped along both axes. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="af8a3b5e266b12d8f829d1e5c4858f36fab9b8e06eeba4d9b150c39907b7261a34" name="af8a3b5e266b12d8f829d1e5c4858f36fab9b8e06eeba4d9b150c39907b7261a34"></a>FLIP_Y&#160;</td><td class="fielddoc"><p>Flipped along the Y-axis. </p>
-</td></tr>
-</table>
+<p>GPIO pin handle type. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0dda6dc35a85166d57bd689d629e6846" name="a0dda6dc35a85166d57bd689d629e6846"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0dda6dc35a85166d57bd689d629e6846">&#9670;&#160;</a></span>XPT2046() <span class="overload">[1/3]</span></h2>
+<a id="af14f0b64c88d8857e32beeba9d6c6493" name="af14f0b64c88d8857e32beeba9d6c6493"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af14f0b64c88d8857e32beeba9d6c6493">&#9670;&#160;</a></span>Base()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::XPT2046::XPT2046 </td>
+          <td class="memname"><a class="el" href="../../db/dc1/a04671.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; T_DERIVED &gt;::Base </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d1/d64/a04675.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="../../de/d69/a04679.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../de/d69/a04679.html">Parameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Configure the hardware interface and calibration parameters, then start the monitoring task. </p>
-<p>Starts the internal monitoring task only after every other member has been fully initialized, so the task never observes calibration data mid-construction.</p>
+<p>Constructs the driver with the given hardware configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Hardware pin definitions. </td></tr>
-    <tr><td class="paramname">parameters</td><td>Operational calibration parameters. </td></tr>
+    <tr><td class="paramname">config</td><td>Configuration parameters including timer and GPIO handles. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_a0dda6dc35a85166d57bd689d629e6846_cgraph.svg" width="1320" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_a0dda6dc35a85166d57bd689d629e6846_icgraph.svg" width="534" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a9edd1a086623e54cbb23781f0d989d53" name="a9edd1a086623e54cbb23781f0d989d53"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9edd1a086623e54cbb23781f0d989d53">&#9670;&#160;</a></span>~XPT2046()</h2>
+<a id="a07a6568f25502674c91a864497867548" name="a07a6568f25502674c91a864497867548"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07a6568f25502674c91a864497867548">&#9670;&#160;</a></span>~Base()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::XPT2046::~XPT2046 </td>
+          <td class="memname"><a class="el" href="../../db/dc1/a04671.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; T_DERIVED &gt;::~<a class="el" href="#af14f0b64c88d8857e32beeba9d6c6493">Base</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -256,43 +251,160 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Unbind the interrupt callback and stop the sampling task before the object is destroyed. </p>
-<p>The task is stopped here, while every member it uses is still alive, so no task or ISR code runs during member teardown. </p>
+<p>Non-virtual: an instance is never destroyed through a base pointer, so the CRTP base stays free of a vtable. </p>
 
 </div>
 </div>
-<a id="aa40395fe163fa53055c2381264eee169" name="aa40395fe163fa53055c2381264eee169"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa40395fe163fa53055c2381264eee169">&#9670;&#160;</a></span>XPT2046() <span class="overload">[2/3]</span></h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a9e2aee6a61daef81b7ccc8c2b3a73031" name="a9e2aee6a61daef81b7ccc8c2b3a73031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2aee6a61daef81b7ccc8c2b3a73031">&#9670;&#160;</a></span>beginReceiveData()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::XPT2046::XPT2046 </td>
+          <td class="memname">bool <a class="el" href="../../db/dc1/a04671.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; T_DERIVED &gt;::beginReceiveData </td>
           <td>(</td>
-          <td class="paramtype">const XPT2046 &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initiates DMA-based input capture for sensor data reception. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Buffer for storing timer capture values. </td></tr>
+    <tr><td class="paramname">length</td><td>Number of capture values to collect. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the capture was started successfully, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a63785a9b88d7556f54e1e71118a760d4" name="a63785a9b88d7556f54e1e71118a760d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63785a9b88d7556f54e1e71118a760d4">&#9670;&#160;</a></span>endReceivedData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../db/dc1/a04671.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; T_DERIVED &gt;::endReceivedData </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy construction is deleted: the driver owns a bound interrupt callback and a running <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task. </p>
+<p>Completes data reception and releases the sensor line. </p>
+<p>Reconfigures the GPIO pin back to output mode and sets it high. </p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_a63785a9b88d7556f54e1e71118a760d4_cgraph.svg" width="971" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5413ce6c3ea6e0e7f1a36a6835ca9247" name="a5413ce6c3ea6e0e7f1a36a6835ca9247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5413ce6c3ea6e0e7f1a36a6835ca9247">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../db/dc1/a04671.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; T_DERIVED &gt;::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the DHT sensor driver. </p>
+<p>Registers the timer capture callback and launches the background task running 'T_DERIVED::taskEntry()'.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if startup succeeded, <b>false</b> otherwise. </dd></dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_a5413ce6c3ea6e0e7f1a36a6835ca9247_icgraph.svg" width="686" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab0b91e6ca971b92cc9b60de925eeceae" name="ab0b91e6ca971b92cc9b60de925eeceae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0b91e6ca971b92cc9b60de925eeceae">&#9670;&#160;</a></span>startupImpulse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../db/dc1/a04671.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; T_DERIVED &gt;::startupImpulse </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>impulseDuration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends the startup impulse to the DHT sensor. </p>
+<p>Pulls the signal line low for the given duration, releases it high, then reconfigures the pin for input capture mode.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object; never copied. </td></tr>
+    <tr><td class="paramname">impulseDuration</td><td>Duration of the low pulse in milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
@@ -300,38 +412,77 @@ Public Member Functions</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_aa40395fe163fa53055c2381264eee169_cgraph.svg" width="1598" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_ab0b91e6ca971b92cc9b60de925eeceae_cgraph.svg" width="971" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a0b37858e0ef9dc2bc3c8a2494e0d30d0" name="a0b37858e0ef9dc2bc3c8a2494e0d30d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b37858e0ef9dc2bc3c8a2494e0d30d0">&#9670;&#160;</a></span>XPT2046() <span class="overload">[3/3]</span></h2>
+<a id="a9b5b96a6106c15c974463750529471d0" name="a9b5b96a6106c15c974463750529471d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b5b96a6106c15c974463750529471d0">&#9670;&#160;</a></span>waitForComplete()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::XPT2046::XPT2046 </td>
+          <td class="memname">bool <a class="el" href="../../db/dc1/a04671.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; T_DERIVED &gt;::waitForComplete </td>
           <td>(</td>
-          <td class="paramtype">XPT2046 &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Move construction is deleted: the driver owns a bound interrupt callback and a running <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task. </p>
+<p>Waits for data reception completion. </p>
+<p>Must be called from 'T_DERIVED::taskEntry()', since the underlying task notification targets this instance's own task.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object; never moved. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the notification was received, <b>false</b> if the timeout occurred. </dd></dl>
+
+</div>
+</div>
+<a id="a049430e063b46db8f7e7401c0af75df7" name="a049430e063b46db8f7e7401c0af75df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a049430e063b46db8f7e7401c0af75df7">&#9670;&#160;</a></span>writePinState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../db/dc1/a04671.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; T_DERIVED &gt;::writePinState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d7/d60/a00816.html#ga5b3ef0486b179415581eb342e0ea6b43">GPIO_PinState</a></td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes a GPIO pin state for sensor communication. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Pin state to write ('GPIO_PIN_RESET' or 'GPIO_PIN_SET'). </td></tr>
   </table>
   </dd>
 </dl>
@@ -339,162 +490,41 @@ Public Member Functions</h2></td></tr>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_a0b37858e0ef9dc2bc3c8a2494e0d30d0_cgraph.svg" width="1598" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_a049430e063b46db8f7e7401c0af75df7_cgraph.svg" width="646" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a187bc2ba23928588fb3e435ff1a0ffab" name="a187bc2ba23928588fb3e435ff1a0ffab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a187bc2ba23928588fb3e435ff1a0ffab">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> &amp; Lib::BSP::XPT2046::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy assignment is deleted: the driver owns a bound interrupt callback and a running <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object; never copied. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object; never produced, since the operator is deleted. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_a187bc2ba23928588fb3e435ff1a0ffab_cgraph.svg" width="1614" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_a049430e063b46db8f7e7401c0af75df7_icgraph.svg" width="614" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a0a0bca74a5312b24895a6b947c35e11a" name="a0a0bca74a5312b24895a6b947c35e11a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a0bca74a5312b24895a6b947c35e11a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a3b31347dab82ede045f6e076046e5762" name="a3b31347dab82ede045f6e076046e5762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b31347dab82ede045f6e076046e5762">&#9670;&#160;</a></span>config</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> &amp; Lib::BSP::XPT2046::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="../../de/d69/a04679.html">Config</a> <a class="el" href="../../db/dc1/a04671.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; T_DERIVED &gt;::config</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: the driver owns a bound interrupt callback and a running <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object; never moved. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object; never produced, since the operator is deleted. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dc1/a04671_a0a0bca74a5312b24895a6b947c35e11a_cgraph.svg" width="1614" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="adbf7069f002f1074ffe599970a15c399" name="adbf7069f002f1074ffe599970a15c399"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbf7069f002f1074ffe599970a15c399">&#9670;&#160;</a></span>read()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::BSP::XPT2046::read </td>
-          <td>(</td>
-          <td class="paramtype">int32_t &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Read the current touch coordinates. </p>
-<p>Both coordinates are set to -1 when the screen is not pressed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>Receives the X coordinate. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Receives the Y coordinate. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the screen is currently pressed, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="ada371f317a4f0551dc84dcf51749ee60" name="ada371f317a4f0551dc84dcf51749ee60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada371f317a4f0551dc84dcf51749ee60">&#9670;&#160;</a></span>setRotation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::BSP::XPT2046::setRotation </td>
-          <td>(</td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>shouldFlip</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Set the touch screen rotation. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shouldFlip</td><td>If <b>true</b>, switches to the flipped rotation parameter. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Sensor driver configuration. </p>
 
 </div>
 </div>
@@ -511,7 +541,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dd/d7a/a00990.html">Lib</a></li><li class="navelem"><a href="../../df/d2f/a00991.html">BSP</a></li><li class="navelem"><a href="../../db/dc1/a04671.html">XPT2046</a></li>
+    <li class="navelem"><a href="../../dd/d7a/a00990.html">Lib</a></li><li class="navelem"><a href="../../df/d2f/a00991.html">BSP</a></li><li class="navelem"><a href="../../d7/d06/a01005.html">Thermometer</a></li><li class="navelem"><a href="../../dc/d81/a01006.html">DTH</a></li><li class="navelem"><a href="../../db/dc1/a04671.html">Base</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

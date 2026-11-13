@@ -1,14 +1,16 @@
 var a05039 =
 [
-    [ "append", "d4/d6b/a05039.html#a668dfbfff0a73062240c2b9d4a20bc28", null ],
-    [ "append", "d4/d6b/a05039.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
-    [ "assign", "d4/d6b/a05039.html#a3552b4d8b71ae5386a62d2b831cc4754", null ],
-    [ "clear", "d4/d6b/a05039.html#a203088c695cf3b7a7190c9a52d8a143c", null ],
-    [ "data", "d4/d6b/a05039.html#aaf5bb127946bfccf2adfc318d584894e", null ],
-    [ "empty", "d4/d6b/a05039.html#afc7cdfcb2f5ea010a814513b9f7e9692", null ],
-    [ "insert", "d4/d6b/a05039.html#ae409c8ac34780b163e1044b9959a2f81", null ],
-    [ "reserve", "d4/d6b/a05039.html#aa059b03866b8797af025cf959e3dee4e", null ],
-    [ "reset", "d4/d6b/a05039.html#ab7425c54f798a024d87678d5f1495d0e", null ],
-    [ "size", "d4/d6b/a05039.html#aea29854e97878274b63e4a5e3e4c9475", null ],
-    [ "type", "d4/d6b/a05039.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ]
+    [ "ChannelArray", "d4/d6b/a05039.html#aa2fed2d2a6f2ce38866cce0b42f0fc1d", null ],
+    [ "SpectrumAnalyzer", "d4/d6b/a05039.html#acffb15e4dc1a3f0ff7c89bc48f895f8e", null ],
+    [ "SpectrumAnalyzer", "d4/d6b/a05039.html#a2c4d3982ffc82582c07ab45464cd9a9f", null ],
+    [ "close", "d4/d6b/a05039.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
+    [ "getAverageArray", "d4/d6b/a05039.html#a9a039ecee938e04e07e4fcb9227ae878", null ],
+    [ "getCurrentArray", "d4/d6b/a05039.html#a8839a8b30ad3060298b6867566c1aa6d", null ],
+    [ "getMaxArray", "d4/d6b/a05039.html#a8fa9bbae67bd369d3c4dcfd522299a06", null ],
+    [ "isNewData", "d4/d6b/a05039.html#a2788be420fbb2acb1168d7aa21759804", null ],
+    [ "isRunning", "d4/d6b/a05039.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "d4/d6b/a05039.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "d4/d6b/a05039.html#a9ca130f09d902c6ce140e87b155e8d00", null ],
+    [ "resetData", "d4/d6b/a05039.html#a219916036b1120cc272129041d937770", null ],
+    [ "update", "d4/d6b/a05039.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
 ];

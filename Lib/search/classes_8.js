@@ -69,8 +69,8 @@ var searchData=
   ['hashportbase_66',['HASHPortBase',['../d1/db0/a05447.html',1,'Lib::HAL']]],
   ['hashportbase_3c_20hashport_3c_20drivermode_3a_3ablocking_20_3e_20_3e_67',['HASHPortBase&lt; HASHPort&lt; DriverMode::BLOCKING &gt; &gt;',['../d1/db0/a05447.html',1,'Lib::HAL']]],
   ['hashportbase_3c_20hashport_3c_20drivermode_3a_3ait_20_3e_20_3e_68',['HASHPortBase&lt; HASHPort&lt; DriverMode::IT &gt; &gt;',['../d1/db0/a05447.html',1,'Lib::HAL']]],
-  ['header_69',['Header',['../d2/d61/a05043.html',1,'Lib::Digi::Core::Frame']]],
-  ['helper_70',['Helper',['../d5/d8a/a04475.html',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper'],['../d3/dd5/a05047.html',1,'Lib::Digi::Core::Frame::Helper']]],
+  ['header_69',['Header',['../d6/de9/a05083.html',1,'Lib::Digi::Core::Frame']]],
+  ['helper_70',['Helper',['../d5/d8a/a04475.html',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper'],['../d2/d78/a05087.html',1,'Lib::Digi::Core::Frame::Helper']]],
   ['hex_71',['Hex',['../d4/da5/a05699.html',1,'Lib::Helper::Convert']]],
   ['hexhelper_72',['HexHelper',['../d3/d30/a05703.html',1,'Lib::Helper::Convert']]],
   ['hh_5fmm_5fss_73',['hh_mm_ss',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02202.html',0,'std::chrono']]]

@@ -1,5 +1,5 @@
 var a08343 =
 [
-    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;", "da/de7/a04643.html", "da/de7/a04643" ],
-    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic", "d3/df2/a04647.html", "d3/df2/a04647" ]
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;", "d9/db6/a04683.html", "d9/db6/a04683" ],
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic", "d2/ddb/a04687.html", "d2/ddb/a04687" ]
 ];

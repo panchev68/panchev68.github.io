@@ -1,14 +1,12 @@
 var a04819 =
 [
-    [ "Counter", "d6/d34/a04823.html", "d6/d34/a04823" ],
-    [ "Period", "d6/da6/a04827.html", "d6/da6/a04827" ],
-    [ "SignalStrength", "d2/d2e/a04831.html", "d2/d2e/a04831" ],
-    [ "deletedMessages", "d6/d6f/a04819.html#af628e5c20d43a21697a20298e3850d62", null ],
-    [ "deletedTransmitStatus", "d6/d6f/a04819.html#a5cb11ade89e22561cb697360e6f647d0", null ],
-    [ "noTransmitStatus", "d6/d6f/a04819.html#aec698012d20e26bb10d4bea26c010985", null ],
-    [ "reconnectionCounter", "d6/d6f/a04819.html#ac7f62868a289abb2450f79aa885bb423", null ],
-    [ "retriesCounter", "d6/d6f/a04819.html#ac6e666ea8ac5731fdd252b8dc813485b", null ],
-    [ "signalStrength", "d6/d6f/a04819.html#ae57e34d0254c73139d0015fc39e498dd", null ],
-    [ "transmitPeriod", "d6/d6f/a04819.html#afa5724d63b364d43fb031cc4682d2de3", null ],
-    [ "unsuccessTransmitStatus", "d6/d6f/a04819.html#ac67e8232f97db31ebd0f825093b661fa", null ]
+    [ "SerialPortBase", "d6/d6f/a04819.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
+    [ "~SerialPortBase", "d6/d6f/a04819.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
+    [ "close", "d6/d6f/a04819.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
+    [ "isOpen", "d6/d6f/a04819.html#a8a52c63b043300492be23bf0b0138f86", null ],
+    [ "open", "d6/d6f/a04819.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
+    [ "send", "d6/d6f/a04819.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
+    [ "Master", "d6/d6f/a04819.html#a34b85c36cc2386b553fcff72fc15a596", null ],
+    [ "Slave", "d6/d6f/a04819.html#af2d503cce06191d01441adbba146c9f5", null ],
+    [ "onBufferReceive", "d6/d6f/a04819.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
 ];

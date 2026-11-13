@@ -11,7 +11,7 @@ var searchData=
   ['xferoptions_8',['XferOptions',['https://panchev68.github.io/HALF4/dc/d0c/a01532.html#a8d0b7062cdc7f83a02c2da15006f2657',0,'__SMBUS_HandleTypeDef::XferOptions'],['https://panchev68.github.io/HALF4/dd/d1c/a01452.html#af8de60af8242279e8a65e22bf53fad81',0,'I2C_HandleTypeDef::XferOptions']]],
   ['xferpec_9',['XferPEC',['https://panchev68.github.io/HALF4/dc/d0c/a01532.html#a1fbcdb4f1a5a2ad6a1e3a065822e61d2',0,'__SMBUS_HandleTypeDef']]],
   ['xfersize_10',['XferSize',['https://panchev68.github.io/HALF4/dc/d0c/a01532.html#a3d9bde0af5ad8f473ff6b201c6eebf4a',0,'__SMBUS_HandleTypeDef::XferSize'],['https://panchev68.github.io/HALF4/dd/d1c/a01452.html#a47afa75961930ab1743f47245fdf6e85',0,'I2C_HandleTypeDef::XferSize']]],
-  ['xmax_11',['xMax',['../de/d69/a04679.html#ad7faa3502a791114bf456c98c0dbf644',1,'Lib::BSP::XPT2046::Parameters']]],
-  ['xmin_12',['xMin',['../de/d69/a04679.html#aca3ae32e6bdecc7bc919ef20ed75beac',1,'Lib::BSP::XPT2046::Parameters']]],
-  ['xrst_13',['xrst',['../d0/d0c/a05015.html#a36e911e3a416607a83c9551cb0ffe7c3',1,'Lib::Digi::Core::ComDriver']]]
+  ['xmax_11',['xMax',['../d5/d64/a04719.html#ad7faa3502a791114bf456c98c0dbf644',1,'Lib::BSP::XPT2046::Parameters']]],
+  ['xmin_12',['xMin',['../d5/d64/a04719.html#aca3ae32e6bdecc7bc919ef20ed75beac',1,'Lib::BSP::XPT2046::Parameters']]],
+  ['xrst_13',['xrst',['../dc/d7e/a05055.html#a36e911e3a416607a83c9551cb0ffe7c3',1,'Lib::Digi::Core::ComDriver']]]
 ];
