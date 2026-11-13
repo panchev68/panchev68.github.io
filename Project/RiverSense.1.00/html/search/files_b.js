@@ -17,7 +17,7 @@ var searchData=
   ['legacy_2fstm32f4xx_5fhal_5fcan_2ec_14',['Legacy/stm32f4xx_hal_can.c',['https://panchev68.github.io/HALF4/dd/dda/a01621.html',1,'']]],
   ['legacy_2fstm32f4xx_5fhal_5feth_2ec_15',['Legacy/stm32f4xx_hal_eth.c',['https://panchev68.github.io/HALF4/de/df9/a01624.html',1,'']]],
   ['lfts_5fconfig_2eh_16',['lfts_config.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01118.html',1,'']]],
-  ['lib_2fhelper_2fexception_2ehpp_17',['Lib/Helper/Exception.hpp',['https://panchev68.github.io/Lib/da/d32/a08337.html',1,'']]],
+  ['lib_2fhelper_2fexception_2ehpp_17',['Lib/Helper/Exception.hpp',['https://panchev68.github.io/Lib/d8/d67/a08280.html',1,'']]],
   ['lib_5fbsp_5fbeep_2edox_18',['Lib_BSP_Beep.dox',['https://panchev68.github.io/Lib/d7/d46/a00002.html',1,'']]],
   ['lib_5fbsp_5feeprom_5fi2c_5fdriver_2edox_19',['Lib_BSP_EEPROM_I2C_Driver.dox',['https://panchev68.github.io/Lib/dd/dad/a00005.html',1,'']]],
   ['lib_5fbsp_5feeprom_5finternal_5fflashemulation_2edox_20',['Lib_BSP_EEPROM_Internal_FlashEmulation.dox',['https://panchev68.github.io/Lib/d4/dee/a00008.html',1,'']]],

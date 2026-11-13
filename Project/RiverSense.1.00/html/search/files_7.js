@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['hal_2fcore_2fdevicemanager_2ehpp_0',['HAL/core/DeviceManager.hpp',['https://panchev68.github.io/Lib/d8/d75/a08343.html',1,'']]],
-  ['hal_2fgpio_2fport_2ehpp_1',['HAL/GPIO/Port.hpp',['https://panchev68.github.io/Lib/d3/d78/a08448.html',1,'']]],
+  ['hal_2fcore_2fdevicemanager_2ehpp_0',['HAL/core/DeviceManager.hpp',['https://panchev68.github.io/Lib/d8/d84/a08286.html',1,'']]],
+  ['hal_2fgpio_2fport_2ehpp_1',['HAL/GPIO/Port.hpp',['https://panchev68.github.io/Lib/d1/d09/a08391.html',1,'']]],
   ['haltimeout_2ehpp_2',['HalTimeout.hpp',['https://panchev68.github.io/Lib/d7/db1/a00590.html',1,'']]],
   ['hammingcode_2ehpp_3',['HammingCode.hpp',['https://panchev68.github.io/Lib/d2/d5e/a00860.html',1,'']]],
   ['handle_2ehpp_4',['Handle.hpp',['https://panchev68.github.io/Lib/d7/d80/a00614.html',1,'']]],
