@@ -27,7 +27,7 @@ var searchData=
   ['wakeup_20timer_24',['RTCEx WakeUp Timer',['https://panchev68.github.io/HALF4/d1/dd8/a01022.html',1,'']]],
   ['wakeup_20timer_20definitions_25',['RTCEx Wakeup Timer Definitions',['https://panchev68.github.io/HALF4/d1/dac/a01015.html',1,'']]],
   ['wakeupdiagnostics_26',['WakeupDiagnostics',['https://panchev68.github.io/Lib/dc/df2/a04644.html',1,'Lib::BSP::RFID::ST25R100']]],
-  ['wakeuptuningtest_27',['WakeupTuningTest',['../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html',1,'APP']]],
+  ['wakeuptuningtest_27',['WakeupTuningTest',['../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html',1,'APP::WakeupTuningTest'],['../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#af9e830d8f4835a06b237a0c747151e1a',1,'APP::WakeupTuningTest::WakeupTuningTest() noexcept=default'],['../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#a363c2d281812420d4d1b9ba3702913d2',1,'APP::WakeupTuningTest::WakeupTuningTest(const WakeupTuningTest &amp;)=delete'],['../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#abc699443dad5016ffe8a5dd5cd16b4f3',1,'APP::WakeupTuningTest::WakeupTuningTest(WakeupTuningTest &amp;&amp;)=delete']]],
   ['wakeuptuningtest_2ehpp_28',['WakeupTuningTest.hpp',['../d0/d87/_wakeup_tuning_test_8hpp.html',1,'']]],
   ['watchdog_20selection_29',['ADC Analog Watchdog Selection',['https://panchev68.github.io/HALF4/df/d7d/a00696.html',1,'']]],
   ['watchdogmode_30',['WatchdogMode',['https://panchev68.github.io/HALF4/d9/d45/a01396.html#ad4c60783321a30e8edffa323148e424d',1,'ADC_AnalogWDGConfTypeDef']]],

@@ -55,5 +55,6 @@ var searchData=
   ['button_52',['button',['https://panchev68.github.io/Lib/d5/d8e/a04448.html#a94e7a1f830574d353bb26c0ad6a5a78c',1,'Lib::BSP::EncoderPins::Config::button'],['https://panchev68.github.io/Lib/d0/ddf/a04460.html#a207c3491e9a6fee5d04d7f79026e642a',1,'Lib::BSP::EncoderTimer::Config::button']]],
   ['button_5fhold_5ftime_53',['BUTTON_HOLD_TIME',['https://panchev68.github.io/Lib/d4/d45/a04456.html#aa64ce59f0c59f795c337dcad2b2a104e',1,'Lib::BSP::EncoderTimer']]],
   ['button_5fpressed_5flevel_54',['BUTTON_PRESSED_LEVEL',['../d4/dba/class_a_p_p_1_1_user_interface.html#a5d9f0b2e8e79bcda0f6869f0f44a550a',1,'APP::UserInterface']]],
-  ['byte_5fmask_55',['BYTE_MASK',['https://panchev68.github.io/Lib/d1/d73/a04476.html#a0c75781938403ac5299ae31c09a3c1db',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper']]]
+  ['byte_5fmask_55',['BYTE_MASK',['https://panchev68.github.io/Lib/d1/d73/a04476.html#a0c75781938403ac5299ae31c09a3c1db',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper']]],
+  ['bytes_56',['bytes',['../d7/dec/class_protocol_1_1_buffer.html#a0984f0b381990b43ebc4c42a23ffd89f',1,'Protocol::Buffer']]]
 ];

@@ -271,7 +271,7 @@ var searchData=
   ['frequencies_20definitions_268',['RTCEx Tamper Sampling Frequencies Definitions',['https://panchev68.github.io/HALF4/d6/d36/a01011.html',1,'']]],
   ['frequency_269',['Frequency',['https://panchev68.github.io/HALF4/dd/d7b/a00865.html',1,'I2S Audio Frequency'],['https://panchev68.github.io/HALF4/da/d31/a00678.html',1,'Tick Frequency']]],
   ['frequency_5fhz_270',['FREQUENCY_HZ',['../d2/d5f/class_b_s_p_1_1_buzzer.html#a08967c2e7d183a3f8a74d7ce6ef54081',1,'BSP::Buzzer']]],
-  ['frequencyhz_271',['frequencyHz',['https://panchev68.github.io/Lib/d9/dda/a04740.html#a50257a628ef439fb965df1ee908f3e5e',1,'Lib::BSP::Ultrasonic::PGA460TPWRQ1::TransducerDiagnostics']]],
+  ['frequencyhz_271',['frequencyHz',['https://panchev68.github.io/Lib/d9/dda/a04740.html#a50257a628ef439fb965df1ee908f3e5e',1,'Lib::BSP::Ultrasonic::PGA460TPWRQ1::TransducerDiagnostics::frequencyHz'],['../d2/d5f/class_b_s_p_1_1_buzzer.html#a0df725015167c61a6ea0e1de925aa213',1,'BSP::Buzzer::frequencyHz']]],
   ['frmctr1_272',['FRMCTR1',['https://panchev68.github.io/Lib/dd/d48/a00995.html#aa079b641f0d5c91c7219aa446879acf2ab9ed48ee87e9b2f956d4878c0c2d35f2',1,'Lib::BSP::Display']]],
   ['frmctr2_273',['FRMCTR2',['https://panchev68.github.io/Lib/dd/d48/a00995.html#aa079b641f0d5c91c7219aa446879acf2a2714680554c0679f6bb5fbafeec3e22e',1,'Lib::BSP::Display']]],
   ['frmctr3_274',['FRMCTR3',['https://panchev68.github.io/Lib/dd/d48/a00995.html#aa079b641f0d5c91c7219aa446879acf2a2559f824e624d9cef40f1ee5c8327ce4',1,'Lib::BSP::Display']]],
