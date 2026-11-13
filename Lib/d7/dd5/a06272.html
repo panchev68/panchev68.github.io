@@ -5,20 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Semaphore</title>
+<title>IAR EWARM Library: RTOS::Timer</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -47,22 +45,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -79,19 +72,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </ul>
 </div><!-- main-nav -->
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/dd5/a06272.html','../../',''); });
-</script>
-<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
@@ -112,73 +92,93 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/dd5/a06272.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Semaphore</div></div>
+  <div class="headertitle"><div class="title">RTOS::Timer</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows signalling between a task and an ISR with a binary <a class="el" href="../../d7/dd5/a06272.html" title="RTOS::Semaphore">RTOS::Semaphore</a>.</p>
-<p>Shows signalling between a task and an ISR with a binary RTOS::Semaphore.Covers opening the semaphore, a task waiting for an event with a timeout, and an interrupt handler that gives the semaphore from ISR context. The FromISR variant must not be called from a task, and the task variant must not be called from an ISR.</p>
-<dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="../../dd/d7b/a05939.html#a4f3a14ce62c98f7ce5520ce3e91b2322" title="RTOS::Semaphore::open()">RTOS::Semaphore::open()</a> from task context before the interrupt is enabled.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="rtos_semaphore_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="semaphore_usage_open"></a>
-Creating the semaphore</h2>
-<p>The semaphore is created empty, so the first <a class="el" href="../../d3/d4c/a05943.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> blocks until the ISR gives it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
+<p>Shows a software timer that runs a callback from the FreeRTOS timer daemon task.</p>
+<p>Shows a software timer that runs a callback from the FreeRTOS timer daemon task.Covers an auto-reload timer that toggles an LED every 500 ms and a one-shot timer that is started on demand. Callbacks run in the timer daemon task context, not in an ISR, so they must not block for long. The timer objects must outlive their callbacks, so they are kept in namespace scope here; destroying a timer stops it.</p>
+<dl class="section warning"><dt>Warning</dt><dd>The callback is stored as a non-owning 'FunctionRef': the function it points to must outlive the timer.</dd></dl>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timer_usage_blink"></a>
+Auto-reload timer</h3>
+<p><a class="el" href="../../d6/d0c/a05979.html#a3570e42c41aad69f4a39549a4f79eb09" title="RTOS::Timer::make()">RTOS::Timer::make()</a> returns an empty optional when the native timer cannot be created.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dd/d7b/a05939.html">RTOS::Semaphore</a> dataReady;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> createDataReady() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> dataReady.<a id="a1" name="a1"></a><a class="code hl_function" href="../../dd/d7b/a05939.html#a4f3a14ce62c98f7ce5520ce3e91b2322">open</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00905_html"><div class="ttname"><a href="../../da/d5b/a00905.html">Semaphore.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS binary semaphores.</div></div>
-<div class="ttc" id="aa05939_html"><div class="ttname"><a href="../../dd/d7b/a05939.html">RTOS::Semaphore</a></div><div class="ttdoc">Binary semaphore resource manager for task and ISR synchronization.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:42</div></div>
-<div class="ttc" id="aa05939_html_a4f3a14ce62c98f7ce5520ce3e91b2322"><div class="ttname"><a href="../../dd/d7b/a05939.html#a4f3a14ce62c98f7ce5520ce3e91b2322">RTOS::Semaphore::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Allocates the native FreeRTOS binary semaphore handle, if not already open.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:115</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="semaphore_usage_isr"></a>
-Signalling from the interrupt</h2>
-<p>The handler runs in ISR context, so it uses only the <a class="el" href="../../d3/d4c/a05943.html#aa210564f44d72420fb519ca27f12d9a1" title="RTOS::SemaphoreBase::giveFromISR()">RTOS::SemaphoreBase::giveFromISR()</a> variant.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../dd/d7b/a05939.html">RTOS::Semaphore</a> dataReady;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> EXTI_DataReady_Callback() noexcept {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dataReady.giveFromISR());</div>
-<div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="semaphore_usage_task"></a>
-Waiting in a task</h2>
-<p><a class="el" href="../../dd/d7b/a05939.html#a4a7b4e66593bcbcf465ddf9458cee540" title="RTOS::Semaphore::takeMs()">RTOS::Semaphore::takeMs()</a> returns <b>false</b> when no event arrives within the timeout.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../dd/d7b/a05939.html">RTOS::Semaphore</a> dataReady;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> consumerTask(<span class="keywordtype">void</span> * parameters) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!dataReady.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    <span class="keywordtype">void</span> toggleLed() {</div>
+<div class="line">        <span class="comment">// Toggle the LED from the timer daemon task.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="keywordflow">if</span> (dataReady.takeMs(100U)) {</div>
-<div class="line">            <span class="comment">// New data available.</span></div>
-<div class="line">        } <span class="keywordflow">else</span> {</div>
-<div class="line">            <span class="comment">// No event within 100 ms.</span></div>
-<div class="line">        }</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;RTOS::Timer&gt;</a> blink;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> startBlink() {</div>
+<div class="line">    blink = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/d0c/a05979.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a>(<a id="_a2" name="_a2"></a><a class="code hl_function" href="../../d3/d1f/a05983.html#afffb77404217246e78520eb888dd7afe">RTOS::Timer::Config::fromMs</a>(<span class="stringliteral">&quot;Blink&quot;</span>, toggleLed, 500U));</div>
+<div class="line">    <span class="keywordflow">if</span> (blink.has_value() &amp;&amp; blink-&gt;start() == <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d6/d0c/a05979.html#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c">RTOS::Timer::Status::SUCCESS</a>) {</div>
+<div class="line">        <span class="comment">// Blinking until blink is stopped or destroyed.</span></div>
 <div class="line">    }</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa00932_html"><div class="ttname"><a href="../../d8/dbb/a00932.html">Timer.hpp</a></div><div class="ttdoc">C++20 RAII wrapper for FreeRTOS Software Timers.</div></div>
+<div class="ttc" id="aa05979_html_a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="../../d6/d0c/a05979.html#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c">RTOS::Timer::Status::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">Operation completed successfully.</div><div class="ttdef"><b>Definition</b> Timer.hpp:63</div></div>
+<div class="ttc" id="aa05979_html_a3570e42c41aad69f4a39549a4f79eb09"><div class="ttname"><a href="../../d6/d0c/a05979.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a></div><div class="ttdeci">static std::optional&lt; Timer &gt; make(const Config &amp;config) noexcept</div><div class="ttdoc">Attempts to construct a Timer from the given configuration.</div><div class="ttdef"><b>Definition</b> Timer.hpp:221</div></div>
+<div class="ttc" id="aa05983_html_afffb77404217246e78520eb888dd7afe"><div class="ttname"><a href="../../d3/d1f/a05983.html#afffb77404217246e78520eb888dd7afe">RTOS::Timer::Config::fromMs</a></div><div class="ttdeci">static Config fromMs(std::string_view name, Callback timerCallback, uint32_t periodMs, Mode timerMode=Mode::AUTO_RELOAD) noexcept</div><div class="ttdoc">Creates a configuration with the period given in milliseconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:176</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timer_usage_oneshot"></a>
+One-shot timer</h3>
+<p>A one-shot timer runs its callback once after each <a class="el" href="../../d6/d0c/a05979.html#a1265d75e62308e7d74fbc52532f7c9b4" title="RTOS::Timer::start()">RTOS::Timer::start()</a>. The period is given in seconds here.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <span class="keywordtype">void</span> timeoutHandler() {</div>
+<div class="line">        <span class="comment">// Runs once, 3 s after the timer is started.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;RTOS::Timer&gt;</a> <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> startTimeout() {</div>
+<div class="line">    <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a> = <a class="code hl_function" href="../../d6/d0c/a05979.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a>(</div>
+<div class="line">        <a id="_a4" name="_a4"></a><a class="code hl_function" href="../../d3/d1f/a05983.html#a509c3109c5fe880023442429b1229c81">RTOS::Timer::Config::fromSeconds</a>(<span class="stringliteral">&quot;Timeout&quot;</span>, timeoutHandler, 3U, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d6/d0c/a05979.html#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d">RTOS::Timer::Mode::ONE_SHOT</a>));</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>.has_value()) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>-&gt;start());</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01612_html_gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">cv_status::timeout</a></div><div class="ttdeci">@ timeout</div></div>
+<div class="ttc" id="aa05979_html_a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d"><div class="ttname"><a href="../../d6/d0c/a05979.html#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d">RTOS::Timer::Mode::ONE_SHOT</a></div><div class="ttdeci">@ ONE_SHOT</div><div class="ttdoc">Timer runs once and stops.</div><div class="ttdef"><b>Definition</b> Timer.hpp:73</div></div>
+<div class="ttc" id="aa05983_html_a509c3109c5fe880023442429b1229c81"><div class="ttname"><a href="../../d3/d1f/a05983.html#a509c3109c5fe880023442429b1229c81">RTOS::Timer::Config::fromSeconds</a></div><div class="ttdeci">static Config fromSeconds(std::string_view name, Callback timerCallback, uint32_t periodSec, Mode timerMode=Mode::AUTO_RELOAD) noexcept</div><div class="ttdoc">Creates a configuration with the period given in seconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:189</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timer_usage_period"></a>
+Changing the period at run time</h3>
+<p><a class="el" href="../../d6/d0c/a05979.html#a331c5e9a5b7f5977af306617b8c42cb7" title="RTOS::Timer::setPeriodMs()">RTOS::Timer::setPeriodMs()</a> changes the period of the timer. FreeRTOS also starts a stopped timer as a side effect, so call <a class="el" href="../../d6/d0c/a05979.html#a798530d43191f94bd5cd6f8cfea846b3" title="RTOS::Timer::stop()">RTOS::Timer::stop()</a> afterwards if the timer must stay stopped.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> blinkFaster(<a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d6/d0c/a05979.html">RTOS::Timer</a> &amp; blink) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(blink.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d6/d0c/a05979.html#a331c5e9a5b7f5977af306617b8c42cb7">setPeriodMs</a>(250U));</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05979_html"><div class="ttname"><a href="../../d6/d0c/a05979.html">RTOS::Timer</a></div><div class="ttdoc">RAII wrapper for managing FreeRTOS software timer resources.</div><div class="ttdef"><b>Definition</b> Timer.hpp:49</div></div>
+<div class="ttc" id="aa05979_html_a331c5e9a5b7f5977af306617b8c42cb7"><div class="ttname"><a href="../../d6/d0c/a05979.html#a331c5e9a5b7f5977af306617b8c42cb7">RTOS::Timer::setPeriodMs</a></div><div class="ttdeci">Status setPeriodMs(uint32_t periodMs, TickType blockTime=DEFAULT_BLOCK_TIME) noexcept</div><div class="ttdoc">Sets period in milliseconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:504</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

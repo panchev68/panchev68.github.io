@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Canbus</title>
+<title>IAR EWARM Library: Lib::Errors</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,115 +91,60 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d6/d36/a01011.html">Canbus</a></li>  </ul>
+<li class="navelem"><a href="../../d2/d4c/a00984.html">Lib</a></li><li class="navelem"><a href="../../d6/d36/a01011.html">Errors</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Canbus</div></div>
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle"><div class="title">Lib::Errors</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>CAN bus client/server service layer built on "Lib::HAL::CANPortBase".  
-<a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>CAN bus client/server service layer built on "Lib::HAL::CANPortBase". </p>
-<p>Mirrors the HAL "DriverMode" shape but for roles: client and server "Service" specializations share a non-template "ServiceBase" owning the CAN port, an RTOS task, an RX queue and diagnostics counters. </p>
+<div class="textblock"><p>Centralized error creation, state tracking and observation. </p>
+<p>The "Dispatcher" singleton owns every "Error" created via "createError()" and periodically scans it for state transitions; "Observer" provides the pull-based, group-filterable read side. </p>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:Detail" id="r_Detail"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d45/a01012.html">Detail</a></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Service" id="r_Service"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/d2a/a04776.html">Service</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN bus client/server service, specialized per <a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02" title="Mode">Mode</a> in 'ClientBase.hpp'/'ServerBase.hpp'.  <a href="../../db/d2a/a04776.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Service_3C_20Mode_3A_3ACLIENT_20_3E" id="r_Service_3C_20Mode_3A_3ACLIENT_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../da/d0e/a04752.html">Service&lt; Mode::CLIENT &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN bus client: sends requests/values to a server node and reacts to its responses/errors.  <a href="../../da/d0e/a04752.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Service_3C_20Mode_3A_3ASERVER_20_3E" id="r_Service_3C_20Mode_3A_3ASERVER_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/dfa/a04756.html">Service&lt; Mode::SERVER &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN bus server: discovers client nodes by scanning and answers their requests.  <a href="../../d8/dfa/a04756.html#details">More...</a><br /></td></tr>
-<tr class="memitem:ServiceBase" id="r_ServiceBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/dc8/a04760.html">ServiceBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for CAN bus services.  <a href="../../db/dc8/a04760.html#details">More...</a><br /></td></tr>
+<tr class="memitem:BasicDispatcher" id="r_BasicDispatcher"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d05/a05163.html">BasicDispatcher</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owns every constructed error and periodically scans it for state changes through an <a class="el" href="../../d1/d66/a06266.html" title="RTOS::TickClient">RTOS::TickClient</a>.  <a href="../../d7/d05/a05163.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Error" id="r_Error"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d66/a05171.html">Error</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ready-made error without extra behavior, used by the default 'Dispatcher'.  <a href="../../dc/d66/a05171.html#details">More...</a><br /></td></tr>
+<tr class="memitem:ErrorBase" id="r_ErrorBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../df/daa/a05167.html">ErrorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP foundation tracking a single error condition through an explicit lifecycle.  <a href="../../df/daa/a05167.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Group" id="r_Group"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d07/a05175.html">Group</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A named category that 'Error' instances can be tagged with, and that 'Observer' can filter by.  <a href="../../dc/d07/a05175.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Observer" id="r_Observer"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d48/a05183.html">Observer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ready-made observer using the default group filter of 'ObserverBase'.  <a href="../../d7/d48/a05183.html#details">More...</a><br /></td></tr>
+<tr class="memitem:ObserverBase" id="r_ObserverBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/daa/a05179.html">ObserverBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP foundation reading active errors from the 'Dispatcher', optionally restricted to a single 'Group'.  <a href="../../dc/daa/a05179.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a6a342d3a95a10dc45d846c70f8fd7fb9" id="r_a6a342d3a95a10dc45d846c70f8fd7fb9"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a6a342d3a95a10dc45d846c70f8fd7fb9">ClientBase</a> = <a class="el" href="../../db/d2a/a04776.html">Service</a>&lt;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1">Mode::CLIENT</a>&gt;</td></tr>
-<tr class="memdesc:a6a342d3a95a10dc45d846c70f8fd7fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client service alias for <a class="el" href="../../db/d2a/a04776.html" title="Service">Service</a>.  <br /></td></tr>
-<tr class="memitem:ab5bb4cbc53b78fbe35d7058920026275" id="r_ab5bb4cbc53b78fbe35d7058920026275"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ab5bb4cbc53b78fbe35d7058920026275">ServerBase</a> = <a class="el" href="../../db/d2a/a04776.html">Service</a>&lt;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a>&gt;</td></tr>
-<tr class="memdesc:ab5bb4cbc53b78fbe35d7058920026275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Server service alias for <a class="el" href="../../db/d2a/a04776.html" title="Service">Service</a>.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:ad81e761f20d5185ff2c7cbf5e547ef02" id="r_ad81e761f20d5185ff2c7cbf5e547ef02"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02">Mode</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1">CLIENT</a>
-, <br />
-&#160;&#160;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">SERVER</a>
-<br />
- }</td></tr>
-<tr class="memdesc:ad81e761f20d5185ff2c7cbf5e547ef02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operational mode of a CAN bus service.  <a href="#ad81e761f20d5185ff2c7cbf5e547ef02">More...</a><br /></td></tr>
+<tr class="memitem:a32937fedfac156d84189cbf2133bd0ab" id="r_a32937fedfac156d84189cbf2133bd0ab"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a32937fedfac156d84189cbf2133bd0ab">Dispatcher</a> = <a class="el" href="../../d7/d05/a05163.html">BasicDispatcher</a>&lt;<a class="el" href="../../dc/d66/a05171.html">Error</a>&gt;</td></tr>
+<tr class="memdesc:a32937fedfac156d84189cbf2133bd0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatcher for the plain 'Error' type.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
-<a id="a6a342d3a95a10dc45d846c70f8fd7fb9" name="a6a342d3a95a10dc45d846c70f8fd7fb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a342d3a95a10dc45d846c70f8fd7fb9">&#9670;&#160;</a></span>ClientBase</h2>
+<a id="a32937fedfac156d84189cbf2133bd0ab" name="a32937fedfac156d84189cbf2133bd0ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32937fedfac156d84189cbf2133bd0ab">&#9670;&#160;</a></span>Dispatcher</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a6a342d3a95a10dc45d846c70f8fd7fb9">Lib::Canbus::ClientBase</a> = <a class="el" href="../../db/d2a/a04776.html">Service</a>&lt;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1">Mode::CLIENT</a>&gt;</td>
+          <td class="memname">using <a class="el" href="#a32937fedfac156d84189cbf2133bd0ab">Lib::Errors::Dispatcher</a> = <a class="el" href="../../d7/d05/a05163.html">BasicDispatcher</a>&lt;<a class="el" href="../../dc/d66/a05171.html">Error</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Client service alias for <a class="el" href="../../db/d2a/a04776.html" title="Service">Service</a>. </p>
-
-</div>
-</div>
-<a id="ab5bb4cbc53b78fbe35d7058920026275" name="ab5bb4cbc53b78fbe35d7058920026275"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5bb4cbc53b78fbe35d7058920026275">&#9670;&#160;</a></span>ServerBase</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#ab5bb4cbc53b78fbe35d7058920026275">Lib::Canbus::ServerBase</a> = <a class="el" href="../../db/d2a/a04776.html">Service</a>&lt;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Server service alias for <a class="el" href="../../db/d2a/a04776.html" title="Service">Service</a>. </p>
-
-</div>
-</div>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
-<a id="ad81e761f20d5185ff2c7cbf5e547ef02" name="ad81e761f20d5185ff2c7cbf5e547ef02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad81e761f20d5185ff2c7cbf5e547ef02">&#9670;&#160;</a></span>Mode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02">Lib::Canbus::Mode</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Operational mode of a CAN bus service. </p>
-<p>Used as a template parameter to specialize <a class="el" href="../../db/d2a/a04776.html" title="Lib::Canbus::Service">Lib::Canbus::Service</a> for a client or a server role. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1" name="ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1"></a>CLIENT&#160;</td><td class="fielddoc"><p>Client mode: initiates requests and processes responses from the server. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844" name="ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844"></a>SERVER&#160;</td><td class="fielddoc"><p>Server mode: processes requests from clients and sends responses. </p>
-</td></tr>
-</table>
+<p>Dispatcher for the plain 'Error' type. </p>
 
 </div>
 </div>

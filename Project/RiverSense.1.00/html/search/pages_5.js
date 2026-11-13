@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['хардуер_0',['Хардуер',['../index.html#хардуер',1,'']]]
+  ['start_0',['Where to start',['../index.html#main_start',1,'']]]
 ];

@@ -5,20 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::GSM::A7670E</title>
+<title>IAR EWARM Library: Lib::HAL::ADCPort</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -47,22 +45,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -79,19 +72,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </ul>
 </div><!-- main-nav -->
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d64/a06166.html','../../',''); });
-</script>
-<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
@@ -112,115 +92,159 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d64/a06166.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::GSM::A7670E</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::ADCPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Powers the modem, waits for the network, reads the signal, time and position, stores a setting in the modem flash and powers it off again.</p>
-<p>Powers the modem, waits for the network, reads the signal, time and position, stores a setting in the modem flash and powers it off again.The driver does not know the board: the application passes the serial port, the 'PWRKEY', 'RESET', 'STATUS' and optional 'DTR' pins and a callback that switches the modem supply in one 'Config'. The functions are grouped: '<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01601.html#ga2a1a321e469c0cafa50d1085b27ebbc3">power()</a>' for the supply, 'network()' for registration, time and position, and 'files()' for whole files. 'File' gives handle-based access for larger or partial transfers. A missing 'DTR' pin is passed as 'nullptr' and only disables UART sleep.</p>
-<dl class="section important"><dt>Important</dt><dd>Use the modem from one task only, and call '<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01601.html#ga2a1a321e469c0cafa50d1085b27ebbc3">power()</a>.off()' before cutting the supply by other means: it detaches from the network and lets the file system finish its writes.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>'files().write()' erases and rewrites the file in the modem flash. Write only when the content changes.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_gsm_a7670e_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="a7670e_usage_report"></a>
-Power cycle, network report and stored setting</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/da9/a00263.html">Lib/BSP/GSM/A7670E.hpp</a>&gt;</span></div>
+<p>Reads the regular ADC group through 'Lib::HAL::ADCPort' in the three transfer modes: <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="Lib::HAL::DriverMode::BLOCKING">Lib::HAL::DriverMode::BLOCKING</a> polls the end-of-conversion flag, <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> waits for a HAL callback, and <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949" title="Lib::HAL::DriverMode::DMA">Lib::HAL::DriverMode::DMA</a> scans the channels into a caller-owned buffer.</p>
+<p>Reads the regular ADC group through 'Lib::HAL::ADCPort' in the three transfer modes: <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="Lib::HAL::DriverMode::BLOCKING">Lib::HAL::DriverMode::BLOCKING</a> polls the end-of-conversion flag, <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> waits for a HAL callback, and <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949" title="Lib::HAL::DriverMode::DMA">Lib::HAL::DriverMode::DMA</a> scans the channels into a caller-owned buffer. The port wraps an <b>ADC_HandleTypeDef</b> created by CubeMX and does not configure the channels itself: the regular sequence (channels, ranks, sample times) must already be set on the handle, and 'open()' then runs <b>HAL_ADC_Init()</b> on it.</p>
+<p>The IT and DMA modes need <b>USE_HAL_ADC_REGISTER_CALLBACKS</b> set to 1 in the HAL configuration header, otherwise the header stops the build with a compile-time error. Their 'waitForEvent()' and 'read()' block the calling task and must not run in an ISR. The ports are not thread-safe: use one instance from a single task.</p>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="adc_usage_hw"></a>
+Hardware assumptions</h3>
+<ul>
+<li>The ADC handle is generated by CubeMX (for example 'hadc1' in 'adc.c') and its IRQ handler forwards to the HAL, so the HAL callbacks registered by the port are invoked: <b>ADC_IRQHandler()</b> calls <b>HAL_ADC_IRQHandler()</b> in the CubeMX-generated code.</li>
+<li>The DMA mode additionally needs the DMA stream of the ADC configured by CubeMX, with its IRQ forwarding to <b>HAL_DMA_IRQHandler()</b>.</li>
+<li>The sample time of each channel is set by CubeMX; the ports do not expose <b>HAL_ADC_ConfigChannel()</b>.</li>
+</ul>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="adc_usage_block"></a>
+Blocking single conversion</h3>
+<p>'Lib::HAL::ADCPort::start()' begins the regular group, 'Lib::HAL::ADCPort::poll()' spins until the conversion completes and returns the raw value, and 'Lib::HAL::ADCPort::stop()' ends the sequence. A timeout returns 0 and trips an <b>assert</b> in debug builds, so size the timeout for the slowest sample time with margin.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/de6/a00548.html">Lib/HAL/ADC/ADCPort-Block.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart3; <span class="comment">// Generated by CubeMX in main.c.</span></div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> hadc1;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"><span class="keywordtype">void</span> sampleBlocking() noexcept {</div>
+<div class="line">    Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; adc(&amp;hadc1);</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">using </span>Modem = <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../da/d9b/a04531.html">Lib::BSP::GSM::A7670E</a>;</div>
+<div class="line">    <span class="keywordflow">if</span> (!adc.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (adc.start()) {</div>
+<div class="line">        <span class="keyword">const</span> uint32_t raw = adc.poll(<a id="_a1" name="_a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(10));</div>
+<div class="line">        <span class="comment">// Use raw (0-4095 for 12-bit alignment).</span></div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(raw);</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(adc.stop());</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(adc.close());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00548_html"><div class="ttname"><a href="../../dd/de6/a00548.html">ADCPort-Block.hpp</a></div><div class="ttdoc">Blocking specialization of the ADC port.</div></div>
+<div class="ttc" id="aa01400_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="adc_usage_it"></a>
+Interrupt-driven read from a task</h3>
+<p>'Lib::HAL::ADCPort::read()' starts the conversion, waits for 'Lib::HAL::ADCPort::Event::CONVERSION_COMPLETE' or 'Lib::HAL::ADCPort::Event::ERROR', and returns the value, or 0 on failure or timeout. The timeout is in milliseconds. The port registers itself with the device manager in 'open()', so the ISR path needs no extra wiring.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/df9/a00554.html">Lib/HAL/ADC/ADCPort-IT.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Hardware of the board; the modem driver only holds references to it.</span></div>
-<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_class" href="../../dc/d4a/a05587.html">Lib::HAL::StreamSerialPort</a> port({.handle = &amp;huart3, .bufferSize = 512U});</div>
-<div class="line">    <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d7/d41/a05427.html">Lib::HAL::GPIO::Output</a> powerKey{<a id="_a4" name="_a4"></a><a class="code hl_define" href="../../dd/dc0/a00611.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_PWRKEY)};</div>
-<div class="line">    <a class="code hl_class" href="../../d7/d41/a05427.html">Lib::HAL::GPIO::Output</a> reset{<a class="code hl_define" href="../../dd/dc0/a00611.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_RESET)};</div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../df/d5a/a05423.html">Lib::HAL::GPIO::Input</a> status{<a class="code hl_define" href="../../dd/dc0/a00611.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_STATUS)};</div>
-<div class="line">    <a class="code hl_class" href="../../d7/d41/a05427.html">Lib::HAL::GPIO::Output</a> supplyEnable{<a class="code hl_define" href="../../dd/dc0/a00611.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_PWR_EN)};</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// The driver calls this to switch the regulator of the modem.</span></div>
-<div class="line">    <span class="keywordtype">void</span> setSupply(<span class="keywordtype">bool</span> isOn) {</div>
-<div class="line">        supplyEnable.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d7/d41/a05427.html#a52416b95040bffe9915b005b33bc3600">write</a>(isOn);</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> hadc1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>AdcTask final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    AdcTask() noexcept :</div>
+<div class="line">        adc(&amp;hadc1),</div>
+<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d8/d33/a05959.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Adc&quot;</span>, 256, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d3/d4c/a05943.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    Modem modem{{</div>
-<div class="line">        .port = port,</div>
-<div class="line">        .powerKey = powerKey,</div>
-<div class="line">        .reset = reset,</div>
-<div class="line">        .status = status,</div>
-<div class="line">        .dtr = <span class="keyword">nullptr</span>, <span class="comment">// &#39;DTR&#39; is not wired in this example, so UART sleep is unavailable.</span></div>
-<div class="line">        .setSupply = setSupply,</div>
-<div class="line">    }};</div>
+<div class="line"><span class="keyword">private</span>:</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">constexpr</span> <a id="_a7" name="_a7"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> SETTINGS_PATH = <span class="stringliteral">&quot;C:/settings.bin&quot;</span>;</div>
+<div class="line">    Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::IT&gt; adc;</div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../dd/d7b/a05939.html">RTOS::Task</a> task; <span class="comment">// Must stay the last member.</span></div>
 <div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> report() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!modem.power().on()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// The modem did not answer; the supply is cut again by the driver.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (modem.network().waitForRegistration(<a id="_a8" name="_a8"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>{60})) {</div>
-<div class="line">        <span class="keyword">const</span> <a id="_a9" name="_a9"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint8_t&gt;</a> signal = modem.network().getSignalQuality();</div>
-<div class="line">        <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint32_t&gt;</a> utc = modem.network().getTime();</div>
-<div class="line">        <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;Modem::Location&gt;</a> position = modem.network().getLocation();</div>
-<div class="line">        <span class="comment">// Use signal, utc and position here, then send the report with modem.sendCommandWithData() or HTTP commands.</span></div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(signal);</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(utc);</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(position);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// A small setting survives power loss of the whole board; write it only when it changes.</span></div>
-<div class="line">    <span class="keyword">const</span> <a id="_a10" name="_a10"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> settings{1U, 2U, 3U, 4U};</div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> stored{};</div>
-<div class="line">    <span class="keywordflow">if</span> ((modem.files().read(SETTINGS_PATH, stored) != stored.size()) || (stored != settings)) {</div>
-<div class="line">        <span class="keywordflow">if</span> (!modem.files().write(SETTINGS_PATH, settings)) {</div>
-<div class="line">            <span class="comment">// The modem refused the file; keep working with the value in RAM.</span></div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!adc.open()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;AdcTask: failed to open ADC&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keyword">const</span> uint32_t raw = adc.read(<a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(20));</div>
+<div class="line">            <span class="keywordflow">if</span> (raw != 0U) {</div>
+<div class="line">                <span class="comment">// Publish raw.</span></div>
+<div class="line">            }</div>
+<div class="line">            <a id="a5" name="a5"></a><a class="code hl_function" href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Handle-based access: append a record to a log file.</span></div>
-<div class="line">    Modem::File <a id="_a11" name="_a11"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga42f2de63a5c18a149f94b926d4d6bb21">log</a>{modem};</div>
-<div class="line">    <span class="keywordflow">if</span> (<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga42f2de63a5c18a149f94b926d4d6bb21">log</a>.open(<span class="stringliteral">&quot;C:/log.bin&quot;</span>, Modem::File::Mode::APPEND)) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga42f2de63a5c18a149f94b926d4d6bb21">log</a>.write(settings));</div>
-<div class="line">        <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga42f2de63a5c18a149f94b926d4d6bb21">log</a>.close();</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00554_html"><div class="ttname"><a href="../../dc/df9/a00554.html">ADCPort-IT.hpp</a></div><div class="ttdoc">Interrupt-driven specialization of the ADC port.</div></div>
+<div class="ttc" id="aa00974_html"><div class="ttname"><a href="../../df/dce/a00974.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01026_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:604</div></div>
+<div class="ttc" id="aa05939_html"><div class="ttname"><a href="../../dd/d7b/a05939.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:52</div></div>
+<div class="ttc" id="aa05943_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d3/d4c/a05943.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:85</div></div>
+<div class="ttc" id="aa05959_html"><div class="ttname"><a href="../../d8/d33/a05959.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="adc_usage_it_events"></a>
+Waiting for individual events</h3>
+<p>Use 'Lib::HAL::ADCPort::start()' and 'Lib::HAL::ADCPort::waitForEvent()' directly when the caller needs to tell a conversion-complete from an error. Note the timeout here is in RTOS ticks, not milliseconds.</p>
+<div class="fragment"><div class="line"><span class="keywordflow">if</span> (adc.start()) {</div>
+<div class="line">    <span class="keyword">const</span> uint32_t events = adc.waitForEvent(Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::CONVERSION_COMPLETE |</div>
+<div class="line">                                             Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::ERROR,</div>
+<div class="line">                                             <a id="_a6" name="_a6"></a><a class="code hl_function" href="../../d3/d67/a05971.html#aa4d1e4d7efa2415ef43f6f577ad17c3a">RTOS::TickCounter::msToTicks</a>(20));</div>
+<div class="line">    <span class="keywordflow">if</span> ((events &amp; Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::CONVERSION_COMPLETE) != 0U) {</div>
+<div class="line">        <span class="keyword">const</span> uint32_t raw = adc.getValue();</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(raw);</div>
 <div class="line">    }</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(adc.stop());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05971_html_aa4d1e4d7efa2415ef43f6f577ad17c3a"><div class="ttname"><a href="../../d3/d67/a05971.html#aa4d1e4d7efa2415ef43f6f577ad17c3a">RTOS::TickCounter::msToTicks</a></div><div class="ttdeci">static constexpr TickType msToTicks(uint32_t milliseconds) noexcept</div><div class="ttdoc">Converts a millisecond count to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:182</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="adc_usage_dma"></a>
+Continuous scan into a buffer</h3>
+<p>'Lib::HAL::ADCPort::start(std::span&lt;uint32_t&gt;)' hands the buffer to DMA, which writes one sample per regular rank. The buffer must stay valid until 'Lib::HAL::ADCPort::stop()' is called. The ISR delivers 'Lib::HAL::ADCPort::Event::CONVERSION_COMPLETE' once the whole scan has been written, and an empty destination is rejected.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d87/a00551.html">Lib/HAL/ADC/ADCPort-DMA.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    modem.power().off(); <span class="comment">// Detaches from the network, then cuts the supply.</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> hadc1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> scanChannels() noexcept {</div>
+<div class="line">    <span class="keyword">static</span> <a id="_a7" name="_a7"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 4&gt;</a> samples{};</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::DMA&gt; adc(&amp;hadc1);</div>
+<div class="line">    <span class="keywordflow">if</span> (!adc.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (adc.start(std::span&lt;uint32_t&gt;(samples))) {</div>
+<div class="line">        <span class="keyword">const</span> uint32_t events = adc.waitForEvent(Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::DMA&gt;::Event::CONVERSION_COMPLETE |</div>
+<div class="line">                                                 Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::DMA&gt;::Event::ERROR,</div>
+<div class="line">                                                 <a class="code hl_function" href="../../d3/d67/a05971.html#aa4d1e4d7efa2415ef43f6f577ad17c3a">RTOS::TickCounter::msToTicks</a>(50));</div>
+<div class="line">        <span class="keywordflow">if</span> ((events &amp; Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::DMA&gt;::Event::CONVERSION_COMPLETE) != 0U) {</div>
+<div class="line">            <span class="comment">// Use samples[0] ... samples[3].</span></div>
+<div class="line">        }</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(adc.stop());</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(adc.close());</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa00215_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a></div></div>
-<div class="ttc" id="aa00263_html"><div class="ttname"><a href="../../df/da9/a00263.html">A7670E.hpp</a></div><div class="ttdoc">Power, AT command and file system control of the SIMCom A7670E LTE Cat-1 modem, header-only,...</div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00611_html_a45dbeff58bd7e046067745552ea8044c"><div class="ttname"><a href="../../dd/dc0/a00611.html#a45dbeff58bd7e046067745552ea8044c">PIN</a></div><div class="ttdeci">#define PIN(p)</div><div class="ttdef"><b>Definition</b> Handle.hpp:25</div></div>
-<div class="ttc" id="aa01149_html_ga5de4a49eb132735325e706f406c69d6e"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a></div><div class="ttdeci">struct __UART_HandleTypeDef UART_HandleTypeDef</div></div>
-<div class="ttc" id="aa01610_html_ga2872cfa04b6162d31b737f1e21fefb3b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a></div><div class="ttdeci">duration&lt; int64_t &gt; seconds</div></div>
-<div class="ttc" id="aa01611_html_ga42f2de63a5c18a149f94b926d4d6bb21"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga42f2de63a5c18a149f94b926d4d6bb21">log</a></div><div class="ttdeci">complex&lt; _Tp &gt; log(const complex&lt; _Tp &gt; &amp;)</div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa00551_html"><div class="ttname"><a href="../../d9/d87/a00551.html">ADCPort-DMA.hpp</a></div><div class="ttdoc">DMA-driven specialization of the ADC port.</div></div>
 <div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa02950_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></div></div>
-<div class="ttc" id="aa04531_html"><div class="ttname"><a href="../../da/d9b/a04531.html">Lib::BSP::GSM::A7670E</a></div><div class="ttdoc">Driver of the SIMCom A7670E modem: supply and power key, AT command exchange and the file system.</div><div class="ttdef"><b>Definition</b> A7670E.hpp:59</div></div>
-<div class="ttc" id="aa05423_html"><div class="ttname"><a href="../../df/d5a/a05423.html">Lib::HAL::GPIO::Input</a></div><div class="ttdoc">Represents a discrete hardware input pin mapped to a specific microcontroller port.</div><div class="ttdef"><b>Definition</b> Input.hpp:34</div></div>
-<div class="ttc" id="aa05427_html"><div class="ttname"><a href="../../d7/d41/a05427.html">Lib::HAL::GPIO::Output</a></div><div class="ttdoc">Represents a discrete hardware output pin capable of state driving and active reading.</div><div class="ttdef"><b>Definition</b> Output.hpp:35</div></div>
-<div class="ttc" id="aa05427_html_a52416b95040bffe9915b005b33bc3600"><div class="ttname"><a href="../../d7/d41/a05427.html#a52416b95040bffe9915b005b33bc3600">Lib::HAL::GPIO::Output::write</a></div><div class="ttdeci">void write(bool state) noexcept</div><div class="ttdoc">Forces the physical line into a specific logical state.</div><div class="ttdef"><b>Definition</b> Output.hpp:101</div></div>
-<div class="ttc" id="aa05587_html"><div class="ttname"><a href="../../dc/d4a/a05587.html">Lib::HAL::StreamSerialPort</a></div><div class="ttdoc">UART port that receives continuously into a stream buffer and transmits by polling.</div><div class="ttdef"><b>Definition</b> StreamSerialPort.hpp:50</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Member List</title>
+<title>IAR EWARM Library: Lib::Helper::Delay</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,24 +91,292 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d6/dcf/a01031.html">Helper</a></li><li class="navelem"><a href="../../d1/d9f/a05714.html">crc16</a></li>  </ul>
+<li class="navelem"><a href="../../d2/d4c/a00984.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">Helper</a></li><li class="navelem"><a href="../../dd/de0/a05711.html">Delay</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::crc16 Member List</div></div>
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../d2/d02/a05708.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::Helper::Delay<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d1/d9f/a05714.html">Lib::Helper::crc16</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d1/d9f/a05714.html#a16dcfcb05534bbfc610e1f6813d4fee8">crc16</a>(std::string_view data) noexcept</td><td class="entry"><a class="el" href="../../d1/d9f/a05714.html">Lib::Helper::crc16</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d1/d9f/a05714.html#a4aa206f42a25f1a4e058ad60dc6e175b">crc16</a>(std::span&lt; const uint8_t &gt; data) noexcept</td><td class="entry"><a class="el" href="../../d1/d9f/a05714.html">Lib::Helper::crc16</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d1/d9f/a05714.html#ae6c95a04975dccf8b6e9001cc8d0535c">crc16</a>(const std::vector&lt; uint8_t &gt; &amp;data) noexcept</td><td class="entry"><a class="el" href="../../d1/d9f/a05714.html">Lib::Helper::crc16</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d1/d9f/a05714.html#abac152733a66bebdb4f969523dc9dbe1">crc16</a>(std::vector&lt; uint8_t &gt; &amp;&amp;)=delete</td><td class="entry"><a class="el" href="../../d1/d9f/a05714.html">Lib::Helper::crc16</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d1/d9f/a05714.html#a8aaf19a4e71b7be0d80fff9843c9c272">operator uint16_t</a>() const noexcept</td><td class="entry"><a class="el" href="../../d1/d9f/a05714.html">Lib::Helper::crc16</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d1/d9f/a05714.html#a5c712d9e3f6e47445c39ba3308938633">size</a>() noexcept</td><td class="entry"><a class="el" href="../../d1/d9f/a05714.html">Lib::Helper::crc16</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-</table></div><!-- contents -->
+<p>Busy-wait delay helpers based on the ARM Cortex-M Data Watchpoint and Trace (DWT) cycle counter.  
+ <a href="#details">More...</a></p>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Busy-wait delay helpers based on the ARM Cortex-M Data Watchpoint and Trace (DWT) cycle counter. </p>
+<p>Suitable for short, precise delays where suspending the task or using RTOS timers would be too coarse. Every delay is rounded up to whole CPU cycles, so it is never shorter than requested; interrupts may lengthen it. The microsecond path and its helpers carry 'pragma inline=forced': measured on a 16 MHz Cortex-M33 with optimization off (a Debug build, where asserts/breakpoints in a caller like a 1-Wire bit-bang driver are actually live), the un-inlined call chain added roughly 100 extra cycles (over 6 us) on top of the requested wait - enough by itself to corrupt a protocol slot a few microseconds wide. Forcing the inline keeps that overhead low independent of the build's optimization level. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ae05989164bd1c17d9508a274c9c8efc6" id="r_ae05989164bd1c17d9508a274c9c8efc6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> ()=delete</td></tr>
+<tr class="memdesc:ae05989164bd1c17d9508a274c9c8efc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted default constructor; this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:abab8b5337f9a0a494dc33f550b7d898b" id="r_abab8b5337f9a0a494dc33f550b7d898b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abab8b5337f9a0a494dc33f550b7d898b">~Delay</a> ()=delete</td></tr>
+<tr class="memdesc:abab8b5337f9a0a494dc33f550b7d898b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted destructor; this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a1cb3786f2784e6c6c42979b9860a5c4b" id="r_a1cb3786f2784e6c6c42979b9860a5c4b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1cb3786f2784e6c6c42979b9860a5c4b">Delay</a> (const Delay &amp;)=delete</td></tr>
+<tr class="memdesc:a1cb3786f2784e6c6c42979b9860a5c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a62e0ff423d0e589d0757d35725eaf0b2" id="r_a62e0ff423d0e589d0757d35725eaf0b2"><td class="memItemLeft"><a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a62e0ff423d0e589d0757d35725eaf0b2">operator=</a> (const <a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a62e0ff423d0e589d0757d35725eaf0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: this is a non-instantiable static utility class.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a592daf57dd9e14add5de04bb3af7a5b7" id="r_a592daf57dd9e14add5de04bb3af7a5b7"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a592daf57dd9e14add5de04bb3af7a5b7">microseconds</a> (uint32_t us) noexcept</td></tr>
+<tr class="memdesc:a592daf57dd9e14add5de04bb3af7a5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified number of microseconds.  <br /></td></tr>
+<tr class="memitem:a76e93003f799131c3700666dbb54d9d3" id="r_a76e93003f799131c3700666dbb54d9d3"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a76e93003f799131c3700666dbb54d9d3">microseconds</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a> duration) noexcept</td></tr>
+<tr class="memdesc:a76e93003f799131c3700666dbb54d9d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified duration with microsecond resolution.  <br /></td></tr>
+<tr class="memitem:a5c674006bbbe5569f838a1270e1229b6" id="r_a5c674006bbbe5569f838a1270e1229b6"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a5c674006bbbe5569f838a1270e1229b6">nanoseconds</a> (uint32_t ns) noexcept</td></tr>
+<tr class="memdesc:a5c674006bbbe5569f838a1270e1229b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified number of nanoseconds.  <br /></td></tr>
+<tr class="memitem:a6357acfa21552cd02b3af7a85f1fee6c" id="r_a6357acfa21552cd02b3af7a85f1fee6c"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a6357acfa21552cd02b3af7a85f1fee6c">nanoseconds</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga731f6c493a0ae2b17b9080230c350f1e">std::chrono::nanoseconds</a> duration) noexcept</td></tr>
+<tr class="memdesc:a6357acfa21552cd02b3af7a85f1fee6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified duration with nanosecond resolution.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae05989164bd1c17d9508a274c9c8efc6" name="ae05989164bd1c17d9508a274c9c8efc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae05989164bd1c17d9508a274c9c8efc6">&#9670;&#160;</a></span>Delay() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Helper::Delay::Delay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted default constructor; this is a non-instantiable static utility class. </p>
+
+</div>
+</div>
+<a id="abab8b5337f9a0a494dc33f550b7d898b" name="abab8b5337f9a0a494dc33f550b7d898b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abab8b5337f9a0a494dc33f550b7d898b">&#9670;&#160;</a></span>~Delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Helper::Delay::~Delay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted destructor; this is a non-instantiable static utility class. </p>
+
+</div>
+</div>
+<a id="a1cb3786f2784e6c6c42979b9860a5c4b" name="a1cb3786f2784e6c6c42979b9860a5c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cb3786f2784e6c6c42979b9860a5c4b">&#9670;&#160;</a></span>Delay() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Helper::Delay::Delay </td>
+          <td>(</td>
+          <td class="paramtype">const Delay &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: this is a non-instantiable static utility class. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a76e93003f799131c3700666dbb54d9d3" name="a76e93003f799131c3700666dbb54d9d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76e93003f799131c3700666dbb54d9d3">&#9670;&#160;</a></span>microseconds() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Helper::Delay::microseconds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a></td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delays execution for the specified duration with microsecond resolution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>Duration to delay; zero or negative returns immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a592daf57dd9e14add5de04bb3af7a5b7" name="a592daf57dd9e14add5de04bb3af7a5b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a592daf57dd9e14add5de04bb3af7a5b7">&#9670;&#160;</a></span>microseconds() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Helper::Delay::microseconds </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>us</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delays execution for the specified number of microseconds. </p>
+<p>Bypasses the generic nanosecond-based conversion below ('waitFor()' and 'toCycles()'): that path needs a 64-bit division, measured at roughly 600 CPU cycles on a 16 MHz Cortex-M33 - more than six times the 6 us it was meant to wait for, which is fatal to a tight bit-bang slot (e.g. 1-Wire). This path only ever divides two 32-bit values ('SystemCoreClock' by the constant 1'000'000), a single hardware 'UDIV', then multiplies by 'us' - correct for any clock that is a whole number of MHz (every STM32 configuration in practice), with the same 'never shorter than requested' guarantee.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">us</td><td>Number of microseconds to delay; '0' returns immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6357acfa21552cd02b3af7a85f1fee6c" name="a6357acfa21552cd02b3af7a85f1fee6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6357acfa21552cd02b3af7a85f1fee6c">&#9670;&#160;</a></span>nanoseconds() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Helper::Delay::nanoseconds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga731f6c493a0ae2b17b9080230c350f1e">std::chrono::nanoseconds</a></td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delays execution for the specified duration with nanosecond resolution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>Duration to delay; zero or negative returns immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5c674006bbbe5569f838a1270e1229b6" name="a5c674006bbbe5569f838a1270e1229b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c674006bbbe5569f838a1270e1229b6">&#9670;&#160;</a></span>nanoseconds() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Helper::Delay::nanoseconds </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ns</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delays execution for the specified number of nanoseconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ns</td><td>Number of nanoseconds to delay; '0' returns immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a62e0ff423d0e589d0757d35725eaf0b2" name="a62e0ff423d0e589d0757d35725eaf0b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62e0ff423d0e589d0757d35725eaf0b2">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp; Lib::Helper::Delay::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: this is a non-instantiable static utility class. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

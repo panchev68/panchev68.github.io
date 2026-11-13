@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['—_20фърмуер_0',['RiverSense — фърмуер',['../index.html',1,'']]]
+  ['to_20start_0',['Where to start',['../index.html#main_start',1,'']]]
 ];

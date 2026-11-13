@@ -20,6 +20,7 @@ var searchData=
   ['boot_20counter_20and_20calibration_17',['Boot counter and calibration',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EEPROM_Internal_FlashEmulation.dox#flashemu_usage_values',1,'']]],
   ['buffer_18',['Continuous scan into a buffer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_dma',1,'']]],
   ['buffer_20pool_19',['Buffer pool',['../X:/Lib/IAR/Project/Examples/RTOS_SemaphoreCounting.dox#semaphore_counting_usage_pool',1,'']]],
-  ['bus_20',['New chip driver and storage on a shared bus',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EEPROM_I2C_Driver.dox#eeprom_usage_bus',1,'']]],
-  ['button_20events_21',['Menu position from timer and button events',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EncoderTimer.dox#enctimer_usage_menu',1,'']]]
+  ['build_20requirements_20',['Build requirements',['../index.html#mainpage_build',1,'']]],
+  ['bus_21',['New chip driver and storage on a shared bus',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EEPROM_I2C_Driver.dox#eeprom_usage_bus',1,'']]],
+  ['button_20events_22',['Menu position from timer and button events',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EncoderTimer.dox#enctimer_usage_menu',1,'']]]
 ];

@@ -31,6 +31,7 @@ var searchData=
   ['program_20a_20block_28',['Erase a sector and program a block',['../X:/Lib/IAR/Project/Examples/Lib_HAL_FlashInterface.dox#flash_usage_erase',1,'']]],
   ['program_20a_20word_20once_29',['Program a word once',['../X:/Lib/IAR/Project/Examples/Lib_HAL_OTP.dox#otp_usage_write',1,'']]],
   ['program_20one_20word_30',['Program one word',['../X:/Lib/IAR/Project/Examples/Lib_HAL_FlashInterface.dox#flash_usage_word',1,'']]],
-  ['protecting_20shared_20data_31',['Protecting shared data',['../X:/Lib/IAR/Project/Examples/RTOS_Kernel.dox#kernel_usage_critical',1,'']]],
-  ['pulse_20from_20a_20task_32',['Generating a delayed pulse from a task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOnePulse.dox#timop_usage_pulse',1,'']]]
+  ['project_20is_31',['What the project is',['../index.html#mainpage_overview',1,'']]],
+  ['protecting_20shared_20data_32',['Protecting shared data',['../X:/Lib/IAR/Project/Examples/RTOS_Kernel.dox#kernel_usage_critical',1,'']]],
+  ['pulse_20from_20a_20task_33',['Generating a delayed pulse from a task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOnePulse.dox#timop_usage_pulse',1,'']]]
 ];

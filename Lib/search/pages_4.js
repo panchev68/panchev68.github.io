@@ -16,5 +16,5 @@ var searchData=
   ['event_20bits_13',['Worker task with event bits',['../X:/Lib/IAR/Project/Examples/RTOS_Task.dox#task_usage_worker',1,'']]],
   ['event_20in_20a_20task_14',['Scheduling a compare event in a task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOutputCompare.dox#timoc_usage_delay',1,'']]],
   ['events_15',['events',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EncoderPins.dox#encpins_usage_menu',1,'Menu position from encoder events'],['../X:/Lib/IAR/Project/Examples/Lib_BSP_EncoderTimer.dox#enctimer_usage_menu',1,'Menu position from timer and button events'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_it_events',1,'Waiting for individual events']]],
-  ['ewarm_20library_16',['IAR EWARM Library',['../index.html',1,'']]]
+  ['ewarm_20library_16',['EWARM Library',['../index.html',1,'IAR EWARM Library'],['../X:/Lib/IAR/Readme.md#iar-ewarm-library',1,'IAR EWARM Library']]]
 ];

@@ -102,9 +102,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">RingBuffer.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Fixed-size, lock-free single-producer/single-consumer ring buffer (circular FIFO) for elements of type 'T'.  
-<a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Fixed-size, lock-free single-producer/single-consumer ring buffer (circular FIFO) for elements of type 'T'. </p>
 <p>'writePos' is written only by 'push()'/bulk-write/write-side-DMA calls and 'readPos' only by 'pop()'/bulk-read/ read-side-DMA calls, so no shared counter is mutated from both sides. Both indices are <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01934.html" title="std::atomic">std::atomic</a> (lock-free on Cortex-M) with release/acquire ordering, which guarantees that a slot written by the producer is visible to the consumer before the index that publishes it, and that the compiler never caches an index in a register across a polling loop. This makes one producer context (e.g. an ISR) and one consumer context (e.g. a task) safe against each other without a lock. Queries such as 'available()' still return a momentary snapshot when used across contexts. 'overwrite()' is the one exception: it advances 'readPos' from the producer side, so it must not run concurrently with 'pop()'/consumer-side reads.</p>
@@ -114,15 +111,15 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AHelper_3A_3ARingBuffer_3C_20T_2C_20T_5FSIZE_20_3E" id="r_Lib_3A_3AHelper_3A_3ARingBuffer_3C_20T_2C_20T_5FSIZE_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../da/d85/a05752.html">Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed-capacity FIFO container with lock-free single-producer/single-consumer semantics.  <a href="../../da/d85/a05752.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AHelper_3A_3ARingBuffer_3C_20T_2C_20T_5FSIZE_20_3E" id="r_Lib_3A_3AHelper_3A_3ARingBuffer_3C_20T_2C_20T_5FSIZE_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d2/dac/a05743.html">Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed-capacity FIFO container with lock-free single-producer/single-consumer semantics.  <a href="../../d2/dac/a05743.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../da/d0a/a00993.html">Lib</a></td></tr>
-<tr class="memdesc:da/d0a/a00993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AHelper" id="r_Lib_3A_3AHelper"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/daa/a01029.html">Lib::Helper</a></td></tr>
-<tr class="memdesc:d0/daa/a01029"><td class="mdescLeft">&#160;</td><td class="mdescRight">String and utility helpers used throughout the library. <br /></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d2/d4c/a00984.html">Lib</a></td></tr>
+<tr class="memdesc:d2/d4c/a00984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
+<tr class="memitem:Lib_3A_3AHelper" id="r_Lib_3A_3AHelper"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d43/a01020.html">Lib::Helper</a></td></tr>
+<tr class="memdesc:d0/d43/a01020"><td class="mdescLeft">&#160;</td><td class="mdescRight">String and utility helpers used throughout the library. <br /></td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->

@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Member List</title>
+<title>IAR EWARM Library: Lib::BSP::GSM::A7670E</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,19 +91,920 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../d8/d1c/a04522.html">W25Q128JVSIQ</a></li><li class="navelem"><a href="../../db/da2/a04526.html">Register</a></li>  </ul>
+<li class="navelem"><a href="../../d2/d4c/a00984.html">Lib</a></li><li class="navelem"><a href="../../da/deb/a00985.html">BSP</a></li><li class="navelem"><a href="../../dd/d48/a00995.html">GSM</a></li><li class="navelem"><a href="../../d7/ddc/a04523.html">A7670E</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::W25Q128JVSIQ::Register Member List</div></div>
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="../../d3/d83/a04520.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::BSP::GSM::A7670E<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../db/da2/a04526.html">Lib::BSP::W25Q128JVSIQ::Register</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../db/da2/a04526.html#a81a065116f1d7643859e4697646c3c10">Command</a> enum name</td><td class="entry"><a class="el" href="../../db/da2/a04526.html">Lib::BSP::W25Q128JVSIQ::Register</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p>Driver of the SIMCom A7670E modem: supply and power key, AT command exchange and the file system.  
+ <a href="#details">More...</a></p>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Driver of the SIMCom A7670E modem: supply and power key, AT command exchange and the file system. </p>
+<p>The driver is split into nested groups that share the modem state: <a class="el" href="../../d0/da8/a04547.html" title="Power">Power</a> for the supply and the boot, <a class="el" href="../../de/d9c/a04551.html" title="Network">Network</a> for registration, time and location, <a class="el" href="../../d1/dce/a04559.html" title="Files">Files</a> for whole-file operations and <a class="el" href="../../dc/d65/a04555.html" title="File">File</a> for handle-based access. The application owns the port and the pins and passes them in <a class="el" href="../../df/dd3/a04527.html" title="Config">Config</a>; the driver never touches the hardware directly.</p>
+<p>The serial port is a <a class="el" href="../../df/d12/a06198.html" title="Lib::HAL::StreamSerialPort">Lib::HAL::StreamSerialPort</a> that receives continuously, because the modem sends unsolicited result codes at any time. Only one task may read it.</p>
+<dl class="section warning"><dt>Warning</dt><dd><b>Task context only</b>, one task at a time: the driver keeps one response buffer and one file handle.</dd></dl>
+<dl class="section important"><dt>Important</dt><dd>The driver does not power the modem by itself: <a class="el" href="../../df/dd3/a04527.html#a9848006a47ed741d31636388c9deb387" title="Config::setSupply">Config::setSupply</a> does, and it must cut the supply again after a failed power-on.</dd></dl>
+<p><b>Notes:</b></p><ul>
+<li>AT commands are sent as text terminated by CR LF; a final result is 'OK', 'ERROR' or a '+CME ERROR: {n}' line.</li>
+<li>Network and location answers can arrive well after the command; allow for it in the timeout.</li>
+</ul>
+<dl class="section see"><dt>See also</dt><dd><a href="https://cn.simcom.com/product/A7670X.html" target="_blank">SIMCom A7670X product page</a> </dd>
+<dd>
+<a href="https://www.elecrow.com/download/product/CRT01260S/A7670_Series_Hardware_Design_V1.00.pdf" target="_blank">A7670 Series Hardware Design V1.00</a>, third-party copy; check against the SIMCom download list </dd>
+<dd>
+<a href="https://eicut.com/wp-content/uploads/2025/10/A76XX_Series_AT_Command_Manual_V1.12.pdf" target="_blank">A76XX Series AT Command Manual V1.12</a>, third-party copy; the newest version found, check against the SIMCom download list </dd>
+<dd>
+<a href="https://www.simcom.com/download/list-863-en.html" target="_blank">SIMCom document list (official)</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d30/a06150.html#_a1">Lib::BSP::GSM::A7670E</a>, and <a class="el" href="../../dd/dd3/a06236.html#_a0">Lib::HTTP::Client</a>.</dd>
+</dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../df/dd3/a04527.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware the driver uses, owned by the application and referenced here.  <a href="../../df/dd3/a04527.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Location" id="r_Location"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../da/d9b/a04531.html">Location</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Approximate position of the serving cell, from the SIMCom location service.  <a href="../../da/d9b/a04531.html#details">More...</a><br /></td></tr>
+<tr class="memitem:StorageInfo" id="r_StorageInfo"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d6/df1/a04535.html">StorageInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the C: storage in bytes, from 'AT+FSMEM'.  <a href="../../d6/df1/a04535.html#details">More...</a><br /></td></tr>
+<tr class="memitem:CommandBuilder" id="r_CommandBuilder"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d3d/a04539.html">CommandBuilder</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds an AT command in a fixed buffer, without heap.  <a href="../../d0/d3d/a04539.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Parse" id="r_Parse"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/dd2/a04543.html">Parse</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure parsers of the modem responses; no state and no hardware access.  <a href="../../d5/dd2/a04543.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Power" id="r_Power"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/da8/a04547.html">Power</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power supply, boot and sleep of the modem.  <a href="../../d0/da8/a04547.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Network" id="r_Network"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d9c/a04551.html">Network</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">LTE registration, signal, network time and cell location.  <a href="../../de/d9c/a04551.html#details">More...</a><br /></td></tr>
+<tr class="memitem:File" id="r_File"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d65/a04555.html">File</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle-based access to one file on the modem file system, in the manner of fopen() with fread(), fwrite(), fseek() and fclose().  <a href="../../dc/d65/a04555.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Files" id="r_Files"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d1/dce/a04559.html">Files</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whole-file operations on the modem file system and the storage size.  <a href="../../d1/dce/a04559.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a8bd217b253ad48d4079b7116fa4fbcc3" id="r_a8bd217b253ad48d4079b7116fa4fbcc3"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3">Result</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3ae0aa021e21dddbd6d8cecec71e9cf564">OK</a>
+, <br />
+&#160;&#160;<a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>
+, <br />
+&#160;&#160;<a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3a070a0fb40f6c308ab544b227660aadff">TIMEOUT</a>
+, <br />
+&#160;&#160;<a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3a9455b42e74acb2ec1c7292e54d28aff2">NOT_READY</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a8bd217b253ad48d4079b7116fa4fbcc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outcome of an AT command.  <a href="#a8bd217b253ad48d4079b7116fa4fbcc3">More...</a><br /></td></tr>
+<tr class="memitem:aa10dc32a4e35d259562a9eee6dd0d997" id="r_aa10dc32a4e35d259562a9eee6dd0d997"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997">Registration</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997a28f1d55993bd11ecf4a39f61530c84f3">NOT_REGISTERED</a> = 0U
+, <br />
+&#160;&#160;<a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997a710533dd879dd1202e5c73b27705bf02">HOME</a> = 1U
+, <br />
+&#160;&#160;<a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997adb46ca6757195ce8c1f015c9781d869e">SEARCHING</a> = 2U
+, <br />
+&#160;&#160;<a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997a66d5e0b0ce726b4aeb4ddf6c25b6c12b">DENIED</a> = 3U
+, <br />
+&#160;&#160;<a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a> = 4U
+, <br />
+&#160;&#160;<a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997a8e55dc83798a0deb36f39891549721f9">ROAMING</a> = 5U
+<br />
+ }</td></tr>
+<tr class="memdesc:aa10dc32a4e35d259562a9eee6dd0d997"><td class="mdescLeft">&#160;</td><td class="mdescRight">EPS (LTE) registration state, the '&lt;stat&gt;' field of '+CEREG'.  <a href="#aa10dc32a4e35d259562a9eee6dd0d997">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a4efe1fb5ffea1200b206cd1eb712fbe2" id="r_a4efe1fb5ffea1200b206cd1eb712fbe2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> (<a class="el" href="../../df/dd3/a04527.html">Config</a> config) noexcept</td></tr>
+<tr class="memdesc:a4efe1fb5ffea1200b206cd1eb712fbe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to the hardware of the application; nothing is powered or opened.  <br /></td></tr>
+<tr class="memitem:a23ee08f1a1ed33fa09bc52127710ab0a" id="r_a23ee08f1a1ed33fa09bc52127710ab0a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a23ee08f1a1ed33fa09bc52127710ab0a">~A7670E</a> () noexcept=default</td></tr>
+<tr class="memdesc:a23ee08f1a1ed33fa09bc52127710ab0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does not power the modem off; call <a class="el" href="../../d0/da8/a04547.html#a00662a719223d2d8dea3e0567d1cc7a8" title="Power::off()">Power::off()</a> first for a clean detach.  <br /></td></tr>
+<tr class="memitem:a082741479d7269409d52fb950b73b178" id="r_a082741479d7269409d52fb950b73b178"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a082741479d7269409d52fb950b73b178">A7670E</a> (const A7670E &amp;other)=delete</td></tr>
+<tr class="memdesc:a082741479d7269409d52fb950b73b178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the driver is bound to one port and one set of pins.  <br /></td></tr>
+<tr class="memitem:a29b0aaaebe038e1c9ea8b56961055c09" id="r_a29b0aaaebe038e1c9ea8b56961055c09"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a29b0aaaebe038e1c9ea8b56961055c09">A7670E</a> (A7670E &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a29b0aaaebe038e1c9ea8b56961055c09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the driver is bound to one port and one set of pins.  <br /></td></tr>
+<tr class="memitem:a7f8115d076cbda0fa47788202126d6ea" id="r_a7f8115d076cbda0fa47788202126d6ea"><td class="memItemLeft"><a class="el" href="#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7f8115d076cbda0fa47788202126d6ea">operator=</a> (const <a class="el" href="#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a7f8115d076cbda0fa47788202126d6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the driver is bound to one port and one set of pins.  <br /></td></tr>
+<tr class="memitem:a8ba504eca9021f4cc588548f331446fe" id="r_a8ba504eca9021f4cc588548f331446fe"><td class="memItemLeft"><a class="el" href="#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8ba504eca9021f4cc588548f331446fe">operator=</a> (<a class="el" href="#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a8ba504eca9021f4cc588548f331446fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the driver is bound to one port and one set of pins.  <br /></td></tr>
+<tr class="memitem:aca4a089e7f865511e4a0796c4bd9cf99" id="r_aca4a089e7f865511e4a0796c4bd9cf99"><td class="memItemLeft"><a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3">Result</a>&#160;</td><td class="memItemRight"><a class="el" href="#aca4a089e7f865511e4a0796c4bd9cf99">sendCommand</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> command, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout=<a class="el" href="#ab0aba7b673bfd50033f1561a3e997f38">DEFAULT_TIMEOUT</a>) noexcept</td></tr>
+<tr class="memdesc:aca4a089e7f865511e4a0796c4bd9cf99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an AT command and waits for its final result.  <br /></td></tr>
+<tr class="memitem:a68be1d4992d217a4a9f151db959bd10d" id="r_a68be1d4992d217a4a9f151db959bd10d"><td class="memItemLeft"><a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3">Result</a>&#160;</td><td class="memItemRight"><a class="el" href="#a68be1d4992d217a4a9f151db959bd10d">sendCommand</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> command, std::span&lt; char &gt; response, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout=<a class="el" href="#ab0aba7b673bfd50033f1561a3e997f38">DEFAULT_TIMEOUT</a>) noexcept</td></tr>
+<tr class="memdesc:a68be1d4992d217a4a9f151db959bd10d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an AT command and keeps its information lines.  <br /></td></tr>
+<tr class="memitem:a31191836f60cc256a606fba2a63f2057" id="r_a31191836f60cc256a606fba2a63f2057"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a31191836f60cc256a606fba2a63f2057">writeCommand</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> command) noexcept</td></tr>
+<tr class="memdesc:a31191836f60cc256a606fba2a63f2057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an AT command without waiting for anything; the caller reads the answer.  <br /></td></tr>
+<tr class="memitem:af0c9d560867f89b6ae4f2ad3842a3b9a" id="r_af0c9d560867f89b6ae4f2ad3842a3b9a"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; size_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#af0c9d560867f89b6ae4f2ad3842a3b9a">waitForLine</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> prefix, std::span&lt; char &gt; line, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:af0c9d560867f89b6ae4f2ad3842a3b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for a line starting with a prefix, typically an unsolicited result code.  <br /></td></tr>
+<tr class="memitem:a7dfa47c191b9696d2ff00faf99d83ac7" id="r_a7dfa47c191b9696d2ff00faf99d83ac7"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a7dfa47c191b9696d2ff00faf99d83ac7">readData</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:a7dfa47c191b9696d2ff00faf99d83ac7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an exact number of raw bytes.  <br /></td></tr>
+<tr class="memitem:a48d92161f8160971f3e15854d440ee74" id="r_a48d92161f8160971f3e15854d440ee74"><td class="memItemLeft"><a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3">Result</a>&#160;</td><td class="memItemRight"><a class="el" href="#a48d92161f8160971f3e15854d440ee74">sendCommandWithData</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> command, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> prompt, std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:a48d92161f8160971f3e15854d440ee74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an AT command that asks for data, sends the data after the prompt and waits for the final result.  <br /></td></tr>
+<tr class="memitem:a1760be986270adae095acba55a877e25" id="r_a1760be986270adae095acba55a877e25"><td class="memItemLeft"><a class="el" href="../../d0/da8/a04547.html">Power</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1760be986270adae095acba55a877e25">power</a> () noexcept</td></tr>
+<tr class="memdesc:a1760be986270adae095acba55a877e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power supply, boot and sleep group.  <br /></td></tr>
+<tr class="memitem:a08139cd85fcac96d57d66d33e556ca6d" id="r_a08139cd85fcac96d57d66d33e556ca6d"><td class="memItemLeft"><a class="el" href="../../de/d9c/a04551.html">Network</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a08139cd85fcac96d57d66d33e556ca6d">network</a> () noexcept</td></tr>
+<tr class="memdesc:a08139cd85fcac96d57d66d33e556ca6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registration, signal, time and location group.  <br /></td></tr>
+<tr class="memitem:ab8cfadf3994ccc98729aa071c0d0aa93" id="r_ab8cfadf3994ccc98729aa071c0d0aa93"><td class="memItemLeft"><a class="el" href="../../d1/dce/a04559.html">Files</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab8cfadf3994ccc98729aa071c0d0aa93">files</a> () noexcept</td></tr>
+<tr class="memdesc:ab8cfadf3994ccc98729aa071c0d0aa93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whole-file operations group.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ab0aba7b673bfd50033f1561a3e997f38" id="r_ab0aba7b673bfd50033f1561a3e997f38"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab0aba7b673bfd50033f1561a3e997f38">DEFAULT_TIMEOUT</a> {1000}</td></tr>
+<tr class="memdesc:ab0aba7b673bfd50033f1561a3e997f38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Response time of a plain AT command.  <br /></td></tr>
+<tr class="memitem:aeda44ecbef0e7c18f38f84147f66daf6" id="r_aeda44ecbef0e7c18f38f84147f66daf6"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#aeda44ecbef0e7c18f38f84147f66daf6">BOOT_TIMEOUT</a> {20000}</td></tr>
+<tr class="memdesc:aeda44ecbef0e7c18f38f84147f66daf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest time from 'PWRKEY' to a working AT channel.  <br /></td></tr>
+<tr class="memitem:a1bde4575bb07f558ffa2c9b68f0ccda8" id="r_a1bde4575bb07f558ffa2c9b68f0ccda8"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1bde4575bb07f558ffa2c9b68f0ccda8">REGISTRATION_POLL</a> {2000}</td></tr>
+<tr class="memdesc:a1bde4575bb07f558ffa2c9b68f0ccda8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interval of the registration polling.  <br /></td></tr>
+<tr class="memitem:a72ae8624e8842aed3933eaa40289e0a5" id="r_a72ae8624e8842aed3933eaa40289e0a5"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a72ae8624e8842aed3933eaa40289e0a5">LOCATION_TIMEOUT</a> {60000}</td></tr>
+<tr class="memdesc:a72ae8624e8842aed3933eaa40289e0a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Response time of the 'AT+CLBS' location query.  <br /></td></tr>
+<tr class="memitem:aaea82c11cd6997ef34bd3e0ed2800287" id="r_aaea82c11cd6997ef34bd3e0ed2800287"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#aaea82c11cd6997ef34bd3e0ed2800287">WAKE_TIMEOUT</a> {2000}</td></tr>
+<tr class="memdesc:aaea82c11cd6997ef34bd3e0ed2800287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest time from 'DTR' low to a working AT channel.  <br /></td></tr>
+<tr class="memitem:a2a50a93093975929cd8a7123275518d3" id="r_a2a50a93093975929cd8a7123275518d3"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2a50a93093975929cd8a7123275518d3">FILE_TIMEOUT</a> {5000}</td></tr>
+<tr class="memdesc:a2a50a93093975929cd8a7123275518d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Response time of one file system command.  <br /></td></tr>
+<tr class="memitem:ad7470a5f36f8540bad2e254ea1a68557" id="r_ad7470a5f36f8540bad2e254ea1a68557"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ad7470a5f36f8540bad2e254ea1a68557">RESPONSE_SIZE</a> = 128U</td></tr>
+<tr class="memdesc:ad7470a5f36f8540bad2e254ea1a68557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes kept from the information lines of a response.  <br /></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="aa10dc32a4e35d259562a9eee6dd0d997" name="aa10dc32a4e35d259562a9eee6dd0d997"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa10dc32a4e35d259562a9eee6dd0d997">&#9670;&#160;</a></span>Registration</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997">Lib::BSP::GSM::A7670E::Registration</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>EPS (LTE) registration state, the '&lt;stat&gt;' field of '+CEREG'. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa10dc32a4e35d259562a9eee6dd0d997a28f1d55993bd11ecf4a39f61530c84f3" name="aa10dc32a4e35d259562a9eee6dd0d997a28f1d55993bd11ecf4a39f61530c84f3"></a>NOT_REGISTERED&#160;</td><td class="fielddoc"><p>Not registered and not searching. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa10dc32a4e35d259562a9eee6dd0d997a710533dd879dd1202e5c73b27705bf02" name="aa10dc32a4e35d259562a9eee6dd0d997a710533dd879dd1202e5c73b27705bf02"></a>HOME&#160;</td><td class="fielddoc"><p>Registered on the home network. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa10dc32a4e35d259562a9eee6dd0d997adb46ca6757195ce8c1f015c9781d869e" name="aa10dc32a4e35d259562a9eee6dd0d997adb46ca6757195ce8c1f015c9781d869e"></a>SEARCHING&#160;</td><td class="fielddoc"><p>Not registered, searching. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa10dc32a4e35d259562a9eee6dd0d997a66d5e0b0ce726b4aeb4ddf6c25b6c12b" name="aa10dc32a4e35d259562a9eee6dd0d997a66d5e0b0ce726b4aeb4ddf6c25b6c12b"></a>DENIED&#160;</td><td class="fielddoc"><p>Registration denied. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa10dc32a4e35d259562a9eee6dd0d997a696b031073e74bf2cb98e5ef201d4aa3" name="aa10dc32a4e35d259562a9eee6dd0d997a696b031073e74bf2cb98e5ef201d4aa3"></a>UNKNOWN&#160;</td><td class="fielddoc"><p>Unknown, e.g. out of coverage. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa10dc32a4e35d259562a9eee6dd0d997a8e55dc83798a0deb36f39891549721f9" name="aa10dc32a4e35d259562a9eee6dd0d997a8e55dc83798a0deb36f39891549721f9"></a>ROAMING&#160;</td><td class="fielddoc"><p>Registered, roaming. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a8bd217b253ad48d4079b7116fa4fbcc3" name="a8bd217b253ad48d4079b7116fa4fbcc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bd217b253ad48d4079b7116fa4fbcc3">&#9670;&#160;</a></span>Result</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3">Lib::BSP::GSM::A7670E::Result</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Outcome of an AT command. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8bd217b253ad48d4079b7116fa4fbcc3ae0aa021e21dddbd6d8cecec71e9cf564" name="a8bd217b253ad48d4079b7116fa4fbcc3ae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Final result 'OK'. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8bd217b253ad48d4079b7116fa4fbcc3abb1ca97ec761fc37101737ba0aa2e7c5" name="a8bd217b253ad48d4079b7116fa4fbcc3abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"><p>Final result 'ERROR' or '+CME ERROR: &lt;n&gt;'. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8bd217b253ad48d4079b7116fa4fbcc3a070a0fb40f6c308ab544b227660aadff" name="a8bd217b253ad48d4079b7116fa4fbcc3a070a0fb40f6c308ab544b227660aadff"></a>TIMEOUT&#160;</td><td class="fielddoc"><p>No final result in time. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a8bd217b253ad48d4079b7116fa4fbcc3a9455b42e74acb2ec1c7292e54d28aff2" name="a8bd217b253ad48d4079b7116fa4fbcc3a9455b42e74acb2ec1c7292e54d28aff2"></a>NOT_READY&#160;</td><td class="fielddoc"><p>The modem is not powered, is asleep or the port could not be written. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4efe1fb5ffea1200b206cd1eb712fbe2" name="a4efe1fb5ffea1200b206cd1eb712fbe2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4efe1fb5ffea1200b206cd1eb712fbe2">&#9670;&#160;</a></span>A7670E() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::GSM::A7670E::A7670E </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/dd3/a04527.html">Config</a></td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds the driver to the hardware of the application; nothing is powered or opened. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Port, pins and supply callback; the referenced objects must outlive the driver. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a23ee08f1a1ed33fa09bc52127710ab0a" name="a23ee08f1a1ed33fa09bc52127710ab0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23ee08f1a1ed33fa09bc52127710ab0a">&#9670;&#160;</a></span>~A7670E()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::GSM::A7670E::~A7670E </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Does not power the modem off; call <a class="el" href="../../d0/da8/a04547.html#a00662a719223d2d8dea3e0567d1cc7a8" title="Power::off()">Power::off()</a> first for a clean detach. </p>
+
+</div>
+</div>
+<a id="a082741479d7269409d52fb950b73b178" name="a082741479d7269409d52fb950b73b178"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a082741479d7269409d52fb950b73b178">&#9670;&#160;</a></span>A7670E() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::GSM::A7670E::A7670E </td>
+          <td>(</td>
+          <td class="paramtype">const A7670E &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the driver is bound to one port and one set of pins. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a29b0aaaebe038e1c9ea8b56961055c09" name="a29b0aaaebe038e1c9ea8b56961055c09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29b0aaaebe038e1c9ea8b56961055c09">&#9670;&#160;</a></span>A7670E() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::GSM::A7670E::A7670E </td>
+          <td>(</td>
+          <td class="paramtype">A7670E &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the driver is bound to one port and one set of pins. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ab8cfadf3994ccc98729aa071c0d0aa93" name="ab8cfadf3994ccc98729aa071c0d0aa93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8cfadf3994ccc98729aa071c0d0aa93">&#9670;&#160;</a></span>files()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/dce/a04559.html">Files</a> &amp; Lib::BSP::GSM::A7670E::files </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Whole-file operations group. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the group, bound to this modem. </dd></dl>
+
+</div>
+</div>
+<a id="a08139cd85fcac96d57d66d33e556ca6d" name="a08139cd85fcac96d57d66d33e556ca6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08139cd85fcac96d57d66d33e556ca6d">&#9670;&#160;</a></span>network()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d9c/a04551.html">Network</a> &amp; Lib::BSP::GSM::A7670E::network </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registration, signal, time and location group. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the group, bound to this modem. </dd></dl>
+
+</div>
+</div>
+<a id="a8ba504eca9021f4cc588548f331446fe" name="a8ba504eca9021f4cc588548f331446fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ba504eca9021f4cc588548f331446fe">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> &amp; Lib::BSP::GSM::A7670E::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the driver is bound to one port and one set of pins. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="a7f8115d076cbda0fa47788202126d6ea" name="a7f8115d076cbda0fa47788202126d6ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f8115d076cbda0fa47788202126d6ea">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> &amp; Lib::BSP::GSM::A7670E::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the driver is bound to one port and one set of pins. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="a1760be986270adae095acba55a877e25" name="a1760be986270adae095acba55a877e25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1760be986270adae095acba55a877e25">&#9670;&#160;</a></span>power()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/da8/a04547.html">Power</a> &amp; Lib::BSP::GSM::A7670E::power </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Power supply, boot and sleep group. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the group, bound to this modem. </dd></dl>
+
+</div>
+</div>
+<a id="a7dfa47c191b9696d2ff00faf99d83ac7" name="a7dfa47c191b9696d2ff00faf99d83ac7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dfa47c191b9696d2ff00faf99d83ac7">&#9670;&#160;</a></span>readData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::GSM::A7670E::readData </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads an exact number of raw bytes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; its size is the number of bytes to read. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Longest time for all of them. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes read; less than the size on timeout. </dd></dl>
+
+</div>
+</div>
+<a id="aca4a089e7f865511e4a0796c4bd9cf99" name="aca4a089e7f865511e4a0796c4bd9cf99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca4a089e7f865511e4a0796c4bd9cf99">&#9670;&#160;</a></span>sendCommand() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3">Result</a> Lib::BSP::GSM::A7670E::sendCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ab0aba7b673bfd50033f1561a3e997f38">DEFAULT_TIMEOUT</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends an AT command and waits for its final result. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Command without the terminating carriage return. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Longest time to wait for the final result. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Final result of the command. </dd></dl>
+
+</div>
+</div>
+<a id="a68be1d4992d217a4a9f151db959bd10d" name="a68be1d4992d217a4a9f151db959bd10d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68be1d4992d217a4a9f151db959bd10d">&#9670;&#160;</a></span>sendCommand() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3">Result</a> Lib::BSP::GSM::A7670E::sendCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>response</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ab0aba7b673bfd50033f1561a3e997f38">DEFAULT_TIMEOUT</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends an AT command and keeps its information lines. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">command</td><td>Command without the terminating carriage return. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Destination of the information lines; at least one byte. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Longest time to wait for the final result. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Final result of the command. </dd></dl>
+
+</div>
+</div>
+<a id="a48d92161f8160971f3e15854d440ee74" name="a48d92161f8160971f3e15854d440ee74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48d92161f8160971f3e15854d440ee74">&#9670;&#160;</a></span>sendCommandWithData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3">Result</a> Lib::BSP::GSM::A7670E::sendCommandWithData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>prompt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends an AT command that asks for data, sends the data after the prompt and waits for the final result. </p>
+<p>Used by commands such as 'AT+CCERTDOWN' (prompt '&gt;') and 'AT+HTTPDATA' (prompt 'DOWNLOAD').</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Command without the terminating carriage return. </td></tr>
+    <tr><td class="paramname">prompt</td><td>Text the modem sends when it is ready for the data. </td></tr>
+    <tr><td class="paramname">data</td><td>Bytes to send after the prompt; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Longest time for the prompt and, again, for the final result. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Final result; <a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3a070a0fb40f6c308ab544b227660aadff" title="Result::TIMEOUT">Result::TIMEOUT</a> also when the prompt never came. </dd></dl>
+
+</div>
+</div>
+<a id="af0c9d560867f89b6ae4f2ad3842a3b9a" name="af0c9d560867f89b6ae4f2ad3842a3b9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0c9d560867f89b6ae4f2ad3842a3b9a">&#9670;&#160;</a></span>waitForLine()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; size_t &gt; Lib::BSP::GSM::A7670E::waitForLine </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>prefix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>line</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for a line starting with a prefix, typically an unsolicited result code. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">prefix</td><td>Line start to wait for. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">line</td><td>Destination of the matching line, NUL-terminated; at least one byte. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Longest time to wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Length of the matching line, or <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on timeout. </dd></dl>
+
+</div>
+</div>
+<a id="a31191836f60cc256a606fba2a63f2057" name="a31191836f60cc256a606fba2a63f2057"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31191836f60cc256a606fba2a63f2057">&#9670;&#160;</a></span>writeCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::GSM::A7670E::writeCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends an AT command without waiting for anything; the caller reads the answer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">command</td><td>Command without the terminating carriage return. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the modem is awake and the command was sent. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="aeda44ecbef0e7c18f38f84147f66daf6" name="aeda44ecbef0e7c18f38f84147f66daf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeda44ecbef0e7c18f38f84147f66daf6">&#9670;&#160;</a></span>BOOT_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> Lib::BSP::GSM::A7670E::BOOT_TIMEOUT {20000}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Longest time from 'PWRKEY' to a working AT channel. </p>
+
+</div>
+</div>
+<a id="ab0aba7b673bfd50033f1561a3e997f38" name="ab0aba7b673bfd50033f1561a3e997f38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0aba7b673bfd50033f1561a3e997f38">&#9670;&#160;</a></span>DEFAULT_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> Lib::BSP::GSM::A7670E::DEFAULT_TIMEOUT {1000}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Response time of a plain AT command. </p>
+
+</div>
+</div>
+<a id="a2a50a93093975929cd8a7123275518d3" name="a2a50a93093975929cd8a7123275518d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a50a93093975929cd8a7123275518d3">&#9670;&#160;</a></span>FILE_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> Lib::BSP::GSM::A7670E::FILE_TIMEOUT {5000}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Response time of one file system command. </p>
+
+</div>
+</div>
+<a id="a72ae8624e8842aed3933eaa40289e0a5" name="a72ae8624e8842aed3933eaa40289e0a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72ae8624e8842aed3933eaa40289e0a5">&#9670;&#160;</a></span>LOCATION_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> Lib::BSP::GSM::A7670E::LOCATION_TIMEOUT {60000}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Response time of the 'AT+CLBS' location query. </p>
+
+</div>
+</div>
+<a id="a1bde4575bb07f558ffa2c9b68f0ccda8" name="a1bde4575bb07f558ffa2c9b68f0ccda8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bde4575bb07f558ffa2c9b68f0ccda8">&#9670;&#160;</a></span>REGISTRATION_POLL</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> Lib::BSP::GSM::A7670E::REGISTRATION_POLL {2000}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Interval of the registration polling. </p>
+
+</div>
+</div>
+<a id="ad7470a5f36f8540bad2e254ea1a68557" name="ad7470a5f36f8540bad2e254ea1a68557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7470a5f36f8540bad2e254ea1a68557">&#9670;&#160;</a></span>RESPONSE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::GSM::A7670E::RESPONSE_SIZE = 128U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bytes kept from the information lines of a response. </p>
+
+</div>
+</div>
+<a id="aaea82c11cd6997ef34bd3e0ed2800287" name="aaea82c11cd6997ef34bd3e0ed2800287"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaea82c11cd6997ef34bd3e0ed2800287">&#9670;&#160;</a></span>WAKE_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> Lib::BSP::GSM::A7670E::WAKE_TIMEOUT {2000}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Longest time from 'DTR' low to a working AT channel. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

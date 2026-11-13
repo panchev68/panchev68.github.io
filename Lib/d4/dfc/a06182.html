@@ -5,20 +5,18 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::BackupRamDomain</title>
+<title>IAR EWARM Library: Lib::HAL::I2CPort</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -47,22 +45,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -79,19 +72,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </ul>
 </div><!-- main-nav -->
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/dfc/a06182.html','../../',''); });
-</script>
-<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
@@ -112,63 +92,146 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/dfc/a06182.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::BackupRamDomain</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::I2CPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Keeps small values across resets in the backup registers with <a class="el" href="../../d4/dfc/a06182.html" title="Lib::HAL::BackupRamDomain">Lib::HAL::BackupRamDomain</a>.</p>
-<p>Keeps small values across resets in the backup registers with Lib::HAL::BackupRamDomain. <a class="el" href="../../d3/d04/a05347.html#a75eda4bb9a1e9d88118cacebbb8992a3" title="Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one...">Lib::HAL::BackupRamDomain::open()</a> enables the PWR clock, the backup-domain write access and the backup SRAM clock; <a class="el" href="../../d3/d04/a05347.html#a0e38a00a0e42d1e9718b0e5ab46c9223" title="Lib::HAL::BackupRamDomain::close()">Lib::HAL::BackupRamDomain::close()</a> reverses them. Access is read-only until 'open()' succeeds, so call it before any <a class="el" href="../../d3/d04/a05347.html#a90b19ee3b4f06e4874a36f9f25b22ce6" title="Lib::HAL::BackupRamDomain::readRegister()">Lib::HAL::BackupRamDomain::readRegister()</a> or <a class="el" href="../../d3/d04/a05347.html#acc5002942f221da40872cb7be92706a9" title="Lib::HAL::BackupRamDomain::writeRegister()">Lib::HAL::BackupRamDomain::writeRegister()</a>. Those two methods touch the registers directly and do not check the access state themselves. The backup registers survive a system reset but are lost when V_BAT and V_DD are both removed.</p>
-<dl class="section important"><dt>Important</dt><dd>The module guard is 'HAL_PWR_MODULE_ENABLED'; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so that guard is unverified here, although the STM32Cube template enables it. On the STM32F407xx target the register count is 'RTC_BKP_NUMBER' (20, indices 0 to 19), and the registers are read from the RTC block because the device has no TAMP block.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The index is checked only by an assert in debug builds. An index at or above 'RTC_BKP_NUMBER' is undefined behavior in release builds, so pass only the indices defined for the target.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_backupramdomain_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="backup_usage_store"></a>
-Store a value across a reset</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/df0/a00557.html">Lib/HAL/BackupRamDomain/BackupRamDomain.hpp</a>&gt;</span></div>
+<p>Runs master transfers on an I2C bus with 'Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::BLOCKING&gt;', 'Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::IT&gt;' and 'Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::DMA&gt;'.</p>
+<p>Runs master transfers on an I2C bus with 'Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::BLOCKING&gt;', 'Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::IT&gt;' and 'Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::DMA&gt;'. All three share one public surface ('Lib::HAL::I2CPort::masterTransmit()', 'Lib::HAL::I2CPort::masterReceive()', 'Lib::HAL::I2CPort::masterMemWrite()', 'Lib::HAL::I2CPort::masterMemRead()' and 'Lib::HAL::I2CPort::isReady()'), so only the constructed mode changes. The port is master-only.</p>
+<p>The port takes a native 'I2C_HandleTypeDef' generated by CubeMX and has no 'Config' struct: the bus speed, addressing mode and pins come from the CubeMX-generated 'MX_I2Cx_Init()', which must run before 'open()'. Device addresses are 8-bit values with the R/W bit clear, for example '0xA0' for a 24C-series EEPROM at 7-bit address '0x50'.</p>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="i2c_usage_block"></a>
+Blocking master transfers</h3>
+<p>The blocking mode runs each transfer to completion in the calling thread and returns the status. Timeouts are rounded up to whole milliseconds and saturate at 'HAL_MAX_DELAY'. Blocking transfers never yield to the RTOS, so they may be used from task context only; they are not safe from an ISR.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/ddd/a00653.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t BOOT_COUNT_REGISTER = 0U;</div>
-<div class="line">}</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">uint32_t incrementBootCount() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d3/d04/a05347.html">Lib::HAL::BackupRamDomain</a> backup;</div>
-<div class="line">    <span class="keywordflow">if</span> (!backup.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d3/d04/a05347.html#a75eda4bb9a1e9d88118cacebbb8992a3">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span> 0U;</div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> readEepromBlock() noexcept {</div>
+<div class="line">    Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; port(&amp;hi2c1);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!port.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint32_t <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a> = backup.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d3/d04/a05347.html#a90b19ee3b4f06e4874a36f9f25b22ce6">readRegister</a>(BOOT_COUNT_REGISTER) + 1U;</div>
-<div class="line">    backup.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d3/d04/a05347.html#acc5002942f221da40872cb7be92706a9">writeRegister</a>(BOOT_COUNT_REGISTER, <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(backup.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d3/d04/a05347.html#a0e38a00a0e42d1e9718b0e5ab46c9223">close</a>());</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>;</div>
+<div class="line">    <span class="keyword">constexpr</span> uint16_t EEPROM_ADDRESS = 0xA0U;</div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 16&gt;</a> buffer{};</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Read 16 bytes starting at memory address 0x0000 with a 16-bit memory address.</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> isRead = port.masterMemRead(EEPROM_ADDRESS, 0x0000U, <a id="_a2" name="_a2"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d9/d30/a00848.html#ga5b8c4b7d245fd7ab998acf2c7edd61a4">I2C_MEMADD_SIZE_16BIT</a>, buffer, <a id="_a3" name="_a3"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.close());</div>
+<div class="line">    <span class="keywordflow">return</span> isRead;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00557_html"><div class="ttname"><a href="../../d8/df0/a00557.html">BackupRamDomain.hpp</a></div><div class="ttdoc">Interface to the STM32 backup domain: write-protection gate, Backup SRAM clock and backup data regist...</div></div>
-<div class="ttc" id="aa01627_html_ga5a30c8541e506f4962cb5103a18f1fd1"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a></div><div class="ttdeci">constexpr iterator_traits&lt; _InputIterator &gt;::difference_type count(_InputIterator __first, _InputIterator __last, const _Tp &amp;__value)</div></div>
-<div class="ttc" id="aa05347_html"><div class="ttname"><a href="../../d3/d04/a05347.html">Lib::HAL::BackupRamDomain</a></div><div class="ttdoc">Stateless facade over the backup domain write gate and the backup data registers.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:33</div></div>
-<div class="ttc" id="aa05347_html_a0e38a00a0e42d1e9718b0e5ab46c9223"><div class="ttname"><a href="../../d3/d04/a05347.html#a0e38a00a0e42d1e9718b0e5ab46c9223">Lib::HAL::BackupRamDomain::close</a></div><div class="ttdeci">bool close()</div><div class="ttdoc">Disables the Backup SRAM clock, where the device has one, and closes the write gate to the backup dom...</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:117</div></div>
-<div class="ttc" id="aa05347_html_a75eda4bb9a1e9d88118cacebbb8992a3"><div class="ttname"><a href="../../d3/d04/a05347.html#a75eda4bb9a1e9d88118cacebbb8992a3">Lib::HAL::BackupRamDomain::open</a></div><div class="ttdeci">bool open()</div><div class="ttdoc">Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one...</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:91</div></div>
-<div class="ttc" id="aa05347_html_a90b19ee3b4f06e4874a36f9f25b22ce6"><div class="ttname"><a href="../../d3/d04/a05347.html#a90b19ee3b4f06e4874a36f9f25b22ce6">Lib::HAL::BackupRamDomain::readRegister</a></div><div class="ttdeci">uint32_t readRegister(uint32_t backupRegisterIndex) const</div><div class="ttdoc">Reads a backup data register.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:142</div></div>
-<div class="ttc" id="aa05347_html_acc5002942f221da40872cb7be92706a9"><div class="ttname"><a href="../../d3/d04/a05347.html#acc5002942f221da40872cb7be92706a9">Lib::HAL::BackupRamDomain::writeRegister</a></div><div class="ttdeci">void writeRegister(uint32_t backupRegisterIndex, uint32_t value)</div><div class="ttdoc">Writes a backup data register.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:153</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="backup_usage_scope"></a>
-Keep the access window short</h2>
-<p>Backup-domain write access stays open between 'open()' and 'close()', so a stray write from another task or an ISR during that window goes through. Open it, do the accesses, and close it in one task.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/df0/a00557.html">Lib/HAL/BackupRamDomain/BackupRamDomain.hpp</a>&gt;</span></div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00653_html"><div class="ttname"><a href="../../de/ddd/a00653.html">I2C.hpp</a></div><div class="ttdoc">Public umbrella include for the I2C subsystem, exposing the master-only &#39;I2CPort&#39; in all three modes.</div></div>
+<div class="ttc" id="aa00848_html_ga5b8c4b7d245fd7ab998acf2c7edd61a4"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d9/d30/a00848.html#ga5b8c4b7d245fd7ab998acf2c7edd61a4">I2C_MEMADD_SIZE_16BIT</a></div><div class="ttdeci">#define I2C_MEMADD_SIZE_16BIT</div></div>
+<div class="ttc" id="aa01452_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="i2c_usage_probe"></a>
+Probing a device before use</h3>
+<p>'Lib::HAL::I2CPort::isReady()' sends up to 'trials' probes, each waiting at most the given timeout, and returns <b>true</b> on the first acknowledge. Call it before a transfer when a device may be absent or still powering up.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/ddd/a00653.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> saveFaultCode(uint32_t faultCode) {</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t FAULT_REGISTER = 1U;</div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1;</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="../../d3/d04/a05347.html">Lib::HAL::BackupRamDomain</a> backup;</div>
-<div class="line">    <span class="keywordflow">if</span> (backup.<a class="code hl_function" href="../../d3/d04/a05347.html#a75eda4bb9a1e9d88118cacebbb8992a3">open</a>()) {</div>
-<div class="line">        backup.<a class="code hl_function" href="../../d3/d04/a05347.html#acc5002942f221da40872cb7be92706a9">writeRegister</a>(FAULT_REGISTER, faultCode);</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(backup.<a class="code hl_function" href="../../d3/d04/a05347.html#a0e38a00a0e42d1e9718b0e5ab46c9223">close</a>());</div>
+<div class="line"><span class="keywordtype">bool</span> waitForEeprom(Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; &amp; port) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> port.isReady(0xA0U, 3U, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(10));</div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="i2c_usage_it"></a>
+Interrupt-driven transfers</h3>
+<p>The 'IT' mode starts the transfer, then blocks the calling task on an RTOS event group until the HAL completion or error interrupt signals it or the timeout expires. It is therefore only legal from task context, and the calling task yields while the bus is busy. On a timeout or error the port aborts the transfer and re-initializes the peripheral before returning <b>false</b>, so a failed call needs no manual recovery.</p>
+<dl class="section important"><dt>Important</dt><dd>The port registers its own HAL callbacks, so the HAL configuration must set 'USE_HAL_I2C_REGISTER_CALLBACKS' to '1', or the translation unit fails to compile. The CubeMX-generated 'I2Cx_EV_IRQHandler()' and 'I2Cx_ER_IRQHandler()' must be enabled in the NVIC.</dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/ddd/a00653.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>SensorTask final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    SensorTask() noexcept :</div>
+<div class="line">        port(&amp;hi2c1),</div>
+<div class="line">        task(<a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../d8/d33/a05959.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Sensor&quot;</span>, 512, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d3/d4c/a05943.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
 <div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::IT&gt; port;</div>
+<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../dd/d7b/a05939.html">RTOS::Task</a> task; <span class="comment">// Must stay the last member.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!port.open()) {</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 2&gt;</a> reply{};</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="comment">// Reads register 0x01 of the device at 7-bit address 0x48, with an 8-bit register address.</span></div>
+<div class="line">            <span class="keywordflow">if</span> (port.masterMemRead(0x90U, 0x01U, <a id="_a7" name="_a7"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d9/d30/a00848.html#ga44007b689fa80deeab22820ad0b2dc6d">I2C_MEMADD_SIZE_8BIT</a>, reply, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(20))) {</div>
+<div class="line">                <span class="comment">// Use reply.</span></div>
+<div class="line">            }</div>
+<div class="line">            <a id="a8" name="a8"></a><a class="code hl_function" href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00848_html_ga44007b689fa80deeab22820ad0b2dc6d"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d9/d30/a00848.html#ga44007b689fa80deeab22820ad0b2dc6d">I2C_MEMADD_SIZE_8BIT</a></div><div class="ttdeci">#define I2C_MEMADD_SIZE_8BIT</div></div>
+<div class="ttc" id="aa00974_html"><div class="ttname"><a href="../../df/dce/a00974.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01026_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:604</div></div>
+<div class="ttc" id="aa05939_html"><div class="ttname"><a href="../../dd/d7b/a05939.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:52</div></div>
+<div class="ttc" id="aa05943_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d3/d4c/a05943.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:85</div></div>
+<div class="ttc" id="aa05959_html"><div class="ttname"><a href="../../d8/d33/a05959.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="i2c_usage_dma"></a>
+DMA transfers</h3>
+<p>The 'DMA' mode has the same public calls and blocking policy as 'IT'; the transfer data moves by DMA. The buffers must lie in memory the DMA controller can reach. On an F4 part that means not in CCM RAM, and <a class="el" href="../../d3/ded/a01017.html#a6d025716096ef0a5098ff9db2688b2da" title="Lib::HAL::isDmaReachable()">Lib::HAL::isDmaReachable()</a> is asserted on every buffer.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/ddd/a00653.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Static storage in ordinary SRAM, not CCM RAM.</span></div>
+<div class="line"><span class="keyword">static</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 32&gt;</a> dmaBuffer{};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> writeEepromPage(Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; port) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="comment">// Writes dmaBuffer to the EEPROM page at memory address 0x0000 with a 16-bit memory address.</span></div>
+<div class="line">    <span class="keywordflow">return</span> port.masterMemWrite(0xA0U, 0x0000U, <a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d9/d30/a00848.html#ga5b8c4b7d245fd7ab998acf2c7edd61a4">I2C_MEMADD_SIZE_16BIT</a>, dmaBuffer, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50));</div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="i2c_usage_abort"></a>
+Aborting a stuck transfer</h3>
+<p><a class="el" href="../../dd/d83/a05443.html#aa0017dbe171dc6568f888a4d30997ccc" title="Lib::HAL::I2CPortAsync::abort()">Lib::HAL::I2CPortAsync::abort()</a> requests a master abort for the device address and waits for the abort event. It is available on the 'IT' and 'DMA' modes only, and it is called from task context. A blocking transfer cannot be aborted from another task.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/ddd/a00653.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> cancelPendingTransfer(Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; port) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.abort(0xA0U));</div>
 <div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>
