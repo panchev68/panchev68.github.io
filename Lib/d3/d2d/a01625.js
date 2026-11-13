@@ -1,6 +1,11 @@
 var a01625 =
 [
-    [ "resetPin", "d3/d2d/a01625.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
-    [ "rxHandle", "d3/d2d/a01625.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
-    [ "txHandle", "d3/d2d/a01625.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
+    [ "WolfSSLRandom", "d3/d2d/a01625.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
+    [ "~WolfSSLRandom", "d3/d2d/a01625.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
+    [ "WolfSSLRandom", "d3/d2d/a01625.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
+    [ "WolfSSLRandom", "d3/d2d/a01625.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
+    [ "generate", "d3/d2d/a01625.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
+    [ "native", "d3/d2d/a01625.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
+    [ "operator=", "d3/d2d/a01625.html#a2b57fbc329feeb209aa7f41b29608488", null ],
+    [ "operator=", "d3/d2d/a01625.html#a61facc5365a377d384371cb51442e897", null ]
 ];

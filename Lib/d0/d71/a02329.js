@@ -1,12 +1,13 @@
 var a02329 =
 [
-    [ "Sunset", "d0/d71/a02329.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "d0/d71/a02329.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
-    [ "calculateSunTime", "d0/d71/a02329.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
-    [ "computeHourAngle", "d0/d71/a02329.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
-    [ "setCurrentDate", "d0/d71/a02329.html#a0598ea08f953291be6bd331b39254b2a", null ],
-    [ "setCurrentDate", "d0/d71/a02329.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "d0/d71/a02329.html#afbc858a5944c47609616f459b657339b", null ],
-    [ "sunrise", "d0/d71/a02329.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
-    [ "sunset", "d0/d71/a02329.html#a3bea9bb96761c55203633434195d87c4", null ]
+    [ "UARTPort", "d0/d71/a02329.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
+    [ "~UARTPort", "d0/d71/a02329.html#a379b29de4717643896518dcc44558b2d", null ],
+    [ "abort", "d0/d71/a02329.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
+    [ "close", "d0/d71/a02329.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d0/d71/a02329.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d0/d71/a02329.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d0/d71/a02329.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d0/d71/a02329.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d0/d71/a02329.html#a3c10830f8d93936773f64d95201bc7da", null ],
+    [ "send", "d0/d71/a02329.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
 ];

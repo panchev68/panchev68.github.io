@@ -1,10 +1,9 @@
 var a01265 =
 [
-    [ "SMARTCARD Exported Types", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html", "d6/dcf/a01031" ],
-    [ "SMARTCARD Exported constants", "https://panchev68.github.io/HALF4/df/d89/a01032.html", "df/d89/a01032" ],
-    [ "SMARTCARD Exported Macros", "https://panchev68.github.io/HALF4/da/d17/a01046.html", null ],
-    [ "SMARTCARD Private Constants", "https://panchev68.github.io/HALF4/db/dbb/a01047.html", null ],
-    [ "SMARTCARD Private Macros", "https://panchev68.github.io/HALF4/d5/de7/a01048.html", null ],
-    [ "SMARTCARD Private Functions", "https://panchev68.github.io/HALF4/d0/d22/a01049.html", null ],
-    [ "SMARTCARD_Exported_Functions", "https://panchev68.github.io/HALF4/d9/d45/a01332.html", "d9/d45/a01332" ]
+    [ "dtr", "da/dd8/a01265.html#a1f0325547dba26c50be0574888fc397e", null ],
+    [ "port", "da/dd8/a01265.html#a86fe1b86ed7cea66b9a5c100adea5c50", null ],
+    [ "powerKey", "da/dd8/a01265.html#a7602e69d38d7f788df016037bb00df30", null ],
+    [ "reset", "da/dd8/a01265.html#a4a2aa8be77cad07c87aebcea429856d2", null ],
+    [ "setSupply", "da/dd8/a01265.html#a9848006a47ed741d31636388c9deb387", null ],
+    [ "status", "da/dd8/a01265.html#a223d2213e1ed43f94c86e60f5cf37555", null ]
 ];

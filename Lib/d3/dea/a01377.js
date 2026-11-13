@@ -1,6 +1,8 @@
 var a01377 =
 [
-    [ "HAL_WWDG_EarlyWakeupCallback", "https://panchev68.github.io/HALF4/d3/dea/a01377.html#gac939b6f7bd78682d222dacb8909b8788", null ],
-    [ "HAL_WWDG_IRQHandler", "https://panchev68.github.io/HALF4/d3/dea/a01377.html#ga6521c5a0ff3184f951561302fb540fde", null ],
-    [ "HAL_WWDG_Refresh", "https://panchev68.github.io/HALF4/d3/dea/a01377.html#gaf88d543a2fe8520439b69c9f55e70d48", null ]
+    [ "operator==", "d3/dea/a01377.html#ada8e55f2f00e1f0256475c584eb863d5", null ],
+    [ "display4", "d3/dea/a01377.html#a190805124006c5599e92dd544db486f4", null ],
+    [ "inPhaseAdc", "d3/dea/a01377.html#a4dc0e13ddf52631bc23c4bf09f726650", null ],
+    [ "quadratureAdc", "d3/dea/a01377.html#ad47ff67b3f90ab4180e577fa6d842ec9", null ],
+    [ "status", "d3/dea/a01377.html#af495ab17ed6e1a39e137c8fd834ac9f3", null ]
 ];

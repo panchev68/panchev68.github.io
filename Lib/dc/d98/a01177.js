@@ -1,6 +1,8 @@
 var a01177 =
 [
-    [ "guardTime", "dc/d98/a01177.html#a6d08fcfd56cd70a165431b4ffca3ec42", null ],
-    [ "onCardActivated", "dc/d98/a01177.html#ad4b8d3f5ae272c06dc5ce104f9ff06df", null ],
-    [ "taskConfig", "dc/d98/a01177.html#abbdf9c7b445c45999344281653820100", null ]
+    [ "button", "dc/d98/a01177.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
+    [ "channel1", "dc/d98/a01177.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
+    [ "channel2", "dc/d98/a01177.html#a360d21f775c66781831db2507e7a73fc", null ],
+    [ "divider", "dc/d98/a01177.html#a702af25fea0b8af225fc46b4f3fdaee3", null ],
+    [ "reversePolarity", "dc/d98/a01177.html#a979f1b4b2c4f2a9dd0b652da9bb5b724", null ]
 ];

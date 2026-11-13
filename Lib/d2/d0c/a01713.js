@@ -1,11 +1,5 @@
 var a01713 =
 [
-    [ "onExtendedTransmitStatusChanged", "d2/d0c/a01713.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
-    [ "onLocalAtCommand", "d2/d0c/a01713.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
-    [ "onModemStatusChanged", "d2/d0c/a01713.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
-    [ "onPacketReceived", "d2/d0c/a01713.html#a850cfb32fb4c250ebb5d07029d996133", null ],
-    [ "onReceivePacket16bit", "d2/d0c/a01713.html#a30dd6aca5f04efa028541965da0f724f", null ],
-    [ "onReceivePacket64bit", "d2/d0c/a01713.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
-    [ "onRemoteATCommand", "d2/d0c/a01713.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
-    [ "onTransmitStatus", "d2/d0c/a01713.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
+    [ "ascFailureCount", "d2/d0c/a01713.html#a1e6fa3ed0ff87b537b8ec7aed53093bb", null ],
+    [ "ccaFailureCount", "d2/d0c/a01713.html#a20afcf39b211e185e969b8d770f99017", null ]
 ];

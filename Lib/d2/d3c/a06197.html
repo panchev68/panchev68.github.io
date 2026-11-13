@@ -5,14 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::DeviceManager</title>
+<title>IAR EWARM Library: Lib::HAL::OSPIPort</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -78,19 +70,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </ul>
 </div><!-- main-nav -->
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/d3c/a06197.html','../../',''); });
-</script>
-<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
@@ -111,74 +90,123 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/d3c/a06197.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::DeviceManager</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::OSPIPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Maps a native HAL handle, as seen inside an extern "C" HAL callback, back to the owning C++ object with <a class="el" href="../../dd/d9e/a05378.html" title="Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;">Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;</a>.</p>
-<p>Maps a native HAL handle, as seen inside an extern "C" HAL callback, back to the owning C++ object with <a class="el" href="../../dd/d9e/a05378.html" title="Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;">Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;</a>. The objects are derived from <a class="el" href="../../d3/d73/a05382.html" title="Lib::HAL::Device&lt;T_DEVICE, T_HANDLE&gt;">Lib::HAL::Device&lt;T_DEVICE, T_HANDLE&gt;</a>, which stores the handle and an intrusive list link.</p>
-<p>This is the HAL-side ISR lookup. It is a different class from <a class="el" href="../../d6/db7/a04354.html" title="Lib::BSP::DeviceManager">Lib::BSP::DeviceManager</a>, which holds a periodic timer and a list of BSP drivers; the two share a name but nothing else. The HAL manager is a per-(device type, handle type) singleton, so the instance is selected by the template arguments. <a class="el" href="../../dd/d9e/a05378.html#a20731f8c338ecda6068a2f416c8e9e97" title="Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;::registerDevice()">Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;::registerDevice()</a> and <a class="el" href="../../dd/d9e/a05378.html#aa1c87169c3e9040cd552e10c08e0eee4" title="Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;::unregisterDevice()">Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;::unregisterDevice()</a> take an <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> critical section; the lookup, <a class="el" href="../../dd/d9e/a05378.html#a44399c0b88c31ab172615c8522506511" title="Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;::getDevice()">Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;::getDevice()</a>, does not, so it is safe to call from an ISR. The list is walked linearly, so keep the number of instances per type small.</p>
-<p>The device registers itself in its constructor and must not be destroyed while an ISR may still look it up. The example below uses a static instance, so that condition holds.</p>
-<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="../../dd/d9e/a05378.html#aa1c87169c3e9040cd552e10c08e0eee4" title="Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;::unregisterDevice()">Lib::HAL::DeviceManager&lt;T_DEVICE, T_HANDLE&gt;::unregisterDevice()</a> clears only the removed device's own link and does not relink its predecessor, so the devices that follow it in the list become unreachable. Until that is fixed, do not unregister a device that is not the last one registered, and do not rely on unregistration for correctness.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_devicemanager_usage"></a>
+<p>Runs a command with a data phase on the Octo-SPI controller through 'Lib::HAL::OSPIPort' in its three transfer modes: <a class="el" href="../../de/d02/a01026.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="Lib::HAL::DriverMode::BLOCKING">Lib::HAL::DriverMode::BLOCKING</a>, <a class="el" href="../../de/d02/a01026.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> and <a class="el" href="../../de/d02/a01026.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949" title="Lib::HAL::DriverMode::DMA">Lib::HAL::DriverMode::DMA</a>.</p>
+<p>Runs a command with a data phase on the Octo-SPI controller through 'Lib::HAL::OSPIPort' in its three transfer modes: <a class="el" href="../../de/d02/a01026.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="Lib::HAL::DriverMode::BLOCKING">Lib::HAL::DriverMode::BLOCKING</a>, <a class="el" href="../../de/d02/a01026.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> and <a class="el" href="../../de/d02/a01026.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949" title="Lib::HAL::DriverMode::DMA">Lib::HAL::DriverMode::DMA</a>. The port wraps a CubeMX 'OSPI_HandleTypeDef' and does not configure the pins, clock or memory-mapped mode.</p>
+<p>Each transfer is two steps: 'Lib::HAL::OSPIPort::command()' sends the instruction, address, alternate-byte and dummy phases described by a HAL 'OSPI_RegularCmdTypeDef', and the following 'Lib::HAL::OSPIPort::transmit()' or 'Lib::HAL::OSPIPort::receive()' moves the data phase. The size of the buffer must equal the 'NbData' of that command. The BLOCKING mode completes inside the HAL calls and works from any context. The IT and DMA modes wait on an <a class="el" href="../../d3/d36/a06249.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, so their calls are task-only and assert when called from an ISR. The OCTOSPI interrupt handler must call <b>HAL_OSPI_IRQHandler()</b> for the handle.</p>
+<dl class="section important"><dt>Important</dt><dd>The OCTOSPI controller is not on the STM32F407 used by this library (F7, H7 and L4+ only), so the 'HAL_OSPI_MODULE_ENABLED' guard of this class has nothing to enable there. On that target the header compiles to nothing, so the example below applies only to a target with an OCTOSPI peripheral.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The IT and DMA modes register their own HAL callbacks in 'Lib::HAL::OSPIPort::open()', so the HAL configuration header must set 'USE_HAL_OSPI_REGISTER_CALLBACKS' to <b>1</b>.</dd></dl>
+<h1 class="doxsection"><a class="anchor" id="lib_hal_ospi_usage"></a>
 Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="devicemanager_usage_device"></a>
-Derive a device from the base</h2>
-<p>Derive publicly from <a class="el" href="../../d3/d73/a05382.html" title="Lib::HAL::Device&lt;T_DEVICE, T_HANDLE&gt;">Lib::HAL::Device&lt;T_DEVICE, T_HANDLE&gt;</a>, pass the native handle to its constructor, and register the object with the manager. <a class="el" href="../../d3/d73/a05382.html#ac39b97fd324efde09c82d0ccfe7fe4e8" title="Lib::HAL::Device&lt;T_DEVICE, T_HANDLE&gt;::getHandle()">Lib::HAL::Device&lt;T_DEVICE, T_HANDLE&gt;::getHandle()</a> returns the handle that the lookup compares against.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00578.html">Lib/HAL/core/Device.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d75/a08343.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
+<h2 class="doxsection"><a class="anchor" id="ospi_usage_setup"></a>
+Setup and lifecycle</h2>
+<p>The CubeMX init code creates and configures the handle, including the flash size and the clock. 'Lib::HAL::OSPIPort::open()' runs <b>HAL_OSPI_Init()</b>; for the IT and DMA modes it also registers the callbacks and creates the event group. 'Lib::HAL::OSPIPort::close()' reverses this from task context. The port does not own the handle.</p>
+<h2 class="doxsection"><a class="anchor" id="ospi_usage_blocking"></a>
+Blocking command and data phase</h2>
+<p>The timeouts are <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> durations. The example reads a block with the Quad I/O fast read opcode <b>0xEB</b> of a serial flash; the instruction, address and dummy values are device-specific, and every field not set stays zero.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d73/a00674.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> hspi1; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"><span class="keyword">extern</span> OSPI_HandleTypeDef hospi1;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>SpiBridge final : <span class="keyword">public</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d3/d73/a05382.html">Lib::HAL::Device</a>&lt;SpiBridge, SPI_HandleTypeDef&gt; {</div>
+<div class="line"><span class="keywordtype">bool</span> readQuad(Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; &amp; port, uint32_t address, std::span&lt;uint8_t&gt; <a id="_a0" name="_a0"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>) <span class="keyword">noexcept</span> {</div>
+<div class="line">    OSPI_RegularCmdTypeDef cmd{};</div>
+<div class="line">    cmd.OperationType = HAL_OSPI_OPTYPE_COMMON_CFG;</div>
+<div class="line">    cmd.FlashId = HAL_OSPI_FLASH_ID_1;</div>
+<div class="line">    cmd.Instruction = 0xEBU;</div>
+<div class="line">    cmd.InstructionMode = HAL_OSPI_INSTRUCTION_1_LINE;</div>
+<div class="line">    cmd.InstructionSize = HAL_OSPI_INSTRUCTION_8_BITS;</div>
+<div class="line">    cmd.Address = address;</div>
+<div class="line">    cmd.AddressMode = HAL_OSPI_ADDRESS_4_LINES;</div>
+<div class="line">    cmd.AddressSize = HAL_OSPI_ADDRESS_24_BITS;</div>
+<div class="line">    cmd.DataMode = HAL_OSPI_DATA_4_LINES;</div>
+<div class="line">    cmd.NbData = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>.size());</div>
+<div class="line">    cmd.DummyCycles = 6U;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!port.command(cmd, <a id="_a1" name="_a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> port.receive(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00674_html"><div class="ttname"><a href="../../d8/d73/a00674.html">OSPI.hpp</a></div><div class="ttdoc">Public umbrella include for the OCTOSPI subsystem.</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01692_html_aba9b31054eec50310ef02c998663e27b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a></div><div class="ttdeci">constexpr auto data(_Container &amp;__cont) noexcept(noexcept(__cont.data())) -&gt; decltype(__cont.data())</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="ospi_usage_it"></a>
+Interrupt-driven transfer</h2>
+<p>The IT mode uses the same two calls from a task. The OCTOSPI handler is the only interrupt hook: CubeMX 'OCTOSPI1_IRQHandler()' calls 'HAL_OSPI_IRQHandler(&amp;hospi1)', which fires the callbacks that 'Lib::HAL::OSPIPort::open()' registered. A command without a data phase completes through the same event group.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d73/a00674.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> OSPI_HandleTypeDef hospi1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>FlashRegisterAccess final {</div>
 <div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keyword">explicit</span> SpiBridge(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * spiHandle) noexcept :</div>
-<div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../d3/d73/a05382.html#acdeffbad9eb409804cbc72fa86794a97">Device</a>(spiHandle) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="a3" name="a3"></a><a class="code hl_function" href="../../dd/d9e/a05378.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a4" name="a4"></a><a class="code hl_function" href="../../dd/d9e/a05378.html#a20731f8c338ecda6068a2f416c8e9e97">registerDevice</a>(<span class="keyword">this</span>));</div>
+<div class="line"> </div>
+<div class="line">    FlashRegisterAccess() noexcept :</div>
+<div class="line">        port(&amp;hospi1) {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onTransmitComplete() <span class="keyword">noexcept</span> {</div>
-<div class="line">        transmitCount = transmitCount + 1U;</div>
+<div class="line">    <span class="comment">// Call from a task.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> port.open();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from a task only; reads one status byte with a single-line data phase.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> readStatus(uint8_t &amp; status) <span class="keyword">noexcept</span> {</div>
+<div class="line">        OSPI_RegularCmdTypeDef cmd{};</div>
+<div class="line">        cmd.OperationType = HAL_OSPI_OPTYPE_COMMON_CFG;</div>
+<div class="line">        cmd.FlashId = HAL_OSPI_FLASH_ID_1;</div>
+<div class="line">        cmd.Instruction = 0x05U;</div>
+<div class="line">        cmd.InstructionMode = HAL_OSPI_INSTRUCTION_1_LINE;</div>
+<div class="line">        cmd.InstructionSize = HAL_OSPI_INSTRUCTION_8_BITS;</div>
+<div class="line">        cmd.AddressMode = HAL_OSPI_ADDRESS_NONE;</div>
+<div class="line">        cmd.DataMode = HAL_OSPI_DATA_1_LINE;</div>
+<div class="line">        cmd.NbData = 1U;</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">const</span> std::span&lt;uint8_t&gt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>(&amp;status, 1U);</div>
+<div class="line">        <span class="keywordflow">return</span> port.command(cmd, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50)) &amp;&amp; port.receive(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50));</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    <span class="keyword">volatile</span> uint32_t transmitCount = 0U;</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; port;</div>
 <div class="line">};</div>
+<div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="ospi_usage_error"></a>
+Error path and abort</h2>
+<p>A timed-out or failed phase returns <b>false</b> and the port stops its transfer, so the caller may issue the next command. If a task must release a blocked transfer from outside, 'Lib::HAL::OSPIPort::abort()' stops the controller and wakes the waiting task. The DMA mode requires the buffer to be reachable by the DMA controller; the port asserts on a CCM RAM buffer in a debug build.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d73/a00674.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">static</span> SpiBridge spiBridge(&amp;hspi1);</div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00578_html"><div class="ttname"><a href="../../dd/d5c/a00578.html">Device.hpp</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its link in the DeviceManager registry.</div></div>
-<div class="ttc" id="aa01068_html_gab633e49dd034de2f3a1fe79853d78d18"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a></div><div class="ttdeci">struct __SPI_HandleTypeDef SPI_HandleTypeDef</div></div>
-<div class="ttc" id="aa05378_html_a20731f8c338ecda6068a2f416c8e9e97"><div class="ttname"><a href="../../dd/d9e/a05378.html#a20731f8c338ecda6068a2f416c8e9e97">Lib::HAL::DeviceManager::registerDevice</a></div><div class="ttdeci">bool registerDevice(T_DEVICE *device)</div><div class="ttdoc">Adds a concrete driver to the lookup list.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:52</div></div>
-<div class="ttc" id="aa05378_html_a2832654a46fcf40b5673a27a282e278b"><div class="ttname"><a href="../../dd/d9e/a05378.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager::instance</a></div><div class="ttdeci">static DeviceManager &amp; instance() noexcept</div><div class="ttdoc">Returns the process-wide registry instance.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:39</div></div>
-<div class="ttc" id="aa05382_html"><div class="ttname"><a href="../../d3/d73/a05382.html">Lib::HAL::Device</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its DeviceManager list link.</div><div class="ttdef"><b>Definition</b> Device.hpp:36</div></div>
-<div class="ttc" id="aa05382_html_acdeffbad9eb409804cbc72fa86794a97"><div class="ttname"><a href="../../d3/d73/a05382.html#acdeffbad9eb409804cbc72fa86794a97">Lib::HAL::Device::Device</a></div><div class="ttdeci">Device(T_HANDLE *handle) noexcept</div><div class="ttdoc">Constructs a Device block bound to a native microcontroller peripheral handle.</div><div class="ttdef"><b>Definition</b> Device.hpp:78</div></div>
-<div class="ttc" id="aa08343_html"><div class="ttname"><a href="../../d8/d75/a08343.html">DeviceManager.hpp</a></div><div class="ttdoc">Registry that routes native HAL handles to the open concrete peripheral drivers.</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="devicemanager_usage_isr"></a>
-Look up the owner inside a HAL callback</h2>
-<p>The callback is defined once, by the application, and only forwards to the device. A null result means no instance owns that handle, so the callback must simply return.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d75/a08343.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;SpiBridge.hpp&quot;</span> <span class="comment">// Declares SpiBridge, as in the previous example.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a>(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * hspi) {</div>
-<div class="line">    SpiBridge * <span class="keyword">const</span> bridge = <a class="code hl_function" href="../../dd/d9e/a05378.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a6" name="a6"></a><a class="code hl_function" href="../../dd/d9e/a05378.html#a44399c0b88c31ab172615c8522506511">getDevice</a>(hspi);</div>
-<div class="line">    <span class="keywordflow">if</span> (bridge != <span class="keyword">nullptr</span>) {</div>
-<div class="line">        bridge-&gt;onTransmitComplete();</div>
-<div class="line">    }</div>
+<div class="line"><span class="keywordtype">void</span> cancelPending(Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; port) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.abort());</div>
 <div class="line">}</div>
-<div class="ttc" id="aa01345_html_ga0a99ab4f6aa6ee7dc2abca5483910dde"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a></div><div class="ttdeci">void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)</div></div>
-<div class="ttc" id="aa05378_html_a44399c0b88c31ab172615c8522506511"><div class="ttname"><a href="../../dd/d9e/a05378.html#a44399c0b88c31ab172615c8522506511">Lib::HAL::DeviceManager::getDevice</a></div><div class="ttdeci">T_DEVICE * getDevice(const T_HANDLE *handle) const</div><div class="ttdoc">Finds the registered device that owns a native handle by a linear search.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:105</div></div>
-</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The callback name is the HAL weak symbol, so the HAL's own weak definition is replaced by this one. Do not define it twice.</dd></dl>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
+</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

@@ -1,10 +1,8 @@
 var a01445 =
 [
-    [ "WolfSSH", "d9/d6f/a01445.html#acda587d771e0b88270bdf9263d156fd0", null ],
-    [ "~WolfSSH", "d9/d6f/a01445.html#ad07d509cc2a825d9165ab30739d84515", null ],
-    [ "WolfSSH", "d9/d6f/a01445.html#ab03771dcd75546ec452cb768b0a29da5", null ],
-    [ "WolfSSH", "d9/d6f/a01445.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
-    [ "isOpen", "d9/d6f/a01445.html#aac3ff36b57e422860d83792bb84c84f3", null ],
-    [ "operator=", "d9/d6f/a01445.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
-    [ "operator=", "d9/d6f/a01445.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
+    [ "miso", "d9/d6f/a01445.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
+    [ "mosi", "d9/d6f/a01445.html#a25f143d2f7674576d969696bb116ccd0", null ],
+    [ "nirq", "d9/d6f/a01445.html#a910a59f08ad5274a68776e743dbaedee", null ],
+    [ "nss", "d9/d6f/a01445.html#ab28458323220459a7d7310bc64b538a2", null ],
+    [ "sck", "d9/d6f/a01445.html#a2bddcf040cbe86554ab6027c20f10236", null ]
 ];

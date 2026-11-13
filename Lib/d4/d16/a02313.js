@@ -1,14 +1,17 @@
 var a02313 =
 [
-    [ "JaggedArrayBase", "d4/d16/a02313.html#ae79ec88b260154126e7ec280a136c14a", null ],
-    [ "addItem", "d4/d16/a02313.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
-    [ "addItems", "d4/d16/a02313.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
-    [ "clearItems", "d4/d16/a02313.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
-    [ "getElements", "d4/d16/a02313.html#a428409a8385b8547bfa65d04a71565b1", null ],
-    [ "getElements", "d4/d16/a02313.html#a718f7db994c254bce01246ea32b1d653", null ],
-    [ "getSize", "d4/d16/a02313.html#afca6ed09d7865e2bac45430fda768aae", null ],
-    [ "operator[]", "d4/d16/a02313.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
-    [ "operator[]", "d4/d16/a02313.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
-    [ "removeItem", "d4/d16/a02313.html#a819041f4264ebfce07665c548d5dd7bc", null ],
-    [ "elementList", "d4/d16/a02313.html#a319cd6aae084f711db14582ed55929a5", null ]
+    [ "Manager", "d4/d16/a02313.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d4/d16/a02313.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimTimebase", "d4/d16/a02313.html#a2c242b351c880239ebc508905c1cb177", null ],
+    [ "~TimTimebase", "d4/d16/a02313.html#a90c3f44e84cfcfed7135d75abee0a2e1", null ],
+    [ "bindWorker", "d4/d16/a02313.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getHandle", "d4/d16/a02313.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "d4/d16/a02313.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "setPeriod", "d4/d16/a02313.html#a29d9a9e5c9f5213605679a13c42aa764", null ],
+    [ "start", "d4/d16/a02313.html#ab552a6aca3293c0ecdd0ce26d6668663", null ],
+    [ "stop", "d4/d16/a02313.html#afffbfe2b0fcf27e6081cc6983d06e626", null ],
+    [ "waitEvent", "d4/d16/a02313.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "waitPeriod", "d4/d16/a02313.html#a2b19392b62c66b845538ec09abd31354", null ],
+    [ "waitPeriod", "d4/d16/a02313.html#a12ce8677b8ff16469cb2f21c9a1eb5bb", null ],
+    [ "void::Lib_HAL_TimTimebase_PeriodElapsed", "d4/d16/a02313.html#ae72687d02451939bdec7c3aaba269a45", null ]
 ];

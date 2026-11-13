@@ -1,14 +1,10 @@
 var a02205 =
 [
-    [ "EventHandler", "dc/d43/a02205.html#a10761412c20341dee385767eac673248", null ],
-    [ "USBHostPort", "dc/d43/a02205.html#a91ab9877db9cf87b15fe9118bf39ed92", null ],
-    [ "~USBHostPort", "dc/d43/a02205.html#a4c01d7a9aa859df6f11e05b804af766d", null ],
-    [ "close", "dc/d43/a02205.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "dc/d43/a02205.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "dc/d43/a02205.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "dc/d43/a02205.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "dc/d43/a02205.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "setEventHandler", "dc/d43/a02205.html#a031aa9b48caa98516825b7f35468b627", null ],
-    [ "transfer", "dc/d43/a02205.html#a3bcff372802df7955ce5761f4e32e420", null ],
-    [ "waitForEvent", "dc/d43/a02205.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
+    [ "IndependentWatchdog", "dc/d43/a02205.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
+    [ "IndependentWatchdog", "dc/d43/a02205.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
+    [ "IndependentWatchdog", "dc/d43/a02205.html#aabfa4830743c87632886a0e095af6dba", null ],
+    [ "open", "dc/d43/a02205.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
+    [ "operator=", "dc/d43/a02205.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
+    [ "operator=", "dc/d43/a02205.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
+    [ "refresh", "dc/d43/a02205.html#ae9f164f43789bd02baa1587a44c30e61", null ]
 ];

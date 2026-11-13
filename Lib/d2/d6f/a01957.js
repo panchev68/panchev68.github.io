@@ -1,20 +1,13 @@
 var a01957 =
 [
-    [ "Event", "d2/d23/a01961.html", null ],
-    [ "DataAlignment", "d2/d6f/a01957.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
-    [ "DACPort", "d2/d6f/a01957.html#ae36ab0485cc108ac7f0082068d118518", null ],
-    [ "~DACPort", "d2/d6f/a01957.html#a38af62d642471553e5aa356e673ad171", null ],
-    [ "DACPort", "d2/d6f/a01957.html#afe60fcad137acbac62467215f81e262a", null ],
-    [ "DACPort", "d2/d6f/a01957.html#a6befbf3fd6e387b958c474127b15a55e", null ],
-    [ "close", "d2/d6f/a01957.html#a2b221635f62446099dbe5e86e8065288", null ],
-    [ "getChannel", "d2/d6f/a01957.html#abb9c3299abda744064d8d8e8d44f825b", null ],
-    [ "getHandle", "d2/d6f/a01957.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d2/d6f/a01957.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "open", "d2/d6f/a01957.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
-    [ "operator=", "d2/d6f/a01957.html#a8669eba366ce1c94494df43dfaccc690", null ],
-    [ "operator=", "d2/d6f/a01957.html#ae0483104f828bd3464839de4f4880b4a", null ],
-    [ "setValue", "d2/d6f/a01957.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
-    [ "start", "d2/d6f/a01957.html#a6c386654350eba5ab306e4764474af96", null ],
-    [ "stop", "d2/d6f/a01957.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
-    [ "waitForUnderrun", "d2/d6f/a01957.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
+    [ "Handlers", "d2/d6f/a01957.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
+    [ "EepromEmulation", "d2/d6f/a01957.html#a1146daff507a230799851b6c5f9ee835", null ],
+    [ "~EepromEmulation", "d2/d6f/a01957.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
+    [ "EepromEmulation", "d2/d6f/a01957.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
+    [ "EepromEmulation", "d2/d6f/a01957.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
+    [ "operator=", "d2/d6f/a01957.html#ac18054ff925ab9ff88d05d79a8674626", null ],
+    [ "operator=", "d2/d6f/a01957.html#a8a0057afb82e294f720a93b50ad87908", null ],
+    [ "process", "d2/d6f/a01957.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
+    [ "setHandlers", "d2/d6f/a01957.html#a070225a3de178cf14fb35d7a18f183e0", null ],
+    [ "setReadSize", "d2/d6f/a01957.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
 ];

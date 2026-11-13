@@ -1,14 +1,8 @@
 var a02585 =
 [
-    [ "Bitset", "d0/dea/a02585.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "d0/dea/a02585.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "d0/dea/a02585.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d0/dea/a02585.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Configuration", "d0/dea/a02585.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "d0/dea/a02585.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "d0/dea/a02585.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "d0/dea/a02585.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "d0/dea/a02585.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "d0/dea/a02585.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "State", "d0/dea/a02585.html#a6c7b844ec89fe83a8291be85129218bd", null ],
+    [ "firstRun", "d0/dea/a02585.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
+    [ "integralSum", "d0/dea/a02585.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
+    [ "lastInput", "d0/dea/a02585.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
+    [ "lastOutput", "d0/dea/a02585.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
 ];

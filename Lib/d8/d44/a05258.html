@@ -10,9 +10,6 @@
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -77,21 +69,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/d44/a05258.html','../../','d5/d12/a05255'); });
-</script>
-<div id="container">
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -110,18 +87,28 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/d44/a05258.
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dc5/a01024.html">Ethercat</a></li><li class="navelem"><a href="../../db/d23/a01025.html">SOES</a></li><li class="navelem"><a href="../../d8/d44/a05258.html">Mailbox</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="../../d5/d12/a05255.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt;<br />
 class Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;</div><p>EtherCAT slave mailbox transport, written directly on the ESC registers. </p>
-<p>The mailbox is the asynchronous channel between master and slave (<a class="el" href="../../d5/d9b/a05222.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a>, <a class="el" href="../../d8/de7/a05250.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a>, <a class="el" href="../../d6/d63/a05242.html" title="Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.">EoE</a>, AoE, SoE and VoE ride on it). It is two sync managers of the EtherCAT slave controller: SM0 carries messages from the master to the slave, SM1 from the slave to the master. This class enables both through the PDI control registers, reads the configuration the master wrote, receives one message at a time, sends messages and mailbox errors, and answers the master's repeat requests by writing the last message the master read again. It does not interpret the protocols themselves: it hands the protocol type and payload to the caller.</p>
+<p>The mailbox is the asynchronous channel between master and slave (CoE, FoE, EoE, AoE, SoE and VoE ride on it). It is two sync managers of the EtherCAT slave controller: SM0 carries messages from the master to the slave, SM1 from the slave to the master. This class enables both through the PDI control registers, reads the configuration the master wrote, receives one message at a time, sends messages and mailbox errors, and answers the master's repeat requests by writing the last message the master read again. It does not interpret the protocols themselves: it hands the protocol type and payload to the caller.</p>
 <p>The chip is reached through a type that provides 'readReg()' and 'writeReg()' (the LAN9252 driver does), so no vendor stack is needed. One task at a time may use a mailbox.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller, see '<a class="el" href="../../d9/d8a/a06157.html" title="Register access of an EtherCAT slave controller.">EscAccess</a>'. </td></tr>
+    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller, see 'EscAccess'. </td></tr>
     <tr><td class="paramname">T_MAX_SIZE</td><td>Largest mailbox, in bytes, that the object can handle; the master's sync manager configuration must fit it. </td></tr>
   </table>
   </dd>
@@ -204,7 +191,7 @@ template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d8/d44/a05258.html" title="EtherCAT slave mailbox transport, written directly on the ESC registers.">Mailbox</a> error codes. </p>
+<p>Mailbox error codes. </p>
 
 </div>
 </div>
@@ -222,7 +209,7 @@ template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="#ad7428bbb83ea5af8171eee7e864fdda4" title="Header of a mailbox message.">Header</a> of a mailbox message. </p>
+<p>Header of a mailbox message. </p>
 
 </div>
 </div>
@@ -240,7 +227,7 @@ template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d8/d44/a05258.html" title="EtherCAT slave mailbox transport, written directly on the ESC registers.">Mailbox</a> protocol types. </p>
+<p>Mailbox protocol types. </p>
 
 </div>
 </div>
@@ -844,7 +831,7 @@ template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 <p>Answers the message that is held: same station address, channel and priority. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">protocol</td><td><a class="el" href="#a03e55875290d9ac400cdac8cb14a858e" title="Mailbox protocol types.">Protocol</a> type of the answer. </td></tr>
+    <tr><td class="paramname">protocol</td><td>Protocol type of the answer. </td></tr>
     <tr><td class="paramname">payload</td><td>Payload bytes. </td></tr>
   </table>
   </dd>
@@ -936,7 +923,7 @@ template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 <p>Sends a message to the master. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">protocol</td><td><a class="el" href="#a03e55875290d9ac400cdac8cb14a858e" title="Mailbox protocol types.">Protocol</a> type. </td></tr>
+    <tr><td class="paramname">protocol</td><td>Protocol type. </td></tr>
     <tr><td class="paramname">payload</td><td>Payload bytes; header and payload must fit the send mailbox. </td></tr>
     <tr><td class="paramname">address</td><td>Station address to put in the header (the originator). </td></tr>
     <tr><td class="paramname">channel</td><td>Channel field. </td></tr>
@@ -1062,21 +1049,21 @@ template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dc5/a01024.html">Ethercat</a></li><li class="navelem"><a href="../../db/d23/a01025.html">SOES</a></li><li class="navelem"><a href="../../d8/d44/a05258.html">Mailbox</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;</title>
+<title>IAR EWARM Library: Lib::Ethercat::SOES::CoE</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -111,83 +111,132 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d2e/a01949.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::CoE<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Explicit specialized variant driving the blocking start/stop DAC path. </p>
-<p>The STM32 <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> DAC driver raises no interrupt for a direct register write becoming active. With no hardware trigger configured, the written value reaches the output synchronously as part of the write call itself. With a hardware trigger configured, the value is latched on the next trigger edge, which must be observed through the trigger source's own interrupt (e.g. a timer update IRQ) rather than through the DAC peripheral. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;:</div>
+<div class="textblock"><p>CANopen over EtherCAT (<a class="el" href="../../dd/d2e/a01949.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a>): the SDO server and the SDO information service of an EtherCAT slave. </p>
+<p>Serves the object dictionary of the slave to the master over the mailbox. It handles the SDO upload (read) and download (write) of an object, expedited (up to 4 bytes), normal (the whole value in one mailbox message) and segmented (a value split over several messages), checks the access rights of the object against the AL state, lets the application validate and react to a transfer, and answers a failed request with an SDO abort. The SDO information service lists the objects (also over several fragments) and describes an object and its entries, from the names, data types and sizes in the dictionary.</p>
+<p>Not covered: complete access (answered with the abort for 'complete access not supported') and the object lists other than 'all objects'.</p>
+<p>The dictionary is a table given by the application, ordered by index and then subindex, with the entries of one object next to each other; this class owns no data. Use it from the mailbox handler of a '<a class="el" href="../../d0/d2b/a01997.html" title="EtherCAT slave: the application layer state machine, the process data and the mailbox of one slave co...">Slave</a>': pass every message to <a class="el" href="#afdb20681a34fcdfcb78cf75a78ce0347" title="handle()">handle()</a>, call <a class="el" href="#aaa57403f24de4e0bd9670919c80376ac" title="service()">service()</a> in the idle hook of the slave, and <a class="el" href="#ab2c195af5b9a058b13b9b6cca0f9159f" title="reset()">reset()</a> when the mailbox stops. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Ethercat::SOES::CoE:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/db0/a01948.svg" width="350" height="555"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d19/a01947.svg" width="350" height="555"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d19/a01947.svg" width="214" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a639e7e6b8ef7eb47baac27f82712963e" id="r_a639e7e6b8ef7eb47baac27f82712963e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> (DAC_HandleTypeDef *handle, uint32_t channel) noexcept</td></tr>
-<tr class="memdesc:a639e7e6b8ef7eb47baac27f82712963e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block and hardware channel.  <br /></td></tr>
-<tr class="memitem:ac832156b805caf8041f1097ecf576ec2" id="r_ac832156b805caf8041f1097ecf576ec2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac832156b805caf8041f1097ecf576ec2">~DACPort</a> () noexcept</td></tr>
-<tr class="memdesc:ac832156b805caf8041f1097ecf576ec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the channel before the object goes out of scope.  <br /></td></tr>
-<tr class="memitem:ae857dfa99c02206e9c82894b2b5d50c7" id="r_ae857dfa99c02206e9c82894b2b5d50c7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae857dfa99c02206e9c82894b2b5d50c7">DACPort</a> (const DACPort &amp;other)=delete</td></tr>
-<tr class="memdesc:ae857dfa99c02206e9c82894b2b5d50c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a188f7d834b91520e5dc8b255c12e6d7c" id="r_a188f7d834b91520e5dc8b255c12e6d7c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a188f7d834b91520e5dc8b255c12e6d7c">DACPort</a> (DACPort &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a188f7d834b91520e5dc8b255c12e6d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a5e9177ee33e5a96bb6fcb732f8ea15ef" id="r_a5e9177ee33e5a96bb6fcb732f8ea15ef"><td class="memItemLeft"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5e9177ee33e5a96bb6fcb732f8ea15ef">operator=</a> (const <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a5e9177ee33e5a96bb6fcb732f8ea15ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a947c4407f00f40ef2d244a914699c60e" id="r_a947c4407f00f40ef2d244a914699c60e"><td class="memItemLeft"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a947c4407f00f40ef2d244a914699c60e">operator=</a> (<a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a947c4407f00f40ef2d244a914699c60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a8931efb843554302b191363c4a0bfa41" id="r_a8931efb843554302b191363c4a0bfa41"><td class="memItemLeft">DAC_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="#a8931efb843554302b191363c4a0bfa41">getHandle</a> () noexcept</td></tr>
-<tr class="memdesc:a8931efb843554302b191363c4a0bfa41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:a6607ca6708888b8278a5fbe1b865e33d" id="r_a6607ca6708888b8278a5fbe1b865e33d"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a6607ca6708888b8278a5fbe1b865e33d">getChannel</a> () const noexcept</td></tr>
-<tr class="memdesc:a6607ca6708888b8278a5fbe1b865e33d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the hardware channel configured for this port instance.  <br /></td></tr>
-<tr class="memitem:a0fb9b03d74076c644c02fd75613c0748" id="r_a0fb9b03d74076c644c02fd75613c0748"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0fb9b03d74076c644c02fd75613c0748">start</a> () noexcept</td></tr>
-<tr class="memdesc:a0fb9b03d74076c644c02fd75613c0748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the DAC channel for output.  <br /></td></tr>
-<tr class="memitem:aeb4d00954e883a85534eb2da3acd379f" id="r_aeb4d00954e883a85534eb2da3acd379f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aeb4d00954e883a85534eb2da3acd379f">stop</a> () noexcept</td></tr>
-<tr class="memdesc:aeb4d00954e883a85534eb2da3acd379f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the DAC channel.  <br /></td></tr>
-<tr class="memitem:ae527315d8794d0bcdbd7b686839e4630" id="r_ae527315d8794d0bcdbd7b686839e4630"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d9a/a01965.html#ae527315d8794d0bcdbd7b686839e4630">open</a> () noexcept</td></tr>
-<tr class="memdesc:ae527315d8794d0bcdbd7b686839e4630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the DAC peripheral.  <br /></td></tr>
-<tr class="memitem:a2c3c1b081f9ff127e0f02cd3db61d4c4" id="r_a2c3c1b081f9ff127e0f02cd3db61d4c4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d9a/a01965.html#a2c3c1b081f9ff127e0f02cd3db61d4c4">close</a> () noexcept</td></tr>
-<tr class="memdesc:a2c3c1b081f9ff127e0f02cd3db61d4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the DAC peripheral.  <br /></td></tr>
-<tr class="memitem:a984f15fd9218a6fec1e7ac0d61e04e6d" id="r_a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d9a/a01965.html#a984f15fd9218a6fec1e7ac0d61e04e6d">setValue</a> (uint32_t value, <a class="el" href="../../d6/d9a/a01965.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a> alignment=DataAlignment::RIGHT_12_BITS) noexcept</td></tr>
-<tr class="memdesc:a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the DAC output value on the bound channel.  <br /></td></tr>
+<tr class="memitem:aaf9d8025b89e7899d8cb2c83ae135e45" id="r_aaf9d8025b89e7899d8cb2c83ae135e45"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> (std::span&lt; const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> &gt; objects, std::span&lt; const <a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">ObjectInfo</a> &gt; descriptions={}) noexcept</td></tr>
+<tr class="memdesc:aaf9d8025b89e7899d8cb2c83ae135e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the server for an object dictionary.  <br /></td></tr>
+<tr class="memitem:ac46699d9659c29b73d7c01ca84cbfb5f" id="r_ac46699d9659c29b73d7c01ca84cbfb5f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac46699d9659c29b73d7c01ca84cbfb5f">~CoE</a> ()=default</td></tr>
+<tr class="memdesc:ac46699d9659c29b73d7c01ca84cbfb5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the server.  <br /></td></tr>
+<tr class="memitem:a71024e33a92eff3dd5b442e02f0b9425" id="r_a71024e33a92eff3dd5b442e02f0b9425"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a71024e33a92eff3dd5b442e02f0b9425">CoE</a> (const CoE &amp;other)=delete</td></tr>
+<tr class="memdesc:a71024e33a92eff3dd5b442e02f0b9425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:a7b986f95ef2d9b17a078924eddf7d17c" id="r_a7b986f95ef2d9b17a078924eddf7d17c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7b986f95ef2d9b17a078924eddf7d17c">CoE</a> (CoE &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a7b986f95ef2d9b17a078924eddf7d17c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:aaa3b4bee41d8960bb544d7299a183270" id="r_aaa3b4bee41d8960bb544d7299a183270"><td class="memItemLeft"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aaa3b4bee41d8960bb544d7299a183270">operator=</a> (const <a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:aaa3b4bee41d8960bb544d7299a183270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:ac45513fde48737f49471c84707ec42fa" id="r_ac45513fde48737f49471c84707ec42fa"><td class="memItemLeft"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac45513fde48737f49471c84707ec42fa">operator=</a> (<a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:ac45513fde48737f49471c84707ec42fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:abfa900feff906b9e829ef4ac5da55711" id="r_abfa900feff906b9e829ef4ac5da55711"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abfa900feff906b9e829ef4ac5da55711">setHandlers</a> (const <a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Handlers</a> &amp;newHandlers) noexcept</td></tr>
+<tr class="memdesc:abfa900feff906b9e829ef4ac5da55711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the application hooks.  <br /></td></tr>
+<tr class="memitem:ab2c195af5b9a058b13b9b6cca0f9159f" id="r_ab2c195af5b9a058b13b9b6cca0f9159f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab2c195af5b9a058b13b9b6cca0f9159f">reset</a> () noexcept</td></tr>
+<tr class="memdesc:ab2c195af5b9a058b13b9b6cca0f9159f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops a segmented transfer and an object list that is being sent.  <br /></td></tr>
+<tr class="memitem:afdb20681a34fcdfcb78cf75a78ce0347" id="r_afdb20681a34fcdfcb78cf75a78ce0347"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
+<tr class="memitem:afdb20681a34fcdfcb78cf75a78ce0347 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afdb20681a34fcdfcb78cf75a78ce0347">handle</a> (T_MAILBOX &amp;mailbox, const <a class="el" href="../../df/db2/a01981.html">MailboxHeader</a> &amp;header, std::span&lt; const uint8_t &gt; payload, uint8_t state) noexcept</td></tr>
+<tr class="memdesc:afdb20681a34fcdfcb78cf75a78ce0347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a mailbox message.  <br /></td></tr>
+<tr class="memitem:aaa57403f24de4e0bd9670919c80376ac" id="r_aaa57403f24de4e0bd9670919c80376ac"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
+<tr class="memitem:aaa57403f24de4e0bd9670919c80376ac template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaa57403f24de4e0bd9670919c80376ac">service</a> (T_MAILBOX &amp;mailbox) noexcept</td></tr>
+<tr class="memdesc:aaa57403f24de4e0bd9670919c80376ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the next fragment of an object list that is being sent.  <br /></td></tr>
+<tr class="memitem:afca119caf11fde38cdab46d3d4205107" id="r_afca119caf11fde38cdab46d3d4205107"><td class="memItemLeft">constexpr const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> *&#160;</td><td class="memItemRight"><a class="el" href="#afca119caf11fde38cdab46d3d4205107">find</a> (uint16_t index, uint8_t subIndex) const noexcept</td></tr>
+<tr class="memdesc:afca119caf11fde38cdab46d3d4205107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looks an entry up in the dictionary.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a18b5de83aaec561a43dc24a80e15bd46" name="a18b5de83aaec561a43dc24a80e15bd46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18b5de83aaec561a43dc24a80e15bd46">&#9670;&#160;</a></span>DataAlignment</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a34422d4477e1d28e96ff0a570ccb0832" name="a34422d4477e1d28e96ff0a570ccb0832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34422d4477e1d28e96ff0a570ccb0832">&#9670;&#160;</a></span>Abort</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="../../d6/d9a/a01965.html#a18b5de83aaec561a43dc24a80e15bd46">Lib::HAL::DACPortBase::DataAlignment</a> : uint32_t</td>
+          <td class="memname">using <a class="el" href="../../db/d23/a01025.html#ab9edefd3f6cea3cfc71c65cdd01019de">Lib::Ethercat::SOES::CoE::Abort</a> = <a class="el" href="../../db/d23/a01025.html#ab9edefd3f6cea3cfc71c65cdd01019de">SdoAbort</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Output data alignment options for DAC value conversion. </p>
-<p>Mirrors the alignment macros defined by the STM32 <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> DAC driver. </p>
+<p>SDO abort codes. </p>
+
+</div>
+</div>
+<a id="a19c1714c2af7e709205e93053af6fee9" name="a19c1714c2af7e709205e93053af6fee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19c1714c2af7e709205e93053af6fee9">&#9670;&#160;</a></span>Access</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../db/d23/a01025.html#a0a85aabfc74e31864de76e3f26f1b197">Lib::Ethercat::SOES::CoE::Access</a> = <a class="el" href="../../db/d23/a01025.html#a0a85aabfc74e31864de76e3f26f1b197">ObjectAccess</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#a19c1714c2af7e709205e93053af6fee9" title="Access rights of an object.">Access</a> rights of an object. </p>
+
+</div>
+</div>
+<a id="a4dfbb7a5575c7ee9e62bfeab0e6aca45" name="a4dfbb7a5575c7ee9e62bfeab0e6aca45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">&#9670;&#160;</a></span>Handlers</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Lib::Ethercat::SOES::CoE::Handlers</a> = <a class="el" href="../../d5/d39/a01945.html">CoEHandlers</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Application hooks. </p>
+
+</div>
+</div>
+<a id="a827cdba5edb655bcc4f5784b4a4e893d" name="a827cdba5edb655bcc4f5784b4a4e893d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a827cdba5edb655bcc4f5784b4a4e893d">&#9670;&#160;</a></span>Object</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Lib::Ethercat::SOES::CoE::Object</a> = <a class="el" href="../../d9/d17/a01937.html">CoEObject</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An entry of the object dictionary. </p>
+
+</div>
+</div>
+<a id="a35b9281b5d29eae7fab95112ba1e5115" name="a35b9281b5d29eae7fab95112ba1e5115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b9281b5d29eae7fab95112ba1e5115">&#9670;&#160;</a></span>ObjectInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">Lib::Ethercat::SOES::CoE::ObjectInfo</a> = <a class="el" href="../../da/d76/a01941.html">CoEObjectInfo</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The description of an object. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a639e7e6b8ef7eb47baac27f82712963e" name="a639e7e6b8ef7eb47baac27f82712963e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a639e7e6b8ef7eb47baac27f82712963e">&#9670;&#160;</a></span>DACPort() <span class="overload">[1/3]</span></h2>
+<a id="aaf9d8025b89e7899d8cb2c83ae135e45" name="aaf9d8025b89e7899d8cb2c83ae135e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9d8025b89e7899d8cb2c83ae135e45">&#9670;&#160;</a></span>CoE() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,42 +245,42 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::DACPort </td>
+          <td class="memname">Lib::Ethercat::SOES::CoE::CoE </td>
           <td>(</td>
-          <td class="paramtype">DAC_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
+          <td class="paramtype">std::span&lt; const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>objects</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
+          <td class="paramtype">std::span&lt; const <a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">ObjectInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>descriptions</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the port to a native hardware descriptor block and hardware channel. </p>
+<p>Creates the server for an object dictionary. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
-    <tr><td class="paramname">channel</td><td>Target hardware channel allocation macro (e.g. "DAC_CHANNEL_1"). </td></tr>
+    <tr><td class="paramname">objects</td><td>The dictionary, ordered by index and subindex; the table and the values it points to must outlive the server. </td></tr>
+    <tr><td class="paramname">descriptions</td><td>Optional descriptions of whole objects, for the SDO information service. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
 </div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_a639e7e6b8ef7eb47baac27f82712963e_icgraph.svg" width="726" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_aaf9d8025b89e7899d8cb2c83ae135e45_icgraph.svg" width="614" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ac832156b805caf8041f1097ecf576ec2" name="ac832156b805caf8041f1097ecf576ec2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac832156b805caf8041f1097ecf576ec2">&#9670;&#160;</a></span>~DACPort()</h2>
+<a id="ac46699d9659c29b73d7c01ca84cbfb5f" name="ac46699d9659c29b73d7c01ca84cbfb5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac46699d9659c29b73d7c01ca84cbfb5f">&#9670;&#160;</a></span>~CoE()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -240,7 +289,298 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::~<a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> </td>
+          <td class="memname">Lib::Ethercat::SOES::CoE::~CoE </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the server. </p>
+
+</div>
+</div>
+<a id="a71024e33a92eff3dd5b442e02f0b9425" name="a71024e33a92eff3dd5b442e02f0b9425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71024e33a92eff3dd5b442e02f0b9425">&#9670;&#160;</a></span>CoE() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethercat::SOES::CoE::CoE </td>
+          <td>(</td>
+          <td class="paramtype">const CoE &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the server serves one dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_a71024e33a92eff3dd5b442e02f0b9425_cgraph.svg" width="566" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7b986f95ef2d9b17a078924eddf7d17c" name="a7b986f95ef2d9b17a078924eddf7d17c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b986f95ef2d9b17a078924eddf7d17c">&#9670;&#160;</a></span>CoE() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethercat::SOES::CoE::CoE </td>
+          <td>(</td>
+          <td class="paramtype">CoE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the server serves one dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_a7b986f95ef2d9b17a078924eddf7d17c_cgraph.svg" width="566" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="afca119caf11fde38cdab46d3d4205107" name="afca119caf11fde38cdab46d3d4205107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca119caf11fde38cdab46d3d4205107">&#9670;&#160;</a></span>find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> * Lib::Ethercat::SOES::CoE::find </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>subIndex</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Looks an entry up in the dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td><a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d" title="An entry of the object dictionary.">Object</a> index. </td></tr>
+    <tr><td class="paramname">subIndex</td><td>Subindex. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The entry, or nothing if the dictionary has none. </dd></dl>
+
+</div>
+</div>
+<a id="afdb20681a34fcdfcb78cf75a78ce0347" name="afdb20681a34fcdfcb78cf75a78ce0347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdb20681a34fcdfcb78cf75a78ce0347">&#9670;&#160;</a></span>handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_MAILBOX&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Ethercat::SOES::CoE::handle </td>
+          <td>(</td>
+          <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../df/db2/a01981.html">MailboxHeader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>header</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles a mailbox message. </p>
+<p>Does nothing for a protocol other than <a class="el" href="../../dd/d2e/a01949.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a>. For <a class="el" href="../../dd/d2e/a01949.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a> it answers through 'mailbox': an SDO response, an SDO abort, an SDO information response or error, or a mailbox error.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_MAILBOX</td><td>A '<a class="el" href="../../d3/def/a01985.html" title="EtherCAT slave mailbox transport, written directly on the ESC registers.">Mailbox</a>' type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mailbox</td><td>The mailbox the message came from; the answer is sent through it. </td></tr>
+    <tr><td class="paramname">header</td><td>Header of the message. </td></tr>
+    <tr><td class="paramname">payload</td><td>Payload of the message. </td></tr>
+    <tr><td class="paramname">state</td><td>AL state of the slave, as the '<a class="el" href="../../db/d23/a01025.html#afea74831b3c37117c52ebef85489a279" title="States of the EtherCAT application layer (AL), as the AL control and AL status registers encode them.">SlaveState</a>' values encode it. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the message was a <a class="el" href="../../dd/d2e/a01949.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a> message. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_afdb20681a34fcdfcb78cf75a78ce0347_cgraph.svg" width="622" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac45513fde48737f49471c84707ec42fa" name="ac45513fde48737f49471c84707ec42fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac45513fde48737f49471c84707ec42fa">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp; Lib::Ethercat::SOES::CoE::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the server serves one dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_ac45513fde48737f49471c84707ec42fa_cgraph.svg" width="614" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aaa3b4bee41d8960bb544d7299a183270" name="aaa3b4bee41d8960bb544d7299a183270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa3b4bee41d8960bb544d7299a183270">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp; Lib::Ethercat::SOES::CoE::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the server serves one dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_aaa3b4bee41d8960bb544d7299a183270_cgraph.svg" width="614" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab2c195af5b9a058b13b9b6cca0f9159f" name="ab2c195af5b9a058b13b9b6cca0f9159f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c195af5b9a058b13b9b6cca0f9159f">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethercat::SOES::CoE::reset </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -253,289 +593,61 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the channel before the object goes out of scope. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_ac832156b805caf8041f1097ecf576ec2_cgraph.svg" width="790" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Drops a segmented transfer and an object list that is being sent. </p>
+<p>Call it when the mailbox stops. </p>
 
 </div>
 </div>
-<a id="ae857dfa99c02206e9c82894b2b5d50c7" name="ae857dfa99c02206e9c82894b2b5d50c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae857dfa99c02206e9c82894b2b5d50c7">&#9670;&#160;</a></span>DACPort() <span class="overload">[2/3]</span></h2>
+<a id="aaa57403f24de4e0bd9670919c80376ac" name="aaa57403f24de4e0bd9670919c80376ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa57403f24de4e0bd9670919c80376ac">&#9670;&#160;</a></span>service()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_MAILBOX&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::DACPort </td>
+          <td class="memname">void Lib::Ethercat::SOES::CoE::service </td>
           <td>(</td>
-          <td class="paramtype">const DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: each instance owns a unique native handle binding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+<p>Sends the next fragment of an object list that is being sent. </p>
+<p>Call it periodically, for example from the idle hook of the slave; it does nothing while the master has not read the previous message.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_MAILBOX</td><td>A '<a class="el" href="../../d3/def/a01985.html" title="EtherCAT slave mailbox transport, written directly on the ESC registers.">Mailbox</a>' type. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_ae857dfa99c02206e9c82894b2b5d50c7_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a188f7d834b91520e5dc8b255c12e6d7c" name="a188f7d834b91520e5dc8b255c12e6d7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a188f7d834b91520e5dc8b255c12e6d7c">&#9670;&#160;</a></span>DACPort() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::DACPort </td>
-          <td>(</td>
-          <td class="paramtype">DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moving is deleted: each instance owns a unique native handle binding. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+    <tr><td class="paramname">mailbox</td><td>The mailbox to send through. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_a188f7d834b91520e5dc8b255c12e6d7c_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a2c3c1b081f9ff127e0f02cd3db61d4c4" name="a2c3c1b081f9ff127e0f02cd3db61d4c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c3c1b081f9ff127e0f02cd3db61d4c4">&#9670;&#160;</a></span>close()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d6/d9a/a01965.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::close </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Deinitializes the DAC peripheral. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if deinitialization succeeded, "false" otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a6607ca6708888b8278a5fbe1b865e33d" name="a6607ca6708888b8278a5fbe1b865e33d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6607ca6708888b8278a5fbe1b865e33d">&#9670;&#160;</a></span>getChannel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t Lib::HAL::DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getChannel </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fetches the hardware channel configured for this port instance. </p>
-<dl class="section return"><dt>Returns</dt><dd>Target hardware channel identifier ("DAC_CHANNEL_1" or "DAC_CHANNEL_2"). </dd></dl>
-
-</div>
-</div>
-<a id="a8931efb843554302b191363c4a0bfa41" name="a8931efb843554302b191363c4a0bfa41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8931efb843554302b191363c4a0bfa41">&#9670;&#160;</a></span>getHandle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">DAC_HandleTypeDef * Lib::HAL::DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or "nullptr" if unbound. </dd></dl>
-
-</div>
-</div>
-<a id="ae527315d8794d0bcdbd7b686839e4630" name="ae527315d8794d0bcdbd7b686839e4630"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae527315d8794d0bcdbd7b686839e4630">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d6/d9a/a01965.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::open </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initializes the DAC peripheral. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if initialization succeeded, "false" otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a5e9177ee33e5a96bb6fcb732f8ea15ef" name="a5e9177ee33e5a96bb6fcb732f8ea15ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e9177ee33e5a96bb6fcb732f8ea15ef">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp; Lib::HAL::DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy assignment is deleted: each instance owns a unique native handle binding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_a5e9177ee33e5a96bb6fcb732f8ea15ef_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a947c4407f00f40ef2d244a914699c60e" name="a947c4407f00f40ef2d244a914699c60e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a947c4407f00f40ef2d244a914699c60e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp; Lib::HAL::DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move assignment is deleted: each instance owns a unique native handle binding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
 <div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_a947c4407f00f40ef2d244a914699c60e_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_aaa57403f24de4e0bd9670919c80376ac_icgraph.svg" width="622" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a984f15fd9218a6fec1e7ac0d61e04e6d" name="a984f15fd9218a6fec1e7ac0d61e04e6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a984f15fd9218a6fec1e7ac0d61e04e6d">&#9670;&#160;</a></span>setValue()</h2>
+<a id="abfa900feff906b9e829ef4ac5da55711" name="abfa900feff906b9e829ef4ac5da55711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfa900feff906b9e829ef4ac5da55711">&#9670;&#160;</a></span>setHandlers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -544,94 +656,26 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d6/d9a/a01965.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::setValue </td>
+          <td class="memname">void Lib::Ethercat::SOES::CoE::setHandlers </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Handlers</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newHandlers</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d6/d9a/a01965.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a></td>          <td class="paramname"><span class="paramname"><em>alignment</em></span><span class="paramdefsep"> = </span><span class="paramdefval">DataAlignment::RIGHT_12_BITS</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the DAC output value on the bound channel. </p>
+<p>Sets the application hooks. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Conversion value to write, within the range implied by "alignment". </td></tr>
-    <tr><td class="paramname">alignment</td><td>Data alignment applied to "value". </td></tr>
+    <tr><td class="paramname">newHandlers</td><td>The hooks; an empty one is not called. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the write succeeded, "false" otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a0fb9b03d74076c644c02fd75613c0748" name="a0fb9b03d74076c644c02fd75613c0748"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fb9b03d74076c644c02fd75613c0748">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Enables the DAC channel for output. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the channel was enabled successfully, "false" otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="aeb4d00954e883a85534eb2da3acd379f" name="aeb4d00954e883a85534eb2da3acd379f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb4d00954e883a85534eb2da3acd379f">&#9670;&#160;</a></span>stop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::stop </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Disables the DAC channel. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the channel was disabled successfully, "false" otherwise. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d2e/a01949_aeb4d00954e883a85534eb2da3acd379f_icgraph.svg" width="790" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -645,12 +689,23 @@ Public Member Functions</h2></td></tr>
 </div><!-- page-nav-tree -->
 </div><!-- page-nav -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../da/d98/a00870.html">Lib</a></li><li class="navelem"><a href="../../d8/d0a/a00904.html">HAL</a></li><li class="navelem"><a href="../../dd/d2e/a01949.html">DACPort&lt; DriverMode::BLOCKING &gt;</a></li>
+    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dc5/a01024.html">Ethercat</a></li><li class="navelem"><a href="../../db/d23/a01025.html">SOES</a></li><li class="navelem"><a href="../../dd/d2e/a01949.html">CoE</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

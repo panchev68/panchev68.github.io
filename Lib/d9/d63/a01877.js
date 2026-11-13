@@ -1,9 +1,11 @@
 var a01877 =
 [
-    [ "Sockets", "d9/d63/a01877.html#a83aca7ca920c948cf9f775922c19247a", null ],
-    [ "Sockets", "d9/d63/a01877.html#adf14b2bb687d762d0832d140cfd7c348", null ],
-    [ "Sockets", "d9/d63/a01877.html#ae5d15cc1e5798b37d8f794210497bd1a", null ],
-    [ "operator=", "d9/d63/a01877.html#a27fe979c8f56a4d202689793724794b7", null ],
-    [ "operator=", "d9/d63/a01877.html#a19e85bd9c0b03c863f565af5ca659b9b", null ],
-    [ "operator[]", "d9/d63/a01877.html#afaa1a155408be33af3d1cfc2d94d33f2", null ]
+    [ "onExtendedTransmitStatusChanged", "d9/d63/a01877.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
+    [ "onLocalAtCommand", "d9/d63/a01877.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
+    [ "onModemStatusChanged", "d9/d63/a01877.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
+    [ "onPacketReceived", "d9/d63/a01877.html#a850cfb32fb4c250ebb5d07029d996133", null ],
+    [ "onReceivePacket16bit", "d9/d63/a01877.html#a30dd6aca5f04efa028541965da0f724f", null ],
+    [ "onReceivePacket64bit", "d9/d63/a01877.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
+    [ "onRemoteATCommand", "d9/d63/a01877.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
+    [ "onTransmitStatus", "d9/d63/a01877.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
 ];

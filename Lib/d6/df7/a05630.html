@@ -10,9 +10,6 @@
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -77,21 +69,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/df7/a05630.html','../../','da/da1/a05627'); });
-</script>
-<div id="container">
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -110,18 +87,30 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/df7/a05630.
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../d6/df7/a05630.html">USBDevicePortAsync</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="../../da/da1/a05627.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::HAL::USBDevicePortAsync&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
-class Lib::HAL::USBDevicePortAsync&lt; T_DERIVED &gt;</div><p>CRTP foundation for the interrupt-driven <a class="el" href="../../db/d14/a01040.html" title="USB serial port abstractions and helpers.">USB</a> device modes. </p>
-<p>Owns the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group, the start-then-wait transfers, <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback registration, <a class="el" href="../../dd/d9e/a05378.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a> wiring and the event handler hook. A mode specialization only supplies the two <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> calls that start a transfer (startTransmit() / 'startReceive()'), as in <a class="el" href="../../d6/dea/a05610.html" title="UARTPortAsync">UARTPortAsync</a>.</p>
-<p>Every <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback arrives in interrupt context. The registered event handler runs there too, so it must be short and may only call interrupt-safe functions; this is how a class layer such as a CDC device answers a setup packet inside the same interrupt, without a task switch.</p>
+class Lib::HAL::USBDevicePortAsync&lt; T_DERIVED &gt;</div><p>CRTP foundation for the interrupt-driven USB device modes. </p>
+<p>Owns the RTOS event group, the start-then-wait transfers, HAL callback registration, DeviceManager wiring and the event handler hook. A mode specialization only supplies the two HAL calls that start a transfer (startTransmit() / 'startReceive()'), as in <a class="el" href="../../d6/dea/a05610.html" title="UARTPortAsync">UARTPortAsync</a>.</p>
+<p>Every HAL callback arrives in interrupt context. The registered event handler runs there too, so it must be short and may only call interrupt-safe functions; this is how a class layer such as a CDC device answers a setup packet inside the same interrupt, without a task switch.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing 'startTransmit(uint8_t, std::span&lt;const uint8_t&gt;)' and 'startReceive(uint8_t, std::span&lt;uint8_t&gt;)', both returning <b>true</b> once the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the transfer. </td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing 'startTransmit(uint8_t, std::span&lt;const uint8_t&gt;)' and 'startReceive(uint8_t, std::span&lt;uint8_t&gt;)', both returning <b>true</b> once the HAL accepted the transfer. </td></tr>
   </table>
   </dd>
 </dl>
@@ -158,9 +147,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aeb39ea45dd6ba999d3dce602b124fd6e" id="r_aeb39ea45dd6ba999d3dce602b124fd6e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aeb39ea45dd6ba999d3dce602b124fd6e">abort</a> (uint8_t address) noexcept</td></tr>
 <tr class="memdesc:aeb39ea45dd6ba999d3dce602b124fd6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the transfer pending on an endpoint, waking a task blocked in <a class="el" href="#ac2f4db5ccde6b6abc34de6e35463c877" title="send()">send()</a> or <a class="el" href="#add4fb8ab17eac13116050ae3c8237acf" title="receive()">receive()</a> on it.  <br /></td></tr>
 <tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ded/a05374.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
-<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../dd/d9e/a05378.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a> slot and <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, in that order.  <br /></td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order.  <br /></td></tr>
 <tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ded/a05374.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
-<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
+<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
 <tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ded/a05374.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
 <tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
 <tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">PCD_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d73/a05382.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
@@ -213,9 +202,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ded/a05374.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (PCD_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle.  <br /></td></tr>
+<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a HAL handle.  <br /></td></tr>
 <tr class="memitem:ac1e436d02537a9e4b651277ba21762f9" id="r_ac1e436d02537a9e4b651277ba21762f9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ded/a05374.html#ac1e436d02537a9e4b651277ba21762f9">signalFromISR</a> (PCD_HandleTypeDef *handle, uint32_t bits) noexcept</td></tr>
-<tr class="memdesc:ac1e436d02537a9e4b651277ba21762f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits on the port owning a <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle; called from interrupt context.  <br /></td></tr>
+<tr class="memdesc:ac1e436d02537a9e4b651277ba21762f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits on the port owning a HAL handle; called from interrupt context.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="a86ae7f6389e58b16ee2f4528fe600712" name="a86ae7f6389e58b16ee2f4528fe600712"></a>
@@ -313,7 +302,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> stopped the transfer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL stopped the transfer. </dd></dl>
 
 </div>
 </div>
@@ -349,7 +338,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the call. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the call. </dd></dl>
 
 </div>
 </div>
@@ -376,7 +365,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the port: unregisters it, restores the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, deinitializes the peripheral and closes the event group. </p>
+<p>Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group. </p>
 <p>Task context only.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
 
@@ -414,7 +403,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> closed the endpoint. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL closed the endpoint. </dd></dl>
 
 </div>
 </div>
@@ -444,7 +433,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Connects the pull-up, so the host sees the device attached. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the call. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the call. </dd></dl>
 
 </div>
 </div>
@@ -474,7 +463,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Disconnects the pull-up, so the host sees the device detached while the cable stays plugged in. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the call. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the call. </dd></dl>
 
 </div>
 </div>
@@ -501,10 +490,10 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Finds the port that owns a <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle. </p>
+<p>Finds the port that owns a HAL handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td><a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle reported by the interrupt module. </td></tr>
+    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
   </table>
   </dd>
 </dl>
@@ -544,7 +533,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the call. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the call. </dd></dl>
 
 </div>
 </div>
@@ -673,7 +662,7 @@ template&lt;typename T_DERIVED&gt; </div>
 
 <p>Returns the setup packet that raised the last <a class="el" href="../../db/d08/a01028.html#a5d499d7d2a344d0473d62dcf724d9a12addbb81a9e3aab6cfa19ad8eb2389efd4" title="USBDeviceEvent::SETUP">USBDeviceEvent::SETUP</a>. </p>
 <p>Valid until the next setup packet arrives; read it from the event handler.</p>
-<dl class="section return"><dt>Returns</dt><dd>The setup packet, decoded from the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> setup buffer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The setup packet, decoded from the HAL setup buffer. </dd></dl>
 
 </div>
 </div>
@@ -728,7 +717,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Opens the port: event group, peripheral, <a class="el" href="../../dd/d9e/a05378.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a> slot and <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, in that order. </p>
+<p>Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order. </p>
 <p>Task context only. A failure undoes the earlier steps, so the port stays closed.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
 
@@ -777,7 +766,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> opened the endpoint. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL opened the endpoint. </dd></dl>
 
 </div>
 </div>
@@ -819,7 +808,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Receives one transfer on an OUT endpoint and waits for it. </p>
 <p>Task context only.</p>
-<p>The transfer ends with a short packet or when 'data' is full. On timeout, error or a bus reset it is aborted, so the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> never writes 'data' after this returns.</p>
+<p>The transfer ends with a short packet or when 'data' is full. On timeout, error or a bus reset it is aborted, so the HAL never writes 'data' after this returns.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -877,7 +866,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Transmits a buffer on an IN endpoint and waits for completion. </p>
 <p>Task context only.</p>
-<p>An empty buffer sends a zero-length packet. On timeout, error or a bus reset the transfer is aborted, so the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> never reads 'data' after this returns.</p>
+<p>An empty buffer sends a zero-length packet. On timeout, error or a bus reset the transfer is aborted, so the HAL never reads 'data' after this returns.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -925,11 +914,11 @@ template&lt;typename T_DERIVED&gt; </div>
 <p>Sets the device address the host assigned with SET_ADDRESS. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td><a class="el" href="../../d3/d73/a05382.html" title="CRTP base that stores a driver&#39;s native handle and its DeviceManager list link.">Device</a> address, 1 to 127. </td></tr>
+    <tr><td class="paramname">address</td><td>Device address, 1 to 127. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the address. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the address. </dd></dl>
 
 </div>
 </div>
@@ -1006,7 +995,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the size. </dd></dl>
 
 </div>
 </div>
@@ -1047,7 +1036,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the size. </dd></dl>
 
 </div>
 </div>
@@ -1078,10 +1067,10 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sets event bits on the port owning a <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle; called from interrupt context. </p>
+<p>Sets event bits on the port owning a HAL handle; called from interrupt context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td><a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle reported by the interrupt module. </td></tr>
+    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
     <tr><td class="paramname">bits</td><td>Event bits to set. </td></tr>
   </table>
   </dd>
@@ -1121,7 +1110,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the call. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the call. </dd></dl>
 
 </div>
 </div>
@@ -1151,7 +1140,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Enables the controller interrupts and the bus, so the host can see the device. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the start. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the start. </dd></dl>
 
 </div>
 </div>
@@ -1181,7 +1170,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Disables the controller interrupts and detaches from the bus. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the stop. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the stop. </dd></dl>
 
 </div>
 </div>
@@ -1223,7 +1212,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the transfer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the transfer. </dd></dl>
 
 </div>
 </div>
@@ -1265,7 +1254,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the transfer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the transfer. </dd></dl>
 
 </div>
 </div>
@@ -1400,21 +1389,21 @@ template&lt;typename T_DERIVED&gt; </div>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../d6/df7/a05630.html">USBDevicePortAsync</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

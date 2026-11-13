@@ -1,14 +1,18 @@
 var a02057 =
 [
-    [ "OSPIPortAsync", "d2/dea/a02057.html#a51c7bf376cb7e3701de6391b213701a9", null ],
-    [ "abort", "d2/dea/a02057.html#a12a734c939e90c6c90510ba2c323dec0", null ],
-    [ "close", "d2/dea/a02057.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "command", "d2/dea/a02057.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "Event", "d8/de6/a02061.html", null ],
+    [ "ADCPort", "d2/dea/a02057.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
+    [ "~ADCPort", "d2/dea/a02057.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
+    [ "ADCPort", "d2/dea/a02057.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
+    [ "ADCPort", "d2/dea/a02057.html#af963171787341304aeec9ad771e5f523", null ],
+    [ "close", "d2/dea/a02057.html#a91651451878e1931de2457be52f68c92", null ],
     [ "getHandle", "d2/dea/a02057.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d2/dea/a02057.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "d2/dea/a02057.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "isOpened", "d2/dea/a02057.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d2/dea/a02057.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d2/dea/a02057.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
-    [ "transmit", "d2/dea/a02057.html#a2f58a3412364e7819ba973859d2389a7", null ]
+    [ "getValue", "d2/dea/a02057.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d2/dea/a02057.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
+    [ "operator=", "d2/dea/a02057.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
+    [ "operator=", "d2/dea/a02057.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
+    [ "start", "d2/dea/a02057.html#a97c4921b9e22a517072028d001c86ef1", null ],
+    [ "stop", "d2/dea/a02057.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
+    [ "waitForEvent", "d2/dea/a02057.html#af0c975bbd0a66ffabc210d52ec971714", null ]
 ];

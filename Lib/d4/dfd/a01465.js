@@ -1,13 +1,8 @@
 var a01465 =
 [
-    [ "Tag", "d4/dfd/a01465.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
-    [ "WolfSSLAesGcm", "d4/dfd/a01465.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
-    [ "~WolfSSLAesGcm", "d4/dfd/a01465.html#a032c38854a99ed5c5a281809583c4bad", null ],
-    [ "WolfSSLAesGcm", "d4/dfd/a01465.html#a0948de3456c47ec4fcfdda7f14014566", null ],
-    [ "WolfSSLAesGcm", "d4/dfd/a01465.html#ae6206c63d09568b82e1efae3379c82d7", null ],
-    [ "decrypt", "d4/dfd/a01465.html#a70889db1697fa4212becb3acfb87a2a4", null ],
-    [ "encrypt", "d4/dfd/a01465.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
-    [ "open", "d4/dfd/a01465.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
-    [ "operator=", "d4/dfd/a01465.html#ab46183fdc3c915e95383d1216aac9109", null ],
-    [ "operator=", "d4/dfd/a01465.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
+    [ "ambientTemperatureCelsius", "d4/dfd/a01465.html#afe46178f50e25346cca90112dc708790", null ],
+    [ "listenDuration", "d4/dfd/a01465.html#aed97102995a3a032b9524b1e47731f17", null ],
+    [ "timeout", "d4/dfd/a01465.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
+    [ "uart", "d4/dfd/a01465.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
+    [ "uartAddress", "d4/dfd/a01465.html#a07cd324da0adf0baf2262a0b33404164", null ]
 ];

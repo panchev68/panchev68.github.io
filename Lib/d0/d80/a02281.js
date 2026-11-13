@@ -1,12 +1,19 @@
 var a02281 =
 [
-    [ "Time", "d0/d80/a02281.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "d0/d80/a02281.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "d0/d80/a02281.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "d0/d80/a02281.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "d0/d80/a02281.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "d0/d80/a02281.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "d0/d80/a02281.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "d0/d80/a02281.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "d0/d80/a02281.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "CallbackID", "d0/d80/a02281.html#ab366d4fa77363e661ad71c424eb4faaf", null ],
+    [ "Handle", "d0/d80/a02281.html#ac948323fb2eef4212aaa06df202dfbdc", null ],
+    [ "LPTimer", "d0/d80/a02281.html#a6520e9a177a61a7f1a6cecc9b582e5fc", null ],
+    [ "~LPTimer", "d0/d80/a02281.html#add3250c704445e43eb5798c76d514cd0", null ],
+    [ "LPTimer", "d0/d80/a02281.html#a694916ba4b3b845dc40a55807a3c010a", null ],
+    [ "LPTimer", "d0/d80/a02281.html#a0151830764f6149bcd064718e12efa9d", null ],
+    [ "close", "d0/d80/a02281.html#a6295b01535aa1df83366d83b9426ff7d", null ],
+    [ "getElapsedRtosTicks", "d0/d80/a02281.html#a4fc71247da21a5d02602615eb66c4256", null ],
+    [ "getHandle", "d0/d80/a02281.html#add82be5171e6f5f28baaba0aea38a0de", null ],
+    [ "hasExpired", "d0/d80/a02281.html#abaedcebf007dff3863b7fd1eec8fd303", null ],
+    [ "open", "d0/d80/a02281.html#a1a9d936e6ff40316674eb1bb6293d5eb", null ],
+    [ "operator=", "d0/d80/a02281.html#a3ab3ebd892230fa7165da48b1196d7a5", null ],
+    [ "operator=", "d0/d80/a02281.html#ac4e8a52cdf24942a7b3ca487f0fa2022", null ],
+    [ "startTimeoutInterrupt", "d0/d80/a02281.html#af87c45b091cb7b10192ce86953eba07a", null ],
+    [ "stopInterrupt", "d0/d80/a02281.html#a524f65747a660c2243dfe55d318bb083", null ],
+    [ "waitForEvent", "d0/d80/a02281.html#a8f6329f1b312d263381f3738aacd64b8", null ]
 ];

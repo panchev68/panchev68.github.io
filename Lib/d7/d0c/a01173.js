@@ -1,27 +1,24 @@
 var a01173 =
 [
     [ "Config", "dc/d98/a01177.html", "dc/d98/a01177" ],
-    [ "Diagnostics", "de/db5/a01181.html", "de/db5/a01181" ],
-    [ "CardActivatedCallback", "d7/d0c/a01173.html#aaa9dd3ae634e7a69d4f917e7bd454305", null ],
-    [ "ReadBuffer", "d7/d0c/a01173.html#a5f65acf300f17deb99c963ab374432b3", null ],
-    [ "Reader", "d7/d0c/a01173.html#a6701c6a8809d64b58d6f2572a5d5e3db", null ],
-    [ "SignatureBuffer", "d7/d0c/a01173.html#afea6f0e2a71e2700aba290c8c12dcbcc", null ],
-    [ "State", "d7/d0c/a01173.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9c", [
-      [ "IDLE", "d7/d0c/a01173.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5daf7f2ebbba4975d61dab1c40188c7", null ],
-      [ "POLL_REQA", "d7/d0c/a01173.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca85c5b813825733ffaddba38ff01013d9", null ],
-      [ "POLL_ANTICOL", "d7/d0c/a01173.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9cad5dc3be53612bd06503c0bbfad204df3", null ],
-      [ "POLL_SELECT", "d7/d0c/a01173.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4", null ],
-      [ "CARD_ACTIVATED", "d7/d0c/a01173.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11", null ]
+    [ "EventState", "d7/d0c/a01173.html#a04b234ac50c12b687cfe292d1aaae8e9", [
+      [ "NONE", "d7/d0c/a01173.html#a04b234ac50c12b687cfe292d1aaae8e9ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "CW", "d7/d0c/a01173.html#a04b234ac50c12b687cfe292d1aaae8e9a9af3107a066f6b0defb1cafc0499f6ed", null ],
+      [ "CCW", "d7/d0c/a01173.html#a04b234ac50c12b687cfe292d1aaae8e9a59ec5d573abd014f3ae2c26ca962e8cf", null ],
+      [ "BUT_PUSH", "d7/d0c/a01173.html#a04b234ac50c12b687cfe292d1aaae8e9aec99b17e69f307181424c4145f5f6490", null ],
+      [ "BUT_PULL", "d7/d0c/a01173.html#a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4", null ]
     ] ],
-    [ "NfcManager", "d7/d0c/a01173.html#a4e43b591f0d6680b5fdacd85a2858caf", null ],
-    [ "~NfcManager", "d7/d0c/a01173.html#a99dc2c6cf10e46e8158d7e15504f0cc5", null ],
-    [ "getDiagnostics", "d7/d0c/a01173.html#a0fc17fc5e17c79eac24ad7d9d6fb72ab", null ],
-    [ "getState", "d7/d0c/a01173.html#a3b2d0421ba5761b21a2c806ae6480bbf", null ],
-    [ "getWakeupADCRange", "d7/d0c/a01173.html#a2c7d71eee5f6187585aba0f69b39c3f6", null ],
-    [ "readPages", "d7/d0c/a01173.html#a4c81d15f935d8e1c2dd13d993975f940", null ],
-    [ "readSignature", "d7/d0c/a01173.html#abdbd4ef43ac6798f86fb0f05d695d011", null ],
-    [ "resetWakeupADCRange", "d7/d0c/a01173.html#aca5c8406388ff9e1c1f7808fd7c5b4c4", null ],
-    [ "start", "d7/d0c/a01173.html#a347e0188a1c8207e8d11268d607aa763", null ],
-    [ "stop", "d7/d0c/a01173.html#ae7bf77d346d29fc8a4da4226fc32e640", null ],
-    [ "writePage", "d7/d0c/a01173.html#aa61c13d6b4df75e3243f862a1e8af3d5", null ]
+    [ "EncoderPins", "d7/d0c/a01173.html#ad6c68a3e1bd1f553c1fcb54fa3264d62", null ],
+    [ "~EncoderPins", "d7/d0c/a01173.html#a3c13f0de2b9b885c3ef460b745f4f3a8", null ],
+    [ "EncoderPins", "d7/d0c/a01173.html#a470d8d445c616002fef5b8a198607d3e", null ],
+    [ "EncoderPins", "d7/d0c/a01173.html#a5c43a9c21791c21d33bf94b114b9998b", null ],
+    [ "close", "d7/d0c/a01173.html#a89671c8fae2abdaedc8c96d60935e791", null ],
+    [ "getButtonHoldPeriod", "d7/d0c/a01173.html#a09d0b1187e255228fc21b499d1ee668a", null ],
+    [ "getButtonState", "d7/d0c/a01173.html#ae77935b319710e2aa2bbf23fe5899a09", null ],
+    [ "handlePinChangedEvent", "d7/d0c/a01173.html#ad2f27a5e62e8b4d2e7c8a2c9439374d7", null ],
+    [ "kbdhit", "d7/d0c/a01173.html#a7173287d816b57b6541368dfbe743659", null ],
+    [ "open", "d7/d0c/a01173.html#a2a3bbe4007278e92eca193886d2dfe9a", null ],
+    [ "operator=", "d7/d0c/a01173.html#a312c7443016b24a3bd7ec68e9e91ad17", null ],
+    [ "operator=", "d7/d0c/a01173.html#aa437134351c87db62209dc4300d6bf6f", null ],
+    [ "setPulseDivider", "d7/d0c/a01173.html#a9e197aea35b839f6cb6d44ca5f020137", null ]
 ];

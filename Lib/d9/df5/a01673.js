@@ -1,12 +1,14 @@
 var a01673 =
 [
-    [ "Config", "d9/df5/a01673.html#a9b9fb43457649e59ca4afc679738e4a1", null ],
-    [ "Module", "d9/df5/a01673.html#a254c8c718d7faf592b274708db07db8d", null ],
-    [ "~Module", "d9/df5/a01673.html#a3e8be6962f855fba474c3c0e0366a256", null ],
-    [ "init", "d9/df5/a01673.html#a45140156f7c70b779d773237bed74b50", null ],
-    [ "reset", "d9/df5/a01673.html#ad12e07277c8b5e96fea25af2c6cd5b09", null ],
-    [ "send", "d9/df5/a01673.html#adb8dd809dcd7a22dee2718819616b947", null ],
-    [ "onMessageReceive", "d9/df5/a01673.html#a7f2e8faef33f497245aea8cfbba53c3e", null ],
-    [ "onMessageSend", "d9/df5/a01673.html#a5f37bfbb2382a13b955a6063fc31bc2e", null ],
-    [ "responseEvents", "d9/df5/a01673.html#ac2585942261cabaa51522f461c64816b", null ]
+    [ "Counter", "d2/d44/a01677.html", "d2/d44/a01677" ],
+    [ "Period", "df/d5a/a01681.html", "df/d5a/a01681" ],
+    [ "SignalStrength", "de/d96/a01685.html", "de/d96/a01685" ],
+    [ "deletedMessages", "d9/df5/a01673.html#af628e5c20d43a21697a20298e3850d62", null ],
+    [ "deletedTransmitStatus", "d9/df5/a01673.html#a5cb11ade89e22561cb697360e6f647d0", null ],
+    [ "noTransmitStatus", "d9/df5/a01673.html#aec698012d20e26bb10d4bea26c010985", null ],
+    [ "reconnectionCounter", "d9/df5/a01673.html#ac7f62868a289abb2450f79aa885bb423", null ],
+    [ "retriesCounter", "d9/df5/a01673.html#ac6e666ea8ac5731fdd252b8dc813485b", null ],
+    [ "signalStrength", "d9/df5/a01673.html#ae57e34d0254c73139d0015fc39e498dd", null ],
+    [ "transmitPeriod", "d9/df5/a01673.html#afa5724d63b364d43fb031cc4682d2de3", null ],
+    [ "unsuccessTransmitStatus", "d9/df5/a01673.html#ac67e8232f97db31ebd0f825093b661fa", null ]
 ];

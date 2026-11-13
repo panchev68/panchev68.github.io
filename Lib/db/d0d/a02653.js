@@ -1,7 +1,15 @@
 var a02653 =
 [
-    [ "baudRate", "db/d0d/a02653.html#ad346dd14c75b113671501f286d5348d3", null ],
-    [ "dataBits", "db/d0d/a02653.html#a0834146908baa5e641e203755bcae7d0", null ],
-    [ "parity", "db/d0d/a02653.html#ae1d9173fb3c732649e3ae12b963b784c", null ],
-    [ "stopBits", "db/d0d/a02653.html#aece0199b65b1b9e27305ae98b9c7bc31", null ]
+    [ "MutexGuard", "db/d0d/a02653.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
+    [ "MutexGuard", "db/d0d/a02653.html#a06d66e08a55ebf1440edb711e6886307", null ],
+    [ "MutexGuard", "db/d0d/a02653.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
+    [ "MutexGuard", "db/d0d/a02653.html#a21aba9e001a6afec8742ff355b845ede", null ],
+    [ "~MutexGuard", "db/d0d/a02653.html#a35526aab46b7a21b967df7060f8d6747", null ],
+    [ "MutexGuard", "db/d0d/a02653.html#a271282f741f6a7c1dcebff1616c9916e", null ],
+    [ "MutexGuard", "db/d0d/a02653.html#a66f7b610af22e97faef98e233dbd46d5", null ],
+    [ "isLocked", "db/d0d/a02653.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
+    [ "operator bool", "db/d0d/a02653.html#af9126f464f900d7777d9bb069a13265b", null ],
+    [ "operator=", "db/d0d/a02653.html#ada341f5a3644025a9b57e448e023d88b", null ],
+    [ "operator=", "db/d0d/a02653.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
+    [ "unlock", "db/d0d/a02653.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
 ];

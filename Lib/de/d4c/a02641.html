@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::System::VersionBase&lt; Derived &gt;</title>
+<title>IAR EWARM Library: RTOS::MemoryManager</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -111,512 +111,502 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d4c/a02641.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::System::VersionBase&lt; Derived &gt;</div></div>
+  <div class="headertitle"><div class="title">RTOS::MemoryManager<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
-class Lib::System::VersionBase&lt; Derived &gt;</div><p>Base class providing common version parsing, formatting, and conversion functionality. </p>
-<p>Implements core version string parsing for "X.Y" format strings, numeric representation with separate major and minor components, and formatted string output in "X.YY.ZZ" format that includes an optional sub-version component. Customization points - <a class="el" href="#ae1d6a7f355d536c916fe355c09825a3e" title="Gets the major and minor version as a 32-bit value.">getValue()</a>, <a class="el" href="#ae5c57f2bce8b985f8190894328141480" title="Gets the sub-version number component.">getSubVersion()</a> and <a class="el" href="#a1288aa2ce9764268fe7751f879f27a00" title="Formats the version as a string in &quot;X.YY.ZZ&quot; format.">toString()</a> - are resolved through the CRTP pattern instead of virtual dispatch: a derived class overrides them by hiding the base members with its own, identically named ones.</p>
-<p>Everything here is constexpr and allocation-free, so a version can be parsed and formatted entirely at compile time. No destructor is declared on purpose: IAR EWARM treats an explicitly defaulted destructor as making the class non-literal, which would forbid a "constexpr" version object.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>Concrete version class deriving from this base (CRTP). </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::System::VersionBase&lt; Derived &gt;:</div>
+<div class="textblock"><p>Static utility class for managing heap memory in FreeRTOS. </p>
+<p>When 'MEMORY_MANAGER_DIAG' is defined, each allocation carries a small header recording its size, which enables usage diagnostics. Without it, calls forward directly to the FreeRTOS heap with no per-allocation overhead.</p>
+<p>Every allocating and freeing method must be called from task context: the FreeRTOS heap suspends the scheduler and is not interrupt-safe. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::MemoryManager:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d75/a02639.svg" width="302" height="367"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d75/a02639.svg" width="259" height="343"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:a86d520da943edfbb98a592e47cd30177" id="r_a86d520da943edfbb98a592e47cd30177"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a> = std::array&lt;char, <a class="el" href="#a8857bb6b5507b0e3c3f3a1579feb0168">MAX_VERSION_LENGTH</a> + 1U&gt;</td></tr>
-<tr class="memdesc:a86d520da943edfbb98a592e47cd30177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed, NUL-terminated buffer holding a formatted version string.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a11985e607e9d0df1a66531314e37b38b" id="r_a11985e607e9d0df1a66531314e37b38b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a11985e607e9d0df1a66531314e37b38b">MemoryManager</a> ()=delete</td></tr>
+<tr class="memdesc:a11985e607e9d0df1a66531314e37b38b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted default constructor; this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a71e750b42ae7c18640c58654a6e54687" id="r_a71e750b42ae7c18640c58654a6e54687"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a71e750b42ae7c18640c58654a6e54687">~MemoryManager</a> ()=delete</td></tr>
+<tr class="memdesc:a71e750b42ae7c18640c58654a6e54687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted destructor; this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a7045943a317adab019e38e7c6bf2de73" id="r_a7045943a317adab019e38e7c6bf2de73"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7045943a317adab019e38e7c6bf2de73">MemoryManager</a> (const MemoryManager &amp;)=delete</td></tr>
+<tr class="memdesc:a7045943a317adab019e38e7c6bf2de73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a89bca016476ef966223eb6841d5cc034" id="r_a89bca016476ef966223eb6841d5cc034"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a89bca016476ef966223eb6841d5cc034">MemoryManager</a> (MemoryManager &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a89bca016476ef966223eb6841d5cc034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a3d49149b2b6d2ccba12daf1e0689202e" id="r_a3d49149b2b6d2ccba12daf1e0689202e"><td class="memItemLeft"><a class="el" href="#a11985e607e9d0df1a66531314e37b38b">MemoryManager</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3d49149b2b6d2ccba12daf1e0689202e">operator=</a> (const <a class="el" href="#a11985e607e9d0df1a66531314e37b38b">MemoryManager</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a3d49149b2b6d2ccba12daf1e0689202e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a16ef9a0ce4ca80cfdcac20e6e4f204e9" id="r_a16ef9a0ce4ca80cfdcac20e6e4f204e9"><td class="memItemLeft"><a class="el" href="#a11985e607e9d0df1a66531314e37b38b">MemoryManager</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a16ef9a0ce4ca80cfdcac20e6e4f204e9">operator=</a> (<a class="el" href="#a11985e607e9d0df1a66531314e37b38b">MemoryManager</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a16ef9a0ce4ca80cfdcac20e6e4f204e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: this is a non-instantiable static utility class.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a32eb651df51eadc6dc6cca08bcd82ee5" id="r_a32eb651df51eadc6dc6cca08bcd82ee5"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a32eb651df51eadc6dc6cca08bcd82ee5">VersionBase</a> (std::string_view versionString, uint32_t subVersion=0U) noexcept</td></tr>
-<tr class="memdesc:a32eb651df51eadc6dc6cca08bcd82ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing version from version string and optional sub-version.  <br /></td></tr>
-<tr class="memitem:ae1d6a7f355d536c916fe355c09825a3e" id="r_ae1d6a7f355d536c916fe355c09825a3e"><td class="memItemLeft">constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae1d6a7f355d536c916fe355c09825a3e">getValue</a> () const noexcept</td></tr>
-<tr class="memdesc:ae1d6a7f355d536c916fe355c09825a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the major and minor version as a 32-bit value.  <br /></td></tr>
-<tr class="memitem:ae5c57f2bce8b985f8190894328141480" id="r_ae5c57f2bce8b985f8190894328141480"><td class="memItemLeft">constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae5c57f2bce8b985f8190894328141480">getSubVersion</a> () const noexcept</td></tr>
-<tr class="memdesc:ae5c57f2bce8b985f8190894328141480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the sub-version number component.  <br /></td></tr>
-<tr class="memitem:a1288aa2ce9764268fe7751f879f27a00" id="r_a1288aa2ce9764268fe7751f879f27a00"><td class="memItemLeft">constexpr <a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1288aa2ce9764268fe7751f879f27a00">toString</a> () const noexcept</td></tr>
-<tr class="memdesc:a1288aa2ce9764268fe7751f879f27a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the version as a string in "X.YY.ZZ" format.  <br /></td></tr>
-<tr class="memitem:afca34523d727d800376b4959573f80bf" id="r_afca34523d727d800376b4959573f80bf"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#afca34523d727d800376b4959573f80bf">operator uint32_t</a> () const noexcept</td></tr>
-<tr class="memdesc:afca34523d727d800376b4959573f80bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type conversion operator to uint32_t.  <br /></td></tr>
-<tr class="memitem:a3e56152954887db7681501c597507ae4" id="r_a3e56152954887db7681501c597507ae4"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a3e56152954887db7681501c597507ae4">operator VersionString</a> () const noexcept</td></tr>
-<tr class="memdesc:a3e56152954887db7681501c597507ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type conversion operator to a version string buffer.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:aa2038f86376506bdea4bbb41dc8dc61e" id="r_aa2038f86376506bdea4bbb41dc8dc61e"><td class="memItemLeft">static constexpr std::optional&lt; uint32_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa2038f86376506bdea4bbb41dc8dc61e">stringToU32</a> (std::string_view versionString) noexcept</td></tr>
-<tr class="memdesc:aa2038f86376506bdea4bbb41dc8dc61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses version string in "X.Y" format into 32-bit numeric representation.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-static-attribs" class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
-Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a58b66b7d52679884443e0ebaa85c01bd" id="r_a58b66b7d52679884443e0ebaa85c01bd"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> = 3U</td></tr>
-<tr class="memdesc:a58b66b7d52679884443e0ebaa85c01bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fields in a formatted version: major, minor and sub.  <br /></td></tr>
-<tr class="memitem:a70c824756c3e86f77c02e06122f0ad46" id="r_a70c824756c3e86f77c02e06122f0ad46"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a70c824756c3e86f77c02e06122f0ad46">MAX_FIELD_DIGITS</a> = 3U</td></tr>
-<tr class="memdesc:a70c824756c3e86f77c02e06122f0ad46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digits needed for the largest byte-sized field (255).  <br /></td></tr>
-<tr class="memitem:ac0ebb37eac0806342054eaaaa603d157" id="r_ac0ebb37eac0806342054eaaaa603d157"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac0ebb37eac0806342054eaaaa603d157">MIN_FIELD_DIGITS</a> = 2U</td></tr>
-<tr class="memdesc:ac0ebb37eac0806342054eaaaa603d157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Width the minor and sub-version fields are padded to.  <br /></td></tr>
-<tr class="memitem:af062b487d10986a6d626e6701d5427af" id="r_af062b487d10986a6d626e6701d5427af"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#af062b487d10986a6d626e6701d5427af">MAX_FIELD_VALUE</a> = 255U</td></tr>
-<tr class="memdesc:af062b487d10986a6d626e6701d5427af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest value a single version field may hold.  <br /></td></tr>
-<tr class="memitem:a1b67aa8fc20f4a1e70af10991699e8e7" id="r_a1b67aa8fc20f4a1e70af10991699e8e7"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a1b67aa8fc20f4a1e70af10991699e8e7">FIELD_SHIFT</a> = 8U</td></tr>
-<tr class="memdesc:a1b67aa8fc20f4a1e70af10991699e8e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit distance between two packed version fields.  <br /></td></tr>
-<tr class="memitem:a9ee763a5c6623f11ce070d70c29f8856" id="r_a9ee763a5c6623f11ce070d70c29f8856"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a9ee763a5c6623f11ce070d70c29f8856">FIELD_MASK</a> = 0xFFU</td></tr>
-<tr class="memdesc:a9ee763a5c6623f11ce070d70c29f8856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask isolating one packed version field.  <br /></td></tr>
-<tr class="memitem:a8857bb6b5507b0e3c3f3a1579feb0168" id="r_a8857bb6b5507b0e3c3f3a1579feb0168"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8857bb6b5507b0e3c3f3a1579feb0168">MAX_VERSION_LENGTH</a> = (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> * <a class="el" href="#a70c824756c3e86f77c02e06122f0ad46">MAX_FIELD_DIGITS</a>) + (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> - 1U)</td></tr>
-<tr class="memdesc:a8857bb6b5507b0e3c3f3a1579feb0168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest formatted version, "255.255.255", without the terminator.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a22bb0dd4b2e20be87fa1cc27bc71f9de" id="r_a22bb0dd4b2e20be87fa1cc27bc71f9de"><td class="memItemLeft">static void *&#160;</td><td class="memItemRight"><a class="el" href="#a22bb0dd4b2e20be87fa1cc27bc71f9de">allocate</a> (size_t size, <a class="el" href="#a12545d9824f6613ee89191861f120584">Status</a> *status=nullptr) noexcept</td></tr>
+<tr class="memdesc:a22bb0dd4b2e20be87fa1cc27bc71f9de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a memory block from the heap.  <br /></td></tr>
+<tr class="memitem:a357c16b4d26202d54fa9221c2b471ca5" id="r_a357c16b4d26202d54fa9221c2b471ca5"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a357c16b4d26202d54fa9221c2b471ca5">deallocate</a> (void *pointer, <a class="el" href="#a12545d9824f6613ee89191861f120584">Status</a> *status=nullptr) noexcept</td></tr>
+<tr class="memdesc:a357c16b4d26202d54fa9221c2b471ca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees a previously allocated memory block.  <br /></td></tr>
+<tr class="memitem:a1de95ba934bda50f129a1eef6fc61143" id="r_a1de95ba934bda50f129a1eef6fc61143"><td class="memItemLeft">static size_t&#160;</td><td class="memItemRight"><a class="el" href="#a1de95ba934bda50f129a1eef6fc61143">getFreeHeapSize</a> () noexcept</td></tr>
+<tr class="memdesc:a1de95ba934bda50f129a1eef6fc61143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current free heap size.  <br /></td></tr>
+<tr class="memitem:a5d2eed7a0ce0895de7b2937a513981f0" id="r_a5d2eed7a0ce0895de7b2937a513981f0"><td class="memItemLeft">static size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5d2eed7a0ce0895de7b2937a513981f0">getMinimumEverFreeHeapSize</a> () noexcept</td></tr>
+<tr class="memdesc:a5d2eed7a0ce0895de7b2937a513981f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the minimum ever free heap size since boot.  <br /></td></tr>
+<tr class="memitem:adac10bc926abef9028d009268e8d6190" id="r_adac10bc926abef9028d009268e8d6190"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#adac10bc926abef9028d009268e8d6190">isValidSize</a> (size_t size) noexcept</td></tr>
+<tr class="memdesc:adac10bc926abef9028d009268e8d6190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the requested size is valid.  <br /></td></tr>
+<tr class="memitem:a134eebce76e186c0254d90ff9cea40e5" id="r_a134eebce76e186c0254d90ff9cea40e5"><td class="memItemLeft">static uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a134eebce76e186c0254d90ff9cea40e5">getHeapUsagePercent</a> () noexcept</td></tr>
+<tr class="memdesc:a134eebce76e186c0254d90ff9cea40e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heap usage percentage is unavailable without 'configTOTAL_HEAP_SIZE'.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a86d520da943edfbb98a592e47cd30177" name="a86d520da943edfbb98a592e47cd30177"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86d520da943edfbb98a592e47cd30177">&#9670;&#160;</a></span>VersionString</h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a12545d9824f6613ee89191861f120584" name="a12545d9824f6613ee89191861f120584"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12545d9824f6613ee89191861f120584">&#9670;&#160;</a></span>Status</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::VersionString = std::array&lt;char, <a class="el" href="#a8857bb6b5507b0e3c3f3a1579feb0168">MAX_VERSION_LENGTH</a> + 1U&gt;</td>
+          <td class="memname">enum class <a class="el" href="#a12545d9824f6613ee89191861f120584">RTOS::MemoryManager::Status</a> : uint8_t</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Fixed, NUL-terminated buffer holding a formatted version string. </p>
-<p>Use "data()" where a C string is expected. </p>
+<p>Enumeration of possible memory operation statuses. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c" name="a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05" name="a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05"></a>INVALID_SIZE&#160;</td><td class="fielddoc"><p>Requested size is 0. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6" name="a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6"></a>OUT_OF_MEMORY&#160;</td><td class="fielddoc"><p>Heap exhausted. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae" name="a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae"></a>SIZE_TOO_LARGE&#160;</td><td class="fielddoc"><p>Requested size exceeds heap limits. </p>
+</td></tr>
+</table>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/dab/a02994.html#_a0">RTOS::MemoryManager</a>.</dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a32eb651df51eadc6dc6cca08bcd82ee5" name="a32eb651df51eadc6dc6cca08bcd82ee5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32eb651df51eadc6dc6cca08bcd82ee5">&#9670;&#160;</a></span>VersionBase()</h2>
+<a id="a11985e607e9d0df1a66531314e37b38b" name="a11985e607e9d0df1a66531314e37b38b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11985e607e9d0df1a66531314e37b38b">&#9670;&#160;</a></span>MemoryManager() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::VersionBase </td>
+          <td class="memname">RTOS::MemoryManager::MemoryManager </td>
           <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>versionString</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>subVersion</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor initializing version from version string and optional sub-version. </p>
-<p>A version string that does not parse leaves the numeric version at zero; use <a class="el" href="#aa2038f86376506bdea4bbb41dc8dc61e" title="Parses version string in &quot;X.Y&quot; format into 32-bit numeric representation.">stringToU32()</a> beforehand when the caller needs to tell a malformed string from a genuine "0.0".</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">versionString</td><td><a class="el" href="../../d5/d95/a02625.html" title="Container of the legacy version classes.">Version</a> string in "X.Y" format (e.g., "1.23"). </td></tr>
-    <tr><td class="paramname">subVersion</td><td>Optional sub-version number appended to formatted output; must not exceed 255. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Deleted default constructor; this is a non-instantiable static utility class. </p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4c/a02641_a11985e607e9d0df1a66531314e37b38b_icgraph.svg" width="646" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a71e750b42ae7c18640c58654a6e54687" name="a71e750b42ae7c18640c58654a6e54687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71e750b42ae7c18640c58654a6e54687">&#9670;&#160;</a></span>~MemoryManager()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MemoryManager::~MemoryManager </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted destructor; this is a non-instantiable static utility class. </p>
+
+</div>
+</div>
+<a id="a7045943a317adab019e38e7c6bf2de73" name="a7045943a317adab019e38e7c6bf2de73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7045943a317adab019e38e7c6bf2de73">&#9670;&#160;</a></span>MemoryManager() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MemoryManager::MemoryManager </td>
+          <td>(</td>
+          <td class="paramtype">const MemoryManager &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: this is a non-instantiable static utility class. </p>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4c/a02641_a7045943a317adab019e38e7c6bf2de73_cgraph.svg" width="646" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a89bca016476ef966223eb6841d5cc034" name="a89bca016476ef966223eb6841d5cc034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89bca016476ef966223eb6841d5cc034">&#9670;&#160;</a></span>MemoryManager() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MemoryManager::MemoryManager </td>
+          <td>(</td>
+          <td class="paramtype">MemoryManager &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: this is a non-instantiable static utility class. </p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4c/a02641_a89bca016476ef966223eb6841d5cc034_cgraph.svg" width="646" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ae5c57f2bce8b985f8190894328141480" name="ae5c57f2bce8b985f8190894328141480"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5c57f2bce8b985f8190894328141480">&#9670;&#160;</a></span>getSubVersion()</h2>
+<a id="a22bb0dd4b2e20be87fa1cc27bc71f9de" name="a22bb0dd4b2e20be87fa1cc27bc71f9de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22bb0dd4b2e20be87fa1cc27bc71f9de">&#9670;&#160;</a></span>allocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::getSubVersion </td>
+          <td class="memname">void * RTOS::MemoryManager::allocate </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a12545d9824f6613ee89191861f120584">Status</a> *</td>          <td class="paramname"><span class="paramname"><em>status</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the sub-version number component. </p>
-<p>Returns the sub-version which is typically appended to the formatted version string and can be customized by derived classes.</p>
-<dl class="section return"><dt>Returns</dt><dd>Sub-version number. </dd></dl>
+<p>Allocates a memory block from the heap. </p>
+<p>Must be called from task context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Number of bytes to allocate; must be greater than zero. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Optional pointer to receive the operation status. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the allocated memory, or 'nullptr' on failure. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/dab/a02994.html#a2">RTOS::MemoryManager</a>.</dd>
+</dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4c/a02641_a22bb0dd4b2e20be87fa1cc27bc71f9de_cgraph.svg" width="590" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ae1d6a7f355d536c916fe355c09825a3e" name="ae1d6a7f355d536c916fe355c09825a3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1d6a7f355d536c916fe355c09825a3e">&#9670;&#160;</a></span>getValue()</h2>
+<a id="a357c16b4d26202d54fa9221c2b471ca5" name="a357c16b4d26202d54fa9221c2b471ca5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a357c16b4d26202d54fa9221c2b471ca5">&#9670;&#160;</a></span>deallocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::getValue </td>
+          <td class="memname">void RTOS::MemoryManager::deallocate </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>pointer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a12545d9824f6613ee89191861f120584">Status</a> *</td>          <td class="paramname"><span class="paramname"><em>status</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the major and minor version as a 32-bit value. </p>
-<p>Returns the version number with major version in the upper 8 bits and minor version in the lower 8 bits. Sub-version is not included in this value.</p>
-<dl class="section return"><dt>Returns</dt><dd>Packed version value: major in bits 15..8, minor in bits 7..0. </dd></dl>
+<p>Frees a previously allocated memory block. </p>
+<p>Must be called from task context.</p>
+<p>Like 'free()', a 'nullptr' is a successful no-op: it reports <a class="el" href="#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> and is not counted in the diagnostics.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">pointer</td><td>Pointer previously returned by <a class="el" href="#a22bb0dd4b2e20be87fa1cc27bc71f9de" title="allocate()">allocate()</a>, or 'nullptr'. With 'MEMORY_MANAGER_DIAG' any other pointer corrupts the heap, since its header is read back. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Optional pointer to receive the operation status; always <a class="el" href="#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/dab/a02994.html#a3">RTOS::MemoryManager</a>.</dd>
+</dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4c/a02641_a357c16b4d26202d54fa9221c2b471ca5_cgraph.svg" width="502" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="afca34523d727d800376b4959573f80bf" name="afca34523d727d800376b4959573f80bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afca34523d727d800376b4959573f80bf">&#9670;&#160;</a></span>operator uint32_t()</h2>
+<a id="a1de95ba934bda50f129a1eef6fc61143" name="a1de95ba934bda50f129a1eef6fc61143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1de95ba934bda50f129a1eef6fc61143">&#9670;&#160;</a></span>getFreeHeapSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::operator uint32_t </td>
+          <td class="memname">size_t RTOS::MemoryManager::getFreeHeapSize </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Type conversion operator to uint32_t. </p>
-<p>Returns the complete version as a 32-bit value: the packed major and minor pair shifted up by one field, with the sub-version in the lowest field. Dispatches to the derived class's <a class="el" href="#ae1d6a7f355d536c916fe355c09825a3e" title="Gets the major and minor version as a 32-bit value.">getValue()</a> and <a class="el" href="#ae5c57f2bce8b985f8190894328141480" title="Gets the sub-version number component.">getSubVersion()</a> via CRTP.</p>
-<dl class="section return"><dt>Returns</dt><dd>Packed value: major in bits 23..16, minor in bits 15..8, sub-version in bits 7..0. </dd></dl>
-
-</div>
-</div>
-<a id="a3e56152954887db7681501c597507ae4" name="a3e56152954887db7681501c597507ae4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e56152954887db7681501c597507ae4">&#9670;&#160;</a></span>operator VersionString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::operator <a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Type conversion operator to a version string buffer. </p>
-<p>Dispatches to the derived class's <a class="el" href="#a1288aa2ce9764268fe7751f879f27a00" title="Formats the version as a string in &quot;X.YY.ZZ&quot; format.">toString()</a> via CRTP.</p>
-<dl class="section return"><dt>Returns</dt><dd>Formatted version string. </dd></dl>
-
-</div>
-</div>
-<a id="aa2038f86376506bdea4bbb41dc8dc61e" name="aa2038f86376506bdea4bbb41dc8dc61e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2038f86376506bdea4bbb41dc8dc61e">&#9670;&#160;</a></span>stringToU32()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::optional&lt; uint32_t &gt; <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::stringToU32 </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>versionString</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parses version string in "X.Y" format into 32-bit numeric representation. </p>
-<p>Returns an empty optional rather than a zero on failure, so a malformed string is distinguishable from the perfectly valid version "0.0". A field is rejected when it holds a non-digit or exceeds 255.</p>
+<p>Retrieves the current free heap size. </p>
+<dl class="section return"><dt>Returns</dt><dd>Free heap in bytes. </dd></dl>
+
+</div>
+</div>
+<a id="a134eebce76e186c0254d90ff9cea40e5" name="a134eebce76e186c0254d90ff9cea40e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a134eebce76e186c0254d90ff9cea40e5">&#9670;&#160;</a></span>getHeapUsagePercent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t RTOS::MemoryManager::getHeapUsagePercent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Heap usage percentage is unavailable without 'configTOTAL_HEAP_SIZE'. </p>
+<dl class="section return"><dt>Returns</dt><dd>Always 0. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/dab/a02994.html#a4">RTOS::MemoryManager</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a5d2eed7a0ce0895de7b2937a513981f0" name="a5d2eed7a0ce0895de7b2937a513981f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d2eed7a0ce0895de7b2937a513981f0">&#9670;&#160;</a></span>getMinimumEverFreeHeapSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t RTOS::MemoryManager::getMinimumEverFreeHeapSize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the minimum ever free heap size since boot. </p>
+<dl class="section return"><dt>Returns</dt><dd>Minimum heap remaining in bytes. </dd></dl>
+
+</div>
+</div>
+<a id="adac10bc926abef9028d009268e8d6190" name="adac10bc926abef9028d009268e8d6190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adac10bc926abef9028d009268e8d6190">&#9670;&#160;</a></span>isValidSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool RTOS::MemoryManager::isValidSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the requested size is valid. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">versionString</td><td><a class="el" href="../../d5/d95/a02625.html" title="Container of the legacy version classes.">Version</a> string to parse (e.g., "1.23"). </td></tr>
+    <tr><td class="paramname">size</td><td>Requested allocation size. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Packed version value, or an empty optional when the string is not a valid "X.Y" pair. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if size is valid, <b>false</b> otherwise. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4c/a02641_adac10bc926abef9028d009268e8d6190_icgraph.svg" width="590" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a1288aa2ce9764268fe7751f879f27a00" name="a1288aa2ce9764268fe7751f879f27a00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1288aa2ce9764268fe7751f879f27a00">&#9670;&#160;</a></span>toString()</h2>
+<a id="a3d49149b2b6d2ccba12daf1e0689202e" name="a3d49149b2b6d2ccba12daf1e0689202e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d49149b2b6d2ccba12daf1e0689202e">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a> <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::toString </td>
+          <td class="memname"><a class="el" href="#a11985e607e9d0df1a66531314e37b38b">MemoryManager</a> &amp; RTOS::MemoryManager::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="#a11985e607e9d0df1a66531314e37b38b">MemoryManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Formats the version as a string in "X.YY.ZZ" format. </p>
-<p>The major field is unpadded and the minor and sub-version fields are zero-padded to two digits, widening to three when the value needs them. Digits are produced by hand rather than through printf, which would pull in formatting machinery this target has no use for.</p>
-<dl class="section return"><dt>Returns</dt><dd>Formatted version string. </dd></dl>
+<p>Non-copyable: this is a non-instantiable static utility class. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4c/a02641_a3d49149b2b6d2ccba12daf1e0689202e_cgraph.svg" width="614" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a58b66b7d52679884443e0ebaa85c01bd" name="a58b66b7d52679884443e0ebaa85c01bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58b66b7d52679884443e0ebaa85c01bd">&#9670;&#160;</a></span>FIELD_COUNT</h2>
+<a id="a16ef9a0ce4ca80cfdcac20e6e4f204e9" name="a16ef9a0ce4ca80cfdcac20e6e4f204e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16ef9a0ce4ca80cfdcac20e6e4f204e9">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::FIELD_COUNT = 3U</td>
+          <td class="memname"><a class="el" href="#a11985e607e9d0df1a66531314e37b38b">MemoryManager</a> &amp; RTOS::MemoryManager::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a11985e607e9d0df1a66531314e37b38b">MemoryManager</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Fields in a formatted version: major, minor and sub. </p>
-
+<p>Non-movable: this is a non-instantiable static utility class. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4c/a02641_a16ef9a0ce4ca80cfdcac20e6e4f204e9_cgraph.svg" width="614" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="a9ee763a5c6623f11ce070d70c29f8856" name="a9ee763a5c6623f11ce070d70c29f8856"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ee763a5c6623f11ce070d70c29f8856">&#9670;&#160;</a></span>FIELD_MASK</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::FIELD_MASK = 0xFFU</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Mask isolating one packed version field. </p>
-
-</div>
-</div>
-<a id="a1b67aa8fc20f4a1e70af10991699e8e7" name="a1b67aa8fc20f4a1e70af10991699e8e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b67aa8fc20f4a1e70af10991699e8e7">&#9670;&#160;</a></span>FIELD_SHIFT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::FIELD_SHIFT = 8U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Bit distance between two packed version fields. </p>
-
-</div>
-</div>
-<a id="a70c824756c3e86f77c02e06122f0ad46" name="a70c824756c3e86f77c02e06122f0ad46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70c824756c3e86f77c02e06122f0ad46">&#9670;&#160;</a></span>MAX_FIELD_DIGITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MAX_FIELD_DIGITS = 3U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Digits needed for the largest byte-sized field (255). </p>
-
-</div>
-</div>
-<a id="af062b487d10986a6d626e6701d5427af" name="af062b487d10986a6d626e6701d5427af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af062b487d10986a6d626e6701d5427af">&#9670;&#160;</a></span>MAX_FIELD_VALUE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MAX_FIELD_VALUE = 255U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Largest value a single version field may hold. </p>
-
-</div>
-</div>
-<a id="a8857bb6b5507b0e3c3f3a1579feb0168" name="a8857bb6b5507b0e3c3f3a1579feb0168"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8857bb6b5507b0e3c3f3a1579feb0168">&#9670;&#160;</a></span>MAX_VERSION_LENGTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MAX_VERSION_LENGTH = (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> * <a class="el" href="#a70c824756c3e86f77c02e06122f0ad46">MAX_FIELD_DIGITS</a>) + (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> - 1U)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Longest formatted version, "255.255.255", without the terminator. </p>
-
-</div>
-</div>
-<a id="ac0ebb37eac0806342054eaaaa603d157" name="ac0ebb37eac0806342054eaaaa603d157"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0ebb37eac0806342054eaaaa603d157">&#9670;&#160;</a></span>MIN_FIELD_DIGITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d4c/a02641.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MIN_FIELD_DIGITS = 2U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Width the minor and sub-version fields are padded to. </p>
 
 </div>
 </div>
@@ -630,12 +620,23 @@ template&lt;typename Derived&gt; </div>
 </div><!-- page-nav-tree -->
 </div><!-- page-nav -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../da/d98/a00870.html">Lib</a></li><li class="navelem"><a href="../../d2/d5e/a00915.html">System</a></li><li class="navelem"><a href="../../de/d4c/a02641.html">VersionBase</a></li>
+    <li class="navelem"><a href="../../d2/d41/a01037.html">RTOS</a></li><li class="navelem"><a href="../../de/d4c/a02641.html">MemoryManager</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

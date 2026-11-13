@@ -1,9 +1,9 @@
 var a01501 =
 [
-    [ "State", "db/d2c/a01501.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
-    [ "State", "db/d2c/a01501.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
-    [ "isConnected", "db/d2c/a01501.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
-    [ "operator uint32_t", "db/d2c/a01501.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
-    [ "operator=", "db/d2c/a01501.html#a74040294aacf89a661c876eb5aadc081", null ],
-    [ "onConnectionChanged", "db/d2c/a01501.html#af29d5ac1eff410a6876b1be865601ca8", null ]
+    [ "errorCode", "db/d2c/a01501.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
+    [ "errorCounter", "db/d2c/a01501.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
+    [ "receivedMessages", "db/d2c/a01501.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
+    [ "rxFifoFullCounter", "db/d2c/a01501.html#ae1980d93ca6461dabf615247c5043049", null ],
+    [ "sentMessages", "db/d2c/a01501.html#a71de4cab31423207b05a464ff4024347", null ],
+    [ "txMailboxAbortCounter", "db/d2c/a01501.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
 ];

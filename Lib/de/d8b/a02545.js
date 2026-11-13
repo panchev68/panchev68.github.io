@@ -1,9 +1,7 @@
 var a02545 =
 [
-    [ "Tick", "de/d8b/a02545.html#a73acf8fc8b1cd8e08ae680600c7644ed", null ],
-    [ "TickType", "de/d8b/a02545.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
-    [ "TickCounter", "de/d8b/a02545.html#a2e4f16891a303abf7194b28efe452c4b", null ],
-    [ "~TickCounter", "de/d8b/a02545.html#a82caaf97a995139e4dc974230659be08", null ],
-    [ "TickCounter", "de/d8b/a02545.html#a06b8da334970d2eee58bc03a57c34687", null ],
-    [ "operator=", "de/d8b/a02545.html#ab51f397146bf8a3184476a1b302318e4", null ]
+    [ "estimatedError", "de/d8b/a02545.html#aa627467e596e97925629cac77c51da24", null ],
+    [ "processNoise", "de/d8b/a02545.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
+    [ "sensorNoise", "de/d8b/a02545.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
+    [ "value", "de/d8b/a02545.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
 ];

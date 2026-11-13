@@ -1,13 +1,14 @@
 var a02605 =
 [
-    [ "Date", "dd/d20/a02605.html#af06cc8ba2f87935c0445acf20bda3349", null ],
-    [ "DateTime", "dd/d20/a02605.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "Status", "dd/d20/a02605.html#ac1982c11ab6f79a7929a9d6d3a81784a", [
-      [ "OK", "dd/d20/a02605.html#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "dd/d20/a02605.html#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "Config", "df/d40/a02609.html", "df/d40/a02609" ],
+    [ "State", "dd/d20/a02605.html#a7063555b30fb75832750a0361328040e", [
+      [ "ACTIVE", "dd/d20/a02605.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
+      [ "INACTIVE", "dd/d20/a02605.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
+      [ "DISABLED", "dd/d20/a02605.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
     ] ],
-    [ "ProduceDate", "dd/d20/a02605.html#a35243148dd7247b4f7926b4aed02485a", null ],
-    [ "isEmpty", "dd/d20/a02605.html#a3a766915dafa66af64cd53f1c59eab9f", null ],
-    [ "read", "dd/d20/a02605.html#aad534282cedf19b97f1bd45ca1a84da8", null ],
-    [ "write", "dd/d20/a02605.html#a64c5c6d83cf80a34ec3561d61f1f93f9", null ]
+    [ "Sensor", "dd/d20/a02605.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
+    [ "getName", "dd/d20/a02605.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
+    [ "isActive", "dd/d20/a02605.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
+    [ "isPresent", "dd/d20/a02605.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
+    [ "read", "dd/d20/a02605.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
 ];

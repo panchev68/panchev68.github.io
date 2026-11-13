@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Crypto::WolfSSLEcc</title>
+<title>IAR EWARM Library: Lib::BSP::Voltmeter&lt; T_DERIVED &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -111,220 +111,132 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d13/a01473.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSLEcc<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Voltmeter&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>ECDSA signatures and ECDHE key agreement on the SECP256R1 curve, on wolfCrypt (CubeMX: ECC Support). </p>
-<p>A key is created with <a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d" title="generateKey()">generateKey()</a>, which also attaches the generator to the key: wolfCrypt's timing resistant ECDHE needs it for <a class="el" href="#a6c37442161fbe64b4d931ffc6a6f8997" title="sharedSecret()">sharedSecret()</a>. Signatures are DER encoded and cover a caller-supplied digest.</p>
-<dl class="section important"><dt>Important</dt><dd>The '<a class="el" href="../../dc/d60/a01461.html" title="Cryptographically secure random generator on wolfCrypt&#39;s configured entropy source (CubeMX: RNG Suppo...">WolfSSLRandom</a>' passed to <a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d" title="Generates a new key pair, replacing any key this instance held, and attaches the generator to it.">generateKey()</a> must outlive the key, or be replaced by a later <a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d" title="Generates a new key pair, replacing any key this instance held, and attaches the generator to it.">generateKey()</a> call.</dd>
-<dd>
-There is no import or export of public keys yet: <a class="el" href="#a22a3ef4290390aa55282ade89d4bd8e4" title="verify()">verify()</a> and <a class="el" href="#a6c37442161fbe64b4d931ffc6a6f8997" title="sharedSecret()">sharedSecret()</a> work only with keys generated in this program.</dd>
-<dd>
-Not thread-safe: give each task its own instance, or guard a shared one with an '<a class="el" href="../../d9/dc1/a02473.html" title="Priority-inheriting mutual exclusion lock, normal or recursive.">RTOS::Mutex</a>'. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d87/a02734.html#_a7">Lib::Crypto::WolfSSL</a>.</dd>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED = void&gt;<br />
+class Lib::BSP::Voltmeter&lt; T_DERIVED &gt;</div><p><a class="el" href="../../de/d13/a01473.html" title="Voltmeter for ADC voltage measurement with integration, interpolation and change notification.">Voltmeter</a> for ADC voltage measurement with integration, interpolation and change notification. </p>
+<p>Reads raw ADC values periodically from a configured regular ADC channel via a single-slot DMA scan, applies moving-average filtering through integration, converts the integrated value to voltage using linear interpolation, and calls <a class="el" href="#a0867be0757674c033a721efb796a8e39" title="handleValueChanged()">handleValueChanged()</a> when the voltage changes. Registered with the <a class="el" href="../../dd/dee/a01081.html" title="DeviceManager">DeviceManager</a> through <a class="el" href="../../d2/df3/a01085.html" title="DeviceManager::DeviceBase">DeviceManager::DeviceBase</a>, which drives <a class="el" href="../../d2/df3/a01085.html#a3a024a69ffe1d880ec5fedbf8428726a" title="handleTickEvent()">handleTickEvent()</a> from the shared tick timer. Dispatch to the derived class is CRTP, not a virtual call.</p>
+<p>The measurement cycle is controlled by a configurable update period, and the filtering is performed with a fixed window size of five samples. A class deriving from <a class="el" href="../../de/d13/a01473.html" title="Voltmeter">Voltmeter</a> passes itself as 'T_DERIVED' and overrides <a class="el" href="#a0867be0757674c033a721efb796a8e39" title="handleValueChanged()">handleValueChanged()</a> to perform custom actions when the voltage changes. The static_cast to Self in <a class="el" href="../../d2/df3/a01085.html#a3a024a69ffe1d880ec5fedbf8428726a" title="handleTickEvent()">handleTickEvent()</a> selects that override.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete voltmeter overriding <a class="el" href="#a0867be0757674c033a721efb796a8e39" title="handleValueChanged()">handleValueChanged()</a>, or 'void' to use <a class="el" href="../../de/d13/a01473.html" title="Voltmeter">Voltmeter</a> directly without an override. </td></tr>
+  </table>
+  </dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Crypto::WolfSSLEcc:</div>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::BSP::Voltmeter&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d15/a01471.svg" width="206" height="343"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d48/a01472.svg" width="302" height="374"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a17edfaa1f02adf3fdd3a15dacc409b5d" id="r_a17edfaa1f02adf3fdd3a15dacc409b5d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d">generateKey</a> (<a class="el" href="../../dc/d60/a01461.html">WolfSSLRandom</a> &amp;rng) noexcept</td></tr>
-<tr class="memdesc:a17edfaa1f02adf3fdd3a15dacc409b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new key pair, replacing any key this instance held, and attaches the generator to it.  <br /></td></tr>
-<tr class="memitem:ad2b17e604dc8ee9188ffc9a54dc87b46" id="r_ad2b17e604dc8ee9188ffc9a54dc87b46"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad2b17e604dc8ee9188ffc9a54dc87b46">sign</a> (std::span&lt; const uint8_t &gt; digest, <a class="el" href="../../dc/d60/a01461.html">WolfSSLRandom</a> &amp;rng, std::span&lt; uint8_t &gt; signature, size_t &amp;signatureLength) noexcept</td></tr>
-<tr class="memdesc:ad2b17e604dc8ee9188ffc9a54dc87b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signs a message digest with the private key.  <br /></td></tr>
-<tr class="memitem:a22a3ef4290390aa55282ade89d4bd8e4" id="r_a22a3ef4290390aa55282ade89d4bd8e4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a22a3ef4290390aa55282ade89d4bd8e4">verify</a> (std::span&lt; const uint8_t &gt; signature, std::span&lt; const uint8_t &gt; digest, bool &amp;valid) noexcept</td></tr>
-<tr class="memdesc:a22a3ef4290390aa55282ade89d4bd8e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies a signature over a message digest with the public key.  <br /></td></tr>
-<tr class="memitem:a6c37442161fbe64b4d931ffc6a6f8997" id="r_a6c37442161fbe64b4d931ffc6a6f8997"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6c37442161fbe64b4d931ffc6a6f8997">sharedSecret</a> (<a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;peerPublicKey, <a class="el" href="#a7fbb5355ccfc526d83b2d67eadb425c8">SharedSecret</a> &amp;secret) noexcept</td></tr>
-<tr class="memdesc:a6c37442161fbe64b4d931ffc6a6f8997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derives the ECDHE shared secret from the private key and a peer's public key.  <br /></td></tr>
-<tr class="memitem:a19debb4d33bed3fade556263320330f7" id="r_a19debb4d33bed3fade556263320330f7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> () noexcept</td></tr>
-<tr class="memdesc:a19debb4d33bed3fade556263320330f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the ECC context without a key.  <br /></td></tr>
-<tr class="memitem:ab882988b2ec1b1494dbe8f30062bd13e" id="r_ab882988b2ec1b1494dbe8f30062bd13e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab882988b2ec1b1494dbe8f30062bd13e">~WolfSSLEcc</a> () noexcept</td></tr>
-<tr class="memdesc:ab882988b2ec1b1494dbe8f30062bd13e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfCrypt ECC context.  <br /></td></tr>
-<tr class="memitem:acfed6fbd26a4fb663e7aec5f8408e3f4" id="r_acfed6fbd26a4fb663e7aec5f8408e3f4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acfed6fbd26a4fb663e7aec5f8408e3f4">WolfSSLEcc</a> (const WolfSSLEcc &amp;)=delete</td></tr>
-<tr class="memdesc:acfed6fbd26a4fb663e7aec5f8408e3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:a3309d37d1e7115e7a81b80cee385c0f3" id="r_a3309d37d1e7115e7a81b80cee385c0f3"><td class="memItemLeft"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3309d37d1e7115e7a81b80cee385c0f3">operator=</a> (const <a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a3309d37d1e7115e7a81b80cee385c0f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:ab7483aff9567983a99ff831e7bfcf284" id="r_ab7483aff9567983a99ff831e7bfcf284"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab7483aff9567983a99ff831e7bfcf284">WolfSSLEcc</a> (WolfSSLEcc &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:ab7483aff9567983a99ff831e7bfcf284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:a251a0fe821d569d4e0f785056ced42d7" id="r_a251a0fe821d569d4e0f785056ced42d7"><td class="memItemLeft"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a251a0fe821d569d4e0f785056ced42d7">operator=</a> (<a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a251a0fe821d569d4e0f785056ced42d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:ae3da827199d0e9dbd72b6071bedc5eb5" id="r_ae3da827199d0e9dbd72b6071bedc5eb5"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae3da827199d0e9dbd72b6071bedc5eb5">KEY_SIZE</a> = 32U</td></tr>
-<tr class="memdesc:ae3da827199d0e9dbd72b6071bedc5eb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">SECP256R1 private key and coordinate size, in bytes.  <br /></td></tr>
-<tr class="memitem:a406a42f736a7a6910058c8d68f89c777" id="r_a406a42f736a7a6910058c8d68f89c777"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a406a42f736a7a6910058c8d68f89c777">MAX_SIGNATURE_SIZE</a> = ECC_MAX_SIG_SIZE</td></tr>
-<tr class="memdesc:a406a42f736a7a6910058c8d68f89c777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest DER-encoded signature, in bytes.  <br /></td></tr>
-<tr class="memitem:a0f359df6288584ab5bdd4b23b8ee6d6d" id="r_a0f359df6288584ab5bdd4b23b8ee6d6d"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a0f359df6288584ab5bdd4b23b8ee6d6d">SHARED_SECRET_SIZE</a> = <a class="el" href="#ae3da827199d0e9dbd72b6071bedc5eb5">KEY_SIZE</a></td></tr>
-<tr class="memdesc:a0f359df6288584ab5bdd4b23b8ee6d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ECDHE shared secret length, in bytes.  <br /></td></tr>
-</table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a7fbb5355ccfc526d83b2d67eadb425c8" name="a7fbb5355ccfc526d83b2d67eadb425c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fbb5355ccfc526d83b2d67eadb425c8">&#9670;&#160;</a></span>SharedSecret</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a7fbb5355ccfc526d83b2d67eadb425c8">Lib::Crypto::WolfSSLEcc::SharedSecret</a> = std::array&lt;uint8_t, <a class="el" href="#a0f359df6288584ab5bdd4b23b8ee6d6d">SHARED_SECRET_SIZE</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>ECDHE shared secret. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d87/a02734.html#_a9">Lib::Crypto::WolfSSL</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a19debb4d33bed3fade556263320330f7" name="a19debb4d33bed3fade556263320330f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19debb4d33bed3fade556263320330f7">&#9670;&#160;</a></span>WolfSSLEcc() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSLEcc::WolfSSLEcc </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Prepares the ECC context without a key. </p>
-<p>Call <a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d" title="generateKey()">generateKey()</a> before signing, verifying or deriving a shared secret. </p>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::Voltmeter&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d13/a01473_a19debb4d33bed3fade556263320330f7_icgraph.svg" width="678" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d15/a01471.svg" width="584" height="580"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="ab882988b2ec1b1494dbe8f30062bd13e" name="ab882988b2ec1b1494dbe8f30062bd13e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab882988b2ec1b1494dbe8f30062bd13e">&#9670;&#160;</a></span>~WolfSSLEcc()</h2>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d67/a01477.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware binding and timing parameters of the voltmeter.  <a href="../../d8/d67/a01477.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0f038c75a30b2d6cd8382c776fddd2bb" id="r_a0f038c75a30b2d6cd8382c776fddd2bb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0f038c75a30b2d6cd8382c776fddd2bb">Voltmeter</a> (const <a class="el" href="../../d8/d67/a01477.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a0f038c75a30b2d6cd8382c776fddd2bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the voltmeter to the supplied ADC handle and channel and stores the update period.  <br /></td></tr>
+<tr class="memitem:aef6d6cecbcd23016ebff9b46c2cf3ce0" id="r_aef6d6cecbcd23016ebff9b46c2cf3ce0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aef6d6cecbcd23016ebff9b46c2cf3ce0">setup</a> () noexcept</td></tr>
+<tr class="memdesc:aef6d6cecbcd23016ebff9b46c2cf3ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the voltmeter and starts the ADC DMA measurement cycle.  <br /></td></tr>
+<tr class="memitem:ac23395cb420c81ab42a23e604cf05f18" id="r_ac23395cb420c81ab42a23e604cf05f18"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ac23395cb420c81ab42a23e604cf05f18">getVoltage</a> () const noexcept</td></tr>
+<tr class="memdesc:ac23395cb420c81ab42a23e604cf05f18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the last measured voltage value.  <br /></td></tr>
+<tr class="memitem:a0867be0757674c033a721efb796a8e39" id="r_a0867be0757674c033a721efb796a8e39"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0867be0757674c033a721efb796a8e39">handleValueChanged</a> (float value) noexcept</td></tr>
+<tr class="memdesc:a0867be0757674c033a721efb796a8e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a change of the measured voltage.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a299662c9e9bdb346771579418056dccf" id="r_a299662c9e9bdb346771579418056dccf"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d2/df3/a01085.html#a299662c9e9bdb346771579418056dccf">registerDevice</a> () noexcept</td></tr>
+<tr class="memdesc:a299662c9e9bdb346771579418056dccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds this device to the <a class="el" href="../../dd/dee/a01081.html" title="DeviceManager">DeviceManager</a> registry.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a5cabeda795635eeccd12383109ddf96c" id="r_a5cabeda795635eeccd12383109ddf96c"><td class="memItemLeft"><a class="el" href="../../d4/dd0/a00994.html#a2cacda540ff04115fe891c00364a43a6">Interpolator</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5cabeda795635eeccd12383109ddf96c">interpolator</a></td></tr>
+<tr class="memdesc:a5cabeda795635eeccd12383109ddf96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolator for converting ADC values to voltage.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:af5908117d248071190096967e686c5a3" id="r_af5908117d248071190096967e686c5a3"><td class="memItemLeft">class&#160;</td><td class="memItemRight"><a class="el" href="#af5908117d248071190096967e686c5a3">DeviceManager::DeviceBase</a></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0f038c75a30b2d6cd8382c776fddd2bb" name="a0f038c75a30b2d6cd8382c776fddd2bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f038c75a30b2d6cd8382c776fddd2bb">&#9670;&#160;</a></span>Voltmeter()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLEcc::~WolfSSLEcc </td>
+          <td class="memname"><a class="el" href="../../de/d13/a01473.html">Lib::BSP::Voltmeter</a>&lt; T_DERIVED &gt;::Voltmeter </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d8/d67/a01477.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Releases the wolfCrypt ECC context. </p>
-
-</div>
-</div>
-<a id="acfed6fbd26a4fb663e7aec5f8408e3f4" name="acfed6fbd26a4fb663e7aec5f8408e3f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfed6fbd26a4fb663e7aec5f8408e3f4">&#9670;&#160;</a></span>WolfSSLEcc() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSLEcc::WolfSSLEcc </td>
-          <td>(</td>
-          <td class="paramtype">const WolfSSLEcc &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: owns a wolfCrypt context holding the key. </p>
+<p>Binds the voltmeter to the supplied ADC handle and channel and stores the update period. </p>
+<p>Does not start the measurement cycle; <a class="el" href="#aef6d6cecbcd23016ebff9b46c2cf3ce0" title="setup()">setup()</a> does that.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Hardware binding and timing parameters.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>config.adc != nullptr </dd>
+<dd>
+config.periodMs &gt; 0 </dd></dl>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d13/a01473_acfed6fbd26a4fb663e7aec5f8408e3f4_cgraph.svg" width="662" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d13/a01473_a0f038c75a30b2d6cd8382c776fddd2bb_cgraph.svg" width="622" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="ab7483aff9567983a99ff831e7bfcf284" name="ab7483aff9567983a99ff831e7bfcf284"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7483aff9567983a99ff831e7bfcf284">&#9670;&#160;</a></span>WolfSSLEcc() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSLEcc::WolfSSLEcc </td>
-          <td>(</td>
-          <td class="paramtype">WolfSSLEcc &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: owns a wolfCrypt context holding the key. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d13/a01473_ab7483aff9567983a99ff831e7bfcf284_cgraph.svg" width="662" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d13/a01473_a0f038c75a30b2d6cd8382c776fddd2bb_icgraph.svg" width="590" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a17edfaa1f02adf3fdd3a15dacc409b5d" name="a17edfaa1f02adf3fdd3a15dacc409b5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17edfaa1f02adf3fdd3a15dacc409b5d">&#9670;&#160;</a></span>generateKey()</h2>
+<a id="ac23395cb420c81ab42a23e604cf05f18" name="ac23395cb420c81ab42a23e604cf05f18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac23395cb420c81ab42a23e604cf05f18">&#9670;&#160;</a></span>getVoltage()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLEcc::generateKey </td>
+          <td class="memname">float <a class="el" href="../../de/d13/a01473.html">Lib::BSP::Voltmeter</a>&lt; T_DERIVED &gt;::getVoltage </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dc/d60/a01461.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span></td><td>)</td>
-          <td></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -334,21 +246,49 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generates a new key pair, replacing any key this instance held, and attaches the generator to it. </p>
+<p>Gets the last measured voltage value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current voltage, in volts, after integration and interpolation from the raw ADC value. </dd></dl>
+
+</div>
+</div>
+<a id="a0867be0757674c033a721efb796a8e39" name="a0867be0757674c033a721efb796a8e39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0867be0757674c033a721efb796a8e39">&#9670;&#160;</a></span>handleValueChanged()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../de/d13/a01473.html">Lib::BSP::Voltmeter</a>&lt; T_DERIVED &gt;::handleValueChanged </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles a change of the measured voltage. </p>
+<p>Called from <a class="el" href="../../d2/df3/a01085.html#a3a024a69ffe1d880ec5fedbf8428726a" title="handleTickEvent()">handleTickEvent()</a> when a new voltage value, after integration and interpolation, differs from the previous measurement. This default implementation does nothing; 'T_DERIVED' overrides it to perform custom actions such as updating a display or logging the change. Not meant to be called directly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rng</td><td>Seeded random generator; must outlive the key. </td></tr>
+    <tr><td class="paramname">value</td><td>New voltage, in volts. </td></tr>
   </table>
   </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' on success, 'false' if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d87/a02734.html#a8">Lib::Crypto::WolfSSL</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="a3309d37d1e7115e7a81b80cee385c0f3" name="a3309d37d1e7115e7a81b80cee385c0f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3309d37d1e7115e7a81b80cee385c0f3">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a299662c9e9bdb346771579418056dccf" name="a299662c9e9bdb346771579418056dccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a299662c9e9bdb346771579418056dccf">&#9670;&#160;</a></span>registerDevice()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -357,283 +297,109 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp; Lib::Crypto::WolfSSLEcc::operator= </td>
+          <td class="memname">void Lib::BSP::DeviceManager::DeviceBase::registerDevice </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: owns a wolfCrypt context holding the key. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<p>Adds this device to the <a class="el" href="../../dd/dee/a01081.html" title="DeviceManager">DeviceManager</a> registry. </p>
+<p>Derived devices call it last in their constructor, once their own members are built, so the shared tick cannot reach a partly constructed object. </p>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d13/a01473_a3309d37d1e7115e7a81b80cee385c0f3_cgraph.svg" width="654" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/df3/a01085_a299662c9e9bdb346771579418056dccf_icgraph.svg" width="939" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a251a0fe821d569d4e0f785056ced42d7" name="a251a0fe821d569d4e0f785056ced42d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a251a0fe821d569d4e0f785056ced42d7">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="aef6d6cecbcd23016ebff9b46c2cf3ce0" name="aef6d6cecbcd23016ebff9b46c2cf3ce0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef6d6cecbcd23016ebff9b46c2cf3ce0">&#9670;&#160;</a></span>setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp; Lib::Crypto::WolfSSLEcc::operator= </td>
+          <td class="memname">void <a class="el" href="../../de/d13/a01473.html">Lib::BSP::Voltmeter</a>&lt; T_DERIVED &gt;::setup </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: owns a wolfCrypt context holding the key. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d13/a01473_a251a0fe821d569d4e0f785056ced42d7_cgraph.svg" width="654" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Initializes the voltmeter and starts the ADC DMA measurement cycle. </p>
+<p>Configures the bound regular channel at rank 1, opens the DMA-driven ADC port, and starts the first conversion into the internal single-slot destination buffer. After this method completes, periodic voltage measurements and change notifications occur through <a class="el" href="../../d2/df3/a01085.html#a3a024a69ffe1d880ec5fedbf8428726a" title="handleTickEvent()">handleTickEvent()</a>. </p>
 
 </div>
 </div>
-<a id="a6c37442161fbe64b4d931ffc6a6f8997" name="a6c37442161fbe64b4d931ffc6a6f8997"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c37442161fbe64b4d931ffc6a6f8997">&#9670;&#160;</a></span>sharedSecret()</h2>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="af5908117d248071190096967e686c5a3" name="af5908117d248071190096967e686c5a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5908117d248071190096967e686c5a3">&#9670;&#160;</a></span>DeviceManager::DeviceBase</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLEcc::sharedSecret </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>peerPublicKey</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#a7fbb5355ccfc526d83b2d67eadb425c8">SharedSecret</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>secret</em></span>&#160;)</td>
+          <td class="memname">friend class <a class="el" href="../../d2/df3/a01085.html">DeviceManager::DeviceBase</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Derives the ECDHE shared secret from the private key and a peer's public key. </p>
-<p>Both sides get the same secret; hash it before using it as a symmetric key.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">peerPublicKey</td><td>Instance holding the peer's key; its private part is not used. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">secret</td><td>Derived shared secret. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' on success, 'false' if either context failed to initialize, no key was generated, or wolfCrypt reported a failure. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d87/a02734.html#a10">Lib::Crypto::WolfSSL</a>.</dd>
-</dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d13/a01473_a6c37442161fbe64b4d931ffc6a6f8997_cgraph.svg" width="678" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ad2b17e604dc8ee9188ffc9a54dc87b46" name="ad2b17e604dc8ee9188ffc9a54dc87b46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2b17e604dc8ee9188ffc9a54dc87b46">&#9670;&#160;</a></span>sign()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLEcc::sign </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../dc/d60/a01461.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>signatureLength</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Signs a message digest with the private key. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">digest</td><td><a class="el" href="../../d2/d9b/a01433.html">Digest</a> to sign, such as a SHA-256 digest. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">rng</td><td>Seeded random generator. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">signature</td><td>Destination; should hold <a class="el" href="#a406a42f736a7a6910058c8d68f89c777" title="MAX_SIGNATURE_SIZE">MAX_SIGNATURE_SIZE</a> bytes. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">signatureLength</td><td>Length of the DER signature written. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' on success, 'false' if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d87/a02734.html#a11">Lib::Crypto::WolfSSL</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a22a3ef4290390aa55282ade89d4bd8e4" name="a22a3ef4290390aa55282ade89d4bd8e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22a3ef4290390aa55282ade89d4bd8e4">&#9670;&#160;</a></span>verify()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLEcc::verify </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>valid</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Verifies a signature over a message digest with the public key. </p>
-<p>A wrong signature is not an error: the check runs and reports it through 'valid'.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">signature</td><td>DER signature to verify. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">digest</td><td><a class="el" href="../../d2/d9b/a01433.html">Digest</a> the signature should cover. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">valid</td><td>'true' if the signature matches; meaningful only when this method returns 'true'. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' if the check ran, 'false' if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d87/a02734.html#a12">Lib::Crypto::WolfSSL</a>.</dd>
-</dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="ae3da827199d0e9dbd72b6071bedc5eb5" name="ae3da827199d0e9dbd72b6071bedc5eb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3da827199d0e9dbd72b6071bedc5eb5">&#9670;&#160;</a></span>KEY_SIZE</h2>
+<a id="a5cabeda795635eeccd12383109ddf96c" name="a5cabeda795635eeccd12383109ddf96c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cabeda795635eeccd12383109ddf96c">&#9670;&#160;</a></span>interpolator</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::Crypto::WolfSSLEcc::KEY_SIZE = 32U</td>
+          <td class="memname"><a class="el" href="../../d4/dd0/a00994.html#a2cacda540ff04115fe891c00364a43a6">Interpolator</a> <a class="el" href="../../de/d13/a01473.html">Lib::BSP::Voltmeter</a>&lt; T_DERIVED &gt;::interpolator</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>SECP256R1 private key and coordinate size, in bytes. </p>
-
-</div>
-</div>
-<a id="a406a42f736a7a6910058c8d68f89c777" name="a406a42f736a7a6910058c8d68f89c777"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a406a42f736a7a6910058c8d68f89c777">&#9670;&#160;</a></span>MAX_SIGNATURE_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::Crypto::WolfSSLEcc::MAX_SIGNATURE_SIZE = ECC_MAX_SIG_SIZE</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Largest DER-encoded signature, in bytes. </p>
-
-</div>
-</div>
-<a id="a0f359df6288584ab5bdd4b23b8ee6d6d" name="a0f359df6288584ab5bdd4b23b8ee6d6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f359df6288584ab5bdd4b23b8ee6d6d">&#9670;&#160;</a></span>SHARED_SECRET_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::Crypto::WolfSSLEcc::SHARED_SECRET_SIZE = <a class="el" href="#ae3da827199d0e9dbd72b6071bedc5eb5">KEY_SIZE</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>ECDHE shared secret length, in bytes. </p>
+<p>Linear interpolator for converting ADC values to voltage. </p>
 
 </div>
 </div>
@@ -647,12 +413,23 @@ Static Public Attributes</h2></td></tr>
 </div><!-- page-nav-tree -->
 </div><!-- page-nav -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../da/d98/a00870.html">Lib</a></li><li class="navelem"><a href="../../d0/de2/a00892.html">Crypto</a></li><li class="navelem"><a href="../../de/d13/a01473.html">WolfSSLEcc</a></li>
+    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../de/d13/a01473.html">Voltmeter</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

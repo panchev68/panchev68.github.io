@@ -1,10 +1,8 @@
 var a01325 =
 [
-    [ "HAL_RTC_AlarmAEventCallback", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#ga11aeff83fd498cddbed3bcddcf017e0a", null ],
-    [ "HAL_RTC_AlarmIRQHandler", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#gac185f2ce34fe566418d0978a48e0c199", null ],
-    [ "HAL_RTC_DeactivateAlarm", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#ga186d852f8aee8a4d0dfeec778be35482", null ],
-    [ "HAL_RTC_GetAlarm", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#ga4786b652ffee2d59da2c65dd78646405", null ],
-    [ "HAL_RTC_PollForAlarmAEvent", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#gaedc27fe412f45d999d74a0b98dce4d09", null ],
-    [ "HAL_RTC_SetAlarm", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#gafd78015b93b16dcb9e41a4655a7ea972", null ],
-    [ "HAL_RTC_SetAlarm_IT", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#gab66a7fec05e9d9374de95d5f61e16c16", null ]
+    [ "chipSelectPin", "dd/d5d/a01325.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
+    [ "irqPin", "dd/d5d/a01325.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
+    [ "resetPin", "dd/d5d/a01325.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
+    [ "rxGain", "dd/d5d/a01325.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
+    [ "spiHandle", "dd/d5d/a01325.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
 ];

@@ -5,14 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Timer::TimPwmOutput</title>
+<title>IAR EWARM Library: Lib::Helper::Convert::dBM</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -78,19 +70,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </ul>
 </div><!-- main-nav -->
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d85/a06231.html','../../',''); });
-</script>
-<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
@@ -111,77 +90,72 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d85/a06231.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimPwmOutput</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Convert::dBM</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Drives one PWM channel with <a class="el" href="../../dd/d85/a06231.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a>.</p>
-<p>Drives one PWM channel with <a class="el" href="../../dd/d85/a06231.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a>. The wrapper starts and stops the channel and changes its duty cycle and period through the timer registers. It has no interrupt and no task wait, so every method is safe to call from task context; <a class="el" href="../../df/da8/a05582.html#a4db830d0cdfdbd5ab01f959dd0653647" title="Lib::HAL::Timer::TimPwmOutput::setPulse()">Lib::HAL::Timer::TimPwmOutput::setPulse()</a> can also be called from an ISR, but it is not synchronized with other writers.</p>
-<p>The timer must already be configured by CubeMX in PWM mode on the chosen channel, including the prescaler and period. The wrapper does not call <b><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d61/a01350.html#ga25824b2eed564cc37a8983b99a83bdc7">HAL_TIM_PWM_Init()</a></b> and does not change the prescaler.</p>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_timpwmoutput_usage"></a>
+<p>Shows converting dBm-like values and discrete indices to percentage values with <a class="el" href="../../dd/d85/a06231.html" title="Lib::Helper::Convert::dBM">Lib::Helper::Convert::dBM</a>.</p>
+<p>Shows converting dBm-like values and discrete indices to percentage values with <a class="el" href="../../dd/d85/a06231.html" title="Lib::Helper::Convert::dBM">Lib::Helper::Convert::dBM</a>. Both helpers return a UI-ready percentage: <a class="el" href="../../d9/d54/a05684.html#a643096dbb5a2bac8d85b0d97ec12c6b5" title="Lib::Helper::Convert::dBM::toPercent()">Lib::Helper::Convert::dBM::toPercent()</a> yields <b>0</b> to <b>100</b>, and <a class="el" href="../../d9/d54/a05684.html#a6c54cf4a3250b0b2bbe743da81560081" title="Lib::Helper::Convert::dBM::toDigiPercent()">Lib::Helper::Convert::dBM::toDigiPercent()</a> yields <b>1</b> to <b>100</b>.</p>
+<p>The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs.</p>
+<h1 class="doxsection"><a class="anchor" id="lib_helper_convert_dbm_usage"></a>
 Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="timpwm_usage_hw"></a>
-Hardware and CubeMX assumptions</h2>
-<ul>
-<li>Timer (here 'TIM3') in PWM Generation mode on the channel ('TIM_CHANNEL_1'), with the output pin set as alternate function.</li>
-<li>The period (ARR) and prescaler are set in CubeMX; the wrapper only writes ARR through <a class="el" href="../../df/da8/a05582.html#a3361b7c050046b52d03fbc351fcac5a8" title="Lib::HAL::Timer::TimPwmOutput::setPeriod()">Lib::HAL::Timer::TimPwmOutput::setPeriod()</a>.</li>
-<li>Only one <a class="el" href="../../dd/d85/a06231.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a> per channel; two objects on the same channel fight over the same CCR register.</li>
-</ul>
-<h2 class="doxsection"><a class="anchor" id="timpwm_usage_basic"></a>
-Start with a duty cycle</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/db9/a00725.html">Lib/HAL/TIM/TimPwmOutput.hpp</a>&gt;</span></div>
+<h2 class="doxsection"><a class="anchor" id="dbm_usage_percent"></a>
+Floating dBm-like value to percentage</h2>
+<p><a class="el" href="../../d9/d54/a05684.html#a643096dbb5a2bac8d85b0d97ec12c6b5" title="Lib::Helper::Convert::dBM::toPercent()">Lib::Helper::Convert::dBM::toPercent()</a> maps values at or below <b>-100</b> to <b>0</b>, values at or above <b>0</b> to <b>100</b>, and every value in between to <b>100</b> plus the value.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/Helper/Convert/dBM.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startFan(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../df/da8/a05582.html">Lib::HAL::Timer::TimPwmOutput</a> fan(timHandle, <a id="_a2" name="_a2"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>);</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Pulse width in timer ticks; the duty cycle is pulse / (period + 1).</span></div>
-<div class="line">    fan.<a id="a3" name="a3"></a><a class="code hl_function" href="../../df/da8/a05582.html#a4db830d0cdfdbd5ab01f959dd0653647">setPulse</a>(fan.<a id="a4" name="a4"></a><a class="code hl_function" href="../../df/da8/a05582.html#a2f62b0d33341cf6109b01926e7c2c446">getPeriod</a>() / 2U);</div>
+<div class="line"><span class="keywordtype">void</span> printDbmAsPercent() {</div>
+<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/d54/a05684.html">Lib::Helper::Convert::dBM</a>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!fan.<a id="a5" name="a5"></a><a class="code hl_function" href="../../df/da8/a05582.html#ab30ea02f742bdd63bde16c03b3f780da">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> dbmValue = -45.0;</div>
+<div class="line">    <span class="keyword">const</span> uint8_t percent = dBM::toPercent(dbmValue);</div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;dBm &quot;</span> &lt;&lt; dbmValue &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(percent) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>; <span class="comment">// 55</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Run the output until the object is closed or destroyed.</span></div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(fan.<a id="a6" name="a6"></a><a class="code hl_function" href="../../df/da8/a05582.html#a3c2e8aa945f04a0c827147f62a2ccb5a">close</a>());</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;dBm -120 -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dBM::toPercent(-120.0)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>; <span class="comment">// 0</span></div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;dBm 0 -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dBM::toPercent(0.0)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;       <span class="comment">// 100</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aa00725_html"><div class="ttname"><a href="../../d8/db9/a00725.html">TimPwmOutput.hpp</a></div><div class="ttdoc">Configures a hardware PWM output interface using STM32 Timers.</div></div>
-<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
-<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa05582_html"><div class="ttname"><a href="../../df/da8/a05582.html">Lib::HAL::Timer::TimPwmOutput</a></div><div class="ttdoc">Controls one hardware timer channel configured under a Pulse Width Modulation profile.</div><div class="ttdef"><b>Definition</b> TimPwmOutput.hpp:35</div></div>
-<div class="ttc" id="aa05582_html_a2f62b0d33341cf6109b01926e7c2c446"><div class="ttname"><a href="../../df/da8/a05582.html#a2f62b0d33341cf6109b01926e7c2c446">Lib::HAL::Timer::TimPwmOutput::getPeriod</a></div><div class="ttdeci">uint32_t getPeriod() const noexcept</div><div class="ttdoc">Reads the timer period from the Auto-Reload Register (ARR).</div><div class="ttdef"><b>Definition</b> TimPwmOutput.hpp:166</div></div>
-<div class="ttc" id="aa05582_html_a3c2e8aa945f04a0c827147f62a2ccb5a"><div class="ttname"><a href="../../df/da8/a05582.html#a3c2e8aa945f04a0c827147f62a2ccb5a">Lib::HAL::Timer::TimPwmOutput::close</a></div><div class="ttdeci">bool close() noexcept</div><div class="ttdoc">Stops the PWM waveform on the channel.</div><div class="ttdef"><b>Definition</b> TimPwmOutput.hpp:117</div></div>
-<div class="ttc" id="aa05582_html_a4db830d0cdfdbd5ab01f959dd0653647"><div class="ttname"><a href="../../df/da8/a05582.html#a4db830d0cdfdbd5ab01f959dd0653647">Lib::HAL::Timer::TimPwmOutput::setPulse</a></div><div class="ttdeci">void setPulse(uint32_t pulseValue) noexcept</div><div class="ttdoc">Sets the pulse duration in the channel&#39;s CCRx register.</div><div class="ttdef"><b>Definition</b> TimPwmOutput.hpp:134</div></div>
-<div class="ttc" id="aa05582_html_ab30ea02f742bdd63bde16c03b3f780da"><div class="ttname"><a href="../../df/da8/a05582.html#ab30ea02f742bdd63bde16c03b3f780da">Lib::HAL::Timer::TimPwmOutput::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Starts the PWM waveform on the channel.</div><div class="ttdef"><b>Definition</b> TimPwmOutput.hpp:104</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="timpwm_usage_update"></a>
-Changing duty cycle and period at run time</h2>
-<p>Writing the pulse width while the channel runs takes effect on the next update event only if the CubeMX configuration enables preload. Without preload the new value applies immediately, which can produce a short glitch.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/db9/a00725.html">Lib/HAL/TIM/TimPwmOutput.hpp</a>&gt;</span></div>
+<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00800_html"><div class="ttname"><a href="../../df/d0e/a00800.html">dBM.hpp</a></div><div class="ttdoc">Helper utilities to convert dBm-like values or discrete indices into percentage values suitable for U...</div></div>
+<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
+<div class="ttc" id="aa05684_html"><div class="ttname"><a href="../../d9/d54/a05684.html">Lib::Helper::Convert::dBM</a></div><div class="ttdoc">Utility class providing conversions from dBm-like numeric values and discrete indices to percentage v...</div><div class="ttdef"><b>Definition</b> dBM.hpp:29</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="dbm_usage_index"></a>
+Discrete index to percentage</h2>
+<p><a class="el" href="../../d9/d54/a05684.html#a6c54cf4a3250b0b2bbe743da81560081" title="Lib::Helper::Convert::dBM::toDigiPercent()">Lib::Helper::Convert::dBM::toDigiPercent()</a> reads a lookup table of <b>100</b> entries. A negative index yields <b>100</b>, and an index of <b>100</b> or more yields <b>1</b>. Any integer type other than 'bool' and 'char' is accepted.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/Helper/Convert/dBM.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setSpeed(<a class="code hl_class" href="../../df/da8/a05582.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; fan, uint32_t percent) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">const</span> uint32_t period = fan.getPeriod();</div>
-<div class="line">    <span class="keyword">const</span> uint32_t clampedPercent = (percent &gt; 100U) ? 100U : percent;</div>
-<div class="line">    fan.setPulse((period + 1U) * clampedPercent / 100U);</div>
-<div class="line">}</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setFrequency(<a class="code hl_class" href="../../df/da8/a05582.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; fan, uint32_t periodTicks) <span class="keyword">noexcept</span> {</div>
-<div class="line">    fan.setPeriod(periodTicks);</div>
-<div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="timpwm_usage_error"></a>
-Error handling</h2>
-<p><a class="el" href="../../df/da8/a05582.html#ab30ea02f742bdd63bde16c03b3f780da" title="Lib::HAL::Timer::TimPwmOutput::open()">Lib::HAL::Timer::TimPwmOutput::open()</a> returns <b>false</b> when the HAL rejects the start request, typically because the handle is in an unexpected state or the channel was not configured in CubeMX. The wrapper does not retry.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> startOrReport(<a class="code hl_class" href="../../df/da8/a05582.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; output) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (!output.open()) {</div>
-<div class="line">        assert(!<span class="stringliteral">&quot;PWM channel failed to start; check CubeMX PWM configuration&quot;</span>);</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
+<div class="line"><span class="keywordtype">void</span> printIndexAsPercent() {</div>
+<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d9/d54/a05684.html">Lib::Helper::Convert::dBM</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> uint8_t index = 40;</div>
+<div class="line">    <span class="keyword">const</span> uint8_t lookupPercent = dBM::toDigiPercent(index);</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;index &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(index) &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(lookupPercent) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>; <span class="comment">// 88</span></div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;index -1 -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dBM::toDigiPercent(-1)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;                         <span class="comment">// 100</span></div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;index 100 -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dBM::toDigiPercent(100)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;                       <span class="comment">// 1</span></div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;index 200 -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dBM::toDigiPercent(<span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(200))) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>; <span class="comment">// 1</span></div>
 <div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

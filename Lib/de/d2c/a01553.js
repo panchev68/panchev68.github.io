@@ -1,20 +1,9 @@
 var a01553 =
 [
-    [ "Config", "de/d2c/a01553.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
-    [ "State", "de/d2c/a01553.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
-    [ "ServerBase", "de/d2c/a01553.html#a024c8654b0689cd8af2775cba7efc9ca", null ],
-    [ "~ServerBase", "de/d2c/a01553.html#a7f9293f66a2b9cd19fb019f38e743049", null ],
-    [ "getModuleInstance", "de/d2c/a01553.html#af8063d3ad104519c1331b65494eea01b", null ],
-    [ "getModulePresent", "de/d2c/a01553.html#abefa9599b01a774884c7f5f1a8578084", null ],
-    [ "getState", "de/d2c/a01553.html#a569078f4b1701fb0579efd9d8e10655d", null ],
-    [ "pause", "de/d2c/a01553.html#a069f63d8ece09ad92a97696e558290b3", null ],
-    [ "resume", "de/d2c/a01553.html#abbf1050f972e12e9f892cbb50f712298", null ],
-    [ "start", "de/d2c/a01553.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
-    [ "channelScanner", "de/d2c/a01553.html#abcae86ac3f99158551b91f88f0c88de7", null ],
-    [ "connection", "de/d2c/a01553.html#a6cc363b4c00520c96b5d228aab8301b8", null ],
-    [ "diagnostic", "de/d2c/a01553.html#a6d0f2ae6cd2c2076945ec0be3c66436c", null ],
-    [ "modemStatus", "de/d2c/a01553.html#a3aed113d4e636bcad17894b64f1e5734", null ],
-    [ "networkDiscovery", "de/d2c/a01553.html#a1936fa3a20798013fd230a5b9ae5a651", null ],
-    [ "parameters", "de/d2c/a01553.html#a3a40ec0220eb721e07f56c02a206f485", null ],
-    [ "spectrumAnalyzer", "de/d2c/a01553.html#a94172a0bb6588a8bad00411e1e6ce038", null ]
+    [ "Address", "de/d2c/a01553.html#acd001c62e8048465f6e3775f8c914bed", null ],
+    [ "FunctionCode", "de/d2c/a01553.html#aa422425db306dc5abb9819fd3a3489aa", null ],
+    [ "close", "de/d2c/a01553.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
+    [ "handleReceivedFrame", "de/d2c/a01553.html#a089411b3f62f689799fb09666cfe1ac9", null ],
+    [ "open", "de/d2c/a01553.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
+    [ "setup", "de/d2c/a01553.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
 ];

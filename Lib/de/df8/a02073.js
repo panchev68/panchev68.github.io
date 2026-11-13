@@ -1,13 +1,12 @@
 var a02073 =
 [
-    [ "State", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91", [
-      [ "UNKNOWN", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "POWER_ON", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
-      [ "BROWNOUT", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
-      [ "PIN", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
-      [ "SOFTWARE", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
-      [ "INDEPENDENT_WATCHDOG", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
-      [ "WINDOW_WATCHDOG", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
-      [ "LOW_POWER", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
-    ] ]
+    [ "ADCPortBase", "de/df8/a02073.html#a4434447d51727d630ac97c35686a4ec0", null ],
+    [ "ADCPortBase", "de/df8/a02073.html#a0ad5d61e73944a97373bfae0962076a5", null ],
+    [ "ADCPortBase", "de/df8/a02073.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
+    [ "~ADCPortBase", "de/df8/a02073.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
+    [ "close", "de/df8/a02073.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getValue", "de/df8/a02073.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "de/df8/a02073.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "de/df8/a02073.html#a283bca78dae75fbe3786f0ddfcb865f3", null ],
+    [ "operator=", "de/df8/a02073.html#a0fcfa429879f8263683b639ed5e74c96", null ]
 ];

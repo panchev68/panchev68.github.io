@@ -1,7 +1,14 @@
 var a02377 =
 [
-    [ "isInverted", "dd/d75/a02377.html#a527ce99ad9135c5ee638b478e35031de", null ],
-    [ "isPresent", "dd/d75/a02377.html#adeb1badd28d6911fa7c0422e5278feef", null ],
-    [ "name", "dd/d75/a02377.html#aa93f171d58ca1b53c5c589d81d12bf17", null ],
-    [ "source", "dd/d75/a02377.html#a13e98c772a216681f6a95506ba77144a", null ]
+    [ "EventHandler", "dd/d75/a02377.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPort", "dd/d75/a02377.html#a91ab9877db9cf87b15fe9118bf39ed92", null ],
+    [ "~USBHostPort", "dd/d75/a02377.html#a4c01d7a9aa859df6f11e05b804af766d", null ],
+    [ "close", "dd/d75/a02377.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "dd/d75/a02377.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "dd/d75/a02377.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "dd/d75/a02377.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "dd/d75/a02377.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "setEventHandler", "dd/d75/a02377.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "transfer", "dd/d75/a02377.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "dd/d75/a02377.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

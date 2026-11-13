@@ -1,9 +1,11 @@
 var a01297 =
 [
-    [ "HAL_GPIO_EXTI_Callback", "https://panchev68.github.io/HALF4/dc/d8c/a01297.html#ga0cd91fd3a9608559c2a87a8ba6cba55f", null ],
-    [ "HAL_GPIO_EXTI_IRQHandler", "https://panchev68.github.io/HALF4/dc/d8c/a01297.html#gaa5de1ec4ebdd47e3e2b786224adaa9d0", null ],
-    [ "HAL_GPIO_LockPin", "https://panchev68.github.io/HALF4/dc/d8c/a01297.html#gad03c868b4a4fb25883c1bb86d0c7e9ca", null ],
-    [ "HAL_GPIO_ReadPin", "https://panchev68.github.io/HALF4/dc/d8c/a01297.html#gaf2b819ea6551319ddd5670db318d2e4e", null ],
-    [ "HAL_GPIO_TogglePin", "https://panchev68.github.io/HALF4/dc/d8c/a01297.html#gaf5e0c89f752de5cdedcc30db068133f6", null ],
-    [ "HAL_GPIO_WritePin", "https://panchev68.github.io/HALF4/dc/d8c/a01297.html#gaf4b97bdf533a02f51ef696d43b6da5c4", null ]
+    [ "Files", "dc/d8c/a01297.html#a32bb043cb678f854f5dc82cba11ce9b5", null ],
+    [ "exists", "dc/d8c/a01297.html#acdeb9b2ee2aa50ce02467af8f47f6efc", null ],
+    [ "getFreeSpace", "dc/d8c/a01297.html#a42a3c07dbf7258cf065d87c71b70789e", null ],
+    [ "getSize", "dc/d8c/a01297.html#a55ba36349934ad39c2b7a49be4d94d9d", null ],
+    [ "getStorage", "dc/d8c/a01297.html#aaec7f88b45cdde1197ee733af3b68a87", null ],
+    [ "read", "dc/d8c/a01297.html#a784a6d3798784d545630794b0d373972", null ],
+    [ "remove", "dc/d8c/a01297.html#a4b8b47fe473b142b38344e359b9c2f6b", null ],
+    [ "write", "dc/d8c/a01297.html#a4c6ad03d6f8d73995700115490d2f279", null ]
 ];

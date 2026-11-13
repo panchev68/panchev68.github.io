@@ -1,17 +1,14 @@
 var a02133 =
 [
-    [ "Manager", "da/d67/a02133.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "da/d67/a02133.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimInputCapture", "da/d67/a02133.html#abfe70b316d617c0b779207aebafd9fb9", null ],
-    [ "~TimInputCapture", "da/d67/a02133.html#a3b3c0bd5c909651c9a4de95e888d86da", null ],
-    [ "bindWorker", "da/d67/a02133.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
-    [ "getCapture", "da/d67/a02133.html#ac7f8fd84985b45a4db579b480aaf5251", null ],
-    [ "getHandle", "da/d67/a02133.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "notifyWorkerFromISR", "da/d67/a02133.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "start", "da/d67/a02133.html#add28b2f0b32350281b1f47c4e4e25e84", null ],
-    [ "stop", "da/d67/a02133.html#a6d1e0aa45356b048a97c7390802d142a", null ],
-    [ "waitCapture", "da/d67/a02133.html#a1fc8b61efbe101b5e3e019e16d73f707", null ],
-    [ "waitCapture", "da/d67/a02133.html#a2732cd4549f6b1ca08da0cbcb462f404", null ],
-    [ "waitEvent", "da/d67/a02133.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
-    [ "void::HAL_TIM_IC_CaptureCallback", "da/d67/a02133.html#a4e452b46ec2394148f37767c37e5b374", null ]
+    [ "FlashInterface", "da/d67/a02133.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
+    [ "~FlashInterface", "da/d67/a02133.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
+    [ "FlashInterface", "da/d67/a02133.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
+    [ "FlashInterface", "da/d67/a02133.html#a1c805cbd8158ca094182032c42fa8a68", null ],
+    [ "eraseSector", "da/d67/a02133.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
+    [ "lock", "da/d67/a02133.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
+    [ "operator=", "da/d67/a02133.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
+    [ "operator=", "da/d67/a02133.html#a2e5471c04f3069860252fdf10e53270a", null ],
+    [ "unlock", "da/d67/a02133.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
+    [ "writeBuffer", "da/d67/a02133.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
+    [ "writeWord", "da/d67/a02133.html#ad771befb1be3db0d319c46507a7896ca", null ]
 ];

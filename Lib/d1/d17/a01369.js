@@ -1,6 +1,8 @@
 var a01369 =
 [
-    [ "USART_Exported_Functions_Group1", "https://panchev68.github.io/HALF4/d8/dbe/a01370.html", "d8/dbe/a01370" ],
-    [ "USART_Exported_Functions_Group2", "https://panchev68.github.io/HALF4/d6/d4d/a01371.html", "d6/d4d/a01371" ],
-    [ "USART_Exported_Functions_Group3", "https://panchev68.github.io/HALF4/df/d0b/a01372.html", "df/d0b/a01372" ]
+    [ "operator==", "d1/d17/a01369.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
+    [ "inPhaseMax", "d1/d17/a01369.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
+    [ "inPhaseMin", "d1/d17/a01369.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
+    [ "quadratureMax", "d1/d17/a01369.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
+    [ "quadratureMin", "d1/d17/a01369.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
 ];

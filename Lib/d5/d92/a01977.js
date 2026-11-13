@@ -1,16 +1,15 @@
 var a01977 =
 [
-    [ "I2CPortAsync", "d5/d92/a01977.html#a97738073feff35b79d6bb11c9bd2f351", null ],
-    [ "abort", "d5/d92/a01977.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "d5/d92/a01977.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d5/d92/a01977.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d5/d92/a01977.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "d5/d92/a01977.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
-    [ "isOpened", "d5/d92/a01977.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "isReady", "d5/d92/a01977.html#a14c943a270b82f4b76faffc2822e1408", null ],
-    [ "masterMemRead", "d5/d92/a01977.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "d5/d92/a01977.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "d5/d92/a01977.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "d5/d92/a01977.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "d5/d92/a01977.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "Error", "d5/d92/a01977.html#a9d7546738e259f57d9e431d88a39ac23", null ],
+    [ "Handlers", "d5/d92/a01977.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
+    [ "FoE", "d5/d92/a01977.html#ad7dd21bafde30794cef6a653baacc862", null ],
+    [ "~FoE", "d5/d92/a01977.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
+    [ "FoE", "d5/d92/a01977.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
+    [ "FoE", "d5/d92/a01977.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
+    [ "handle", "d5/d92/a01977.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
+    [ "isBusy", "d5/d92/a01977.html#a4463e44a62dae7598614225dc069e03c", null ],
+    [ "operator=", "d5/d92/a01977.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
+    [ "operator=", "d5/d92/a01977.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
+    [ "reset", "d5/d92/a01977.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
+    [ "setHandlers", "d5/d92/a01977.html#a39b767747ef43947171f73021ee9dd76", null ]
 ];

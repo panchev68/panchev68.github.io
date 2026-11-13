@@ -1,10 +1,17 @@
 var a01209 =
 [
-    [ "operator==", "de/d04/a01209.html#a76f4384c25c5a26bc057858df3c55875", null ],
-    [ "inPhaseAdc", "de/d04/a01209.html#ae284e93d7297470825441d553589ac6f", null ],
-    [ "inPhaseCalibration", "de/d04/a01209.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
-    [ "inPhaseReference", "de/d04/a01209.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
-    [ "quadratureAdc", "de/d04/a01209.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
-    [ "quadratureCalibration", "de/d04/a01209.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
-    [ "quadratureReference", "de/d04/a01209.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
+    [ "Config", "d5/d54/a01213.html", "d5/d54/a01213" ],
+    [ "Interface", "de/d04/a01209.html#a381267cd26262085628dc52296d42a8c", null ],
+    [ "~Interface", "de/d04/a01209.html#aef76c4d4ab040fbe9b344444f1ca1f25", null ],
+    [ "close", "de/d04/a01209.html#a4a3a734f32c1aa4414ad9067d7cb157f", null ],
+    [ "deselect", "de/d04/a01209.html#a0b87868f20232885a5b0a2ef5c8d1bcf", null ],
+    [ "lock", "de/d04/a01209.html#a1e411e237b03ed440a7c1b468aefd254", null ],
+    [ "open", "de/d04/a01209.html#ae082eeea2b4df228729740f9945df189", null ],
+    [ "read", "de/d04/a01209.html#a59f57dc88e37b6d81e93ccffd01ee9ed", null ],
+    [ "read", "de/d04/a01209.html#a50584766a7982887fc9dec5defbeb2b6", null ],
+    [ "readWrite", "de/d04/a01209.html#ae591bbd92b46b72f8129af300a672a5a", null ],
+    [ "select", "de/d04/a01209.html#ab62e9728d2b5fca07cb024578f579484", null ],
+    [ "unlock", "de/d04/a01209.html#a731e79a38afda2e92585da34cbf9b7ea", null ],
+    [ "write", "de/d04/a01209.html#af4430f4b29907dbbc81a1c4df8783b4d", null ],
+    [ "write", "de/d04/a01209.html#adfad30fd3c2f39252488033eab8522f4", null ]
 ];

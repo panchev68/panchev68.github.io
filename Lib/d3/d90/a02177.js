@@ -1,18 +1,12 @@
 var a02177 =
 [
-    [ "EventHandler", "d3/d90/a02177.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
-    [ "USBDevicePort", "d3/d90/a02177.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
-    [ "~USBDevicePort", "d3/d90/a02177.html#a380acfe834fbf265a2fdfe8e26550867", null ],
-    [ "abort", "d3/d90/a02177.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
-    [ "close", "d3/d90/a02177.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d3/d90/a02177.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d3/d90/a02177.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d3/d90/a02177.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d3/d90/a02177.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d3/d90/a02177.html#add4fb8ab17eac13116050ae3c8237acf", null ],
-    [ "send", "d3/d90/a02177.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
-    [ "setEventHandler", "d3/d90/a02177.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
-    [ "submitReceive", "d3/d90/a02177.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
-    [ "submitSend", "d3/d90/a02177.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
-    [ "waitForEvent", "d3/d90/a02177.html#ac98dece292bb17828882e8d61e803880", null ]
+    [ "Sha256Digest", "d3/d90/a02177.html#add4d9f33ecf447251492399927b27da5", null ],
+    [ "HASHPortBase", "d3/d90/a02177.html#a402b74d9e249e868a6fb33cc93e1c08a", null ],
+    [ "HASHPortBase", "d3/d90/a02177.html#a7309c31d1f17d06b52ed35b24816f30f", null ],
+    [ "HASHPortBase", "d3/d90/a02177.html#a362af192b07fc68f58947d01ce37d8f2", null ],
+    [ "~HASHPortBase", "d3/d90/a02177.html#a97d7a142991358197ddc449c08d06925", null ],
+    [ "close", "d3/d90/a02177.html#aea9707fb978271d6f7346e2eacd3d206", null ],
+    [ "open", "d3/d90/a02177.html#ae9dc794f4ad8b52c9c6ecdd73468f030", null ],
+    [ "operator=", "d3/d90/a02177.html#a50692e19ce033e67c57e1581aeff1be4", null ],
+    [ "operator=", "d3/d90/a02177.html#a910cff9c471be2aa82ac50da02b2027e", null ]
 ];

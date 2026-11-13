@@ -1,10 +1,18 @@
 var a02305 =
 [
-    [ "Integrator", "d7/dd6/a02305.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
-    [ "addValue", "d7/dd6/a02305.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
-    [ "computeResult", "d7/dd6/a02305.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
-    [ "isWindowFull", "d7/dd6/a02305.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
-    [ "operator()", "d7/dd6/a02305.html#a97085ec2f9a9f65920181fffae409662", null ],
-    [ "processValue", "d7/dd6/a02305.html#ab31a92d828aeae207fd9641101c217f5", null ],
-    [ "resetWindow", "d7/dd6/a02305.html#a78e088ee416a676679fe227ceb71b1b0", null ]
+    [ "Manager", "d7/dd6/a02305.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d7/dd6/a02305.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimOutputCompare", "d7/dd6/a02305.html#a147e928fad995991b23e7d01fe3858fd", null ],
+    [ "~TimOutputCompare", "d7/dd6/a02305.html#ad51108ace6896dca15950c5bbfd3002b", null ],
+    [ "bindWorker", "d7/dd6/a02305.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getCounter", "d7/dd6/a02305.html#afaf7f01f359523e9b30110fdbf8b175b", null ],
+    [ "getHandle", "d7/dd6/a02305.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "d7/dd6/a02305.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "setCompare", "d7/dd6/a02305.html#a14b6982f85b9be41e24886a8a1c7445d", null ],
+    [ "start", "d7/dd6/a02305.html#a63482b7958cd7171218c959b2b5df044", null ],
+    [ "stop", "d7/dd6/a02305.html#aac2ec3db8ef26406c23bea924b96997b", null ],
+    [ "waitCompare", "d7/dd6/a02305.html#a040290a0bf889a08fc0248b637b69e71", null ],
+    [ "waitCompare", "d7/dd6/a02305.html#a18804c13963fca99f8037034a6d4e7ec", null ],
+    [ "waitEvent", "d7/dd6/a02305.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d7/dd6/a02305.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
 ];

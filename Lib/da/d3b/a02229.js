@@ -1,11 +1,12 @@
 var a02229 =
 [
-    [ "getDirection", "da/d3b/a02229.html#a68335ce20908e5937884bf601bb4b90e", null ],
-    [ "getRecipient", "da/d3b/a02229.html#ae7283011b9493caacbbe6081ca48b217", null ],
-    [ "getType", "da/d3b/a02229.html#a2e0f40dbc98143b97268fbfa4a39bd3a", null ],
-    [ "index", "da/d3b/a02229.html#a042e36be625640c409835eeb4ca30c8a", null ],
-    [ "length", "da/d3b/a02229.html#a2e7f6964058d59cf704c5534a3b64cae", null ],
-    [ "request", "da/d3b/a02229.html#a8f0551503e5416ac2f9eaaa0bef3a08f", null ],
-    [ "requestType", "da/d3b/a02229.html#a87ecd5c19387a9761e2548aba162728d", null ],
-    [ "value", "da/d3b/a02229.html#aeb95036baf576efe55bbdca1daf8c864", null ]
+    [ "OSPIPortBase", "da/d3b/a02229.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "da/d3b/a02229.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "da/d3b/a02229.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "da/d3b/a02229.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "da/d3b/a02229.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "da/d3b/a02229.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "da/d3b/a02229.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "da/d3b/a02229.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "da/d3b/a02229.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

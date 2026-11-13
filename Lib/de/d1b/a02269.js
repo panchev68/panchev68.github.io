@@ -1,8 +1,16 @@
 var a02269 =
 [
-    [ "crc16", "de/d1b/a02269.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
-    [ "crc16", "de/d1b/a02269.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
-    [ "crc16", "de/d1b/a02269.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
-    [ "crc16", "de/d1b/a02269.html#abac152733a66bebdb4f969523dc9dbe1", null ],
-    [ "operator uint16_t", "de/d1b/a02269.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
+    [ "SPIPortAsync", "de/d1b/a02269.html#abce1f805b84c4710a11d7e558b87de55", null ],
+    [ "abort", "de/d1b/a02269.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
+    [ "bindBeginTransactionFunc", "de/d1b/a02269.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "de/d1b/a02269.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "de/d1b/a02269.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "de/d1b/a02269.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "de/d1b/a02269.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isBusy", "de/d1b/a02269.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "isOpened", "de/d1b/a02269.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "de/d1b/a02269.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "de/d1b/a02269.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "de/d1b/a02269.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "de/d1b/a02269.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

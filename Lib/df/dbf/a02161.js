@@ -1,13 +1,15 @@
 var a02161 =
 [
-    [ "UARTPort", "df/dbf/a02161.html#a074ec6b19b1073304ca2513d11d43247", null ],
-    [ "~UARTPort", "df/dbf/a02161.html#a864254902b1d7b3afa27a66ccd465c69", null ],
-    [ "abort", "df/dbf/a02161.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "df/dbf/a02161.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "df/dbf/a02161.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "df/dbf/a02161.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "df/dbf/a02161.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "df/dbf/a02161.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "df/dbf/a02161.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "df/dbf/a02161.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
+    [ "Config", "df/dbf/a02161.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
+    [ "Handle", "df/dbf/a02161.html#ade0f87f7318848ef033a913d2442a32e", null ],
+    [ "Port", "df/dbf/a02161.html#ad4395b6d9b762e123ebbb09110c3a99f", null ],
+    [ "~Port", "df/dbf/a02161.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
+    [ "Port", "df/dbf/a02161.html#adbcc85448b423ac51fae90db4cb3a5f4", null ],
+    [ "Port", "df/dbf/a02161.html#af0271c4483ea3f5cebaa37054062a428", null ],
+    [ "operator=", "df/dbf/a02161.html#a451d09420f0a1f54df4073cdeb4ae623", null ],
+    [ "operator=", "df/dbf/a02161.html#a8e39b404c71b26364658b90ae25a398d", null ],
+    [ "read", "df/dbf/a02161.html#adce8df0019ea415a350cf833ac481fc2", null ],
+    [ "setPullupPulldown", "df/dbf/a02161.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
+    [ "setup", "df/dbf/a02161.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
+    [ "write", "df/dbf/a02161.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
 ];

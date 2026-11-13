@@ -1,10 +1,15 @@
 var a02293 =
 [
-    [ "TerminateHandler", "dd/dc5/a02293.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
-    [ "Exception", "dd/dc5/a02293.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
-    [ "Exception", "dd/dc5/a02293.html#a25551a21318cf9b33efd57e954f91490", null ],
-    [ "Exception", "dd/dc5/a02293.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
-    [ "~Exception", "dd/dc5/a02293.html#aab05c0efba4581a5739c344c1d848c87", null ],
-    [ "operator=", "dd/dc5/a02293.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
-    [ "what", "dd/dc5/a02293.html#ad1278467b92ab31659263c92c3c292e1", null ]
+    [ "Manager", "dd/dc5/a02293.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "dd/dc5/a02293.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimEventBase", "dd/dc5/a02293.html#ae4e4ea4622adc3ec78740bcbb5de40c7", null ],
+    [ "TimEventBase", "dd/dc5/a02293.html#a5bc4465b338b0255addd68424099b237", null ],
+    [ "TimEventBase", "dd/dc5/a02293.html#a16a104e17a6f13f616dc2f0a20f42653", null ],
+    [ "~TimEventBase", "dd/dc5/a02293.html#a5005179511e8564eef47bc3da1d74925", null ],
+    [ "bindWorker", "dd/dc5/a02293.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getHandle", "dd/dc5/a02293.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "dd/dc5/a02293.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "operator=", "dd/dc5/a02293.html#a85bb87c2ebb0260e1e4503471892deaa", null ],
+    [ "operator=", "dd/dc5/a02293.html#a252859ce5916b5a86188c2929fc271a4", null ],
+    [ "waitEvent", "dd/dc5/a02293.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ]
 ];

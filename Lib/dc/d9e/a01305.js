@@ -1,7 +1,5 @@
 var a01305 =
 [
-    [ "HAL_I2S_DeInit", "https://panchev68.github.io/HALF4/dc/d9e/a01305.html#ga9119fe0f644a9f011415afaf8661232a", null ],
-    [ "HAL_I2S_Init", "https://panchev68.github.io/HALF4/dc/d9e/a01305.html#ga605f23b9dc1f0979f4b59702fb8d058d", null ],
-    [ "HAL_I2S_MspDeInit", "https://panchev68.github.io/HALF4/dc/d9e/a01305.html#ga7ef92677a8ff770f754d4dfc2aceb39b", null ],
-    [ "HAL_I2S_MspInit", "https://panchev68.github.io/HALF4/dc/d9e/a01305.html#ga5033142a7bf0de4513782bbee1823a97", null ]
+    [ "baseAddress", "dc/d9e/a01305.html#ab922219fc16e46857f76b5a34c05ea47", null ],
+    [ "sizeBytes", "dc/d9e/a01305.html#a0bee61cd2a7be7f180c426bb8c9eee17", null ]
 ];

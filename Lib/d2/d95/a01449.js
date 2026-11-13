@@ -1,14 +1,12 @@
 var a01449 =
 [
-    [ "PasswordAuthHandler", "d2/d95/a01449.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
-    [ "WolfSSHServerContext", "d2/d95/a01449.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
-    [ "~WolfSSHServerContext", "d2/d95/a01449.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
-    [ "WolfSSHServerContext", "d2/d95/a01449.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
-    [ "WolfSSHServerContext", "d2/d95/a01449.html#a41d71d3b7597c69631a274d39e0fa345", null ],
-    [ "native", "d2/d95/a01449.html#a188293485b26e63785504b3f63d346fe", null ],
-    [ "operator=", "d2/d95/a01449.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
-    [ "operator=", "d2/d95/a01449.html#ac889915b8b230867843bb316a9bad1fc", null ],
-    [ "setBanner", "d2/d95/a01449.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
-    [ "setPasswordAuthHandler", "d2/d95/a01449.html#a72301d8027efc740d10b7d0d660c198f", null ],
-    [ "usePrivateKey", "d2/d95/a01449.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
+    [ "debounceDuration", "d2/d95/a01449.html#a645398d022257454438fc47ce15fcdb9", null ],
+    [ "height", "d2/d95/a01449.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
+    [ "rotationFlipped", "d2/d95/a01449.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
+    [ "rotationNormal", "d2/d95/a01449.html#aa5b75686141869dfbbfb78febc4822aa", null ],
+    [ "width", "d2/d95/a01449.html#a36fe0a7ac1def2933216417d9c50860b", null ],
+    [ "xMax", "d2/d95/a01449.html#ad7faa3502a791114bf456c98c0dbf644", null ],
+    [ "xMin", "d2/d95/a01449.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
+    [ "yMax", "d2/d95/a01449.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
+    [ "yMin", "d2/d95/a01449.html#acda2f52d642f3f712c72b8046d83fa30", null ]
 ];

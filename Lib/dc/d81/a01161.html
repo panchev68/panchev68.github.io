@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::BSP::RFID::MFRC522Config</title>
+<title>IAR EWARM Library: Lib::BSP::EEPROM::FlashEmulation</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -111,110 +111,553 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/d81/a01161.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::RFID::MFRC522Config</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::EEPROM::FlashEmulation<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Hardware configuration parameters used to initialize the <a class="el" href="../../d9/d65/a01145.html" title="Driver for the MFRC522 RFID reader connected over SPI, dispatched through CRTP instead of virtual cal...">MFRC522</a> driver. </p>
-<p>Kept standalone so the transport and helper layers (<a class="el" href="../../d8/d92/a01165.html" title="Low-level hardware adapter used by MFRC522 helpers.">Interface</a>, <a class="el" href="../../d9/d25/a01157.html" title="Low-level access layer for the MFRC522 chipset.">Chipset</a>, <a class="el" href="../../d8/d02/a01149.html" title="Card (Proximity Integrated Circuit Card) helper for card authentication and communication.">Card</a>, <a class="el" href="../../d7/daf/a01169.html" title="Helper for Mifare Classic card operations on the MFRC522 chipset.">Mifare</a>) can depend on it directly instead of on the enclosing <a class="el" href="../../d9/d65/a01145.html" title="Driver for the MFRC522 RFID reader connected over SPI, dispatched through CRTP instead of virtual cal...">MFRC522</a> class, which lets <a class="el" href="../../d9/d65/a01145.html" title="Driver for the MFRC522 RFID reader connected over SPI, dispatched through CRTP instead of virtual cal...">MFRC522</a> hold them as plain value members. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::RFID::MFRC522Config:</div>
+<div class="textblock"><p>Stores 16-bit keyed records in two erasable flash pages, appended as a log and compacted when a page fills up. </p>
+<p>Every record is a 16-byte header followed by its data, padded to a multiple of 16 bytes, because the STM32U5 programs flash in quadwords. The data is written first and the header last, so a power loss leaves an erased header and the record is simply absent. The newest record of a key wins. A page holds a 16-byte page header with a sequence number, written last during compaction, so the page with the higher sequence is the active one. Reads go straight to the memory-mapped flash; writes and erases use the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a>.</p>
+<p>Access is by key, not by address: compaction moves the live records, so an offset would not stay valid. Each key has its own length, from 1 to 'MAX_VALUE_SIZE' bytes, stored in its record header; a new value of a different length simply replaces the old one. A value equal to the stored one is not written again.</p>
+<p>Each write of a changed value consumes flash space. When the active page is full, the latest value of every key is copied to the other page, and the old page is erased before the next compaction reuses it. The live values of all keys together must fit into one page; dead records do not count, because compaction drops them.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Erasing and programming <b>stall the CPU</b> while code in the same flash bank is fetched. Keep the emulated pages in a bank that holds no code; the two pages of the last sector pair of bank 2 are a suitable choice.</dd>
+<dd>
+Call only from task context: the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> polls the flash until each operation completes.</dd></dl>
+<dl class="section important"><dt>Important</dt><dd>The linker script must not place code or constants in the emulated pages. Lower the end of the ROM region below the base address, e.g. '<b>ICFEDIT_region_ROM_end</b> = 0x081FBFFF' for base 0x081FC000. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/d07/a02892.html#_a0">Lib::BSP::EEPROM::FlashEmulation</a>.</dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::EEPROM::FlashEmulation:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/de8/a01159.svg" width="254" height="423"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/de8/a01159.svg" width="278" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a02e377e2bbab6d0d5a82dff892ac3cdb" id="r_a02e377e2bbab6d0d5a82dff892ac3cdb"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a02e377e2bbab6d0d5a82dff892ac3cdb">rxGain</a></td></tr>
-<tr class="memdesc:a02e377e2bbab6d0d5a82dff892ac3cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receiver gain applied to the antenna during initialization.  <br /></td></tr>
-<tr class="memitem:a6432ab2f67c87e8cc40549c8987e7e5a" id="r_a6432ab2f67c87e8cc40549c8987e7e5a"><td class="memItemLeft"><a class="el" href="../../d8/d91/a00410.html#acd389cc92a6a175118816d170af42e10">PinHandle</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6432ab2f67c87e8cc40549c8987e7e5a">resetPin</a></td></tr>
-<tr class="memdesc:a6432ab2f67c87e8cc40549c8987e7e5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin used to hardware-reset the chip.  <br /></td></tr>
-<tr class="memitem:a5495ff29a821a220cb7ef6ff5a30a067" id="r_a5495ff29a821a220cb7ef6ff5a30a067"><td class="memItemLeft"><a class="el" href="../../d8/d91/a00410.html#acd389cc92a6a175118816d170af42e10">PinHandle</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5495ff29a821a220cb7ef6ff5a30a067">chipSelectPin</a></td></tr>
-<tr class="memdesc:a5495ff29a821a220cb7ef6ff5a30a067"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin used as the SPI chip-select line.  <br /></td></tr>
-<tr class="memitem:a7fc0e0d08408bc4eb2195853769bd205" id="r_a7fc0e0d08408bc4eb2195853769bd205"><td class="memItemLeft"><a class="el" href="../../d8/d91/a00410.html#acd389cc92a6a175118816d170af42e10">PinHandle</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7fc0e0d08408bc4eb2195853769bd205">irqPin</a></td></tr>
-<tr class="memdesc:a7fc0e0d08408bc4eb2195853769bd205"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin connected to the chip's IRQ line.  <br /></td></tr>
-<tr class="memitem:a3b44ed084dbe807b7d6d32de433664fd" id="r_a3b44ed084dbe807b7d6d32de433664fd"><td class="memItemLeft">SPI_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="#a3b44ed084dbe807b7d6d32de433664fd">spiHandle</a></td></tr>
-<tr class="memdesc:a3b44ed084dbe807b7d6d32de433664fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI peripheral handle used for communication.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0e75388b44cd284464c96fb9a0c7fc1f" id="r_a0e75388b44cd284464c96fb9a0c7fc1f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> (uint32_t baseAddress) noexcept</td></tr>
+<tr class="memdesc:a0e75388b44cd284464c96fb9a0c7fc1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the emulation to its flash area without touching the flash.  <br /></td></tr>
+<tr class="memitem:af5de4a71fd88ee41e580deb1e4a8b4e1" id="r_af5de4a71fd88ee41e580deb1e4a8b4e1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af5de4a71fd88ee41e580deb1e4a8b4e1">FlashEmulation</a> (const FlashEmulation &amp;other)=delete</td></tr>
+<tr class="memdesc:af5de4a71fd88ee41e580deb1e4a8b4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:a65b04ccc40b81a011eafa3dd70ccd280" id="r_a65b04ccc40b81a011eafa3dd70ccd280"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a65b04ccc40b81a011eafa3dd70ccd280">FlashEmulation</a> (FlashEmulation &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a65b04ccc40b81a011eafa3dd70ccd280"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:ac176ad5bc133ed1cdbc6b3e8e1e402e4" id="r_ac176ad5bc133ed1cdbc6b3e8e1e402e4"><td class="memItemLeft"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac176ad5bc133ed1cdbc6b3e8e1e402e4">operator=</a> (const <a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:ac176ad5bc133ed1cdbc6b3e8e1e402e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:abd98d1e0a541c569e9a190459fdce6c8" id="r_abd98d1e0a541c569e9a190459fdce6c8"><td class="memItemLeft"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abd98d1e0a541c569e9a190459fdce6c8">operator=</a> (<a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:abd98d1e0a541c569e9a190459fdce6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:a8947a65dd4bc123a43147aadad6d5328" id="r_a8947a65dd4bc123a43147aadad6d5328"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8947a65dd4bc123a43147aadad6d5328">open</a> () noexcept</td></tr>
+<tr class="memdesc:a8947a65dd4bc123a43147aadad6d5328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the active page, or formats the area if it holds no valid page header.  <br /></td></tr>
+<tr class="memitem:af34a366cd1952a3ba03b96af1976a0f6" id="r_af34a366cd1952a3ba03b96af1976a0f6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af34a366cd1952a3ba03b96af1976a0f6">close</a> () noexcept</td></tr>
+<tr class="memdesc:af34a366cd1952a3ba03b96af1976a0f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the mutex; the stored data stays in flash.  <br /></td></tr>
+<tr class="memitem:ab3c80c5ea91d07003acec0528aeea7af" id="r_ab3c80c5ea91d07003acec0528aeea7af"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab3c80c5ea91d07003acec0528aeea7af">isOpen</a> () const noexcept</td></tr>
+<tr class="memdesc:ab3c80c5ea91d07003acec0528aeea7af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the area is open.  <br /></td></tr>
+<tr class="memitem:a3f58c8364b14419a8582e02eb79e613a" id="r_a3f58c8364b14419a8582e02eb79e613a"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a3f58c8364b14419a8582e02eb79e613a">read</a> (uint16_t key, std::span&lt; uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a3f58c8364b14419a8582e02eb79e613a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the latest value stored for a key.  <br /></td></tr>
+<tr class="memitem:a063c0d9941fea672cb74a10cb66f281e" id="r_a063c0d9941fea672cb74a10cb66f281e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a063c0d9941fea672cb74a10cb66f281e">write</a> (uint16_t key, std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a063c0d9941fea672cb74a10cb66f281e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a value under a key, replacing the previous one.  <br /></td></tr>
+<tr class="memitem:a9edbfceb64b451800f603d97a165a446" id="r_a9edbfceb64b451800f603d97a165a446"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a9edbfceb64b451800f603d97a165a446">getFreeSpace</a> () noexcept</td></tr>
+<tr class="memdesc:a9edbfceb64b451800f603d97a165a446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the bytes that can still be appended to the active page without a compaction.  <br /></td></tr>
+<tr class="memitem:aa1c59b98d1ce881640ce49d0d8b3e3ee" id="r_aa1c59b98d1ce881640ce49d0d8b3e3ee"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aa1c59b98d1ce881640ce49d0d8b3e3ee">getUsedSpace</a> () noexcept</td></tr>
+<tr class="memdesc:aa1c59b98d1ce881640ce49d0d8b3e3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the bytes occupied by records in the active page, including dead ones.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a3edc6595a737736ff655b35ef469897a" id="r_a3edc6595a737736ff655b35ef469897a"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a3edc6595a737736ff655b35ef469897a">MAX_KEY</a> = 0xFFFEU</td></tr>
+<tr class="memdesc:a3edc6595a737736ff655b35ef469897a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest key; 0xFFFF marks erased flash.  <br /></td></tr>
+<tr class="memitem:a1cc956f86b6660f45d50d2878a7ba181" id="r_a1cc956f86b6660f45d50d2878a7ba181"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a1cc956f86b6660f45d50d2878a7ba181">PAGE_COUNT</a> = 2U</td></tr>
+<tr class="memdesc:a1cc956f86b6660f45d50d2878a7ba181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flash pages of the emulated area.  <br /></td></tr>
+<tr class="memitem:a6f3e645eda23ddfc91dd077e61f15e95" id="r_a6f3e645eda23ddfc91dd077e61f15e95"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a6f3e645eda23ddfc91dd077e61f15e95">MAX_VALUE_SIZE</a> = FLASH_PAGE_SIZE - 32U</td></tr>
+<tr class="memdesc:a6f3e645eda23ddfc91dd077e61f15e95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest value: one page minus the two headers.  <br /></td></tr>
 </table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0e75388b44cd284464c96fb9a0c7fc1f" name="a0e75388b44cd284464c96fb9a0c7fc1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e75388b44cd284464c96fb9a0c7fc1f">&#9670;&#160;</a></span>FlashEmulation() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EEPROM::FlashEmulation::FlashEmulation </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>baseAddress</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds the emulation to its flash area without touching the flash. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">baseAddress</td><td>First byte of the first page; must be aligned to a flash page and leave room for the second page in the same bank. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d81/a01161_a0e75388b44cd284464c96fb9a0c7fc1f_icgraph.svg" width="614" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af5de4a71fd88ee41e580deb1e4a8b4e1" name="af5de4a71fd88ee41e580deb1e4a8b4e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5de4a71fd88ee41e580deb1e4a8b4e1">&#9670;&#160;</a></span>FlashEmulation() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EEPROM::FlashEmulation::FlashEmulation </td>
+          <td>(</td>
+          <td class="paramtype">const FlashEmulation &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the instance owns a mutex and the state of one flash area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d81/a01161_af5de4a71fd88ee41e580deb1e4a8b4e1_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a65b04ccc40b81a011eafa3dd70ccd280" name="a65b04ccc40b81a011eafa3dd70ccd280"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65b04ccc40b81a011eafa3dd70ccd280">&#9670;&#160;</a></span>FlashEmulation() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EEPROM::FlashEmulation::FlashEmulation </td>
+          <td>(</td>
+          <td class="paramtype">FlashEmulation &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the instance owns a mutex and the state of one flash area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d81/a01161_a65b04ccc40b81a011eafa3dd70ccd280_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="af34a366cd1952a3ba03b96af1976a0f6" name="af34a366cd1952a3ba03b96af1976a0f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af34a366cd1952a3ba03b96af1976a0f6">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::BSP::EEPROM::FlashEmulation::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Releases the mutex; the stored data stays in flash. </p>
+
+</div>
+</div>
+<a id="a9edbfceb64b451800f603d97a165a446" name="a9edbfceb64b451800f603d97a165a446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9edbfceb64b451800f603d97a165a446">&#9670;&#160;</a></span>getFreeSpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulation::getFreeSpace </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the bytes that can still be appended to the active page without a compaction. </p>
+<p>Dead records are not reclaimed here, so this value only falls until the next compaction. A damaged record at the end of the page makes the page unclean; then the space is reported as 0, because new records are refused until compaction.</p>
+<dl class="section return"><dt>Returns</dt><dd>Free bytes of the active page, or 0 if the area is not open. </dd></dl>
+
+</div>
+</div>
+<a id="aa1c59b98d1ce881640ce49d0d8b3e3ee" name="aa1c59b98d1ce881640ce49d0d8b3e3ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c59b98d1ce881640ce49d0d8b3e3ee">&#9670;&#160;</a></span>getUsedSpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulation::getUsedSpace </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the bytes occupied by records in the active page, including dead ones. </p>
+<p>The value counts every appended record, so it grows with each changed write until compaction copies the live values to the other page and drops the rest. The live values alone are usually smaller.</p>
+<dl class="section return"><dt>Returns</dt><dd>Used bytes of the active page, or 0 if the area is not open. </dd></dl>
+
+</div>
+</div>
+<a id="ab3c80c5ea91d07003acec0528aeea7af" name="ab3c80c5ea91d07003acec0528aeea7af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3c80c5ea91d07003acec0528aeea7af">&#9670;&#160;</a></span>isOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::EEPROM::FlashEmulation::isOpen </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tells whether the area is open. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="#a8947a65dd4bc123a43147aadad6d5328" title="open()">open()</a> and <a class="el" href="#af34a366cd1952a3ba03b96af1976a0f6" title="close()">close()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a8947a65dd4bc123a43147aadad6d5328" name="a8947a65dd4bc123a43147aadad6d5328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8947a65dd4bc123a43147aadad6d5328">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::EEPROM::FlashEmulation::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds the active page, or formats the area if it holds no valid page header. </p>
+<p>Formatting erases both pages, so it discards any data the area held before.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the area is ready for <a class="el" href="#a3f58c8364b14419a8582e02eb79e613a" title="read()">read()</a> and <a class="el" href="#a063c0d9941fea672cb74a10cb66f281e" title="write()">write()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ac176ad5bc133ed1cdbc6b3e8e1e402e4" name="ac176ad5bc133ed1cdbc6b3e8e1e402e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac176ad5bc133ed1cdbc6b3e8e1e402e4">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp; Lib::BSP::EEPROM::FlashEmulation::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the instance owns a mutex and the state of one flash area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d81/a01161_ac176ad5bc133ed1cdbc6b3e8e1e402e4_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abd98d1e0a541c569e9a190459fdce6c8" name="abd98d1e0a541c569e9a190459fdce6c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd98d1e0a541c569e9a190459fdce6c8">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp; Lib::BSP::EEPROM::FlashEmulation::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the instance owns a mutex and the state of one flash area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d81/a01161_abd98d1e0a541c569e9a190459fdce6c8_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3f58c8364b14419a8582e02eb79e613a" name="a3f58c8364b14419a8582e02eb79e613a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f58c8364b14419a8582e02eb79e613a">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulation::read </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads the latest value stored for a key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Record key, 0 to <a class="el" href="#a3edc6595a737736ff655b35ef469897a" title="MAX_KEY">MAX_KEY</a>. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; receives at most its size of the stored bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Length of the stored value, or 0 if the key does not exist or the area is not open. A value longer than the buffer is cut, so compare the result with the buffer size. </dd></dl>
+
+</div>
+</div>
+<a id="a063c0d9941fea672cb74a10cb66f281e" name="a063c0d9941fea672cb74a10cb66f281e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063c0d9941fea672cb74a10cb66f281e">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::EEPROM::FlashEmulation::write </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores a value under a key, replacing the previous one. </p>
+<p>A value equal to the stored one is not written again, which saves flash endurance.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Record key, 0 to <a class="el" href="#a3edc6595a737736ff655b35ef469897a" title="MAX_KEY">MAX_KEY</a>. </td></tr>
+    <tr><td class="paramname">data</td><td>Value to store, 1 to <a class="el" href="#a6f3e645eda23ddfc91dd077e61f15e95" title="MAX_VALUE_SIZE">MAX_VALUE_SIZE</a> bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the value is stored, or already was; <b>false</b> if the area is not open, the value is too large or the flash failed. </dd></dl>
+
+</div>
+</div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a5495ff29a821a220cb7ef6ff5a30a067" name="a5495ff29a821a220cb7ef6ff5a30a067"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5495ff29a821a220cb7ef6ff5a30a067">&#9670;&#160;</a></span>chipSelectPin</h2>
+<a id="a3edc6595a737736ff655b35ef469897a" name="a3edc6595a737736ff655b35ef469897a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3edc6595a737736ff655b35ef469897a">&#9670;&#160;</a></span>MAX_KEY</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d91/a00410.html#acd389cc92a6a175118816d170af42e10">PinHandle</a> Lib::BSP::RFID::MFRC522Config::chipSelectPin</td>
+          <td class="memname">uint16_t Lib::BSP::EEPROM::FlashEmulation::MAX_KEY = 0xFFFEU</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>GPIO pin used as the SPI chip-select line. </p>
+<p>Largest key; 0xFFFF marks erased flash. </p>
 
 </div>
 </div>
-<a id="a7fc0e0d08408bc4eb2195853769bd205" name="a7fc0e0d08408bc4eb2195853769bd205"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fc0e0d08408bc4eb2195853769bd205">&#9670;&#160;</a></span>irqPin</h2>
+<a id="a6f3e645eda23ddfc91dd077e61f15e95" name="a6f3e645eda23ddfc91dd077e61f15e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f3e645eda23ddfc91dd077e61f15e95">&#9670;&#160;</a></span>MAX_VALUE_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d91/a00410.html#acd389cc92a6a175118816d170af42e10">PinHandle</a> Lib::BSP::RFID::MFRC522Config::irqPin</td>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulation::MAX_VALUE_SIZE = FLASH_PAGE_SIZE - 32U</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>GPIO pin connected to the chip's IRQ line. </p>
+<p>Largest value: one page minus the two headers. </p>
 
 </div>
 </div>
-<a id="a6432ab2f67c87e8cc40549c8987e7e5a" name="a6432ab2f67c87e8cc40549c8987e7e5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6432ab2f67c87e8cc40549c8987e7e5a">&#9670;&#160;</a></span>resetPin</h2>
+<a id="a1cc956f86b6660f45d50d2878a7ba181" name="a1cc956f86b6660f45d50d2878a7ba181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cc956f86b6660f45d50d2878a7ba181">&#9670;&#160;</a></span>PAGE_COUNT</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d91/a00410.html#acd389cc92a6a175118816d170af42e10">PinHandle</a> Lib::BSP::RFID::MFRC522Config::resetPin</td>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulation::PAGE_COUNT = 2U</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>GPIO pin used to hardware-reset the chip. </p>
-
-</div>
-</div>
-<a id="a02e377e2bbab6d0d5a82dff892ac3cdb" name="a02e377e2bbab6d0d5a82dff892ac3cdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02e377e2bbab6d0d5a82dff892ac3cdb">&#9670;&#160;</a></span>rxGain</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t Lib::BSP::RFID::MFRC522Config::rxGain</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Receiver gain applied to the antenna during initialization. </p>
-
-</div>
-</div>
-<a id="a3b44ed084dbe807b7d6d32de433664fd" name="a3b44ed084dbe807b7d6d32de433664fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b44ed084dbe807b7d6d32de433664fd">&#9670;&#160;</a></span>spiHandle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">SPI_HandleTypeDef* Lib::BSP::RFID::MFRC522Config::spiHandle</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>SPI peripheral handle used for communication. </p>
+<p>Flash pages of the emulated area. </p>
 
 </div>
 </div>
@@ -228,12 +671,23 @@ Public Attributes</h2></td></tr>
 </div><!-- page-nav-tree -->
 </div><!-- page-nav -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../da/d98/a00870.html">Lib</a></li><li class="navelem"><a href="../../dd/de1/a00871.html">BSP</a></li><li class="navelem"><a href="../../df/d41/a00881.html">RFID</a></li><li class="navelem"><a href="../../dc/d81/a01161.html">MFRC522Config</a></li>
+    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../d3/daa/a00996.html">EEPROM</a></li><li class="navelem"><a href="../../dc/d81/a01161.html">FlashEmulation</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

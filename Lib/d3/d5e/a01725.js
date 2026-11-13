@@ -1,8 +1,9 @@
 var a01725 =
 [
-    [ "Frame0x88", "d3/d5e/a01725.html#a8cdabdda134adaf1796641f68581f1c8", null ],
-    [ "atCommand", "d3/d5e/a01725.html#aba3a41028c41109166efaf024c9dca74", null ],
-    [ "data", "d3/d5e/a01725.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
-    [ "frameId", "d3/d5e/a01725.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
-    [ "status", "d3/d5e/a01725.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
+    [ "Channel", "d3/d5e/a01725.html#a22027e4571b9cc2d46357b22bd28e66f", null ],
+    [ "Channel", "d3/d5e/a01725.html#a5e50f722347f9ed9f0522656753bf4c9", null ],
+    [ "getConnectionQuality", "d3/d5e/a01725.html#a9c351291c3bb7c963270eae54a16597d", null ],
+    [ "operator uint8_t", "d3/d5e/a01725.html#ae2502b1dd2b99b51b8fbf42035379fd5", null ],
+    [ "operator=", "d3/d5e/a01725.html#a3ca558416faa66aa9c8c1957512b8f2c", null ],
+    [ "setConnectionQuality", "d3/d5e/a01725.html#af7e5e84d1697e43122a6e086007d9789", null ]
 ];

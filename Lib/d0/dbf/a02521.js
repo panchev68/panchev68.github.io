@@ -1,14 +1,12 @@
 var a02521 =
 [
-    [ "Label", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821e", [
-      [ "RUNNING", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "READY", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "BLOCKED", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
-      [ "SUSPENDED", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
-      [ "DELETED", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
-      [ "INVALID", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
-    ] ],
-    [ "State", "d0/dbf/a02521.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
-    [ "get", "d0/dbf/a02521.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
-    [ "operator Label", "d0/dbf/a02521.html#a3c30086da2d01872c5cdccdba1874c74", null ]
+    [ "getLocalTransition", "d0/dbf/a02521.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
+    [ "getOffset", "d0/dbf/a02521.html#a5b83c2cf38318866e23774caee880570", null ],
+    [ "isValid", "d0/dbf/a02521.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
+    [ "dayOfWeek", "d0/dbf/a02521.html#a71011003fee57e0e6420889a983146f2", null ],
+    [ "hour", "d0/dbf/a02521.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
+    [ "month", "d0/dbf/a02521.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
+    [ "offsetMinutes", "d0/dbf/a02521.html#ade82abb20d81fccacc264075f09a1667", null ],
+    [ "ruleName", "d0/dbf/a02521.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
+    [ "weekOfMonth", "d0/dbf/a02521.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
 ];

@@ -1,9 +1,5 @@
 var a02445 =
 [
-    [ "CriticalSectionFromISR", "dd/d26/a02445.html#a94cda37183a61f5455dc5e641bcb5109", null ],
-    [ "~CriticalSectionFromISR", "dd/d26/a02445.html#a54e463ae72e1238776194c4cb941357b", null ],
-    [ "CriticalSectionFromISR", "dd/d26/a02445.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
-    [ "CriticalSectionFromISR", "dd/d26/a02445.html#a9d04ea07249455e75c39ce5450c33028", null ],
-    [ "operator=", "dd/d26/a02445.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
-    [ "operator=", "dd/d26/a02445.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
+    [ "crc8", "dd/d26/a02445.html#a6eb0c9200532e08815584e5b040283f9", null ],
+    [ "operator uint8_t", "dd/d26/a02445.html#a17512f695eb94c12c81163d5335f3ef2", null ]
 ];

@@ -1,7 +1,5 @@
 var a01705 =
 [
-    [ "operator std::vector< uint8_t >", "d9/dc5/a01705.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
-    [ "view", "d9/dc5/a01705.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
-    [ "data", "d9/dc5/a01705.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
-    [ "size", "d9/dc5/a01705.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
+    [ "firmwareVersion", "d9/dc5/a01705.html#a8a213038d3ef462ae46b408da218a1eb", null ],
+    [ "hardwareVersion", "d9/dc5/a01705.html#adfbefffe4f1c4d33955752b2c3cd85e5", null ]
 ];

@@ -5,14 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Reset</title>
+<title>IAR EWARM Library: Lib::HAL::Timer::TimOutputCompare</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -78,19 +70,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </ul>
 </div><!-- main-nav -->
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d65/a06215.html','../../',''); });
-</script>
-<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
@@ -111,50 +90,92 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d65/a06215.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::Reset</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOutputCompare</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Reads the cause of the last reset with <a class="el" href="../../da/d88/a05510.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> and requests a system reset with <a class="el" href="../../da/d88/a05510.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">Lib::HAL::Reset::resetSystem()</a>.</p>
-<p>Reads the cause of the last reset with <a class="el" href="../../da/d88/a05510.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> and requests a system reset with <a class="el" href="../../da/d88/a05510.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">.Both</a> members are static; the class has no state and no instance. <a class="el" href="../../da/d88/a05510.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> clears the RCC reset flags on every call, so read it once, early in start-up, and keep the result. A later call reports <a class="el" href="../../da/d88/a05510.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3" title="Lib::HAL::Reset::State::UNKNOWN">Lib::HAL::Reset::State::UNKNOWN</a> unless a new reset has occurred since.</p>
-<p>The class depends only on the CMSIS and RCC definitions, so it has no HAL module guard and needs no module enabled in 'stm32f4xx_hal_conf.h'. The reset flags it maps differ between families; 'RCC_FLAG_PORRST' is used only where the device defines it.</p>
-<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="../../da/d88/a05510.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">Lib::HAL::Reset::resetSystem()</a> does not return. Flush logs, close files and stop peripherals that must finish first, because the reset discards everything else.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_reset_usage"></a>
+<p>Generates a timed event with <a class="el" href="../../d0/d65/a06215.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>.</p>
+<p>Generates a timed event with <a class="el" href="../../d0/d65/a06215.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>. The timer raises an interrupt when its counter matches the compare value of the channel, which wakes the task blocked in <a class="el" href="../../d7/d1c/a05564.html#a18804c13963fca99f8037034a6d4e7ec" title="Lib::HAL::Timer::TimOutputCompare::waitCompare()">Lib::HAL::Timer::TimOutputCompare::waitCompare()</a>. The task then sets the next compare value with <a class="el" href="../../d7/d1c/a05564.html#a14b6982f85b9be41e24886a8a1c7445d" title="Lib::HAL::Timer::TimOutputCompare::setCompare()">Lib::HAL::Timer::TimOutputCompare::setCompare()</a>. Call <a class="el" href="../../d7/d1c/a05564.html#a63482b7958cd7171218c959b2b5df044" title="Lib::HAL::Timer::TimOutputCompare::start()">Lib::HAL::Timer::TimOutputCompare::start()</a> from the waiting task.</p>
+<p>The header defines the HAL callback <b>HAL_TIM_OC_DelayElapsedCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; the compare value is changed in the task.</p>
+<h1 class="doxsection"><a class="anchor" id="lib_hal_timoutputcompare_usage"></a>
 Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="reset_usage_cause"></a>
-Report the cause of the last reset</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d9b/a00680.html">Lib/HAL/Reset.hpp</a>&gt;</span></div>
+<h2 class="doxsection"><a class="anchor" id="timoc_usage_hw"></a>
+Hardware and CubeMX assumptions</h2>
+<ul>
+<li>Timer channel (here 'TIM4', 'TIM_CHANNEL_2') set to Output Compare mode (Timing or Toggle) with its interrupt enabled in the NVIC. The output pin is optional for this use.</li>
+<li>Timer clock and prescaler are set in CubeMX; the compare value is in timer ticks.</li>
+<li>One <a class="el" href="../../d0/d65/a06215.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a> per timer handle.</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="timoc_usage_delay"></a>
+Scheduling a compare event in a task</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d7c/a00722.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_enumeration" href="../../da/d88/a05510.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a> bootReset() noexcept {</div>
-<div class="line">    <span class="comment">// Call once from start-up, before any watchdog is started.</span></div>
-<div class="line">    <span class="keywordflow">return</span> <a id="a1" name="a1"></a><a class="code hl_function" href="../../da/d88/a05510.html#a1cb344701ab8751dd646298cb07d5957">Lib::HAL::Reset::getResetState</a>();</div>
-<div class="line">}</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> wasWatchdogReset(<a class="code hl_enumeration" href="../../da/d88/a05510.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a> state) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> state == <a id="_a2" name="_a2"></a><a class="code hl_enumvalue" href="../../da/d88/a05510.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9">Lib::HAL::Reset::State::INDEPENDENT_WATCHDOG</a> ||</div>
-<div class="line">           state == <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../da/d88/a05510.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368">Lib::HAL::Reset::State::WINDOW_WATCHDOG</a>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00680_html"><div class="ttname"><a href="../../d4/d9b/a00680.html">Reset.hpp</a></div><div class="ttdoc">Reports the cause of the last system reset and triggers a new one.</div></div>
-<div class="ttc" id="aa05510_html_a1cb344701ab8751dd646298cb07d5957"><div class="ttname"><a href="../../da/d88/a05510.html#a1cb344701ab8751dd646298cb07d5957">Lib::HAL::Reset::getResetState</a></div><div class="ttdeci">static State getResetState() noexcept</div><div class="ttdoc">Reads the cause of the last system reset and clears the reset-flag register for the next one.</div><div class="ttdef"><b>Definition</b> Reset.hpp:66</div></div>
-<div class="ttc" id="aa05510_html_ae9f0fa1c20664b577fc615da59211d91"><div class="ttname"><a href="../../da/d88/a05510.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a></div><div class="ttdeci">State</div><div class="ttdoc">Cause of the last system reset, as latched by the RCC reset-flag register.</div><div class="ttdef"><b>Definition</b> Reset.hpp:45</div></div>
-<div class="ttc" id="aa05510_html_ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9"><div class="ttname"><a href="../../da/d88/a05510.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9">Lib::HAL::Reset::State::INDEPENDENT_WATCHDOG</a></div><div class="ttdeci">@ INDEPENDENT_WATCHDOG</div><div class="ttdoc">Independent watchdog (IWDG) reset.</div><div class="ttdef"><b>Definition</b> Reset.hpp:51</div></div>
-<div class="ttc" id="aa05510_html_ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368"><div class="ttname"><a href="../../da/d88/a05510.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368">Lib::HAL::Reset::State::WINDOW_WATCHDOG</a></div><div class="ttdeci">@ WINDOW_WATCHDOG</div><div class="ttdoc">Window watchdog (WWDG) reset.</div><div class="ttdef"><b>Definition</b> Reset.hpp:52</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="reset_usage_request"></a>
-Request a software reset</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d9b/a00680.html">Lib/HAL/Reset.hpp</a>&gt;</span></div>
+<div class="line"><span class="keyword">class </span>DelayedEvent final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> restartAfterFault() noexcept {</div>
-<div class="line">    <span class="comment">// Record the fault in backup storage or a log before resetting.</span></div>
-<div class="line">    <a id="a4" name="a4"></a><a class="code hl_function" href="../../da/d88/a05510.html#a6fd6f2776e6c5decf3577c484f08a1c0">Lib::HAL::Reset::resetSystem</a>();</div>
+<div class="line">    <span class="keyword">explicit</span> DelayedEvent(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
+<div class="line">        compare(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a>),</div>
+<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../dd/d44/a05968.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Delayed&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../db/d0b/a05952.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d7/d1c/a05564.html">Lib::HAL::Timer::TimOutputCompare</a> compare; <span class="comment">// Constructed before the task starts using it.</span></div>
+<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../de/db2/a05948.html">RTOS::Task</a> task;                           <span class="comment">// Must stay the last member.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!compare.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d7/d1c/a05564.html#a63482b7958cd7171218c959b2b5df044">start</a>()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;DelayedEvent: output compare failed to start&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="comment">// Fire 1000 ticks after the current counter value.</span></div>
+<div class="line">            compare.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d7/d1c/a05564.html#a14b6982f85b9be41e24886a8a1c7445d">setCompare</a>(compare.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d7/d1c/a05564.html#afaf7f01f359523e9b30110fdbf8b175b">getCounter</a>() + 1000U);</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">if</span> (compare.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d7/d1c/a05564.html#a18804c13963fca99f8037034a6d4e7ec">waitCompare</a>(<a id="_a10" name="_a10"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500))) {</div>
+<div class="line">                <span class="comment">// The compare event fired; run the delayed action here.</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00722_html"><div class="ttname"><a href="../../db/d7c/a00722.html">TimOutputCompare.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware Output Compare interface using STM32 Timers.</div></div>
+<div class="ttc" id="aa00974_html"><div class="ttname"><a href="../../df/dce/a00974.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01114_html_ga33e02d43345a7ac5886f01b39e4f7ccd"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a></div><div class="ttdeci">#define TIM_CHANNEL_2</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa05564_html"><div class="ttname"><a href="../../d7/d1c/a05564.html">Lib::HAL::Timer::TimOutputCompare</a></div><div class="ttdoc">Controls one hardware timer channel configured under an active Output Compare profile.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:37</div></div>
+<div class="ttc" id="aa05564_html_a14b6982f85b9be41e24886a8a1c7445d"><div class="ttname"><a href="../../d7/d1c/a05564.html#a14b6982f85b9be41e24886a8a1c7445d">Lib::HAL::Timer::TimOutputCompare::setCompare</a></div><div class="ttdeci">void setCompare(uint32_t compareValue) noexcept</div><div class="ttdoc">Sets the counter value at which the output changes state, in the channel&#39;s CCRx register.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:133</div></div>
+<div class="ttc" id="aa05564_html_a18804c13963fca99f8037034a6d4e7ec"><div class="ttname"><a href="../../d7/d1c/a05564.html#a18804c13963fca99f8037034a6d4e7ec">Lib::HAL::Timer::TimOutputCompare::waitCompare</a></div><div class="ttdeci">bool waitCompare(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the counter next matches the compare value.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:108</div></div>
+<div class="ttc" id="aa05564_html_a63482b7958cd7171218c959b2b5df044"><div class="ttname"><a href="../../d7/d1c/a05564.html#a63482b7958cd7171218c959b2b5df044">Lib::HAL::Timer::TimOutputCompare::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the channel with its compare interrupt; the calling task becomes the one waitCompare() serves.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:74</div></div>
+<div class="ttc" id="aa05564_html_afaf7f01f359523e9b30110fdbf8b175b"><div class="ttname"><a href="../../d7/d1c/a05564.html#afaf7f01f359523e9b30110fdbf8b175b">Lib::HAL::Timer::TimOutputCompare::getCounter</a></div><div class="ttdeci">uint32_t getCounter() const noexcept</div><div class="ttdoc">Reads the running counter.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:150</div></div>
+<div class="ttc" id="aa05948_html"><div class="ttname"><a href="../../de/db2/a05948.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:52</div></div>
+<div class="ttc" id="aa05952_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../db/d0b/a05952.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:85</div></div>
+<div class="ttc" id="aa05968_html"><div class="ttname"><a href="../../dd/d44/a05968.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="timoc_usage_stop"></a>
+Stopping</h2>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> cancelDelay(<a class="code hl_class" href="../../d7/d1c/a05564.html">Lib::HAL::Timer::TimOutputCompare</a> &amp; compare) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (!compare.stop()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05510_html_a6fd6f2776e6c5decf3577c484f08a1c0"><div class="ttname"><a href="../../da/d88/a05510.html#a6fd6f2776e6c5decf3577c484f08a1c0">Lib::HAL::Reset::resetSystem</a></div><div class="ttdeci">static void resetSystem() noexcept</div><div class="ttdoc">Resets the microcontroller through the CMSIS system-reset intrinsic.</div><div class="ttdef"><b>Definition</b> Reset.hpp:84</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

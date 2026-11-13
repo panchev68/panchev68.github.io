@@ -1,10 +1,18 @@
 var a01233 =
 [
-    [ "Ring", "d6/da1/a01233.html#a162946918a210436d07b8649948e2939", null ],
-    [ "Ring", "d6/da1/a01233.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
-    [ "Ring", "d6/da1/a01233.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
-    [ "getData", "d6/da1/a01233.html#a897e123e376e08a2741c3498d764166d", null ],
-    [ "operator=", "d6/da1/a01233.html#a3b42427dd22bff92b102320fdf83a671", null ],
-    [ "operator=", "d6/da1/a01233.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
-    [ "operator[]", "d6/da1/a01233.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
+    [ "Command", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726", [
+      [ "WRITE_ENABLE", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "READ_STATUS_REGISTER1", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "QUAD_PAGE_PROGRAM", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
+      [ "FAST_READ_QUAD_IO", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
+      [ "SECTOR_ERASE", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d6/da1/a01233.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

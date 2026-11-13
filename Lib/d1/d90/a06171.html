@@ -5,14 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</title>
+<title>IAR EWARM Library: Lib::Crypto::SHA256</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -78,19 +70,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </ul>
 </div><!-- main-nav -->
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d90/a06171.html','../../',''); });
-</script>
-<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
@@ -111,87 +90,77 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d90/a06171.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::SHA256</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.</p>
-<p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.The driver takes a shared 'Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt;' by reference and does not own it. Addresses are byte addresses within the 16 MB chip, and <a class="el" href="../../d7/dba/a04502.html#aff869cb6bde4f4f94493097c4c7e2da6" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()</a> works on 4 KB sectors, so a write must be preceded by an erase of the sector it touches.</p>
-<dl class="section important"><dt>Important</dt><dd>Target: a part with OCTOSPI, such as STM32U5. The class is compiled only when 'HAL_OSPI_MODULE_ENABLED' is defined; on STM32F407 the whole class compiles to nothing.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Erasing and writing block the calling task while the chip is busy, which can take milliseconds. Do not call them from an ISR.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_bsp_flashmemory_ospi_w25q128jvsiq_usage"></a>
+<p>Demonstrates hashing a message in one call and in pieces with the portable software engine, and with the STM32 HASH peripheral.</p>
+<p>Demonstrates hashing a message in one call and in pieces with the portable software engine, and with the STM32 HASH peripheral.The software engine needs no hardware and works in every project, so <a class="el" href="../../d1/d90/a06171.html" title="Lib::Crypto::SHA256">Lib::Crypto::SHA256</a> with empty angle brackets is the default choice. The hardware engine needs a device with the HASH peripheral, the module enabled in CubeMX ('HAL_HASH_MODULE_ENABLED') and a caller-owned <b>HASH_HandleTypeDef</b> such as <b>hhash</b>. The engine is never selected automatically, so every declaration names it explicitly. Both engines feed data through Lib::Crypto::SHA256::update() and end with Lib::Crypto::SHA256::finish().</p>
+<dl class="section warning"><dt>Warning</dt><dd>Call the hardware engine only from a task, never from an ISR, and use one instance for the lifetime of one digest: every call is a blocking HAL transaction on a shared peripheral.</dd></dl>
+<h1 class="doxsection"><a class="anchor" id="lib_crypto_sha256_usage"></a>
 Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="w25q128_usage_open"></a>
-Open and identify</h2>
-<p><a class="el" href="../../d7/dba/a04502.html#acc5fbed9faca7400c7d70130fbb74131" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()</a> checks that the chip answers with its JEDEC ID; <a class="el" href="../../d7/dba/a04502.html#a40a9ef783ecafece7202ae4ec39d4939" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()</a> reports the same without re-initializing.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Lib/BSP/FMEM/OSPI/W25Q128JVSIQ.hpp&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d73/a00674.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
+<h2 class="doxsection"><a class="anchor" id="sha256_usage_software"></a>
+Hashing with the software engine</h2>
+<p>A one-shot call fits a message that is already in one buffer; the streaming form fits a message that arrives in pieces. Do not update a hasher after Lib::Crypto::SHA256::finish().</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dd7/a00362.html">Lib/Crypto/SHA256.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// OCTOSPI port configured in the application (CubeMX) and shared with other consumers; defined outside this file.</span></div>
-<div class="line"><span class="keyword">extern</span> Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; ospiPort;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/dba/a04502.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> flash({.ospi = ospiPort});</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> openFlash() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Chip did not answer or the JEDEC ID is unexpected.</span></div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> flash.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d7/dba/a04502.html#a40a9ef783ecafece7202ae4ec39d4939">isPresent</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00674_html"><div class="ttname"><a href="../../d8/d73/a00674.html">OSPI.hpp</a></div><div class="ttdoc">Public umbrella include for the OCTOSPI subsystem.</div></div>
-<div class="ttc" id="aa04502_html"><div class="ttname"><a href="../../d7/dba/a04502.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a></div><div class="ttdoc">Quad-SPI (OCTOSPI) device driver for the Winbond W25Q128JVSIQ.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:78</div></div>
-<div class="ttc" id="aa04502_html_a40a9ef783ecafece7202ae4ec39d4939"><div class="ttname"><a href="../../d7/dba/a04502.html#a40a9ef783ecafece7202ae4ec39d4939">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent</a></div><div class="ttdeci">bool isPresent() const noexcept</div><div class="ttdoc">Checks whether the device is present and initialized.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:232</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="w25q128_usage_rw"></a>
-Read and write</h2>
-<p><a class="el" href="../../d7/dba/a04502.html#a48fee6a63474b5ad43a51157fcd0129a" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()</a> programs pages of <b>256</b> bytes. The sector must be erased first, because programming can only clear bits.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Lib/BSP/FMEM/OSPI/W25Q128JVSIQ.hpp&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> storeRecord(<a class="code hl_class" href="../../d7/dba/a04502.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> &amp; flash) {</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t RECORD_ADDRESS = 0x000000U;</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> record{0x12U, 0x34U, 0x56U, 0x78U};</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d0/d56/a01014.html">Lib::Crypto</a>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d7/dba/a04502.html#aff869cb6bde4f4f94493097c4c7e2da6">eraseSector</a>(RECORD_ADDRESS)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d7/dba/a04502.html#a48fee6a63474b5ad43a51157fcd0129a">write</a>(RECORD_ADDRESS, record.data(), record.size())) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> readBack{};</div>
-<div class="line">    <span class="keywordflow">return</span> flash.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d7/dba/a04502.html#abb4813e3ca50641c3bc3d1a367927ab8">read</a>(RECORD_ADDRESS, readBack.data(), readBack.size()) &amp;&amp; readBack == record;</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::Digest</a> hashMessage(std::span&lt;const uint8_t&gt; message) {</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::hash</a>(message);</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::Digest</a> hashPieces(std::span&lt;const uint8_t&gt; header, std::span&lt;const uint8_t&gt; body) {</div>
+<div class="line">    <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;</a> hasher;</div>
+<div class="line">    hasher.update(header);</div>
+<div class="line">    hasher.update(body);</div>
+<div class="line">    <span class="keywordflow">return</span> hasher.finish();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa04502_html_a48fee6a63474b5ad43a51157fcd0129a"><div class="ttname"><a href="../../d7/dba/a04502.html#a48fee6a63474b5ad43a51157fcd0129a">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write</a></div><div class="ttdeci">bool write(uint32_t addr, const void *data, size_t size) noexcept</div><div class="ttdoc">Writes size bytes from data into device starting at addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:283</div></div>
-<div class="ttc" id="aa04502_html_abb4813e3ca50641c3bc3d1a367927ab8"><div class="ttname"><a href="../../d7/dba/a04502.html#abb4813e3ca50641c3bc3d1a367927ab8">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::read</a></div><div class="ttdeci">bool read(uint32_t addr, void *buffer, size_t size) noexcept</div><div class="ttdoc">Reads size bytes from device starting at addr into buffer.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:248</div></div>
-<div class="ttc" id="aa04502_html_aff869cb6bde4f4f94493097c4c7e2da6"><div class="ttname"><a href="../../d7/dba/a04502.html#aff869cb6bde4f4f94493097c4c7e2da6">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t addr) noexcept</div><div class="ttdoc">Erases the 4K sector that contains addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:326</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="w25q128_usage_power"></a>
-Power down</h2>
-<p><a class="el" href="../../d7/dba/a04502.html#a8a0d94550896c7062f6594cd0e532007" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()</a> lowers the standby current between accesses. Call <a class="el" href="../../d7/dba/a04502.html#a686c0c59ab4f223b15aefeeab43ca2bd" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()</a> before the next access.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Lib/BSP/FMEM/OSPI/W25Q128JVSIQ.hpp&gt;</span></div>
+<div class="ttc" id="aa00362_html"><div class="ttname"><a href="../../de/dd7/a00362.html">SHA256.hpp</a></div><div class="ttdoc">SHA-256 message digest (FIPS 180-4) with a portable software engine and an STM32 HASH peripheral engi...</div></div>
+<div class="ttc" id="aa01014_html"><div class="ttname"><a href="../../d0/d56/a01014.html">Lib::Crypto</a></div><div class="ttdoc">Cryptographic primitives and optional TLS/SSH client wrappers.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:19</div></div>
+<div class="ttc" id="aa04856_html"><div class="ttname"><a href="../../db/dde/a04856.html">Lib::Crypto::SHA256</a></div><div class="ttdoc">SHA-256 hasher; SHA256Engine lists the available implementations.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:41</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="sha256_usage_hardware"></a>
+Hashing with the HASH peripheral</h2>
+<p>The peripheral accepts whole 32-bit words mid-stream, so the hasher buffers up to 3 trailing bytes of each update internally; any piece length works. Every step reports a HAL failure, after which the hasher must not be used again.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dd7/a00362.html">Lib/Crypto/SHA256.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> idleFlash(<a class="code hl_class" href="../../d7/dba/a04502.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> &amp; flash) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(flash.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d7/dba/a04502.html#a8a0d94550896c7062f6594cd0e532007">enterPowerDown</a>());</div>
-<div class="line">    <span class="comment">// ... long idle period ...</span></div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(flash.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d7/dba/a04502.html#a686c0c59ab4f223b15aefeeab43ca2bd">releasePowerDown</a>());</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d0/d56/a01014.html">Lib::Crypto</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> hashWithPeripheral(HASH_HandleTypeDef * handle, std::span&lt;const uint8_t&gt; message, <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;SHA256Engine::HARDWARE&gt;::Digest</a> &amp; digest) {</div>
+<div class="line">    <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;SHA256Engine::HARDWARE&gt;</a> hasher(handle);</div>
+<div class="line">    <span class="keywordflow">if</span> (!hasher.update(message)) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> result = hasher.finish();</div>
+<div class="line">    <span class="keywordflow">if</span> (!result) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    digest = *result;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa04502_html_a686c0c59ab4f223b15aefeeab43ca2bd"><div class="ttname"><a href="../../d7/dba/a04502.html#a686c0c59ab4f223b15aefeeab43ca2bd">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown</a></div><div class="ttdeci">bool releasePowerDown() noexcept</div><div class="ttdoc">Wakes the device from deep power-down; call before any access after enterPowerDown().</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:210</div></div>
-<div class="ttc" id="aa04502_html_a8a0d94550896c7062f6594cd0e532007"><div class="ttname"><a href="../../d7/dba/a04502.html#a8a0d94550896c7062f6594cd0e532007">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown</a></div><div class="ttdeci">bool enterPowerDown() noexcept</div><div class="ttdoc">Puts an opened device into deep power-down between accesses; the port stays open.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:201</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

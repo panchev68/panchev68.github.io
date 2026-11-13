@@ -1,18 +1,17 @@
 var a02113 =
 [
-    [ "Timeout", "d8/dc6/a02113.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
-    [ "SPIPortBase", "d8/dc6/a02113.html#af7d9dc0b540fee5b78bdf3853a203937", null ],
-    [ "SPIPortBase", "d8/dc6/a02113.html#a3d58a47067dbf8b77d78250373234f6d", null ],
-    [ "SPIPortBase", "d8/dc6/a02113.html#afa9b12cc40b3d5af68b16f594f5a92f7", null ],
-    [ "~SPIPortBase", "d8/dc6/a02113.html#a88e5899dd8db4b887c6afbf89dcbed77", null ],
-    [ "bindBeginTransactionFunc", "d8/dc6/a02113.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
-    [ "bindEndTransactionFunc", "d8/dc6/a02113.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
-    [ "close", "d8/dc6/a02113.html#ab6529e241d0728159eb3f60c7621b666", null ],
-    [ "isBusy", "d8/dc6/a02113.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
-    [ "open", "d8/dc6/a02113.html#af039716c9cb01db958d77f8c581627cf", null ],
-    [ "operator=", "d8/dc6/a02113.html#a33e5060aa4a9e4755b6786700276a5bf", null ],
-    [ "operator=", "d8/dc6/a02113.html#ae6957396d6689ed6ebcffc3b11177118", null ],
-    [ "receive", "d8/dc6/a02113.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
-    [ "send", "d8/dc6/a02113.html#ac557450438e468ea5bf25de308bc023c", null ],
-    [ "sendReceive", "d8/dc6/a02113.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
+    [ "DataAlignment", "d8/dc6/a02113.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "d8/dc6/a02113.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
+    [ "~DACPort", "d8/dc6/a02113.html#ac832156b805caf8041f1097ecf576ec2", null ],
+    [ "DACPort", "d8/dc6/a02113.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
+    [ "DACPort", "d8/dc6/a02113.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
+    [ "close", "d8/dc6/a02113.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "getChannel", "d8/dc6/a02113.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
+    [ "getHandle", "d8/dc6/a02113.html#a8931efb843554302b191363c4a0bfa41", null ],
+    [ "open", "d8/dc6/a02113.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "d8/dc6/a02113.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
+    [ "operator=", "d8/dc6/a02113.html#a947c4407f00f40ef2d244a914699c60e", null ],
+    [ "setValue", "d8/dc6/a02113.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "d8/dc6/a02113.html#a0fb9b03d74076c644c02fd75613c0748", null ],
+    [ "stop", "d8/dc6/a02113.html#aeb4d00954e883a85534eb2da3acd379f", null ]
 ];

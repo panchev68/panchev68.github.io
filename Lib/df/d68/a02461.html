@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: RTOS::Kernel::MemoryInfo</title>
+<title>IAR EWARM Library: Lib::Helper::Delay</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -111,109 +111,312 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d68/a02461.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Kernel::MemoryInfo</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Delay<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Heap memory diagnostics snapshot. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::Kernel::MemoryInfo:</div>
+<div class="textblock"><p>Busy-wait delay helpers based on the ARM Cortex-M Data Watchpoint and Trace (DWT) cycle counter. </p>
+<p>Suitable for short, precise delays where suspending the task or using <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timers would be too coarse. Every delay is rounded up to whole CPU cycles, so it is never shorter than requested; interrupts may lengthen it. The microsecond path and its helpers carry 'pragma inline=forced': measured on a 16 MHz Cortex-M33 with optimization off (a Debug build, where asserts/breakpoints in a caller like a 1-Wire bit-bang driver are actually live), the un-inlined call chain added roughly 100 extra cycles (over 6 us) on top of the requested wait - enough by itself to corrupt a protocol slot a few microseconds wide. Forcing the inline keeps that overhead low independent of the build's optimization level. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::Delay:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d5c/a02459.svg" width="214" height="180"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d5c/a02459.svg" width="166" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a83580325c3df5098f79f23bd212fb20a" id="r_a83580325c3df5098f79f23bd212fb20a"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a83580325c3df5098f79f23bd212fb20a">totalHeap</a></td></tr>
-<tr class="memdesc:a83580325c3df5098f79f23bd212fb20a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total configured heap size.  <br /></td></tr>
-<tr class="memitem:a944d10ce32d8114a8a1349e2582022bd" id="r_a944d10ce32d8114a8a1349e2582022bd"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a944d10ce32d8114a8a1349e2582022bd">freeHeap</a></td></tr>
-<tr class="memdesc:a944d10ce32d8114a8a1349e2582022bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current free heap bytes.  <br /></td></tr>
-<tr class="memitem:ae46d426a02aaacb8ac8552b7c3bd5e72" id="r_ae46d426a02aaacb8ac8552b7c3bd5e72"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae46d426a02aaacb8ac8552b7c3bd5e72">minimumFreeHeap</a></td></tr>
-<tr class="memdesc:ae46d426a02aaacb8ac8552b7c3bd5e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lowest recorded free heap.  <br /></td></tr>
-<tr class="memitem:a01d6b00f1dddcb8090d0e2c1a4c94a64" id="r_a01d6b00f1dddcb8090d0e2c1a4c94a64"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a01d6b00f1dddcb8090d0e2c1a4c94a64">allocations</a></td></tr>
-<tr class="memdesc:a01d6b00f1dddcb8090d0e2c1a4c94a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total successful allocations; zero unless <a class="el" href="../../dc/de4/a00677.html#aea3f5304a2ee9e9c830027b6035472ae" title="RTOS_HEAP_HAS_STATS">RTOS_HEAP_HAS_STATS</a> is 1.  <br /></td></tr>
-<tr class="memitem:ab89de264c4b68a7aa5588cc0c9a665c2" id="r_ab89de264c4b68a7aa5588cc0c9a665c2"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ab89de264c4b68a7aa5588cc0c9a665c2">frees</a></td></tr>
-<tr class="memdesc:ab89de264c4b68a7aa5588cc0c9a665c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total successful deallocations; zero unless <a class="el" href="../../dc/de4/a00677.html#aea3f5304a2ee9e9c830027b6035472ae" title="RTOS_HEAP_HAS_STATS">RTOS_HEAP_HAS_STATS</a> is 1.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ae05989164bd1c17d9508a274c9c8efc6" id="r_ae05989164bd1c17d9508a274c9c8efc6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> ()=delete</td></tr>
+<tr class="memdesc:ae05989164bd1c17d9508a274c9c8efc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted default constructor; this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:abab8b5337f9a0a494dc33f550b7d898b" id="r_abab8b5337f9a0a494dc33f550b7d898b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abab8b5337f9a0a494dc33f550b7d898b">~Delay</a> ()=delete</td></tr>
+<tr class="memdesc:abab8b5337f9a0a494dc33f550b7d898b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted destructor; this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a1cb3786f2784e6c6c42979b9860a5c4b" id="r_a1cb3786f2784e6c6c42979b9860a5c4b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1cb3786f2784e6c6c42979b9860a5c4b">Delay</a> (const Delay &amp;)=delete</td></tr>
+<tr class="memdesc:a1cb3786f2784e6c6c42979b9860a5c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a62e0ff423d0e589d0757d35725eaf0b2" id="r_a62e0ff423d0e589d0757d35725eaf0b2"><td class="memItemLeft"><a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a62e0ff423d0e589d0757d35725eaf0b2">operator=</a> (const <a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a62e0ff423d0e589d0757d35725eaf0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: this is a non-instantiable static utility class.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a592daf57dd9e14add5de04bb3af7a5b7" id="r_a592daf57dd9e14add5de04bb3af7a5b7"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a592daf57dd9e14add5de04bb3af7a5b7">microseconds</a> (uint32_t us) noexcept</td></tr>
+<tr class="memdesc:a592daf57dd9e14add5de04bb3af7a5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified number of microseconds.  <br /></td></tr>
+<tr class="memitem:a76e93003f799131c3700666dbb54d9d3" id="r_a76e93003f799131c3700666dbb54d9d3"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a76e93003f799131c3700666dbb54d9d3">microseconds</a> (std::chrono::microseconds duration) noexcept</td></tr>
+<tr class="memdesc:a76e93003f799131c3700666dbb54d9d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified duration with microsecond resolution.  <br /></td></tr>
+<tr class="memitem:a5c674006bbbe5569f838a1270e1229b6" id="r_a5c674006bbbe5569f838a1270e1229b6"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a5c674006bbbe5569f838a1270e1229b6">nanoseconds</a> (uint32_t ns) noexcept</td></tr>
+<tr class="memdesc:a5c674006bbbe5569f838a1270e1229b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified number of nanoseconds.  <br /></td></tr>
+<tr class="memitem:a6357acfa21552cd02b3af7a85f1fee6c" id="r_a6357acfa21552cd02b3af7a85f1fee6c"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a6357acfa21552cd02b3af7a85f1fee6c">nanoseconds</a> (std::chrono::nanoseconds duration) noexcept</td></tr>
+<tr class="memdesc:a6357acfa21552cd02b3af7a85f1fee6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified duration with nanosecond resolution.  <br /></td></tr>
 </table>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a01d6b00f1dddcb8090d0e2c1a4c94a64" name="a01d6b00f1dddcb8090d0e2c1a4c94a64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01d6b00f1dddcb8090d0e2c1a4c94a64">&#9670;&#160;</a></span>allocations</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae05989164bd1c17d9508a274c9c8efc6" name="ae05989164bd1c17d9508a274c9c8efc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae05989164bd1c17d9508a274c9c8efc6">&#9670;&#160;</a></span>Delay() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::Kernel::MemoryInfo::allocations</td>
+          <td class="memname">Lib::Helper::Delay::Delay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Total successful allocations; zero unless <a class="el" href="../../dc/de4/a00677.html#aea3f5304a2ee9e9c830027b6035472ae" title="RTOS_HEAP_HAS_STATS">RTOS_HEAP_HAS_STATS</a> is 1. </p>
+<p>Deleted default constructor; this is a non-instantiable static utility class. </p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d68/a02461_ae05989164bd1c17d9508a274c9c8efc6_icgraph.svg" width="534" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a944d10ce32d8114a8a1349e2582022bd" name="a944d10ce32d8114a8a1349e2582022bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a944d10ce32d8114a8a1349e2582022bd">&#9670;&#160;</a></span>freeHeap</h2>
+<a id="abab8b5337f9a0a494dc33f550b7d898b" name="abab8b5337f9a0a494dc33f550b7d898b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abab8b5337f9a0a494dc33f550b7d898b">&#9670;&#160;</a></span>~Delay()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::Kernel::MemoryInfo::freeHeap</td>
+          <td class="memname">Lib::Helper::Delay::~Delay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Current free heap bytes. </p>
+<p>Deleted destructor; this is a non-instantiable static utility class. </p>
 
 </div>
 </div>
-<a id="ab89de264c4b68a7aa5588cc0c9a665c2" name="ab89de264c4b68a7aa5588cc0c9a665c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab89de264c4b68a7aa5588cc0c9a665c2">&#9670;&#160;</a></span>frees</h2>
+<a id="a1cb3786f2784e6c6c42979b9860a5c4b" name="a1cb3786f2784e6c6c42979b9860a5c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cb3786f2784e6c6c42979b9860a5c4b">&#9670;&#160;</a></span>Delay() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::Kernel::MemoryInfo::frees</td>
+          <td class="memname">Lib::Helper::Delay::Delay </td>
+          <td>(</td>
+          <td class="paramtype">const Delay &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Total successful deallocations; zero unless <a class="el" href="../../dc/de4/a00677.html#aea3f5304a2ee9e9c830027b6035472ae" title="RTOS_HEAP_HAS_STATS">RTOS_HEAP_HAS_STATS</a> is 1. </p>
+<p>Non-copyable: this is a non-instantiable static utility class. </p>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d68/a02461_a1cb3786f2784e6c6c42979b9860a5c4b_cgraph.svg" width="502" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ae46d426a02aaacb8ac8552b7c3bd5e72" name="ae46d426a02aaacb8ac8552b7c3bd5e72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae46d426a02aaacb8ac8552b7c3bd5e72">&#9670;&#160;</a></span>minimumFreeHeap</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a76e93003f799131c3700666dbb54d9d3" name="a76e93003f799131c3700666dbb54d9d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76e93003f799131c3700666dbb54d9d3">&#9670;&#160;</a></span>microseconds() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::Kernel::MemoryInfo::minimumFreeHeap</td>
+          <td class="memname">void Lib::Helper::Delay::microseconds </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::microseconds</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Lowest recorded free heap. </p>
+<p>Delays execution for the specified duration with microsecond resolution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>Duration to delay; zero or negative returns immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d68/a02461_a76e93003f799131c3700666dbb54d9d3_cgraph.svg" width="614" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a83580325c3df5098f79f23bd212fb20a" name="a83580325c3df5098f79f23bd212fb20a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a83580325c3df5098f79f23bd212fb20a">&#9670;&#160;</a></span>totalHeap</h2>
+<a id="a592daf57dd9e14add5de04bb3af7a5b7" name="a592daf57dd9e14add5de04bb3af7a5b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a592daf57dd9e14add5de04bb3af7a5b7">&#9670;&#160;</a></span>microseconds() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::Kernel::MemoryInfo::totalHeap</td>
+          <td class="memname">void Lib::Helper::Delay::microseconds </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>us</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Total configured heap size. </p>
+<p>Delays execution for the specified number of microseconds. </p>
+<p>Bypasses the generic nanosecond-based conversion below ('waitFor()' and 'toCycles()'): that path needs a 64-bit division, measured at roughly 600 CPU cycles on a 16 MHz Cortex-M33 - more than six times the 6 us it was meant to wait for, which is fatal to a tight bit-bang slot (e.g. 1-Wire). This path only ever divides two 32-bit values ('SystemCoreClock' by the constant 1'000'000), a single hardware 'UDIV', then multiplies by 'us' - correct for any clock that is a whole number of MHz (every STM32 configuration in practice), with the same 'never shorter than requested' guarantee.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">us</td><td>Number of microseconds to delay; '0' returns immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d68/a02461_a592daf57dd9e14add5de04bb3af7a5b7_icgraph.svg" width="614" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6357acfa21552cd02b3af7a85f1fee6c" name="a6357acfa21552cd02b3af7a85f1fee6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6357acfa21552cd02b3af7a85f1fee6c">&#9670;&#160;</a></span>nanoseconds() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Helper::Delay::nanoseconds </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::nanoseconds</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delays execution for the specified duration with nanosecond resolution. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>Duration to delay; zero or negative returns immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5c674006bbbe5569f838a1270e1229b6" name="a5c674006bbbe5569f838a1270e1229b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c674006bbbe5569f838a1270e1229b6">&#9670;&#160;</a></span>nanoseconds() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Helper::Delay::nanoseconds </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ns</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delays execution for the specified number of nanoseconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ns</td><td>Number of nanoseconds to delay; '0' returns immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a62e0ff423d0e589d0757d35725eaf0b2" name="a62e0ff423d0e589d0757d35725eaf0b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62e0ff423d0e589d0757d35725eaf0b2">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp; Lib::Helper::Delay::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: this is a non-instantiable static utility class. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d68/a02461_a62e0ff423d0e589d0757d35725eaf0b2_cgraph.svg" width="534" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -227,12 +430,23 @@ Public Attributes</h2></td></tr>
 </div><!-- page-nav-tree -->
 </div><!-- page-nav -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d9/dfb/a00913.html">RTOS</a></li><li class="navelem"><a href="../../d9/dd6/a02441.html">Kernel</a></li><li class="navelem"><a href="../../df/d68/a02461.html">MemoryInfo</a></li>
+    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d6/dcf/a01031.html">Helper</a></li><li class="navelem"><a href="../../df/d68/a02461.html">Delay</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

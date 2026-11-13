@@ -1,11 +1,12 @@
 var a02405 =
 [
-    [ "Parameters", "dd/d31/a02405.html#a1755515e60fdfe10aafe099283f9d593", null ],
-    [ "Parameters", "dd/d31/a02405.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
-    [ "kd", "dd/d31/a02405.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "dd/d31/a02405.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "dd/d31/a02405.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "dd/d31/a02405.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "dd/d31/a02405.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "dd/d31/a02405.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "WindowWatchdog", "dd/d31/a02405.html#aedbc081389ab6197c5a334fcff249dc9", null ],
+    [ "~WindowWatchdog", "dd/d31/a02405.html#abf0355eeac54b8e2df2436417ae430c8", null ],
+    [ "WindowWatchdog", "dd/d31/a02405.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
+    [ "WindowWatchdog", "dd/d31/a02405.html#a94de72071a208a3a396313415af9df3a", null ],
+    [ "open", "dd/d31/a02405.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
+    [ "operator=", "dd/d31/a02405.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
+    [ "operator=", "dd/d31/a02405.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
+    [ "refresh", "dd/d31/a02405.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
+    [ "setWindow", "dd/d31/a02405.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
 ];

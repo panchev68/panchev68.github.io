@@ -1,11 +1,16 @@
 var a01461 =
 [
-    [ "WolfSSLRandom", "dc/d60/a01461.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
-    [ "~WolfSSLRandom", "dc/d60/a01461.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
-    [ "WolfSSLRandom", "dc/d60/a01461.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
-    [ "WolfSSLRandom", "dc/d60/a01461.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
-    [ "generate", "dc/d60/a01461.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
-    [ "native", "dc/d60/a01461.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
-    [ "operator=", "dc/d60/a01461.html#a2b57fbc329feeb209aa7f41b29608488", null ],
-    [ "operator=", "dc/d60/a01461.html#a61facc5365a377d384371cb51442e897", null ]
+    [ "Config", "d4/dfd/a01465.html", "d4/dfd/a01465" ],
+    [ "TransducerDiagnostics", "d9/d8b/a01469.html", "d9/d8b/a01469" ],
+    [ "PGA460TPWRQ1", "dc/d60/a01461.html#af23eb94dd6b27d2f4b97126ec7c3ff6e", null ],
+    [ "PGA460TPWRQ1", "dc/d60/a01461.html#ab0901e6176d41517bb48f19722c9721b", null ],
+    [ "PGA460TPWRQ1", "dc/d60/a01461.html#ab58650dd060801861ed9ffdd08be491b", null ],
+    [ "close", "dc/d60/a01461.html#a52d6efacbe935389fa51f1f75670476f", null ],
+    [ "open", "dc/d60/a01461.html#a50accfabb3897779a4b26e4c6b8e7566", null ],
+    [ "operator=", "dc/d60/a01461.html#a3e3603ffff316bc5f0bfd3fbfa8f3ac9", null ],
+    [ "operator=", "dc/d60/a01461.html#a8e49edb5b10188a09823c4a7c0c3bba7", null ],
+    [ "readDistance", "dc/d60/a01461.html#ab5b14fe14cfea3451683b86f1cc54952", null ],
+    [ "readRegister", "dc/d60/a01461.html#a2d489995d894aaeddbace0f34825674e", null ],
+    [ "readTransducerDiagnostics", "dc/d60/a01461.html#ad06b5c6df4a4916a991419d66d6cf3f4", null ],
+    [ "writeRegister", "dc/d60/a01461.html#a393f06f504869258b353566ff562f476", null ]
 ];

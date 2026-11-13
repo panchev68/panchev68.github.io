@@ -1,14 +1,14 @@
 var a02517 =
 [
-    [ "Level", "d4/db4/a02517.html#a47d1302bb72530432eb0072fc7286e69", [
-      [ "IDLE", "d4/db4/a02517.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
-      [ "LOW", "d4/db4/a02517.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
-      [ "NORMAL", "d4/db4/a02517.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
-      [ "HIGH", "d4/db4/a02517.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
-      [ "REALTIME", "d4/db4/a02517.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
-    ] ],
-    [ "Priority", "d4/db4/a02517.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
-    [ "get", "d4/db4/a02517.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
-    [ "getFromISR", "d4/db4/a02517.html#a077686e91e7ea468ac484026c09fe001", null ],
-    [ "set", "d4/db4/a02517.html#a458e98cafe1842d218c9640b76bde004", null ]
+    [ "TimeChangeRule", "d0/dbf/a02521.html", "d0/dbf/a02521" ],
+    [ "TimeZone", "d4/db4/a02517.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
+    [ "TimeZone", "d4/db4/a02517.html#a0edb02c779df5ea86747377d1413c3d8", null ],
+    [ "TimeZone", "d4/db4/a02517.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
+    [ "convertLocalToUtcMinutes", "d4/db4/a02517.html#a479ec4792a22a5b314a497bb01be2047", null ],
+    [ "getName", "d4/db4/a02517.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
+    [ "getOffset", "d4/db4/a02517.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
+    [ "getOffsetMinutes", "d4/db4/a02517.html#a85aeda7715611b5af76b28bdc266c545", null ],
+    [ "setName", "d4/db4/a02517.html#a46b717d157e7f9b012a459cf78b723b5", null ],
+    [ "setOffset", "d4/db4/a02517.html#aedb03e610f976aba921183f41dd10501", null ],
+    [ "setOffsetMinutes", "d4/db4/a02517.html#a57128a66ae77de2e6d60521056cb33db", null ]
 ];

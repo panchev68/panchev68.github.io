@@ -1,12 +1,10 @@
 var a01373 =
 [
-    [ "FreeFunctionPointer", "d7/d38/a01373.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d7/d38/a01373.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d7/d38/a01373.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "d7/d38/a01373.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d7/d38/a01373.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d7/d38/a01373.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d7/d38/a01373.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d7/d38/a01373.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d7/d38/a01373.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "operator==", "d7/d38/a01373.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "d7/d38/a01373.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "d7/d38/a01373.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "d7/d38/a01373.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "d7/d38/a01373.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "d7/d38/a01373.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "d7/d38/a01373.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

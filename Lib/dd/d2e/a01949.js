@@ -1,17 +1,19 @@
 var a01949 =
 [
-    [ "DataAlignment", "dd/d2e/a01949.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
-    [ "DACPort", "dd/d2e/a01949.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
-    [ "~DACPort", "dd/d2e/a01949.html#ac832156b805caf8041f1097ecf576ec2", null ],
-    [ "DACPort", "dd/d2e/a01949.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
-    [ "DACPort", "dd/d2e/a01949.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
-    [ "close", "dd/d2e/a01949.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
-    [ "getChannel", "dd/d2e/a01949.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
-    [ "getHandle", "dd/d2e/a01949.html#a8931efb843554302b191363c4a0bfa41", null ],
-    [ "open", "dd/d2e/a01949.html#ae527315d8794d0bcdbd7b686839e4630", null ],
-    [ "operator=", "dd/d2e/a01949.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
-    [ "operator=", "dd/d2e/a01949.html#a947c4407f00f40ef2d244a914699c60e", null ],
-    [ "setValue", "dd/d2e/a01949.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
-    [ "start", "dd/d2e/a01949.html#a0fb9b03d74076c644c02fd75613c0748", null ],
-    [ "stop", "dd/d2e/a01949.html#aeb4d00954e883a85534eb2da3acd379f", null ]
+    [ "Abort", "dd/d2e/a01949.html#a34422d4477e1d28e96ff0a570ccb0832", null ],
+    [ "Access", "dd/d2e/a01949.html#a19c1714c2af7e709205e93053af6fee9", null ],
+    [ "Handlers", "dd/d2e/a01949.html#a4dfbb7a5575c7ee9e62bfeab0e6aca45", null ],
+    [ "Object", "dd/d2e/a01949.html#a827cdba5edb655bcc4f5784b4a4e893d", null ],
+    [ "ObjectInfo", "dd/d2e/a01949.html#a35b9281b5d29eae7fab95112ba1e5115", null ],
+    [ "CoE", "dd/d2e/a01949.html#aaf9d8025b89e7899d8cb2c83ae135e45", null ],
+    [ "~CoE", "dd/d2e/a01949.html#ac46699d9659c29b73d7c01ca84cbfb5f", null ],
+    [ "CoE", "dd/d2e/a01949.html#a71024e33a92eff3dd5b442e02f0b9425", null ],
+    [ "CoE", "dd/d2e/a01949.html#a7b986f95ef2d9b17a078924eddf7d17c", null ],
+    [ "find", "dd/d2e/a01949.html#afca119caf11fde38cdab46d3d4205107", null ],
+    [ "handle", "dd/d2e/a01949.html#afdb20681a34fcdfcb78cf75a78ce0347", null ],
+    [ "operator=", "dd/d2e/a01949.html#ac45513fde48737f49471c84707ec42fa", null ],
+    [ "operator=", "dd/d2e/a01949.html#aaa3b4bee41d8960bb544d7299a183270", null ],
+    [ "reset", "dd/d2e/a01949.html#ab2c195af5b9a058b13b9b6cca0f9159f", null ],
+    [ "service", "dd/d2e/a01949.html#aaa57403f24de4e0bd9670919c80376ac", null ],
+    [ "setHandlers", "dd/d2e/a01949.html#abfa900feff906b9e829ef4ac5da55711", null ]
 ];

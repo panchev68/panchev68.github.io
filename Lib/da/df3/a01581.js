@@ -1,20 +1,12 @@
 var a01581 =
 [
-    [ "Data", "da/de2/a01585.html", "da/de2/a01585" ],
-    [ "Parameters", "da/df3/a01581.html#ae9b1083d9afe5ce37684ee479065c08d", null ],
-    [ "Parameters", "da/df3/a01581.html#a751f186c85cc8d58f16fc12d907ebe1f", null ],
-    [ "close", "da/df3/a01581.html#a1a7e321a9bac36794a93524ee2265f1e", null ],
-    [ "getChannel", "da/df3/a01581.html#abb0d4e0ff08a92ff38e3627964f0c50f", null ],
-    [ "getData", "da/df3/a01581.html#ac793ef8a47bb6b900a9b96ef741286fc", null ],
-    [ "getPanId", "da/df3/a01581.html#a002de6a62eca987fb68d0134d291d7a3", null ],
-    [ "isRunning", "da/df3/a01581.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "isWritePending", "da/df3/a01581.html#a2444246733f1cf2dfb8d6fb114e10f9e", null ],
-    [ "open", "da/df3/a01581.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "da/df3/a01581.html#a0036b61cadf6ca50a98425c13efd17e9", null ],
-    [ "pauseReadDynamicParameters", "da/df3/a01581.html#a5ceaf511d2672fa9d60b960c563e6a47", null ],
-    [ "read", "da/df3/a01581.html#a0b95648ab79c354ae5ed07e87775a4e4", null ],
-    [ "setChannel", "da/df3/a01581.html#a1a9c64e3e6603a03c17294851fc407a5", null ],
-    [ "setPanId", "da/df3/a01581.html#a2f50f7e3fb88c475ffbc15f2c0203698", null ],
-    [ "update", "da/df3/a01581.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
-    [ "writeChanges", "da/df3/a01581.html#aab4960dbba120dcbeddf25b42f53d85a", null ]
+    [ "FreeFunctionPointer", "da/df3/a01581.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "da/df3/a01581.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "da/df3/a01581.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "invoke", "da/df3/a01581.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "da/df3/a01581.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "da/df3/a01581.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "da/df3/a01581.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "da/df3/a01581.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "da/df3/a01581.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

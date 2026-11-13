@@ -1,13 +1,16 @@
 var a01913 =
 [
-    [ "BackupRamDomain", "d4/d07/a01913.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
-    [ "~BackupRamDomain", "d4/d07/a01913.html#a3b301936cae87db14bef527c0a5629af", null ],
-    [ "BackupRamDomain", "d4/d07/a01913.html#abf039272ad85b43415d4df28c8c0a051", null ],
-    [ "BackupRamDomain", "d4/d07/a01913.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
-    [ "close", "d4/d07/a01913.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
-    [ "open", "d4/d07/a01913.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
-    [ "operator=", "d4/d07/a01913.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
-    [ "operator=", "d4/d07/a01913.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
-    [ "readRegister", "d4/d07/a01913.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
-    [ "writeRegister", "d4/d07/a01913.html#acc5002942f221da40872cb7be92706a9", null ]
+    [ "Container", "d4/d07/a01913.html#aee7408e236983dfe716699922a20e848", null ],
+    [ "Status", "d4/d07/a01913.html#abfa34fca2a40d9f990c238a66f2611aa", [
+      [ "STATUS_CHANGED", "d4/d07/a01913.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "d4/d07/a01913.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "BasicDispatcher", "d4/d07/a01913.html#a8888661e1979a2b522e456f3e143e065", null ],
+    [ "BasicDispatcher", "d4/d07/a01913.html#add10f2d01f474243d9fa895cff993e07", null ],
+    [ "createError", "d4/d07/a01913.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
+    [ "operator=", "d4/d07/a01913.html#a663a1359b4c59113e160a2da62046222", null ],
+    [ "operator=", "d4/d07/a01913.html#a45f56f6db82a8095e39231ccf05639dc", null ],
+    [ "start", "d4/d07/a01913.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
+    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "d4/d07/a01913.html#a650ea0ef5048343da33f94d14c44e548", null ],
+    [ "statusChangedHook", "d4/d07/a01913.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::BSP::EncoderTimer</title>
+<title>IAR EWARM Library: Lib::BSP::Beep</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -111,98 +111,64 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d9e/a01061.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::EncoderTimer<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Beep</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Rotary encoder on a timer in encoder mode, with a push button, polled for events from one task. </p>
-<p>Rotation, button changes and the hold time are evaluated only inside <a class="el" href="#afa10c44ad4eee7779caf46410cac1255" title="read()">read()</a>, so call it periodically. The direction comes from the timer's direction bit, so it stays correct when the counter wraps. The button is <b>active low</b>, served through '<a class="el" href="../../d3/d59/a01973.html" title="Handles hardware external line interrupts with centralized notification-driven dispatching.">Lib::HAL::GPIO::ExtInterrupt</a>' in its worker task.</p>
-<dl class="section important"><dt>Important</dt><dd>Several steps between two <a class="el" href="#afa10c44ad4eee7779caf46410cac1255" title="Returns the next pending event without blocking.">read()</a> calls make one event: poll faster than one detent can be turned.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Cannot share a program with '<a class="el" href="../../d0/d22/a01049.html" title="Rotary encoder with a push button, reporting rotation and button changes as queued events.">Lib::BSP::EncoderPins</a>', which needs its own '<a class="el" href="../../d1/d98/a00407.html#a8c5a394cfc9b6eed0b3d245b8d01d434" title="Legacy HAL EXTI callback: forwards the pin mask to the shared worker task.">HAL_GPIO_EXTI_Callback()</a>'. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/deb/a02724.html#_a0">Lib::BSP::EncoderTimer</a>.</dd>
+<div class="textblock"><p>Buzzer driven by toggling a timer output-compare channel for a set duration and repeat count. </p>
+<p><a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5" title="play()">play()</a> only arms a sequence; a periodic tick plays it out in the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer service task as beep, pause, repeat, so the call never blocks. A <a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5" title="play()">play()</a> call made while a sequence is still running is ignored, also when several tasks call it at once.</p>
+<dl class="section important"><dt>Important</dt><dd>The timer is set up by CubeMX (prescaler and period give the tone); the driver only reconfigures the channel as output compare in toggle mode on every beep. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d04/a02888.html#_a0">Lib::BSP::Beep</a>.</dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::EncoderTimer:</div>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::BSP::Beep:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d90/a01059.svg" width="198" height="274"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d16/a01060.svg" width="214" height="630"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::Beep:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d90/a01059.svg" width="214" height="630"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d0/dc9/a01065.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer and button binding of the encoder.  <a href="../../d0/dc9/a01065.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware binding of the buzzer to its timer output-compare channel.  <a href="../../d0/dc9/a01065.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaf07b62dc5be29307f86fc985c41c7ab" id="r_aaf07b62dc5be29307f86fc985c41c7ab"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> (const <a class="el" href="../../d0/dc9/a01065.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:aaf07b62dc5be29307f86fc985c41c7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to its timer and button without touching the hardware.  <br /></td></tr>
-<tr class="memitem:a449279e87494b389cfa1adba8e7f6b37" id="r_a449279e87494b389cfa1adba8e7f6b37"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a449279e87494b389cfa1adba8e7f6b37">~EncoderTimer</a> () noexcept</td></tr>
-<tr class="memdesc:a449279e87494b389cfa1adba8e7f6b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the driver if still open, so no button callback is left pointing at a destroyed object.  <br /></td></tr>
-<tr class="memitem:a99753bd300ae9ecf9544bf7ba709e3f5" id="r_a99753bd300ae9ecf9544bf7ba709e3f5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a99753bd300ae9ecf9544bf7ba709e3f5">EncoderTimer</a> (const EncoderTimer &amp;other)=delete</td></tr>
-<tr class="memdesc:a99753bd300ae9ecf9544bf7ba709e3f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns the timer and the button interrupt registration.  <br /></td></tr>
-<tr class="memitem:a7d21c22284a66c9cbf8d4260a84aef01" id="r_a7d21c22284a66c9cbf8d4260a84aef01"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7d21c22284a66c9cbf8d4260a84aef01">EncoderTimer</a> (EncoderTimer &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a7d21c22284a66c9cbf8d4260a84aef01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the bound button callback captures 'this'.  <br /></td></tr>
-<tr class="memitem:a6e4f9be3709b642fa4507cda01d85fc1" id="r_a6e4f9be3709b642fa4507cda01d85fc1"><td class="memItemLeft"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6e4f9be3709b642fa4507cda01d85fc1">operator=</a> (const <a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a6e4f9be3709b642fa4507cda01d85fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns the timer and the button interrupt registration.  <br /></td></tr>
-<tr class="memitem:a8f9bc205f553a774c7a25beff08602ac" id="r_a8f9bc205f553a774c7a25beff08602ac"><td class="memItemLeft"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8f9bc205f553a774c7a25beff08602ac">operator=</a> (<a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a8f9bc205f553a774c7a25beff08602ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the bound button callback captures 'this'.  <br /></td></tr>
-<tr class="memitem:a332145ce828a12688d8de9aea070c328" id="r_a332145ce828a12688d8de9aea070c328"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a332145ce828a12688d8de9aea070c328">open</a> () noexcept</td></tr>
-<tr class="memdesc:a332145ce828a12688d8de9aea070c328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer, opens the button queue and binds the button callback.  <br /></td></tr>
-<tr class="memitem:a9e37bcbed278df67dad753953c0e0505" id="r_a9e37bcbed278df67dad753953c0e0505"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9e37bcbed278df67dad753953c0e0505">close</a> () noexcept</td></tr>
-<tr class="memdesc:a9e37bcbed278df67dad753953c0e0505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbinds the button callback, closes the queue and stops the timer.  <br /></td></tr>
-<tr class="memitem:afa10c44ad4eee7779caf46410cac1255" id="r_afa10c44ad4eee7779caf46410cac1255"><td class="memItemLeft"><a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7">EventCode</a>&#160;</td><td class="memItemRight"><a class="el" href="#afa10c44ad4eee7779caf46410cac1255">read</a> () noexcept</td></tr>
-<tr class="memdesc:afa10c44ad4eee7779caf46410cac1255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next pending event without blocking.  <br /></td></tr>
+<tr class="memitem:ab7fc52bc381f9496a1cf35f629d1a944" id="r_ab7fc52bc381f9496a1cf35f629d1a944"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> (const <a class="el" href="../../d0/dc9/a01065.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:ab7fc52bc381f9496a1cf35f629d1a944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the buzzer to its timer channel and starts the periodic state-machine tick.  <br /></td></tr>
+<tr class="memitem:af601628e760dd29541b317a1256b6bd1" id="r_af601628e760dd29541b317a1256b6bd1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af601628e760dd29541b317a1256b6bd1">~Beep</a> () noexcept</td></tr>
+<tr class="memdesc:af601628e760dd29541b317a1256b6bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the tick and silences the buzzer if a sequence is still playing.  <br /></td></tr>
+<tr class="memitem:a08c08dc451270c224dded9c366b9aa6a" id="r_a08c08dc451270c224dded9c366b9aa6a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a08c08dc451270c224dded9c366b9aa6a">Beep</a> (const Beep &amp;)=delete</td></tr>
+<tr class="memdesc:a08c08dc451270c224dded9c366b9aa6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance.  <br /></td></tr>
+<tr class="memitem:ad2f515525962880586d857dd395e8983" id="r_ad2f515525962880586d857dd395e8983"><td class="memItemLeft"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad2f515525962880586d857dd395e8983">operator=</a> (const <a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ad2f515525962880586d857dd395e8983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance.  <br /></td></tr>
+<tr class="memitem:a3506da759c0ccebd28b87c0489cdb56e" id="r_a3506da759c0ccebd28b87c0489cdb56e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3506da759c0ccebd28b87c0489cdb56e">Beep</a> (Beep &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a3506da759c0ccebd28b87c0489cdb56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance.  <br /></td></tr>
+<tr class="memitem:a3c5fdc21b4e87a407ca4fb0efaa588cc" id="r_a3c5fdc21b4e87a407ca4fb0efaa588cc"><td class="memItemLeft"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3c5fdc21b4e87a407ca4fb0efaa588cc">operator=</a> (<a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a3c5fdc21b4e87a407ca4fb0efaa588cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance.  <br /></td></tr>
+<tr class="memitem:a4bc5b3cc66d266518992ce5dc14973c5" id="r_a4bc5b3cc66d266518992ce5dc14973c5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5">play</a> (uint32_t duration, uint32_t count=1U, uint32_t pause=0U) noexcept</td></tr>
+<tr class="memdesc:a4bc5b3cc66d266518992ce5dc14973c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a beep sequence, unless one is already playing.  <br /></td></tr>
+<tr class="memitem:ac6552c090b310890de41a06ba77a7e68" id="r_ac6552c090b310890de41a06ba77a7e68"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac6552c090b310890de41a06ba77a7e68">isPlaying</a> () const noexcept</td></tr>
+<tr class="memdesc:ac6552c090b310890de41a06ba77a7e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether a beep sequence is playing.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:aa64ce59f0c59f795c337dcad2b2a104e" id="r_aa64ce59f0c59f795c337dcad2b2a104e"><td class="memItemLeft">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight"><a class="el" href="#aa64ce59f0c59f795c337dcad2b2a104e">BUTTON_HOLD_TIME</a> {2000}</td></tr>
-<tr class="memdesc:aa64ce59f0c59f795c337dcad2b2a104e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time the button must stay down to count as held.  <br /></td></tr>
+<tr class="memitem:a9540c4c8740da0d59747a9373e03833a" id="r_a9540c4c8740da0d59747a9373e03833a"><td class="memItemLeft">static constexpr TIM_OC_InitTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a9540c4c8740da0d59747a9373e03833a">DEFAULT_OC_CONFIG</a></td></tr>
+<tr class="memdesc:a9540c4c8740da0d59747a9373e03833a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output-compare configuration applied to the buzzer channel on every beep.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a021b081c55c843fa9b7ba25effa04637" id="r_a021b081c55c843fa9b7ba25effa04637"><td class="memItemLeft">class&#160;</td><td class="memItemRight"><a class="el" href="#a021b081c55c843fa9b7ba25effa04637">RTOS::TickClient&lt; Beep &gt;</a></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a79bb5179e93b8bb7fb1dca034f1572f7" name="a79bb5179e93b8bb7fb1dca034f1572f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79bb5179e93b8bb7fb1dca034f1572f7">&#9670;&#160;</a></span>EventCode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7">Lib::BSP::EncoderTimer::EventCode</a> : int8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Event returned by <a class="el" href="#afa10c44ad4eee7779caf46410cac1255" title="Returns the next pending event without blocking.">read()</a>. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c" name="a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c"></a>BUTTON_PUSH&#160;</td><td class="fielddoc"><p>Button pressed. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972" name="a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972"></a>BUTTON_PULL&#160;</td><td class="fielddoc"><p>Button released, also after a hold. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e" name="a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e"></a>BUTTON_HOLD&#160;</td><td class="fielddoc"><p>Button still down BUTTON_HOLD_TIME after the push; reported once per press. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404" name="a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404"></a>ENCODER_CW&#160;</td><td class="fielddoc"><p>Encoder rotated clockwise. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b" name="a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b"></a>ENCODER_CCW&#160;</td><td class="fielddoc"><p>Encoder rotated counter-clockwise. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693" name="a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p>No event pending. </p>
-</td></tr>
-</table>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/deb/a02724.html#_a3">Lib::BSP::EncoderTimer</a>.</dd>
-</dl>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aaf07b62dc5be29307f86fc985c41c7ab" name="aaf07b62dc5be29307f86fc985c41c7ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf07b62dc5be29307f86fc985c41c7ab">&#9670;&#160;</a></span>EncoderTimer() <span class="overload">[1/3]</span></h2>
+<a id="ab7fc52bc381f9496a1cf35f629d1a944" name="ab7fc52bc381f9496a1cf35f629d1a944"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7fc52bc381f9496a1cf35f629d1a944">&#9670;&#160;</a></span>Beep() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -211,7 +177,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::EncoderTimer::EncoderTimer </td>
+          <td class="memname">Lib::BSP::Beep::Beep </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d0/dc9/a01065.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
@@ -224,25 +190,24 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the driver to its timer and button without touching the hardware. </p>
-<p>Call <a class="el" href="#a332145ce828a12688d8de9aea070c328" title="open()">open()</a> to start it.</p>
+<p>Binds the buzzer to its timer channel and starts the periodic state-machine tick. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Timer and button binding. </td></tr>
+    <tr><td class="paramname">config</td><td>Hardware binding of the buzzer. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
 </div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_aaf07b62dc5be29307f86fc985c41c7ab_icgraph.svg" width="678" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_ab7fc52bc381f9496a1cf35f629d1a944_icgraph.svg" width="462" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a449279e87494b389cfa1adba8e7f6b37" name="a449279e87494b389cfa1adba8e7f6b37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a449279e87494b389cfa1adba8e7f6b37">&#9670;&#160;</a></span>~EncoderTimer()</h2>
+<a id="af601628e760dd29541b317a1256b6bd1" name="af601628e760dd29541b317a1256b6bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af601628e760dd29541b317a1256b6bd1">&#9670;&#160;</a></span>~Beep()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -251,7 +216,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::EncoderTimer::~EncoderTimer </td>
+          <td class="memname">Lib::BSP::Beep::~Beep </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -264,57 +229,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the driver if still open, so no button callback is left pointing at a destroyed object. </p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_a449279e87494b389cfa1adba8e7f6b37_cgraph.svg" width="630" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a99753bd300ae9ecf9544bf7ba709e3f5" name="a99753bd300ae9ecf9544bf7ba709e3f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99753bd300ae9ecf9544bf7ba709e3f5">&#9670;&#160;</a></span>EncoderTimer() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::BSP::EncoderTimer::EncoderTimer </td>
-          <td>(</td>
-          <td class="paramtype">const EncoderTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: owns the timer and the button interrupt registration. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Stops the tick and silences the buzzer if a sequence is still playing. </p>
+<p>Task context only. </p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_a99753bd300ae9ecf9544bf7ba709e3f5_cgraph.svg" width="678" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_af601628e760dd29541b317a1256b6bd1_cgraph.svg" width="510" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a7d21c22284a66c9cbf8d4260a84aef01" name="a7d21c22284a66c9cbf8d4260a84aef01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d21c22284a66c9cbf8d4260a84aef01">&#9670;&#160;</a></span>EncoderTimer() <span class="overload">[3/3]</span></h2>
+<a id="a08c08dc451270c224dded9c366b9aa6a" name="a08c08dc451270c224dded9c366b9aa6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08c08dc451270c224dded9c366b9aa6a">&#9670;&#160;</a></span>Beep() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -323,9 +250,9 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::EncoderTimer::EncoderTimer </td>
+          <td class="memname">Lib::BSP::Beep::Beep </td>
           <td>(</td>
-          <td class="paramtype">EncoderTimer &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const Beep &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -336,25 +263,52 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: the bound button callback captures 'this'. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Non-copyable: the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance. </p>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_a7d21c22284a66c9cbf8d4260a84aef01_cgraph.svg" width="678" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_a08c08dc451270c224dded9c366b9aa6a_cgraph.svg" width="422" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3506da759c0ccebd28b87c0489cdb56e" name="a3506da759c0ccebd28b87c0489cdb56e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3506da759c0ccebd28b87c0489cdb56e">&#9670;&#160;</a></span>Beep() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::Beep::Beep </td>
+          <td>(</td>
+          <td class="paramtype">Beep &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance. </p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_a3506da759c0ccebd28b87c0489cdb56e_cgraph.svg" width="422" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a9e37bcbed278df67dad753953c0e0505" name="a9e37bcbed278df67dad753953c0e0505"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e37bcbed278df67dad753953c0e0505">&#9670;&#160;</a></span>close()</h2>
+<a id="ac6552c090b310890de41a06ba77a7e68" name="ac6552c090b310890de41a06ba77a7e68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6552c090b310890de41a06ba77a7e68">&#9670;&#160;</a></span>isPlaying()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -363,10 +317,10 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::EncoderTimer::close </td>
+          <td class="memname">bool Lib::BSP::Beep::isPlaying </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -376,50 +330,15 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Unbinds the button callback, closes the queue and stops the timer. </p>
-<dl class="section return"><dt>Returns</dt><dd>'true' if the timer stopped cleanly. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_a9e37bcbed278df67dad753953c0e0505_icgraph.svg" width="630" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a332145ce828a12688d8de9aea070c328" name="a332145ce828a12688d8de9aea070c328"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a332145ce828a12688d8de9aea070c328">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::BSP::EncoderTimer::open </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Starts the timer, opens the button queue and binds the button callback. </p>
-<p>Latches the current counter, so the first <a class="el" href="#afa10c44ad4eee7779caf46410cac1255" title="read()">read()</a> reports no spurious rotation. A failed step rolls back the ones before it. Does nothing if already open.</p>
-<dl class="section return"><dt>Returns</dt><dd>'true' if the driver is open afterwards. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/deb/a02724.html#a2">Lib::BSP::EncoderTimer</a>.</dd>
+<p>Gets whether a beep sequence is playing. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> from a successful <a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5" title="play()">play()</a> until the last beep has ended. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d04/a02888.html#a2">Lib::BSP::Beep</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="a6e4f9be3709b642fa4507cda01d85fc1" name="a6e4f9be3709b642fa4507cda01d85fc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e4f9be3709b642fa4507cda01d85fc1">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a3c5fdc21b4e87a407ca4fb0efaa588cc" name="a3c5fdc21b4e87a407ca4fb0efaa588cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c5fdc21b4e87a407ca4fb0efaa588cc">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,9 +347,9 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp; Lib::BSP::EncoderTimer::operator= </td>
+          <td class="memname"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp; Lib::BSP::Beep::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -441,25 +360,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: owns the timer and the button interrupt registration. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this driver. </dd></dl>
+<p>Non-movable: the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
 <div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_a6e4f9be3709b642fa4507cda01d85fc1_cgraph.svg" width="654" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_a3c5fdc21b4e87a407ca4fb0efaa588cc_cgraph.svg" width="462" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a8f9bc205f553a774c7a25beff08602ac" name="a8f9bc205f553a774c7a25beff08602ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f9bc205f553a774c7a25beff08602ac">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="ad2f515525962880586d857dd395e8983" name="ad2f515525962880586d857dd395e8983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2f515525962880586d857dd395e8983">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -468,9 +381,9 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp; Lib::BSP::EncoderTimer::operator= </td>
+          <td class="memname"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp; Lib::BSP::Beep::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -481,25 +394,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: the bound button callback captures 'this'. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this driver. </dd></dl>
+<p>Non-copyable: the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
 <div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_a8f9bc205f553a774c7a25beff08602ac_cgraph.svg" width="654" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9e/a01061_ad2f515525962880586d857dd395e8983_cgraph.svg" width="462" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="afa10c44ad4eee7779caf46410cac1255" name="afa10c44ad4eee7779caf46410cac1255"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa10c44ad4eee7779caf46410cac1255">&#9670;&#160;</a></span>read()</h2>
+<a id="a4bc5b3cc66d266518992ce5dc14973c5" name="a4bc5b3cc66d266518992ce5dc14973c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc5b3cc66d266518992ce5dc14973c5">&#9670;&#160;</a></span>play()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -508,30 +415,47 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7">EventCode</a> Lib::BSP::EncoderTimer::read </td>
+          <td class="memname">bool Lib::BSP::Beep::play </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1U</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>pause</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the next pending event without blocking. </p>
-<p>Checks in priority order: a button change, then rotation, then an expired hold time, and returns at most one event per call. Bounce repeating the same level is filtered out, so every push gets exactly one release.</p>
-<dl class="section return"><dt>Returns</dt><dd>Detected event, or '<a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693" title="No event pending.">EventCode::NONE</a>' if nothing happened or the driver is not open. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/deb/a02724.html#a4">Lib::BSP::EncoderTimer</a>.</dd>
+<p>Starts a beep sequence, unless one is already playing. </p>
+<p>Returns at once; the sequence plays in the background.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>Length of each beep, in milliseconds. </td></tr>
+    <tr><td class="paramname">count</td><td>Number of beeps; 0 plays nothing. </td></tr>
+    <tr><td class="paramname">pause</td><td>Silence between two beeps, in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the sequence was started, <b>false</b> if one was already playing or 'count' is 0. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d04/a02888.html#a1">Lib::BSP::Beep</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="aa64ce59f0c59f795c337dcad2b2a104e" name="aa64ce59f0c59f795c337dcad2b2a104e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa64ce59f0c59f795c337dcad2b2a104e">&#9670;&#160;</a></span>BUTTON_HOLD_TIME</h2>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a021b081c55c843fa9b7ba25effa04637" name="a021b081c55c843fa9b7ba25effa04637"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a021b081c55c843fa9b7ba25effa04637">&#9670;&#160;</a></span>RTOS::TickClient&lt; Beep &gt;</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,7 +464,30 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::chrono::milliseconds Lib::BSP::EncoderTimer::BUTTON_HOLD_TIME {2000}</td>
+          <td class="memname">friend class <a class="el" href="../../dc/d1d/a02713.html">RTOS::TickClient</a>&lt; <a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a9540c4c8740da0d59747a9373e03833a" name="a9540c4c8740da0d59747a9373e03833a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9540c4c8740da0d59747a9373e03833a">&#9670;&#160;</a></span>DEFAULT_OC_CONFIG</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TIM_OC_InitTypeDef Lib::BSP::Beep::DEFAULT_OC_CONFIG</td>
         </tr>
       </table>
   </td>
@@ -549,8 +496,18 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Time the button must stay down to count as held. </p>
+<b>Initial value:</b><div class="fragment"><div class="line">                                                      = {</div>
+<div class="line">    .OCMode = TIM_OCMODE_TOGGLE,</div>
+<div class="line">    .Pulse = 100,</div>
+<div class="line">    .OCPolarity = TIM_OCPOLARITY_LOW,</div>
+<div class="line">    .OCNPolarity = TIM_OCNPOLARITY_LOW,</div>
+<div class="line">    .OCFastMode = TIM_OCFAST_DISABLE,</div>
+<div class="line">    .OCIdleState = TIM_OCIDLESTATE_RESET,</div>
+<div class="line">    .OCNIdleState = TIM_OCNIDLESTATE_RESET,</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Output-compare configuration applied to the buzzer channel on every beep. </p>
+<p>Toggle mode, active-low polarity on both the channel and its complementary output, both idle states reset. </p>
 
 </div>
 </div>
@@ -564,12 +521,23 @@ Static Public Attributes</h2></td></tr>
 </div><!-- page-nav-tree -->
 </div><!-- page-nav -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../da/d98/a00870.html">Lib</a></li><li class="navelem"><a href="../../dd/de1/a00871.html">BSP</a></li><li class="navelem"><a href="../../de/d9e/a01061.html">EncoderTimer</a></li>
+    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../de/d9e/a01061.html">Beep</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

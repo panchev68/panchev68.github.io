@@ -1,14 +1,19 @@
 var a02393 =
 [
-    [ "Point", "dd/d6b/a02397.html", "dd/d6b/a02397" ],
-    [ "LinearInterpolation", "d1/d29/a02393.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
-    [ "LinearInterpolation", "d1/d29/a02393.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
-    [ "addPoint", "d1/d29/a02393.html#afdd4b894d0803bc604d379fa4629d483", null ],
-    [ "addPoint", "d1/d29/a02393.html#a74376103d2a68f503d4edeac77bcb80c", null ],
-    [ "clear", "d1/d29/a02393.html#aab5168233071bba85d5f5119cecdc12f", null ],
-    [ "getPoint", "d1/d29/a02393.html#a96708d1e4a7701724f4770d48a1b4661", null ],
-    [ "getPointCount", "d1/d29/a02393.html#aff35d714c8d5e1859adca0de1f902a34", null ],
-    [ "interpolate", "d1/d29/a02393.html#a15ad2325a927ddfead159579c0d375aa", null ],
-    [ "isEmpty", "d1/d29/a02393.html#a297a3b5b4a94c75ad444983025829924", null ],
-    [ "sortPoints", "d1/d29/a02393.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
+    [ "USBHostPortBase", "d1/d29/a02393.html#ac0f4ceb9b0f8b8a506fd172cb3ce4566", null ],
+    [ "USBHostPortBase", "d1/d29/a02393.html#aa89066f8aa5102a47badafbc732bf444", null ],
+    [ "USBHostPortBase", "d1/d29/a02393.html#a6ab4021b54519845f9f116d64637e8b3", null ],
+    [ "~USBHostPortBase", "d1/d29/a02393.html#a78ed9071852127d2096ce7ef2b2a5f8e", null ],
+    [ "close", "d1/d29/a02393.html#aff332f8bc49d112c37f829db7d9b78c1", null ],
+    [ "closeChannel", "d1/d29/a02393.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
+    [ "getFrame", "d1/d29/a02393.html#aa5a82053bf356261f139d027918f7a98", null ],
+    [ "getSpeed", "d1/d29/a02393.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
+    [ "getTransferCount", "d1/d29/a02393.html#aeafad19d337548bb5ef919dd44723b5f", null ],
+    [ "open", "d1/d29/a02393.html#ab20db0d8a9ceb5b527bc5b4ff065717f", null ],
+    [ "openChannel", "d1/d29/a02393.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
+    [ "operator=", "d1/d29/a02393.html#a58f84861a9e04f0260bf39e31c926931", null ],
+    [ "operator=", "d1/d29/a02393.html#a9dea26483778c8eacb80952819421b30", null ],
+    [ "resetPort", "d1/d29/a02393.html#a4be20887571f3bd3694a79bb349979f8", null ],
+    [ "start", "d1/d29/a02393.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
+    [ "stop", "d1/d29/a02393.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ]
 ];

@@ -1,6 +1,8 @@
 var a01905 =
 [
-    [ "getDevice", "d9/d65/a01905.html#a44399c0b88c31ab172615c8522506511", null ],
-    [ "registerDevice", "d9/d65/a01905.html#a20731f8c338ecda6068a2f416c8e9e97", null ],
-    [ "unregisterDevice", "d9/d65/a01905.html#aa1c87169c3e9040cd552e10c08e0eee4", null ]
+    [ "Frame0x90", "d9/d65/a01905.html#a22052cd3212328570ef5c6d06ef34390", null ],
+    [ "options", "d9/d65/a01905.html#a5c602af5052ef25f33461908061ad07f", null ],
+    [ "rfData", "d9/d65/a01905.html#a0a12c77e30ed809310066e0b8ca02ef4", null ],
+    [ "srcAddr16", "d9/d65/a01905.html#a6bca75cd72e3dbbce9c1bc53b4723b78", null ],
+    [ "srcAddr64", "d9/d65/a01905.html#a8c9867ba7149b30c68d2c80449ece42a", null ]
 ];

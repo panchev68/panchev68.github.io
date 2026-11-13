@@ -1,9 +1,12 @@
 var a02453 =
 [
-    [ "Lock", "d4/d87/a02457.html", "d4/d87/a02457" ],
-    [ "State", "d3/d27/a02453.html#a329f49803f7880dc5d4e70b422ef08ff", [
-      [ "SUSPENDED", "d3/d27/a02453.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
-      [ "NOT_STARTED", "d3/d27/a02453.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
-      [ "RUNNING", "d3/d27/a02453.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
-    ] ]
+    [ "Time", "d3/d27/a02453.html#a09c1a289db437e3ca338e958ea1101fe", null ],
+    [ "Time", "d3/d27/a02453.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
+    [ "isValid", "d3/d27/a02453.html#aad60c63a33a981ba3174a5360f508caa", null ],
+    [ "operator<=>", "d3/d27/a02453.html#a439444313b0351de56cc2f43dc39b9b4", null ],
+    [ "operator==", "d3/d27/a02453.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
+    [ "toDuration", "d3/d27/a02453.html#a3f5be273bd672ae87b52a229edec304f", null ],
+    [ "hours", "d3/d27/a02453.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
+    [ "minutes", "d3/d27/a02453.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
+    [ "seconds", "d3/d27/a02453.html#acffd8038132dc5a2078816b9d0dae829", null ]
 ];

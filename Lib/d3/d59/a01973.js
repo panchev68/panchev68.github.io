@@ -1,19 +1,7 @@
 var a01973 =
 [
-    [ "ExtInterrupt", "d3/d59/a01973.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
-    [ "~ExtInterrupt", "d3/d59/a01973.html#a0500efb3e0dbde6f95fd02948060723b", null ],
-    [ "ExtInterrupt", "d3/d59/a01973.html#a0896646faa35c4149a6fb3f8360da15b", null ],
-    [ "ExtInterrupt", "d3/d59/a01973.html#af65b4789b35500d9539e56a75d90c71c", null ],
-    [ "bindCallback", "d3/d59/a01973.html#a716641ce172d66ad1226056de77e00f3", null ],
-    [ "isHigh", "d3/d59/a01973.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d3/d59/a01973.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d3/d59/a01973.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "d3/d59/a01973.html#a89f184dfbf150b77ab08f3bf7a9078ca", null ],
-    [ "operator=", "d3/d59/a01973.html#a29b2dfe4158fc5f27e352ab72f1a11fe", null ],
-    [ "read", "d3/d59/a01973.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "unbindCallback", "d3/d59/a01973.html#a436fbfef93e09cd205ebb36284da5374", null ],
-    [ "void::HAL_GPIO_EXTI_Callback", "d3/d59/a01973.html#a7b34f0451fb5f0d0f5077ea7594eb5bb", null ],
-    [ "void::HAL_GPIO_EXTI_Falling_Callback", "d3/d59/a01973.html#a608244a38c1095888d60a17b77ae5ed4", null ],
-    [ "void::HAL_GPIO_EXTI_Rising_Callback", "d3/d59/a01973.html#aa8068c433729122f23f40e6bfa77659f", null ],
-    [ "handle", "d3/d59/a01973.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "close", "d3/d59/a01973.html#ab9d284c5cdff31383f99dea75c7f9e89", null ],
+    [ "open", "d3/d59/a01973.html#a2f27b571e2674aeb90f9773efe5d47c5", null ],
+    [ "read", "d3/d59/a01973.html#a53a2f54f254565a80c92924936564fb0", null ],
+    [ "write", "d3/d59/a01973.html#ae649720e51a2f29cd3f226e0c91e40f4", null ]
 ];

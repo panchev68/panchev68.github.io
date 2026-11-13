@@ -1,19 +1,14 @@
 var a02221 =
 [
-    [ "USBHostPortBase", "dd/dd6/a02221.html#ac0f4ceb9b0f8b8a506fd172cb3ce4566", null ],
-    [ "USBHostPortBase", "dd/dd6/a02221.html#aa89066f8aa5102a47badafbc732bf444", null ],
-    [ "USBHostPortBase", "dd/dd6/a02221.html#a6ab4021b54519845f9f116d64637e8b3", null ],
-    [ "~USBHostPortBase", "dd/dd6/a02221.html#a78ed9071852127d2096ce7ef2b2a5f8e", null ],
-    [ "close", "dd/dd6/a02221.html#aff332f8bc49d112c37f829db7d9b78c1", null ],
-    [ "closeChannel", "dd/dd6/a02221.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
-    [ "getFrame", "dd/dd6/a02221.html#aa5a82053bf356261f139d027918f7a98", null ],
-    [ "getSpeed", "dd/dd6/a02221.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
-    [ "getTransferCount", "dd/dd6/a02221.html#aeafad19d337548bb5ef919dd44723b5f", null ],
-    [ "open", "dd/dd6/a02221.html#ab20db0d8a9ceb5b527bc5b4ff065717f", null ],
-    [ "openChannel", "dd/dd6/a02221.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
-    [ "operator=", "dd/dd6/a02221.html#a58f84861a9e04f0260bf39e31c926931", null ],
-    [ "operator=", "dd/dd6/a02221.html#a9dea26483778c8eacb80952819421b30", null ],
-    [ "resetPort", "dd/dd6/a02221.html#a4be20887571f3bd3694a79bb349979f8", null ],
-    [ "start", "dd/dd6/a02221.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
-    [ "stop", "dd/dd6/a02221.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ]
+    [ "OSPIPortAsync", "dd/dd6/a02221.html#a51c7bf376cb7e3701de6391b213701a9", null ],
+    [ "abort", "dd/dd6/a02221.html#a12a734c939e90c6c90510ba2c323dec0", null ],
+    [ "close", "dd/dd6/a02221.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "command", "dd/dd6/a02221.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "getHandle", "dd/dd6/a02221.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "dd/dd6/a02221.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isBusy", "dd/dd6/a02221.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "isOpened", "dd/dd6/a02221.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "dd/dd6/a02221.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "dd/dd6/a02221.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "dd/dd6/a02221.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

@@ -1,8 +1,14 @@
 var a01333 =
 [
-    [ "HAL_SMARTCARD_DeInit", "https://panchev68.github.io/HALF4/dc/d2a/a01333.html#ga4b54b33c61b5284adbb7c98760425c2e", null ],
-    [ "HAL_SMARTCARD_Init", "https://panchev68.github.io/HALF4/dc/d2a/a01333.html#ga95235c14cb192c26cf72bf44ddaaf551", null ],
-    [ "HAL_SMARTCARD_MspDeInit", "https://panchev68.github.io/HALF4/dc/d2a/a01333.html#gaf8e8fa8ca8058656fdd091880424565a", null ],
-    [ "HAL_SMARTCARD_MspInit", "https://panchev68.github.io/HALF4/dc/d2a/a01333.html#ga13e9aae9f5dd3b332fc8e431596793dc", null ],
-    [ "HAL_SMARTCARD_ReInit", "https://panchev68.github.io/HALF4/dc/d2a/a01333.html#ga1701fcf5d66117782a06569af1e40077", null ]
+    [ "Mifare", "dc/d2a/a01333.html#a32c5c26548db5a62c135d462408f7eb8", null ],
+    [ "~Mifare", "dc/d2a/a01333.html#ab9292dbd07d2f2f0a579729beadce81a", null ],
+    [ "adjustValue", "dc/d2a/a01333.html#ae63c40816081c83b32237540fa351d20", null ],
+    [ "authenticate", "dc/d2a/a01333.html#a646ed2b83f740acca2902cf2bd94584a", null ],
+    [ "decrement", "dc/d2a/a01333.html#ad4aef0d4dd5dd87530916fd4e7899410", null ],
+    [ "formatValueBlock", "dc/d2a/a01333.html#ae321e9f7437818d3481f77afa3da63ec", null ],
+    [ "increment", "dc/d2a/a01333.html#a419ae2e457e93dfb3ad77a301758f796", null ],
+    [ "readBlock", "dc/d2a/a01333.html#ac2dfd03cabc019b9f3bf484f8affa113", null ],
+    [ "restore", "dc/d2a/a01333.html#a7dee5ed9db810229e38b0299ec1ed31a", null ],
+    [ "transfer", "dc/d2a/a01333.html#a7eac216ac4049cd65471896003a0d925", null ],
+    [ "writeBlock", "dc/d2a/a01333.html#a602509a99b488ae6354b4c75e9335610", null ]
 ];

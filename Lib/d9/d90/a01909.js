@@ -1,12 +1,10 @@
 var a01909 =
 [
-    [ "ADCPortBase", "d9/d90/a01909.html#a4434447d51727d630ac97c35686a4ec0", null ],
-    [ "ADCPortBase", "d9/d90/a01909.html#a0ad5d61e73944a97373bfae0962076a5", null ],
-    [ "ADCPortBase", "d9/d90/a01909.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
-    [ "~ADCPortBase", "d9/d90/a01909.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
-    [ "close", "d9/d90/a01909.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
-    [ "getValue", "d9/d90/a01909.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "d9/d90/a01909.html#aed764265c454323ee0b2d718d2f447cb", null ],
-    [ "operator=", "d9/d90/a01909.html#a283bca78dae75fbe3786f0ddfcb865f3", null ],
-    [ "operator=", "d9/d90/a01909.html#a0fcfa429879f8263683b639ed5e74c96", null ]
+    [ "Frame0x97", "d9/d90/a01909.html#a8d6d58095dc72605b19af99d9a4c2097", null ],
+    [ "atCommand", "d9/d90/a01909.html#a965406599165a7744ecbe01f6054fc9d", null ],
+    [ "commandStatus", "d9/d90/a01909.html#a1ffffd99f0fd3d9c4529ae8fd2d2f069", null ],
+    [ "frameId", "d9/d90/a01909.html#ae5cbfb88fbca17299b374c0b207128d0", null ],
+    [ "parameters", "d9/d90/a01909.html#a0716b11170a5695a6ff94920635fb32f", null ],
+    [ "srcAddr16", "d9/d90/a01909.html#a4dcf22e4dd07f8d0c0764bebb9e23721", null ],
+    [ "srcAddr64", "d9/d90/a01909.html#a146e6de04eded1ed1426630c73a3ad17", null ]
 ];

@@ -1,8 +1,5 @@
 var a01741 =
 [
-    [ "Frame0x90", "d0/d4e/a01741.html#a22052cd3212328570ef5c6d06ef34390", null ],
-    [ "options", "d0/d4e/a01741.html#a5c602af5052ef25f33461908061ad07f", null ],
-    [ "rfData", "d0/d4e/a01741.html#a0a12c77e30ed809310066e0b8ca02ef4", null ],
-    [ "srcAddr16", "d0/d4e/a01741.html#a6bca75cd72e3dbbce9c1bc53b4723b78", null ],
-    [ "srcAddr64", "d0/d4e/a01741.html#a8c9867ba7149b30c68d2c80449ece42a", null ]
+    [ "localAtCommand", "d0/d4e/a01741.html#a62c4d2c354626705c34bc850c039b5f7", null ],
+    [ "remoteAtCommand", "d0/d4e/a01741.html#aa56356e688d34101ce88fae45dd6fa4a", null ]
 ];

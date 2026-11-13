@@ -1,11 +1,8 @@
 var a02637 =
 [
-    [ "FirmwareString", "d2/de3/a02637.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "VersionString", "d2/de3/a02637.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Firmware", "d2/de3/a02637.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "getSubVersion", "d2/de3/a02637.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator FirmwareString", "d2/de3/a02637.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "d2/de3/a02637.html#a7dcca38967251869c5bf305173fc13ee", null ],
-    [ "operator VersionString", "d2/de3/a02637.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d2/de3/a02637.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "allocations", "d2/de3/a02637.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
+    [ "freeHeap", "d2/de3/a02637.html#a944d10ce32d8114a8a1349e2582022bd", null ],
+    [ "frees", "d2/de3/a02637.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
+    [ "minimumFreeHeap", "d2/de3/a02637.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
+    [ "totalHeap", "d2/de3/a02637.html#a83580325c3df5098f79f23bd212fb20a", null ]
 ];

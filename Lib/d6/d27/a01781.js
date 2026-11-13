@@ -1,6 +1,6 @@
 var a01781 =
 [
-    [ "afterWrite", "d6/d27/a01781.html#a53e4f89f1542245add410f8b0f52b0bd", null ],
-    [ "beforeRead", "d6/d27/a01781.html#a214b45de3b2b1b03564e40ad91392018", null ],
-    [ "beforeWrite", "d6/d27/a01781.html#a19848fcaef19f48fd52d8d89e26be851", null ]
+    [ "Checksum", "d6/d27/a01781.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
+    [ "Checksum", "d6/d27/a01781.html#a804971de0300d66401e3f2ed94f306dc", null ],
+    [ "operator uint8_t", "d6/d27/a01781.html#add4f353a37e719b8e2439c490fa552b8", null ]
 ];

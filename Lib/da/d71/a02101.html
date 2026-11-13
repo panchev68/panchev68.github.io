@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::HAL::SPIPort&lt; DriverMode::IT &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -111,76 +111,205 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/d71/a02101.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::SPIPort&lt; DriverMode::IT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Explicit specialized variant driving asynchronous Interrupt (IT) transfer paths. </p>
-<p>Handle lifecycle and the begin/end-transaction hooks come from "SPIPortBase"; the event group, start-then-wait transfers, <a class="el" href="../../db/d7a/a02105.html#a3d63fe443c0e1bd35bd8cd870a0435f6">abort()</a>, <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback registration and <a class="el" href="../../da/d76/a01941.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> wiring come from "SPIPortAsync", shared with the DMA mode. This specialization only supplies the three <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> calls that start an interrupt-driven transfer. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::SPIPort&lt; DriverMode::IT &gt;:</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt;<br />
+class Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</div><p>CRTP foundation of the interrupt-driven ports (UART, SPI, I2C, OCTOSPI, <a class="el" href="../../db/d14/a01040.html" title="USB serial port abstractions and helpers.">USB</a> device and host). </p>
+<p><b>Lifecycle:</b> the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group, the peripheral, the <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a> slot and the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks are opened in that order and undone in reverse when a step fails. A port supplies only what is specific to its peripheral: the callbacks it wires ('registerCallbacks()' / 'unregisterCallbacks()') and its transfers. Holds no <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> type of its own and needs no 'main.h': the handle type and the peripheral base class are parameters.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete mode specialization; it owns the native handle through <a class="el" href="../../d7/d16/a02109.html" title="Device">Device</a> and is the type the <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a> registers. </td></tr>
+    <tr><td class="paramname">T_HANDLE</td><td>Native <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle type. </td></tr>
+    <tr><td class="paramname">T_BASE</td><td>Peripheral base class (for example <a class="el" href="../../dc/d0a/a02345.html" title="UARTPortBase">UARTPortBase</a>), providing <a class="el" href="#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a> for the peripheral itself. </td></tr>
+    <tr><td class="paramname">T_PORT</td><td>The port class deriving from this one. It must declare this class a friend and provide the static functions 'registerCallbacks(T_HANDLE *)' and 'unregisterCallbacks(T_HANDLE *)'; the first returns <b>true</b> if the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted every callback. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd1/a02100.svg" width="426" height="1170"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd1/a02100.svg" width="4003" height="1216"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::SPIPort&lt; DriverMode::IT &gt;:</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dff/a02099.svg" width="632" height="1362"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dff/a02099.svg" width="632" height="767"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6887b333ef818d3bd80112c8ce57998d" id="r_a6887b333ef818d3bd80112c8ce57998d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6887b333ef818d3bd80112c8ce57998d">SPIPort</a> (SPI_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:a6887b333ef818d3bd80112c8ce57998d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the custom communication context to a native configuration structure.  <br /></td></tr>
-<tr class="memitem:ad6c6de84d5713ce3f16ae3047ec949a1" id="r_ad6c6de84d5713ce3f16ae3047ec949a1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad6c6de84d5713ce3f16ae3047ec949a1">~SPIPort</a> () noexcept</td></tr>
-<tr class="memdesc:ad6c6de84d5713ce3f16ae3047ec949a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../da/d76/a01941.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> registry and no <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback points at the destroyed port.  <br /></td></tr>
-<tr class="memitem:a3d63fe443c0e1bd35bd8cd870a0435f6" id="r_a3d63fe443c0e1bd35bd8cd870a0435f6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../db/d7a/a02105.html#a3d63fe443c0e1bd35bd8cd870a0435f6">abort</a> () noexcept</td></tr>
-<tr class="memdesc:a3d63fe443c0e1bd35bd8cd870a0435f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts any ongoing transfer immediately, waking a task blocked in a transfer.  <br /></td></tr>
-<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d9/d17/a01937.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
-<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../da/d76/a01941.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> slot and <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, in that order.  <br /></td></tr>
-<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d9/d17/a01937.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
-<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
-<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d9/d17/a01937.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
+<tr class="memitem:a9e0e2e3d307485d3bc6cc4c54a4a9790" id="r_a9e0e2e3d307485d3bc6cc4c54a4a9790"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> (const AsyncPortCore &amp;other)=delete</td></tr>
+<tr class="memdesc:a9e0e2e3d307485d3bc6cc4c54a4a9790"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a unique <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group and registration slot in the <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a>.  <br /></td></tr>
+<tr class="memitem:ae4c323f8431fa6f03e914d953c4306c2" id="r_ae4c323f8431fa6f03e914d953c4306c2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae4c323f8431fa6f03e914d953c4306c2">AsyncPortCore</a> (AsyncPortCore &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:ae4c323f8431fa6f03e914d953c4306c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns a unique <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group and registration slot in the <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a>.  <br /></td></tr>
+<tr class="memitem:a83e0efb939206ab305b7b0c0b80a27e5" id="r_a83e0efb939206ab305b7b0c0b80a27e5"><td class="memItemLeft"><a class="el" href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a83e0efb939206ab305b7b0c0b80a27e5">operator=</a> (const <a class="el" href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a83e0efb939206ab305b7b0c0b80a27e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a unique <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group and registration slot in the <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a>.  <br /></td></tr>
+<tr class="memitem:af7a0ea878376b289ff08600fa9477026" id="r_af7a0ea878376b289ff08600fa9477026"><td class="memItemLeft"><a class="el" href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af7a0ea878376b289ff08600fa9477026">operator=</a> (<a class="el" href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:af7a0ea878376b289ff08600fa9477026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns a unique <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group and registration slot in the <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a>.  <br /></td></tr>
+<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a> slot and <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, in that order.  <br /></td></tr>
+<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
+<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
+<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
 <tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
-<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d39/a01945.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d16/a02109.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
 <tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d39/a01945.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
+<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d16/a02109.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
 <tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a3c55c6775abc08a42ba3fb85ac9404c9" id="r_a3c55c6775abc08a42ba3fb85ac9404c9"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a3c55c6775abc08a42ba3fb85ac9404c9">EventBits</a> = <a class="el" href="../../db/d6a/a02613.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a3fea82834797dbd505ac308e4ebe58a2" id="r_a3fea82834797dbd505ac308e4ebe58a2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3fea82834797dbd505ac308e4ebe58a2">AsyncPortCore</a> (T_HANDLE *handle) noexcept</td></tr>
+<tr class="memdesc:a3fea82834797dbd505ac308e4ebe58a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle.  <br /></td></tr>
+<tr class="memitem:aa73910a82d1814199dbe1ec58c46f450" id="r_aa73910a82d1814199dbe1ec58c46f450"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa73910a82d1814199dbe1ec58c46f450">~AsyncPortCore</a> () noexcept</td></tr>
+<tr class="memdesc:aa73910a82d1814199dbe1ec58c46f450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts that the port is closed before the object is destroyed.  <br /></td></tr>
+<tr class="memitem:a3dbece6116a65776aa72cb7a95e4a79a" id="r_a3dbece6116a65776aa72cb7a95e4a79a"><td class="memItemLeft">T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="#a3dbece6116a65776aa72cb7a95e4a79a">derived</a> () noexcept</td></tr>
+<tr class="memdesc:a3dbece6116a65776aa72cb7a95e4a79a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Views this object through its concrete 'T_DERIVED' mode specialization.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:ac1e436d02537a9e4b651277ba21762f9" id="r_ac1e436d02537a9e4b651277ba21762f9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="../../d9/d17/a01937.html#ac1e436d02537a9e4b651277ba21762f9">signalFromISR</a> (T_HANDLE *handle, uint32_t bits) noexcept</td></tr>
-<tr class="memdesc:ac1e436d02537a9e4b651277ba21762f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits on the port owning a <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle; called from interrupt context.  <br /></td></tr>
-<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../d9/d17/a01937.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (T_HANDLE *handle) noexcept</td></tr>
-<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle.  <br /></td></tr>
+<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="#a66f47e9670feddc6fb679436b07a1680">findPort</a> (T_HANDLE *handle) noexcept</td></tr>
+<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle.  <br /></td></tr>
+<tr class="memitem:ac1e436d02537a9e4b651277ba21762f9" id="r_ac1e436d02537a9e4b651277ba21762f9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ac1e436d02537a9e4b651277ba21762f9">signalFromISR</a> (T_HANDLE *handle, uint32_t bits) noexcept</td></tr>
+<tr class="memdesc:ac1e436d02537a9e4b651277ba21762f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits on the port owning a <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle; called from interrupt context.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:abb56ddd8ed19246084e1242e9075982f" id="r_abb56ddd8ed19246084e1242e9075982f"><td class="memItemLeft"><a class="el" href="../../db/d6a/a02613.html">RTOS::EventGroup</a>&#160;</td><td class="memItemRight"><a class="el" href="#abb56ddd8ed19246084e1242e9075982f">events</a></td></tr>
+<tr class="memdesc:abb56ddd8ed19246084e1242e9075982f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer completion and error signals set from the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks.  <br /></td></tr>
+<tr class="memitem:aa533ddd5b800443ba9ea9687a78b720e" id="r_aa533ddd5b800443ba9ea9687a78b720e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa533ddd5b800443ba9ea9687a78b720e">isOpen</a> = false</td></tr>
+<tr class="memdesc:aa533ddd5b800443ba9ea9687a78b720e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set between a successful <a class="el" href="#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>; task context only.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6887b333ef818d3bd80112c8ce57998d" name="a6887b333ef818d3bd80112c8ce57998d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6887b333ef818d3bd80112c8ce57998d">&#9670;&#160;</a></span>SPIPort()</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a3c55c6775abc08a42ba3fb85ac9404c9" name="a3c55c6775abc08a42ba3fb85ac9404c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c55c6775abc08a42ba3fb85ac9404c9">&#9670;&#160;</a></span>EventBits</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::SPIPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::SPIPort </td>
+          <td class="memname">using <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::EventBits = <a class="el" href="../../db/d6a/a02613.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a9e0e2e3d307485d3bc6cc4c54a4a9790" name="a9e0e2e3d307485d3bc6cc4c54a4a9790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">&#9670;&#160;</a></span>AsyncPortCore() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::AsyncPortCore </td>
           <td>(</td>
-          <td class="paramtype">SPI_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype">const AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the custom communication context to a native configuration structure. </p>
+<p>Copying is deleted: each instance owns a unique <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group and registration slot in the <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae4c323f8431fa6f03e914d953c4306c2" name="ae4c323f8431fa6f03e914d953c4306c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c323f8431fa6f03e914d953c4306c2">&#9670;&#160;</a></span>AsyncPortCore() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::AsyncPortCore </td>
+          <td>(</td>
+          <td class="paramtype">AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: each instance owns a unique <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group and registration slot in the <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3fea82834797dbd505ac308e4ebe58a2" name="a3fea82834797dbd505ac308e4ebe58a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fea82834797dbd505ac308e4ebe58a2">&#9670;&#160;</a></span>AsyncPortCore() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::AsyncPortCore </td>
+          <td>(</td>
+          <td class="paramtype">T_HANDLE *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds the port to its native handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
@@ -190,17 +319,19 @@ Static Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad6c6de84d5713ce3f16ae3047ec949a1" name="ad6c6de84d5713ce3f16ae3047ec949a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6c6de84d5713ce3f16ae3047ec949a1">&#9670;&#160;</a></span>~SPIPort()</h2>
+<a id="aa73910a82d1814199dbe1ec58c46f450" name="aa73910a82d1814199dbe1ec58c46f450"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa73910a82d1814199dbe1ec58c46f450">&#9670;&#160;</a></span>~AsyncPortCore()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::SPIPort&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::~<a class="el" href="#a6887b333ef818d3bd80112c8ce57998d">SPIPort</a> </td>
+          <td class="memname"><a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::~<a class="el" href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -208,51 +339,17 @@ Static Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../da/d76/a01941.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> registry and no <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback points at the destroyed port. </p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d71/a02101_ad6c6de84d5713ce3f16ae3047ec949a1_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Asserts that the port is closed before the object is destroyed. </p>
+<p>The mode specialization closes the port in its own destructor, while it is still fully alive, since <a class="el" href="#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a> reaches the handle through 'T_DERIVED'. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a3d63fe443c0e1bd35bd8cd870a0435f6" name="a3d63fe443c0e1bd35bd8cd870a0435f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d63fe443c0e1bd35bd8cd870a0435f6">&#9670;&#160;</a></span>abort()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../db/d7a/a02105.html">Lib::HAL::SPIPortAsync</a>&lt; <a class="el" href="#a6887b333ef818d3bd80112c8ce57998d">SPIPort</a>&lt; <a class="el" href="../../d8/d0a/a00904.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::abort </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Aborts any ongoing transfer immediately, waking a task blocked in a transfer. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the hardware stopped processing safely. </dd></dl>
-
-</div>
-</div>
 <a id="a03c62c024b148a264f9a6a0077198302" name="a03c62c024b148a264f9a6a0077198302"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03c62c024b148a264f9a6a0077198302">&#9670;&#160;</a></span>close()</h2>
 
@@ -265,7 +362,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d17/a01937.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d9/d17/a01937.html#a03c62c024b148a264f9a6a0077198302">::close</a> </td>
+          <td class="memname">bool <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -273,14 +370,44 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the port: unregisters it, restores the <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, deinitializes the peripheral and closes the event group. </p>
+<p>Closes the port: unregisters it, restores the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, deinitializes the peripheral and closes the event group. </p>
 <p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
+
+</div>
+</div>
+<a id="a3dbece6116a65776aa72cb7a95e4a79a" name="a3dbece6116a65776aa72cb7a95e4a79a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dbece6116a65776aa72cb7a95e4a79a">&#9670;&#160;</a></span>derived()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_DERIVED * <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::derived </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Views this object through its concrete 'T_DERIVED' mode specialization. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to this object, statically cast to 'T_DERIVED'. </dd></dl>
 
 </div>
 </div>
@@ -296,7 +423,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T_DERIVED * <a class="el" href="../../d9/d17/a01937.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d9/d17/a01937.html#a66f47e9670feddc6fb679436b07a1680">::findPort</a> </td>
+          <td class="memname">T_DERIVED * <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::findPort </td>
           <td>(</td>
           <td class="paramtype">T_HANDLE *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
@@ -304,19 +431,19 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Finds the port that owns a <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle. </p>
+<p>Finds the port that owns a <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td><a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle reported by the interrupt module. </td></tr>
+    <tr><td class="paramname">handle</td><td><a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle reported by the interrupt module. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The port, or "nullptr" if no open port uses the handle. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The port, or 'nullptr' if no open port uses the handle. </dd></dl>
 
 </div>
 </div>
@@ -330,7 +457,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T_HANDLE * <a class="el" href="../../d5/d39/a01945.html">Lib::HAL::Device</a>&lt; T_DERIVED, T_HANDLE &gt;<a class="el" href="../../d5/d39/a01945.html#ac39b97fd324efde09c82d0ccfe7fe4e8">::getHandle</a> </td>
+          <td class="memname">const T_HANDLE * <a class="el" href="../../d7/d16/a02109.html">Lib::HAL::Device</a>&lt; T_DERIVED, T_HANDLE &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -344,7 +471,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 </div><div class="memdoc">
 
 <p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or "nullptr" if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
 
 </div>
 </div>
@@ -358,7 +485,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T_HANDLE * <a class="el" href="../../d5/d39/a01945.html">Lib::HAL::Device</a>&lt; T_DERIVED, T_HANDLE &gt;<a class="el" href="../../d5/d39/a01945.html#ac39b97fd324efde09c82d0ccfe7fe4e8">::getHandle</a> </td>
+          <td class="memname">T_HANDLE * <a class="el" href="../../d7/d16/a02109.html">Lib::HAL::Device</a>&lt; T_DERIVED, T_HANDLE &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -372,7 +499,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 </div><div class="memdoc">
 
 <p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or "nullptr" if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
 
 </div>
 </div>
@@ -388,7 +515,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d17/a01937.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d9/d17/a01937.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">::isOpened</a> </td>
+          <td class="memname">bool <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::isOpened </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -396,13 +523,13 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Checks whether the port is open. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" between a successful "open()" and "close()". </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
 
 </div>
 </div>
@@ -418,7 +545,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d17/a01937.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d9/d17/a01937.html#a3822bc9b87b9e299982b230e2c029f35">::open</a> </td>
+          <td class="memname">bool <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -426,14 +553,86 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Opens the port: event group, peripheral, <a class="el" href="../../da/d76/a01941.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> slot and <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, in that order. </p>
+<p>Opens the port: event group, peripheral, <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a> slot and <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, in that order. </p>
 <p>Task context only. A failure undoes the earlier steps, so the port stays closed.</p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if every step succeeded, or if the port was already open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
+
+</div>
+</div>
+<a id="af7a0ea878376b289ff08600fa9477026" name="af7a0ea878376b289ff08600fa9477026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a0ea878376b289ff08600fa9477026">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> &amp; <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: each instance owns a unique <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group and registration slot in the <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a83e0efb939206ab305b7b0c0b80a27e5" name="a83e0efb939206ab305b7b0c0b80a27e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83e0efb939206ab305b7b0c0b80a27e5">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> &amp; <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: each instance owns a unique <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group and registration slot in the <a class="el" href="../../db/d7a/a02105.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
@@ -449,7 +648,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d9/d17/a01937.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::signalFromISR </td>
+          <td class="memname">void <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::signalFromISR </td>
           <td>(</td>
           <td class="paramtype">T_HANDLE *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
         </tr>
@@ -461,19 +660,72 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets event bits on the port owning a <a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle; called from interrupt context. </p>
+<p>Sets event bits on the port owning a <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle; called from interrupt context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td><a class="el" href="../../d8/d0a/a00904.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle reported by the interrupt module. </td></tr>
+    <tr><td class="paramname">handle</td><td><a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle reported by the interrupt module. </td></tr>
     <tr><td class="paramname">bits</td><td>Event bits to set. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="abb56ddd8ed19246084e1242e9075982f" name="abb56ddd8ed19246084e1242e9075982f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb56ddd8ed19246084e1242e9075982f">&#9670;&#160;</a></span>events</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d6a/a02613.html">RTOS::EventGroup</a> <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::events</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transfer completion and error signals set from the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks. </p>
+
+</div>
+</div>
+<a id="aa533ddd5b800443ba9ea9687a78b720e" name="aa533ddd5b800443ba9ea9687a78b720e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa533ddd5b800443ba9ea9687a78b720e">&#9670;&#160;</a></span>isOpen</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../da/d71/a02101.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::isOpen = false</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set between a successful <a class="el" href="#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>; task context only. </p>
 
 </div>
 </div>
@@ -487,12 +739,23 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 </div><!-- page-nav-tree -->
 </div><!-- page-nav -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../da/d98/a00870.html">Lib</a></li><li class="navelem"><a href="../../d8/d0a/a00904.html">HAL</a></li><li class="navelem"><a href="../../da/d71/a02101.html">SPIPort&lt; DriverMode::IT &gt;</a></li>
+    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../da/d71/a02101.html">AsyncPortCore</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

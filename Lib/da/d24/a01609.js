@@ -1,16 +1,10 @@
 var a01609 =
 [
-    [ "Command", "da/d24/a01609.html#aeec1806cc51651aec7c65df97f20824f", [
-      [ "INPUTS", "da/d24/a01609.html#aeec1806cc51651aec7c65df97f20824fac7cab40575826be2d11c65614ca65692", null ],
-      [ "GET_PARAMETERS", "da/d24/a01609.html#aeec1806cc51651aec7c65df97f20824fad87e3170f16eba85483569bdf04166c1", null ],
-      [ "OUTPUTS", "da/d24/a01609.html#aeec1806cc51651aec7c65df97f20824fa1ca47bf72b5f3be73e90beeed7a36a70", null ],
-      [ "SET_PARAMETERS", "da/d24/a01609.html#aeec1806cc51651aec7c65df97f20824fa8e883255aa1108c276e166cd0bde2307", null ]
-    ] ],
-    [ "UserProtocol", "da/d24/a01609.html#aa1cf835574b826afcd369ebf2d028ea7", null ],
-    [ "~UserProtocol", "da/d24/a01609.html#ad7f787cb3b60753ed4352d4a34e8a9a7", null ],
-    [ "handleGetParameters", "da/d24/a01609.html#a1675e1b5fd15fd1500a5d996f87dfd46", null ],
-    [ "handleInputsUpdate", "da/d24/a01609.html#a667d3ff5b042410546dc2212f46897b3", null ],
-    [ "handleOutputsUpdate", "da/d24/a01609.html#a0da8607e6d55446f6dfa2edb7431481f", null ],
-    [ "handleSetParameters", "da/d24/a01609.html#afc05283afd3c88f8eee7d0c94e969ab4", null ],
-    [ "parse", "da/d24/a01609.html#a4d3b6c9250019cb601e8256f0167da64", null ]
+    [ "WolfSSH", "da/d24/a01609.html#acda587d771e0b88270bdf9263d156fd0", null ],
+    [ "~WolfSSH", "da/d24/a01609.html#ad07d509cc2a825d9165ab30739d84515", null ],
+    [ "WolfSSH", "da/d24/a01609.html#ab03771dcd75546ec452cb768b0a29da5", null ],
+    [ "WolfSSH", "da/d24/a01609.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
+    [ "isOpen", "da/d24/a01609.html#aac3ff36b57e422860d83792bb84c84f3", null ],
+    [ "operator=", "da/d24/a01609.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
+    [ "operator=", "da/d24/a01609.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
 ];

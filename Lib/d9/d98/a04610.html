@@ -10,9 +10,6 @@
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -77,21 +69,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/d98/a04610.html','../../','de/d76/a04607'); });
-</script>
-<div id="container">
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -110,14 +87,25 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/d98/a04610.
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../d7/d06/a01005.html">RFID</a></li><li class="navelem"><a href="../../d9/d98/a04610.html">NfcManager</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="../../de/d76/a04607.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt;<br />
-class Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;</div><p>Manages the ISO14443A card discovery state machine of an <a class="el" href="../../d0/dad/a04630.html" title="Driver for the ST25R100 NFC controller: SPI comms, IRQ handling, ISO14443A protocol ops.">ST25R100</a> reader. </p>
-<p>Waits for the reader's wake-up (card detect) event, then runs REQA, anticollision and SELECT in a dedicated <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task and reports the activated card's UID through a callback. Single-size (4-byte), double-size (7-byte, e.g. <a class="el" href="../../dc/d81/a01006.html" title="NXP NTAG21x tag helpers: originality verification and signed card records.">NTAG21x</a>) and triple-size (10-byte) UIDs are supported. While the callback runs the card stays selected, so it may read NFC Forum Type 2 memory with <a class="el" href="#a4c81d15f935d8e1c2dd13d993975f940" title="readPages()">readPages()</a> or write one page with <a class="el" href="#aa61c13d6b4df75e3243f862a1e8af3d5" title="writePage()">writePage()</a>. After every attempt, successful or not, the reader is put back into Wake-up mode.</p>
+class Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;</div><p>Manages the ISO14443A card discovery state machine of an ST25R100 reader. </p>
+<p>Waits for the reader's wake-up (card detect) event, then runs REQA, anticollision and SELECT in a dedicated RTOS task and reports the activated card's UID through a callback. Single-size (4-byte), double-size (7-byte, e.g. NTAG21x) and triple-size (10-byte) UIDs are supported. While the callback runs the card stays selected, so it may read NFC Forum Type 2 memory with <a class="el" href="#a4c81d15f935d8e1c2dd13d993975f940" title="readPages()">readPages()</a> or write one page with <a class="el" href="#aa61c13d6b4df75e3243f862a1e8af3d5" title="writePage()">writePage()</a>. After every attempt, successful or not, the reader is put back into Wake-up mode.</p>
 <p>Owns the task that drives the reader; the reader itself is shared by reference. Not thread-safe: call <a class="el" href="#a347e0188a1c8207e8d11268d607aa763" title="start()">start()</a> and <a class="el" href="#ae7bf77d346d29fc8a4da4226fc32e640" title="stop()">stop()</a> from one task.</p>
 <div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_typedef" href="#a6701c6a8809d64b58d6f2572a5d5e3db">Reader</a> = <a class="code hl_class" href="../../d0/dad/a04630.html">Lib::BSP::RFID::ST25R100&lt;Lib::HAL::DriverMode::IT&gt;</a>; <span class="keyword">using </span>Manager =</div>
 <div class="line"><a class="code hl_class" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager&lt;Lib::HAL::DriverMode::IT&gt;</a>;</div>
@@ -173,7 +161,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4c81d15f935d8e1c2dd13d993975f940" id="r_a4c81d15f935d8e1c2dd13d993975f940"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4c81d15f935d8e1c2dd13d993975f940">readPages</a> (uint8_t firstPage, <a class="el" href="#a5f65acf300f17deb99c963ab374432b3">ReadBuffer</a> &amp;destination) noexcept</td></tr>
 <tr class="memdesc:a4c81d15f935d8e1c2dd13d993975f940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads four NFC Forum Type 2 pages (16 bytes) from the selected card with the READ (0x30) command.  <br /></td></tr>
 <tr class="memitem:abdbd4ef43ac6798f86fb0f05d695d011" id="r_abdbd4ef43ac6798f86fb0f05d695d011"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abdbd4ef43ac6798f86fb0f05d695d011">readSignature</a> (<a class="el" href="#afea6f0e2a71e2700aba290c8c12dcbcc">SignatureBuffer</a> &amp;destination) noexcept</td></tr>
-<tr class="memdesc:abdbd4ef43ac6798f86fb0f05d695d011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the 32-byte originality signature of the selected <a class="el" href="../../dc/d81/a01006.html" title="NXP NTAG21x tag helpers: originality verification and signed card records.">NTAG21x</a> card with the READ_SIG (0x3C) command.  <br /></td></tr>
+<tr class="memdesc:abdbd4ef43ac6798f86fb0f05d695d011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the 32-byte originality signature of the selected NTAG21x card with the READ_SIG (0x3C) command.  <br /></td></tr>
 <tr class="memitem:aa61c13d6b4df75e3243f862a1e8af3d5" id="r_aa61c13d6b4df75e3243f862a1e8af3d5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa61c13d6b4df75e3243f862a1e8af3d5">writePage</a> (uint8_t page, std::span&lt; const uint8_t, 4U &gt; data) noexcept</td></tr>
 <tr class="memdesc:aa61c13d6b4df75e3243f862a1e8af3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one NFC Forum Type 2 page (4 bytes) to the selected card with the WRITE (0xA2) command, then reads it back with <a class="el" href="#a4c81d15f935d8e1c2dd13d993975f940" title="readPages()">readPages()</a> to confirm.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -184,7 +172,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:aa713a0e5aef09830dd634bed6da90f6b" id="r_aa713a0e5aef09830dd634bed6da90f6b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aa713a0e5aef09830dd634bed6da90f6b">READ_RESPONSE_SIZE</a> = 16U</td></tr>
 <tr class="memdesc:aa713a0e5aef09830dd634bed6da90f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes returned by one Type 2 READ (4 pages).  <br /></td></tr>
 <tr class="memitem:a990ef843ce606ef8224995b226c95e75" id="r_a990ef843ce606ef8224995b226c95e75"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a990ef843ce606ef8224995b226c95e75">SIGNATURE_SIZE</a> = 32U</td></tr>
-<tr class="memdesc:a990ef843ce606ef8224995b226c95e75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes of the <a class="el" href="../../dc/d81/a01006.html" title="NXP NTAG21x tag helpers: originality verification and signed card records.">NTAG21x</a> originality signature (ECDSA r || s).  <br /></td></tr>
+<tr class="memdesc:a990ef843ce606ef8224995b226c95e75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes of the NTAG21x originality signature (ECDSA r || s).  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="aaa9dd3ae634e7a69d4f917e7bd454305" name="aaa9dd3ae634e7a69d4f917e7bd454305"></a>
@@ -237,7 +225,7 @@ template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbf
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="#a6701c6a8809d64b58d6f2572a5d5e3db" title="Reader driver type.">Reader</a> driver type. </p>
+<p>Reader driver type. </p>
 
 </div>
 </div>
@@ -282,7 +270,7 @@ template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbf
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../df/dd7/a04586.html" title="Card (Proximity Integrated Circuit Card) helper for card authentication and communication.">Card</a> discovery state machine labels. </p>
+<p>Card discovery state machine labels. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5daf7f2ebbba4975d61dab1c40188c7" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5daf7f2ebbba4975d61dab1c40188c7"></a>IDLE&#160;</td><td class="fielddoc"><p>Waiting for card detection event. </p>
 </td></tr>
@@ -290,9 +278,9 @@ template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbf
 </td></tr>
 <tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9cad5dc3be53612bd06503c0bbfad204df3" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9cad5dc3be53612bd06503c0bbfad204df3"></a>POLL_ANTICOL&#160;</td><td class="fielddoc"><p>Anticollision sequence active. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4"></a>POLL_SELECT&#160;</td><td class="fielddoc"><p><a class="el" href="../../df/dd7/a04586.html" title="Card (Proximity Integrated Circuit Card) helper for card authentication and communication.">Card</a> selection sequence active. </p>
+<tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4"></a>POLL_SELECT&#160;</td><td class="fielddoc"><p>Card selection sequence active. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11"></a>CARD_ACTIVATED&#160;</td><td class="fielddoc"><p><a class="el" href="../../df/dd7/a04586.html" title="Card (Proximity Integrated Circuit Card) helper for card authentication and communication.">Card</a> successfully activated. </p>
+<tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11"></a>CARD_ACTIVATED&#160;</td><td class="fielddoc"><p>Card successfully activated. </p>
 </td></tr>
 </table>
 
@@ -331,7 +319,7 @@ template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbf
 <p>Binds the manager to the reader; touches neither the reader nor the scheduler. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">reader</td><td><a class="el" href="#a6701c6a8809d64b58d6f2572a5d5e3db" title="Reader driver type.">Reader</a> driver shared by reference. </td></tr>
+    <tr><td class="paramname">reader</td><td>Reader driver shared by reference. </td></tr>
     <tr><td class="paramname">config</td><td>Manager configuration, copied. </td></tr>
   </table>
   </dd>
@@ -401,7 +389,7 @@ template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbf
 </div><div class="memdoc">
 
 <p>Returns the debug counters and register snapshots. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d1/d9a/a04618.html" title="Debug counters and the register evidence captured on the discovery path.">Diagnostics</a> collected by the discovery task. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Diagnostics collected by the discovery task. </dd></dl>
 
 </div>
 </div>
@@ -431,7 +419,7 @@ template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbf
 </div><div class="memdoc">
 
 <p>Returns the current discovery state. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a4b1ad1aa4900bec7f1e8c0f90d7c5b9c" title="Card discovery state machine labels.">State</a> of the discovery state machine. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>State of the discovery state machine. </dd></dl>
 
 </div>
 </div>
@@ -544,8 +532,8 @@ template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbf
 </table>
 </div><div class="memdoc">
 
-<p>Reads the 32-byte originality signature of the selected <a class="el" href="../../dc/d81/a01006.html" title="NXP NTAG21x tag helpers: originality verification and signed card records.">NTAG21x</a> card with the READ_SIG (0x3C) command. </p>
-<p>The signature is NXP's ECDSA (secp128r1) signature over the 7-byte UID of an <a class="el" href="../../dc/d81/a01006.html" title="NXP NTAG21x tag helpers: originality verification and signed card records.">NTAG21x</a>. Valid only from within the <a class="el" href="../../d2/dc4/a04614.html#ad4b8d3f5ae272c06dc5ce104f9ff06df" title="Config::onCardActivated">Config::onCardActivated</a> callback, while the card is still selected.</p>
+<p>Reads the 32-byte originality signature of the selected NTAG21x card with the READ_SIG (0x3C) command. </p>
+<p>The signature is NXP's ECDSA (secp128r1) signature over the 7-byte UID of an NTAG21x. Valid only from within the <a class="el" href="../../d2/dc4/a04614.html#ad4b8d3f5ae272c06dc5ce104f9ff06df" title="Config::onCardActivated">Config::onCardActivated</a> callback, while the card is still selected.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">destination</td><td>Receives the signature, r || s, big-endian. </td></tr>
@@ -788,26 +776,26 @@ template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbf
 </table>
 </div><div class="memdoc">
 
-<p>Bytes of the <a class="el" href="../../dc/d81/a01006.html" title="NXP NTAG21x tag helpers: originality verification and signed card records.">NTAG21x</a> originality signature (ECDSA r || s). </p>
+<p>Bytes of the NTAG21x originality signature (ECDSA r || s). </p>
 
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../d7/d06/a01005.html">RFID</a></li><li class="navelem"><a href="../../d9/d98/a04610.html">NfcManager</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

@@ -1,13 +1,13 @@
 var a01349 =
 [
-    [ "HAL_TIM_OC_DeInit", "https://panchev68.github.io/HALF4/de/d6c/a01349.html#ga79f0c3e3015a81c535a578edc2fee8ca", null ],
-    [ "HAL_TIM_OC_Init", "https://panchev68.github.io/HALF4/de/d6c/a01349.html#ga7541c3db71ec7c0b4b54afa473bdb19a", null ],
-    [ "HAL_TIM_OC_MspDeInit", "https://panchev68.github.io/HALF4/de/d6c/a01349.html#ga2f01705566708fcaceb32bcad01f7498", null ],
-    [ "HAL_TIM_OC_MspInit", "https://panchev68.github.io/HALF4/de/d6c/a01349.html#gab7ea7555b79c4544ad90dc6d063d2f13", null ],
-    [ "HAL_TIM_OC_Start", "https://panchev68.github.io/HALF4/de/d6c/a01349.html#ga5dbbafc75b341b79d29bc41f8ec15492", null ],
-    [ "HAL_TIM_OC_Start_DMA", "https://panchev68.github.io/HALF4/de/d6c/a01349.html#ga1e4410b534d2381ff535bb987f340cba", null ],
-    [ "HAL_TIM_OC_Start_IT", "https://panchev68.github.io/HALF4/de/d6c/a01349.html#gad3116f3b344392f7b947ff1218ba9ed8", null ],
-    [ "HAL_TIM_OC_Stop", "https://panchev68.github.io/HALF4/de/d6c/a01349.html#ga9cb1f62afb99aea0db8cc28b378b68ad", null ],
-    [ "HAL_TIM_OC_Stop_DMA", "https://panchev68.github.io/HALF4/de/d6c/a01349.html#ga27f1f66d2d38ec428580a5feb3628c48", null ],
-    [ "HAL_TIM_OC_Stop_IT", "https://panchev68.github.io/HALF4/de/d6c/a01349.html#gacc324ef35c0b207a8331c657d86fc1bd", null ]
+    [ "Bytes", "de/d6c/a01349.html#aaa924b52936a11a36f991b92270eb1b6", null ],
+    [ "Digest", "de/d6c/a01349.html#a97d15161e3e4d29994672b77e28ea856", null ],
+    [ "Message", "de/d6c/a01349.html#a8ba002cb2db8c1b57b6534f88d77e2ab", null ],
+    [ "Uid", "de/d6c/a01349.html#ab823c89537a28891f90d448eeb6122c1", null ],
+    [ "Result", "de/d6c/a01349.html#ae690657e7ab3cf073f0d03abc2ee488b", [
+      [ "VALID", "de/d6c/a01349.html#ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea", null ],
+      [ "BAD_FORMAT", "de/d6c/a01349.html#ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a", null ],
+      [ "UNKNOWN_KEY", "de/d6c/a01349.html#ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb", null ],
+      [ "BAD_SIGNATURE", "de/d6c/a01349.html#ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a", null ]
+    ] ]
 ];

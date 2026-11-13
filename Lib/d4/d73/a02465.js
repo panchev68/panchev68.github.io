@@ -1,15 +1,10 @@
 var a02465 =
 [
-    [ "Status", "d4/d73/a02465.html#a12545d9824f6613ee89191861f120584", [
-      [ "SUCCESS", "d4/d73/a02465.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "INVALID_SIZE", "d4/d73/a02465.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
-      [ "OUT_OF_MEMORY", "d4/d73/a02465.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
-      [ "SIZE_TOO_LARGE", "d4/d73/a02465.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
-    ] ],
-    [ "MemoryManager", "d4/d73/a02465.html#a11985e607e9d0df1a66531314e37b38b", null ],
-    [ "~MemoryManager", "d4/d73/a02465.html#a71e750b42ae7c18640c58654a6e54687", null ],
-    [ "MemoryManager", "d4/d73/a02465.html#a7045943a317adab019e38e7c6bf2de73", null ],
-    [ "MemoryManager", "d4/d73/a02465.html#a89bca016476ef966223eb6841d5cc034", null ],
-    [ "operator=", "d4/d73/a02465.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
-    [ "operator=", "d4/d73/a02465.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
+    [ "TerminateHandler", "d4/d73/a02465.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
+    [ "Exception", "d4/d73/a02465.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
+    [ "Exception", "d4/d73/a02465.html#a25551a21318cf9b33efd57e954f91490", null ],
+    [ "Exception", "d4/d73/a02465.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
+    [ "~Exception", "d4/d73/a02465.html#aab05c0efba4581a5739c344c1d848c87", null ],
+    [ "operator=", "d4/d73/a02465.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
+    [ "what", "d4/d73/a02465.html#ad1278467b92ab31659263c92c3c292e1", null ]
 ];

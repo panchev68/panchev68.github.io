@@ -1,15 +1,10 @@
 var a02477 =
 [
-    [ "MutexGuard", "d0/dc2/a02477.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
-    [ "MutexGuard", "d0/dc2/a02477.html#a06d66e08a55ebf1440edb711e6886307", null ],
-    [ "MutexGuard", "d0/dc2/a02477.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
-    [ "MutexGuard", "d0/dc2/a02477.html#a21aba9e001a6afec8742ff355b845ede", null ],
-    [ "~MutexGuard", "d0/dc2/a02477.html#a35526aab46b7a21b967df7060f8d6747", null ],
-    [ "MutexGuard", "d0/dc2/a02477.html#a271282f741f6a7c1dcebff1616c9916e", null ],
-    [ "MutexGuard", "d0/dc2/a02477.html#a66f7b610af22e97faef98e233dbd46d5", null ],
-    [ "isLocked", "d0/dc2/a02477.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
-    [ "operator bool", "d0/dc2/a02477.html#af9126f464f900d7777d9bb069a13265b", null ],
-    [ "operator=", "d0/dc2/a02477.html#ada341f5a3644025a9b57e448e023d88b", null ],
-    [ "operator=", "d0/dc2/a02477.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
-    [ "unlock", "d0/dc2/a02477.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
+    [ "Integrator", "d0/dc2/a02477.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
+    [ "addValue", "d0/dc2/a02477.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
+    [ "computeResult", "d0/dc2/a02477.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
+    [ "isWindowFull", "d0/dc2/a02477.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
+    [ "operator()", "d0/dc2/a02477.html#a97085ec2f9a9f65920181fffae409662", null ],
+    [ "processValue", "d0/dc2/a02477.html#ab31a92d828aeae207fd9641101c217f5", null ],
+    [ "resetWindow", "d0/dc2/a02477.html#a78e088ee416a676679fe227ceb71b1b0", null ]
 ];

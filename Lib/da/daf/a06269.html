@@ -5,14 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::MessageBuffer</title>
+<title>IAR EWARM Library: RTOS::SemaphoreCounting</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -78,19 +70,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </ul>
 </div><!-- main-nav -->
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('da/daf/a06269.html','../../',''); });
-</script>
-<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
@@ -111,67 +90,72 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/daf/a06269.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::MessageBuffer</div></div>
+  <div class="headertitle"><div class="title">RTOS::SemaphoreCounting</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows creating an <a class="el" href="../../da/daf/a06269.html" title="RTOS::MessageBuffer">RTOS::MessageBuffer</a>, then sending and receiving one small message from a task.</p>
-<p>Shows creating an <a class="el" href="../../da/daf/a06269.html" title="RTOS::MessageBuffer">RTOS::MessageBuffer</a>, then sending and receiving one small message from a task. The example focuses on the API and leaves out task setup; FreeRTOS must already be running.</p>
-<ul>
-<li>A message buffer supports one writer and one reader.</li>
-<li>Every message costs its payload plus a length header, <b>4</b> bytes with the default 'configMESSAGE_BUFFER_LENGTH_TYPE', so a 256-byte buffer carries messages of up to <a class="el" href="../../d5/d90/a05918.html#ac0cdf8e25be1101c88e2a89f0a109ce5" title="RTOS::MessageBuffer::getMaxMessageSize()">RTOS::MessageBuffer::getMaxMessageSize()</a> bytes (<b>252</b>).</li>
-<li>From an interrupt use <a class="el" href="../../d5/d90/a05918.html#a895f6a523a73fe0a86afc445c60cad95" title="RTOS::MessageBuffer::sendFromISR()">RTOS::MessageBuffer::sendFromISR()</a> and <a class="el" href="../../d5/d90/a05918.html#aa2cbd475f54d4d04bd40a1470fb8d0ea" title="RTOS::MessageBuffer::receiveFromISR()">RTOS::MessageBuffer::receiveFromISR()</a> instead. The overloads that take a 'higherPriorityTaskWoken' flag leave the 'portYIELD_FROM_ISR()' call to the caller.</li>
-</ul>
-<h1 class="doxsection"><a class="anchor" id="rtos_messagebuffer_usage"></a>
+<p>Shows limiting concurrent access to a pool of resources with an <a class="el" href="../../da/daf/a06269.html" title="RTOS::SemaphoreCounting">RTOS::SemaphoreCounting</a>.</p>
+<p>Shows limiting concurrent access to a pool of resources with an RTOS::SemaphoreCounting.Covers a pool of three buffers guarded by a counting semaphore: a task takes a slot before using a buffer and gives it back afterwards. <a class="el" href="../../d7/d35/a05936.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> and <a class="el" href="../../d7/d35/a05936.html#a5682e0c5d8eb6b2076978634963b4020" title="RTOS::SemaphoreBase::give()">RTOS::SemaphoreBase::give()</a> are task-context only; FromISR variants exist for interrupt handlers.</p>
+<h1 class="doxsection"><a class="anchor" id="rtos_semaphorecounting_usage"></a>
 Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="messagebuffer_usage_basic"></a>
-Send and receive a message</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d46/a00890.html">Lib/RTOS/FreeRTOS/MessageBuffer.hpp</a>&gt;</span></div>
+<h2 class="doxsection"><a class="anchor" id="semaphore_counting_usage_pool"></a>
+Buffer pool</h2>
+<p>The constructor takes the maximum count and the initial count, so both are 3 here: all slots are free at start.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd1/a00914.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../da/d70/a05940.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> openPool() noexcept {</div>
+<div class="line">    <span class="keywordflow">return</span> bufferPool.open();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00914_html"><div class="ttname"><a href="../../d3/dd1/a00914.html">SemaphoreCounting.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS counting semaphores.</div></div>
+<div class="ttc" id="aa05940_html"><div class="ttname"><a href="../../da/d70/a05940.html">RTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting semaphore resource manager for tracking multiple resource instances or queued events.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:38</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="semaphore_counting_usage_take"></a>
+Taking and returning a slot</h2>
+<p><a class="el" href="../../d7/d35/a05936.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> with an <a class="el" href="../../d4/d36/a06279.html" title="RTOS::Timeout">RTOS::Timeout</a> returns <b>false</b> when every slot stays busy for the whole window.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd1/a00914.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> taskSendReceiveExample() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d5/d90/a05918.html">RTOS::MessageBuffer</a> mb;</div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a class="code hl_class" href="../../da/d70/a05940.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
+<div class="line">}</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Create a 256-byte underlying message buffer.</span></div>
-<div class="line">    <span class="keywordflow">if</span> (!mb.open(256)) {</div>
+<div class="line"><span class="keywordtype">void</span> workerTask(<span class="keywordtype">void</span> * parameters) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!bufferPool.open()) {</div>
 <div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> payload[] = <span class="stringliteral">&quot;hello&quot;</span>;</div>
-<div class="line">    <span class="comment">// Send from a task, blocking up to 100 ticks if necessary.</span></div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> sent = mb.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d5/d90/a05918.html#a10110decaf3c897711e612ba455525cd">send</a>(payload, <span class="keyword">sizeof</span>(payload), <span class="keyword">static_cast&lt;</span><a id="_a2" name="_a2"></a><a class="code hl_typedef" href="../../d5/d90/a05918.html#a74349e8aa0172b4a9f4763e24b7c10a6">RTOS::MessageBuffer::TickType</a><span class="keyword">&gt;</span>(100));</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sent);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Receive the message, blocking up to 100 ms.</span></div>
-<div class="line">    <span class="keywordtype">char</span> recv[32] = {};</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> received = mb.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d5/d90/a05918.html#a8bc5b3b484124680e0b606c983ee095e">receive</a>(recv, <span class="keyword">sizeof</span>(recv), 100ms);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// &#39;received&#39; is the payload size, or 0 on timeout or if &#39;recv&#39; was too small for the message.</span></div>
-<div class="line">    <span class="keywordflow">if</span> (received &gt; 0 &amp;&amp; received &lt; <span class="keyword">sizeof</span>(recv)) {</div>
-<div class="line">        recv[received] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line">    <span class="keywordflow">if</span> (bufferPool.take(<a id="_a1" name="_a1"></a><a class="code hl_class" href="../../db/df6/a05984.html">RTOS::Timeout</a>(20ms))) {</div>
+<div class="line">        <span class="comment">// One of the three buffers is reserved for this task.</span></div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(bufferPool.give());</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// All buffers were busy for 20 ms.</span></div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    mb.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d5/d90/a05918.html#a34199efdeb4b4ffc33966e52cb123bd8">close</a>();</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00890_html"><div class="ttname"><a href="../../d7/d46/a00890.html">MessageBuffer.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS message buffers.</div></div>
-<div class="ttc" id="aa05918_html"><div class="ttname"><a href="../../d5/d90/a05918.html">RTOS::MessageBuffer</a></div><div class="ttdoc">Owner of a FreeRTOS message buffer handle.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:47</div></div>
-<div class="ttc" id="aa05918_html_a10110decaf3c897711e612ba455525cd"><div class="ttname"><a href="../../d5/d90/a05918.html#a10110decaf3c897711e612ba455525cd">RTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *source, size_t length, TickType blockTime) noexcept</div><div class="ttdoc">Writes one message, blocking up to a timeout until it fits as a whole.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:236</div></div>
-<div class="ttc" id="aa05918_html_a34199efdeb4b4ffc33966e52cb123bd8"><div class="ttname"><a href="../../d5/d90/a05918.html#a34199efdeb4b4ffc33966e52cb123bd8">RTOS::MessageBuffer::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the native message buffer; does nothing if already closed.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:200</div></div>
-<div class="ttc" id="aa05918_html_a74349e8aa0172b4a9f4763e24b7c10a6"><div class="ttname"><a href="../../d5/d90/a05918.html#a74349e8aa0172b4a9f4763e24b7c10a6">RTOS::MessageBuffer::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdoc">Scheduler tick count used for timeouts.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:51</div></div>
-<div class="ttc" id="aa05918_html_a8bc5b3b484124680e0b606c983ee095e"><div class="ttname"><a href="../../d5/d90/a05918.html#a8bc5b3b484124680e0b606c983ee095e">RTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dest, size_t length, TickType blockTime) noexcept</div><div class="ttdoc">Reads the oldest message, blocking up to a timeout for one to arrive.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:375</div></div>
+<div class="ttc" id="aa05984_html"><div class="ttname"><a href="../../db/df6/a05984.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:33</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

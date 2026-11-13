@@ -1,14 +1,15 @@
 var a01393 =
 [
-    [ "Subscriber", "d3/d92/a01393.html#a3f40221ae5736ac688a612345a14a8e4", null ],
-    [ "MulticastDelegate", "d3/d92/a01393.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
-    [ "add", "d3/d92/a01393.html#a7b2551280da180b1f1dda5c6981737cd", null ],
-    [ "clear", "d3/d92/a01393.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
-    [ "invoke", "d3/d92/a01393.html#abfd30810b143472b8393b53f898dbcd5", null ],
-    [ "isEmpty", "d3/d92/a01393.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
-    [ "operator()", "d3/d92/a01393.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
-    [ "operator+=", "d3/d92/a01393.html#a6dbac05fdf70d7b6ea7c1223f90eb0f3", null ],
-    [ "operator-=", "d3/d92/a01393.html#abf65efccd32893eb2f7b5adfc53f8536", null ],
-    [ "remove", "d3/d92/a01393.html#adb01252450a4c8f5a57794062eef97da", null ],
-    [ "size", "d3/d92/a01393.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
+    [ "Ring", "d7/d1c/a01397.html", "d7/d1c/a01397" ],
+    [ "Slice", "d3/d92/a01393.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
+    [ "SK6812", "d3/d92/a01393.html#a713fbeedeb85ff82f1097b206afd7918", null ],
+    [ "SK6812", "d3/d92/a01393.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
+    [ "SK6812", "d3/d92/a01393.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
+    [ "clear", "d3/d92/a01393.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
+    [ "getColor", "d3/d92/a01393.html#a1a0907fe121161268c1b859d90232628", null ],
+    [ "operator=", "d3/d92/a01393.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
+    [ "operator=", "d3/d92/a01393.html#aa21ec5517b393c1649c2045e822978e7", null ],
+    [ "setColor", "d3/d92/a01393.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
+    [ "setColor", "d3/d92/a01393.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
+    [ "setColor", "d3/d92/a01393.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
 ];

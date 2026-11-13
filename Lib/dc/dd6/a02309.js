@@ -1,13 +1,14 @@
 var a02309 =
 [
-    [ "WolfSSLTransport", "dc/dd6/a02309.html#a902fc980deaff7372065ac354e424bd7", null ],
-    [ "~WolfSSLTransport", "dc/dd6/a02309.html#a1af1ec7c8459af557cecf30e2fce9851", null ],
-    [ "WolfSSLTransport", "dc/dd6/a02309.html#ac66ebbbe5867fdc9e41b120f0703afd9", null ],
-    [ "WolfSSLTransport", "dc/dd6/a02309.html#aee33a9d5d619aea80630e5c113bc940c", null ],
-    [ "close", "dc/dd6/a02309.html#afc96144cd745fe9fc116e7fa03ea0c00", null ],
-    [ "open", "dc/dd6/a02309.html#a34b1d6a735d69895b3381e71a3d7b24f", null ],
-    [ "operator=", "dc/dd6/a02309.html#a65c79de2e76f70c00d2a7117462aef12", null ],
-    [ "operator=", "dc/dd6/a02309.html#ac0b3753689c57f39a30e72868cac2919", null ],
-    [ "receive", "dc/dd6/a02309.html#a665163ec5d248c6f5f86737aec8901e8", null ],
-    [ "send", "dc/dd6/a02309.html#a609db5ba4b95a1e99a742291477e322b", null ]
+    [ "TimPwmOutput", "dc/dd6/a02309.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
+    [ "~TimPwmOutput", "dc/dd6/a02309.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
+    [ "TimPwmOutput", "dc/dd6/a02309.html#a422a9009ca77380721da2502794a00a0", null ],
+    [ "TimPwmOutput", "dc/dd6/a02309.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
+    [ "close", "dc/dd6/a02309.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
+    [ "getPeriod", "dc/dd6/a02309.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
+    [ "open", "dc/dd6/a02309.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
+    [ "operator=", "dc/dd6/a02309.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
+    [ "operator=", "dc/dd6/a02309.html#a686c13d106e6d8d754e3020b7107d262", null ],
+    [ "setPeriod", "dc/dd6/a02309.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
+    [ "setPulse", "dc/dd6/a02309.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
 ];

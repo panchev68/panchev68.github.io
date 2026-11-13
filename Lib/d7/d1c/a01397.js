@@ -1,19 +1,10 @@
 var a01397 =
 [
-    [ "Target", "dc/df4/a01401.html", "dc/df4/a01401" ],
-    [ "Key", "d4/d1a/a01405.html", null ],
-    [ "FreeFunctionPointer", "d7/d1c/a01397.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d7/d1c/a01397.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d7/d1c/a01397.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "Base", "d7/d1c/a01397.html#ada2f3620cb4cc9850220df31dbcf89e9", null ],
-    [ "Base", "d7/d1c/a01397.html#a1d92d30cf7d3f61cb94e3c69f90ff601", null ],
-    [ "Base", "d7/d1c/a01397.html#ae7d33e0ad35e3c8a38cbc00dc1eaf95c", null ],
-    [ "Base", "d7/d1c/a01397.html#a653434d6566327a7ce3dd0d4409cdd70", null ],
-    [ "Base", "d7/d1c/a01397.html#a49a4e79ff99eb03351fd7a280f276905", null ],
-    [ "invoke", "d7/d1c/a01397.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d7/d1c/a01397.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d7/d1c/a01397.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d7/d1c/a01397.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d7/d1c/a01397.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d7/d1c/a01397.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "Ring", "d7/d1c/a01397.html#a162946918a210436d07b8649948e2939", null ],
+    [ "Ring", "d7/d1c/a01397.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
+    [ "Ring", "d7/d1c/a01397.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
+    [ "getData", "d7/d1c/a01397.html#a897e123e376e08a2741c3498d764166d", null ],
+    [ "operator=", "d7/d1c/a01397.html#a3b42427dd22bff92b102320fdf83a671", null ],
+    [ "operator=", "d7/d1c/a01397.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
+    [ "operator[]", "d7/d1c/a01397.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
 ];

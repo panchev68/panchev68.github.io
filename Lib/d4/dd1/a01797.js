@@ -1,15 +1,11 @@
 var a01797 =
 [
-    [ "dnsIp", "d4/dd1/a01797.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
-    [ "dnsName", "d4/dd1/a01797.html#a2b21f67fcea486054df4fbece648ef7f", null ],
-    [ "gateway", "d4/dd1/a01797.html#ae526dc3391066f8447e665e962d7f3e1", null ],
-    [ "hasDnsIp", "d4/dd1/a01797.html#ab1307f2487c4d9d8a056679335c62d47", null ],
-    [ "hasDnsName", "d4/dd1/a01797.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
-    [ "hasGateway", "d4/dd1/a01797.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
-    [ "hasIp", "d4/dd1/a01797.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
-    [ "hasMac", "d4/dd1/a01797.html#a44b23d072f52c270d4c722d93a8b6117", null ],
-    [ "hasSubnet", "d4/dd1/a01797.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
-    [ "ip", "d4/dd1/a01797.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
-    [ "mac", "d4/dd1/a01797.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
-    [ "subnet", "d4/dd1/a01797.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
+    [ "ignoredMessagesByTimeout", "d4/dd1/a01797.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "d4/dd1/a01797.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "d4/dd1/a01797.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "d4/dd1/a01797.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "d4/dd1/a01797.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "d4/dd1/a01797.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "d4/dd1/a01797.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "d4/dd1/a01797.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

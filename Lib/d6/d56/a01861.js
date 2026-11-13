@@ -1,9 +1,9 @@
 var a01861 =
 [
-    [ "command", "d6/d56/a01861.html#af08112845cd66edc31d068ebd37b83ca", null ],
-    [ "delimiter", "d6/d56/a01861.html#a4a5572bd4e22f6a1de87a3ad3d4ebad8", null ],
-    [ "id", "d6/d56/a01861.html#a38a95e9ff32ffbe026a54b59e0133d60", null ],
-    [ "length", "d6/d56/a01861.html#a8d832b6579b4ecbc8f9555ab3e14aa21", null ],
-    [ "option", "d6/d56/a01861.html#afef42cfd87d0013b3e3ff843a1cc5d36", null ],
-    [ "timestamp", "d6/d56/a01861.html#a3665c6cb45f55219bf365da4619f7ab9", null ]
+    [ "writeTo", "d6/d56/a01861.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
+    [ "atCommand", "d6/d56/a01861.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
+    [ "dstAddr", "d6/d56/a01861.html#a15159440eb1dacb4ae4b49aa36144863", null ],
+    [ "frameId", "d6/d56/a01861.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
+    [ "parameters", "d6/d56/a01861.html#a69a8b0f293677febe578417b21dbba6b", null ],
+    [ "remoteCommandOption", "d6/d56/a01861.html#ae4922577edd7679e2964fb14f35bc919", null ]
 ];

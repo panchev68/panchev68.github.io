@@ -1,14 +1,11 @@
 var a01473 =
 [
-    [ "SharedSecret", "de/d13/a01473.html#a7fbb5355ccfc526d83b2d67eadb425c8", null ],
-    [ "WolfSSLEcc", "de/d13/a01473.html#a19debb4d33bed3fade556263320330f7", null ],
-    [ "~WolfSSLEcc", "de/d13/a01473.html#ab882988b2ec1b1494dbe8f30062bd13e", null ],
-    [ "WolfSSLEcc", "de/d13/a01473.html#acfed6fbd26a4fb663e7aec5f8408e3f4", null ],
-    [ "WolfSSLEcc", "de/d13/a01473.html#ab7483aff9567983a99ff831e7bfcf284", null ],
-    [ "generateKey", "de/d13/a01473.html#a17edfaa1f02adf3fdd3a15dacc409b5d", null ],
-    [ "operator=", "de/d13/a01473.html#a3309d37d1e7115e7a81b80cee385c0f3", null ],
-    [ "operator=", "de/d13/a01473.html#a251a0fe821d569d4e0f785056ced42d7", null ],
-    [ "sharedSecret", "de/d13/a01473.html#a6c37442161fbe64b4d931ffc6a6f8997", null ],
-    [ "sign", "de/d13/a01473.html#ad2b17e604dc8ee9188ffc9a54dc87b46", null ],
-    [ "verify", "de/d13/a01473.html#a22a3ef4290390aa55282ade89d4bd8e4", null ]
+    [ "Config", "d8/d67/a01477.html", "d8/d67/a01477" ],
+    [ "Voltmeter", "de/d13/a01473.html#a0f038c75a30b2d6cd8382c776fddd2bb", null ],
+    [ "getVoltage", "de/d13/a01473.html#ac23395cb420c81ab42a23e604cf05f18", null ],
+    [ "handleValueChanged", "de/d13/a01473.html#a0867be0757674c033a721efb796a8e39", null ],
+    [ "registerDevice", "de/d13/a01473.html#a299662c9e9bdb346771579418056dccf", null ],
+    [ "setup", "de/d13/a01473.html#aef6d6cecbcd23016ebff9b46c2cf3ce0", null ],
+    [ "DeviceManager::DeviceBase", "de/d13/a01473.html#af5908117d248071190096967e686c5a3", null ],
+    [ "interpolator", "de/d13/a01473.html#a5cabeda795635eeccd12383109ddf96c", null ]
 ];

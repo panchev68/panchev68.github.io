@@ -1,16 +1,14 @@
 var a01749 =
 [
-    [ "Container", "d5/d77/a01749.html#aee7408e236983dfe716699922a20e848", null ],
-    [ "Status", "d5/d77/a01749.html#abfa34fca2a40d9f990c238a66f2611aa", [
-      [ "STATUS_CHANGED", "d5/d77/a01749.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
-      [ "ALL_ERRORS_CLEARED", "d5/d77/a01749.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
-    ] ],
-    [ "BasicDispatcher", "d5/d77/a01749.html#a8888661e1979a2b522e456f3e143e065", null ],
-    [ "BasicDispatcher", "d5/d77/a01749.html#add10f2d01f474243d9fa895cff993e07", null ],
-    [ "createError", "d5/d77/a01749.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
-    [ "operator=", "d5/d77/a01749.html#a663a1359b4c59113e160a2da62046222", null ],
-    [ "operator=", "d5/d77/a01749.html#a45f56f6db82a8095e39231ccf05639dc", null ],
-    [ "start", "d5/d77/a01749.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
-    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "d5/d77/a01749.html#a650ea0ef5048343da33f94d14c44e548", null ],
-    [ "statusChangedHook", "d5/d77/a01749.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
+    [ "SerialNumber", "d6/d72/a01753.html", "d6/d72/a01753" ],
+    [ "ackFailures", "d5/d77/a01749.html#aa36464587f33788505f069d1c46ec004", null ],
+    [ "ccaFailures", "d5/d77/a01749.html#a51e5f54e9e1224b2389b126cd7602d65", null ],
+    [ "channel", "d5/d77/a01749.html#a910133d925087a409f8f8357447b9e3a", null ],
+    [ "firmwareVersion", "d5/d77/a01749.html#a919225b632587966d3cdbd15ca30f0d3", null ],
+    [ "hardwareVersion", "d5/d77/a01749.html#a2efd702c930d16f10c2672244503d676", null ],
+    [ "nodeIdentifier", "d5/d77/a01749.html#a1980717ff0972ddb91d6d59e8bd1a38e", null ],
+    [ "panId", "d5/d77/a01749.html#ad1515643697ad647030e33ba97d79968", null ],
+    [ "serialNumber", "d5/d77/a01749.html#a5e4e85516315320363b69f902c64a5b7", null ],
+    [ "temperature", "d5/d77/a01749.html#aece1486ed1a9e85c4aa022f9634a3884", null ],
+    [ "voltage", "d5/d77/a01749.html#a9ee4423766190b01b3381ae41455bf2d", null ]
 ];

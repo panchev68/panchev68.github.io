@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::BSP::SK6812</title>
+<title>IAR EWARM Library: Member List</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('df/dad/a02682.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/dd8/a02685.html','../../',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -111,59 +111,69 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/dad/a02682.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::SK6812</div></div>
+  <div class="headertitle"><div class="title">RTOS::StreamBuffer Member List</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a ring of 12 SK6812 RGBW LEDs sent out through a PWM timer channel with DMA.</p>
-<p>Demonstrates a ring of 12 SK6812 RGBW LEDs sent out through a PWM timer channel with DMA.TIM3 channel 1 is set up in CubeMX as PWM with a word-sized memory-to-peripheral DMA stream. The DMA completion callback stops the PWM, so the line stays low long enough for the LEDs to latch the frame. Colors are linear: the class gamma corrects them while encoding.</p>
-<dl class="section important"><dt>Important</dt><dd>The TIM3 ARR must be 219, which the compare values assume.</dd>
-<dd>
-Start the next frame only after the callback has stopped the PWM.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>A program that also includes <b><a class="el" href="../../dd/d5c/a00578.html" title="Configures an event-driven, hardware One-Pulse (Monostable) interface using STM32 Timers.">Lib/HAL/TIM/TimOnePulse.hpp</a></b> cannot define this callback, since that header defines it too.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/dad/a02682.html" title="Lib::BSP::SK6812">Lib::BSP::SK6812</a>, <a class="el" href="../../da/d1f/a01203.html" title="Lib::BSP::SK6812::Ring">Lib::BSP::SK6812::Ring</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><span class="preprocessor">#include &quot;main.h&quot;</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dcb/a00170.html">Lib/BSP/RGBWLed/SK6812.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> TIM_HandleTypeDef htim3; <span class="comment">// TIM3 CH1 PWM, ARR = 219, DMA memory-to-peripheral, word size.</span></div>
-<div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../da/d1f/a01203.html">Lib::BSP::SK6812::Ring&lt;12&gt;</a> ring;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a1" name="_a1"></a><a class="code hl_function" href="../../dd/d5c/a00578.html#a5ac4cd0374e28e99bc8172c12fad251d">HAL_TIM_PWM_PulseFinishedCallback</a>(TIM_HandleTypeDef * htim) {</div>
-<div class="line">    <span class="keywordflow">if</span> (htim == &amp;htim3) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(HAL_TIM_PWM_Stop_DMA(&amp;htim3, TIM_CHANNEL_1)); <span class="comment">// Line stays low: reset gap.</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> showFrame() {</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> index = 0; index &lt; ring.<a id="a2" name="a2"></a><a class="code hl_function" href="../../da/d1f/a01203.html#af4a392521ab650682a14d889199c50c1">count</a>(); ++index) {</div>
-<div class="line">        ring[index].setColor(index % 2 == 0 ? <a id="_a3" name="_a3"></a><a class="code hl_variable" href="../../d1/d0d/a01191.html#aa51ce6120321dbe5f2ba9fac1f5971c5">::Color::SALMON</a> : <a id="_a4" name="_a4"></a><a class="code hl_variable" href="../../d1/d0d/a01191.html#a2dfa191b025fbc94268dd2261439cca8">::Color::INDIANRED</a>);</div>
-<div class="line">    }</div>
-<div class="line">    ring[0].setColor(0, 0, 0, 255); <span class="comment">// White channel only.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(HAL_TIM_PWM_Start_DMA(&amp;htim3, TIM_CHANNEL_1, ring.<a id="a5" name="a5"></a><a class="code hl_function" href="../../da/d1f/a01203.html#a897e123e376e08a2741c3498d764166d">getData</a>(), <span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(ring.<a id="a6" name="a6"></a><a class="code hl_function" href="../../da/d1f/a01203.html#abc62b9f95eec80b7b24f428ecb35349b">getSize</a>())));</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00170_html"><div class="ttname"><a href="../../d5/dcb/a00170.html">SK6812.hpp</a></div><div class="ttdoc">Declares the BSP SK6812 RGBW LED encoder and its fixed-size ring; header-only, no HAL dependency.</div></div>
-<div class="ttc" id="aa00578_html_a5ac4cd0374e28e99bc8172c12fad251d"><div class="ttname"><a href="../../dd/d5c/a00578.html#a5ac4cd0374e28e99bc8172c12fad251d">HAL_TIM_PWM_PulseFinishedCallback</a></div><div class="ttdeci">void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)</div><div class="ttdoc">HAL compare callback: wakes the task waiting on the matching &quot;TimOnePulse&quot; when the pulse starts.</div><div class="ttdef"><b>Definition</b> TimOnePulse.hpp:194</div></div>
-<div class="ttc" id="aa01191_html_a2dfa191b025fbc94268dd2261439cca8"><div class="ttname"><a href="../../d1/d0d/a01191.html#a2dfa191b025fbc94268dd2261439cca8">Color::INDIANRED</a></div><div class="ttdeci">static constexpr uint32_t INDIANRED</div><div class="ttdoc">Indian red (205, 92, 92).</div><div class="ttdef"><b>Definition</b> Color.hpp:153</div></div>
-<div class="ttc" id="aa01191_html_aa51ce6120321dbe5f2ba9fac1f5971c5"><div class="ttname"><a href="../../d1/d0d/a01191.html#aa51ce6120321dbe5f2ba9fac1f5971c5">Color::SALMON</a></div><div class="ttdeci">static constexpr uint32_t SALMON</div><div class="ttdoc">Salmon (250, 128, 114).</div><div class="ttdef"><b>Definition</b> Color.hpp:150</div></div>
-<div class="ttc" id="aa01203_html"><div class="ttname"><a href="../../da/d1f/a01203.html">Lib::BSP::SK6812::Ring</a></div><div class="ttdoc">Fixed number of SK6812 LEDs sharing one contiguous compare buffer for a single DMA transfer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:199</div></div>
-<div class="ttc" id="aa01203_html_a897e123e376e08a2741c3498d764166d"><div class="ttname"><a href="../../da/d1f/a01203.html#a897e123e376e08a2741c3498d764166d">Lib::BSP::SK6812::Ring::getData</a></div><div class="ttdeci">uint32_t * getData() noexcept</div><div class="ttdoc">Gets the compare buffer for the DMA transfer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:277</div></div>
-<div class="ttc" id="aa01203_html_abc62b9f95eec80b7b24f428ecb35349b"><div class="ttname"><a href="../../da/d1f/a01203.html#abc62b9f95eec80b7b24f428ecb35349b">Lib::BSP::SK6812::Ring::getSize</a></div><div class="ttdeci">static constexpr size_t getSize() noexcept</div><div class="ttdoc">Gets the length of the compare buffer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:286</div></div>
-<div class="ttc" id="aa01203_html_af4a392521ab650682a14d889199c50c1"><div class="ttname"><a href="../../da/d1f/a01203.html#af4a392521ab650682a14d889199c50c1">Lib::BSP::SK6812::Ring::count</a></div><div class="ttdeci">static constexpr size_t count() noexcept</div><div class="ttdoc">Gets the number of LEDs.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:268</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+
+<p>This is the complete list of members for <a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#aa09e180a4dce804bb789ba9c2a6b58d9">close</a>() noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#aca144ddaa56a23cc87168343d27cd515">getBytesAvailable</a>() const noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a725f06f4f04e9a088083224f52ddc777">getCapacity</a>() const noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a13c88e4102874d885f9aa1db4fb52875">getHandle</a>() const noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a7b2b0bd7bcc2d727ccd57f3a84cf9383">getSpacesAvailable</a>() const noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a686ba54e0101dfceb25069210888b515">getUtilizationPercent</a>() const noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#ac43f2585fb807014368f17cd4dd8bc9e">Handle</a> typedef</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a176079270ddb33f374241586fe5996c7">isEmpty</a>() const noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#aac6fea7283a53695897f243410f88c20">isFull</a>() const noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#ab76d823e9190fef2190c222a62fb7ee7">isOpen</a>() const noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a41e0f627cad9534c7777c0c604ba47a0">operator Handle</a>() const noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#ac8eab9e88742bbcce6a00ce27225ddad">operator=</a>(const StreamBuffer &amp;)=delete</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a60c80251d968c318350f7db4b26781a7">operator=</a>(StreamBuffer &amp;&amp;other) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#afcb77be5968f3241437df1c795ad6a74">receive</a>(void *dest, size_t maxLen, TickType blockTime) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a03310c8bafaaa99ad0088c133c2d64ea">receive</a>(void *dest, size_t maxLen, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#ad3fabb92c46683255bc2583500f83640">receive</a>(T_RANGE &amp;&amp;dest, TickType blockTime) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a33ea080c60ab94514d7103e9f4f2e8dc">receive</a>(T_RANGE &amp;&amp;dest, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#aaa933b920801befac566c8674038ad79">receiveCompletedFromISR</a>(BaseType_t &amp;higherPriorityTaskWoken) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a97854f9de8be9d323e9fd10fa9b8189d">receiveFromISR</a>(void *dest, size_t maxLen, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#adf2c923f7d9b6abf2adc4271b59cbc4e">receiveFromISR</a>(void *dest, size_t maxLen) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a65c2b881483b84ac7812abb5c3c1a12c">receiveFromISR</a>(T_RANGE &amp;&amp;dest, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#acedb939bca345bede910f4708dd77c3d">receiveFromISR</a>(T_RANGE &amp;&amp;dest) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a7f884411ea5c6b895b81aa33e6c7f1da">reset</a>() noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a9663c6c51ab3170bdb2f6145b76943a1">send</a>(const void *source, size_t length, TickType blockTime) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a90fd7e18b6942f386c8bd21d6b58fda9">send</a>(const void *source, size_t length, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#ad136ebc50dc918bcf385175da8884804">send</a>(std::string_view sv, TickType blockTime) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a4883c46367940580d73bb086a97ca720">send</a>(const T_RANGE &amp;range, TickType blockTime) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a6edc805a48a7692fb9c542f8db3f188b">sendCompletedFromISR</a>(BaseType_t &amp;higherPriorityTaskWoken) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#ac075893a2ae54de669ab71b07609f8a1">sendFromISR</a>(const void *source, size_t length, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a763df13de8b80bb510f7a64f2f7bbb48">sendFromISR</a>(const void *source, size_t length) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#ac42eaa4c5ee7fd155d738c5aed68b04f">sendFromISR</a>(const T_RANGE &amp;range, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a0395a389b2611ca514780b2068950ff2">sendFromISR</a>(const T_RANGE &amp;range) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#aa5ac1e409b4369f454af973ddb5c7426">setTriggerLevel</a>(size_t level) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a791e88c32f0ce5dd1d02d0f7abe03bab">StreamBuffer</a>() noexcept=default</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#a935040ce16ea4f9dae2f5596b21516d6">StreamBuffer</a>(StreamBuffer &amp;&amp;other) noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#adcb8b228bfa619f6f7a9c75ac77515df">StreamBuffer</a>(const StreamBuffer &amp;)=delete</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a> typedef</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/dd8/a02685.html#abd83536e084fb1aeaa70e8d85cf29525">~StreamBuffer</a>() noexcept</td><td class="entry"><a class="el" href="../../d8/dd8/a02685.html">RTOS::StreamBuffer</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

@@ -10,9 +10,6 @@
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -77,21 +69,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/d9a/a06090.html','../../','df/df6/a06087'); });
-</script>
-<div id="container">
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -110,14 +87,26 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/d9a/a06090.
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../df/d21/a01039.html">System</a></li><li class="navelem"><a href="../../dc/d9a/a06090.html">VersionBase</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
+<a href="../../df/df6/a06087.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::System::VersionBase&lt; Derived &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
 class Lib::System::VersionBase&lt; Derived &gt;</div><p>Base class providing common version parsing, formatting, and conversion functionality. </p>
-<p>Parses 'X.Y' version strings, stores major and minor separately and formats the result as 'X.YY.ZZ', where ZZ is an optional sub-version. The customization points <a class="el" href="#ae1d6a7f355d536c916fe355c09825a3e" title="Gets the packed major and minor version.">getValue()</a>, <a class="el" href="#ae5c57f2bce8b985f8190894328141480" title="Gets the sub-version, appended to the formatted string.">getSubVersion()</a> and <a class="el" href="#a1288aa2ce9764268fe7751f879f27a00" title="Formats the version as a string in &#39;X.YY.ZZ&#39; format.">toString()</a> are resolved through CRTP instead of virtual dispatch: a derived class hides the base members with identically named ones.</p>
+<p>Parses 'X.Y' version strings, stores major and minor separately and formats the result as 'X.YY.ZZ', where ZZ is an optional sub-version. The customization points getValue(), getSubVersion() and toString() are resolved through CRTP instead of virtual dispatch: a derived class hides the base members with identically named ones.</p>
 <p>Everything is constexpr and allocation-free, so a version can be parsed and formatted at compile time. No destructor is declared: IAR EWARM treats an explicitly defaulted one as making the class non-literal, which would forbid a 'constexpr' version object.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -198,7 +187,7 @@ template&lt;typename Derived&gt; </div>
 </div><div class="memdoc">
 
 <p>Fixed, NUL-terminated buffer holding a formatted version string. </p>
-<p>Use '<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data()</a>' where a C string is expected. </p>
+<p>Use 'data()' where a C string is expected. </p>
 
 </div>
 </div>
@@ -233,10 +222,10 @@ template&lt;typename Derived&gt; </div>
 </div><div class="memdoc">
 
 <p>Constructor initializing version from version string and optional sub-version. </p>
-<p>A version string that does not parse leaves the numeric version at zero; use <a class="el" href="#aa2038f86376506bdea4bbb41dc8dc61e" title="Parses version string in &#39;X.Y&#39; format into 32-bit numeric representation.">stringToU32()</a> beforehand when the caller needs to tell a malformed string from a genuine '0.0'.</p>
+<p>A version string that does not parse leaves the numeric version at zero; use stringToU32() beforehand when the caller needs to tell a malformed string from a genuine '0.0'.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">versionString</td><td><a class="el" href="../../dc/d36/a06074.html" title="Container of the legacy version classes.">Version</a> string in 'X.Y' format (e.g., '1.23'). </td></tr>
+    <tr><td class="paramname">versionString</td><td>Version string in 'X.Y' format (e.g., '1.23'). </td></tr>
     <tr><td class="paramname">subVersion</td><td>Optional sub-version number appended to formatted output; must not exceed 255. </td></tr>
   </table>
   </dd>
@@ -333,7 +322,7 @@ template&lt;typename Derived&gt; </div>
 </div><div class="memdoc">
 
 <p>Type conversion operator to uint32_t. </p>
-<p>Uses the derived class's <a class="el" href="#ae1d6a7f355d536c916fe355c09825a3e" title="Gets the packed major and minor version.">getValue()</a> and <a class="el" href="#ae5c57f2bce8b985f8190894328141480" title="Gets the sub-version, appended to the formatted string.">getSubVersion()</a> through CRTP.</p>
+<p>Uses the derived class's getValue() and getSubVersion() through CRTP.</p>
 <dl class="section return"><dt>Returns</dt><dd>Packed value: major in bits 23..16, minor in bits 15..8, sub-version in bits 7..0. </dd></dl>
 
 </div>
@@ -364,7 +353,7 @@ template&lt;typename Derived&gt; </div>
 </div><div class="memdoc">
 
 <p>Type conversion operator to a version string buffer. </p>
-<p>Dispatches to the derived class's <a class="el" href="#a1288aa2ce9764268fe7751f879f27a00" title="Formats the version as a string in &#39;X.YY.ZZ&#39; format.">toString()</a> via CRTP.</p>
+<p>Dispatches to the derived class's toString() via CRTP.</p>
 <dl class="section return"><dt>Returns</dt><dd>Formatted version string. </dd></dl>
 
 </div>
@@ -398,7 +387,7 @@ template&lt;typename Derived&gt; </div>
 <p>Returns an empty optional rather than a zero on failure, so a malformed string is distinguishable from the perfectly valid version '0.0'. A field is rejected when it holds a non-digit or exceeds 255.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">versionString</td><td><a class="el" href="../../dc/d36/a06074.html" title="Container of the legacy version classes.">Version</a> string to parse (e.g., '1.23'). </td></tr>
+    <tr><td class="paramname">versionString</td><td>Version string to parse (e.g., '1.23'). </td></tr>
   </table>
   </dd>
 </dl>
@@ -621,21 +610,21 @@ template&lt;typename Derived&gt; </div>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../df/d21/a01039.html">System</a></li><li class="navelem"><a href="../../dc/d9a/a06090.html">VersionBase</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

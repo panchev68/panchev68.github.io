@@ -1,9 +1,7 @@
 var a01925 =
 [
-    [ "Handle", "d6/d18/a01925.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
-    [ "Handle", "d6/d18/a01925.html#a2ff88e41407c02b9858a201f579b32a1", null ],
-    [ "getPinNumber", "d6/d18/a01925.html#a8d29716bb6bcc278e753e55560639c17", null ],
-    [ "getPort", "d6/d18/a01925.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
-    [ "getPort", "d6/d18/a01925.html#a717fa8fdec63c64bef95cffab50ed478", null ],
-    [ "operator==", "d6/d18/a01925.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
+    [ "Group", "d6/d18/a01925.html#a48b74757679d549dd7d08383435d59b5", null ],
+    [ "~Group", "d6/d18/a01925.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
+    [ "getCaption", "d6/d18/a01925.html#a6b28a1279997058ac197a0579f4c818d", null ],
+    [ "tag", "d6/d18/a01925.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
 ];

@@ -1,15 +1,19 @@
 var a01301 =
 [
-    [ "HAL_I2C_AbortCpltCallback", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#gaa4c2f59ea15698a1490401e5bbc3f296", null ],
-    [ "HAL_I2C_AddrCallback", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#ga3b2a6a0ff585d8e529a73ba7d291c92d", null ],
-    [ "HAL_I2C_ER_IRQHandler", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#ga78739c0d57d55034a9c8bc39c8ee6bc2", null ],
-    [ "HAL_I2C_ErrorCallback", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#ga4d5338cd64a656dfdc4154773bc4f05d", null ],
-    [ "HAL_I2C_EV_IRQHandler", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#ga0cd3cc56c83b85a65e31c945c854d9d5", null ],
-    [ "HAL_I2C_ListenCpltCallback", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#ga22544d1e6a14392cd5fe41e4e4f4cc96", null ],
-    [ "HAL_I2C_MasterRxCpltCallback", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#ga5782358f977ddf450b203fc075833a1d", null ],
-    [ "HAL_I2C_MasterTxCpltCallback", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#gaa258e0eb52bbc34002a46dc2db89a84b", null ],
-    [ "HAL_I2C_MemRxCpltCallback", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#gac16a95413b35f05c5ce725fefd8531a5", null ],
-    [ "HAL_I2C_MemTxCpltCallback", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#ga874f6104d2cdbced9f2ab6e941ec58f0", null ],
-    [ "HAL_I2C_SlaveRxCpltCallback", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#gae23a5b1ce68867c35093ff2b5931e9a0", null ],
-    [ "HAL_I2C_SlaveTxCpltCallback", "https://panchev68.github.io/HALF4/d3/d07/a01301.html#ga7e086b3ee67187ea072aec6fb4d52aad", null ]
+    [ "Config", "dc/d9e/a01305.html", "dc/d9e/a01305" ],
+    [ "IS62WV51216", "d3/d07/a01301.html#a7921fa0f977faf912d2049453fd4c308", null ],
+    [ "~IS62WV51216", "d3/d07/a01301.html#a8bbb723bb8da60c1ded7fa4770488e41", null ],
+    [ "close", "d3/d07/a01301.html#ab7d16cfbd2da4ddbf5fe344a3eace30f", null ],
+    [ "getSize", "d3/d07/a01301.html#a5d44f7cbee5d1bc849cb54ef47f257a3", null ],
+    [ "isRangeValid", "d3/d07/a01301.html#a1b6c9da4691865cdfa1b28945756e9e5", null ],
+    [ "onMemoryChanged", "d3/d07/a01301.html#a4b6251a86a54f6053c2b89c00ba6a744", null ],
+    [ "open", "d3/d07/a01301.html#afa482d28208b65335930cb3722de8871", null ],
+    [ "read", "d3/d07/a01301.html#a2b3f4b448d2b7076918a849936826646", null ],
+    [ "read", "d3/d07/a01301.html#a71a6069370565b21f326cb1f4e446a71", null ],
+    [ "toAbsoluteAddress", "d3/d07/a01301.html#a627f5ee3afe264e55f1cc04cafae392d", null ],
+    [ "write", "d3/d07/a01301.html#abb442f01943c59f8ce352f5f92d959b1", null ],
+    [ "write", "d3/d07/a01301.html#abd6c3b651e745ff59409e2f5cf7acb44", null ],
+    [ "baseAddress", "d3/d07/a01301.html#a0d15eea85e078fd1ca516727c0e8ca8a", null ],
+    [ "mutex", "d3/d07/a01301.html#a0d53d69589f382b51186fd40078d3d7a", null ],
+    [ "sizeBytes", "d3/d07/a01301.html#af112bc4831d358a9018b8a296e932392", null ]
 ];

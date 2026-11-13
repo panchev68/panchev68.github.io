@@ -1,8 +1,9 @@
 var a01225 =
 [
-    [ "operator==", "d8/d53/a01225.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
-    [ "blue", "d8/d53/a01225.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
-    [ "green", "d8/d53/a01225.html#aaac4b49f8ced6f8a10842162f110217d", null ],
-    [ "red", "d8/d53/a01225.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
-    [ "white", "d8/d53/a01225.html#a272f822cae4bd3b8e993080e2317636e", null ]
+    [ "chipManufacturer", "d8/d53/a01225.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
+    [ "memoryCapacity", "d8/d53/a01225.html#a0ce044d51923185dc77297ec3845620b", null ],
+    [ "pagePerSector", "d8/d53/a01225.html#a768e74e894621cf3033a1f4e06661b66", null ],
+    [ "pageSize", "d8/d53/a01225.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
+    [ "sectorCount", "d8/d53/a01225.html#ae152c07a2eeb80c6525857160e04126b", null ],
+    [ "sectorSize", "d8/d53/a01225.html#a453d47437845007dcb1caa1889d1ec2b", null ]
 ];

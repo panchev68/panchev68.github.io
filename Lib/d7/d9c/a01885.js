@@ -1,5 +1,8 @@
 var a01885 =
 [
-    [ "nssPin", "d7/d9c/a01885.html#af56f9d2f7252dc530ec070d0aa211f2b", null ],
-    [ "spiPort", "d7/d9c/a01885.html#aefcb5eddfdf2be760845ce74b7a29ec9", null ]
+    [ "Frame0x81", "d7/d9c/a01885.html#ab6c2582c9c22d8b4b3e34d5c6e73e8b8", null ],
+    [ "option", "d7/d9c/a01885.html#a9514d0309e3844c8659d92c660c71a2b", null ],
+    [ "rfData", "d7/d9c/a01885.html#a17639b9161591eee69ff2916356f4f5f", null ],
+    [ "rssi", "d7/d9c/a01885.html#af6b4d51bb9e62729e45af3c4c973f0f4", null ],
+    [ "srcAddr16", "d7/d9c/a01885.html#a44c2e0a72745be88823b58901a37b73b", null ]
 ];

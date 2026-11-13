@@ -1,7 +1,14 @@
 var a01809 =
 [
-    [ "close", "de/d3c/a01809.html#ab9d284c5cdff31383f99dea75c7f9e89", null ],
-    [ "open", "de/d3c/a01809.html#a2f27b571e2674aeb90f9773efe5d47c5", null ],
-    [ "read", "de/d3c/a01809.html#a53a2f54f254565a80c92924936564fb0", null ],
-    [ "write", "de/d3c/a01809.html#ae649720e51a2f29cd3f226e0c91e40f4", null ]
+    [ "append", "de/d3c/a01809.html#a668dfbfff0a73062240c2b9d4a20bc28", null ],
+    [ "append", "de/d3c/a01809.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
+    [ "assign", "de/d3c/a01809.html#a3552b4d8b71ae5386a62d2b831cc4754", null ],
+    [ "clear", "de/d3c/a01809.html#a203088c695cf3b7a7190c9a52d8a143c", null ],
+    [ "data", "de/d3c/a01809.html#aaf5bb127946bfccf2adfc318d584894e", null ],
+    [ "empty", "de/d3c/a01809.html#afc7cdfcb2f5ea010a814513b9f7e9692", null ],
+    [ "insert", "de/d3c/a01809.html#ae409c8ac34780b163e1044b9959a2f81", null ],
+    [ "reserve", "de/d3c/a01809.html#aa059b03866b8797af025cf959e3dee4e", null ],
+    [ "reset", "de/d3c/a01809.html#ab7425c54f798a024d87678d5f1495d0e", null ],
+    [ "size", "de/d3c/a01809.html#aea29854e97878274b63e4a5e3e4c9475", null ],
+    [ "type", "de/d3c/a01809.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ]
 ];

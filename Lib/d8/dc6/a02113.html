@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -111,105 +111,171 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/dc6/a02113.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
-class Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;</div><p>CRTP foundation implementing the handle-lifecycle and transfer-dispatch policy shared by every SPI transfer mode. </p>
-<p>Owns no state beyond the begin/end-transaction hooks, not even the native handle: it reaches the handle through "derived()-&gt;getHandle()" instead of inheriting "Device&lt;&gt;". "Device&lt;&gt;" brings an intrusive <a class="el" href="../../da/d76/a01941.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> list link ("nextDevice") that only an interrupt-driven mode uses, and a blocking specialization never registers with the <a class="el" href="../../da/d76/a01941.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a>. Each mode therefore owns its own handle storage: "IT" and "DMA" get it from "Device&lt;&gt;" through "SPIPortAsync", while the blocking specialization stores it directly. The begin/end-transaction hooks live here rather than per mode, since every mode's send, receive and sendReceive bracket the transfer the same way.</p>
-<p>A mode specialization provides "sendHandler()", "receiveHandler()" and "sendReceiveHandler()", each taking the validated buffer(s) and a "Timeout", and returning only once the hardware no longer touches the buffers.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>High-level concrete driver class owning the native handle and the transfer mechanism. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;:</div>
+<div class="textblock"><p>Blocking specialization: start/stop only. </p>
+<p>The STM32 <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> DAC driver raises no interrupt for a direct register write becoming active. With no hardware trigger configured, the written value reaches the output synchronously as part of the write call itself. With a hardware trigger configured, the value is latched on the next trigger edge, which must be observed through the trigger source's own interrupt (e.g. a timer update IRQ) rather than through the DAC peripheral. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d84/a02112.svg" width="334" height="952"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d84/a02112.svg" width="350" height="555"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;:</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d64/a02111.svg" width="294" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d64/a02111.svg" width="350" height="555"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af7d9dc0b540fee5b78bdf3853a203937" id="r_af7d9dc0b540fee5b78bdf3853a203937"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> (const SPIPortBase &amp;other)=delete</td></tr>
-<tr class="memdesc:af7d9dc0b540fee5b78bdf3853a203937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
-<tr class="memitem:a3d58a47067dbf8b77d78250373234f6d" id="r_a3d58a47067dbf8b77d78250373234f6d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3d58a47067dbf8b77d78250373234f6d">SPIPortBase</a> (SPIPortBase &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a3d58a47067dbf8b77d78250373234f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
-<tr class="memitem:a33e5060aa4a9e4755b6786700276a5bf" id="r_a33e5060aa4a9e4755b6786700276a5bf"><td class="memItemLeft"><a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a33e5060aa4a9e4755b6786700276a5bf">operator=</a> (const <a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a33e5060aa4a9e4755b6786700276a5bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
-<tr class="memitem:ae6957396d6689ed6ebcffc3b11177118" id="r_ae6957396d6689ed6ebcffc3b11177118"><td class="memItemLeft"><a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae6957396d6689ed6ebcffc3b11177118">operator=</a> (<a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ae6957396d6689ed6ebcffc3b11177118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
-<tr class="memitem:af039716c9cb01db958d77f8c581627cf" id="r_af039716c9cb01db958d77f8c581627cf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af039716c9cb01db958d77f8c581627cf">open</a> () noexcept</td></tr>
-<tr class="memdesc:af039716c9cb01db958d77f8c581627cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Powers up the hardware channel and configures initial peripheral parameters.  <br /></td></tr>
-<tr class="memitem:ab6529e241d0728159eb3f60c7621b666" id="r_ab6529e241d0728159eb3f60c7621b666"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab6529e241d0728159eb3f60c7621b666">close</a> () noexcept</td></tr>
-<tr class="memdesc:ab6529e241d0728159eb3f60c7621b666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the physical peripheral bus and releases system resources safely.  <br /></td></tr>
-<tr class="memitem:aab4ba08bd7815d4dc0052197f9aa41dd" id="r_aab4ba08bd7815d4dc0052197f9aa41dd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aab4ba08bd7815d4dc0052197f9aa41dd">isBusy</a> () const noexcept</td></tr>
-<tr class="memdesc:aab4ba08bd7815d4dc0052197f9aa41dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates whether a transfer or an abort is in flight.  <br /></td></tr>
-<tr class="memitem:a6b1a1218b3072179b7f437e4bed425ed" id="r_a6b1a1218b3072179b7f437e4bed425ed"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6b1a1218b3072179b7f437e4bed425ed">bindBeginTransactionFunc</a> (<a class="el" href="../../d3/d92/a01393.html">FunctionRef</a>&lt; void()&gt; callback) noexcept</td></tr>
-<tr class="memdesc:a6b1a1218b3072179b7f437e4bed425ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds a callback invoked immediately before a new transaction begins (e.g.  <br /></td></tr>
-<tr class="memitem:ae29dec95e0fb16ecb0358ada047b372c" id="r_ae29dec95e0fb16ecb0358ada047b372c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae29dec95e0fb16ecb0358ada047b372c">bindEndTransactionFunc</a> (<a class="el" href="../../d3/d92/a01393.html">FunctionRef</a>&lt; void()&gt; callback) noexcept</td></tr>
-<tr class="memdesc:ae29dec95e0fb16ecb0358ada047b372c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds a callback invoked immediately after a transaction ends (e.g.  <br /></td></tr>
-<tr class="memitem:ac557450438e468ea5bf25de308bc023c" id="r_ac557450438e468ea5bf25de308bc023c"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:ac557450438e468ea5bf25de308bc023c template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac557450438e468ea5bf25de308bc023c">send</a> (std::span&lt; const uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:ac557450438e468ea5bf25de308bc023c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data over SPI, waiting for the transfer to complete or fail.  <br /></td></tr>
-<tr class="memitem:a92f0a2b4df702792cbc1e97fdd843a33" id="r_a92f0a2b4df702792cbc1e97fdd843a33"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a92f0a2b4df702792cbc1e97fdd843a33 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a92f0a2b4df702792cbc1e97fdd843a33">receive</a> (std::span&lt; uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a92f0a2b4df702792cbc1e97fdd843a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives data from SPI, waiting for the transfer to complete or fail.  <br /></td></tr>
-<tr class="memitem:a856e94be39c7518eed69bbde0ef8eaf8" id="r_a856e94be39c7518eed69bbde0ef8eaf8"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a856e94be39c7518eed69bbde0ef8eaf8 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a856e94be39c7518eed69bbde0ef8eaf8">sendReceive</a> (std::span&lt; const uint8_t &gt; txData, std::span&lt; uint8_t &gt; rxData, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a856e94be39c7518eed69bbde0ef8eaf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a full-duplex transfer: transmits and receives simultaneously, waiting for completion or failure.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:afa9b12cc40b3d5af68b16f594f5a92f7" id="r_afa9b12cc40b3d5af68b16f594f5a92f7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afa9b12cc40b3d5af68b16f594f5a92f7">SPIPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:afa9b12cc40b3d5af68b16f594f5a92f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the CRTP foundation.  <br /></td></tr>
-<tr class="memitem:a88e5899dd8db4b887c6afbf89dcbed77" id="r_a88e5899dd8db4b887c6afbf89dcbed77"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a88e5899dd8db4b887c6afbf89dcbed77">~SPIPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a88e5899dd8db4b887c6afbf89dcbed77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; owns no resources of its own.  <br /></td></tr>
+<tr class="memitem:a639e7e6b8ef7eb47baac27f82712963e" id="r_a639e7e6b8ef7eb47baac27f82712963e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> (DAC_HandleTypeDef *handle, uint32_t channel) noexcept</td></tr>
+<tr class="memdesc:a639e7e6b8ef7eb47baac27f82712963e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block and hardware channel.  <br /></td></tr>
+<tr class="memitem:ac832156b805caf8041f1097ecf576ec2" id="r_ac832156b805caf8041f1097ecf576ec2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac832156b805caf8041f1097ecf576ec2">~DACPort</a> () noexcept</td></tr>
+<tr class="memdesc:ac832156b805caf8041f1097ecf576ec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the channel before the object goes out of scope.  <br /></td></tr>
+<tr class="memitem:ae857dfa99c02206e9c82894b2b5d50c7" id="r_ae857dfa99c02206e9c82894b2b5d50c7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae857dfa99c02206e9c82894b2b5d50c7">DACPort</a> (const DACPort &amp;other)=delete</td></tr>
+<tr class="memdesc:ae857dfa99c02206e9c82894b2b5d50c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
+<tr class="memitem:a188f7d834b91520e5dc8b255c12e6d7c" id="r_a188f7d834b91520e5dc8b255c12e6d7c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a188f7d834b91520e5dc8b255c12e6d7c">DACPort</a> (DACPort &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a188f7d834b91520e5dc8b255c12e6d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
+<tr class="memitem:a5e9177ee33e5a96bb6fcb732f8ea15ef" id="r_a5e9177ee33e5a96bb6fcb732f8ea15ef"><td class="memItemLeft"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5e9177ee33e5a96bb6fcb732f8ea15ef">operator=</a> (const <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a5e9177ee33e5a96bb6fcb732f8ea15ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
+<tr class="memitem:a947c4407f00f40ef2d244a914699c60e" id="r_a947c4407f00f40ef2d244a914699c60e"><td class="memItemLeft"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a947c4407f00f40ef2d244a914699c60e">operator=</a> (<a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a947c4407f00f40ef2d244a914699c60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
+<tr class="memitem:a8931efb843554302b191363c4a0bfa41" id="r_a8931efb843554302b191363c4a0bfa41"><td class="memItemLeft">DAC_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="#a8931efb843554302b191363c4a0bfa41">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:a8931efb843554302b191363c4a0bfa41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
+<tr class="memitem:a6607ca6708888b8278a5fbe1b865e33d" id="r_a6607ca6708888b8278a5fbe1b865e33d"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a6607ca6708888b8278a5fbe1b865e33d">getChannel</a> () const noexcept</td></tr>
+<tr class="memdesc:a6607ca6708888b8278a5fbe1b865e33d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the hardware channel configured for this port instance.  <br /></td></tr>
+<tr class="memitem:a0fb9b03d74076c644c02fd75613c0748" id="r_a0fb9b03d74076c644c02fd75613c0748"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0fb9b03d74076c644c02fd75613c0748">start</a> () noexcept</td></tr>
+<tr class="memdesc:a0fb9b03d74076c644c02fd75613c0748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the DAC channel for output.  <br /></td></tr>
+<tr class="memitem:aeb4d00954e883a85534eb2da3acd379f" id="r_aeb4d00954e883a85534eb2da3acd379f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aeb4d00954e883a85534eb2da3acd379f">stop</a> () noexcept</td></tr>
+<tr class="memdesc:aeb4d00954e883a85534eb2da3acd379f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the DAC channel.  <br /></td></tr>
+<tr class="memitem:ae527315d8794d0bcdbd7b686839e4630" id="r_ae527315d8794d0bcdbd7b686839e4630"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../db/d26/a02129.html#ae527315d8794d0bcdbd7b686839e4630">open</a> () noexcept</td></tr>
+<tr class="memdesc:ae527315d8794d0bcdbd7b686839e4630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the DAC peripheral.  <br /></td></tr>
+<tr class="memitem:a2c3c1b081f9ff127e0f02cd3db61d4c4" id="r_a2c3c1b081f9ff127e0f02cd3db61d4c4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../db/d26/a02129.html#a2c3c1b081f9ff127e0f02cd3db61d4c4">close</a> () noexcept</td></tr>
+<tr class="memdesc:a2c3c1b081f9ff127e0f02cd3db61d4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the DAC peripheral.  <br /></td></tr>
+<tr class="memitem:a984f15fd9218a6fec1e7ac0d61e04e6d" id="r_a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../db/d26/a02129.html#a984f15fd9218a6fec1e7ac0d61e04e6d">setValue</a> (uint32_t value, <a class="el" href="../../db/d26/a02129.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a> alignment=DataAlignment::RIGHT_12_BITS) noexcept</td></tr>
+<tr class="memdesc:a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the DAC output value on the bound channel.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a03b1d8751fc952fa93668bd1d0e48aca" name="a03b1d8751fc952fa93668bd1d0e48aca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03b1d8751fc952fa93668bd1d0e48aca">&#9670;&#160;</a></span>Timeout</h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a18b5de83aaec561a43dc24a80e15bd46" name="a18b5de83aaec561a43dc24a80e15bd46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18b5de83aaec561a43dc24a80e15bd46">&#9670;&#160;</a></span>DataAlignment</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::Timeout = std::chrono::milliseconds</td>
+          <td class="memname">enum <a class="el" href="../../db/d26/a02129.html#a18b5de83aaec561a43dc24a80e15bd46">Lib::HAL::DACPortBase::DataAlignment</a> : uint32_t</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Normalized timeout handed to the mode's transfer handlers. </p>
+<p>Output data alignment options for DAC value conversion. </p>
+<p>Mirrors the alignment macros defined by the STM32 <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> DAC driver. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af7d9dc0b540fee5b78bdf3853a203937" name="af7d9dc0b540fee5b78bdf3853a203937"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7d9dc0b540fee5b78bdf3853a203937">&#9670;&#160;</a></span>SPIPortBase() <span class="overload">[1/3]</span></h2>
+<a id="a639e7e6b8ef7eb47baac27f82712963e" name="a639e7e6b8ef7eb47baac27f82712963e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639e7e6b8ef7eb47baac27f82712963e">&#9670;&#160;</a></span>DACPort() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::SPIPortBase </td>
+          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::DACPort </td>
           <td>(</td>
-          <td class="paramtype">const SPIPortBase&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">DAC_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds the port to a native hardware descriptor block and hardware channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+    <tr><td class="paramname">channel</td><td>Target hardware channel allocation macro (e.g. 'DAC_CHANNEL_1'). </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc6/a02113_a639e7e6b8ef7eb47baac27f82712963e_icgraph.svg" width="726" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac832156b805caf8041f1097ecf576ec2" name="ac832156b805caf8041f1097ecf576ec2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac832156b805caf8041f1097ecf576ec2">&#9670;&#160;</a></span>~DACPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::~<a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the channel before the object goes out of scope. </p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc6/a02113_ac832156b805caf8041f1097ecf576ec2_cgraph.svg" width="790" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae857dfa99c02206e9c82894b2b5d50c7" name="ae857dfa99c02206e9c82894b2b5d50c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae857dfa99c02206e9c82894b2b5d50c7">&#9670;&#160;</a></span>DACPort() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::DACPort </td>
+          <td>(</td>
+          <td class="paramtype">const DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -220,31 +286,35 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<p>Copying is deleted: each instance owns a unique native handle binding. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc6/a02113_ae857dfa99c02206e9c82894b2b5d50c7_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a3d58a47067dbf8b77d78250373234f6d" name="a3d58a47067dbf8b77d78250373234f6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d58a47067dbf8b77d78250373234f6d">&#9670;&#160;</a></span>SPIPortBase() <span class="overload">[2/3]</span></h2>
+<a id="a188f7d834b91520e5dc8b255c12e6d7c" name="a188f7d834b91520e5dc8b255c12e6d7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a188f7d834b91520e5dc8b255c12e6d7c">&#9670;&#160;</a></span>DACPort() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::SPIPortBase </td>
+          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::DACPort </td>
           <td>(</td>
-          <td class="paramtype">SPIPortBase&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -255,161 +325,34 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<p>Moving is deleted: each instance owns a unique native handle binding. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
 </div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc6/a02113_a188f7d834b91520e5dc8b255c12e6d7c_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="afa9b12cc40b3d5af68b16f594f5a92f7" name="afa9b12cc40b3d5af68b16f594f5a92f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa9b12cc40b3d5af68b16f594f5a92f7">&#9670;&#160;</a></span>SPIPortBase() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::SPIPortBase </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructs the CRTP foundation. </p>
-<p>Carries no state beyond the transaction hooks; the native handle lives on "T_DERIVED". </p>
-
-</div>
-</div>
-<a id="a88e5899dd8db4b887c6afbf89dcbed77" name="a88e5899dd8db4b887c6afbf89dcbed77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88e5899dd8db4b887c6afbf89dcbed77">&#9670;&#160;</a></span>~SPIPortBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destroys the object; owns no resources of its own. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a6b1a1218b3072179b7f437e4bed425ed" name="a6b1a1218b3072179b7f437e4bed425ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b1a1218b3072179b7f437e4bed425ed">&#9670;&#160;</a></span>bindBeginTransactionFunc()</h2>
+<a id="a2c3c1b081f9ff127e0f02cd3db61d4c4" name="a2c3c1b081f9ff127e0f02cd3db61d4c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c3c1b081f9ff127e0f02cd3db61d4c4">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::bindBeginTransactionFunc </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/d92/a01393.html">FunctionRef</a>&lt; void()&gt;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Binds a callback invoked immediately before a new transaction begins (e.g. </p>
-<p>to assert an external chip select or acquire a shared-bus mutex).</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">callback</td><td>Non-owning reference to the function called at the start of a transaction. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ae29dec95e0fb16ecb0358ada047b372c" name="ae29dec95e0fb16ecb0358ada047b372c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae29dec95e0fb16ecb0358ada047b372c">&#9670;&#160;</a></span>bindEndTransactionFunc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::bindEndTransactionFunc </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/d92/a01393.html">FunctionRef</a>&lt; void()&gt;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Binds a callback invoked immediately after a transaction ends (e.g. </p>
-<p>to release an external chip select or a shared-bus mutex). It runs only once the hardware has stopped, including after a timeout.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">callback</td><td>Non-owning reference to the function called at the end of a transaction. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab6529e241d0728159eb3f60c7621b666" name="ab6529e241d0728159eb3f60c7621b666"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6529e241d0728159eb3f60c7621b666">&#9670;&#160;</a></span>close()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::close </td>
+          <td class="memname">bool <a class="el" href="../../db/d26/a02129.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -417,29 +360,27 @@ template&lt;typename T_DERIVED&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Disables the physical peripheral bus and releases system resources safely. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the shutdown sequence was fully committed. </dd></dl>
+<p>Deinitializes the DAC peripheral. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if deinitialization succeeded, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="aab4ba08bd7815d4dc0052197f9aa41dd" name="aab4ba08bd7815d4dc0052197f9aa41dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab4ba08bd7815d4dc0052197f9aa41dd">&#9670;&#160;</a></span>isBusy()</h2>
+<a id="a6607ca6708888b8278a5fbe1b865e33d" name="a6607ca6708888b8278a5fbe1b865e33d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6607ca6708888b8278a5fbe1b865e33d">&#9670;&#160;</a></span>getChannel()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::isBusy </td>
+          <td class="memname">uint32_t Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getChannel </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -452,24 +393,22 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Evaluates whether a transfer or an abort is in flight. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the peripheral is transmitting, receiving or aborting. </dd></dl>
+<p>Fetches the hardware channel configured for this port instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Target hardware channel identifier ('DAC_CHANNEL_1' or 'DAC_CHANNEL_2'). </dd></dl>
 
 </div>
 </div>
-<a id="af039716c9cb01db958d77f8c581627cf" name="af039716c9cb01db958d77f8c581627cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af039716c9cb01db958d77f8c581627cf">&#9670;&#160;</a></span>open()</h2>
+<a id="a8931efb843554302b191363c4a0bfa41" name="a8931efb843554302b191363c4a0bfa41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8931efb843554302b191363c4a0bfa41">&#9670;&#160;</a></span>getHandle()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::open </td>
+          <td class="memname">DAC_HandleTypeDef * Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -482,26 +421,52 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Powers up the hardware channel and configures initial peripheral parameters. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the hardware open sequence succeeded. </dd></dl>
+<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or 'nullptr' if unbound. </dd></dl>
 
 </div>
 </div>
-<a id="a33e5060aa4a9e4755b6786700276a5bf" name="a33e5060aa4a9e4755b6786700276a5bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33e5060aa4a9e4755b6786700276a5bf">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="ae527315d8794d0bcdbd7b686839e4630" name="ae527315d8794d0bcdbd7b686839e4630"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae527315d8794d0bcdbd7b686839e4630">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> &amp; <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td class="memname">bool <a class="el" href="../../db/d26/a02129.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::open </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the DAC peripheral. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if initialization succeeded, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a5e9177ee33e5a96bb6fcb732f8ea15ef" name="a5e9177ee33e5a96bb6fcb732f8ea15ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e9177ee33e5a96bb6fcb732f8ea15ef">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp; Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -512,32 +477,36 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<p>Copy assignment is deleted: each instance owns a unique native handle binding. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc6/a02113_a5e9177ee33e5a96bb6fcb732f8ea15ef_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ae6957396d6689ed6ebcffc3b11177118" name="ae6957396d6689ed6ebcffc3b11177118"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6957396d6689ed6ebcffc3b11177118">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a947c4407f00f40ef2d244a914699c60e" name="a947c4407f00f40ef2d244a914699c60e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a947c4407f00f40ef2d244a914699c60e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> &amp; <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td class="memname"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp; Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -548,39 +517,76 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<p>Move assignment is deleted: each instance owns a unique native handle binding. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc6/a02113_a947c4407f00f40ef2d244a914699c60e_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a92f0a2b4df702792cbc1e97fdd843a33" name="a92f0a2b4df702792cbc1e97fdd843a33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92f0a2b4df702792cbc1e97fdd843a33">&#9670;&#160;</a></span>receive()</h2>
+<a id="a984f15fd9218a6fec1e7ac0d61e04e6d" name="a984f15fd9218a6fec1e7ac0d61e04e6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a984f15fd9218a6fec1e7ac0d61e04e6d">&#9670;&#160;</a></span>setValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::receive </td>
+          <td class="memname">bool <a class="el" href="../../db/d26/a02129.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::setValue </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="../../db/d26/a02129.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a></td>          <td class="paramname"><span class="paramname"><em>alignment</em></span><span class="paramdefsep"> = </span><span class="paramdefval">DataAlignment::RIGHT_12_BITS</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the DAC output value on the bound channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Conversion value to write, within the range implied by 'alignment'. </td></tr>
+    <tr><td class="paramname">alignment</td><td>Data alignment applied to 'value'. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the write succeeded, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a0fb9b03d74076c644c02fd75613c0748" name="a0fb9b03d74076c644c02fd75613c0748"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fb9b03d74076c644c02fd75613c0748">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -590,47 +596,25 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Receives data from SPI, waiting for the transfer to complete or fail. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" otherwise. </dd></dl>
+<p>Enables the DAC channel for output. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the channel was enabled successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="ac557450438e468ea5bf25de308bc023c" name="ac557450438e468ea5bf25de308bc023c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac557450438e468ea5bf25de308bc023c">&#9670;&#160;</a></span>send()</h2>
+<a id="aeb4d00954e883a85534eb2da3acd379f" name="aeb4d00954e883a85534eb2da3acd379f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb4d00954e883a85534eb2da3acd379f">&#9670;&#160;</a></span>stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::send </td>
+          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::stop </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -640,78 +624,14 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sends data over SPI, waiting for the transfer to complete or fail. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" otherwise. </dd></dl>
-
+<p>Disables the DAC channel. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the channel was disabled successfully, <b>false</b> otherwise. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc6/a02113_aeb4d00954e883a85534eb2da3acd379f_icgraph.svg" width="790" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="a856e94be39c7518eed69bbde0ef8eaf8" name="a856e94be39c7518eed69bbde0ef8eaf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a856e94be39c7518eed69bbde0ef8eaf8">&#9670;&#160;</a></span>sendReceive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dc6/a02113.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::sendReceive </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>txData</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>rxData</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Performs a full-duplex transfer: transmits and receives simultaneously, waiting for completion or failure. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">txData</td><td>Bytes to transmit; same size as "rxData". </td></tr>
-    <tr><td class="paramname">rxData</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" otherwise. </dd></dl>
 
 </div>
 </div>
@@ -725,12 +645,23 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><!-- page-nav-tree -->
 </div><!-- page-nav -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../da/d98/a00870.html">Lib</a></li><li class="navelem"><a href="../../d8/d0a/a00904.html">HAL</a></li><li class="navelem"><a href="../../d8/dc6/a02113.html">SPIPortBase</a></li>
+    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../d8/dc6/a02113.html">DACPort&lt; DriverMode::BLOCKING &gt;</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

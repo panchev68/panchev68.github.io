@@ -1,9 +1,13 @@
 var a01825 =
 [
-    [ "command", "df/dee/a01825.html#af08112845cd66edc31d068ebd37b83ca", null ],
-    [ "delimiter", "df/dee/a01825.html#a4a5572bd4e22f6a1de87a3ad3d4ebad8", null ],
-    [ "id", "df/dee/a01825.html#a38a95e9ff32ffbe026a54b59e0133d60", null ],
-    [ "length", "df/dee/a01825.html#a8d832b6579b4ecbc8f9555ab3e14aa21", null ],
-    [ "option", "df/dee/a01825.html#afef42cfd87d0013b3e3ff843a1cc5d36", null ],
-    [ "timestamp", "df/dee/a01825.html#a3665c6cb45f55219bf365da4619f7ab9", null ]
+    [ "Command", "df/dee/a01825.html#ad7de9040ab35a62c524e02edb5857497", null ],
+    [ "LocalAtCommand", "df/dee/a01825.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
+    [ "LocalAtCommand", "df/dee/a01825.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
+    [ "close", "df/dee/a01825.html#a5c97cd2a002f63083302783169a633fb", null ],
+    [ "isOpen", "df/dee/a01825.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
+    [ "open", "df/dee/a01825.html#a01489f683e248d7c2af355b8f1cd8992", null ],
+    [ "operator=", "df/dee/a01825.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
+    [ "receive", "df/dee/a01825.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
+    [ "send", "df/dee/a01825.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
+    [ "send", "df/dee/a01825.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
 ];

@@ -1,9 +1,11 @@
 var a01241 =
 [
-    [ "FLASH Exported Types", "https://panchev68.github.io/HALF4/d4/d45/a00791.html", null ],
-    [ "FLASH Exported Constants", "https://panchev68.github.io/HALF4/d2/d5a/a00792.html", "d2/d5a/a00792" ],
-    [ "FLASH Private Constants", "https://panchev68.github.io/HALF4/d8/db7/a00812.html", null ],
-    [ "FLASH Private Macros", "https://panchev68.github.io/HALF4/de/d9d/a00813.html", "de/d9d/a00813" ],
-    [ "FLASH Private Functions", "https://panchev68.github.io/HALF4/d8/d2d/a00815.html", "d8/d2d/a00815" ],
-    [ "FLASHEx_Exported_Functions", "https://panchev68.github.io/HALF4/dc/dd5/a01293.html", "dc/dd5/a01293" ]
+    [ "capacityBytes", "d3/d07/a01241.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
+    [ "chipId", "d3/d07/a01241.html#a51f97ba3d60d343706487241e08e252e", null ],
+    [ "manufacturerId", "d3/d07/a01241.html#a5c3278897e2a6732479c70a4efed141c", null ],
+    [ "pageCount", "d3/d07/a01241.html#af9ad76ca92b33af38466c11344584476", null ],
+    [ "pageSize", "d3/d07/a01241.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
+    [ "pagesPerSector", "d3/d07/a01241.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
+    [ "sectorCount", "d3/d07/a01241.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
+    [ "sectorSize", "d3/d07/a01241.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
 ];

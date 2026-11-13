@@ -1,6 +1,5 @@
 var a01649 =
 [
-    [ "lengthLSB", "dc/d87/a01649.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
-    [ "lengthMSB", "dc/d87/a01649.html#a975df99244301d7a71b2c326555ba6fd", null ],
-    [ "startDelimiter", "dc/d87/a01649.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
+    [ "generator", "dc/d87/a01649.html#a809af770c796f423098ad30eb9953eb3", null ],
+    [ "prime", "dc/d87/a01649.html#abbc1d8e6b58e94bac7e603b88be07d0e", null ]
 ];

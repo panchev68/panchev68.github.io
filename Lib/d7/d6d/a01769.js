@@ -1,13 +1,16 @@
 var a01769 =
 [
-    [ "Observer", "d7/d6d/a01769.html#abdcd46d6d928709efb45c4092a509ad3", null ],
-    [ "Observer", "d7/d6d/a01769.html#a4cc93d46146ee3fcd380f341b24126ad", null ],
-    [ "Observer", "d7/d6d/a01769.html#a285dcb5567493b45b23d25b24004e9b9", null ],
-    [ "check", "d7/d6d/a01769.html#ac245a085bf28b893f98cbc8943c50939", null ],
-    [ "forEach", "d7/d6d/a01769.html#a6dcac43dde13eaf06dff704610eb7f8f", null ],
-    [ "getGroup", "d7/d6d/a01769.html#a2973edaf7f9a66d9900fe3adf841146c", null ],
-    [ "matches", "d7/d6d/a01769.html#abc1b7f5285e87adc24a4969a47113543", null ],
-    [ "number", "d7/d6d/a01769.html#a446e9c28defc96197acdcd260d4706f6", null ],
-    [ "operator const Group *", "d7/d6d/a01769.html#a68975b48ce0a7e2e846ed67f6851be04", null ],
-    [ "read", "d7/d6d/a01769.html#ae9c2b90078fb4baacc77df620dd6affc", null ]
+    [ "ChannelArray", "d7/d6d/a01769.html#aa2fed2d2a6f2ce38866cce0b42f0fc1d", null ],
+    [ "SpectrumAnalyzer", "d7/d6d/a01769.html#acffb15e4dc1a3f0ff7c89bc48f895f8e", null ],
+    [ "SpectrumAnalyzer", "d7/d6d/a01769.html#a2c4d3982ffc82582c07ab45464cd9a9f", null ],
+    [ "close", "d7/d6d/a01769.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
+    [ "getAverageArray", "d7/d6d/a01769.html#a9a039ecee938e04e07e4fcb9227ae878", null ],
+    [ "getCurrentArray", "d7/d6d/a01769.html#a8839a8b30ad3060298b6867566c1aa6d", null ],
+    [ "getMaxArray", "d7/d6d/a01769.html#a8fa9bbae67bd369d3c4dcfd522299a06", null ],
+    [ "isNewData", "d7/d6d/a01769.html#a2788be420fbb2acb1168d7aa21759804", null ],
+    [ "isRunning", "d7/d6d/a01769.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "d7/d6d/a01769.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "d7/d6d/a01769.html#a9ca130f09d902c6ce140e87b155e8d00", null ],
+    [ "resetData", "d7/d6d/a01769.html#a219916036b1120cc272129041d937770", null ],
+    [ "update", "d7/d6d/a01769.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
 ];

@@ -1,11 +1,7 @@
 var a01633 =
 [
-    [ "ignoredMessagesByTimeout", "d6/dd6/a01633.html#aef5921d826333c4443495f22db6f23b2", null ],
-    [ "invalidMessages", "d6/dd6/a01633.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
-    [ "maxMsgLengthErrors", "d6/dd6/a01633.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
-    [ "receivedAtCommandMessages", "d6/dd6/a01633.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
-    [ "receivedDataMessages", "d6/dd6/a01633.html#ac128abb8594b88f0197fc4fc467d9261", null ],
-    [ "sentAtCommandMessages", "d6/dd6/a01633.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
-    [ "sentDataMessages", "d6/dd6/a01633.html#acdadb83db434afcb1c0147457f423064", null ],
-    [ "sentDataMessagesTimeout", "d6/dd6/a01633.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
+    [ "Key", "d6/dd6/a01633.html#a01aa89923019ee3bf5249396252577a0", null ],
+    [ "Nonce", "d6/dd6/a01633.html#ae4ce9fb8d76a85f4786b936d4bdb3327", null ],
+    [ "Tag", "d6/dd6/a01633.html#a73ebbac632c0982dc3eeb3880cd7febc", null ],
+    [ "WolfSSLChaCha20Poly1305", "d6/dd6/a01633.html#af47892a2a6a403161bf652674b3fbaf8", null ]
 ];

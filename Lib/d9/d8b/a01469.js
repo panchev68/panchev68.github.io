@@ -1,7 +1,5 @@
 var a01469 =
 [
-    [ "Key", "d9/d8b/a01469.html#a01aa89923019ee3bf5249396252577a0", null ],
-    [ "Nonce", "d9/d8b/a01469.html#ae4ce9fb8d76a85f4786b936d4bdb3327", null ],
-    [ "Tag", "d9/d8b/a01469.html#a73ebbac632c0982dc3eeb3880cd7febc", null ],
-    [ "WolfSSLChaCha20Poly1305", "d9/d8b/a01469.html#af47892a2a6a403161bf652674b3fbaf8", null ]
+    [ "decayPeriodMicroseconds", "d9/d8b/a01469.html#a12e79efa3a5a899b1e64d25ff5a0fdb3", null ],
+    [ "frequencyHz", "d9/d8b/a01469.html#a50257a628ef439fb965df1ee908f3e5e", null ]
 ];

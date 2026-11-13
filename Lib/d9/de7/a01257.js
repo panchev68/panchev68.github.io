@@ -1,9 +1,9 @@
 var a01257 =
 [
-    [ "PWR Exported Types", "https://panchev68.github.io/HALF4/da/dd6/a00896.html", null ],
-    [ "PWR Exported Constants", "https://panchev68.github.io/HALF4/de/d01/a00897.html", "de/d01/a00897" ],
-    [ "PWR Exported Macro", "https://panchev68.github.io/HALF4/da/d5b/a00905.html", null ],
-    [ "PWR Private Constants", "https://panchev68.github.io/HALF4/da/dd8/a00906.html", "da/dd8/a00906" ],
-    [ "PWR Private Macros", "https://panchev68.github.io/HALF4/d7/d12/a00911.html", "d7/d12/a00911" ],
-    [ "PWR Exported Functions", "https://panchev68.github.io/HALF4/d7/d41/a01312.html", "d7/d41/a01312" ]
+    [ "chipManufacturer", "d9/de7/a01257.html#a0699528d9734e0f26fa0ba87d7132204", null ],
+    [ "memoryCapacity", "d9/de7/a01257.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
+    [ "pagePerSector", "d9/de7/a01257.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
+    [ "pageSize", "d9/de7/a01257.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
+    [ "sectorCount", "d9/de7/a01257.html#a8e623c67b780e827d65e722809156e96", null ],
+    [ "sectorSize", "d9/de7/a01257.html#a61bb395a7747150174a9b64ececfb178", null ]
 ];

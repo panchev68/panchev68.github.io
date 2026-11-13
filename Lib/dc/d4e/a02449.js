@@ -1,9 +1,14 @@
 var a02449 =
 [
-    [ "CriticalSection", "dc/d4e/a02449.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
-    [ "~CriticalSection", "dc/d4e/a02449.html#a4a507b226238920b8fae903a5bd87776", null ],
-    [ "CriticalSection", "dc/d4e/a02449.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
-    [ "CriticalSection", "dc/d4e/a02449.html#a9de7a81409af7b28d1da974ded4a7688", null ],
-    [ "operator=", "dc/d4e/a02449.html#aabac4732503c72da02f8e49754bbc736", null ],
-    [ "operator=", "dc/d4e/a02449.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
+    [ "Time", "d3/d27/a02453.html", "d3/d27/a02453" ],
+    [ "Date", "d4/d87/a02457.html", "d4/d87/a02457" ],
+    [ "DateTime", "dc/d4e/a02449.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
+    [ "DateTime", "dc/d4e/a02449.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
+    [ "isValid", "dc/d4e/a02449.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
+    [ "operator<=>", "dc/d4e/a02449.html#a768cad764174be4d63763ddda26b9f67", null ],
+    [ "operator==", "dc/d4e/a02449.html#a3d983b842fee71216375379ddc6be3ce", null ],
+    [ "to_tm", "dc/d4e/a02449.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
+    [ "toSysSeconds", "dc/d4e/a02449.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
+    [ "date", "dc/d4e/a02449.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
+    [ "time", "dc/d4e/a02449.html#a99c6886879b06c9396a2df8bd08ce997", null ]
 ];

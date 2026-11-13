@@ -1,18 +1,10 @@
 var a01109 =
 [
-    [ "Command", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726", [
-      [ "WRITE_ENABLE", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "READ_STATUS_REGISTER1", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "QUAD_PAGE_PROGRAM", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
-      [ "FAST_READ_QUAD_IO", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
-      [ "SECTOR_ERASE", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "PortBase", "d8/dbf/a01109.html#a5350d276e1d3d6505501c1a194798ee1", null ],
+    [ "~PortBase", "d8/dbf/a01109.html#ae97ed92776c4c9fec031848b9d223290", null ],
+    [ "getSpiHandle", "d8/dbf/a01109.html#a1677aa107627ab40c3a7a3a495722c77", null ],
+    [ "postUpdateCallback", "d8/dbf/a01109.html#af0d8329309d89f85d0432a205da0410c", null ],
+    [ "preUpdateCallback", "d8/dbf/a01109.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
+    [ "setup", "d8/dbf/a01109.html#a819a0deaed30808011035c3403fbf93c", null ],
+    [ "update", "d8/dbf/a01109.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
 ];

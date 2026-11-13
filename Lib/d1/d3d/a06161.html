@@ -5,14 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::Beep</title>
+<title>IAR EWARM Library: Lib::BSP::INA219</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -78,19 +70,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </ul>
 </div><!-- main-nav -->
 </div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d3d/a06161.html','../../',''); });
-</script>
-<div id="container">
 <div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
@@ -111,56 +90,105 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d3d/a06161.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::Beep</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::INA219</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a short start-up click followed by a three-beep alarm on a buzzer driven by TIM1 channel 1.</p>
-<p>Demonstrates a short start-up click followed by a three-beep alarm on a buzzer driven by TIM1 channel 1.TIM1 is initialized by CubeMX; its prescaler and period set the tone, while the driver switches the channel to output-compare toggle mode on every beep. <a class="el" href="../../d2/d6b/a04334.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> returns at once and the sequence plays in the <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer service task, so the task waits with <a class="el" href="../../d2/d6b/a04334.html#ac6552c090b310890de41a06ba77a7e68" title="Lib::BSP::Beep::isPlaying()">Lib::BSP::Beep::isPlaying()</a> before queuing the next sequence: a <a class="el" href="../../d2/d6b/a04334.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> call made while one is still running returns <b>false</b> and is dropped.</p>
-<dl class="section important"><dt>Important</dt><dd>The <a class="el" href="../../d2/d41/a01037.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer service task must be running ('configUSE_TIMERS'), since every beep is timed from it.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_bsp_beep_usage"></a>
+<p>Demonstrates two <a class="el" href="../../d1/d3d/a06161.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.</p>
+<p>Demonstrates two <a class="el" href="../../d1/d3d/a06161.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.The battery channel reports signed current, so power turns negative while charging. The motor channel uses <a class="el" href="../../d9/dd1/a04340.html#a12dbe47287cc8ea3e6057097e7679d5baab6c31432785221bae58327ef5f6ea58" title="Lib::BSP::INA219::Polarity::POSITIVE">Lib::BSP::INA219::Polarity::POSITIVE</a> with a 20 mA offset to hide noise around zero. A reading comes back as <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on a bus failure or when the shunt ADC saturates. Both monitors are initialized before the task starts and then used only from that task, since the driver is not thread-safe. With 128-sample averaging each result takes tens of milliseconds, so polling faster than a few times per second gains nothing.</p>
+<h1 class="doxsection"><a class="anchor" id="lib_bsp_ina219_usage"></a>
 Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="beep_usage_alarm"></a>
-Start-up click and alarm</h2>
-<p><a class="el" href="../../d2/d6b/a04334.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> takes the beep length in milliseconds, the repeat count and the pause between beeps in milliseconds. A call made while a sequence is still playing is dropped, so wait for <a class="el" href="../../d2/d6b/a04334.html#ac6552c090b310890de41a06ba77a7e68" title="Lib::BSP::Beep::isPlaying()">Lib::BSP::Beep::isPlaying()</a> to return <b>false</b> first.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dc1/a00212.html">Lib/BSP/Beep/Beep.hpp</a>&gt;</span></div>
+<h2 class="doxsection"><a class="anchor" id="ina219_usage_task"></a>
+Battery and motor channels polled from one task</h2>
+<p><a class="el" href="../../d9/dd1/a04340.html#a1b96174980d4785dbabfcaa110656cbe" title="Lib::BSP::INA219::init()">Lib::BSP::INA219::init()</a> configures both monitors before the task starts. <a class="el" href="../../d9/dd1/a04340.html#a1aa8cad61e1ccdb3899c6929726963fd" title="Lib::BSP::INA219::readVoltage()">Lib::BSP::INA219::readVoltage()</a> and <a class="el" href="../../d9/dd1/a04340.html#abb224ceec2374ac08e8ea58d3c898ab6" title="Lib::BSP::INA219::readCurrent()">Lib::BSP::INA219::readCurrent()</a> each return <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html" title="std::optional">std::optional</a>, so check for a value before using it.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd5/a00215.html">Lib/BSP/CurrentAndPowerMonitor/INA219.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/ddd/a00653.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d82/a00920.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> htim1; <span class="comment">// TIM1 output compare, period sets the tone.</span></div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1; <span class="comment">// Generated by CubeMX in main.c.</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d2/d6b/a04334.html">Lib::BSP::Beep</a> beeper{{.timerHandle = &amp;htim1, .timerChannel = <a id="_a2" name="_a2"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>}};</div>
+<div class="line"><span class="keyword">class </span>PowerMonitor final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> alarmTask() {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(beeper.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d2/d6b/a04334.html#a4bc5b3cc66d266518992ce5dc14973c5">play</a>(50U)); <span class="comment">// Short click on start-up.</span></div>
+<div class="line">    <span class="keyword">using </span>Monitor = <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d9/dd1/a04340.html">Lib::BSP::INA219&lt;Lib::HAL::DriverMode::BLOCKING&gt;</a>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">while</span> (beeper.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d2/d6b/a04334.html#ac6552c090b310890de41a06ba77a7e68">isPlaying</a>()) {</div>
-<div class="line">        <a id="a5" name="a5"></a><a class="code hl_function" href="../../d2/d41/a01037.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(10ms);</div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!battery.init() || !motor.init()) {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        task.setup({<span class="stringliteral">&quot;Power&quot;</span>, 256, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../db/d0b/a05952.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a>});</div>
+<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!beeper.<a class="code hl_function" href="../../d2/d6b/a04334.html#a4bc5b3cc66d266518992ce5dc14973c5">play</a>(200U, 3U, 100U)) { <span class="comment">// Three 200 ms beeps, 100 ms apart.</span></div>
-<div class="line">        <span class="comment">// A sequence is still playing: this request is dropped.</span></div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; i2cPort{&amp;hi2c1}; <span class="comment">///&lt; Bus shared by both monitors.</span></div>
+<div class="line"> </div>
+<div class="line">    Monitor battery{{</div>
+<div class="line">        .i2cPort = i2cPort,</div>
+<div class="line">        .i2cAddr = 0x40,</div>
+<div class="line">        .shuntResistorOhms = 0.1F,</div>
+<div class="line">    }}; <span class="comment">///&lt; Charge and discharge: signed current.</span></div>
+<div class="line"> </div>
+<div class="line">    Monitor motor{{</div>
+<div class="line">        .i2cPort = i2cPort,</div>
+<div class="line">        .i2cAddr = 0x41,</div>
+<div class="line">        .shuntResistorOhms = 0.01F,</div>
+<div class="line">        .correction = {.polarity = Monitor::Polarity::POSITIVE, .offsetAmperes = 0.02F},</div>
+<div class="line">    }}; <span class="comment">///&lt; Load only: magnitude above a 20 mA noise floor.</span></div>
+<div class="line"> </div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../de/db2/a05948.html">RTOS::Task</a> task;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keyword">const</span> <a id="_a5" name="_a5"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> volts = battery.readVoltage();</div>
+<div class="line">            <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> amperes = battery.readCurrent();</div>
+<div class="line">            <span class="keywordflow">if</span> (volts &amp;&amp; amperes) {</div>
+<div class="line">                <span class="keyword">const</span> <span class="keywordtype">float</span> watts = *volts * *amperes; <span class="comment">// Negative while charging.</span></div>
+<div class="line">            }</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> motorAmperes = motor.readCurrent(); !motorAmperes) {</div>
+<div class="line">                <span class="comment">// Bus failure or shunt saturated: the true current is above the +-320 mV range.</span></div>
+<div class="line">            }</div>
+<div class="line"> </div>
+<div class="line">            <a id="a6" name="a6"></a><a class="code hl_function" href="../../de/d26/a01035.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(250ms);</div>
+<div class="line">        }</div>
 <div class="line">    }</div>
-<div class="line">}</div>
+<div class="line">};</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00212_html"><div class="ttname"><a href="../../dd/dc1/a00212.html">Beep.hpp</a></div><div class="ttdoc">Declares the BSP buzzer driver on a HAL timer output-compare channel; compiles to nothing without HAL...</div></div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa00215_html"><div class="ttname"><a href="../../d3/dd5/a00215.html">INA219.hpp</a></div><div class="ttdoc">Declares the BSP driver template for the INA219 current and power monitor on a HAL I2C port.</div></div>
+<div class="ttc" id="aa00653_html"><div class="ttname"><a href="../../de/ddd/a00653.html">I2C.hpp</a></div><div class="ttdoc">Public umbrella include for the I2C subsystem, exposing the master-only &#39;I2CPort&#39; in all three modes.</div></div>
 <div class="ttc" id="aa00884_html"><div class="ttname"><a href="../../dd/d08/a00884.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
-<div class="ttc" id="aa01037_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d2/d41/a01037.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:604</div></div>
-<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
-<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa04334_html"><div class="ttname"><a href="../../d2/d6b/a04334.html">Lib::BSP::Beep</a></div><div class="ttdoc">Buzzer driven by toggling a timer output-compare channel for a set duration and repeat count.</div><div class="ttdef"><b>Definition</b> Beep.hpp:40</div></div>
-<div class="ttc" id="aa04334_html_a4bc5b3cc66d266518992ce5dc14973c5"><div class="ttname"><a href="../../d2/d6b/a04334.html#a4bc5b3cc66d266518992ce5dc14973c5">Lib::BSP::Beep::play</a></div><div class="ttdeci">bool play(uint32_t duration, uint32_t count=1U, uint32_t pause=0U) noexcept</div><div class="ttdoc">Starts a beep sequence, unless one is already playing.</div><div class="ttdef"><b>Definition</b> Beep.hpp:141</div></div>
-<div class="ttc" id="aa04334_html_ac6552c090b310890de41a06ba77a7e68"><div class="ttname"><a href="../../d2/d6b/a04334.html#ac6552c090b310890de41a06ba77a7e68">Lib::BSP::Beep::isPlaying</a></div><div class="ttdeci">bool isPlaying() const noexcept</div><div class="ttdoc">Gets whether a beep sequence is playing.</div><div class="ttdef"><b>Definition</b> Beep.hpp:164</div></div>
+<div class="ttc" id="aa00920_html"><div class="ttname"><a href="../../d6/d82/a00920.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
+<div class="ttc" id="aa01035_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d26/a01035.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:604</div></div>
+<div class="ttc" id="aa01452_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
+<div class="ttc" id="aa04340_html"><div class="ttname"><a href="../../d9/dd1/a04340.html">Lib::BSP::INA219</a></div><div class="ttdoc">Driver for the INA219 high-side current and power monitor.</div><div class="ttdef"><b>Definition</b> INA219.hpp:36</div></div>
+<div class="ttc" id="aa05948_html"><div class="ttname"><a href="../../de/db2/a05948.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:52</div></div>
+<div class="ttc" id="aa05952_html_a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a"><div class="ttname"><a href="../../db/d0b/a05952.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a></div><div class="ttdeci">@ LOW</div><div class="ttdoc">Low priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:84</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
-</div><!-- doc-content -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

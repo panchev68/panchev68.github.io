@@ -10,9 +10,6 @@
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -77,21 +69,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d07/a05474.html','../../','d5/d35/a05471'); });
-</script>
-<div id="container">
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -110,14 +87,25 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d07/a05474.
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../df/d07/a05474.html">I2CPortBase</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="../../d5/d35/a05471.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
 class Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;</div><p>CRTP foundation implementing the handle-lifecycle policy shared by every I2C transfer mode, blocking included. </p>
-<p>Owns no state of its own, not even the native handle: it reaches the handle through 'derived()-&gt;getHandle()' instead of inheriting <a class="el" href="../../d3/d73/a05382.html" title="Device">Device</a>. <a class="el" href="../../d3/d73/a05382.html" title="Device">Device</a> brings an intrusive <a class="el" href="../../dd/d9e/a05378.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a> list link ('nextDevice') that only an interrupt-driven mode uses, and a blocking specialization never registers with the <a class="el" href="../../dd/d9e/a05378.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a>. Each mode therefore owns its own handle storage: 'IT' and 'DMA' get it from <a class="el" href="../../d3/d73/a05382.html" title="Device">Device</a>, which the <a class="el" href="../../dd/d9e/a05378.html" title="Forward declaration of the registry that owns the Device list links.">DeviceManager</a> also needs, while the blocking specialization stores it directly.</p>
+<p>Owns no state of its own, not even the native handle: it reaches the handle through 'derived()-&gt;getHandle()' instead of inheriting <a class="el" href="../../d3/d73/a05382.html" title="Device">Device</a>. <a class="el" href="../../d3/d73/a05382.html" title="Device">Device</a> brings an intrusive DeviceManager list link ('nextDevice') that only an interrupt-driven mode uses, and a blocking specialization never registers with the DeviceManager. Each mode therefore owns its own handle storage: 'IT' and 'DMA' get it from <a class="el" href="../../d3/d73/a05382.html" title="Device">Device</a>, which the DeviceManager also needs, while the blocking specialization stores it directly.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T_DERIVED</td><td>High-level concrete driver class owning the native handle and the transfer mechanism. </td></tr>
@@ -167,9 +155,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
 <tr class="memitem:a7e4533f8c7ce274ac9ab1c252eb98246" id="r_a7e4533f8c7ce274ac9ab1c252eb98246"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a7e4533f8c7ce274ac9ab1c252eb98246">isValidTransferSize</a> (size_t size) noexcept</td></tr>
-<tr class="memdesc:a7e4533f8c7ce274ac9ab1c252eb98246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a transfer buffer is non-empty and fits the 16-bit length every <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> I2C call takes.  <br /></td></tr>
+<tr class="memdesc:a7e4533f8c7ce274ac9ab1c252eb98246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a transfer buffer is non-empty and fits the 16-bit length every HAL I2C call takes.  <br /></td></tr>
 <tr class="memitem:a4e866ea67cc0cb9eed0f1214dc5aa032" id="r_a4e866ea67cc0cb9eed0f1214dc5aa032"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a4e866ea67cc0cb9eed0f1214dc5aa032">isValidMemAddSize</a> (uint16_t memAddSize) noexcept</td></tr>
-<tr class="memdesc:a4e866ea67cc0cb9eed0f1214dc5aa032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a memory address size is one the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepts.  <br /></td></tr>
+<tr class="memdesc:a4e866ea67cc0cb9eed0f1214dc5aa032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a memory address size is one the HAL accepts.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa4e4d14ed487d0a4f07d43f83937e8cf" name="aa4e4d14ed487d0a4f07d43f83937e8cf"></a>
@@ -424,7 +412,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Probes whether a slave device acknowledges its address on the bus. </p>
-<p><b><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/dc5/a01300.html#gade6a669a25f0e99ef7fd52724acb3dec">HAL_I2C_IsDeviceReady()</a></b> is always a blocking poll in the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a>, regardless of the transfer mode this port otherwise uses for 'masterTransmit()' and 'masterReceive()', so this lives once in the shared base.</p>
+<p><b>HAL_I2C_IsDeviceReady()</b> is always a blocking poll in the HAL, regardless of the transfer mode this port otherwise uses for 'masterTransmit()' and 'masterReceive()', so this lives once in the shared base.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -475,7 +463,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Checks that a memory address size is one the <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepts. </p>
+<p>Checks that a memory address size is one the HAL accepts. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">memAddSize</td><td>Value to check. </td></tr>
@@ -517,7 +505,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Checks that a transfer buffer is non-empty and fits the 16-bit length every <a class="el" href="../../db/d08/a01028.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> I2C call takes. </p>
+<p>Checks that a transfer buffer is non-empty and fits the 16-bit length every HAL I2C call takes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">size</td><td>Buffer size in bytes. </td></tr>
@@ -649,21 +637,21 @@ template&lt;typename T_DERIVED&gt; </div>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../df/d07/a05474.html">I2CPortBase</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

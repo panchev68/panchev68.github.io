@@ -1,5 +1,9 @@
 var a01197 =
 [
-    [ "onCardDetect", "d4/d10/a01197.html#a4e7561f8d775ae05de344bf44f2cbc7f", null ],
-    [ "spiPort", "d4/d10/a01197.html#a67ad4df5e15c12584fe20e638078eab3", null ]
+    [ "pinIRQ", "d4/d10/a01197.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
+    [ "pinNSS", "d4/d10/a01197.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
+    [ "pinReset", "d4/d10/a01197.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
+    [ "pinSync0", "d4/d10/a01197.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
+    [ "pinSync1", "d4/d10/a01197.html#a3358fa1b35628a6d324f9be9d4624338", null ],
+    [ "spiHandle", "d4/d10/a01197.html#aed57b8892979041579d2eb130d453151", null ]
 ];

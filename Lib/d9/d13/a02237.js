@@ -1,12 +1,13 @@
 var a02237 =
 [
-    [ "BitSet", "d9/d13/a02237.html#a16d91d28edc897acf8833de8df82699f", null ],
-    [ "BitSet", "d9/d13/a02237.html#addc6ad14e596e534eb7fd2a018719985", null ],
-    [ "getBit", "d9/d13/a02237.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
-    [ "getValue", "d9/d13/a02237.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
-    [ "operator uint32_t", "d9/d13/a02237.html#ab085297affb7e2df90201d7e6cdd1172", null ],
-    [ "operator=", "d9/d13/a02237.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
-    [ "operator[]", "d9/d13/a02237.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
-    [ "setBit", "d9/d13/a02237.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
-    [ "setValue", "d9/d13/a02237.html#a2505d1f74074939a87d45d3343d8bea3", null ]
+    [ "State", "d9/d13/a02237.html#ae9f0fa1c20664b577fc615da59211d91", [
+      [ "UNKNOWN", "d9/d13/a02237.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "POWER_ON", "d9/d13/a02237.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
+      [ "BROWNOUT", "d9/d13/a02237.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
+      [ "PIN", "d9/d13/a02237.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
+      [ "SOFTWARE", "d9/d13/a02237.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
+      [ "INDEPENDENT_WATCHDOG", "d9/d13/a02237.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
+      [ "WINDOW_WATCHDOG", "d9/d13/a02237.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
+      [ "LOW_POWER", "d9/d13/a02237.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
+    ] ]
 ];

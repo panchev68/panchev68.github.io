@@ -1,10 +1,9 @@
 var a02041 =
 [
-    [ "IndependentWatchdog", "d3/dea/a02041.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
-    [ "IndependentWatchdog", "d3/dea/a02041.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
-    [ "IndependentWatchdog", "d3/dea/a02041.html#aabfa4830743c87632886a0e095af6dba", null ],
-    [ "open", "d3/dea/a02041.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
-    [ "operator=", "d3/dea/a02041.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
-    [ "operator=", "d3/dea/a02041.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
-    [ "refresh", "d3/dea/a02041.html#ae9f164f43789bd02baa1587a44c30e61", null ]
+    [ "Sockets", "d3/dea/a02041.html#a83aca7ca920c948cf9f775922c19247a", null ],
+    [ "Sockets", "d3/dea/a02041.html#adf14b2bb687d762d0832d140cfd7c348", null ],
+    [ "Sockets", "d3/dea/a02041.html#ae5d15cc1e5798b37d8f794210497bd1a", null ],
+    [ "operator=", "d3/dea/a02041.html#a27fe979c8f56a4d202689793724794b7", null ],
+    [ "operator=", "d3/dea/a02041.html#a19e85bd9c0b03c863f565af5ca659b9b", null ],
+    [ "operator[]", "d3/dea/a02041.html#afaa1a155408be33af3d1cfc2d94d33f2", null ]
 ];

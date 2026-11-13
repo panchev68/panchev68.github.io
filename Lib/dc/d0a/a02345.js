@@ -1,14 +1,13 @@
 var a02345 =
 [
-    [ "TimeChangeRule", "dc/de0/a02349.html", "dc/de0/a02349" ],
-    [ "TimeZone", "dc/d0a/a02345.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
-    [ "TimeZone", "dc/d0a/a02345.html#a0edb02c779df5ea86747377d1413c3d8", null ],
-    [ "TimeZone", "dc/d0a/a02345.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
-    [ "convertLocalToUtcMinutes", "dc/d0a/a02345.html#a479ec4792a22a5b314a497bb01be2047", null ],
-    [ "getName", "dc/d0a/a02345.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
-    [ "getOffset", "dc/d0a/a02345.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
-    [ "getOffsetMinutes", "dc/d0a/a02345.html#a85aeda7715611b5af76b28bdc266c545", null ],
-    [ "setName", "dc/d0a/a02345.html#a46b717d157e7f9b012a459cf78b723b5", null ],
-    [ "setOffset", "dc/d0a/a02345.html#aedb03e610f976aba921183f41dd10501", null ],
-    [ "setOffsetMinutes", "dc/d0a/a02345.html#a57128a66ae77de2e6d60521056cb33db", null ]
+    [ "UARTPortBase", "dc/d0a/a02345.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
+    [ "UARTPortBase", "dc/d0a/a02345.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
+    [ "UARTPortBase", "dc/d0a/a02345.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
+    [ "~UARTPortBase", "dc/d0a/a02345.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
+    [ "close", "dc/d0a/a02345.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
+    [ "isBusy", "dc/d0a/a02345.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "open", "dc/d0a/a02345.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
+    [ "operator=", "dc/d0a/a02345.html#ad0321a4f1297088a60c64e263c8c6816", null ],
+    [ "operator=", "dc/d0a/a02345.html#af29977f244357cb79e8203dbd192840c", null ],
+    [ "setBaudRate", "dc/d0a/a02345.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

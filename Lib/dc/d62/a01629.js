@@ -1,11 +1,13 @@
 var a01629 =
 [
-    [ "Message", "dc/d62/a01629.html#adf2fad29193213811e051ef8d5f227a7", null ],
-    [ "Message", "dc/d62/a01629.html#a68d2a5b54227d976281ef2c06d063d87", null ],
-    [ "Message", "dc/d62/a01629.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
-    [ "data", "dc/d62/a01629.html#abc7d722b3924f3002a908d282429e590", null ],
-    [ "empty", "dc/d62/a01629.html#a09e2a403173178d77de083ae66a831fe", null ],
-    [ "operator std::vector< uint8_t >", "dc/d62/a01629.html#aa265929307138945bf4e16749958a7f8", null ],
-    [ "size", "dc/d62/a01629.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
-    [ "view", "dc/d62/a01629.html#a99d9247c3097add390da201d0083e524", null ]
+    [ "Tag", "dc/d62/a01629.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
+    [ "WolfSSLAesGcm", "dc/d62/a01629.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
+    [ "~WolfSSLAesGcm", "dc/d62/a01629.html#a032c38854a99ed5c5a281809583c4bad", null ],
+    [ "WolfSSLAesGcm", "dc/d62/a01629.html#a0948de3456c47ec4fcfdda7f14014566", null ],
+    [ "WolfSSLAesGcm", "dc/d62/a01629.html#ae6206c63d09568b82e1efae3379c82d7", null ],
+    [ "decrypt", "dc/d62/a01629.html#a70889db1697fa4212becb3acfb87a2a4", null ],
+    [ "encrypt", "dc/d62/a01629.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
+    [ "open", "dc/d62/a01629.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
+    [ "operator=", "dc/d62/a01629.html#ab46183fdc3c915e95383d1216aac9109", null ],
+    [ "operator=", "dc/d62/a01629.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
 ];

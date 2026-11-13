@@ -1,13 +1,14 @@
 var a01637 =
 [
-    [ "append", "db/d95/a01637.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
-    [ "append", "db/d95/a01637.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
-    [ "append", "db/d95/a01637.html#a04412e1fc3a07248441dc288c99867f6", null ],
-    [ "assign", "db/d95/a01637.html#a056342d102635bded069d9f153268884", null ],
-    [ "assign", "db/d95/a01637.html#ae796119895d95296e7fe754347df07d7", null ],
-    [ "clear", "db/d95/a01637.html#a4e9638e82e027739671827a11a48a211", null ],
-    [ "getData", "db/d95/a01637.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
-    [ "getData", "db/d95/a01637.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
-    [ "getSize", "db/d95/a01637.html#a391a31513797286c540adbbc99195704", null ],
-    [ "setSize", "db/d95/a01637.html#a55130d108aa3f8d6235341814cfd4c23", null ]
+    [ "SharedSecret", "db/d95/a01637.html#a7fbb5355ccfc526d83b2d67eadb425c8", null ],
+    [ "WolfSSLEcc", "db/d95/a01637.html#a19debb4d33bed3fade556263320330f7", null ],
+    [ "~WolfSSLEcc", "db/d95/a01637.html#ab882988b2ec1b1494dbe8f30062bd13e", null ],
+    [ "WolfSSLEcc", "db/d95/a01637.html#acfed6fbd26a4fb663e7aec5f8408e3f4", null ],
+    [ "WolfSSLEcc", "db/d95/a01637.html#ab7483aff9567983a99ff831e7bfcf284", null ],
+    [ "generateKey", "db/d95/a01637.html#a17edfaa1f02adf3fdd3a15dacc409b5d", null ],
+    [ "operator=", "db/d95/a01637.html#a3309d37d1e7115e7a81b80cee385c0f3", null ],
+    [ "operator=", "db/d95/a01637.html#a251a0fe821d569d4e0f785056ced42d7", null ],
+    [ "sharedSecret", "db/d95/a01637.html#a6c37442161fbe64b4d931ffc6a6f8997", null ],
+    [ "sign", "db/d95/a01637.html#ad2b17e604dc8ee9188ffc9a54dc87b46", null ],
+    [ "verify", "db/d95/a01637.html#a22a3ef4290390aa55282ade89d4bd8e4", null ]
 ];

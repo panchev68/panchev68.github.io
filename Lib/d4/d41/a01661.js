@@ -1,13 +1,12 @@
 var a01661 =
 [
-    [ "Command", "d4/d41/a01661.html#ad7de9040ab35a62c524e02edb5857497", null ],
-    [ "LocalAtCommand", "d4/d41/a01661.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
-    [ "LocalAtCommand", "d4/d41/a01661.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
-    [ "close", "d4/d41/a01661.html#a5c97cd2a002f63083302783169a633fb", null ],
-    [ "isOpen", "d4/d41/a01661.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
-    [ "open", "d4/d41/a01661.html#a01489f683e248d7c2af355b8f1cd8992", null ],
-    [ "operator=", "d4/d41/a01661.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
-    [ "receive", "d4/d41/a01661.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
-    [ "send", "d4/d41/a01661.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
-    [ "send", "d4/d41/a01661.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
+    [ "State", "d9/d45/a01665.html", "d9/d45/a01665" ],
+    [ "Quality", "dc/dec/a01669.html", "dc/dec/a01669" ],
+    [ "Info", "d9/df5/a01673.html", "d9/df5/a01673" ],
+    [ "Connection", "d4/d41/a01661.html#ac3f7cec3bac26ebbbdfd93dc9d339f48", null ],
+    [ "Connection", "d4/d41/a01661.html#afaa8af957c71adc2bf6b63d902caedf2", null ],
+    [ "operator=", "d4/d41/a01661.html#a6bed4ce5a085f4b0a9bbeb1131272236", null ],
+    [ "info", "d4/d41/a01661.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
+    [ "quality", "d4/d41/a01661.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
+    [ "state", "d4/d41/a01661.html#a79f4aecc9bd038f5938e6373412ed099", null ]
 ];

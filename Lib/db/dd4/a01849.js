@@ -1,8 +1,8 @@
 var a01849 =
 [
-    [ "Node", "db/dd4/a01849.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
-    [ "Node", "db/dd4/a01849.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
-    [ "set", "db/dd4/a01849.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
-    [ "ip", "db/dd4/a01849.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
-    [ "port", "db/dd4/a01849.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
+    [ "writeTo", "db/dd4/a01849.html#a46342f730043bd2cb721cafd68faf502", null ],
+    [ "dstAddress", "db/dd4/a01849.html#a681024a962d2609634ac216a9325a808", null ],
+    [ "frameId", "db/dd4/a01849.html#a30b2f9e311fce068c3facfca4084a959", null ],
+    [ "options", "db/dd4/a01849.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
+    [ "rfData", "db/dd4/a01849.html#a647a428c66648b2c7897b90431917f0b", null ]
 ];

@@ -1,16 +1,21 @@
 var a01069 =
 [
-    [ "SPI Error Code", "https://panchev68.github.io/HALF4/d5/d67/a01070.html", null ],
-    [ "SPI Mode", "https://panchev68.github.io/HALF4/df/d18/a01071.html", null ],
-    [ "SPI Direction Mode", "https://panchev68.github.io/HALF4/d6/d6a/a01072.html", null ],
-    [ "SPI Data Size", "https://panchev68.github.io/HALF4/d9/d7c/a01073.html", null ],
-    [ "SPI Clock Polarity", "https://panchev68.github.io/HALF4/d7/df7/a01074.html", null ],
-    [ "SPI Clock Phase", "https://panchev68.github.io/HALF4/dd/d80/a01075.html", null ],
-    [ "SPI Slave Select Management", "https://panchev68.github.io/HALF4/d6/d80/a01076.html", null ],
-    [ "SPI BaudRate Prescaler", "https://panchev68.github.io/HALF4/d0/dd3/a01077.html", null ],
-    [ "SPI MSB LSB Transmission", "https://panchev68.github.io/HALF4/db/dba/a01078.html", null ],
-    [ "SPI TI Mode", "https://panchev68.github.io/HALF4/d2/d4d/a01079.html", null ],
-    [ "SPI CRC Calculation", "https://panchev68.github.io/HALF4/d9/d67/a01080.html", null ],
-    [ "SPI Interrupt Definition", "https://panchev68.github.io/HALF4/dd/dee/a01081.html", null ],
-    [ "SPI Flags Definition", "https://panchev68.github.io/HALF4/dd/df1/a01082.html", null ]
+    [ "CurrentCorrection", "d9/d7c/a01073.html", "d9/d7c/a01073" ],
+    [ "Config", "d0/dd3/a01077.html", "d0/dd3/a01077" ],
+    [ "Polarity", "d8/d18/a01069.html#a12dbe47287cc8ea3e6057097e7679d5b", [
+      [ "SIGNED", "d8/d18/a01069.html#a12dbe47287cc8ea3e6057097e7679d5ba6898b46a1cde8a1572e2722c44c5ab07", null ],
+      [ "POSITIVE", "d8/d18/a01069.html#a12dbe47287cc8ea3e6057097e7679d5baab6c31432785221bae58327ef5f6ea58", null ],
+      [ "NEGATIVE", "d8/d18/a01069.html#a12dbe47287cc8ea3e6057097e7679d5ba50546bf973283065b6ccf09faf7a580a", null ]
+    ] ],
+    [ "INA219", "d8/d18/a01069.html#a46c4a6d79eb2edf43b8b0e8625771020", null ],
+    [ "INA219", "d8/d18/a01069.html#ac55a74a1a8fe3544f1f4df51dbae5d07", null ],
+    [ "INA219", "d8/d18/a01069.html#ae35991ea99aed69c1d8e50c315eccb0f", null ],
+    [ "enterSleepMode", "d8/d18/a01069.html#a203ec10d5e73d42a8a5a6a3878012e61", null ],
+    [ "exitSleepMode", "d8/d18/a01069.html#aa45a5bc29c59cb3057f7384cc2a96e64", null ],
+    [ "init", "d8/d18/a01069.html#a1b96174980d4785dbabfcaa110656cbe", null ],
+    [ "operator=", "d8/d18/a01069.html#a2b39cffcccaa479fe1c92078e0b9ba10", null ],
+    [ "operator=", "d8/d18/a01069.html#af97cdd50eb11dfd094357a230546d816", null ],
+    [ "readCurrent", "d8/d18/a01069.html#abb224ceec2374ac08e8ea58d3c898ab6", null ],
+    [ "readShuntVoltage", "d8/d18/a01069.html#a444400cf9229b85d7ea05bfd48ec5a7c", null ],
+    [ "readVoltage", "d8/d18/a01069.html#a1aa8cad61e1ccdb3899c6929726963fd", null ]
 ];

@@ -1,10 +1,36 @@
 var a02589 =
 [
-    [ "VersionString", "de/d48/a02589.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
-    [ "FirmwareVersion", "de/d48/a02589.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
-    [ "getSubVersion", "de/d48/a02589.html#a74bafacd182d3ccff4da47e5aac54408", null ],
-    [ "getValue", "de/d48/a02589.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
-    [ "operator uint32_t", "de/d48/a02589.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
-    [ "operator VersionString", "de/d48/a02589.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
-    [ "toString", "de/d48/a02589.html#ac82dd7d67829e33f61b3625626f44742", null ]
+    [ "Config", "d6/dfc/a02593.html", "d6/dfc/a02593" ],
+    [ "Command", "de/d48/a02589.html#ac6a1f18dc094880e53169a7e884cc0cf", [
+      [ "OFF", "de/d48/a02589.html#ac6a1f18dc094880e53169a7e884cc0cfa88559a0cfd8250c9d65970cc145c92d4", null ],
+      [ "ON", "de/d48/a02589.html#ac6a1f18dc094880e53169a7e884cc0cfa90651ebea9a35ec4e018c8157492e17c", null ]
+    ] ],
+    [ "Error", "de/d48/a02589.html#a9e4cc2264975fb90820378e04641c518", [
+      [ "NONE", "de/d48/a02589.html#a9e4cc2264975fb90820378e04641c518ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "TIMEOUT_ON", "de/d48/a02589.html#a9e4cc2264975fb90820378e04641c518a5dbb3ccc1d669d4795a0132d6fed5d3a", null ],
+      [ "TIMEOUT_OFF", "de/d48/a02589.html#a9e4cc2264975fb90820378e04641c518a81a5a7f809ca6aaefe5685dbf5503ef8", null ],
+      [ "UNCOMMANDED_ON", "de/d48/a02589.html#a9e4cc2264975fb90820378e04641c518a91f2b697900d216110382c0902b17e25", null ],
+      [ "UNCOMMANDED_OFF", "de/d48/a02589.html#a9e4cc2264975fb90820378e04641c518a3c05ea266a6f2e3d7ce10c09bc0db0ff", null ]
+    ] ],
+    [ "Status", "de/d48/a02589.html#a7273a3341799aff5527818d9cf88b2b3", [
+      [ "UNKNOWN", "de/d48/a02589.html#a7273a3341799aff5527818d9cf88b2b3a696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "IS_OFF", "de/d48/a02589.html#a7273a3341799aff5527818d9cf88b2b3a5b47312014964c5843fdd0002c86e46d", null ],
+      [ "IS_ON", "de/d48/a02589.html#a7273a3341799aff5527818d9cf88b2b3a93829aa602d1d42d28fc6821d0e0083b", null ],
+      [ "IN_MOTION", "de/d48/a02589.html#a7273a3341799aff5527818d9cf88b2b3a229051669055140f5d0bbafd5ea64412", null ],
+      [ "IS_ERROR", "de/d48/a02589.html#a7273a3341799aff5527818d9cf88b2b3a08d9808c0d90af039e7ccffc802e5232", null ]
+    ] ],
+    [ "Cylinder", "de/d48/a02589.html#a4a14559353a95200e26e6fdd1b2c5373", null ],
+    [ "Cylinder", "de/d48/a02589.html#a0cdf7a1264200218792c3ac743ebd3ee", null ],
+    [ "canClearError", "de/d48/a02589.html#a3380b7e3e9cd1ad5d89182f78c7c2e10", null ],
+    [ "clearError", "de/d48/a02589.html#aef222ad4de0b20041057d6cbb158da56", null ],
+    [ "command", "de/d48/a02589.html#a4da495987bbb4e5916779c867b023761", null ],
+    [ "getError", "de/d48/a02589.html#aabb2b9b76a6bd30cd4d5131f9590d1ea", null ],
+    [ "getName", "de/d48/a02589.html#ac8f6f212de3f12f2462517ec4d946aff", null ],
+    [ "getStatus", "de/d48/a02589.html#ae77dd637f0aa88053b8603aef39a1cd5", null ],
+    [ "isOff", "de/d48/a02589.html#a4f802a332f1c0e7364f5b50359abe6c0", null ],
+    [ "isOn", "de/d48/a02589.html#a022b42d80b8a6250e056669900b6f3c2", null ],
+    [ "operator=", "de/d48/a02589.html#a600ee7c6b32fb9f0609c9a4056d053c5", null ],
+    [ "setup", "de/d48/a02589.html#a5f7bd85024efefa8864d447204703865", null ],
+    [ "update", "de/d48/a02589.html#adf02fbd43f1b7d0e8bbd5222bf46f8a7", null ],
+    [ "onError", "de/d48/a02589.html#ac7f6d7a7759ce31dd9914dcb444cb0de", null ]
 ];

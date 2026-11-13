@@ -10,9 +10,6 @@
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -77,21 +69,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d4f/a05270.html','../../','d1/dad/a05267'); });
-</script>
-<div id="container">
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -110,20 +87,30 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d4f/a05270.
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dc5/a01024.html">Ethercat</a></li><li class="navelem"><a href="../../db/d23/a01025.html">SOES</a></li><li class="navelem"><a href="../../de/d4f/a05270.html">Slave</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="../../d1/dad/a05267.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::Ethercat::SOES::Slave&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt;<br />
 class Lib::Ethercat::SOES::Slave&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;</div><p>EtherCAT slave: the application layer state machine, the process data and the mailbox of one slave controller. </p>
-<p>Written directly on the ESC registers, so no vendor stack is needed. The class follows the master's AL control requests (INIT, PRE-OP, SAFE-OP, OP), checks the sync manager configuration the master wrote before each step up, reports a refused request or a failure through the AL status and AL status code registers, drops from OP to SAFE-OP when the process data watchdog expires, and exchanges the process data of SM2 (outputs) and SM3 (inputs), which it enables through the PDI control registers on entering OP and SAFE-OP. <a class="el" href="../../d8/d44/a05258.html" title="EtherCAT slave mailbox transport, written directly on the ESC registers.">Mailbox</a> messages of a protocol such as <a class="el" href="../../d5/d9b/a05222.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a> are handed to the derived class.</p>
-<p>The BOOTSTRAP state is offered when the derived class says so (<a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c" title="isBootstrapSupported()">isBootstrapSupported()</a>); the firmware update itself runs over <a class="el" href="../../d8/de7/a05250.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a>. Distributed clock synchronization is configured by the master in the ESC; the step to SAFE-OP asks the derived class to accept it (<a class="el" href="#a7e7721361c828febdd00cb2be71940c7" title="checkDistributedClock()">checkDistributedClock()</a>). Not covered: AoE and SoE on the mailbox. <a class="el" href="../../d5/d9b/a05222.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a>, <a class="el" href="../../d8/de7/a05250.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a> and <a class="el" href="../../d6/d63/a05242.html" title="Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.">EoE</a> are the separate classes '<a class="el" href="../../d5/d9b/a05222.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a>', '<a class="el" href="../../d8/de7/a05250.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a>' and '<a class="el" href="../../d6/d63/a05242.html" title="Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.">EoE</a>' (class/): call their 'handle()' from <a class="el" href="#a5276f808524352e6c6df3a118ee9077c" title="handleMailboxMessage()">handleMailboxMessage()</a>. The chip is reached through any type that provides 'readReg()' and 'writeReg()' (the LAN9252 driver does).</p>
+<p>Written directly on the ESC registers, so no vendor stack is needed. The class follows the master's AL control requests (INIT, PRE-OP, SAFE-OP, OP), checks the sync manager configuration the master wrote before each step up, reports a refused request or a failure through the AL status and AL status code registers, drops from OP to SAFE-OP when the process data watchdog expires, and exchanges the process data of SM2 (outputs) and SM3 (inputs), which it enables through the PDI control registers on entering OP and SAFE-OP. Mailbox messages of a protocol such as CoE are handed to the derived class.</p>
+<p>The BOOTSTRAP state is offered when the derived class says so (<a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c" title="isBootstrapSupported()">isBootstrapSupported()</a>); the firmware update itself runs over FoE. Distributed clock synchronization is configured by the master in the ESC; the step to SAFE-OP asks the derived class to accept it (<a class="el" href="#a7e7721361c828febdd00cb2be71940c7" title="checkDistributedClock()">checkDistributedClock()</a>). Not covered: AoE and SoE on the mailbox. CoE, FoE and EoE are the separate classes 'CoE', 'FoE' and 'EoE' (class/): call their 'handle()' from <a class="el" href="#a5276f808524352e6c6df3a118ee9077c" title="handleMailboxMessage()">handleMailboxMessage()</a>. The chip is reached through any type that provides 'readReg()' and 'writeReg()' (the LAN9252 driver does).</p>
 <p>The class is a CRTP base. A derived class may provide <a class="el" href="#a5276f808524352e6c6df3a118ee9077c" title="handleMailboxMessage()">handleMailboxMessage()</a>, <a class="el" href="#af9c8b2d649246374776bf22b633106a1" title="handleMailboxIdle()">handleMailboxIdle()</a>, <a class="el" href="#ac39266e5345996d9607fc9174ef47fc1" title="handleStateChange()">handleStateChange()</a>, <a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c" title="isBootstrapSupported()">isBootstrapSupported()</a> and <a class="el" href="#a7e7721361c828febdd00cb2be71940c7" title="checkDistributedClock()">checkDistributedClock()</a>; each replaces the default of this class. If it declares them private, it must make 'Slave&lt;...&gt;' its friend. One task at a time may use a slave.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T_DERIVED</td><td>The derived slave class. </td></tr>
-    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller, see '<a class="el" href="../../d9/d8a/a06157.html" title="Register access of an EtherCAT slave controller.">EscAccess</a>'. </td></tr>
+    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller, see 'EscAccess'. </td></tr>
     <tr><td class="paramname">T_MAILBOX_SIZE</td><td>Largest mailbox, in bytes, the slave can handle. </td></tr>
   </table>
   </dd>
@@ -175,11 +162,11 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a5276f808524352e6c6df3a118ee9077c" id="r_a5276f808524352e6c6df3a118ee9077c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5276f808524352e6c6df3a118ee9077c">handleMailboxMessage</a> (const <a class="el" href="../../d2/dbd/a05254.html">MailboxHeader</a> &amp;header, std::span&lt; const uint8_t &gt; payload)</td></tr>
 <tr class="memdesc:a5276f808524352e6c6df3a118ee9077c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called for every message the master sends over the mailbox.  <br /></td></tr>
 <tr class="memitem:a3d61cb1f7f2e035ec2c0f6636a81355c" id="r_a3d61cb1f7f2e035ec2c0f6636a81355c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c">isBootstrapSupported</a> () const</td></tr>
-<tr class="memdesc:a3d61cb1f7f2e035ec2c0f6636a81355c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks whether the slave has a BOOTSTRAP state (a firmware update over <a class="el" href="../../d8/de7/a05250.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a>).  <br /></td></tr>
+<tr class="memdesc:a3d61cb1f7f2e035ec2c0f6636a81355c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks whether the slave has a BOOTSTRAP state (a firmware update over FoE).  <br /></td></tr>
 <tr class="memitem:a7e7721361c828febdd00cb2be71940c7" id="r_a7e7721361c828febdd00cb2be71940c7"><td class="memItemLeft"><a class="el" href="../../db/d23/a01025.html#a10c6daadd4bfb6d09e355d88ec1681dc">Error</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7e7721361c828febdd00cb2be71940c7">checkDistributedClock</a> (uint8_t syncActivation)</td></tr>
 <tr class="memdesc:a7e7721361c828febdd00cb2be71940c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on the step from PRE-OP to SAFE-OP when the master has activated distributed clock synchronization (SYNC0 / SYNC1 outputs, ESC register 0x0981).  <br /></td></tr>
 <tr class="memitem:af9c8b2d649246374776bf22b633106a1" id="r_af9c8b2d649246374776bf22b633106a1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af9c8b2d649246374776bf22b633106a1">handleMailboxIdle</a> ()</td></tr>
-<tr class="memdesc:af9c8b2d649246374776bf22b633106a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on every pass of <a class="el" href="#ad379452d18db66bb7ba544fd1539e0ce" title="process()">process()</a> while the mailbox is started, after the pending message was handled; a protocol that sends in several steps, such as the <a class="el" href="../../d5/d9b/a05222.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a> object list, continues here.  <br /></td></tr>
+<tr class="memdesc:af9c8b2d649246374776bf22b633106a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on every pass of <a class="el" href="#ad379452d18db66bb7ba544fd1539e0ce" title="process()">process()</a> while the mailbox is started, after the pending message was handled; a protocol that sends in several steps, such as the CoE object list, continues here.  <br /></td></tr>
 <tr class="memitem:ac39266e5345996d9607fc9174ef47fc1" id="r_ac39266e5345996d9607fc9174ef47fc1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac39266e5345996d9607fc9174ef47fc1">handleStateChange</a> (<a class="el" href="../../db/d23/a01025.html#afea74831b3c37117c52ebef85489a279">State</a> previous, <a class="el" href="../../db/d23/a01025.html#afea74831b3c37117c52ebef85489a279">State</a> current)</td></tr>
 <tr class="memdesc:ac39266e5345996d9607fc9174ef47fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after every change of the AL state.  <br /></td></tr>
 </table>
@@ -580,7 +567,7 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
 </table>
 </div><div class="memdoc">
 
-<p>Called on every pass of <a class="el" href="#ad379452d18db66bb7ba544fd1539e0ce" title="process()">process()</a> while the mailbox is started, after the pending message was handled; a protocol that sends in several steps, such as the <a class="el" href="../../d5/d9b/a05222.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a> object list, continues here. </p>
+<p>Called on every pass of <a class="el" href="#ad379452d18db66bb7ba544fd1539e0ce" title="process()">process()</a> while the mailbox is started, after the pending message was handled; a protocol that sends in several steps, such as the CoE object list, continues here. </p>
 <p>Default: nothing. </p>
 
 </div>
@@ -661,8 +648,8 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
 <p>Default: nothing.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">previous</td><td><a class="el" href="#a511a0b0fbb34c264baf4c6cd796a1923" title="AL states.">State</a> before the change. </td></tr>
-    <tr><td class="paramname">current</td><td><a class="el" href="#a511a0b0fbb34c264baf4c6cd796a1923" title="AL states.">State</a> after the change. </td></tr>
+    <tr><td class="paramname">previous</td><td>State before the change. </td></tr>
+    <tr><td class="paramname">current</td><td>State after the change. </td></tr>
   </table>
   </dd>
 </dl>
@@ -724,7 +711,7 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
 </table>
 </div><div class="memdoc">
 
-<p>Asks whether the slave has a BOOTSTRAP state (a firmware update over <a class="el" href="../../d8/de7/a05250.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a>). </p>
+<p>Asks whether the slave has a BOOTSTRAP state (a firmware update over FoE). </p>
 <p>Default: no.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if a request for BOOTSTRAP from INIT is accepted. </dd></dl>
 
@@ -982,21 +969,21 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dc5/a01024.html">Ethercat</a></li><li class="navelem"><a href="../../db/d23/a01025.html">SOES</a></li><li class="navelem"><a href="../../de/d4f/a05270.html">Slave</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

@@ -1,13 +1,20 @@
 var a02121 =
 [
-    [ "UARTPortBase", "d6/d3b/a02121.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
-    [ "UARTPortBase", "d6/d3b/a02121.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
-    [ "UARTPortBase", "d6/d3b/a02121.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
-    [ "~UARTPortBase", "d6/d3b/a02121.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
-    [ "close", "d6/d3b/a02121.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
-    [ "isBusy", "d6/d3b/a02121.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
-    [ "open", "d6/d3b/a02121.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
-    [ "operator=", "d6/d3b/a02121.html#ad0321a4f1297088a60c64e263c8c6816", null ],
-    [ "operator=", "d6/d3b/a02121.html#af29977f244357cb79e8203dbd192840c", null ],
-    [ "setBaudRate", "d6/d3b/a02121.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
+    [ "Event", "d8/db2/a02125.html", null ],
+    [ "DataAlignment", "d6/d3b/a02121.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "d6/d3b/a02121.html#ae36ab0485cc108ac7f0082068d118518", null ],
+    [ "~DACPort", "d6/d3b/a02121.html#a38af62d642471553e5aa356e673ad171", null ],
+    [ "DACPort", "d6/d3b/a02121.html#afe60fcad137acbac62467215f81e262a", null ],
+    [ "DACPort", "d6/d3b/a02121.html#a6befbf3fd6e387b958c474127b15a55e", null ],
+    [ "close", "d6/d3b/a02121.html#a2b221635f62446099dbe5e86e8065288", null ],
+    [ "getChannel", "d6/d3b/a02121.html#abb9c3299abda744064d8d8e8d44f825b", null ],
+    [ "getHandle", "d6/d3b/a02121.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d6/d3b/a02121.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "open", "d6/d3b/a02121.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
+    [ "operator=", "d6/d3b/a02121.html#a8669eba366ce1c94494df43dfaccc690", null ],
+    [ "operator=", "d6/d3b/a02121.html#ae0483104f828bd3464839de4f4880b4a", null ],
+    [ "setValue", "d6/d3b/a02121.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "d6/d3b/a02121.html#a6c386654350eba5ab306e4764474af96", null ],
+    [ "stop", "d6/d3b/a02121.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
+    [ "waitForUnderrun", "d6/d3b/a02121.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
 ];

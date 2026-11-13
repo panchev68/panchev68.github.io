@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;</title>
+<title>IAR EWARM Library: Lib::Digi::API::Service::ServiceBase&lt; T_DERIVED &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -26,10 +25,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -111,148 +111,64 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d7b/a01765.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::Digi::API::Service::ServiceBase&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived, ErrorKind T_ERROR = Error&gt;<br />
-class Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;</div><p>CRTP foundation reading active errors from the "Dispatcher", optionally restricted to a single "Group". </p>
-<p>Constructing from an existing "Group" filters by that external, caller-owned group. Constructing from a caption instead creates and owns a new "Group" for the lifetime of this observer. With neither, every active error in the "Dispatcher" is observed. A derived class replaces the filter by defining its own "bool matches(const Error &amp;)
-const", which hides the default one; it can still call "ObserverBase::matches()" for the group filter.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::Digi::API::Service::ServiceBase&lt; T_DERIVED &gt;</div><p>CRTP base driving a service through start, processing and stop. </p>
+<p>"open()" and "close()" only request a transition; "update()", called from the application task, performs it and calls the hooks "initialize()", "process()" and "tearDown()". The base supplies empty hooks, so a service only declares the ones it needs; a private hook requires the service to befriend its base. Services are always used through their concrete type, which resolves every call at compile time instead of through a vtable.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>Concrete observer class; its "matches()" decides which errors are observed. </td></tr>
-    <tr><td class="paramname">T_ERROR</td><td><a class="el" href="../../db/dc0/a01757.html" title="Ready-made error without extra behavior, used by the default &quot;Dispatcher&quot;.">Error</a> type held by the observed "BasicDispatcher". </td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete service. </td></tr>
   </table>
   </dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;:</div>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Digi::API::Service::ServiceBase&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d27/a01763.svg" width="302" height="431"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d27/a01763.svg" width="310" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a32d97a053bd59655ba3e484167b856f6" id="r_a32d97a053bd59655ba3e484167b856f6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> (const ObserverBase &amp;other)=delete</td></tr>
-<tr class="memdesc:a32d97a053bd59655ba3e484167b856f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: an owned group must not be shared between observers.  <br /></td></tr>
-<tr class="memitem:af0f8f28571cd95c78515fc20c696b688" id="r_af0f8f28571cd95c78515fc20c696b688"><td class="memItemLeft"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af0f8f28571cd95c78515fc20c696b688">operator=</a> (const <a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:af0f8f28571cd95c78515fc20c696b688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: an owned group must not be shared between observers.  <br /></td></tr>
-<tr class="memitem:a9eaaa64f41d017b0542fd19e23e4b4eb" id="r_a9eaaa64f41d017b0542fd19e23e4b4eb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9eaaa64f41d017b0542fd19e23e4b4eb">ObserverBase</a> (ObserverBase &amp;&amp;other) noexcept=default</td></tr>
-<tr class="memdesc:a9eaaa64f41d017b0542fd19e23e4b4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-constructs an observer, transferring ownership of any owned group.  <br /></td></tr>
-<tr class="memitem:a5bef52360bbd4cdd83f4cd41fb610c4a" id="r_a5bef52360bbd4cdd83f4cd41fb610c4a"><td class="memItemLeft"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5bef52360bbd4cdd83f4cd41fb610c4a">operator=</a> (<a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;&amp;other) noexcept=default</td></tr>
-<tr class="memdesc:a5bef52360bbd4cdd83f4cd41fb610c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-assigns an observer, transferring ownership of any owned group.  <br /></td></tr>
-<tr class="memitem:ac245a085bf28b893f98cbc8943c50939" id="r_ac245a085bf28b893f98cbc8943c50939"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac245a085bf28b893f98cbc8943c50939">check</a> () const</td></tr>
-<tr class="memdesc:ac245a085bf28b893f98cbc8943c50939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether any active error currently matches this observer's filter.  <br /></td></tr>
-<tr class="memitem:ae9c2b90078fb4baacc77df620dd6affc" id="r_ae9c2b90078fb4baacc77df620dd6affc"><td class="memItemLeft">std::vector&lt; const T_ERROR * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae9c2b90078fb4baacc77df620dd6affc">read</a> () const</td></tr>
-<tr class="memdesc:ae9c2b90078fb4baacc77df620dd6affc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects every active error matching this observer's filter.  <br /></td></tr>
-<tr class="memitem:a6dcac43dde13eaf06dff704610eb7f8f" id="r_a6dcac43dde13eaf06dff704610eb7f8f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6dcac43dde13eaf06dff704610eb7f8f">forEach</a> (<a class="el" href="../../d3/d92/a01393.html">FunctionRef</a>&lt; void(const T_ERROR &amp;)&gt; visit) const</td></tr>
-<tr class="memdesc:a6dcac43dde13eaf06dff704610eb7f8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for every active error matching this observer's filter, without allocating.  <br /></td></tr>
-<tr class="memitem:a446e9c28defc96197acdcd260d4706f6" id="r_a446e9c28defc96197acdcd260d4706f6"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a446e9c28defc96197acdcd260d4706f6">number</a> () const</td></tr>
-<tr class="memdesc:a446e9c28defc96197acdcd260d4706f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the active errors matching this observer's filter, without allocating.  <br /></td></tr>
-<tr class="memitem:abc1b7f5285e87adc24a4969a47113543" id="r_abc1b7f5285e87adc24a4969a47113543"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abc1b7f5285e87adc24a4969a47113543">matches</a> (const T_ERROR &amp;error) const noexcept</td></tr>
-<tr class="memdesc:abc1b7f5285e87adc24a4969a47113543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default filter: the error is "ACTIVE" and in the filtered group (or no group is filtered).  <br /></td></tr>
-<tr class="memitem:a2973edaf7f9a66d9900fe3adf841146c" id="r_a2973edaf7f9a66d9900fe3adf841146c"><td class="memItemLeft">const <a class="el" href="../../db/db8/a01761.html">Group</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a2973edaf7f9a66d9900fe3adf841146c">getGroup</a> () const noexcept</td></tr>
-<tr class="memdesc:a2973edaf7f9a66d9900fe3adf841146c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the group this observer filters by.  <br /></td></tr>
-<tr class="memitem:a68975b48ce0a7e2e846ed67f6851be04" id="r_a68975b48ce0a7e2e846ed67f6851be04"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a68975b48ce0a7e2e846ed67f6851be04">operator const Group *</a> () const noexcept</td></tr>
-<tr class="memdesc:a68975b48ce0a7e2e846ed67f6851be04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts this observer to its filtered group pointer.  <br /></td></tr>
+<tr class="memitem:ad07146aef2c0fb5d790ac09efb0c9f69" id="r_ad07146aef2c0fb5d790ac09efb0c9f69"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad07146aef2c0fb5d790ac09efb0c9f69">open</a> () noexcept</td></tr>
+<tr class="memdesc:ad07146aef2c0fb5d790ac09efb0c9f69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the service to start; "initialize()" runs on the next "update()".  <br /></td></tr>
+<tr class="memitem:a7f366d60ccef72aaff877cebfd4f119e" id="r_a7f366d60ccef72aaff877cebfd4f119e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7f366d60ccef72aaff877cebfd4f119e">close</a> () noexcept</td></tr>
+<tr class="memdesc:a7f366d60ccef72aaff877cebfd4f119e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the service to stop; "tearDown()" runs on the next "update()".  <br /></td></tr>
+<tr class="memitem:a8cd40b87b5dbd173792b15fc800ebe85" id="r_a8cd40b87b5dbd173792b15fc800ebe85"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8cd40b87b5dbd173792b15fc800ebe85">update</a> () noexcept</td></tr>
+<tr class="memdesc:a8cd40b87b5dbd173792b15fc800ebe85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the lifecycle by one step and runs the matching hook; called from the application task.  <br /></td></tr>
+<tr class="memitem:aaf770fe60bcc30fb468c4148a6a37cef" id="r_aaf770fe60bcc30fb468c4148a6a37cef"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaf770fe60bcc30fb468c4148a6a37cef">isRunning</a> () const noexcept</td></tr>
+<tr class="memdesc:aaf770fe60bcc30fb468c4148a6a37cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the service is started or still stopping.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a533552093d254aaf91e8aa506abe97eb" id="r_a533552093d254aaf91e8aa506abe97eb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a533552093d254aaf91e8aa506abe97eb">ObserverBase</a> ()=default</td></tr>
-<tr class="memdesc:a533552093d254aaf91e8aa506abe97eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an observer with no group filter, observing every active error.  <br /></td></tr>
-<tr class="memitem:a04d21933596b0c1dd78bfb671ef811cd" id="r_a04d21933596b0c1dd78bfb671ef811cd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a04d21933596b0c1dd78bfb671ef811cd">ObserverBase</a> (const <a class="el" href="../../db/db8/a01761.html">Group</a> &amp;group) noexcept</td></tr>
-<tr class="memdesc:a04d21933596b0c1dd78bfb671ef811cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an observer filtered to an existing, externally-owned group.  <br /></td></tr>
-<tr class="memitem:a48c400abfb1256b145f494a80a4602fd" id="r_a48c400abfb1256b145f494a80a4602fd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a48c400abfb1256b145f494a80a4602fd">ObserverBase</a> (const std::string_view groupCaption)</td></tr>
-<tr class="memdesc:a48c400abfb1256b145f494a80a4602fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an observer with a new group, owned by this observer, created from the given caption.  <br /></td></tr>
-<tr class="memitem:a5335bb5ae20c789e034de9dbc451d7eb" id="r_a5335bb5ae20c789e034de9dbc451d7eb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5335bb5ae20c789e034de9dbc451d7eb">~ObserverBase</a> ()=default</td></tr>
-<tr class="memdesc:a5335bb5ae20c789e034de9dbc451d7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the observer, releasing its owned group, if any.  <br /></td></tr>
+<tr class="memitem:a9fe2fc0c11059c42c16470a0ee18f1b1" id="r_a9fe2fc0c11059c42c16470a0ee18f1b1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9fe2fc0c11059c42c16470a0ee18f1b1">ServiceBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:a9fe2fc0c11059c42c16470a0ee18f1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an idle service.  <br /></td></tr>
+<tr class="memitem:aaffb2619b9b150dd2c5970ef8b4e11e1" id="r_aaffb2619b9b150dd2c5970ef8b4e11e1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aaffb2619b9b150dd2c5970ef8b4e11e1">~ServiceBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:aaffb2619b9b150dd2c5970ef8b4e11e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the base; protected, since a service is never destroyed through it.  <br /></td></tr>
+<tr class="memitem:a6329c58c641c134db59a8f37a9637dea" id="r_a6329c58c641c134db59a8f37a9637dea"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6329c58c641c134db59a8f37a9637dea">initialize</a> () noexcept</td></tr>
+<tr class="memdesc:a6329c58c641c134db59a8f37a9637dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default start hook; does nothing.  <br /></td></tr>
+<tr class="memitem:a0747f885e5a9feba10647c760353f395" id="r_a0747f885e5a9feba10647c760353f395"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0747f885e5a9feba10647c760353f395">process</a> () noexcept</td></tr>
+<tr class="memdesc:a0747f885e5a9feba10647c760353f395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default processing hook; does nothing.  <br /></td></tr>
+<tr class="memitem:a433b1176b2ec86cafe98bb73425d401b" id="r_a433b1176b2ec86cafe98bb73425d401b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a433b1176b2ec86cafe98bb73425d401b">tearDown</a> () noexcept</td></tr>
+<tr class="memdesc:a433b1176b2ec86cafe98bb73425d401b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default stop hook; does nothing.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a32d97a053bd59655ba3e484167b856f6" name="a32d97a053bd59655ba3e484167b856f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32d97a053bd59655ba3e484167b856f6">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[1/5]</span></h2>
+<a id="a9fe2fc0c11059c42c16470a0ee18f1b1" name="a9fe2fc0c11059c42c16470a0ee18f1b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fe2fc0c11059c42c16470a0ee18f1b1">&#9670;&#160;</a></span>ServiceBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
-          <td>(</td>
-          <td class="paramtype">const ObserverBase&lt; Derived, T_ERROR &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copying is deleted: an owned group must not be shared between observers. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a9eaaa64f41d017b0542fd19e23e4b4eb" name="a9eaaa64f41d017b0542fd19e23e4b4eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9eaaa64f41d017b0542fd19e23e4b4eb">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[2/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
-          <td>(</td>
-          <td class="paramtype">ObserverBase&lt; Derived, T_ERROR &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move-constructs an observer, transferring ownership of any owned group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a533552093d254aaf91e8aa506abe97eb" name="a533552093d254aaf91e8aa506abe97eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a533552093d254aaf91e8aa506abe97eb">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[3/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
+          <td class="memname"><a class="el" href="../../df/d7b/a01765.html">Lib::Digi::API::Service::ServiceBase</a>&lt; T_DERIVED &gt;::ServiceBase </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -260,98 +176,34 @@ template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs an observer with no group filter, observing every active error. </p>
+<p>Constructs an idle service. </p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d7b/a01765_a9fe2fc0c11059c42c16470a0ee18f1b1_icgraph.svg" width="678" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a04d21933596b0c1dd78bfb671ef811cd" name="a04d21933596b0c1dd78bfb671ef811cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04d21933596b0c1dd78bfb671ef811cd">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[4/5]</span></h2>
+<a id="aaffb2619b9b150dd2c5970ef8b4e11e1" name="aaffb2619b9b150dd2c5970ef8b4e11e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaffb2619b9b150dd2c5970ef8b4e11e1">&#9670;&#160;</a></span>~ServiceBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../db/db8/a01761.html">Group</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>group</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructs an observer filtered to an existing, externally-owned group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">group</td><td><a class="el" href="../../db/db8/a01761.html" title="A named category that &quot;Error&quot; instances can be tagged with, and that &quot;Observer&quot; can filter by.">Group</a> to filter by; must outlive this observer. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a48c400abfb1256b145f494a80a4602fd" name="a48c400abfb1256b145f494a80a4602fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48c400abfb1256b145f494a80a4602fd">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[5/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
-          <td>(</td>
-          <td class="paramtype">const std::string_view</td>          <td class="paramname"><span class="paramname"><em>groupCaption</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructs an observer with a new group, owned by this observer, created from the given caption. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">groupCaption</td><td>Caption for the new, owned group. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a5335bb5ae20c789e034de9dbc451d7eb" name="a5335bb5ae20c789e034de9dbc451d7eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5335bb5ae20c789e034de9dbc451d7eb">&#9670;&#160;</a></span>~ObserverBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::~<a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> </td>
+          <td class="memname"><a class="el" href="../../df/d7b/a01765.html">Lib::Digi::API::Service::ServiceBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a9fe2fc0c11059c42c16470a0ee18f1b1">ServiceBase</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -359,293 +211,99 @@ template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the observer, releasing its owned group, if any. </p>
-<p>Protected and non-virtual: it is never destroyed through a base pointer. </p>
+<p>Destroys the base; protected, since a service is never destroyed through it. </p>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d7b/a01765_aaffb2619b9b150dd2c5970ef8b4e11e1_cgraph.svg" width="678" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ac245a085bf28b893f98cbc8943c50939" name="ac245a085bf28b893f98cbc8943c50939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac245a085bf28b893f98cbc8943c50939">&#9670;&#160;</a></span>check()</h2>
+<a id="a7f366d60ccef72aaff877cebfd4f119e" name="a7f366d60ccef72aaff877cebfd4f119e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f366d60ccef72aaff877cebfd4f119e">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::check </td>
+          <td class="memname">void <a class="el" href="../../df/d7b/a01765.html">Lib::Digi::API::Service::ServiceBase</a>&lt; T_DERIVED &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether any active error currently matches this observer's filter. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if at least one matching active error exists. </dd></dl>
-
-</div>
-</div>
-<a id="a6dcac43dde13eaf06dff704610eb7f8f" name="a6dcac43dde13eaf06dff704610eb7f8f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dcac43dde13eaf06dff704610eb7f8f">&#9670;&#160;</a></span>forEach()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::forEach </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d3/d92/a01393.html">FunctionRef</a>&lt; void(const T_ERROR &amp;)&gt;</td>          <td class="paramname"><span class="paramname"><em>visit</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calls a function for every active error matching this observer's filter, without allocating. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">visit</td><td>Function called with each matching error; it must not create errors. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2973edaf7f9a66d9900fe3adf841146c" name="a2973edaf7f9a66d9900fe3adf841146c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2973edaf7f9a66d9900fe3adf841146c">&#9670;&#160;</a></span>getGroup()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="../../db/db8/a01761.html">Group</a> * <a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::getGroup </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the group this observer filters by. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the filtered "Group", or "nullptr" if observing every error. </dd></dl>
-
-</div>
-</div>
-<a id="abc1b7f5285e87adc24a4969a47113543" name="abc1b7f5285e87adc24a4969a47113543"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc1b7f5285e87adc24a4969a47113543">&#9670;&#160;</a></span>matches()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::matches </td>
-          <td>(</td>
-          <td class="paramtype">const T_ERROR &amp;</td>          <td class="paramname"><span class="paramname"><em>error</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default filter: the error is "ACTIVE" and in the filtered group (or no group is filtered). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">error</td><td><a class="el" href="../../db/dc0/a01757.html" title="Ready-made error without extra behavior, used by the default &quot;Dispatcher&quot;.">Error</a> to test. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the error is observed. </dd></dl>
-
-</div>
-</div>
-<a id="a446e9c28defc96197acdcd260d4706f6" name="a446e9c28defc96197acdcd260d4706f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a446e9c28defc96197acdcd260d4706f6">&#9670;&#160;</a></span>number()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::number </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Counts the active errors matching this observer's filter, without allocating. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of matching active errors. </dd></dl>
-
-</div>
-</div>
-<a id="a68975b48ce0a7e2e846ed67f6851be04" name="a68975b48ce0a7e2e846ed67f6851be04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68975b48ce0a7e2e846ed67f6851be04">&#9670;&#160;</a></span>operator const Group *()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::operator const <a class="el" href="../../db/db8/a01761.html">Group</a> * </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts this observer to its filtered group pointer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the filtered "Group", or "nullptr" if observing every error. </dd></dl>
-
-</div>
-</div>
-<a id="af0f8f28571cd95c78515fc20c696b688" name="af0f8f28571cd95c78515fc20c696b688"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0f8f28571cd95c78515fc20c696b688">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp; <a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a>&lt; Derived, T_ERROR &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: an owned group must not be shared between observers. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this observer. </dd></dl>
+<p>Requests the service to stop; "tearDown()" runs on the next "update()". </p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d7b/a01765_a7f366d60ccef72aaff877cebfd4f119e_icgraph.svg" width="830" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a5bef52360bbd4cdd83f4cd41fb610c4a" name="a5bef52360bbd4cdd83f4cd41fb610c4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bef52360bbd4cdd83f4cd41fb610c4a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a6329c58c641c134db59a8f37a9637dea" name="a6329c58c641c134db59a8f37a9637dea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6329c58c641c134db59a8f37a9637dea">&#9670;&#160;</a></span>initialize()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp; <a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::operator= </td>
+          <td class="memname">void <a class="el" href="../../df/d7b/a01765.html">Lib::Digi::API::Service::ServiceBase</a>&lt; T_DERIVED &gt;::initialize </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a>&lt; Derived, T_ERROR &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Move-assigns an observer, transferring ownership of any owned group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this observer. </dd></dl>
+<p>Default start hook; does nothing. </p>
 
 </div>
 </div>
-<a id="ae9c2b90078fb4baacc77df620dd6affc" name="ae9c2b90078fb4baacc77df620dd6affc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9c2b90078fb4baacc77df620dd6affc">&#9670;&#160;</a></span>read()</h2>
+<a id="aaf770fe60bcc30fb468c4148a6a37cef" name="aaf770fe60bcc30fb468c4148a6a37cef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf770fe60bcc30fb468c4148a6a37cef">&#9670;&#160;</a></span>isRunning()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt; const T_ERROR * &gt; <a class="el" href="../../df/d7b/a01765.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::read </td>
+          <td class="memname">bool <a class="el" href="../../df/d7b/a01765.html">Lib::Digi::API::Service::ServiceBase</a>&lt; T_DERIVED &gt;::isRunning </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -653,13 +311,136 @@ template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Collects every active error matching this observer's filter. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointers to all matching active errors, owned by the "Dispatcher". </dd></dl>
+<p>Checks whether the service is started or still stopping. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" unless the service is idle. </dd></dl>
+
+</div>
+</div>
+<a id="ad07146aef2c0fb5d790ac09efb0c9f69" name="ad07146aef2c0fb5d790ac09efb0c9f69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad07146aef2c0fb5d790ac09efb0c9f69">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d7b/a01765.html">Lib::Digi::API::Service::ServiceBase</a>&lt; T_DERIVED &gt;::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Requests the service to start; "initialize()" runs on the next "update()". </p>
+<dl class="section return"><dt>Returns</dt><dd>"true"; a service hiding this method may report a failure. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d7b/a01765_ad07146aef2c0fb5d790ac09efb0c9f69_icgraph.svg" width="814" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0747f885e5a9feba10647c760353f395" name="a0747f885e5a9feba10647c760353f395"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0747f885e5a9feba10647c760353f395">&#9670;&#160;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d7b/a01765.html">Lib::Digi::API::Service::ServiceBase</a>&lt; T_DERIVED &gt;::process </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default processing hook; does nothing. </p>
+
+</div>
+</div>
+<a id="a433b1176b2ec86cafe98bb73425d401b" name="a433b1176b2ec86cafe98bb73425d401b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a433b1176b2ec86cafe98bb73425d401b">&#9670;&#160;</a></span>tearDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d7b/a01765.html">Lib::Digi::API::Service::ServiceBase</a>&lt; T_DERIVED &gt;::tearDown </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default stop hook; does nothing. </p>
+
+</div>
+</div>
+<a id="a8cd40b87b5dbd173792b15fc800ebe85" name="a8cd40b87b5dbd173792b15fc800ebe85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cd40b87b5dbd173792b15fc800ebe85">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d7b/a01765.html">Lib::Digi::API::Service::ServiceBase</a>&lt; T_DERIVED &gt;::update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Advances the lifecycle by one step and runs the matching hook; called from the application task. </p>
 
 </div>
 </div>
@@ -673,12 +454,23 @@ template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 </div><!-- page-nav-tree -->
 </div><!-- page-nav -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../da/d98/a00870.html">Lib</a></li><li class="navelem"><a href="../../d2/d79/a00898.html">Errors</a></li><li class="navelem"><a href="../../df/d7b/a01765.html">ObserverBase</a></li>
+    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d3/ded/a01017.html">Digi</a></li><li class="navelem"><a href="../../d3/d08/a01018.html">API</a></li><li class="navelem"><a href="../../db/daf/a01019.html">Service</a></li><li class="navelem"><a href="../../df/d7b/a01765.html">ServiceBase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

@@ -1,12 +1,12 @@
 var a01385 =
 [
-    [ "SerialPortBase", "df/d68/a01385.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
-    [ "~SerialPortBase", "df/d68/a01385.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
-    [ "close", "df/d68/a01385.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
-    [ "isOpen", "df/d68/a01385.html#a8a52c63b043300492be23bf0b0138f86", null ],
-    [ "open", "df/d68/a01385.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
-    [ "send", "df/d68/a01385.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
-    [ "Master", "df/d68/a01385.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "df/d68/a01385.html#af2d503cce06191d01441adbba146c9f5", null ],
-    [ "onBufferReceive", "df/d68/a01385.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
+    [ "Data", "d0/d95/a01389.html", "d0/d95/a01389" ],
+    [ "Color", "df/d68/a01385.html#a50992f4d62f0c135ac06fb09295272a9", null ],
+    [ "Color", "df/d68/a01385.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
+    [ "Color", "df/d68/a01385.html#a484309c52934f9c23460c4fe57f45530", null ],
+    [ "clear", "df/d68/a01385.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
+    [ "get", "df/d68/a01385.html#a4ad28e997f34f1873bf233a5d004e340", null ],
+    [ "getPacked", "df/d68/a01385.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
+    [ "set", "df/d68/a01385.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
+    [ "set", "df/d68/a01385.html#ac8926773deb153f9281f4e235896e4a0", null ]
 ];

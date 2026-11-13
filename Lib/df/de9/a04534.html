@@ -10,9 +10,6 @@
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
-<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
-<script type="text/javascript" src="../../navtreedata.js"></script>
-<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
@@ -46,22 +43,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": true,
+  "generateTreeView": false,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": false
+  "fullSidebar": true
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
-<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
-<label class="main-menu-btn" for="main-menu-state">
-<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
-<span id="searchBoxPos1"></span>
-</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -77,21 +69,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="side-nav" class="ui-resizable side-nav-resizable">
-  <div id="nav-tree">
-    <div id="nav-tree-contents">
-      <div id="nav-sync" class="sync"></div>
-    </div>
-  </div>
-  <div id="splitbar" class="ui-resizable-handle">
-  </div>
-</div>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('df/de9/a04534.html','../../','da/d9b/a04531'); });
-</script>
-<div id="container">
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -110,25 +87,36 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/de9/a04534.
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../df/dbc/a01004.html">GSM</a></li><li class="navelem"><a href="../../df/de9/a04534.html">A7670E</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="../../da/d9b/a04531.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::BSP::GSM::A7670E<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Driver of the SIMCom <a class="el" href="../../df/de9/a04534.html" title="Driver of the SIMCom A7670E modem: supply and power key, AT command exchange and the file system.">A7670E</a> modem: supply and power key, AT command exchange and the file system. </p>
+<div class="textblock"><p>Driver of the SIMCom A7670E modem: supply and power key, AT command exchange and the file system. </p>
 <p>The driver is split into nested groups that share the modem state: <a class="el" href="../../de/d33/a04558.html" title="Power">Power</a> for the supply and the boot, <a class="el" href="../../dd/d5b/a04562.html" title="Network">Network</a> for registration, time and location, <a class="el" href="../../d6/dfd/a04570.html" title="Files">Files</a> for whole-file operations and <a class="el" href="../../d1/d2a/a04566.html" title="File">File</a> for handle-based access. The application owns the port and the pins and passes them in <a class="el" href="../../d7/d23/a04538.html" title="Config">Config</a>; the driver never touches the hardware directly.</p>
 <p>The serial port is a <a class="el" href="../../db/d98/a06221.html" title="Lib::HAL::StreamSerialPort">Lib::HAL::StreamSerialPort</a> that receives continuously, because the modem sends unsolicited result codes at any time. Only one task may read it.</p>
 <dl class="section warning"><dt>Warning</dt><dd><b>Task context only</b>, one task at a time: the driver keeps one response buffer and one file handle.</dd></dl>
 <dl class="section important"><dt>Important</dt><dd>The driver does not power the modem by itself: <a class="el" href="../../d7/d23/a04538.html#a9848006a47ed741d31636388c9deb387" title="Config::setSupply">Config::setSupply</a> does, and it must cut the supply again after a failed power-on.</dd></dl>
 <p><b>Notes:</b></p><ul>
 <li>AT commands are sent as text terminated by CR LF; a final result is 'OK', 'ERROR' or a '+CME ERROR: {n}' line.</li>
-<li><a class="el" href="../../dd/d5b/a04562.html" title="LTE registration, signal, network time and cell location.">Network</a> and location answers can arrive well after the command; allow for it in the timeout.</li>
+<li>Network and location answers can arrive well after the command; allow for it in the timeout.</li>
 </ul>
 <dl class="section see"><dt>See also</dt><dd><a href="https://cn.simcom.com/product/A7670X.html" target="_blank">SIMCom A7670X product page</a> </dd>
 <dd>
-<a href="https://www.elecrow.com/download/product/CRT01260S/A7670_Series_Hardware_Design_V1.00.pdf" target="_blank">A7670 Series Hardware Design V1.00</a>, third-party <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01626.html#ga76cd6d1a042c96e883b2fed2d16bdce2">copy</a>; check against the SIMCom download list </dd>
+<a href="https://www.elecrow.com/download/product/CRT01260S/A7670_Series_Hardware_Design_V1.00.pdf" target="_blank">A7670 Series Hardware Design V1.00</a>, third-party copy; check against the SIMCom download list </dd>
 <dd>
-<a href="https://eicut.com/wp-content/uploads/2025/10/A76XX_Series_AT_Command_Manual_V1.12.pdf" target="_blank">A76XX Series AT Command Manual V1.12</a>, third-party <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01626.html#ga76cd6d1a042c96e883b2fed2d16bdce2">copy</a>; the newest version found, check against the SIMCom download list </dd>
+<a href="https://eicut.com/wp-content/uploads/2025/10/A76XX_Series_AT_Command_Manual_V1.12.pdf" target="_blank">A76XX Series AT Command Manual V1.12</a>, third-party copy; the newest version found, check against the SIMCom download list </dd>
 <dd>
 <a href="https://www.simcom.com/download/list-863-en.html" target="_blank">SIMCom document list (official)</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/da5/a06173.html#_a1">Lib::BSP::GSM::A7670E</a>, and <a class="el" href="../../da/d78/a06259.html#_a0">Lib::HTTP::Client</a>.</dd>
@@ -153,7 +141,7 @@ Classes</h2></td></tr>
 <tr class="memitem:Parse" id="r_Parse"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/ded/a04554.html">Parse</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pure parsers of the modem responses; no state and no hardware access.  <a href="../../dc/ded/a04554.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Power" id="r_Power"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d33/a04558.html">Power</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../de/d33/a04558.html" title="Power supply, boot and sleep of the modem.">Power</a> supply, boot and sleep of the modem.  <a href="../../de/d33/a04558.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power supply, boot and sleep of the modem.  <a href="../../de/d33/a04558.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Network" id="r_Network"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dd/d5b/a04562.html">Network</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">LTE registration, signal, network time and cell location.  <a href="../../dd/d5b/a04562.html#details">More...</a><br /></td></tr>
 <tr class="memitem:File" id="r_File"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d2a/a04566.html">File</a></td></tr>
@@ -188,9 +176,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a48d92161f8160971f3e15854d440ee74" id="r_a48d92161f8160971f3e15854d440ee74"><td class="memItemLeft"><a class="el" href="#a8bd217b253ad48d4079b7116fa4fbcc3">Result</a>&#160;</td><td class="memItemRight"><a class="el" href="#a48d92161f8160971f3e15854d440ee74">sendCommandWithData</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> command, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> prompt, std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
 <tr class="memdesc:a48d92161f8160971f3e15854d440ee74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an AT command that asks for data, sends the data after the prompt and waits for the final result.  <br /></td></tr>
 <tr class="memitem:a1760be986270adae095acba55a877e25" id="r_a1760be986270adae095acba55a877e25"><td class="memItemLeft"><a class="el" href="../../de/d33/a04558.html">Power</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1760be986270adae095acba55a877e25">power</a> () noexcept</td></tr>
-<tr class="memdesc:a1760be986270adae095acba55a877e25"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../de/d33/a04558.html" title="Power supply, boot and sleep of the modem.">Power</a> supply, boot and sleep group.  <br /></td></tr>
+<tr class="memdesc:a1760be986270adae095acba55a877e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Power supply, boot and sleep group.  <br /></td></tr>
 <tr class="memitem:a08139cd85fcac96d57d66d33e556ca6d" id="r_a08139cd85fcac96d57d66d33e556ca6d"><td class="memItemLeft"><a class="el" href="../../dd/d5b/a04562.html">Network</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a08139cd85fcac96d57d66d33e556ca6d">network</a> () noexcept</td></tr>
-<tr class="memdesc:a08139cd85fcac96d57d66d33e556ca6d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997" title="EPS (LTE) registration state, the &#39;&lt;stat&gt;&#39; field of &#39;+CEREG&#39;.">Registration</a>, signal, time and location group.  <br /></td></tr>
+<tr class="memdesc:a08139cd85fcac96d57d66d33e556ca6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registration, signal, time and location group.  <br /></td></tr>
 <tr class="memitem:ab8cfadf3994ccc98729aa071c0d0aa93" id="r_ab8cfadf3994ccc98729aa071c0d0aa93"><td class="memItemLeft"><a class="el" href="../../d6/dfd/a04570.html">Files</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab8cfadf3994ccc98729aa071c0d0aa93">files</a> () noexcept</td></tr>
 <tr class="memdesc:ab8cfadf3994ccc98729aa071c0d0aa93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whole-file operations group.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -240,7 +228,7 @@ Static Public Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="aa10dc32a4e35d259562a9eee6dd0d997adb46ca6757195ce8c1f015c9781d869e" name="aa10dc32a4e35d259562a9eee6dd0d997adb46ca6757195ce8c1f015c9781d869e"></a>SEARCHING&#160;</td><td class="fielddoc"><p>Not registered, searching. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="aa10dc32a4e35d259562a9eee6dd0d997a66d5e0b0ce726b4aeb4ddf6c25b6c12b" name="aa10dc32a4e35d259562a9eee6dd0d997a66d5e0b0ce726b4aeb4ddf6c25b6c12b"></a>DENIED&#160;</td><td class="fielddoc"><p><a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997" title="EPS (LTE) registration state, the &#39;&lt;stat&gt;&#39; field of &#39;+CEREG&#39;.">Registration</a> denied. </p>
+<tr><td class="fieldname"><a id="aa10dc32a4e35d259562a9eee6dd0d997a66d5e0b0ce726b4aeb4ddf6c25b6c12b" name="aa10dc32a4e35d259562a9eee6dd0d997a66d5e0b0ce726b4aeb4ddf6c25b6c12b"></a>DENIED&#160;</td><td class="fielddoc"><p>Registration denied. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="aa10dc32a4e35d259562a9eee6dd0d997a696b031073e74bf2cb98e5ef201d4aa3" name="aa10dc32a4e35d259562a9eee6dd0d997a696b031073e74bf2cb98e5ef201d4aa3"></a>UNKNOWN&#160;</td><td class="fielddoc"><p>Unknown, e.g. out of coverage. </p>
 </td></tr>
@@ -481,7 +469,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="#aa10dc32a4e35d259562a9eee6dd0d997" title="EPS (LTE) registration state, the &#39;&lt;stat&gt;&#39; field of &#39;+CEREG&#39;.">Registration</a>, signal, time and location group. </p>
+<p>Registration, signal, time and location group. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the group, bound to this modem. </dd></dl>
 
 </div>
@@ -589,7 +577,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../de/d33/a04558.html" title="Power supply, boot and sleep of the modem.">Power</a> supply, boot and sleep group. </p>
+<p>Power supply, boot and sleep group. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the group, bound to this modem. </dd></dl>
 
 </div>
@@ -1060,21 +1048,21 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 </div><!-- contents -->
-</div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
-</div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
-  <ul>
-    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../df/dbc/a01004.html">GSM</a></li><li class="navelem"><a href="../../df/de9/a04534.html">A7670E</a></li>
-    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
-  </ul>
-</div>
+<hr class="footer"/><address class="footer"><small>
+Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
+</small></address>
+</div><!-- doc-content -->
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>

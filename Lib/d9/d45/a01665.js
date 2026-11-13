@@ -1,11 +1,9 @@
 var a01665 =
 [
-    [ "Message", "d9/d45/a01665.html#adf2fad29193213811e051ef8d5f227a7", null ],
-    [ "Message", "d9/d45/a01665.html#a68d2a5b54227d976281ef2c06d063d87", null ],
-    [ "Message", "d9/d45/a01665.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
-    [ "data", "d9/d45/a01665.html#abc7d722b3924f3002a908d282429e590", null ],
-    [ "empty", "d9/d45/a01665.html#a09e2a403173178d77de083ae66a831fe", null ],
-    [ "operator std::vector< uint8_t >", "d9/d45/a01665.html#aa265929307138945bf4e16749958a7f8", null ],
-    [ "size", "d9/d45/a01665.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
-    [ "view", "d9/d45/a01665.html#a99d9247c3097add390da201d0083e524", null ]
+    [ "State", "d9/d45/a01665.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
+    [ "State", "d9/d45/a01665.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
+    [ "isConnected", "d9/d45/a01665.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
+    [ "operator uint32_t", "d9/d45/a01665.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
+    [ "operator=", "d9/d45/a01665.html#a74040294aacf89a661c876eb5aadc081", null ],
+    [ "onConnectionChanged", "d9/d45/a01665.html#af29d5ac1eff410a6876b1be865601ca8", null ]
 ];

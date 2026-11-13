@@ -1,10 +1,9 @@
 var a02593 =
 [
-    [ "VersionString", "d6/dfc/a02593.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "d6/dfc/a02593.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getSubVersion", "d6/dfc/a02593.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "d6/dfc/a02593.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "d6/dfc/a02593.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "d6/dfc/a02593.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "d6/dfc/a02593.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "name", "d6/dfc/a02593.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
+    [ "offSensor", "d6/dfc/a02593.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
+    [ "onSensor", "d6/dfc/a02593.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
+    [ "output", "d6/dfc/a02593.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
+    [ "sensorCalmingTime", "d6/dfc/a02593.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
+    [ "switchTimeout", "d6/dfc/a02593.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
 ];

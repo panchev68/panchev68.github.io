@@ -1,5 +1,6 @@
 var a01317 =
 [
-    [ "RCC_Exported_Functions_Group1", "https://panchev68.github.io/HALF4/d6/dfa/a01318.html", "d6/dfa/a01318" ],
-    [ "RCC_Exported_Functions_Group2", "https://panchev68.github.io/HALF4/d1/d72/a01319.html", "d1/d72/a01319" ]
+    [ "sak", "df/db8/a01317.html#a0a660971905a4d13ec801be99827ad26", null ],
+    [ "size", "df/db8/a01317.html#ae19abed0f3be0cc580838b351a256404", null ],
+    [ "uidByte", "df/db8/a01317.html#a8daf36157ed2f3632e9be6ec8b278293", null ]
 ];
