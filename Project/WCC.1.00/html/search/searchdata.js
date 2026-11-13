@@ -12,8 +12,7 @@ var indexSectionsWithContent =
   9: "o",
   10: "bcdhmorsuv",
   11: "12_abcdefghijklmnopqrstuvwx",
-  12: "bfhlow",
-  13: "dehipqs"
+  12: "dehipqs"
 };
 
 var indexSectionNames =
@@ -30,8 +29,7 @@ var indexSectionNames =
   9: "events",
   10: "related",
   11: "groups",
-  12: "pages",
-  13: "concepts"
+  12: "concepts"
 };
 
 var indexSectionLabels =
@@ -48,7 +46,6 @@ var indexSectionLabels =
   9: "Events",
   10: "Friends",
   11: "Modules",
-  12: "Pages",
-  13: "Concepts"
+  12: "Concepts"
 };
 
