@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Parameters.hpp</title>
+<title>IAR EWARM Library: RTOS::Task example</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -109,36 +111,66 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/db7/a08247.
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Parameters.hpp</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">RTOS::Task example </div></div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Declares "Lib::System::Storage" and "Lib::System::Parameters", the CRTP storage-backend and CRC-protected parameter-block templates. </p>
-<dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-09-24 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for System/Parameters.hpp:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d37/a08248.svg" width="930" height="194"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3ASystem_3A_3AStorage_3C_20T_5FDERIVED_20_3E" id="r_Lib_3A_3ASystem_3A_3AStorage_3C_20T_5FDERIVED_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/dec/a05928.html">Lib::System::Storage&lt; T_DERIVED &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP base class for storage backend implementations.  <a href="../../d8/dec/a05928.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Lib_3A_3ASystem_3A_3AParameters_3C_20T_5FDERIVED_2C_20T_5FDATA_2C_20T_5FSTORAGE_20_3E" id="r_Lib_3A_3ASystem_3A_3AParameters_3C_20T_5FDERIVED_2C_20T_5FDATA_2C_20T_5FSTORAGE_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/dc3/a05932.html">Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP base class managing a parameter structure in persistent storage with CRC16 integrity validation.  <a href="../../dc/dc3/a05932.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d2/da1/a00879.html">Lib</a></td></tr>
-<tr class="memdesc:d2/da1/a00879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3ASystem" id="r_Lib_3A_3ASystem"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d36/a00925.html">Lib::System</a></td></tr>
-<tr class="memdesc:dc/d36/a00925"><td class="mdescLeft">&#160;</td><td class="mdescRight">System-level facade and configuration storage. <br /></td></tr>
-</table>
-</div><!-- contents -->
+<div class="textblock"><p>Shows creating an <a class="el" href="../../d9/d69/a05958.html" title="RTOS::Task">RTOS::Task</a>, synchronizing it with notification event bits, and stopping it.</p>
+<p>A worker task waits for an event bit and a controller fires that bit. The entry callable is stored in place inside the task wrapper, so a capturing lambda such as '[this]' needs no heap allocation. It must be trivially copyable and fit <a class="el" href="../../d9/d69/a05958.html#a5b5ac88638f4130500b5e1647fbc15a1" title="RTOS::Task::ENTRY_CAPACITY">RTOS::Task::ENTRY_CAPACITY</a> bytes. Receiving calls such as <a class="el" href="../../de/d73/a05970.html#a1eafe4fed845fcf63255a0cd6b71e5a1" title="RTOS::Task::Notify::waitForBits()">RTOS::Task::Notify::waitForBits()</a> must run in the task itself.</p>
+<h1 class="doxsection"><a class="anchor" id="rtos_task_usage"></a>
+Usage</h1>
+<h2 class="doxsection"><a class="anchor" id="task_usage_worker"></a>
+Worker task with event bits</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d82/a00920.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d38/a00926.html">Lib/RTOS/FreeRTOS/TickCounter.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Worker {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t WORK_BIT = 0x01U; <span class="comment">///&lt; Event bit requesting one unit of work.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() noexcept {</div>
+<div class="line">        task.setup({<span class="stringliteral">&quot;Worker&quot;</span>, 256, <a class="code hl_enumvalue" href="../../d9/dd6/a05962.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>});</div>
+<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> requestWork() noexcept {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(task.notify.fireEvent(WORK_BIT));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a>() noexcept {</div>
+<div class="line">        <span class="keywordflow">return</span> task.stop();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    RTOS::Task task;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> taskEntry() noexcept {</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (task.<a class="code hl_variable" href="../../d9/d69/a05958.html#a685a41d4d36b20105207a99ea2b7a100">notify</a>.<a class="code hl_function" href="../../de/d73/a05970.html#a1eafe4fed845fcf63255a0cd6b71e5a1">waitForBits</a>(WORK_BIT, <a class="code hl_function" href="../../d9/d7a/a05990.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a>(500ms))) {</div>
+<div class="line">                <span class="comment">// Perform the requested work.</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00920_html"><div class="ttname"><a href="../../d6/d82/a00920.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
+<div class="ttc" id="aa00926_html"><div class="ttname"><a href="../../d8/d38/a00926.html">TickCounter.hpp</a></div><div class="ttdoc">Converts between scheduler ticks, milliseconds, seconds and std::chrono durations.</div></div>
+<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
+<div class="ttc" id="aa01692_html_aaf6b4883d69cf5ba182f4f29a103cc4b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a></div><div class="ttdeci">constexpr auto end(_Container &amp;__cont) -&gt; decltype(__cont.end())</div></div>
+<div class="ttc" id="aa05958_html_a685a41d4d36b20105207a99ea2b7a100"><div class="ttname"><a href="../../d9/d69/a05958.html#a685a41d4d36b20105207a99ea2b7a100">RTOS::Task::notify</a></div><div class="ttdeci">Notify notify</div><div class="ttdoc">Task notification controller.</div><div class="ttdef"><b>Definition</b> Task.hpp:651</div></div>
+<div class="ttc" id="aa05962_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d9/dd6/a05962.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:85</div></div>
+<div class="ttc" id="aa05970_html_a1eafe4fed845fcf63255a0cd6b71e5a1"><div class="ttname"><a href="../../de/d73/a05970.html#a1eafe4fed845fcf63255a0cd6b71e5a1">RTOS::Task::Notify::waitForBits</a></div><div class="ttdeci">bool waitForBits(Bits bitsToWaitFor, TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the calling task until any of the given bits is set or the timeout expires.</div><div class="ttdef"><b>Definition</b> Task.hpp:383</div></div>
+<div class="ttc" id="aa05990_html_ad6656fb17699eab5dc474d46e3e29234"><div class="ttname"><a href="../../d9/d7a/a05990.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a></div><div class="ttdeci">static constexpr TickType toTicks(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Converts a std::chrono duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:234</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -151,7 +183,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_5c17e5f690e92284d42df705067145f0.html">System</a></li><li class="navelem"><a href="../../dc/db7/a08247.html">Parameters.hpp</a></li>
+    <li class="navelem"><a href="../../d1/d16/a08184.html">Usage examples</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

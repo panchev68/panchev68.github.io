@@ -1,8 +1,6 @@
 var a04561 =
 [
-    [ "miso", "d7/dba/a04561.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
-    [ "mosi", "d7/dba/a04561.html#a25f143d2f7674576d969696bb116ccd0", null ],
-    [ "nirq", "d7/dba/a04561.html#a910a59f08ad5274a68776e743dbaedee", null ],
-    [ "nss", "d7/dba/a04561.html#ab28458323220459a7d7310bc64b538a2", null ],
-    [ "sck", "d7/dba/a04561.html#a2bddcf040cbe86554ab6027c20f10236", null ]
+    [ "pinHandle", "d7/dba/a04561.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
+    [ "timerHandler", "d7/dba/a04561.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
+    [ "updatePeriod", "d7/dba/a04561.html#a08c430ab4ab176b490c190835f89b3b0", null ]
 ];

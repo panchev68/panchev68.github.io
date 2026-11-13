@@ -1,385 +1,385 @@
 var annotated_dup =
 [
-    [ "FunctionRefDetail", "de/d01/a00897.html", [
-      [ "Base", "d9/d76/a04677.html", "d9/d76/a04677" ]
+    [ "FunctionRefDetail", "d6/d36/a01011.html", [
+      [ "Base", "db/d92/a04791.html", "db/d92/a04791" ]
     ] ],
-    [ "Lib", "d2/dac/a00876.html", [
-      [ "BSP", "d1/de7/a00877.html", [
-        [ "Display", "d5/d69/a00878.html", [
-          [ "Driver&lt; Controller::ILI9341 &gt;", "da/d67/a04281.html", "da/d67/a04281" ],
-          [ "Driver&lt; Controller::ST7789 &gt;", "d8/dfd/a04293.html", "d8/dfd/a04293" ],
-          [ "DriverBase", "d0/d08/a04277.html", "d0/d08/a04277" ]
+    [ "Lib", "dd/d7a/a00990.html", [
+      [ "BSP", "df/d2f/a00991.html", [
+        [ "Display", "d7/d76/a00992.html", [
+          [ "Driver&lt; Controller::ILI9341 &gt;", "db/dfa/a04395.html", "db/dfa/a04395" ],
+          [ "Driver&lt; Controller::ST7789 &gt;", "dd/da7/a04407.html", "dd/da7/a04407" ],
+          [ "DriverBase", "d6/d98/a04391.html", "d6/d98/a04391" ]
         ] ],
-        [ "EEPROM", "d2/da1/a00879.html", [
-          [ "I2C", "d1/d8f/a00880.html", [
-            [ "Driver", "d2/d27/a04301.html", "d2/d27/a04301" ],
-            [ "M24C16", "dd/d1b/a04309.html", "dd/d1b/a04309" ],
-            [ "M24C64W", "d5/d11/a04313.html", "d5/d11/a04313" ]
+        [ "EEPROM", "da/d0a/a00993.html", [
+          [ "I2C", "d4/dd0/a00994.html", [
+            [ "Driver", "d0/dc5/a04415.html", "d0/dc5/a04415" ],
+            [ "M24C16", "d4/da1/a04423.html", "d4/da1/a04423" ],
+            [ "M24C64W", "d1/dd3/a04427.html", "d1/dd3/a04427" ]
           ] ],
-          [ "FlashEmulation", "dc/d08/a04317.html", "dc/d08/a04317" ]
+          [ "FlashEmulation", "d1/dec/a04431.html", "d1/dec/a04431" ]
         ] ],
-        [ "Ethercat", "df/d41/a00881.html", [
-          [ "PDI", "d3/d50/a00882.html", [
-            [ "LAN9252", "d7/d34/a00883.html", [
-              [ "Base", "d6/ddf/a04349.html", "d6/ddf/a04349" ],
-              [ "Helper", "d1/d04/a04361.html", null ],
-              [ "Interface", "d7/daa/a04365.html", "d7/daa/a04365" ],
-              [ "Registers", "d9/db6/a04373.html", null ]
+        [ "Ethercat", "dd/d48/a00995.html", [
+          [ "PDI", "d3/daa/a00996.html", [
+            [ "LAN9252", "d0/d28/a00997.html", [
+              [ "Base", "d0/d18/a04463.html", "d0/d18/a04463" ],
+              [ "Helper", "d5/d8a/a04475.html", null ],
+              [ "Interface", "d7/dd6/a04479.html", "d7/dd6/a04479" ],
+              [ "Registers", "d8/dc4/a04487.html", null ]
             ] ]
           ] ]
         ] ],
-        [ "FMEM", "dd/d08/a00884.html", [
-          [ "OSPI", "db/d18/a00885.html", [
-            [ "Config", "d1/da7/a04377.html", "d1/da7/a04377" ],
-            [ "Info", "d7/d17/a04381.html", "d7/d17/a04381" ],
-            [ "W25Q128JVSIQ", "de/d09/a04385.html", "de/d09/a04385" ]
+        [ "FMEM", "d9/d9a/a00998.html", [
+          [ "OSPI", "de/de2/a00999.html", [
+            [ "Config", "de/ddb/a04491.html", "de/ddb/a04491" ],
+            [ "Info", "db/dd8/a04495.html", "db/dd8/a04495" ],
+            [ "W25Q128JVSIQ", "da/dec/a04499.html", "da/dec/a04499" ]
           ] ],
-          [ "SPI", "d2/dab/a00886.html", [
-            [ "Config", "df/dae/a04393.html", "df/dae/a04393" ],
-            [ "Info", "da/dce/a04397.html", "da/dce/a04397" ],
-            [ "DriverBase", "d6/d21/a04401.html", "d6/d21/a04401" ]
+          [ "SPI", "d7/df2/a01000.html", [
+            [ "Config", "d3/d0f/a04507.html", "d3/d0f/a04507" ],
+            [ "Info", "d2/d5d/a04511.html", "d2/d5d/a04511" ],
+            [ "DriverBase", "dc/da4/a04515.html", "dc/da4/a04515" ]
           ] ]
         ] ],
-        [ "RFID", "d7/d92/a00887.html", [
-          [ "NTAG21x", "dd/d94/a00888.html", [
-            [ "CardRecord", "d1/df2/a04465.html", "d1/df2/a04465" ],
-            [ "OriginalitySignature", "d5/d55/a04469.html", "d5/d55/a04469" ]
+        [ "RFID", "df/d59/a01001.html", [
+          [ "NTAG21x", "d2/dd5/a01002.html", [
+            [ "CardRecord", "d0/d61/a04579.html", "d0/d61/a04579" ],
+            [ "OriginalitySignature", "d0/d9d/a04583.html", "d0/d9d/a04583" ]
           ] ],
-          [ "Card", "d8/db6/a04429.html", "d8/db6/a04429" ],
-          [ "Chipset", "da/def/a04437.html", "da/def/a04437" ],
-          [ "Interface", "d6/d70/a04445.html", "d6/d70/a04445" ],
-          [ "MFRC522", "d3/db4/a04425.html", "d3/db4/a04425" ],
-          [ "MFRC522Config", "d3/d7b/a04441.html", "d3/d7b/a04441" ],
-          [ "Mifare", "d8/d39/a04449.html", "d8/d39/a04449" ],
-          [ "NfcManager", "dd/de1/a04453.html", "dd/de1/a04453" ],
-          [ "ST25R100", "d2/d22/a04473.html", "d2/d22/a04473" ]
+          [ "Card", "d5/dd2/a04543.html", "d5/dd2/a04543" ],
+          [ "Chipset", "de/d9c/a04551.html", "de/d9c/a04551" ],
+          [ "Interface", "d1/dce/a04559.html", "d1/dce/a04559" ],
+          [ "MFRC522", "d0/d3d/a04539.html", "d0/d3d/a04539" ],
+          [ "MFRC522Config", "dc/d65/a04555.html", "dc/d65/a04555" ],
+          [ "Mifare", "d9/d0c/a04563.html", "d9/d0c/a04563" ],
+          [ "NfcManager", "db/d82/a04567.html", "db/d82/a04567" ],
+          [ "ST25R100", "db/d88/a04587.html", "db/d88/a04587" ]
         ] ],
-        [ "Thermometer", "d7/d46/a00890.html", [
-          [ "DTH", "de/dfc/a00891.html", [
-            [ "Base", "d8/df9/a04517.html", "d8/df9/a04517" ],
-            [ "Driver&lt; Type::DTH22 &gt;", "dc/d39/a04529.html", "dc/d39/a04529" ],
-            [ "Parm", "d4/dd0/a04537.html", null ]
+        [ "Thermometer", "df/dbc/a01004.html", [
+          [ "DTH", "d7/d06/a01005.html", [
+            [ "Base", "de/d65/a04631.html", "de/d65/a04631" ],
+            [ "Driver&lt; Type::DTH22 &gt;", "da/de7/a04643.html", "da/de7/a04643" ],
+            [ "Parm", "da/d47/a04651.html", null ]
           ] ],
-          [ "OneWire", "d0/de2/a00892.html", [
-            [ "DS18B20", "d9/d36/a04541.html", "d9/d36/a04541" ]
+          [ "OneWire", "dc/d81/a01006.html", [
+            [ "DS18B20", "d0/d5e/a04655.html", "d0/d5e/a04655" ]
           ] ],
-          [ "TMP102", "d7/d8b/a04549.html", "d7/d8b/a04549" ]
+          [ "TMP102", "db/da5/a04663.html", "db/da5/a04663" ]
         ] ],
-        [ "Ultrasonic", "dc/d2c/a00893.html", [
-          [ "PGA460TPWRQ1", "d4/d61/a04577.html", "d4/d61/a04577" ]
+        [ "Ultrasonic", "d6/d8d/a01007.html", [
+          [ "PGA460TPWRQ1", "d6/d12/a04691.html", "d6/d12/a04691" ]
         ] ],
-        [ "Backlight", "d7/dca/a04205.html", "d7/dca/a04205" ],
-        [ "Beep", "d3/d8f/a04217.html", "d3/d8f/a04217" ],
-        [ "DeviceManager", "dc/d44/a04237.html", "dc/d44/a04237" ],
-        [ "DigitalPeripheralBase", "d9/df4/a04245.html", "d9/df4/a04245" ],
-        [ "EncoderPins", "d0/d91/a04329.html", "d0/d91/a04329" ],
-        [ "EncoderTimer", "d4/d20/a04341.html", "d4/d20/a04341" ],
-        [ "INA219", "d4/d09/a04225.html", "d4/d09/a04225" ],
-        [ "IS62WV51216", "db/d96/a04417.html", "db/d96/a04417" ],
-        [ "SK6812", "d7/dfb/a04509.html", "d7/dfb/a04509" ],
-        [ "Voltmeter", "d3/d24/a04589.html", "d3/d24/a04589" ],
-        [ "W25Q128JVSIQ", "d9/d4e/a04405.html", "d9/d4e/a04405" ],
-        [ "XPT2046", "d9/d32/a04557.html", "d9/d32/a04557" ]
+        [ "Backlight", "de/dc3/a04319.html", "de/dc3/a04319" ],
+        [ "Beep", "de/d68/a04331.html", "de/d68/a04331" ],
+        [ "DeviceManager", "dd/d18/a04351.html", "dd/d18/a04351" ],
+        [ "DigitalPeripheralBase", "dd/d20/a04359.html", "dd/d20/a04359" ],
+        [ "EncoderPins", "d0/d64/a04443.html", "d0/d64/a04443" ],
+        [ "EncoderTimer", "d1/d2d/a04455.html", "d1/d2d/a04455" ],
+        [ "INA219", "d6/dac/a04339.html", "d6/dac/a04339" ],
+        [ "IS62WV51216", "da/d9b/a04531.html", "da/d9b/a04531" ],
+        [ "SK6812", "df/d53/a04623.html", "df/d53/a04623" ],
+        [ "Voltmeter", "d6/d8c/a04703.html", "d6/d8c/a04703" ],
+        [ "W25Q128JVSIQ", "d4/d04/a04519.html", "d4/d04/a04519" ],
+        [ "XPT2046", "db/dc1/a04671.html", "db/dc1/a04671" ]
       ] ],
-      [ "Canbus", "dc/dfa/a00894.html", [
-        [ "Service", "d9/dd9/a04621.html", null ],
-        [ "Service&lt; Mode::CLIENT &gt;", "d7/d44/a04597.html", "d7/d44/a04597" ],
-        [ "Service&lt; Mode::SERVER &gt;", "d8/d7c/a04601.html", "d8/d7c/a04601" ],
-        [ "ServiceBase", "dd/d6c/a04605.html", "dd/d6c/a04605" ]
+      [ "Canbus", "dd/dac/a01008.html", [
+        [ "Service", "d9/d06/a04735.html", null ],
+        [ "Service&lt; Mode::CLIENT &gt;", "d4/d03/a04711.html", "d4/d03/a04711" ],
+        [ "Service&lt; Mode::SERVER &gt;", "d7/de9/a04715.html", "d7/de9/a04715" ],
+        [ "ServiceBase", "d5/d64/a04719.html", "d5/d64/a04719" ]
       ] ],
-      [ "Communication", "d2/d21/a00895.html", [
-        [ "Modbus", "da/dd6/a00896.html", [
-          [ "Master", "d4/d0f/a04625.html", "d4/d0f/a04625" ],
-          [ "Protocol", "df/d76/a04629.html", "df/d76/a04629" ],
-          [ "SerialPortBase", "d9/d96/a04665.html", "d9/d96/a04665" ],
-          [ "Slave", "db/d7c/a04669.html", "db/d7c/a04669" ]
+      [ "Communication", "d7/ded/a01009.html", [
+        [ "Modbus", "d0/d2b/a01010.html", [
+          [ "Master", "d5/d13/a04739.html", "d5/d13/a04739" ],
+          [ "Protocol", "dd/d07/a04743.html", "dd/d07/a04743" ],
+          [ "SerialPortBase", "d4/deb/a04779.html", "d4/deb/a04779" ],
+          [ "Slave", "d0/d9d/a04783.html", "d0/d9d/a04783" ]
         ] ]
       ] ],
-      [ "Crypto", "d2/d79/a00898.html", [
-        [ "SHA256", "da/d6d/a04713.html", null ],
-        [ "SHA256&lt; SHA256Engine::HARDWARE &gt;", "d0/dae/a04721.html", "d0/dae/a04721" ],
-        [ "SHA256&lt; SHA256Engine::SOFTWARE &gt;", "d2/ddc/a04717.html", "d2/ddc/a04717" ],
-        [ "WolfSSH", "db/dfa/a04725.html", "db/dfa/a04725" ],
-        [ "WolfSSHServer", "d3/d06/a04733.html", "d3/d06/a04733" ],
-        [ "WolfSSHServerContext", "d9/d09/a04729.html", "d9/d09/a04729" ],
-        [ "WolfSSLAesGcm", "d4/d1e/a04745.html", "d4/d1e/a04745" ],
-        [ "WolfSSLChaCha20Poly1305", "d9/d71/a04749.html", "d9/d71/a04749" ],
-        [ "WolfSSLDh", "db/d75/a04761.html", "db/d75/a04761" ],
-        [ "WolfSSLEcc", "d0/d84/a04753.html", "d0/d84/a04753" ],
-        [ "WolfSSLRandom", "de/d2c/a04741.html", "de/d2c/a04741" ],
-        [ "WolfSSLRsa", "d8/dc8/a04757.html", "d8/dc8/a04757" ],
-        [ "WolfSSLSHA256", "d3/de8/a04737.html", "d3/de8/a04737" ]
+      [ "Crypto", "d4/d45/a01012.html", [
+        [ "SHA256", "d6/da6/a04827.html", null ],
+        [ "SHA256&lt; SHA256Engine::HARDWARE &gt;", "db/db4/a04835.html", "db/db4/a04835" ],
+        [ "SHA256&lt; SHA256Engine::SOFTWARE &gt;", "d2/d2e/a04831.html", "d2/d2e/a04831" ],
+        [ "WolfSSH", "d4/d10/a04839.html", "d4/d10/a04839" ],
+        [ "WolfSSHServer", "dd/dca/a04847.html", "dd/dca/a04847" ],
+        [ "WolfSSHServerContext", "d4/d06/a04843.html", "d4/d06/a04843" ],
+        [ "WolfSSLAesGcm", "da/d9f/a04859.html", "da/d9f/a04859" ],
+        [ "WolfSSLChaCha20Poly1305", "df/d6c/a04863.html", "df/d6c/a04863" ],
+        [ "WolfSSLDh", "d1/d89/a04875.html", "d1/d89/a04875" ],
+        [ "WolfSSLEcc", "d8/de5/a04867.html", "d8/de5/a04867" ],
+        [ "WolfSSLRandom", "d9/d87/a04855.html", "d9/d87/a04855" ],
+        [ "WolfSSLRsa", "da/dbb/a04871.html", "da/dbb/a04871" ],
+        [ "WolfSSLSHA256", "dd/d3b/a04851.html", "dd/d3b/a04851" ]
       ] ],
-      [ "Digi", "d3/d8a/a00899.html", [
-        [ "API", "d9/db0/a00900.html", [
-          [ "Service", "d0/dac/a00901.html", [
-            [ "ChannelScanner", "da/d82/a04837.html", "da/d82/a04837" ],
-            [ "NetworkDiscovery", "d6/d2e/a04845.html", "d6/d2e/a04845" ],
-            [ "PairService", "d6/ddb/a04853.html", "d6/ddb/a04853" ],
-            [ "Parameters", "d5/db5/a04861.html", "d5/db5/a04861" ],
-            [ "ServiceBase", "d3/d92/a04881.html", "d3/d92/a04881" ],
-            [ "SpectrumAnalyzer", "d5/d10/a04885.html", "d5/d10/a04885" ]
+      [ "Digi", "d7/d59/a01013.html", [
+        [ "API", "d0/d56/a01014.html", [
+          [ "Service", "d1/dac/a01015.html", [
+            [ "ChannelScanner", "d9/d31/a04951.html", "d9/d31/a04951" ],
+            [ "NetworkDiscovery", "dd/d63/a04959.html", "dd/d63/a04959" ],
+            [ "PairService", "da/d70/a04967.html", "da/d70/a04967" ],
+            [ "Parameters", "de/d42/a04975.html", "de/d42/a04975" ],
+            [ "ServiceBase", "d6/d54/a04995.html", "d6/d54/a04995" ],
+            [ "SpectrumAnalyzer", "d9/d7c/a04999.html", "d9/d7c/a04999" ]
           ] ],
-          [ "ApplicationBase", "da/d86/a04769.html", "da/d86/a04769" ],
-          [ "ClientBase", "d5/d4a/a04773.html", "d5/d4a/a04773" ],
-          [ "Connection", "dd/d6d/a04777.html", "dd/d6d/a04777" ],
-          [ "NodeInfo", "d9/d75/a04805.html", "d9/d75/a04805" ],
-          [ "ServerBase", "df/d15/a04833.html", "df/d15/a04833" ],
-          [ "UserProtocol", "d8/d02/a04889.html", "d8/d02/a04889" ]
+          [ "ApplicationBase", "d6/d48/a04883.html", "d6/d48/a04883" ],
+          [ "ClientBase", "de/d63/a04887.html", "de/d63/a04887" ],
+          [ "Connection", "d3/d3a/a04891.html", "d3/d3a/a04891" ],
+          [ "NodeInfo", "d4/d8a/a04919.html", "d4/d8a/a04919" ],
+          [ "ServerBase", "d7/dda/a04947.html", "d7/dda/a04947" ],
+          [ "UserProtocol", "d7/d3c/a05003.html", "d7/d3c/a05003" ]
         ] ],
-        [ "Core", "d5/dd3/a00902.html", [
-          [ "Frame", "d4/d1c/a00903.html", [
-            [ "Data", "d0/d2a/a04925.html", "d0/d2a/a04925" ],
-            [ "Header", "dd/d0d/a04929.html", "dd/d0d/a04929" ],
-            [ "Helper", "d0/d93/a04933.html", "d0/d93/a04933" ]
+        [ "Core", "de/def/a01016.html", [
+          [ "Frame", "d3/ded/a01017.html", [
+            [ "Data", "d4/d6b/a05039.html", "d4/d6b/a05039" ],
+            [ "Header", "d2/d61/a05043.html", "d2/d61/a05043" ],
+            [ "Helper", "d3/dd5/a05047.html", "d3/dd5/a05047" ]
           ] ],
-          [ "AtCommandString", "dc/dc4/a04893.html", "dc/dc4/a04893" ],
-          [ "Checksum", "d2/dc3/a04897.html", "d2/dc3/a04897" ],
-          [ "ComDriver", "db/d24/a04901.html", "db/d24/a04901" ],
-          [ "Diagnostic", "dd/dcf/a04913.html", "dd/dcf/a04913" ],
-          [ "DigiApiFrameBuffer", "df/dd6/a04917.html", "df/dd6/a04917" ],
-          [ "EscapedCode", "d4/df2/a04921.html", "d4/df2/a04921" ],
-          [ "Frame0x00", "d0/da3/a04961.html", "d0/da3/a04961" ],
-          [ "Frame0x01", "d1/d39/a04965.html", "d1/d39/a04965" ],
-          [ "Frame0x08", "d5/db2/a04969.html", "d5/db2/a04969" ],
-          [ "Frame0x09", "df/d76/a04973.html", "df/d76/a04973" ],
-          [ "Frame0x17", "d7/d01/a04977.html", "d7/d01/a04977" ],
-          [ "Frame0x80", "de/db1/a04997.html", "de/db1/a04997" ],
-          [ "Frame0x81", "d6/dd1/a05001.html", "d6/dd1/a05001" ],
-          [ "Frame0x88", "d2/d38/a05005.html", "d2/d38/a05005" ],
-          [ "Frame0x89", "d1/d91/a05009.html", "d1/d91/a05009" ],
-          [ "Frame0x8a", "de/dbd/a05013.html", "de/dbd/a05013" ],
-          [ "Frame0x8b", "da/d3a/a05017.html", "da/d3a/a05017" ],
-          [ "Frame0x90", "da/d7c/a05021.html", "da/d7c/a05021" ],
-          [ "Frame0x97", "db/d29/a05025.html", "db/d29/a05025" ],
-          [ "FrameWriter", "df/d07/a04981.html", "df/d07/a04981" ],
-          [ "LocalAtCommand", "d6/d6a/a04941.html", "d6/d6a/a04941" ],
-          [ "Message", "d7/dde/a04945.html", "d7/dde/a04945" ],
-          [ "ModemStatus", "d7/dca/a04949.html", "d7/dca/a04949" ],
-          [ "Module", "dc/db4/a04953.html", "dc/db4/a04953" ],
-          [ "Protocol", "d1/d34/a04957.html", null ],
-          [ "QueueMessage", "da/da3/a04985.html", "da/da3/a04985" ],
-          [ "RemoteAtCommand", "dc/d27/a04989.html", "dc/d27/a04989" ],
-          [ "ResponseEvents", "d1/d18/a04993.html", "d1/d18/a04993" ]
+          [ "AtCommandString", "db/d5b/a05007.html", "db/d5b/a05007" ],
+          [ "Checksum", "db/dc2/a05011.html", "db/dc2/a05011" ],
+          [ "ComDriver", "d0/d0c/a05015.html", "d0/d0c/a05015" ],
+          [ "Diagnostic", "d1/d82/a05027.html", "d1/d82/a05027" ],
+          [ "DigiApiFrameBuffer", "de/ddd/a05031.html", "de/ddd/a05031" ],
+          [ "EscapedCode", "d1/d9f/a05035.html", "d1/d9f/a05035" ],
+          [ "Frame0x00", "d6/d32/a05075.html", "d6/d32/a05075" ],
+          [ "Frame0x01", "dd/d78/a05079.html", "dd/d78/a05079" ],
+          [ "Frame0x08", "d6/de9/a05083.html", "d6/de9/a05083" ],
+          [ "Frame0x09", "d2/d78/a05087.html", "d2/d78/a05087" ],
+          [ "Frame0x17", "d9/de1/a05091.html", "d9/de1/a05091" ],
+          [ "Frame0x80", "dd/df7/a05111.html", "dd/df7/a05111" ],
+          [ "Frame0x81", "df/d84/a05115.html", "df/d84/a05115" ],
+          [ "Frame0x88", "d3/d91/a05119.html", "d3/d91/a05119" ],
+          [ "Frame0x89", "d0/d9d/a05123.html", "d0/d9d/a05123" ],
+          [ "Frame0x8a", "d0/d42/a05127.html", "d0/d42/a05127" ],
+          [ "Frame0x8b", "d0/dcf/a05131.html", "d0/dcf/a05131" ],
+          [ "Frame0x90", "dd/dce/a05135.html", "dd/dce/a05135" ],
+          [ "Frame0x97", "db/d6b/a05139.html", "db/d6b/a05139" ],
+          [ "FrameWriter", "de/d11/a05095.html", "de/d11/a05095" ],
+          [ "LocalAtCommand", "dc/d7e/a05055.html", "dc/d7e/a05055" ],
+          [ "Message", "d6/de9/a05059.html", "d6/de9/a05059" ],
+          [ "ModemStatus", "da/d0f/a05063.html", "da/d0f/a05063" ],
+          [ "Module", "d3/df0/a05067.html", "d3/df0/a05067" ],
+          [ "Protocol", "db/d78/a05071.html", null ],
+          [ "QueueMessage", "d3/d8f/a05099.html", "d3/d8f/a05099" ],
+          [ "RemoteAtCommand", "d8/d5e/a05103.html", "d8/d5e/a05103" ],
+          [ "ResponseEvents", "da/d41/a05107.html", "da/d41/a05107" ]
         ] ]
       ] ],
-      [ "Errors", "d8/d0a/a00904.html", [
-        [ "BasicDispatcher", "dd/dbe/a05029.html", "dd/dbe/a05029" ],
-        [ "Error", "d7/de8/a05037.html", "d7/de8/a05037" ],
-        [ "ErrorBase", "d1/dba/a05033.html", "d1/dba/a05033" ],
-        [ "Group", "dd/d13/a05041.html", "dd/d13/a05041" ],
-        [ "Observer", "db/daa/a05049.html", "db/daa/a05049" ],
-        [ "ObserverBase", "dd/d03/a05045.html", "dd/d03/a05045" ]
+      [ "Errors", "d3/d08/a01018.html", [
+        [ "BasicDispatcher", "db/d58/a05143.html", "db/d58/a05143" ],
+        [ "Error", "df/dc5/a05151.html", "df/dc5/a05151" ],
+        [ "ErrorBase", "d2/d38/a05147.html", "d2/d38/a05147" ],
+        [ "Group", "db/d92/a05155.html", "db/d92/a05155" ],
+        [ "Observer", "d7/d05/a05163.html", "d7/d05/a05163" ],
+        [ "ObserverBase", "d1/d90/a05159.html", "d1/d90/a05159" ]
       ] ],
-      [ "Ethercat", "da/dd8/a00906.html", [
-        [ "SOES", "d5/d89/a00907.html", [
-          [ "CoE", "d7/d59/a05065.html", "d7/d59/a05065" ],
-          [ "CoEHandlers", "da/d34/a05061.html", "da/d34/a05061" ],
-          [ "CoEObject", "d7/d1a/a05053.html", "d7/d1a/a05053" ],
-          [ "CoEObjectInfo", "d3/d45/a05057.html", "d3/d45/a05057" ],
-          [ "EepromEmulation", "d1/dd2/a05073.html", "d1/dd2/a05073" ],
-          [ "EepromHandlers", "d2/d3f/a05069.html", "d2/d3f/a05069" ],
-          [ "EoE", "dc/d88/a05085.html", "dc/d88/a05085" ],
-          [ "EoEHandlers", "d5/d65/a05081.html", "d5/d65/a05081" ],
-          [ "EoEParameters", "da/d8e/a05077.html", "da/d8e/a05077" ],
-          [ "FoE", "d3/df5/a05093.html", "d3/df5/a05093" ],
-          [ "FoEHandlers", "de/d1a/a05089.html", "de/d1a/a05089" ],
-          [ "Mailbox", "db/dfb/a05101.html", "db/dfb/a05101" ],
-          [ "MailboxHeader", "d4/d23/a05097.html", "d4/d23/a05097" ],
-          [ "ProcessDataSize", "db/d83/a05109.html", "db/d83/a05109" ],
-          [ "Slave", "d1/dbd/a05113.html", "d1/dbd/a05113" ]
+      [ "Ethercat", "d0/d43/a01020.html", [
+        [ "SOES", "d5/dfb/a01021.html", [
+          [ "CoE", "dc/daa/a05179.html", "dc/daa/a05179" ],
+          [ "CoEHandlers", "dc/d07/a05175.html", "dc/d07/a05175" ],
+          [ "CoEObject", "df/daa/a05167.html", "df/daa/a05167" ],
+          [ "CoEObjectInfo", "dc/d66/a05171.html", "dc/d66/a05171" ],
+          [ "EepromEmulation", "db/d48/a05187.html", "db/d48/a05187" ],
+          [ "EepromHandlers", "d7/d48/a05183.html", "d7/d48/a05183" ],
+          [ "EoE", "d4/ddd/a05199.html", "d4/ddd/a05199" ],
+          [ "EoEHandlers", "dc/d65/a05195.html", "dc/d65/a05195" ],
+          [ "EoEParameters", "de/d61/a05191.html", "de/d61/a05191" ],
+          [ "FoE", "d8/d42/a05207.html", "d8/d42/a05207" ],
+          [ "FoEHandlers", "de/d1b/a05203.html", "de/d1b/a05203" ],
+          [ "Mailbox", "d3/dd2/a05215.html", "d3/dd2/a05215" ],
+          [ "MailboxHeader", "d1/d50/a05211.html", "d1/d50/a05211" ],
+          [ "ProcessDataSize", "d7/d00/a05223.html", "d7/d00/a05223" ],
+          [ "Slave", "d3/d6e/a05227.html", "d3/d6e/a05227" ]
         ] ]
       ] ],
-      [ "Ethernet", "d0/d85/a00908.html", [
-        [ "Wiznet", "de/dc3/a00909.html", [
-          [ "ClientBase", "d3/d60/a05145.html", "d3/d60/a05145" ],
-          [ "Socket", "d0/d88/a05153.html", "d0/d88/a05153" ],
-          [ "Sockets", "d1/df0/a05157.html", "d1/df0/a05157" ],
-          [ "W5500", "d9/d42/a05161.html", "d9/d42/a05161" ]
+      [ "Ethernet", "d1/dd8/a01022.html", [
+        [ "Wiznet", "d6/dcd/a01023.html", [
+          [ "ClientBase", "d1/d56/a05259.html", "d1/d56/a05259" ],
+          [ "Socket", "d1/dad/a05267.html", "d1/dad/a05267" ],
+          [ "Sockets", "de/d07/a05271.html", "de/d07/a05271" ],
+          [ "W5500", "d1/dd1/a05275.html", "d1/dd1/a05275" ]
         ] ],
-        [ "IpAddress", "dd/db3/a05121.html", "dd/db3/a05121" ],
-        [ "MacAddress", "d9/d0b/a05125.html", "d9/d0b/a05125" ],
-        [ "Node", "d5/df0/a05129.html", "d5/df0/a05129" ],
-        [ "Port", "dd/d43/a05133.html", "dd/d43/a05133" ],
-        [ "UserProtocol", "d0/d6f/a05137.html", "d0/d6f/a05137" ]
+        [ "IpAddress", "d8/dd0/a05235.html", "d8/dd0/a05235" ],
+        [ "MacAddress", "d5/d5a/a05239.html", "d5/d5a/a05239" ],
+        [ "Node", "da/dc9/a05243.html", "da/dc9/a05243" ],
+        [ "Port", "d8/da5/a05247.html", "d8/da5/a05247" ],
+        [ "UserProtocol", "d4/d19/a05251.html", "d4/d19/a05251" ]
       ] ],
-      [ "GSM", "d4/d12/a00910.html", [
-        [ "A7670E", "d1/da1/a05169.html", "d1/da1/a05169" ]
+      [ "GSM", "d4/dc5/a01024.html", [
+        [ "A7670E", "da/d2b/a05283.html", "da/d2b/a05283" ]
       ] ],
-      [ "HAL", "d7/d12/a00911.html", [
-        [ "GPIO", "df/da5/a00912.html", [
-          [ "ExtInterrupt", "dc/d46/a05293.html", "dc/d46/a05293" ],
-          [ "Handle", "d5/d70/a05305.html", "d5/d70/a05305" ],
-          [ "Input", "da/d15/a05309.html", "da/d15/a05309" ],
-          [ "Output", "d3/dd2/a05313.html", "d3/dd2/a05313" ],
-          [ "PinConfig", "d9/d5f/a05301.html", "d9/d5f/a05301" ],
-          [ "Port", "d9/d96/a05317.html", "d9/d96/a05317" ]
+      [ "HAL", "db/d23/a01025.html", [
+        [ "GPIO", "de/d02/a01026.html", [
+          [ "ExtInterrupt", "dc/d06/a05407.html", "dc/d06/a05407" ],
+          [ "Handle", "d5/dc5/a05419.html", "d5/dc5/a05419" ],
+          [ "Input", "df/d5a/a05423.html", "df/d5a/a05423" ],
+          [ "Output", "d7/d41/a05427.html", "d7/d41/a05427" ],
+          [ "PinConfig", "d8/ddb/a05415.html", "d8/ddb/a05415" ],
+          [ "Port", "d7/d4f/a05431.html", "d7/d4f/a05431" ]
         ] ],
-        [ "Timer", "d9/dfb/a00913.html", [
-          [ "TimEncoder", "d5/d95/a05445.html", "d5/d95/a05445" ],
-          [ "TimEventBase", "d9/de3/a05449.html", "d9/de3/a05449" ],
-          [ "TimInputCapture", "d4/d04/a05453.html", "d4/d04/a05453" ],
-          [ "TimOnePulse", "d6/d0f/a05457.html", "d6/d0f/a05457" ],
-          [ "TimOutputCompare", "df/d7d/a05461.html", "df/d7d/a05461" ],
-          [ "TimPwmOutput", "d8/d42/a05465.html", "d8/d42/a05465" ],
-          [ "TimTimebase", "df/d17/a05469.html", "df/d17/a05469" ]
+        [ "Timer", "dd/dfd/a01027.html", [
+          [ "TimEncoder", "d6/d63/a05559.html", "d6/d63/a05559" ],
+          [ "TimEventBase", "d5/d7e/a05563.html", "d5/d7e/a05563" ],
+          [ "TimInputCapture", "d2/d72/a05567.html", "d2/d72/a05567" ],
+          [ "TimOnePulse", "d6/d3f/a05571.html", "d6/d3f/a05571" ],
+          [ "TimOutputCompare", "d5/da0/a05575.html", "d5/da0/a05575" ],
+          [ "TimPwmOutput", "de/d98/a05579.html", "de/d98/a05579" ],
+          [ "TimTimebase", "d0/d52/a05583.html", "d0/d52/a05583" ]
         ] ],
-        [ "ADCPort&lt; DriverMode::BLOCKING &gt;", "d7/dd9/a05209.html", "d7/dd9/a05209" ],
-        [ "ADCPort&lt; DriverMode::DMA &gt;", "d3/dbd/a05213.html", "d3/dbd/a05213" ],
-        [ "ADCPort&lt; DriverMode::IT &gt;", "de/d4f/a05221.html", "de/d4f/a05221" ],
-        [ "ADCPortBase", "d2/d3b/a05229.html", "d2/d3b/a05229" ],
-        [ "AsyncPortCore", "dd/dde/a05257.html", "dd/dde/a05257" ],
-        [ "BackupRamDomain", "d0/db4/a05233.html", "d0/db4/a05233" ],
-        [ "CANFrame", "dc/d42/a05249.html", "dc/d42/a05249" ],
-        [ "CANPort&lt; DriverMode::BLOCKING &gt;", "d5/d37/a05237.html", "d5/d37/a05237" ],
-        [ "CANPort&lt; DriverMode::IT &gt;", "d7/dc3/a05241.html", "d7/dc3/a05241" ],
-        [ "CANPortBase", "d4/d90/a05253.html", "d4/d90/a05253" ],
-        [ "DACPort&lt; DriverMode::BLOCKING &gt;", "dd/d68/a05269.html", "dd/d68/a05269" ],
-        [ "DACPort&lt; DriverMode::DMA &gt;", "de/d7d/a05273.html", "de/d7d/a05273" ],
-        [ "DACPort&lt; DriverMode::IT &gt;", "db/d63/a05277.html", "db/d63/a05277" ],
-        [ "DACPortBase", "da/dd7/a05285.html", "da/dd7/a05285" ],
-        [ "Device", "de/daf/a05265.html", "de/daf/a05265" ],
-        [ "DeviceManager", "dc/de1/a05261.html", "dc/de1/a05261" ],
-        [ "FlashInterface", "da/d4c/a05289.html", "da/d4c/a05289" ],
-        [ "HASHPort&lt; DriverMode::BLOCKING &gt;", "d8/d16/a05321.html", "d8/d16/a05321" ],
-        [ "HASHPort&lt; DriverMode::IT &gt;", "df/dd6/a05325.html", "df/dd6/a05325" ],
-        [ "HASHPortBase", "dc/dd3/a05333.html", "dc/dd3/a05333" ],
-        [ "I2CPort&lt; DriverMode::BLOCKING &gt;", "d4/db2/a05337.html", "d4/db2/a05337" ],
-        [ "I2CPort&lt; DriverMode::DMA &gt;", "d4/d27/a05341.html", "d4/d27/a05341" ],
-        [ "I2CPort&lt; DriverMode::IT &gt;", "de/d6f/a05345.html", "de/d6f/a05345" ],
-        [ "I2CPortAsync", "d9/d67/a05349.html", "d9/d67/a05349" ],
-        [ "I2CPortBase", "df/d8b/a05357.html", "df/d8b/a05357" ],
-        [ "IndependentWatchdog", "d9/d1e/a05361.html", "d9/d1e/a05361" ],
-        [ "LPTimer", "de/df6/a05437.html", "de/df6/a05437" ],
-        [ "OSPIPort&lt; DriverMode::BLOCKING &gt;", "d2/d8f/a05365.html", "d2/d8f/a05365" ],
-        [ "OSPIPort&lt; DriverMode::DMA &gt;", "d0/deb/a05369.html", "d0/deb/a05369" ],
-        [ "OSPIPort&lt; DriverMode::IT &gt;", "d9/d09/a05373.html", "d9/d09/a05373" ],
-        [ "OSPIPortAsync", "de/d16/a05377.html", "de/d16/a05377" ],
-        [ "OSPIPortBase", "d0/d61/a05385.html", "d0/d61/a05385" ],
-        [ "OTP", "d8/d58/a05389.html", "d8/d58/a05389" ],
-        [ "Reset", "d0/dc6/a05393.html", "d0/dc6/a05393" ],
-        [ "RTCDevice", "d1/d0a/a05401.html", "d1/d0a/a05401" ],
-        [ "SPIPort&lt; DriverMode::BLOCKING &gt;", "dc/d67/a05413.html", "dc/d67/a05413" ],
-        [ "SPIPort&lt; DriverMode::DMA &gt;", "d6/dd2/a05417.html", "d6/dd2/a05417" ],
-        [ "SPIPort&lt; DriverMode::IT &gt;", "d2/d1d/a05421.html", "d2/d1d/a05421" ],
-        [ "SPIPortAsync", "d7/dde/a05425.html", "d7/dde/a05425" ],
-        [ "SPIPortBase", "d6/deb/a05433.html", "d6/deb/a05433" ],
-        [ "StreamSerialPort", "dd/da9/a05473.html", "dd/da9/a05473" ],
-        [ "UARTPort&lt; DriverMode::BLOCKING &gt;", "de/d74/a05481.html", "de/d74/a05481" ],
-        [ "UARTPort&lt; DriverMode::DMA &gt;", "de/dc0/a05485.html", "de/dc0/a05485" ],
-        [ "UARTPort&lt; DriverMode::IT &gt;", "dd/dbd/a05489.html", "dd/dbd/a05489" ],
-        [ "UARTPortAsync", "d2/da0/a05493.html", "d2/da0/a05493" ],
-        [ "UARTPortBase", "d2/d18/a05501.html", "d2/d18/a05501" ],
-        [ "USBDevicePort&lt; DriverMode::DMA &gt;", "d1/d13/a05505.html", "d1/d13/a05505" ],
-        [ "USBDevicePort&lt; DriverMode::IT &gt;", "da/d38/a05509.html", "da/d38/a05509" ],
-        [ "USBDevicePortAsync", "d8/dc9/a05513.html", "d8/dc9/a05513" ],
-        [ "USBDevicePortBase", "dc/d02/a05525.html", "dc/d02/a05525" ],
-        [ "USBHostPort&lt; DriverMode::DMA &gt;", "d2/d99/a05529.html", "d2/d99/a05529" ],
-        [ "USBHostPort&lt; DriverMode::IT &gt;", "d1/dfe/a05533.html", "d1/dfe/a05533" ],
-        [ "USBHostPortAsync", "d0/d8e/a05537.html", "d0/d8e/a05537" ],
-        [ "USBHostPortBase", "d1/da9/a05549.html", "d1/da9/a05549" ],
-        [ "USBOtgPort", "dc/d3d/a05553.html", "dc/d3d/a05553" ],
-        [ "USBSetupPacket", "d9/ddf/a05557.html", "d9/ddf/a05557" ],
-        [ "WindowWatchdog", "d8/d7e/a05561.html", "d8/d7e/a05561" ]
+        [ "ADCPort&lt; DriverMode::BLOCKING &gt;", "d6/daf/a05323.html", "d6/daf/a05323" ],
+        [ "ADCPort&lt; DriverMode::DMA &gt;", "d0/d31/a05327.html", "d0/d31/a05327" ],
+        [ "ADCPort&lt; DriverMode::IT &gt;", "d5/d15/a05335.html", "d5/d15/a05335" ],
+        [ "ADCPortBase", "dd/dd5/a05343.html", "dd/dd5/a05343" ],
+        [ "AsyncPortCore", "df/d06/a05371.html", "df/d06/a05371" ],
+        [ "BackupRamDomain", "d3/d04/a05347.html", "d3/d04/a05347" ],
+        [ "CANFrame", "d3/dea/a05363.html", "d3/dea/a05363" ],
+        [ "CANPort&lt; DriverMode::BLOCKING &gt;", "df/d5e/a05351.html", "df/d5e/a05351" ],
+        [ "CANPort&lt; DriverMode::IT &gt;", "dd/dc9/a05355.html", "dd/dc9/a05355" ],
+        [ "CANPortBase", "db/da4/a05367.html", "db/da4/a05367" ],
+        [ "DACPort&lt; DriverMode::BLOCKING &gt;", "db/d18/a05383.html", "db/d18/a05383" ],
+        [ "DACPort&lt; DriverMode::DMA &gt;", "db/de3/a05387.html", "db/de3/a05387" ],
+        [ "DACPort&lt; DriverMode::IT &gt;", "d2/dc7/a05391.html", "d2/dc7/a05391" ],
+        [ "DACPortBase", "dc/daf/a05399.html", "dc/daf/a05399" ],
+        [ "Device", "dd/d3d/a05379.html", "dd/d3d/a05379" ],
+        [ "DeviceManager", "d3/d97/a05375.html", "d3/d97/a05375" ],
+        [ "FlashInterface", "d1/d5e/a05403.html", "d1/d5e/a05403" ],
+        [ "HASHPort&lt; DriverMode::BLOCKING &gt;", "d1/dd6/a05435.html", "d1/dd6/a05435" ],
+        [ "HASHPort&lt; DriverMode::IT &gt;", "d6/d39/a05439.html", "d6/d39/a05439" ],
+        [ "HASHPortBase", "d1/db0/a05447.html", "d1/db0/a05447" ],
+        [ "I2CPort&lt; DriverMode::BLOCKING &gt;", "dc/d83/a05451.html", "dc/d83/a05451" ],
+        [ "I2CPort&lt; DriverMode::DMA &gt;", "d3/dd4/a05455.html", "d3/dd4/a05455" ],
+        [ "I2CPort&lt; DriverMode::IT &gt;", "db/d24/a05459.html", "db/d24/a05459" ],
+        [ "I2CPortAsync", "da/d34/a05463.html", "da/d34/a05463" ],
+        [ "I2CPortBase", "d5/d35/a05471.html", "d5/d35/a05471" ],
+        [ "IndependentWatchdog", "d9/dae/a05475.html", "d9/dae/a05475" ],
+        [ "LPTimer", "de/ddf/a05551.html", "de/ddf/a05551" ],
+        [ "OSPIPort&lt; DriverMode::BLOCKING &gt;", "d6/d94/a05479.html", "d6/d94/a05479" ],
+        [ "OSPIPort&lt; DriverMode::DMA &gt;", "d1/d27/a05483.html", "d1/d27/a05483" ],
+        [ "OSPIPort&lt; DriverMode::IT &gt;", "d6/ddb/a05487.html", "d6/ddb/a05487" ],
+        [ "OSPIPortAsync", "df/d51/a05491.html", "df/d51/a05491" ],
+        [ "OSPIPortBase", "df/d7e/a05499.html", "df/d7e/a05499" ],
+        [ "OTP", "d6/d15/a05503.html", "d6/d15/a05503" ],
+        [ "Reset", "d0/d2f/a05507.html", "d0/d2f/a05507" ],
+        [ "RTCDevice", "d1/dab/a05515.html", "d1/dab/a05515" ],
+        [ "SPIPort&lt; DriverMode::BLOCKING &gt;", "d3/d68/a05527.html", "d3/d68/a05527" ],
+        [ "SPIPort&lt; DriverMode::DMA &gt;", "d1/d01/a05531.html", "d1/d01/a05531" ],
+        [ "SPIPort&lt; DriverMode::IT &gt;", "d7/dbb/a05535.html", "d7/dbb/a05535" ],
+        [ "SPIPortAsync", "d6/d15/a05539.html", "d6/d15/a05539" ],
+        [ "SPIPortBase", "da/dfb/a05547.html", "da/dfb/a05547" ],
+        [ "StreamSerialPort", "dc/d4a/a05587.html", "dc/d4a/a05587" ],
+        [ "UARTPort&lt; DriverMode::BLOCKING &gt;", "d6/d66/a05595.html", "d6/d66/a05595" ],
+        [ "UARTPort&lt; DriverMode::DMA &gt;", "d8/d26/a05599.html", "d8/d26/a05599" ],
+        [ "UARTPort&lt; DriverMode::IT &gt;", "db/dd0/a05603.html", "db/dd0/a05603" ],
+        [ "UARTPortAsync", "db/de6/a05607.html", "db/de6/a05607" ],
+        [ "UARTPortBase", "da/d5c/a05615.html", "da/d5c/a05615" ],
+        [ "USBDevicePort&lt; DriverMode::DMA &gt;", "de/dba/a05619.html", "de/dba/a05619" ],
+        [ "USBDevicePort&lt; DriverMode::IT &gt;", "d3/d4e/a05623.html", "d3/d4e/a05623" ],
+        [ "USBDevicePortAsync", "da/da1/a05627.html", "da/da1/a05627" ],
+        [ "USBDevicePortBase", "d7/d9a/a05639.html", "d7/d9a/a05639" ],
+        [ "USBHostPort&lt; DriverMode::DMA &gt;", "d7/d3b/a05643.html", "d7/d3b/a05643" ],
+        [ "USBHostPort&lt; DriverMode::IT &gt;", "d2/da1/a05647.html", "d2/da1/a05647" ],
+        [ "USBHostPortAsync", "d1/d19/a05651.html", "d1/d19/a05651" ],
+        [ "USBHostPortBase", "da/dde/a05663.html", "da/dde/a05663" ],
+        [ "USBOtgPort", "d6/dda/a05667.html", "d6/dda/a05667" ],
+        [ "USBSetupPacket", "d4/d71/a05671.html", "d4/d71/a05671" ],
+        [ "WindowWatchdog", "d2/d44/a05675.html", "d2/d44/a05675" ]
       ] ],
-      [ "Helper", "d3/dd1/a00914.html", [
-        [ "Convert", "d2/d5e/a00915.html", [
-          [ "Ascii", "d3/dc0/a05573.html", null ],
-          [ "Bcd", "d1/dfe/a05577.html", "d1/dfe/a05577" ],
-          [ "dBM", "d7/df4/a05581.html", null ],
-          [ "Hex", "d3/d99/a05585.html", "d3/d99/a05585" ],
-          [ "HexHelper", "d0/de1/a05589.html", null ],
-          [ "Percent", "df/d1e/a05593.html", null ]
+      [ "Helper", "db/d08/a01028.html", [
+        [ "Convert", "d0/daa/a01029.html", [
+          [ "Ascii", "d2/de1/a05687.html", null ],
+          [ "Bcd", "d8/d58/a05691.html", "d8/d58/a05691" ],
+          [ "dBM", "d5/dd3/a05695.html", null ],
+          [ "Hex", "d4/da5/a05699.html", "d4/da5/a05699" ],
+          [ "HexHelper", "d3/d30/a05703.html", null ],
+          [ "Percent", "d3/d39/a05707.html", null ]
         ] ],
-        [ "BitSet", "d2/d4a/a05565.html", "d2/d4a/a05565" ],
-        [ "CityHash", "d3/d72/a05569.html", "d3/d72/a05569" ],
-        [ "crc16", "da/d24/a05597.html", "da/d24/a05597" ],
-        [ "crc8", "de/dc2/a05601.html", "de/dc2/a05601" ],
-        [ "DateTime", "d4/d64/a05605.html", "d4/d64/a05605" ],
-        [ "Delay", "d1/df2/a05617.html", "d1/df2/a05617" ],
-        [ "Exception", "db/d36/a05621.html", "db/d36/a05621" ],
-        [ "FindPeaks", "db/d7d/a05625.html", "db/d7d/a05625" ],
-        [ "Integrator", "d1/d03/a05633.html", "d1/d03/a05633" ],
-        [ "JaggedArrayBase", "d5/d81/a05641.html", "d5/d81/a05641" ],
-        [ "MoonPhase", "d9/d8d/a05645.html", "d9/d8d/a05645" ],
-        [ "RingBuffer", "d8/d3d/a05649.html", "d8/d3d/a05649" ],
-        [ "StringHelper", "db/d56/a05653.html", null ],
-        [ "Sunset", "db/dbf/a05657.html", "db/dbf/a05657" ],
-        [ "SwapBytes", "d2/d57/a05665.html", null ],
-        [ "TimePeriod", "d0/d2a/a05669.html", "d0/d2a/a05669" ],
-        [ "TimeZone", "d2/d92/a05673.html", "d2/d92/a05673" ]
+        [ "BitSet", "d3/ddb/a05679.html", "d3/ddb/a05679" ],
+        [ "CityHash", "d6/d3e/a05683.html", "d6/d3e/a05683" ],
+        [ "crc16", "dd/de0/a05711.html", "dd/de0/a05711" ],
+        [ "crc8", "df/db7/a05715.html", "df/db7/a05715" ],
+        [ "DateTime", "d8/d2e/a05719.html", "d8/d2e/a05719" ],
+        [ "Delay", "d9/d52/a05731.html", "d9/d52/a05731" ],
+        [ "Exception", "d0/df5/a05735.html", "d0/df5/a05735" ],
+        [ "FindPeaks", "d1/d64/a05739.html", "d1/d64/a05739" ],
+        [ "Integrator", "d6/df4/a05747.html", "d6/df4/a05747" ],
+        [ "JaggedArrayBase", "d9/dd4/a05755.html", "d9/dd4/a05755" ],
+        [ "MoonPhase", "d8/dbc/a05759.html", "d8/dbc/a05759" ],
+        [ "RingBuffer", "d8/d36/a05763.html", "d8/d36/a05763" ],
+        [ "StringHelper", "d5/d1a/a05767.html", null ],
+        [ "Sunset", "de/dc1/a05771.html", "de/dc1/a05771" ],
+        [ "SwapBytes", "d6/d64/a05779.html", null ],
+        [ "TimePeriod", "d6/d37/a05783.html", "d6/d37/a05783" ],
+        [ "TimeZone", "d0/d25/a05787.html", "d0/d25/a05787" ]
       ] ],
-      [ "HTTP", "d6/d66/a00916.html", [
-        [ "Response", "d0/d8b/a05681.html", "d0/d8b/a05681" ],
-        [ "Client", "d6/d6d/a05685.html", "d6/d6d/a05685" ],
-        [ "WolfSSLTransport", "d9/d6d/a05693.html", "d9/d6d/a05693" ]
+      [ "HTTP", "de/d41/a01030.html", [
+        [ "Response", "d1/d9a/a05795.html", "d1/d9a/a05795" ],
+        [ "Client", "dc/d27/a05799.html", "dc/d27/a05799" ],
+        [ "WolfSSLTransport", "d2/dcf/a05807.html", "d2/dcf/a05807" ]
       ] ],
-      [ "Math", "d4/ddc/a00917.html", [
-        [ "Filter", "d0/ddf/a00918.html", [
-          [ "Kalman", "d8/ddc/a05697.html", "d8/ddc/a05697" ]
+      [ "Math", "d6/dcf/a01031.html", [
+        [ "Filter", "df/d89/a01032.html", [
+          [ "Kalman", "da/d30/a05811.html", "da/d30/a05811" ]
         ] ],
-        [ "CubicInterpolation", "dd/d32/a05709.html", "dd/d32/a05709" ],
-        [ "HammingCode", "db/db9/a05705.html", null ],
-        [ "LinearInterpolation", "d5/d30/a05721.html", "d5/d30/a05721" ],
-        [ "Pid", "df/ddb/a05729.html", "df/ddb/a05729" ]
+        [ "CubicInterpolation", "de/d27/a05823.html", "de/d27/a05823" ],
+        [ "HammingCode", "d0/d47/a05819.html", null ],
+        [ "LinearInterpolation", "df/d51/a05835.html", "df/d51/a05835" ],
+        [ "Pid", "d8/d08/a05843.html", "d8/d08/a05843" ]
       ] ],
-      [ "Pneumatics", "d1/d0b/a00919.html", [
-        [ "Cylinder", "d9/d6a/a05741.html", "d9/d6a/a05741" ],
-        [ "RotationCylinder", "d3/dc8/a05749.html", "d3/dc8/a05749" ],
-        [ "Sensor", "db/da0/a05757.html", "db/da0/a05757" ]
+      [ "Pneumatics", "d2/d57/a01033.html", [
+        [ "Cylinder", "d4/d27/a05855.html", "d4/d27/a05855" ],
+        [ "RotationCylinder", "d2/dea/a05863.html", "d2/dea/a05863" ],
+        [ "Sensor", "d5/dfd/a05871.html", "d5/dfd/a05871" ]
       ] ],
-      [ "SolarControl", "dd/d7a/a00921.html", [
-        [ "MPPT", "d3/d83/a05889.html", "d3/d83/a05889" ],
-        [ "PerturbAndObserve", "db/da8/a05901.html", "db/da8/a05901" ]
+      [ "SolarControl", "de/d26/a01035.html", [
+        [ "MPPT", "d3/d59/a06003.html", "d3/d59/a06003" ],
+        [ "PerturbAndObserve", "dc/d04/a06015.html", "dc/d04/a06015" ]
       ] ],
-      [ "System", "dd/dcf/a00922.html", [
-        [ "Configuration", "dc/dec/a05913.html", "dc/dec/a05913" ],
-        [ "FirmwareVersion", "de/d82/a05917.html", "de/d82/a05917" ],
-        [ "HardwareVersion", "d8/d07/a05921.html", "d8/d07/a05921" ],
-        [ "Parameters", "dd/da9/a05929.html", "dd/da9/a05929" ],
-        [ "ProduceDate", "da/dca/a05933.html", "da/dca/a05933" ],
-        [ "SerialNumber", "d9/d67/a05937.html", "d9/d67/a05937" ],
-        [ "Storage", "d6/d55/a05925.html", "d6/d55/a05925" ],
-        [ "System", "d2/d5c/a05941.html", "d2/d5c/a05941" ],
-        [ "Version", "d4/d11/a05953.html", "d4/d11/a05953" ],
-        [ "VersionBase", "d5/d57/a05969.html", "d5/d57/a05969" ]
+      [ "System", "d8/d79/a01036.html", [
+        [ "Configuration", "db/dc9/a06027.html", "db/dc9/a06027" ],
+        [ "FirmwareVersion", "d8/da2/a06031.html", "d8/da2/a06031" ],
+        [ "HardwareVersion", "d1/de4/a06035.html", "d1/de4/a06035" ],
+        [ "Parameters", "d3/df2/a06043.html", "d3/df2/a06043" ],
+        [ "ProduceDate", "d2/d6a/a06047.html", "d2/d6a/a06047" ],
+        [ "SerialNumber", "d9/d4d/a06051.html", "d9/d4d/a06051" ],
+        [ "Storage", "d1/dd7/a06039.html", "d1/dd7/a06039" ],
+        [ "System", "de/d62/a06055.html", "de/d62/a06055" ],
+        [ "Version", "d7/d20/a06067.html", "d7/d20/a06067" ],
+        [ "VersionBase", "d8/d7a/a06083.html", "d8/d7a/a06083" ]
       ] ],
-      [ "USB", "df/de9/a00923.html", [
-        [ "CDCDevice", "d2/d3c/a05973.html", "d2/d3c/a05973" ],
-        [ "SerialPort", "d8/dc4/a05997.html", "d8/dc4/a05997" ],
-        [ "SerialPortRepeaterBase", "d0/d4e/a06005.html", "d0/d4e/a06005" ]
+      [ "USB", "d2/d41/a01037.html", [
+        [ "CDCDevice", "df/df6/a06087.html", "df/df6/a06087" ],
+        [ "SerialPort", "dc/dda/a06111.html", "dc/dda/a06111" ],
+        [ "SerialPortRepeaterBase", "db/d9d/a06119.html", "db/d9d/a06119" ]
       ] ],
-      [ "XCOM", "de/d62/a00924.html", [
-        [ "Protocol", "d7/d72/a06017.html", "d7/d72/a06017" ],
-        [ "ServiceBase", "d6/da1/a06025.html", "d6/da1/a06025" ]
+      [ "XCOM", "d4/dbc/a01038.html", [
+        [ "Protocol", "d4/d84/a06131.html", "d4/d84/a06131" ],
+        [ "ServiceBase", "d3/d0b/a06139.html", "d3/d0b/a06139" ]
       ] ],
-      [ "Exception", "d0/df4/a04201.html", "d0/df4/a04201" ]
+      [ "Exception", "d5/d84/a04315.html", "d5/d84/a04315" ]
     ] ],
-    [ "RTOS", "d6/d82/a00920.html", [
-      [ "EventGroup", "d4/d48/a05765.html", "d4/d48/a05765" ],
-      [ "Kernel", "dc/dd8/a05769.html", "dc/dd8/a05769" ],
-      [ "MemoryManager", "db/d00/a05793.html", "db/d00/a05793" ],
-      [ "MessageBuffer", "dc/da3/a05797.html", "dc/da3/a05797" ],
-      [ "Mutex", "d5/dc0/a05801.html", "d5/dc0/a05801" ],
-      [ "MutexGuard", "d0/d43/a05805.html", "d0/d43/a05805" ],
-      [ "PowerManager", "d7/d4f/a05809.html", "d7/d4f/a05809" ],
-      [ "Queue", "d5/d9e/a05821.html", "d5/d9e/a05821" ],
-      [ "Semaphore", "d9/d93/a05825.html", "d9/d93/a05825" ],
-      [ "SemaphoreBase", "dc/d5f/a05829.html", "dc/d5f/a05829" ],
-      [ "SemaphoreCounting", "d5/de0/a05833.html", "d5/de0/a05833" ],
-      [ "StreamBuffer", "d3/d07/a05837.html", "d3/d07/a05837" ],
-      [ "Task", "d7/d3b/a05841.html", "d7/d3b/a05841" ],
-      [ "TickClient", "de/d8f/a05865.html", "de/d8f/a05865" ],
-      [ "TickCounter", "d4/d80/a05873.html", "d4/d80/a05873" ],
-      [ "Timeout", "d1/dc8/a05877.html", "d1/dc8/a05877" ],
-      [ "Timer", "d9/d28/a05881.html", "d9/d28/a05881" ]
+    [ "RTOS", "de/d91/a01034.html", [
+      [ "EventGroup", "de/d76/a05879.html", "de/d76/a05879" ],
+      [ "Kernel", "df/df8/a05883.html", "df/df8/a05883" ],
+      [ "MemoryManager", "da/d2e/a05907.html", "da/d2e/a05907" ],
+      [ "MessageBuffer", "db/da7/a05911.html", "db/da7/a05911" ],
+      [ "Mutex", "d1/d77/a05915.html", "d1/d77/a05915" ],
+      [ "MutexGuard", "da/dc6/a05919.html", "da/dc6/a05919" ],
+      [ "PowerManager", "d2/dde/a05923.html", "d2/dde/a05923" ],
+      [ "Queue", "d3/d01/a05935.html", "d3/d01/a05935" ],
+      [ "Semaphore", "dd/d7b/a05939.html", "dd/d7b/a05939" ],
+      [ "SemaphoreBase", "d3/d4c/a05943.html", "d3/d4c/a05943" ],
+      [ "SemaphoreCounting", "d1/d1f/a05947.html", "d1/d1f/a05947" ],
+      [ "StreamBuffer", "dc/d21/a05951.html", "dc/d21/a05951" ],
+      [ "Task", "d0/d5d/a05955.html", "d0/d5d/a05955" ],
+      [ "TickClient", "d6/d0c/a05979.html", "d6/d0c/a05979" ],
+      [ "TickCounter", "d4/df8/a05987.html", "d4/df8/a05987" ],
+      [ "Timeout", "de/d2b/a05991.html", "de/d2b/a05991" ],
+      [ "Timer", "d2/d10/a05995.html", "d2/d10/a05995" ]
     ] ],
-    [ "Color", "de/d47/a04501.html", "de/d47/a04501" ],
-    [ "FunctionRef", "da/d54/a04673.html", null ],
-    [ "FunctionRef&lt; Ret(Args...) const &gt;", "d9/d45/a04693.html", "d9/d45/a04693" ],
-    [ "FunctionRef&lt; Ret(Args...) const noexcept &gt;", "df/d8c/a04701.html", "df/d8c/a04701" ],
-    [ "FunctionRef&lt; Ret(Args...) noexcept &gt;", "d2/d91/a04697.html", "d2/d91/a04697" ],
-    [ "FunctionRef&lt; Ret(Args...)&gt;", "d7/dd4/a04689.html", "d7/dd4/a04689" ],
-    [ "MulticastDelegate", "d7/d3a/a04705.html", null ],
-    [ "MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;", "dd/dcf/a04709.html", "dd/dcf/a04709" ]
+    [ "Color", "dc/d9b/a04615.html", "dc/d9b/a04615" ],
+    [ "FunctionRef", "d2/df3/a04787.html", null ],
+    [ "FunctionRef&lt; Ret(Args...) const &gt;", "d1/da9/a04807.html", "d1/da9/a04807" ],
+    [ "FunctionRef&lt; Ret(Args...) const noexcept &gt;", "d2/d04/a04815.html", "d2/d04/a04815" ],
+    [ "FunctionRef&lt; Ret(Args...) noexcept &gt;", "d8/d95/a04811.html", "d8/d95/a04811" ],
+    [ "FunctionRef&lt; Ret(Args...)&gt;", "d9/d62/a04803.html", "d9/d62/a04803" ],
+    [ "MulticastDelegate", "d6/d6f/a04819.html", null ],
+    [ "MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;", "d6/d34/a04823.html", "d6/d34/a04823" ]
 ];

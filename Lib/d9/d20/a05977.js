@@ -1,15 +1,16 @@
 var a05977 =
 [
-    [ "bulkInFifoWords", "d9/d20/a05977.html#a0ed8db5411c1921c529630d3a44f7360", null ],
-    [ "ep0FifoWords", "d9/d20/a05977.html#abe18c856018762f3999b3364d7007211", null ],
-    [ "manufacturer", "d9/d20/a05977.html#a744ec90dd85932ef887d50642ebe38d7", null ],
-    [ "notifyFifoWords", "d9/d20/a05977.html#a9c483b42f1b4a8e9b20622f07d264bdf", null ],
-    [ "port", "d9/d20/a05977.html#aaf78772f776ce31d0da23466cc5000f9", null ],
-    [ "product", "d9/d20/a05977.html#ab780a9d88218c535e886fb1f2062438e", null ],
-    [ "productId", "d9/d20/a05977.html#a79f4483e676366581d5b0d0dfde54302", null ],
-    [ "releaseNumber", "d9/d20/a05977.html#a9cad8695fc2df220e8e749ca17a46b1e", null ],
-    [ "rxBufferSize", "d9/d20/a05977.html#ade2ac000564c55d1878eb4fb1755891f", null ],
-    [ "rxFifoWords", "d9/d20/a05977.html#a230b63ee56cf949511afd69dcfbc7b07", null ],
-    [ "serialNumber", "d9/d20/a05977.html#a9fb3962389441b192d0dbf27d5c7d570", null ],
-    [ "vendorId", "d9/d20/a05977.html#a901d8fbdeedadd519352ef01e124ebaa", null ]
+    [ "Config", "d7/de6/a05981.html", "d7/de6/a05981" ],
+    [ "DataMap", "d7/d05/a05985.html", "d7/d05/a05985" ],
+    [ "LastResetState", "d9/d20/a05977.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
+    [ "System", "d9/d20/a05977.html#af4fce1b946378e3b68e2dab8e562134f", null ],
+    [ "System", "d9/d20/a05977.html#a5ea26b055ba2f74bfb770c90aea5ed2e", null ],
+    [ "operator=", "d9/d20/a05977.html#af9936cf8ce134998481d3b63473f909b", null ],
+    [ "configuration", "d9/d20/a05977.html#a97e928b4c78a8a3e74760b983ea17573", null ],
+    [ "firmwareVersion", "d9/d20/a05977.html#a6b544bb551e83fc1c464e0e9572f48ab", null ],
+    [ "hardwareVersion", "d9/d20/a05977.html#a6d884054d36dd9f4b62aed86e5830d9b", null ],
+    [ "lastResetState", "d9/d20/a05977.html#add4f1e84db40b8862ab63a06766ae439", null ],
+    [ "produceDate", "d9/d20/a05977.html#a542e9245a4b9791006636abac56b2574", null ],
+    [ "saleDate", "d9/d20/a05977.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
+    [ "serialNumber", "d9/d20/a05977.html#a2a1eff5a3c2fc68cb2d853d61065a903", null ]
 ];

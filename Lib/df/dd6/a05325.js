@@ -1,16 +1,14 @@
 var a05325 =
 [
-    [ "Event", "dc/db1/a05329.html", null ],
-    [ "Sha256Digest", "df/dd6/a05325.html#add4d9f33ecf447251492399927b27da5", null ],
-    [ "HASHPort", "df/dd6/a05325.html#a6c119eb2a5f647e1754a57b0b850fe4f", null ],
-    [ "~HASHPort", "df/dd6/a05325.html#a4160e13f3eda86ab67d5e41e3d9f0fca", null ],
-    [ "HASHPort", "df/dd6/a05325.html#af6b9554592c3ad75d36bdd11041e7006", null ],
-    [ "HASHPort", "df/dd6/a05325.html#a491caf024458b7906cce604bafe47e1c", null ],
-    [ "close", "df/dd6/a05325.html#afd2e0fb455d45519f537895cc2a022c3", null ],
-    [ "getHandle", "df/dd6/a05325.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "df/dd6/a05325.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "open", "df/dd6/a05325.html#abc11d9a441e0dc16a3e5a353bd0445fd", null ],
-    [ "operator=", "df/dd6/a05325.html#a4313f6e70d3c0be3f82ed001be995baf", null ],
-    [ "operator=", "df/dd6/a05325.html#a816e654f5c439b829301c71a3dbdf30d", null ],
-    [ "sha256", "df/dd6/a05325.html#a331d3b9f3f4f47d04927bfe00ec600e6", null ]
+    [ "FlashInterface", "df/dd6/a05325.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
+    [ "~FlashInterface", "df/dd6/a05325.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
+    [ "FlashInterface", "df/dd6/a05325.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
+    [ "FlashInterface", "df/dd6/a05325.html#a1c805cbd8158ca094182032c42fa8a68", null ],
+    [ "eraseSector", "df/dd6/a05325.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
+    [ "lock", "df/dd6/a05325.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
+    [ "operator=", "df/dd6/a05325.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
+    [ "operator=", "df/dd6/a05325.html#a2e5471c04f3069860252fdf10e53270a", null ],
+    [ "unlock", "df/dd6/a05325.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
+    [ "writeBuffer", "df/dd6/a05325.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
+    [ "writeWord", "df/dd6/a05325.html#ad771befb1be3db0d319c46507a7896ca", null ]
 ];

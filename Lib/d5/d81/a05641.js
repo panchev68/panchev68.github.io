@@ -1,14 +1,14 @@
 var a05641 =
 [
-    [ "JaggedArrayBase", "d5/d81/a05641.html#ae79ec88b260154126e7ec280a136c14a", null ],
-    [ "addItem", "d5/d81/a05641.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
-    [ "addItems", "d5/d81/a05641.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
-    [ "clearItems", "d5/d81/a05641.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
-    [ "getElements", "d5/d81/a05641.html#a428409a8385b8547bfa65d04a71565b1", null ],
-    [ "getElements", "d5/d81/a05641.html#a718f7db994c254bce01246ea32b1d653", null ],
-    [ "getSize", "d5/d81/a05641.html#afca6ed09d7865e2bac45430fda768aae", null ],
-    [ "operator[]", "d5/d81/a05641.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
-    [ "operator[]", "d5/d81/a05641.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
-    [ "removeItem", "d5/d81/a05641.html#a819041f4264ebfce07665c548d5dd7bc", null ],
-    [ "elementList", "d5/d81/a05641.html#a319cd6aae084f711db14582ed55929a5", null ]
+    [ "Time", "d9/d8d/a05645.html", "d9/d8d/a05645" ],
+    [ "Date", "d8/d3d/a05649.html", "d8/d3d/a05649" ],
+    [ "DateTime", "d5/d81/a05641.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
+    [ "DateTime", "d5/d81/a05641.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
+    [ "isValid", "d5/d81/a05641.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
+    [ "operator<=>", "d5/d81/a05641.html#a768cad764174be4d63763ddda26b9f67", null ],
+    [ "operator==", "d5/d81/a05641.html#a3d983b842fee71216375379ddc6be3ce", null ],
+    [ "to_tm", "d5/d81/a05641.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
+    [ "toSysSeconds", "d5/d81/a05641.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
+    [ "date", "d5/d81/a05641.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
+    [ "time", "d5/d81/a05641.html#a99c6886879b06c9396a2df8bd08ce997", null ]
 ];

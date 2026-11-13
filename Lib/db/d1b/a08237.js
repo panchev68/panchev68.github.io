@@ -1,6 +1,7 @@
 var a08237 =
 [
-    [ "Lib::Digi::API::Service::Parameters", "d5/db5/a04861.html", "d5/db5/a04861" ],
-    [ "Lib::Digi::API::Service::Parameters::Data", "dd/d2f/a04865.html", "dd/d2f/a04865" ],
-    [ "Lib::Digi::API::Service::Parameters::Data::SerialNumber", "d7/dd0/a04869.html", "d7/dd0/a04869" ]
+    [ "Lib::BSP::FMEM::OSPI::Config", "df/d81/a04413.html", "df/d81/a04413" ],
+    [ "Lib::BSP::FMEM::OSPI::Info", "db/d96/a04417.html", "db/d96/a04417" ],
+    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ", "d4/d86/a04421.html", "d4/d86/a04421" ],
+    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register", "d3/db4/a04425.html", "d3/db4/a04425" ]
 ];

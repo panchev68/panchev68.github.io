@@ -1,4 +1,5 @@
 var a00296 =
 [
-    [ "Lib::Digi::Core::DigiApiFrameBuffer", "df/dd6/a04917.html", "df/dd6/a04917" ]
+    [ "Lib::BSP::SK6812", "df/d53/a04623.html", "df/d53/a04623" ],
+    [ "Lib::BSP::SK6812::Ring&lt; T_COUNT &gt;", "d8/da0/a04627.html", "d8/da0/a04627" ]
 ];

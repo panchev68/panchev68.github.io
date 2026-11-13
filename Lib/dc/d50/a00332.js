@@ -1,4 +1,4 @@
 var a00332 =
 [
-    [ "Lib::Digi::Core::Frame0x09", "df/d76/a04973.html", "df/d76/a04973" ]
+    [ "Lib::Digi::Core::DigiApiFrameBuffer", "dc/db4/a04953.html", "dc/db4/a04953" ]
 ];

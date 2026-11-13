@@ -1,17 +1,18 @@
 var a05469 =
 [
-    [ "Manager", "df/d17/a05469.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "df/d17/a05469.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimTimebase", "df/d17/a05469.html#a2c242b351c880239ebc508905c1cb177", null ],
-    [ "~TimTimebase", "df/d17/a05469.html#a90c3f44e84cfcfed7135d75abee0a2e1", null ],
-    [ "bindWorker", "df/d17/a05469.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
-    [ "getHandle", "df/d17/a05469.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "notifyWorkerFromISR", "df/d17/a05469.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "setPeriod", "df/d17/a05469.html#a29d9a9e5c9f5213605679a13c42aa764", null ],
-    [ "start", "df/d17/a05469.html#ab552a6aca3293c0ecdd0ce26d6668663", null ],
-    [ "stop", "df/d17/a05469.html#afffbfe2b0fcf27e6081cc6983d06e626", null ],
-    [ "waitEvent", "df/d17/a05469.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
-    [ "waitPeriod", "df/d17/a05469.html#a2b19392b62c66b845538ec09abd31354", null ],
-    [ "waitPeriod", "df/d17/a05469.html#a12ce8677b8ff16469cb2f21c9a1eb5bb", null ],
-    [ "void::Lib_HAL_TimTimebase_PeriodElapsed", "df/d17/a05469.html#ae72687d02451939bdec7c3aaba269a45", null ]
+    [ "Timeout", "df/d17/a05469.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
+    [ "SPIPortBase", "df/d17/a05469.html#af7d9dc0b540fee5b78bdf3853a203937", null ],
+    [ "SPIPortBase", "df/d17/a05469.html#a3d58a47067dbf8b77d78250373234f6d", null ],
+    [ "SPIPortBase", "df/d17/a05469.html#afa9b12cc40b3d5af68b16f594f5a92f7", null ],
+    [ "~SPIPortBase", "df/d17/a05469.html#a88e5899dd8db4b887c6afbf89dcbed77", null ],
+    [ "bindBeginTransactionFunc", "df/d17/a05469.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "df/d17/a05469.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "df/d17/a05469.html#ab6529e241d0728159eb3f60c7621b666", null ],
+    [ "isBusy", "df/d17/a05469.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "open", "df/d17/a05469.html#af039716c9cb01db958d77f8c581627cf", null ],
+    [ "operator=", "df/d17/a05469.html#a33e5060aa4a9e4755b6786700276a5bf", null ],
+    [ "operator=", "df/d17/a05469.html#ae6957396d6689ed6ebcffc3b11177118", null ],
+    [ "receive", "df/d17/a05469.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "df/d17/a05469.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "df/d17/a05469.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

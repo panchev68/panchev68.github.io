@@ -1,4 +1,5 @@
 var a00209 =
 [
-    [ "Lib::Digi::Core::Diagnostic", "dd/dcf/a04913.html", "dd/dcf/a04913" ]
+    [ "Lib::BSP::Beep", "de/d68/a04331.html", "de/d68/a04331" ],
+    [ "Lib::BSP::Beep::Config", "d9/d37/a04335.html", "d9/d37/a04335" ]
 ];

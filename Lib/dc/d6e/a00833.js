@@ -1,4 +1,4 @@
 var a00833 =
 [
-    [ "Lib::System::ProduceDate", "da/dca/a05933.html", "da/dca/a05933" ]
+    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "d8/d36/a05763.html", "d8/d36/a05763" ]
 ];

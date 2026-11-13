@@ -1,8 +1,7 @@
 var a06017 =
 [
-    [ "Frame", "d6/dc2/a06021.html", "d6/dc2/a06021" ],
-    [ "Status", "d7/d72/a06017.html#a9e9dc1e741ca0edee8938fa06d7a9c70", [
-      [ "OK", "d7/d72/a06017.html#a9e9dc1e741ca0edee8938fa06d7a9c70ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d7/d72/a06017.html#a9e9dc1e741ca0edee8938fa06d7a9c70abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "baudRate", "d7/d72/a06017.html#ad346dd14c75b113671501f286d5348d3", null ],
+    [ "dataBits", "d7/d72/a06017.html#a0834146908baa5e641e203755bcae7d0", null ],
+    [ "parity", "d7/d72/a06017.html#ae1d9173fb3c732649e3ae12b963b784c", null ],
+    [ "stopBits", "d7/d72/a06017.html#aece0199b65b1b9e27305ae98b9c7bc31", null ]
 ];

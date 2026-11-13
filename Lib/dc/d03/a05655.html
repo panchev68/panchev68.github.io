@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::HTTP::Client</title>
+<title>IAR EWARM Library: Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -26,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/d03/a05655.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/d03/a05655.html','../../','d4/d20/a05652'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -111,116 +112,255 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/d03/a05655.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HTTP::Client</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a GSM modem stream adapted to 'HttpTransport', an HTTPS POST through 'WolfSSLTransport' and a plain HTTP GET.</p>
-<p>Demonstrates a GSM modem stream adapted to 'HttpTransport', an HTTPS POST through 'WolfSSLTransport' and a plain HTTP GET.'GsmStream' gives the modem's data-mode stream the two methods the concept requires; it inherits nothing, and its 'connect()'/'disconnect()' are its own, since neither 'Client' nor 'WolfSSLTransport' opens or closes the link. For HTTPS the TLS session runs over that stream and the client runs over the session; for plain HTTP the client uses the stream directly. The host name appears twice for different reasons: 'open()' checks it against the server certificate, the request sends it in the Host header. 'response.body' views into 'buffer', so it is valid only while 'buffer' lives.</p>
-<dl class="section important"><dt>Important</dt><dd>Connect the raw link before 'open()' and disconnect it after 'close()': the handshake and the close notification both travel over it.</dd>
-<dd>
-Every request sends 'Connection: close': reconnect the link, and for HTTPS rerun 'open()', before the next request.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dc/d03/a05655.html" title="Lib::HTTP::Client">Lib::HTTP::Client</a>, <a class="elRef" target="_blank" href="https://panchev68.github.io/Lib/da/dff/a05696.html" title="Lib::HTTP::WolfSSLTransport">Lib::HTTP::WolfSSLTransport</a>, <a class="elRef" target="_blank" href="https://panchev68.github.io/Lib/d1/dc9/a06044.html" title="Lib::HTTP::HttpTransport">Lib::HTTP::HttpTransport</a>, <a class="elRef" target="_blank" href="https://panchev68.github.io/Lib/d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85c" title="Lib::HTTP::Status">Lib::HTTP::Status</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Lib/HTTP/Client.hpp&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Adapter giving the modem&#39;s data-mode stream the HttpTransport shape. connect()/disconnect() are its own.</span></div>
-<div class="line"><span class="keyword">class </span>GsmStream final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">explicit</span> GsmStream(Modem &amp; modem) noexcept :</div>
-<div class="line">        modem(modem) {</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    [[nodiscard]] <span class="keywordtype">bool</span> connect(<a id="_a0" name="_a0"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> host, uint16_t port) <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> modem.openTcp(host, port);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> disconnect() <span class="keyword">noexcept</span> {</div>
-<div class="line">        modem.closeTcp();</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    [[nodiscard]] <span class="keywordtype">bool</span> send(std::span&lt;const uint8_t&gt; <a id="_a1" name="_a1"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, <span class="keywordtype">size_t</span> &amp; sentLength) <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> modem.write(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, sentLength);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    [[nodiscard]] <span class="keywordtype">bool</span> receive(std::span&lt;uint8_t&gt; buffer, <span class="keywordtype">size_t</span> &amp; receivedLength) <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> modem.read(buffer, receivedLength); <span class="comment">// 0 bytes with true: nothing yet.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    Modem &amp; modem;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">static_assert</span>(<a class="code hl_conceptRef" target="_blank" href="https://panchev68.github.io/Lib/d1/dc9/a06044.html">Lib::HTTP::HttpTransport&lt;GsmStream&gt;</a>);</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="keyword">const</span> std::span&lt;const uint8_t&gt; CLOUD_CA_CERTIFICATE; <span class="comment">// PEM, embedded in the firmware.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> HOST = <span class="stringliteral">&quot;api.example.com&quot;</span>;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> sendTelemetry(Modem &amp; modem, std::span&lt;const uint8_t&gt; json) {</div>
-<div class="line">    GsmStream <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>(modem);</div>
-<div class="line">    <span class="keywordflow">if</span> (!<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>.connect(HOST, 443U)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> isAccepted = <span class="keyword">false</span>;</div>
-<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_classRef" target="_blank" href="https://panchev68.github.io/Lib/da/dff/a05696.html">Lib::HTTP::WolfSSLTransport&lt;GsmStream&gt;</a> tls;</div>
-<div class="line">    <span class="keywordflow">if</span> (tls.<a id="a3" name="a3"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/Lib/da/dff/a05696.html#a34b1d6a735d69895b3381e71a3d7b24f">open</a>(stream, HOST, CLOUD_CA_CERTIFICATE)) {</div>
-<div class="line">        <a id="_a4" name="_a4"></a><a class="code hl_classRef" target="_blank" href="https://panchev68.github.io/Lib/db/daf/a05688.html">Lib::HTTP::Client</a> client(tls);</div>
-<div class="line">        <a id="_a5" name="_a5"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 512&gt;</a> buffer{};</div>
-<div class="line">        <a id="_a6" name="_a6"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/Lib/d9/d54/a05684.html">Lib::HTTP::Response</a> response;</div>
-<div class="line">        <span class="keyword">const</span> <a id="_a7" name="_a7"></a><a class="code hl_enumerationRef" target="_blank" href="https://panchev68.github.io/Lib/d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85c">Lib::HTTP::Status</a> status = client.post(HOST, <span class="stringliteral">&quot;/v1/telemetry&quot;</span>, <span class="stringliteral">&quot;application/json&quot;</span>, json, buffer, response);</div>
-<div class="line">        isAccepted = (status == <a id="_a8" name="_a8"></a><a class="code hl_enumvalue" href="../../d6/d66/a00916.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c">Lib::HTTP::Status::SUCCESS</a>) &amp;&amp; (response.<a id="a9" name="a9"></a><a class="code hl_variableRef" target="_blank" href="https://panchev68.github.io/Lib/d9/d54/a05684.html#a5c7bf28c88b7a994c33f96fecbd5b4a3">statusCode</a> == 200U);</div>
-<div class="line">        tls.<a id="a10" name="a10"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/Lib/da/dff/a05696.html#afc96144cd745fe9fc116e7fa03ea0c00">close</a>(); <span class="comment">// TLS first, the TCP link below still carries its close notification.</span></div>
-<div class="line">    }</div>
-<div class="line">    <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>.disconnect();</div>
-<div class="line">    <span class="keywordflow">return</span> isAccepted;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">uint16_t fetchStatus(Modem &amp; modem) {</div>
-<div class="line">    GsmStream <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>(modem);</div>
-<div class="line">    <span class="keywordflow">if</span> (!<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>.connect(HOST, 80U)) {</div>
-<div class="line">        <span class="keywordflow">return</span> 0U;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_classRef" target="_blank" href="https://panchev68.github.io/Lib/db/daf/a05688.html">Lib::HTTP::Client</a> client(stream); <span class="comment">// Plain HTTP: the raw stream directly.</span></div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 512&gt;</a> buffer{};</div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/Lib/d9/d54/a05684.html">Lib::HTTP::Response</a> response;</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_enumerationRef" target="_blank" href="https://panchev68.github.io/Lib/d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85c">Lib::HTTP::Status</a> status = client.get(HOST, <span class="stringliteral">&quot;/v1/status&quot;</span>, buffer, response);</div>
-<div class="line">    <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>.disconnect();</div>
-<div class="line">    <span class="keywordflow">return</span> (status == <a class="code hl_enumvalue" href="../../d6/d66/a00916.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c">Lib::HTTP::Status::SUCCESS</a>) ? response.<a class="code hl_variableRef" target="_blank" href="https://panchev68.github.io/Lib/d9/d54/a05684.html#a5c7bf28c88b7a994c33f96fecbd5b4a3">statusCode</a> : 0U;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
-<div class="ttc" id="aa00215_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a></div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00916_html_afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="../../d6/d66/a00916.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c">Lib::HTTP::Status::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">The response was received and parsed; see Response.</div><div class="ttdef"><b>Definition</b> Client.hpp:43</div></div>
-<div class="ttc" id="aa00919_html_afc43b899679a3737d2e7425a9168a85c"><div class="ttname"><a href="https://panchev68.github.io/Lib/d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85c">Lib::HTTP::Status</a></div><div class="ttdeci">Status</div></div>
-<div class="ttc" id="aa01692_html_a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">io_errc::stream</a></div><div class="ttdeci">@ stream</div></div>
-<div class="ttc" id="aa01692_html_aba9b31054eec50310ef02c998663e27b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a></div><div class="ttdeci">constexpr auto data(_Container &amp;__cont) noexcept(noexcept(__cont.data())) -&gt; decltype(__cont.data())</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa02950_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></div></div>
-<div class="ttc" id="aa05684_html"><div class="ttname"><a href="https://panchev68.github.io/Lib/d9/d54/a05684.html">Lib::HTTP::Response</a></div></div>
-<div class="ttc" id="aa05684_html_a5c7bf28c88b7a994c33f96fecbd5b4a3"><div class="ttname"><a href="https://panchev68.github.io/Lib/d9/d54/a05684.html#a5c7bf28c88b7a994c33f96fecbd5b4a3">Lib::HTTP::Response::statusCode</a></div><div class="ttdeci">uint16_t statusCode</div><div class="ttdef"><b>Definition</b> Client.hpp:58</div></div>
-<div class="ttc" id="aa05688_html"><div class="ttname"><a href="https://panchev68.github.io/Lib/db/daf/a05688.html">Lib::HTTP::Client</a></div></div>
-<div class="ttc" id="aa05696_html"><div class="ttname"><a href="https://panchev68.github.io/Lib/da/dff/a05696.html">Lib::HTTP::WolfSSLTransport</a></div></div>
-<div class="ttc" id="aa05696_html_a34b1d6a735d69895b3381e71a3d7b24f"><div class="ttname"><a href="https://panchev68.github.io/Lib/da/dff/a05696.html#a34b1d6a735d69895b3381e71a3d7b24f">Lib::HTTP::WolfSSLTransport::open</a></div><div class="ttdeci">bool open(T_RAW_TRANSPORT &amp;rawTransport, std::string_view serverName, std::span&lt; const uint8_t &gt; caCertificate) noexcept</div></div>
-<div class="ttc" id="aa05696_html_afc96144cd745fe9fc116e7fa03ea0c00"><div class="ttname"><a href="https://panchev68.github.io/Lib/da/dff/a05696.html#afc96144cd745fe9fc116e7fa03ea0c00">Lib::HTTP::WolfSSLTransport::close</a></div><div class="ttdeci">void close() noexcept</div></div>
-<div class="ttc" id="aa06044_html"><div class="ttname"><a href="https://panchev68.github.io/Lib/d1/dc9/a06044.html">Lib::HTTP::HttpTransport</a></div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt;<br />
+requires ((T_WINDOW_SIZE &gt; 0U) &amp;&amp; std::is_arithmetic_v&lt;T&gt; &amp;&amp; std::is_signed_v&lt;T&gt;)<br />
+class Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;</div><p>Peak detector over a fixed-size sliding window. </p>
+<p>The sample type must be signed, since deltas between samples may be negative. The caller must keep the sample range such that twice the largest delta fits into 'T'. The instance is a literal type.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_WINDOW_SIZE</td><td>Distance, in samples, between the two samples compared per step; must be greater than 0. </td></tr>
+    <tr><td class="paramname">T</td><td>Signed arithmetic sample type. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/d56/a05653.svg" width="358" height="203"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:PeakInfo" id="r_PeakInfo"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d33/a05659.html">PeakInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detected peak: accumulated value and the monotonic position of the sample where it was recorded.  <a href="../../d7/d33/a05659.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a1dcc2d44df31b363f9f06b9daf3af302" id="r_a1dcc2d44df31b363f9f06b9daf3af302"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a1dcc2d44df31b363f9f06b9daf3af302">FindPeaks</a> () noexcept=default</td></tr>
+<tr class="memdesc:a1dcc2d44df31b363f9f06b9daf3af302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the detector in the reset state.  <br /></td></tr>
+<tr class="memitem:a176df2aab4c0e044fe550ca813f88168" id="r_a176df2aab4c0e044fe550ca813f88168"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a176df2aab4c0e044fe550ca813f88168">reset</a> () noexcept</td></tr>
+<tr class="memdesc:a176df2aab4c0e044fe550ca813f88168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the detector to its initial state: clears the accumulator, the peaks and the sample counter.  <br /></td></tr>
+<tr class="memitem:af68c408bdc213c13c758fceb90fdf51e" id="r_af68c408bdc213c13c758fceb90fdf51e"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#af68c408bdc213c13c758fceb90fdf51e">addSample</a> (T sample) noexcept</td></tr>
+<tr class="memdesc:af68c408bdc213c13c758fceb90fdf51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a sample and updates the peaks.  <br /></td></tr>
+<tr class="memitem:ad7c36f4ffcb651dcb65c75c1bca49333" id="r_ad7c36f4ffcb651dcb65c75c1bca49333"><td class="memItemLeft">constexpr <a class="el" href="../../d7/d33/a05659.html">PeakInfo</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad7c36f4ffcb651dcb65c75c1bca49333">getRisingPeak</a> () const noexcept</td></tr>
+<tr class="memdesc:ad7c36f4ffcb651dcb65c75c1bca49333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the recorded rising peak.  <br /></td></tr>
+<tr class="memitem:a428ad1bcf05a01386c183e7ff0719b87" id="r_a428ad1bcf05a01386c183e7ff0719b87"><td class="memItemLeft">constexpr <a class="el" href="../../d7/d33/a05659.html">PeakInfo</a>&#160;</td><td class="memItemRight"><a class="el" href="#a428ad1bcf05a01386c183e7ff0719b87">getFallingPeak</a> () const noexcept</td></tr>
+<tr class="memdesc:a428ad1bcf05a01386c183e7ff0719b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the recorded falling peak.  <br /></td></tr>
+<tr class="memitem:a65428faaf92c61bce62ff8de3af8f44a" id="r_a65428faaf92c61bce62ff8de3af8f44a"><td class="memItemLeft">constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a65428faaf92c61bce62ff8de3af8f44a">getCount</a> () const noexcept</td></tr>
+<tr class="memdesc:a65428faaf92c61bce62ff8de3af8f44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of samples added since the last reset.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1dcc2d44df31b363f9f06b9daf3af302" name="a1dcc2d44df31b363f9f06b9daf3af302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dcc2d44df31b363f9f06b9daf3af302">&#9670;&#160;</a></span>FindPeaks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d03/a05655.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::FindPeaks </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the detector in the reset state. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="af68c408bdc213c13c758fceb90fdf51e" name="af68c408bdc213c13c758fceb90fdf51e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af68c408bdc213c13c758fceb90fdf51e">&#9670;&#160;</a></span>addSample()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d03/a05655.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::addSample </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>sample</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a sample and updates the peaks. </p>
+<p>Once 'T_WINDOW_SIZE' earlier samples exist, the delta to the sample 'T_WINDOW_SIZE' steps back is added to half the previous accumulator, and the result is compared against the recorded peaks.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sample</td><td>New sample value. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a65428faaf92c61bce62ff8de3af8f44a" name="a65428faaf92c61bce62ff8de3af8f44a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65428faaf92c61bce62ff8de3af8f44a">&#9670;&#160;</a></span>getCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../dc/d03/a05655.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::getCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of samples added since the last reset. </p>
+<dl class="section return"><dt>Returns</dt><dd>Count of processed samples; wraps at 'SIZE_MAX'. </dd></dl>
+
+</div>
+</div>
+<a id="a428ad1bcf05a01386c183e7ff0719b87" name="a428ad1bcf05a01386c183e7ff0719b87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a428ad1bcf05a01386c183e7ff0719b87">&#9670;&#160;</a></span>getFallingPeak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d33/a05659.html">PeakInfo</a> <a class="el" href="../../dc/d03/a05655.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::getFallingPeak </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the recorded falling peak. </p>
+<dl class="section return"><dt>Returns</dt><dd>Smallest accumulated value and its position; 'value' is '<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01628.html#gab98f0838f871a26317aaa71211b65a9c">max()</a>' if none was recorded. </dd></dl>
+
+</div>
+</div>
+<a id="ad7c36f4ffcb651dcb65c75c1bca49333" name="ad7c36f4ffcb651dcb65c75c1bca49333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7c36f4ffcb651dcb65c75c1bca49333">&#9670;&#160;</a></span>getRisingPeak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d33/a05659.html">PeakInfo</a> <a class="el" href="../../dc/d03/a05655.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::getRisingPeak </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the recorded rising peak. </p>
+<dl class="section return"><dt>Returns</dt><dd>Largest accumulated value and its position; 'value' is 'lowest()' if none was recorded. </dd></dl>
+
+</div>
+</div>
+<a id="a176df2aab4c0e044fe550ca813f88168" name="a176df2aab4c0e044fe550ca813f88168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a176df2aab4c0e044fe550ca813f88168">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dc/d03/a05655.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the detector to its initial state: clears the accumulator, the peaks and the sample counter. </p>
+<p>Stored samples are not cleared: a slot is only read back after it has been overwritten again. </p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d03/a05655_a176df2aab4c0e044fe550ca813f88168_cgraph.svg" width="550" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../da/dd8/a00906.html">Lib</a></li><li class="navelem"><a href="../../d9/dce/a00944.html">Helper</a></li><li class="navelem"><a href="../../dc/d03/a05655.html">FindPeaks</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

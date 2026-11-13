@@ -1,19 +1,27 @@
 var a05237 =
 [
-    [ "CANPort", "d5/d37/a05237.html#adc087231856d1ec6bde6f97494503899", null ],
-    [ "~CANPort", "d5/d37/a05237.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
-    [ "CANPort", "d5/d37/a05237.html#afceeecde4eb91455d12a7305342e889a", null ],
-    [ "CANPort", "d5/d37/a05237.html#a91653fb9445c55c224e60742c91718a2", null ],
-    [ "close", "d5/d37/a05237.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
-    [ "getFreeTxMailboxCount", "d5/d37/a05237.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getHandle", "d5/d37/a05237.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
-    [ "getHandle", "d5/d37/a05237.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
-    [ "getRxFifoFillLevel", "d5/d37/a05237.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "d5/d37/a05237.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
-    [ "operator=", "d5/d37/a05237.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
-    [ "operator=", "d5/d37/a05237.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
-    [ "read", "d5/d37/a05237.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "readBlocking", "d5/d37/a05237.html#a49854c8fa3a47517562c6761363bb281", null ],
-    [ "write", "d5/d37/a05237.html#a65aa681fa591b2d0956e06e67e990b15", null ],
-    [ "writeBlocking", "d5/d37/a05237.html#a290a918dfefeea6aab3500acb68b90de", null ]
+    [ "Mode", "d5/d37/a05237.html#a82f2526628e3e74c1232ccf24df036af", [
+      [ "READ", "d5/d37/a05237.html#a82f2526628e3e74c1232ccf24df036afa3466fab4975481651940ed328aa990e4", null ],
+      [ "WRITE", "d5/d37/a05237.html#a82f2526628e3e74c1232ccf24df036afad4b9e47f65b6e79b010582f15785867e", null ],
+      [ "APPEND", "d5/d37/a05237.html#a82f2526628e3e74c1232ccf24df036afa375ffb668aa90f1c7fcae55e9734a752", null ]
+    ] ],
+    [ "Origin", "d5/d37/a05237.html#adc0bb84f9957a428032fe84b094ff7af", [
+      [ "BEGIN", "d5/d37/a05237.html#adc0bb84f9957a428032fe84b094ff7afa19aad9f2fe3ce0023298ab83f7e75775", null ],
+      [ "CURRENT", "d5/d37/a05237.html#adc0bb84f9957a428032fe84b094ff7afaa2770969c827f0f2910f6179418462df", null ],
+      [ "END", "d5/d37/a05237.html#adc0bb84f9957a428032fe84b094ff7afab1a326c06d88bf042f73d70f50197905", null ]
+    ] ],
+    [ "File", "d5/d37/a05237.html#a6410b3e4efbeafb5b572eef2c50d3a5c", null ],
+    [ "~File", "d5/d37/a05237.html#aa5e98a86481b56ecdfe15d0dd0705c0d", null ],
+    [ "File", "d5/d37/a05237.html#aabdc0b1677af6f2f24e3832b1e462b96", null ],
+    [ "File", "d5/d37/a05237.html#a2be63c46403727141b66d86197d6378c", null ],
+    [ "close", "d5/d37/a05237.html#a1d8a686c8e2b54b05b1a4f2cb56c0503", null ],
+    [ "isOpen", "d5/d37/a05237.html#a74e821d2b8a14cc2fa7bb4ba4c14ed00", null ],
+    [ "open", "d5/d37/a05237.html#af3a174021237cab4dfa82aa7aee929eb", null ],
+    [ "operator=", "d5/d37/a05237.html#a81556ddc21aaad19dcd4de346f6e84db", null ],
+    [ "operator=", "d5/d37/a05237.html#a8355b4e6686abcc948762c9a449d0f15", null ],
+    [ "read", "d5/d37/a05237.html#a309ff07e9b6c587a4c424cf9c8713b31", null ],
+    [ "seek", "d5/d37/a05237.html#af95ff87e1f57105a35a88079323afec4", null ],
+    [ "size", "d5/d37/a05237.html#a97646b793419f6c4c50b5405f777dfa0", null ],
+    [ "tell", "d5/d37/a05237.html#a5b4ddec74cc06338f7ebca1389e2fc0a", null ],
+    [ "write", "d5/d37/a05237.html#a8906d9e00058fa515114bea3fbbcb3e1", null ]
 ];

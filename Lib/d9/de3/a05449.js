@@ -1,15 +1,20 @@
 var a05449 =
 [
-    [ "Manager", "d9/de3/a05449.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "d9/de3/a05449.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimEventBase", "d9/de3/a05449.html#ae4e4ea4622adc3ec78740bcbb5de40c7", null ],
-    [ "TimEventBase", "d9/de3/a05449.html#a5bc4465b338b0255addd68424099b237", null ],
-    [ "TimEventBase", "d9/de3/a05449.html#a16a104e17a6f13f616dc2f0a20f42653", null ],
-    [ "~TimEventBase", "d9/de3/a05449.html#a5005179511e8564eef47bc3da1d74925", null ],
-    [ "bindWorker", "d9/de3/a05449.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
-    [ "getHandle", "d9/de3/a05449.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "notifyWorkerFromISR", "d9/de3/a05449.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "operator=", "d9/de3/a05449.html#a85bb87c2ebb0260e1e4503471892deaa", null ],
-    [ "operator=", "d9/de3/a05449.html#a252859ce5916b5a86188c2929fc271a4", null ],
-    [ "waitEvent", "d9/de3/a05449.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ]
+    [ "Timeout", "d9/de3/a05449.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
+    [ "SPIPort", "d9/de3/a05449.html#a903be3f889b13683ab1e357df5e48ddb", null ],
+    [ "~SPIPort", "d9/de3/a05449.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
+    [ "SPIPort", "d9/de3/a05449.html#a8335bc7cd53354957b5b059adfa4a702", null ],
+    [ "SPIPort", "d9/de3/a05449.html#ab03e262f43c766b37a67b48c85bff815", null ],
+    [ "bindBeginTransactionFunc", "d9/de3/a05449.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "d9/de3/a05449.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "d9/de3/a05449.html#ab6529e241d0728159eb3f60c7621b666", null ],
+    [ "getHandle", "d9/de3/a05449.html#a177a320faf7a48d1692b081641399447", null ],
+    [ "getHandle", "d9/de3/a05449.html#a88e71252a873f0d8d5051292a08b1336", null ],
+    [ "isBusy", "d9/de3/a05449.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "open", "d9/de3/a05449.html#af039716c9cb01db958d77f8c581627cf", null ],
+    [ "operator=", "d9/de3/a05449.html#a7ac0642f801168b819d2f19789bd9d15", null ],
+    [ "operator=", "d9/de3/a05449.html#ae10f073f8753cb6161429d0e321dfd92", null ],
+    [ "receive", "d9/de3/a05449.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "d9/de3/a05449.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "d9/de3/a05449.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

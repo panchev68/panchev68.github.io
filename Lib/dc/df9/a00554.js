@@ -1,4 +1,4 @@
 var a00554 =
 [
-    [ "Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;", "d0/d61/a05385.html", "d0/d61/a05385" ]
+    [ "Lib::HAL::ADCPortBase&lt; Derived &gt;", "dd/dd5/a05343.html", "dd/dd5/a05343" ]
 ];

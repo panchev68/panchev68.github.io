@@ -1,4 +1,7 @@
 var a00326 =
 [
-    [ "Lib::Digi::Core::Frame0x01", "d1/d39/a04965.html", "d1/d39/a04965" ]
+    [ "Lib::Canbus::Mode", "dd/dac/a01008.html#ad81e761f20d5185ff2c7cbf5e547ef02", [
+      [ "Lib::Canbus::Mode::CLIENT", "dd/dac/a01008.html#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1", null ],
+      [ "Lib::Canbus::Mode::SERVER", "dd/dac/a01008.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844", null ]
+    ] ]
 ];

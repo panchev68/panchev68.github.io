@@ -1,13 +1,7 @@
 var a05933 =
 [
-    [ "Date", "da/dca/a05933.html#af06cc8ba2f87935c0445acf20bda3349", null ],
-    [ "DateTime", "da/dca/a05933.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "Status", "da/dca/a05933.html#ac1982c11ab6f79a7929a9d6d3a81784a", [
-      [ "OK", "da/dca/a05933.html#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "da/dca/a05933.html#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "ProduceDate", "da/dca/a05933.html#a35243148dd7247b4f7926b4aed02485a", null ],
-    [ "isEmpty", "da/dca/a05933.html#a3a766915dafa66af64cd53f1c59eab9f", null ],
-    [ "read", "da/dca/a05933.html#aad534282cedf19b97f1bd45ca1a84da8", null ],
-    [ "write", "da/dca/a05933.html#a64c5c6d83cf80a34ec3561d61f1f93f9", null ]
+    [ "current", "da/dca/a05933.html#a03c2002021ee39257b3712ebb21f9804", null ],
+    [ "irradiance", "da/dca/a05933.html#aeb4a3f32aa352d29093581039d36dd08", null ],
+    [ "temperature", "da/dca/a05933.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
+    [ "voltage", "da/dca/a05933.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
 ];

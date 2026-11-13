@@ -45,7 +45,7 @@ var searchData=
   ['mode_20selection_42',['TIM Master Mode Selection',['https://panchev68.github.io/HALF4/db/d1e/a01126.html',0,'']]],
   ['mode_20state_43',['mode state',['https://panchev68.github.io/HALF4/dd/de4/a01121.html',0,'TIM OSSI OffState Selection for Idle mode state'],['https://panchev68.github.io/HALF4/dc/d51/a01120.html',0,'TIM OSSR OffState Selection for Run mode state']]],
   ['mode_20structure_20definition_44',['HAL mode structure definition',['https://panchev68.github.io/HALF4/df/de8/a00839.html',0,'']]],
-  ['models_45',['Models',['../d9/d22/a00873.html',1,'']]],
+  ['models_45',['Models',['../d4/d21/a00987.html',1,'']]],
   ['modes_46',['TIM Output Compare and PWM Modes',['https://panchev68.github.io/HALF4/d9/d17/a01129.html',0,'']]],
   ['month_20date_20definitions_20in_20bcd_20format_47',['RTC Month Date Definitions (in BCD format)',['https://panchev68.github.io/HALF4/d6/d48/a00988.html',0,'']]],
   ['msb_20lsb_20transmission_48',['SPI MSB LSB Transmission',['https://panchev68.github.io/HALF4/db/dba/a01078.html',0,'']]],

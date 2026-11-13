@@ -1,4 +1,4 @@
 var a00284 =
 [
-    [ "Lib::Digi::Core::AtCommandString", "dc/dc4/a04893.html", "dc/dc4/a04893" ]
+    [ "Lib::BSP::RFID::NTAG21x::CardRecord&lt; T_ISSUER &gt;", "d0/d61/a04579.html", "d0/d61/a04579" ]
 ];

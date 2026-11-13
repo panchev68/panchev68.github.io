@@ -1,4 +1,4 @@
 var a08259 =
 [
-    [ "Lib::HAL::GPIO::Port", "dc/d0e/a05320.html", "dc/d0e/a05320" ]
+    [ "Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;", "dd/d9e/a05378.html", "dd/d9e/a05378" ]
 ];

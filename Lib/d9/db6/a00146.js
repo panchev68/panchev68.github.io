@@ -1,5 +1,4 @@
 var a00146 =
 [
-    [ "Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;", "db/d96/a04417.html", "db/d96/a04417" ],
-    [ "Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;::Config", "d4/d86/a04421.html", "d4/d86/a04421" ]
+    [ "Lib::BSP::Display::ILI9341", "d0/d85/a00908.html#a62bc20ecfb713696b3f744fc5833d417", null ]
 ];

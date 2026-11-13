@@ -1,11 +1,12 @@
 var a05421 =
 [
-    [ "SPIPort", "d2/d1d/a05421.html#a6887b333ef818d3bd80112c8ce57998d", null ],
-    [ "~SPIPort", "d2/d1d/a05421.html#ad6c6de84d5713ce3f16ae3047ec949a1", null ],
-    [ "abort", "d2/d1d/a05421.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
-    [ "close", "d2/d1d/a05421.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d2/d1d/a05421.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d2/d1d/a05421.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d2/d1d/a05421.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d2/d1d/a05421.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "OSPIPortBase", "d2/d1d/a05421.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "d2/d1d/a05421.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "d2/d1d/a05421.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "d2/d1d/a05421.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "d2/d1d/a05421.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "d2/d1d/a05421.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d2/d1d/a05421.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d2/d1d/a05421.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "d2/d1d/a05421.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

@@ -1,4 +1,4 @@
 var a00743 =
 [
-    [ "Lib::Math::HammingCode", "db/db9/a05705.html", null ]
+    [ "Lib::HAL::UARTPortBase&lt; T_DERIVED &gt;", "da/d5c/a05615.html", "da/d5c/a05615" ]
 ];

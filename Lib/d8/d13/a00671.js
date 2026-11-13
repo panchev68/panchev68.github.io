@@ -1,4 +1,4 @@
 var a00671 =
 [
-    [ "Lib::Helper::BitSet&lt; N_BITS &gt;", "d2/d4a/a05565.html", "d2/d4a/a05565" ]
+    [ "Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;", "d3/dc0/a05502.html", "d3/dc0/a05502" ]
 ];

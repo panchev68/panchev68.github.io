@@ -1,4 +1,4 @@
 var a00476 =
 [
-    [ "Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;", "dd/d68/a05269.html", "dd/d68/a05269" ]
+    [ "Lib::Digi::Core::Frame0x8a", "d0/d42/a05127.html", "d0/d42/a05127" ]
 ];

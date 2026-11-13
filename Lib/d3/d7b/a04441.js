@@ -1,8 +1,25 @@
 var a04441 =
 [
-    [ "chipSelectPin", "d3/d7b/a04441.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
-    [ "irqPin", "d3/d7b/a04441.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
-    [ "resetPin", "d3/d7b/a04441.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
-    [ "rxGain", "d3/d7b/a04441.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
-    [ "spiHandle", "d3/d7b/a04441.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
+    [ "Register", "d6/d70/a04445.html", "d6/d70/a04445" ],
+    [ "Info", "d8/d39/a04449.html", "d8/d39/a04449" ],
+    [ "Config", "d3/d7b/a04441.html#a91b48bf59f61c3580e5ead3149d91443", null ],
+    [ "W25Q128JVSIQ", "d3/d7b/a04441.html#af1b755c474085a41e554dcb38ad9056a", null ],
+    [ "~W25Q128JVSIQ", "d3/d7b/a04441.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
+    [ "close", "d3/d7b/a04441.html#a949717933a1c298041adcf500a7d8f9d", null ],
+    [ "eraseChip", "d3/d7b/a04441.html#a32148377b4274abf28db1beb3d12ea11", null ],
+    [ "eraseChipImpl", "d3/d7b/a04441.html#a9cfe72e525626e2236219608c53725d8", null ],
+    [ "eraseSector", "d3/d7b/a04441.html#a23c3062b24d15e58237ddb109c474b74", null ],
+    [ "eraseSectorImpl", "d3/d7b/a04441.html#ac379792562904225e5deb12f3820112b", null ],
+    [ "getInfo", "d3/d7b/a04441.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
+    [ "getStatus", "d3/d7b/a04441.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
+    [ "isPresent", "d3/d7b/a04441.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
+    [ "open", "d3/d7b/a04441.html#a419e720a0a366e322b172d234eccd202", null ],
+    [ "read", "d3/d7b/a04441.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
+    [ "readImpl", "d3/d7b/a04441.html#ac37211819c0d5e4f3072dae655065868", null ],
+    [ "write", "d3/d7b/a04441.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
+    [ "writeImpl", "d3/d7b/a04441.html#a00a39954e6187f8b4b393ed390f97239", null ],
+    [ "info", "d3/d7b/a04441.html#aca8a7487175e31060363fe99270e69a3", null ],
+    [ "nss", "d3/d7b/a04441.html#a6cad70d123e273b88f244598cc93a22b", null ],
+    [ "spiPort", "d3/d7b/a04441.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
+    [ "status", "d3/d7b/a04441.html#af95471bb260264403e3df2dc07b80419", null ]
 ];

@@ -1,4 +1,4 @@
 var a00653 =
 [
-    [ "Lib::HAL::USBHostPortAsync&lt; T_DERIVED &gt;", "d0/d8e/a05537.html", "d0/d8e/a05537" ]
+    [ "Lib::HAL::IndependentWatchdog", "d9/dae/a05475.html", "d9/dae/a05475" ]
 ];

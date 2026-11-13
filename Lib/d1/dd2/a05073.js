@@ -1,13 +1,19 @@
 var a05073 =
 [
-    [ "Handlers", "d1/dd2/a05073.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
-    [ "EepromEmulation", "d1/dd2/a05073.html#a1146daff507a230799851b6c5f9ee835", null ],
-    [ "~EepromEmulation", "d1/dd2/a05073.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
-    [ "EepromEmulation", "d1/dd2/a05073.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
-    [ "EepromEmulation", "d1/dd2/a05073.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
-    [ "operator=", "d1/dd2/a05073.html#ac18054ff925ab9ff88d05d79a8674626", null ],
-    [ "operator=", "d1/dd2/a05073.html#a8a0057afb82e294f720a93b50ad87908", null ],
-    [ "process", "d1/dd2/a05073.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
-    [ "setHandlers", "d1/dd2/a05073.html#a070225a3de178cf14fb35d7a18f183e0", null ],
-    [ "setReadSize", "d1/dd2/a05073.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
+    [ "State", "d1/dd2/a05073.html#acba02689f37ee7af40ec736d996ed858", null ],
+    [ "~Error", "d1/dd2/a05073.html#a45c9bdf2555503aba370ceb9e3be4472", null ],
+    [ "clear", "d1/dd2/a05073.html#a1aac17dcab7e7de289d1190bd6c4cb80", null ],
+    [ "disable", "d1/dd2/a05073.html#a6535402a86612bd7117d0383414f5a01", null ],
+    [ "enable", "d1/dd2/a05073.html#a3b5c2f67fac7cbb39994045f7de8863b", null ],
+    [ "getCaption", "d1/dd2/a05073.html#af1685a17adc3751bc34f0f22ff53ddba", null ],
+    [ "getGroup", "d1/dd2/a05073.html#a566049e949c9212023d51dfa7fb70b7f", null ],
+    [ "getId", "d1/dd2/a05073.html#afa412b5b49489692123f5dc185407e34", null ],
+    [ "getState", "d1/dd2/a05073.html#af79e723798e9e9755726cf1fbca0d106", null ],
+    [ "operator bool", "d1/dd2/a05073.html#a095c4c29588c57c181f2267c655a4598", null ],
+    [ "operator=", "d1/dd2/a05073.html#a0bcba893ea1d1c8fc398d17f7064fb4e", null ],
+    [ "operator=", "d1/dd2/a05073.html#a64f8853fd9017d3b184b94ce5d32d416", null ],
+    [ "reset", "d1/dd2/a05073.html#ac98111e75aa81293363c0c065d7ea081", null ],
+    [ "set", "d1/dd2/a05073.html#aee7745fbda0bc6847c210fb9f4fe41f1", null ],
+    [ "setGroup", "d1/dd2/a05073.html#aba45829de28bb9571253018340fa606b", null ],
+    [ "BasicDispatcher", "d1/dd2/a05073.html#a060ae75c87b3adbafa835f181f4d19c5", null ]
 ];

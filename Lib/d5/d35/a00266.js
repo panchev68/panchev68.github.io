@@ -1,5 +1,5 @@
 var a00266 =
 [
-    [ "Lib::Digi::API::Service::NetworkDiscovery", "d6/d2e/a04845.html", "d6/d2e/a04845" ],
-    [ "Lib::Digi::API::Service::NetworkDiscovery::Node", "df/d9f/a04849.html", "df/d9f/a04849" ]
+    [ "Lib::BSP::RFID::Card", "d5/dd2/a04543.html", "d5/dd2/a04543" ],
+    [ "Lib::BSP::RFID::Card::Uid", "d0/da8/a04547.html", "d0/da8/a04547" ]
 ];

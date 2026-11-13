@@ -1,13 +1,13 @@
 var a05393 =
 [
-    [ "State", "d0/dc6/a05393.html#ae9f0fa1c20664b577fc615da59211d91", [
-      [ "UNKNOWN", "d0/dc6/a05393.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "POWER_ON", "d0/dc6/a05393.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
-      [ "BROWNOUT", "d0/dc6/a05393.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
-      [ "PIN", "d0/dc6/a05393.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
-      [ "SOFTWARE", "d0/dc6/a05393.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
-      [ "INDEPENDENT_WATCHDOG", "d0/dc6/a05393.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
-      [ "WINDOW_WATCHDOG", "d0/dc6/a05393.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
-      [ "LOW_POWER", "d0/dc6/a05393.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
-    ] ]
+    [ "I2CPortBase", "d0/dc6/a05393.html#aa4e4d14ed487d0a4f07d43f83937e8cf", null ],
+    [ "I2CPortBase", "d0/dc6/a05393.html#abb555787d1c67ffeb59851d309d7e32f", null ],
+    [ "I2CPortBase", "d0/dc6/a05393.html#ad9dd4358cc01cee75cd8f731f9f0fe5e", null ],
+    [ "~I2CPortBase", "d0/dc6/a05393.html#a4d69d746f11c95220372f8f0a62397b1", null ],
+    [ "close", "d0/dc6/a05393.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "isBusy", "d0/dc6/a05393.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "d0/dc6/a05393.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "open", "d0/dc6/a05393.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "d0/dc6/a05393.html#a31bad4fe08fe0a3ffbb5585f42ab9b69", null ],
+    [ "operator=", "d0/dc6/a05393.html#a847aa761811d4ff5a26e8ccaaef3bffe", null ]
 ];

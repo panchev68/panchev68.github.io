@@ -1,7 +1,4 @@
 var a08192 =
 [
-    [ "Lib::BSP::FMEM::OSPI::Config", "d1/da7/a04377.html", "d1/da7/a04377" ],
-    [ "Lib::BSP::FMEM::OSPI::Info", "d7/d17/a04381.html", "d7/d17/a04381" ],
-    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ", "de/d09/a04385.html", "de/d09/a04385" ],
-    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register", "dc/d5b/a04389.html", "dc/d5b/a04389" ]
+    [ "Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;", "d9/d63/a05297.html", "d9/d63/a05297" ]
 ];

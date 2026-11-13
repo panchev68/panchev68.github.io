@@ -1,12 +1,19 @@
 var searchData=
 [
-  ['iar_20embedded_20workbench_0',['Integration with IAR Embedded Workbench',['../index.html#integration-with-iar-embedded-workbench',1,'']]],
-  ['iar_20ewarm_20library_1',['IAR EWARM Library',['../index.html',1,'']]],
-  ['iar_20inc_20lib_20hal_20readme_20md_20lib_3a_3ahal_2',['Hardware Abstraction Layer (&lt;a class=&quot;el&quot; href=&quot;dir_4ad11338be6ed64801f932656637dcad.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/HAL/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;Lib::HAL&lt;/span&gt;&lt;/a&gt;)',['../index.html#hardware-abstraction-layer-libhalinclibhalreadmemd',1,'']]],
-  ['iar_20inc_20lib_20rtos_20readme_20md_20rtos_3a_3a_3',['RTOS Abstractions (&lt;a class=&quot;el&quot; href=&quot;dir_3fba853156281524a1d2ff8b1fb19351.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/RTOS/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;RTOS::&lt;/span&gt;&lt;/a&gt;)',['../index.html#rtos-abstractions-rtosinclibrtosreadmemd',1,'']]],
-  ['inc_20lib_20hal_20readme_20md_20lib_3a_3ahal_4',['Hardware Abstraction Layer (&lt;a class=&quot;el&quot; href=&quot;dir_4ad11338be6ed64801f932656637dcad.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/HAL/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;Lib::HAL&lt;/span&gt;&lt;/a&gt;)',['../index.html#hardware-abstraction-layer-libhalinclibhalreadmemd',1,'']]],
-  ['inc_20lib_20rtos_20readme_20md_20rtos_3a_3a_5',['RTOS Abstractions (&lt;a class=&quot;el&quot; href=&quot;dir_3fba853156281524a1d2ff8b1fb19351.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/RTOS/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;RTOS::&lt;/span&gt;&lt;/a&gt;)',['../index.html#rtos-abstractions-rtosinclibrtosreadmemd',1,'']]],
-  ['installation_6',['🔧 Installation',['../index.html#autotoc_md-installation',1,'']]],
-  ['integration_20with_20iar_20embedded_20workbench_7',['Integration with IAR Embedded Workbench',['../index.html#integration-with-iar-embedded-workbench',1,'']]],
-  ['isr_20to_20task_20uart_20receive_8',['ISR to task (UART receive)',['../X:/Lib/IAR/docs/Examples/RTOS_StreamBuffer.dox#streambuffer_isr',1,'']]]
+  ['hal_20callback_0',['Look up the owner inside a HAL callback',['../X:/Lib/IAR/Project/Examples/Lib_HAL_DeviceManager.dox#devicemanager_usage_isr',1,'']]],
+  ['hal_20period_20callback_1',['Forwarding the HAL period callback',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimTimebase.dox#timtimebase_usage_isr',1,'']]],
+  ['handle_20and_20the_20pin_20macro_2',['Handle and the PIN() macro',['../X:/Lib/IAR/Project/Examples/Lib_HAL_GPIO.dox#gpio_usage_handle',1,'']]],
+  ['handle_20setup_3',['Handle setup',['../X:/Lib/IAR/Project/Examples/Lib_HAL_HASH.dox#hash_usage_setup',1,'']]],
+  ['handler_4',['Installing a terminate handler',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Exception.dox#exception_usage_terminate',1,'']]],
+  ['handling_5',['Error handling',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_error',1,'']]],
+  ['hardware_20and_20cubemx_20assumptions_6',['Hardware and CubeMX assumptions',['../X:/Lib/IAR/Project/Examples/Lib_HAL_LPTimer.dox#lptim_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimEncoder.dox#timenc_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimInputCapture.dox#timic_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOnePulse.dox#timop_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOutputCompare.dox#timoc_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimTimebase.dox#timtimebase_usage_hw',1,'Hardware and CubeMX assumptions']]],
+  ['hardware_20assumptions_7',['Hardware assumptions',['../X:/Lib/IAR/Project/Examples/Lib_BSP_Ultrasonic_PGA460TPWRQ1.dox#pga460_usage_hw',1,'Hardware assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_hw',1,'Hardware assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_CAN.dox#can_usage_hw',1,'Hardware assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_DAC.dox#dac_usage_hw',1,'Hardware assumptions']]],
+  ['heap_20statistics_20and_20yielding_8',['Heap statistics and yielding',['../X:/Lib/IAR/Project/Examples/RTOS_Kernel.dox#kernel_usage_heap',1,'']]],
+  ['heap_20usage_9',['Checking heap usage',['../X:/Lib/IAR/Project/Examples/RTOS_MemoryManager.dox#memory_manager_usage_usage',1,'']]],
+  ['hex_20digit_20conversion_10',['Hex digit conversion',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_Ascii.dox#ascii_usage_hex',1,'']]],
+  ['hook_11',['Interrupt hook',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_isr',1,'']]],
+  ['hooks_12',['Begin and end transaction hooks',['../X:/Lib/IAR/Project/Examples/Lib_HAL_SPI.dox#spi_usage_hooks',1,'']]],
+  ['host_20role_13',['Host role',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usb_usage_host',1,'']]],
+  ['http_20get_20over_20the_20modem_14',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]],
+  ['https_20post_20and_20plain_20http_20get_20over_20the_20modem_15',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]]
 ];

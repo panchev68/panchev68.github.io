@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Digi::API::ApplicationBase&lt; Derived &gt;</title>
+<title>IAR EWARM Library: Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -110,238 +112,107 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/d86/a04769.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Digi::API::ApplicationBase&lt; Derived &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Module, connection and service owner plus application task for an XBee client or server.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
-class Lib::Digi::API::ApplicationBase&lt; Derived &gt;</div><p>Module, connection and service owner plus application task for an XBee client or server. </p>
-<p>"Derived" must provide "initialize()", "update()" and "handleTaskTickEvent()" (all "void", no parameters); if they are private it must befriend "ApplicationBase&lt;Derived&gt;". The public API is "Pausable". The XBee receiver task feeds received payloads and delivery statuses through two single-slot queues, so the application task always sees the newest one.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;</div><p>CRTP base for a single server-side SSH session (CubeMX: wolfSSH Core). </p>
+<p>A derived class implements the byte transport the session runs over: 'ioReceive(std::span&lt;uint8_t&gt;)' and 'ioSend(std::span&lt;const uint8_t&gt;)', each returning the number of bytes transferred, 0 when none are available yet, or a negative 'WS_CBIO_ERR_*' code. wolfSSH reaches them through a 'void*' context dispatched back to this instance, not through a virtual table, so CRTP replaces the vtable a transport-agnostic design would otherwise need.</p>
+<p>One instance is one connection: construct it after accepting a connection on the underlying transport (e.g. a TCP socket or a UART link), destroy it when the connection ends. Not thread-safe: service one session from one task.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>Class deriving (directly or through "ClientBase" / "ServerBase") from this base. </td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete session type implementing 'ioReceive()'/'ioSend()'; publicly inherits from this class. </td></tr>
   </table>
   </dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::Digi::API::ApplicationBase&lt; Derived &gt;:</div>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d7a/a04768.svg" width="648" height="951"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Digi::API::ApplicationBase&lt; Derived &gt;:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d67/a04767.svg" width="2904" height="2163"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d67/a04767.svg" width="334" height="296"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a069f63d8ece09ad92a97696e558290b3" id="r_a069f63d8ece09ad92a97696e558290b3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a069f63d8ece09ad92a97696e558290b3">pause</a> () noexcept</td></tr>
-<tr class="memdesc:a069f63d8ece09ad92a97696e558290b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses the message exchange; the task keeps running the services.  <br /></td></tr>
-<tr class="memitem:abbf1050f972e12e9f892cbb50f712298" id="r_abbf1050f972e12e9f892cbb50f712298"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abbf1050f972e12e9f892cbb50f712298">resume</a> () noexcept</td></tr>
-<tr class="memdesc:abbf1050f972e12e9f892cbb50f712298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the message exchange paused by "pause()".  <br /></td></tr>
-<tr class="memitem:af8063d3ad104519c1331b65494eea01b" id="r_af8063d3ad104519c1331b65494eea01b"><td class="memItemLeft"><a class="el" href="../../dc/db4/a04953.html">Lib::Digi::Core::Module</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af8063d3ad104519c1331b65494eea01b">getModuleInstance</a> () noexcept</td></tr>
-<tr class="memdesc:af8063d3ad104519c1331b65494eea01b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the XBee module driver.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a6cc363b4c00520c96b5d228aab8301b8" id="r_a6cc363b4c00520c96b5d228aab8301b8"><td class="memItemLeft"><a class="el" href="../../dd/d6d/a04777.html">Connection</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6cc363b4c00520c96b5d228aab8301b8">connection</a></td></tr>
-<tr class="memdesc:a6cc363b4c00520c96b5d228aab8301b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connection state, quality and statistics.  <br /></td></tr>
-<tr class="memitem:a6d0f2ae6cd2c2076945ec0be3c66436c" id="r_a6d0f2ae6cd2c2076945ec0be3c66436c"><td class="memItemLeft"><a class="el" href="../../dd/dcf/a04913.html">Core::Diagnostic</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6d0f2ae6cd2c2076945ec0be3c66436c">diagnostic</a></td></tr>
-<tr class="memdesc:a6d0f2ae6cd2c2076945ec0be3c66436c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diagnostic statistics and counters.  <br /></td></tr>
-<tr class="memitem:a3aed113d4e636bcad17894b64f1e5734" id="r_a3aed113d4e636bcad17894b64f1e5734"><td class="memItemLeft"><a class="el" href="../../d7/dca/a04949.html">Core::ModemStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3aed113d4e636bcad17894b64f1e5734">modemStatus</a></td></tr>
-<tr class="memdesc:a3aed113d4e636bcad17894b64f1e5734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modem status monitoring and events.  <br /></td></tr>
-<tr class="memitem:a94172a0bb6588a8bad00411e1e6ce038" id="r_a94172a0bb6588a8bad00411e1e6ce038"><td class="memItemLeft"><a class="el" href="../../d5/d10/a04885.html">Service::SpectrumAnalyzer</a>&#160;</td><td class="memItemRight"><a class="el" href="#a94172a0bb6588a8bad00411e1e6ce038">spectrumAnalyzer</a></td></tr>
-<tr class="memdesc:a94172a0bb6588a8bad00411e1e6ce038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spectrum analyzer service.  <br /></td></tr>
-<tr class="memitem:a3a40ec0220eb721e07f56c02a206f485" id="r_a3a40ec0220eb721e07f56c02a206f485"><td class="memItemLeft"><a class="el" href="../../d5/db5/a04861.html">Service::Parameters</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3a40ec0220eb721e07f56c02a206f485">parameters</a></td></tr>
-<tr class="memdesc:a3a40ec0220eb721e07f56c02a206f485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module parameters service.  <br /></td></tr>
-<tr class="memitem:a1936fa3a20798013fd230a5b9ae5a651" id="r_a1936fa3a20798013fd230a5b9ae5a651"><td class="memItemLeft"><a class="el" href="../../d6/d2e/a04845.html">Service::NetworkDiscovery</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1936fa3a20798013fd230a5b9ae5a651">networkDiscovery</a></td></tr>
-<tr class="memdesc:a1936fa3a20798013fd230a5b9ae5a651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Network discovery service.  <br /></td></tr>
-<tr class="memitem:abcae86ac3f99158551b91f88f0c88de7" id="r_abcae86ac3f99158551b91f88f0c88de7"><td class="memItemLeft"><a class="el" href="../../da/d82/a04837.html">Service::ChannelScanner</a>&#160;</td><td class="memItemRight"><a class="el" href="#abcae86ac3f99158551b91f88f0c88de7">channelScanner</a></td></tr>
-<tr class="memdesc:abcae86ac3f99158551b91f88f0c88de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Channel scanner service.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:a71f91e486ebbe685b8ef04a85df9816e" id="r_a71f91e486ebbe685b8ef04a85df9816e"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a71f91e486ebbe685b8ef04a85df9816e">State</a> { <br />
-&#160;&#160;<a class="el" href="#a71f91e486ebbe685b8ef04a85df9816ea72144f138e8a9f73854d58b59deca26d">NO_INIT</a>
-, <br />
-&#160;&#160;<a class="el" href="#a71f91e486ebbe685b8ef04a85df9816eafaee4ca3c30ee18148ce3ada37466498">INIT</a>
-, <br />
-&#160;&#160;<a class="el" href="#a71f91e486ebbe685b8ef04a85df9816ea43491564ebcfd38568918efbd6e840fd">RUNNING</a>
-, <br />
-&#160;&#160;<a class="el" href="#a71f91e486ebbe685b8ef04a85df9816ea291554596c183e837f0a6bec3767c891">PAUSE</a>
-, <br />
-&#160;&#160;<a class="el" href="#a71f91e486ebbe685b8ef04a85df9816eabb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>
-<br />
- }</td></tr>
-<tr class="memdesc:a71f91e486ebbe685b8ef04a85df9816e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Application state machine.  <a href="#a71f91e486ebbe685b8ef04a85df9816e">More...</a><br /></td></tr>
-<tr class="memitem:ad904a82ea1890f84cbdfe4aa97a6eff7" id="r_ad904a82ea1890f84cbdfe4aa97a6eff7"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ad904a82ea1890f84cbdfe4aa97a6eff7">Config</a> = <a class="el" href="../../dc/db4/a04953.html#a9b9fb43457649e59ca4afc679738e4a1">Lib::Digi::Core::Module::Config</a></td></tr>
-<tr class="memdesc:ad904a82ea1890f84cbdfe4aa97a6eff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module configuration type.  <br /></td></tr>
-<tr class="memitem:a576edf4b8ae391861cbaa752fb59d0ca" id="r_a576edf4b8ae391861cbaa752fb59d0ca"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a576edf4b8ae391861cbaa752fb59d0ca">DeliveryStatus</a> = <a class="el" href="../../d1/d91/a05009.html#a1f2d004cd4c6fbc142552586f654c372">Lib::Digi::Core::Frame0x89::DeliveryStatus</a></td></tr>
-<tr class="memdesc:a576edf4b8ae391861cbaa752fb59d0ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delivery status of a sent data frame.  <br /></td></tr>
+<tr class="memitem:a0bcf921f4ac87d3d5ec8ed5bad282b6c" id="r_a0bcf921f4ac87d3d5ec8ed5bad282b6c"><td class="memItemLeft"><a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c">accept</a> () noexcept</td></tr>
+<tr class="memdesc:a0bcf921f4ac87d3d5ec8ed5bad282b6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs (or resumes) the SSH handshake and authentication.  <br /></td></tr>
+<tr class="memitem:ac07508d68f41b64e463fdd58db57558b" id="r_ac07508d68f41b64e463fdd58db57558b"><td class="memItemLeft"><a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac07508d68f41b64e463fdd58db57558b">read</a> (std::span&lt; uint8_t &gt; buffer, size_t &amp;bytesRead) noexcept</td></tr>
+<tr class="memdesc:ac07508d68f41b64e463fdd58db57558b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from the session's shell channel.  <br /></td></tr>
+<tr class="memitem:a034957692d48053e848ee6d77605fe2f" id="r_a034957692d48053e848ee6d77605fe2f"><td class="memItemLeft"><a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a034957692d48053e848ee6d77605fe2f">send</a> (std::span&lt; const uint8_t &gt; buffer, size_t &amp;bytesSent) noexcept</td></tr>
+<tr class="memdesc:a034957692d48053e848ee6d77605fe2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data over the session's shell channel.  <br /></td></tr>
+<tr class="memitem:a47906cc0c3be3035aefe35c6b6ca9c36" id="r_a47906cc0c3be3035aefe35c6b6ca9c36"><td class="memItemLeft"><a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a47906cc0c3be3035aefe35c6b6ca9c36">shutdown</a> () noexcept</td></tr>
+<tr class="memdesc:a47906cc0c3be3035aefe35c6b6ca9c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the SSH disconnect message, ending the session gracefully.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae7a5214333e9d8618cb245a8cc7ddcbb" id="r_ae7a5214333e9d8618cb245a8cc7ddcbb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae7a5214333e9d8618cb245a8cc7ddcbb">ApplicationBase</a> (const <a class="el" href="#ad904a82ea1890f84cbdfe4aa97a6eff7">Config</a> &amp;config, bool isDeliveryStatusRequested) noexcept</td></tr>
-<tr class="memdesc:ae7a5214333e9d8618cb245a8cc7ddcbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wires the module, AT command handlers and services together.  <br /></td></tr>
-<tr class="memitem:aa45585216830206a91e6af0fc0536c72" id="r_aa45585216830206a91e6af0fc0536c72"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa45585216830206a91e6af0fc0536c72">~ApplicationBase</a> ()=default</td></tr>
-<tr class="memdesc:aa45585216830206a91e6af0fc0536c72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-virtual: the application is never deleted through a base pointer.  <br /></td></tr>
-<tr class="memitem:adda1596cd3f9a312e1026143e9c791a0" id="r_adda1596cd3f9a312e1026143e9c791a0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#adda1596cd3f9a312e1026143e9c791a0">ApplicationBase</a> (const ApplicationBase &amp;)=delete</td></tr>
-<tr class="memdesc:adda1596cd3f9a312e1026143e9c791a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owns the module and the task; not copyable.  <br /></td></tr>
-<tr class="memitem:a8b1df5d741e2d4c0918922d625639335" id="r_a8b1df5d741e2d4c0918922d625639335"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8b1df5d741e2d4c0918922d625639335">ApplicationBase</a> (ApplicationBase &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a8b1df5d741e2d4c0918922d625639335"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owns the module and the task; not movable.  <br /></td></tr>
-<tr class="memitem:a1fbc27f730a25077183c6615b0da2393" id="r_a1fbc27f730a25077183c6615b0da2393"><td class="memItemLeft"><a class="el" href="#ae7a5214333e9d8618cb245a8cc7ddcbb">ApplicationBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1fbc27f730a25077183c6615b0da2393">operator=</a> (const <a class="el" href="#ae7a5214333e9d8618cb245a8cc7ddcbb">ApplicationBase</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a1fbc27f730a25077183c6615b0da2393"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owns the module and the task; not copyable.  <br /></td></tr>
-<tr class="memitem:a3c7bb9925052a655291300fa07677acc" id="r_a3c7bb9925052a655291300fa07677acc"><td class="memItemLeft"><a class="el" href="#ae7a5214333e9d8618cb245a8cc7ddcbb">ApplicationBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3c7bb9925052a655291300fa07677acc">operator=</a> (<a class="el" href="#ae7a5214333e9d8618cb245a8cc7ddcbb">ApplicationBase</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a3c7bb9925052a655291300fa07677acc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owns the module and the task; not movable.  <br /></td></tr>
-<tr class="memitem:af8d75474b9de9892b7b1b1bcc56118da" id="r_af8d75474b9de9892b7b1b1bcc56118da"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af8d75474b9de9892b7b1b1bcc56118da">start</a> (bool shouldPause=false) noexcept</td></tr>
-<tr class="memdesc:af8d75474b9de9892b7b1b1bcc56118da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the module, reads its parameters and starts the application task.  <br /></td></tr>
-<tr class="memitem:a6aaebab36c38a48068097817eea1f5d0" id="r_a6aaebab36c38a48068097817eea1f5d0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6aaebab36c38a48068097817eea1f5d0">sendData</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;data) noexcept</td></tr>
-<tr class="memdesc:a6aaebab36c38a48068097817eea1f5d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends RF data to the remote module (16-bit address 0).  <br /></td></tr>
-<tr class="memitem:ac66ab1f5a250cf97db618a39536baefa" id="r_ac66ab1f5a250cf97db618a39536baefa"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac66ab1f5a250cf97db618a39536baefa">receiveMessage</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;destination, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
-<tr class="memdesc:ac66ab1f5a250cf97db618a39536baefa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the newest received payload.  <br /></td></tr>
-<tr class="memitem:ae4ad19477c169ee00f27854975375c36" id="r_ae4ad19477c169ee00f27854975375c36"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae4ad19477c169ee00f27854975375c36">receiveDeliveryStatus</a> (<a class="el" href="../../d1/d91/a05009.html#a1f2d004cd4c6fbc142552586f654c372">DeliveryStatus</a> &amp;destination, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
-<tr class="memdesc:ae4ad19477c169ee00f27854975375c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the delivery status of the last sent data frame.  <br /></td></tr>
-<tr class="memitem:a78fdfc652fb70b0f86d4526c707d817a" id="r_a78fdfc652fb70b0f86d4526c707d817a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a78fdfc652fb70b0f86d4526c707d817a">cancelDeliveryStatus</a> () noexcept</td></tr>
-<tr class="memdesc:a78fdfc652fb70b0f86d4526c707d817a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops waiting for the delivery status of the last sent data frame, so a late one is dropped.  <br /></td></tr>
-<tr class="memitem:a569078f4b1701fb0579efd9d8e10655d" id="r_a569078f4b1701fb0579efd9d8e10655d"><td class="memItemLeft"><a class="el" href="#a71f91e486ebbe685b8ef04a85df9816e">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a569078f4b1701fb0579efd9d8e10655d">getState</a> () const noexcept</td></tr>
-<tr class="memdesc:a569078f4b1701fb0579efd9d8e10655d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current application state; "State::PAUSE" while running with the exchange paused.  <br /></td></tr>
-<tr class="memitem:abefa9599b01a774884c7f5f1a8578084" id="r_abefa9599b01a774884c7f5f1a8578084"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abefa9599b01a774884c7f5f1a8578084">getModulePresent</a> () const noexcept</td></tr>
-<tr class="memdesc:abefa9599b01a774884c7f5f1a8578084"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether the module answered the hardware reset during start().  <br /></td></tr>
-<tr class="memitem:aa3265db7f30e4f55497da0f9e658c34b" id="r_aa3265db7f30e4f55497da0f9e658c34b"><td class="memItemLeft">Derived &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa3265db7f30e4f55497da0f9e658c34b">derived</a> () noexcept</td></tr>
-<tr class="memdesc:aa3265db7f30e4f55497da0f9e658c34b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns this object as the derived class.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-static-attribs" class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
-Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a5f1df970d40b041403dc2fc0f879abae" id="r_a5f1df970d40b041403dc2fc0f879abae"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5f1df970d40b041403dc2fc0f879abae">MAX_RESPONSE_TIME</a> {50}</td></tr>
-<tr class="memdesc:a5f1df970d40b041403dc2fc0f879abae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum response time.  <br /></td></tr>
-<tr class="memitem:af55362bd64390907f961b82387d33860" id="r_af55362bd64390907f961b82387d33860"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#af55362bd64390907f961b82387d33860">PAUSE_BETWEEN_MESSAGES_IN_DISCONNECTED</a> {500}</td></tr>
-<tr class="memdesc:af55362bd64390907f961b82387d33860"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send pause while disconnected.  <br /></td></tr>
-<tr class="memitem:aa194457ef6639381bfe406d1025ad910" id="r_aa194457ef6639381bfe406d1025ad910"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa194457ef6639381bfe406d1025ad910">CONNECTION_TIMEOUT</a> {750}</td></tr>
-<tr class="memdesc:aa194457ef6639381bfe406d1025ad910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connection timeout.  <br /></td></tr>
-<tr class="memitem:a658fcead2c99ac51dc8ad91de95b548d" id="r_a658fcead2c99ac51dc8ad91de95b548d"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a658fcead2c99ac51dc8ad91de95b548d">MAX_PAYLOAD_SIZE</a> = <a class="el" href="../../d7/dde/a04945.html#acff8f6208bb9a7184de12903ed05a713">Core::Message::DATA_SIZE</a></td></tr>
-<tr class="memdesc:a658fcead2c99ac51dc8ad91de95b548d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest accepted RF payload in bytes.  <br /></td></tr>
-<tr class="memitem:a13847afa1afbb1d04ebf3a6564519bf9" id="r_a13847afa1afbb1d04ebf3a6564519bf9"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a13847afa1afbb1d04ebf3a6564519bf9">NO_SIGNAL_RSSI</a> = <a class="el" href="../../da/d54/a04801.html#ac4d9e3e09041bd0eb6e5e405b10171fd">Connection::Info::SignalStrength::NO_SIGNAL</a></td></tr>
-<tr class="memdesc:a13847afa1afbb1d04ebf3a6564519bf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">RSSI magnitude stored while there is no link.  <br /></td></tr>
+<tr class="memitem:a41bf7bcd105beca0973ac47f04d4e3ff" id="r_a41bf7bcd105beca0973ac47f04d4e3ff"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> (<a class="el" href="../../d7/d46/a04765.html">WolfSSHServerContext</a> &amp;context) noexcept</td></tr>
+<tr class="memdesc:a41bf7bcd105beca0973ac47f04d4e3ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a session from a server context and binds its I/O and authentication dispatch to this instance.  <br /></td></tr>
+<tr class="memitem:a54cb791a164ecc14c00ccdb1f935d00e" id="r_a54cb791a164ecc14c00ccdb1f935d00e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a54cb791a164ecc14c00ccdb1f935d00e">~WolfSSHServer</a> () noexcept</td></tr>
+<tr class="memdesc:a54cb791a164ecc14c00ccdb1f935d00e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfSSH session.  <br /></td></tr>
+<tr class="memitem:ad8f53deb42abb7890bd933f530e30e99" id="r_ad8f53deb42abb7890bd933f530e30e99"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad8f53deb42abb7890bd933f530e30e99">WolfSSHServer</a> (const WolfSSHServer &amp;)=delete</td></tr>
+<tr class="memitem:a70a5a24b9fc9dd898d62c01766f9ba85" id="r_a70a5a24b9fc9dd898d62c01766f9ba85"><td class="memItemLeft"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a70a5a24b9fc9dd898d62c01766f9ba85">operator=</a> (const <a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;)=delete</td></tr>
+<tr class="memitem:ab4aaf2c785967e67853db50c9501bfc3" id="r_ab4aaf2c785967e67853db50c9501bfc3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab4aaf2c785967e67853db50c9501bfc3">WolfSSHServer</a> (WolfSSHServer &amp;&amp;)=delete</td></tr>
+<tr class="memitem:a68435d90ada80b3d688783d3a0a20ab5" id="r_a68435d90ada80b3d688783d3a0a20ab5"><td class="memItemLeft"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a68435d90ada80b3d688783d3a0a20ab5">operator=</a> (<a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;&amp;)=delete</td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="ad904a82ea1890f84cbdfe4aa97a6eff7" name="ad904a82ea1890f84cbdfe4aa97a6eff7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad904a82ea1890f84cbdfe4aa97a6eff7">&#9670;&#160;</a></span>Config</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::Config = <a class="el" href="../../dc/db4/a04953.html#a9b9fb43457649e59ca4afc679738e4a1">Lib::Digi::Core::Module::Config</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Module configuration type. </p>
-
-</div>
-</div>
-<a id="a576edf4b8ae391861cbaa752fb59d0ca" name="a576edf4b8ae391861cbaa752fb59d0ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a576edf4b8ae391861cbaa752fb59d0ca">&#9670;&#160;</a></span>DeliveryStatus</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::DeliveryStatus = <a class="el" href="../../d1/d91/a05009.html#a1f2d004cd4c6fbc142552586f654c372">Lib::Digi::Core::Frame0x89::DeliveryStatus</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Delivery status of a sent data frame. </p>
-
-</div>
-</div>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a71f91e486ebbe685b8ef04a85df9816e" name="a71f91e486ebbe685b8ef04a85df9816e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71f91e486ebbe685b8ef04a85df9816e">&#9670;&#160;</a></span>State</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a71f91e486ebbe685b8ef04a85df9816e">Lib::Digi::API::ApplicationBase::State</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Application state machine. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a71f91e486ebbe685b8ef04a85df9816ea72144f138e8a9f73854d58b59deca26d" name="a71f91e486ebbe685b8ef04a85df9816ea72144f138e8a9f73854d58b59deca26d"></a>NO_INIT&#160;</td><td class="fielddoc"><p>Not started. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a71f91e486ebbe685b8ef04a85df9816eafaee4ca3c30ee18148ce3ada37466498" name="a71f91e486ebbe685b8ef04a85df9816eafaee4ca3c30ee18148ce3ada37466498"></a>INIT&#160;</td><td class="fielddoc"><p>Module initialized, start() in progress. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a71f91e486ebbe685b8ef04a85df9816ea43491564ebcfd38568918efbd6e840fd" name="a71f91e486ebbe685b8ef04a85df9816ea43491564ebcfd38568918efbd6e840fd"></a>RUNNING&#160;</td><td class="fielddoc"><p>Exchanging messages. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a71f91e486ebbe685b8ef04a85df9816ea291554596c183e837f0a6bec3767c891" name="a71f91e486ebbe685b8ef04a85df9816ea291554596c183e837f0a6bec3767c891"></a>PAUSE&#160;</td><td class="fielddoc"><p>Running, but the exchange is paused; reported by "getState()" only. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a71f91e486ebbe685b8ef04a85df9816eabb1ca97ec761fc37101737ba0aa2e7c5" name="a71f91e486ebbe685b8ef04a85df9816eabb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"><p>start() failed. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae7a5214333e9d8618cb245a8cc7ddcbb" name="ae7a5214333e9d8618cb245a8cc7ddcbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7a5214333e9d8618cb245a8cc7ddcbb">&#9670;&#160;</a></span>ApplicationBase() <span class="overload">[1/3]</span></h2>
+<a id="a41bf7bcd105beca0973ac47f04d4e3ff" name="a41bf7bcd105beca0973ac47f04d4e3ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41bf7bcd105beca0973ac47f04d4e3ff">&#9670;&#160;</a></span>WolfSSHServer() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::ApplicationBase </td>
+          <td class="memname"><a class="el" href="../../da/d86/a04769.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::WolfSSHServer </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ad904a82ea1890f84cbdfe4aa97a6eff7">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="../../d7/d46/a04765.html">WolfSSHServerContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>context</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isDeliveryStatusRequested</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a session from a server context and binds its I/O and authentication dispatch to this instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>Server context to create the session from; must outlive this session. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_a41bf7bcd105beca0973ac47f04d4e3ff_icgraph.svg" width="758" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a54cb791a164ecc14c00ccdb1f935d00e" name="a54cb791a164ecc14c00ccdb1f935d00e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54cb791a164ecc14c00ccdb1f935d00e">&#9670;&#160;</a></span>~WolfSSHServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d86/a04769.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -351,213 +222,90 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Wires the module, AT command handlers and services together. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">config</td><td>Module configuration. </td></tr>
-    <tr><td class="paramname">isDeliveryStatusRequested</td><td>If "true", every data frame requests a transmit status from the module. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Releases the wolfSSH session. </p>
+
+</div>
+</div>
+<a id="ad8f53deb42abb7890bd933f530e30e99" name="ad8f53deb42abb7890bd933f530e30e99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f53deb42abb7890bd933f530e30e99">&#9670;&#160;</a></span>WolfSSHServer() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d86/a04769.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::WolfSSHServer </td>
+          <td>(</td>
+          <td class="paramtype">const WolfSSHServer&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_ae7a5214333e9d8618cb245a8cc7ddcbb_cgraph.svg" width="646" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_ad8f53deb42abb7890bd933f530e30e99_cgraph.svg" width="758" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+
+</div>
+</div>
+<a id="ab4aaf2c785967e67853db50c9501bfc3" name="ab4aaf2c785967e67853db50c9501bfc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4aaf2c785967e67853db50c9501bfc3">&#9670;&#160;</a></span>WolfSSHServer() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d86/a04769.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::WolfSSHServer </td>
+          <td>(</td>
+          <td class="paramtype">WolfSSHServer&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_ae7a5214333e9d8618cb245a8cc7ddcbb_icgraph.svg" width="598" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aa45585216830206a91e6af0fc0536c72" name="aa45585216830206a91e6af0fc0536c72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa45585216830206a91e6af0fc0536c72">&#9670;&#160;</a></span>~ApplicationBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::~<a class="el" href="#ae7a5214333e9d8618cb245a8cc7ddcbb">ApplicationBase</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-virtual: the application is never deleted through a base pointer. </p>
-
-</div>
-</div>
-<a id="adda1596cd3f9a312e1026143e9c791a0" name="adda1596cd3f9a312e1026143e9c791a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adda1596cd3f9a312e1026143e9c791a0">&#9670;&#160;</a></span>ApplicationBase() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::ApplicationBase </td>
-          <td>(</td>
-          <td class="paramtype">const ApplicationBase&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Owns the module and the task; not copyable. </p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_adda1596cd3f9a312e1026143e9c791a0_cgraph.svg" width="963" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a8b1df5d741e2d4c0918922d625639335" name="a8b1df5d741e2d4c0918922d625639335"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b1df5d741e2d4c0918922d625639335">&#9670;&#160;</a></span>ApplicationBase() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::ApplicationBase </td>
-          <td>(</td>
-          <td class="paramtype">ApplicationBase&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Owns the module and the task; not movable. </p>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_a8b1df5d741e2d4c0918922d625639335_cgraph.svg" width="963" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_ab4aaf2c785967e67853db50c9501bfc3_cgraph.svg" width="758" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a78fdfc652fb70b0f86d4526c707d817a" name="a78fdfc652fb70b0f86d4526c707d817a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78fdfc652fb70b0f86d4526c707d817a">&#9670;&#160;</a></span>cancelDeliveryStatus()</h2>
+<a id="a0bcf921f4ac87d3d5ec8ed5bad282b6c" name="a0bcf921f4ac87d3d5ec8ed5bad282b6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c">&#9670;&#160;</a></span>accept()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::cancelDeliveryStatus </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops waiting for the delivery status of the last sent data frame, so a late one is dropped. </p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_a78fdfc652fb70b0f86d4526c707d817a_icgraph.svg" width="1059" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aa3265db7f30e4f55497da0f9e658c34b" name="aa3265db7f30e4f55497da0f9e658c34b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3265db7f30e4f55497da0f9e658c34b">&#9670;&#160;</a></span>derived()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Derived &amp; <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::derived </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns this object as the derived class. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the derived object. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_aa3265db7f30e4f55497da0f9e658c34b_icgraph.svg" width="734" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="af8063d3ad104519c1331b65494eea01b" name="af8063d3ad104519c1331b65494eea01b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8063d3ad104519c1331b65494eea01b">&#9670;&#160;</a></span>getModuleInstance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/db4/a04953.html">Lib::Digi::Core::Module</a> &amp; <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::getModuleInstance </td>
+          <td class="memname"><a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../da/d86/a04769.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::accept </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -570,86 +318,26 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the XBee module driver. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the module instance. </dd></dl>
+<p>Runs (or resumes) the SSH handshake and authentication. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c" title="WolfSSHStatus::SUCCESS">WolfSSHStatus::SUCCESS</a> once the session is ready for <a class="el" href="#ac07508d68f41b64e463fdd58db57558b" title="read()">/@ref</a> <a class="el" href="#a034957692d48053e848ee6d77605fe2f" title="Sends data over the session&#39;s shell channel.">send()</a>, <a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3aabb57fd8245067368ea2a5cfb5577614" title="WolfSSHStatus::WOULD_BLOCK">WolfSSHStatus::WOULD_BLOCK</a> if the transport needs to be retried, <a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3abb1ca97ec761fc37101737ba0aa2e7c5" title="WolfSSHStatus::ERROR">WolfSSHStatus::ERROR</a> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="abefa9599b01a774884c7f5f1a8578084" name="abefa9599b01a774884c7f5f1a8578084"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abefa9599b01a774884c7f5f1a8578084">&#9670;&#160;</a></span>getModulePresent()</h2>
+<a id="a70a5a24b9fc9dd898d62c01766f9ba85" name="a70a5a24b9fc9dd898d62c01766f9ba85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70a5a24b9fc9dd898d62c01766f9ba85">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::getModulePresent </td>
+          <td class="memname"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp; <a class="el" href="../../da/d86/a04769.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reports whether the module answered the hardware reset during start(). </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the module is present, "false" otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a569078f4b1701fb0579efd9d8e10655d" name="a569078f4b1701fb0579efd9d8e10655d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a569078f4b1701fb0579efd9d8e10655d">&#9670;&#160;</a></span>getState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a71f91e486ebbe685b8ef04a85df9816e">State</a> <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::getState </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the current application state; "State::PAUSE" while running with the exchange paused. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current state. </dd></dl>
-
-</div>
-</div>
-<a id="a3c7bb9925052a655291300fa07677acc" name="a3c7bb9925052a655291300fa07677acc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c7bb9925052a655291300fa07677acc">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ae7a5214333e9d8618cb245a8cc7ddcbb">ApplicationBase</a> &amp; <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ae7a5214333e9d8618cb245a8cc7ddcbb">ApplicationBase</a>&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -659,32 +347,30 @@ template&lt;typename Derived&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Owns the module and the task; not movable. </p>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_a3c7bb9925052a655291300fa07677acc_cgraph.svg" width="963" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_a70a5a24b9fc9dd898d62c01766f9ba85_cgraph.svg" width="726" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a1fbc27f730a25077183c6615b0da2393" name="a1fbc27f730a25077183c6615b0da2393"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fbc27f730a25077183c6615b0da2393">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a68435d90ada80b3d688783d3a0a20ab5" name="a68435d90ada80b3d688783d3a0a20ab5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68435d90ada80b3d688783d3a0a20ab5">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ae7a5214333e9d8618cb245a8cc7ddcbb">ApplicationBase</a> &amp; <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp; <a class="el" href="../../da/d86/a04769.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ae7a5214333e9d8618cb245a8cc7ddcbb">ApplicationBase</a>&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -694,30 +380,110 @@ template&lt;typename Derived&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Owns the module and the task; not copyable. </p>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
 </div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_a1fbc27f730a25077183c6615b0da2393_cgraph.svg" width="963" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_a68435d90ada80b3d688783d3a0a20ab5_cgraph.svg" width="726" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a069f63d8ece09ad92a97696e558290b3" name="a069f63d8ece09ad92a97696e558290b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a069f63d8ece09ad92a97696e558290b3">&#9670;&#160;</a></span>pause()</h2>
+<a id="ac07508d68f41b64e463fdd58db57558b" name="ac07508d68f41b64e463fdd58db57558b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac07508d68f41b64e463fdd58db57558b">&#9670;&#160;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::pause </td>
+          <td class="memname"><a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../da/d86/a04769.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>bytesRead</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads data from the session's shell channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">buffer</td><td>Destination buffer. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bytesRead</td><td>Bytes actually read; valid only when this method returns <a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c" title="WolfSSHStatus::SUCCESS">WolfSSHStatus::SUCCESS</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the read; see <a class="el" href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c" title="accept()">accept()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a034957692d48053e848ee6d77605fe2f" name="a034957692d48053e848ee6d77605fe2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034957692d48053e848ee6d77605fe2f">&#9670;&#160;</a></span>send()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../da/d86/a04769.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::send </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>bytesSent</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends data over the session's shell channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Data to send. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bytesSent</td><td>Bytes actually sent; valid only when this method returns <a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c" title="WolfSSHStatus::SUCCESS">WolfSSHStatus::SUCCESS</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the send; see <a class="el" href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c" title="accept()">accept()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a47906cc0c3be3035aefe35c6b6ca9c36" name="a47906cc0c3be3035aefe35c6b6ca9c36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47906cc0c3be3035aefe35c6b6ca9c36">&#9670;&#160;</a></span>shutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/df0/a00934.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../da/d86/a04769.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::shutdown </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -725,495 +491,13 @@ template&lt;typename Derived&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Pauses the message exchange; the task keeps running the services. </p>
-<p>Callable from any task. </p>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_a069f63d8ece09ad92a97696e558290b3_icgraph.svg" width="710" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ae4ad19477c169ee00f27854975375c36" name="ae4ad19477c169ee00f27854975375c36"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4ad19477c169ee00f27854975375c36">&#9670;&#160;</a></span>receiveDeliveryStatus()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::receiveDeliveryStatus </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d1/d91/a05009.html#a1f2d004cd4c6fbc142552586f654c372">DeliveryStatus</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>destination</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Takes the delivery status of the last sent data frame. </p>
-<p>Application task only.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">destination</td><td>Receives the status, untouched on timeout. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Maximum wait; zero polls. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if a status was received. </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_ae4ad19477c169ee00f27854975375c36_icgraph.svg" width="662" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac66ab1f5a250cf97db618a39536baefa" name="ac66ab1f5a250cf97db618a39536baefa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac66ab1f5a250cf97db618a39536baefa">&#9670;&#160;</a></span>receiveMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::receiveMessage </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>destination</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Takes the newest received payload. </p>
-<p>Application task only.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">destination</td><td>Receives the payload; its capacity is reused, untouched on timeout. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Maximum wait; zero polls. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if a payload was received. </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_ac66ab1f5a250cf97db618a39536baefa_icgraph.svg" width="662" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="abbf1050f972e12e9f892cbb50f712298" name="abbf1050f972e12e9f892cbb50f712298"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbf1050f972e12e9f892cbb50f712298">&#9670;&#160;</a></span>resume()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::resume </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Resumes the message exchange paused by "pause()". </p>
-<p>Callable from any task.</p>
-<p>The exchange stays paused while the spectrum analyzer runs. </p>
-
-</div>
-</div>
-<a id="a6aaebab36c38a48068097817eea1f5d0" name="a6aaebab36c38a48068097817eea1f5d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6aaebab36c38a48068097817eea1f5d0">&#9670;&#160;</a></span>sendData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::sendData </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends RF data to the remote module (16-bit address 0). </p>
-<p>Application task only.</p>
-<p>The payload is moved into the frame and back, so nothing is copied or allocated.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Payload bytes; unchanged on return. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the module accepted the frame, "false" otherwise. </dd></dl>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
-</div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_a6aaebab36c38a48068097817eea1f5d0_cgraph.svg" width="678" height="110"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
-</div>
-<div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_a6aaebab36c38a48068097817eea1f5d0_icgraph.svg" width="742" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="af8d75474b9de9892b7b1b1bcc56118da" name="af8d75474b9de9892b7b1b1bcc56118da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8d75474b9de9892b7b1b1bcc56118da">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::start </td>
-          <td>(</td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>shouldPause</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Resets the module, reads its parameters and starts the application task. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">shouldPause</td><td>If "true", the application starts with the message exchange paused. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the module answered and the task was created, "false" otherwise. </dd></dl>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
-</div>
-<div id="dynsection-15-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d86/a04769_af8d75474b9de9892b7b1b1bcc56118da_cgraph.svg" width="734" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="abcae86ac3f99158551b91f88f0c88de7" name="abcae86ac3f99158551b91f88f0c88de7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcae86ac3f99158551b91f88f0c88de7">&#9670;&#160;</a></span>channelScanner</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d82/a04837.html">Service::ChannelScanner</a> <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::channelScanner</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Channel scanner service. </p>
-
-</div>
-</div>
-<a id="a6cc363b4c00520c96b5d228aab8301b8" name="a6cc363b4c00520c96b5d228aab8301b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6cc363b4c00520c96b5d228aab8301b8">&#9670;&#160;</a></span>connection</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/d6d/a04777.html">Connection</a> <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::connection</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Connection state, quality and statistics. </p>
-
-</div>
-</div>
-<a id="aa194457ef6639381bfe406d1025ad910" name="aa194457ef6639381bfe406d1025ad910"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa194457ef6639381bfe406d1025ad910">&#9670;&#160;</a></span>CONNECTION_TIMEOUT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::CONNECTION_TIMEOUT {750}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Connection timeout. </p>
-
-</div>
-</div>
-<a id="a6d0f2ae6cd2c2076945ec0be3c66436c" name="a6d0f2ae6cd2c2076945ec0be3c66436c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d0f2ae6cd2c2076945ec0be3c66436c">&#9670;&#160;</a></span>diagnostic</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/dcf/a04913.html">Core::Diagnostic</a>&amp; <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::diagnostic</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Diagnostic statistics and counters. </p>
-
-</div>
-</div>
-<a id="a658fcead2c99ac51dc8ad91de95b548d" name="a658fcead2c99ac51dc8ad91de95b548d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a658fcead2c99ac51dc8ad91de95b548d">&#9670;&#160;</a></span>MAX_PAYLOAD_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::MAX_PAYLOAD_SIZE = <a class="el" href="../../d7/dde/a04945.html#acff8f6208bb9a7184de12903ed05a713">Core::Message::DATA_SIZE</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Largest accepted RF payload in bytes. </p>
-
-</div>
-</div>
-<a id="a5f1df970d40b041403dc2fc0f879abae" name="a5f1df970d40b041403dc2fc0f879abae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f1df970d40b041403dc2fc0f879abae">&#9670;&#160;</a></span>MAX_RESPONSE_TIME</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::MAX_RESPONSE_TIME {50}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Maximum response time. </p>
-
-</div>
-</div>
-<a id="a3aed113d4e636bcad17894b64f1e5734" name="a3aed113d4e636bcad17894b64f1e5734"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3aed113d4e636bcad17894b64f1e5734">&#9670;&#160;</a></span>modemStatus</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/dca/a04949.html">Core::ModemStatus</a> <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::modemStatus</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Modem status monitoring and events. </p>
-
-</div>
-</div>
-<a id="a1936fa3a20798013fd230a5b9ae5a651" name="a1936fa3a20798013fd230a5b9ae5a651"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1936fa3a20798013fd230a5b9ae5a651">&#9670;&#160;</a></span>networkDiscovery</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d6/d2e/a04845.html">Service::NetworkDiscovery</a> <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::networkDiscovery</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Network discovery service. </p>
-
-</div>
-</div>
-<a id="a13847afa1afbb1d04ebf3a6564519bf9" name="a13847afa1afbb1d04ebf3a6564519bf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13847afa1afbb1d04ebf3a6564519bf9">&#9670;&#160;</a></span>NO_SIGNAL_RSSI</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::NO_SIGNAL_RSSI = <a class="el" href="../../da/d54/a04801.html#ac4d9e3e09041bd0eb6e5e405b10171fd">Connection::Info::SignalStrength::NO_SIGNAL</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>RSSI magnitude stored while there is no link. </p>
-
-</div>
-</div>
-<a id="a3a40ec0220eb721e07f56c02a206f485" name="a3a40ec0220eb721e07f56c02a206f485"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a40ec0220eb721e07f56c02a206f485">&#9670;&#160;</a></span>parameters</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/db5/a04861.html">Service::Parameters</a> <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::parameters</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Module parameters service. </p>
-
-</div>
-</div>
-<a id="af55362bd64390907f961b82387d33860" name="af55362bd64390907f961b82387d33860"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af55362bd64390907f961b82387d33860">&#9670;&#160;</a></span>PAUSE_BETWEEN_MESSAGES_IN_DISCONNECTED</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::PAUSE_BETWEEN_MESSAGES_IN_DISCONNECTED {500}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Send pause while disconnected. </p>
-
-</div>
-</div>
-<a id="a94172a0bb6588a8bad00411e1e6ce038" name="a94172a0bb6588a8bad00411e1e6ce038"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94172a0bb6588a8bad00411e1e6ce038">&#9670;&#160;</a></span>spectrumAnalyzer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/d10/a04885.html">Service::SpectrumAnalyzer</a> <a class="el" href="../../da/d86/a04769.html">Lib::Digi::API::ApplicationBase</a>&lt; Derived &gt;::spectrumAnalyzer</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Spectrum analyzer service. </p>
+<p>Sends the SSH disconnect message, ending the session gracefully. </p>
+<dl class="section return"><dt>Returns</dt><dd>Status of the shutdown; see <a class="el" href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c" title="accept()">accept()</a>. </dd></dl>
 
 </div>
 </div>
@@ -1230,7 +514,7 @@ template&lt;typename Derived&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d2/dac/a00876.html">Lib</a></li><li class="navelem"><a href="../../d3/d8a/a00899.html">Digi</a></li><li class="navelem"><a href="../../d9/db0/a00900.html">API</a></li><li class="navelem"><a href="../../da/d86/a04769.html">ApplicationBase</a></li>
+    <li class="navelem"><a href="../../df/da5/a00912.html">Lib</a></li><li class="navelem"><a href="../../d0/df0/a00934.html">Crypto</a></li><li class="navelem"><a href="../../da/d86/a04769.html">WolfSSHServer</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

@@ -1,18 +1,9 @@
 var a04389 =
 [
-    [ "Command", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726", [
-      [ "WRITE_ENABLE", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "READ_STATUS_REGISTER1", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "QUAD_PAGE_PROGRAM", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
-      [ "FAST_READ_QUAD_IO", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
-      [ "SECTOR_ERASE", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "dc/d5b/a04389.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "pinIRQ", "dc/d5b/a04389.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
+    [ "pinNSS", "dc/d5b/a04389.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
+    [ "pinReset", "dc/d5b/a04389.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
+    [ "pinSync0", "dc/d5b/a04389.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
+    [ "pinSync1", "dc/d5b/a04389.html#a3358fa1b35628a6d324f9be9d4624338", null ],
+    [ "spiHandle", "dc/d5b/a04389.html#aed57b8892979041579d2eb130d453151", null ]
 ];

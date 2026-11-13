@@ -1,16 +1,7 @@
 var a05941 =
 [
-    [ "Config", "d8/d6b/a05945.html", "d8/d6b/a05945" ],
-    [ "DataMap", "d6/da4/a05949.html", "d6/da4/a05949" ],
-    [ "LastResetState", "d2/d5c/a05941.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
-    [ "System", "d2/d5c/a05941.html#af4fce1b946378e3b68e2dab8e562134f", null ],
-    [ "System", "d2/d5c/a05941.html#a5ea26b055ba2f74bfb770c90aea5ed2e", null ],
-    [ "operator=", "d2/d5c/a05941.html#af9936cf8ce134998481d3b63473f909b", null ],
-    [ "configuration", "d2/d5c/a05941.html#a97e928b4c78a8a3e74760b983ea17573", null ],
-    [ "firmwareVersion", "d2/d5c/a05941.html#a6b544bb551e83fc1c464e0e9572f48ab", null ],
-    [ "hardwareVersion", "d2/d5c/a05941.html#a6d884054d36dd9f4b62aed86e5830d9b", null ],
-    [ "lastResetState", "d2/d5c/a05941.html#add4f1e84db40b8862ab63a06766ae439", null ],
-    [ "produceDate", "d2/d5c/a05941.html#a542e9245a4b9791006636abac56b2574", null ],
-    [ "saleDate", "d2/d5c/a05941.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
-    [ "serialNumber", "d2/d5c/a05941.html#a2a1eff5a3c2fc68cb2d853d61065a903", null ]
+    [ "maxVoltage", "d2/d5c/a05941.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
+    [ "minVoltage", "d2/d5c/a05941.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
+    [ "powerThreshold", "d2/d5c/a05941.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
+    [ "stepSize", "d2/d5c/a05941.html#a5ac779799a2638585b8dbced18eff05d", null ]
 ];

@@ -1,10 +1,16 @@
 var a05361 =
 [
-    [ "IndependentWatchdog", "d9/d1e/a05361.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
-    [ "IndependentWatchdog", "d9/d1e/a05361.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
-    [ "IndependentWatchdog", "d9/d1e/a05361.html#aabfa4830743c87632886a0e095af6dba", null ],
-    [ "open", "d9/d1e/a05361.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
-    [ "operator=", "d9/d1e/a05361.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
-    [ "operator=", "d9/d1e/a05361.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
-    [ "refresh", "d9/d1e/a05361.html#ae9f164f43789bd02baa1587a44c30e61", null ]
+    [ "Event", "d2/d8f/a05365.html", null ],
+    [ "Sha256Digest", "d9/d1e/a05361.html#add4d9f33ecf447251492399927b27da5", null ],
+    [ "HASHPort", "d9/d1e/a05361.html#a6c119eb2a5f647e1754a57b0b850fe4f", null ],
+    [ "~HASHPort", "d9/d1e/a05361.html#a4160e13f3eda86ab67d5e41e3d9f0fca", null ],
+    [ "HASHPort", "d9/d1e/a05361.html#af6b9554592c3ad75d36bdd11041e7006", null ],
+    [ "HASHPort", "d9/d1e/a05361.html#a491caf024458b7906cce604bafe47e1c", null ],
+    [ "close", "d9/d1e/a05361.html#afd2e0fb455d45519f537895cc2a022c3", null ],
+    [ "getHandle", "d9/d1e/a05361.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d9/d1e/a05361.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "open", "d9/d1e/a05361.html#abc11d9a441e0dc16a3e5a353bd0445fd", null ],
+    [ "operator=", "d9/d1e/a05361.html#a4313f6e70d3c0be3f82ed001be995baf", null ],
+    [ "operator=", "d9/d1e/a05361.html#a816e654f5c439b829301c71a3dbdf30d", null ],
+    [ "sha256", "d9/d1e/a05361.html#a331d3b9f3f4f47d04927bfe00ec600e6", null ]
 ];

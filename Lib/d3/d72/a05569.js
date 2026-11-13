@@ -1,9 +1,14 @@
 var a05569 =
 [
-    [ "CityHash", "d3/d72/a05569.html#a15e433a2ca8afc2454c0b9ee95e7fea7", null ],
-    [ "CityHash", "d3/d72/a05569.html#a15b35a0b560f8789aa9ee2094ab202c0", null ],
-    [ "CityHash", "d3/d72/a05569.html#a74cd5ecd399d3ab6143d6ce1d372250c", null ],
-    [ "operator uint32_t", "d3/d72/a05569.html#a59dabbcd8725156de559846906b1d2d2", null ],
-    [ "operator=", "d3/d72/a05569.html#a9686208520746297f398d6e4c46879ec", null ],
-    [ "operator=", "d3/d72/a05569.html#a92c9de43df76b5194aa1da56c05e07fd", null ]
+    [ "EventHandler", "d3/d72/a05569.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPort", "d3/d72/a05569.html#a91ab9877db9cf87b15fe9118bf39ed92", null ],
+    [ "~USBHostPort", "d3/d72/a05569.html#a4c01d7a9aa859df6f11e05b804af766d", null ],
+    [ "close", "d3/d72/a05569.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d3/d72/a05569.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d3/d72/a05569.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d3/d72/a05569.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d3/d72/a05569.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "setEventHandler", "d3/d72/a05569.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "transfer", "d3/d72/a05569.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "d3/d72/a05569.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

@@ -1,4 +1,4 @@
 var a00647 =
 [
-    [ "Lib::HAL::USBHostPort&lt; DriverMode::DMA &gt;", "d2/d99/a05529.html", "d2/d99/a05529" ]
+    [ "Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;", "d5/d35/a05471.html", "d5/d35/a05471" ]
 ];

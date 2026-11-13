@@ -1,8 +1,7 @@
 var a05017 =
 [
-    [ "Frame0x8b", "da/d3a/a05017.html#acc41ed2fe2b266bab2e062bcc97b33cc", null ],
-    [ "deliveryStatus", "da/d3a/a05017.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
-    [ "discoveryStatus", "da/d3a/a05017.html#a7b5c383aff55a80124e65ff4565eb114", null ],
-    [ "frameId", "da/d3a/a05017.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
-    [ "transmitRetryCount", "da/d3a/a05017.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
+    [ "FrameWriter", "da/d3a/a05017.html#a59412dd23cc927bfec3c14e563ce00ac", null ],
+    [ "put", "da/d3a/a05017.html#a08ff6a358e2a048f64a0d79be8a77a3a", null ],
+    [ "put", "da/d3a/a05017.html#afa16c8a90132f75fc0ca2fec2864fc19", null ],
+    [ "put", "da/d3a/a05017.html#abb5db27849ce33eefe7c66d078a1372b", null ]
 ];

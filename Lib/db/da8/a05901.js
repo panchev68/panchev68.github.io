@@ -1,14 +1,31 @@
 var a05901 =
 [
     [ "Config", "d9/d61/a05905.html", "d9/d61/a05905" ],
-    [ "Measurement", "d7/d14/a05909.html", "d7/d14/a05909" ],
-    [ "Direction", "db/da8/a05901.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
-      [ "DOWN", "db/da8/a05901.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
-      [ "UP", "db/da8/a05901.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
-    ] ],
-    [ "PerturbAndObserve", "db/da8/a05901.html#a7e1626362f778f8b7e085cdc41794a67", null ],
-    [ "getVoltageSetpoint", "db/da8/a05901.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
-    [ "reset", "db/da8/a05901.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
-    [ "setStepSize", "db/da8/a05901.html#a121c7b229d119d0ee55cd0b855065350", null ],
-    [ "update", "db/da8/a05901.html#ab0587469fdbaa626d9f751ef04255627", null ]
+    [ "TickType", "db/da8/a05901.html#adc76fba01b70e91209e1f25d9dd7f1ce", null ],
+    [ "TickClient", "db/da8/a05901.html#a3e885923e858b4dbbb6896a511cb5166", null ],
+    [ "~TickClient", "db/da8/a05901.html#aa081d1530901d0d5cca0f29807ada39a", null ],
+    [ "TickClient", "db/da8/a05901.html#a6a64e7b4307315ae1a1a0e8ee2214b4b", null ],
+    [ "TickClient", "db/da8/a05901.html#a32f321fa2b51b5909c7f4a3302e1bc77", null ],
+    [ "changePeriod", "db/da8/a05901.html#a0db43688ea792433fe8d94ebfcab20ca", null ],
+    [ "changePeriod", "db/da8/a05901.html#aef2ed6cb01e9bb34542b767662c88bd3", null ],
+    [ "changePeriodFromISR", "db/da8/a05901.html#a7c8017e24f2f8306cca30515802f61de", null ],
+    [ "changePeriodFromISR", "db/da8/a05901.html#ad20836d70197059eab8a5694eededa40", null ],
+    [ "getExpiryTime", "db/da8/a05901.html#af5207bfd2383a7f0cf5bc9d5e370acba", null ],
+    [ "getPeriod", "db/da8/a05901.html#ae8047f3e345b144287a23699cfebebcc", null ],
+    [ "isActive", "db/da8/a05901.html#a084f884000ac866e97a7de170367ac6f", null ],
+    [ "isStarted", "db/da8/a05901.html#aa3419504803e71b4605ae5f4765608db", null ],
+    [ "isValid", "db/da8/a05901.html#a408eb1aee05259b64d9d520fecbad54f", null ],
+    [ "operator=", "db/da8/a05901.html#a8cbfad05ae465784059e104778632821", null ],
+    [ "operator=", "db/da8/a05901.html#a206dc99dd3e2606043f77ede19d83bf5", null ],
+    [ "reset", "db/da8/a05901.html#a7a4396772c0f38c13c4159eda24dad0d", null ],
+    [ "resetFromISR", "db/da8/a05901.html#abc6e0b22a8ccbaefc9c2c961b59b81f1", null ],
+    [ "resetFromISR", "db/da8/a05901.html#ad88e49d6dba20d768779b274c73eeaaf", null ],
+    [ "setup", "db/da8/a05901.html#af079f0ff38c9abbb17860ae663c665df", null ],
+    [ "setup", "db/da8/a05901.html#a95568f125f0eac00c1b1668b017ae662", null ],
+    [ "start", "db/da8/a05901.html#a59730ccf7ef04d00837d566cd5184305", null ],
+    [ "startFromISR", "db/da8/a05901.html#a7c3baef45d5c6e812ec90241dd97ff6c", null ],
+    [ "startFromISR", "db/da8/a05901.html#adf87e93a9e774ae37b684423c1f2acde", null ],
+    [ "stop", "db/da8/a05901.html#a63fcbf5699a2025dba2c058bc0715c62", null ],
+    [ "stopFromISR", "db/da8/a05901.html#ab9f24e9be6431fa9de927ef5b39ce61e", null ],
+    [ "stopFromISR", "db/da8/a05901.html#a950094a7c5c23bac35a8dfa0472dbd02", null ]
 ];

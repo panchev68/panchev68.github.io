@@ -1,8 +1,12 @@
 var a05597 =
 [
-    [ "crc16", "da/d24/a05597.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
-    [ "crc16", "da/d24/a05597.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
-    [ "crc16", "da/d24/a05597.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
-    [ "crc16", "da/d24/a05597.html#abac152733a66bebdb4f969523dc9dbe1", null ],
-    [ "operator uint16_t", "da/d24/a05597.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
+    [ "WindowWatchdog", "da/d24/a05597.html#aedbc081389ab6197c5a334fcff249dc9", null ],
+    [ "~WindowWatchdog", "da/d24/a05597.html#abf0355eeac54b8e2df2436417ae430c8", null ],
+    [ "WindowWatchdog", "da/d24/a05597.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
+    [ "WindowWatchdog", "da/d24/a05597.html#a94de72071a208a3a396313415af9df3a", null ],
+    [ "open", "da/d24/a05597.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
+    [ "operator=", "da/d24/a05597.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
+    [ "operator=", "da/d24/a05597.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
+    [ "refresh", "da/d24/a05597.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
+    [ "setWindow", "da/d24/a05597.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
 ];

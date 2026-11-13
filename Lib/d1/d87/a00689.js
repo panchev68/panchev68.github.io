@@ -1,4 +1,4 @@
 var a00689 =
 [
-    [ "Lib::Helper::Convert::HexHelper", "d0/de1/a05589.html", null ]
+    [ "Lib::HAL::SPIPort&lt; DriverMode::IT &gt;", "d7/dbb/a05535.html", "d7/dbb/a05535" ]
 ];

@@ -1,9 +1,8 @@
 var a05773 =
 [
-    [ "CriticalSectionFromISR", "da/d6e/a05773.html#a94cda37183a61f5455dc5e641bcb5109", null ],
-    [ "~CriticalSectionFromISR", "da/d6e/a05773.html#a54e463ae72e1238776194c4cb941357b", null ],
-    [ "CriticalSectionFromISR", "da/d6e/a05773.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
-    [ "CriticalSectionFromISR", "da/d6e/a05773.html#a9d04ea07249455e75c39ce5450c33028", null ],
-    [ "operator=", "da/d6e/a05773.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
-    [ "operator=", "da/d6e/a05773.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
+    [ "State", "da/d6e/a05773.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
+    [ "firstRun", "da/d6e/a05773.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
+    [ "integralSum", "da/d6e/a05773.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
+    [ "lastInput", "da/d6e/a05773.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
+    [ "lastOutput", "da/d6e/a05773.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
 ];

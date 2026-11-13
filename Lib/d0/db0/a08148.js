@@ -1,4 +1,4 @@
 var a08148 =
 [
-    [ "Lib::Helper::Exception", "d8/d04/a05624.html", "d8/d04/a05624" ]
+    [ "Lib::Digi::Core::Protocol", "d2/d68/a04954.html", null ]
 ];

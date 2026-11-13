@@ -1,6 +1,5 @@
 var a04893 =
 [
-    [ "AtCommandString", "dc/dc4/a04893.html#aececd161348c75d93c06ea6da2f4cd23", null ],
-    [ "AtCommandString", "dc/dc4/a04893.html#aeda6a28d5f8d19ea98ec29f1795507be", null ],
-    [ "operator uint16_t", "dc/dc4/a04893.html#a5bfb355d92f981a786da2146384333c5", null ]
+    [ "localAtCommand", "dc/dc4/a04893.html#a62c4d2c354626705c34bc850c039b5f7", null ],
+    [ "remoteAtCommand", "dc/dc4/a04893.html#aa56356e688d34101ce88fae45dd6fa4a", null ]
 ];

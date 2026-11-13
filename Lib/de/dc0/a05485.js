@@ -1,13 +1,15 @@
 var a05485 =
 [
-    [ "UARTPort", "de/dc0/a05485.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
-    [ "~UARTPort", "de/dc0/a05485.html#a379b29de4717643896518dcc44558b2d", null ],
-    [ "abort", "de/dc0/a05485.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "de/dc0/a05485.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "de/dc0/a05485.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "Manager", "de/dc0/a05485.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "de/dc0/a05485.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimEventBase", "de/dc0/a05485.html#ae4e4ea4622adc3ec78740bcbb5de40c7", null ],
+    [ "TimEventBase", "de/dc0/a05485.html#a5bc4465b338b0255addd68424099b237", null ],
+    [ "TimEventBase", "de/dc0/a05485.html#a16a104e17a6f13f616dc2f0a20f42653", null ],
+    [ "~TimEventBase", "de/dc0/a05485.html#a5005179511e8564eef47bc3da1d74925", null ],
+    [ "bindWorker", "de/dc0/a05485.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
     [ "getHandle", "de/dc0/a05485.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "de/dc0/a05485.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "de/dc0/a05485.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "de/dc0/a05485.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "de/dc0/a05485.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
+    [ "notifyWorkerFromISR", "de/dc0/a05485.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "operator=", "de/dc0/a05485.html#a85bb87c2ebb0260e1e4503471892deaa", null ],
+    [ "operator=", "de/dc0/a05485.html#a252859ce5916b5a86188c2929fc271a4", null ],
+    [ "waitEvent", "de/dc0/a05485.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ]
 ];

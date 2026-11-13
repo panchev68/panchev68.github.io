@@ -1,15 +1,10 @@
 var a05669 =
 [
-    [ "TickType", "d0/d2a/a05669.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
-    [ "TimePeriod", "d0/d2a/a05669.html#a096466d88bfa78ef18f074937a43f63f", null ],
-    [ "elapsed", "d0/d2a/a05669.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
-    [ "elapsedFromISR", "d0/d2a/a05669.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
-    [ "elapsedTime", "d0/d2a/a05669.html#aea37e1feea05928a3dfd98f79e82c449", null ],
-    [ "elapsedTimeFromISR", "d0/d2a/a05669.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
-    [ "isRunning", "d0/d2a/a05669.html#aa4477fa15b16c620396b69b2935bf2de", null ],
-    [ "reset", "d0/d2a/a05669.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
-    [ "start", "d0/d2a/a05669.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
-    [ "startFromISR", "d0/d2a/a05669.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
-    [ "stop", "d0/d2a/a05669.html#a12059cd59e97f3575d46ed98120763a2", null ],
-    [ "stopFromISR", "d0/d2a/a05669.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
+    [ "Integrator", "d0/d2a/a05669.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
+    [ "addValue", "d0/d2a/a05669.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
+    [ "computeResult", "d0/d2a/a05669.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
+    [ "isWindowFull", "d0/d2a/a05669.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
+    [ "operator()", "d0/d2a/a05669.html#a97085ec2f9a9f65920181fffae409662", null ],
+    [ "processValue", "d0/d2a/a05669.html#ab31a92d828aeae207fd9641101c217f5", null ],
+    [ "resetWindow", "d0/d2a/a05669.html#a78e088ee416a676679fe227ceb71b1b0", null ]
 ];

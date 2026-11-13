@@ -1,13 +1,10 @@
 var a05233 =
 [
-    [ "BackupRamDomain", "d0/db4/a05233.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
-    [ "~BackupRamDomain", "d0/db4/a05233.html#a3b301936cae87db14bef527c0a5629af", null ],
-    [ "BackupRamDomain", "d0/db4/a05233.html#abf039272ad85b43415d4df28c8c0a051", null ],
-    [ "BackupRamDomain", "d0/db4/a05233.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
-    [ "close", "d0/db4/a05233.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
-    [ "open", "d0/db4/a05233.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
-    [ "operator=", "d0/db4/a05233.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
-    [ "operator=", "d0/db4/a05233.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
-    [ "readRegister", "d0/db4/a05233.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
-    [ "writeRegister", "d0/db4/a05233.html#acc5002942f221da40872cb7be92706a9", null ]
+    [ "Network", "d0/db4/a05233.html#a8a79b18c344e852b7407c0494a82adbd", null ],
+    [ "getLocation", "d0/db4/a05233.html#ae9cf143ddf2ac77a89fc8c55a4ad2d9a", null ],
+    [ "getRegistration", "d0/db4/a05233.html#a0ba5a1946fdef5898098ae433c7bbc7e", null ],
+    [ "getSignalQuality", "d0/db4/a05233.html#a7b216bf9beb5eb9b492df275322bf91d", null ],
+    [ "getTime", "d0/db4/a05233.html#aa9ea33855abc5d4e08af811d8fb170bf", null ],
+    [ "setLTEOnly", "d0/db4/a05233.html#a037d7f7905180a50e7c67ccb4b32340a", null ],
+    [ "waitForRegistration", "d0/db4/a05233.html#a7b0d5756f219ac0622081018e2667b81", null ]
 ];

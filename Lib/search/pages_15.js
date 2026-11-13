@@ -1,4 +1,27 @@
 var searchData=
 [
-  ['▶️_20usage_20quick_20start_0',['▶️ Usage / Quick Start',['../index.html#️-usage--quick-start',1,'']]]
+  ['wait_0',['Scoped lock with an indefinite wait',['../X:/Lib/IAR/Project/Examples/RTOS_MutexGuard.dox#mutexguard_usage_scope',1,'']]],
+  ['wait_20for_20bits_1',['Set and wait for bits',['../X:/Lib/IAR/Project/Examples/RTOS_EventGroup.dox#eventgroup_usage_basic',1,'']]],
+  ['waiting_20and_20dispatching_2',['Waiting and dispatching',['../X:/Lib/IAR/Project/Examples/RTOS_QueueSet.dox#queue_set_usage_wait',1,'']]],
+  ['waiting_20for_20a_20timeout_20in_20a_20task_3',['Waiting for a timeout in a task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_LPTimer.dox#lptim_usage_timeout',1,'']]],
+  ['waiting_20for_20individual_20events_4',['Waiting for individual events',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_it_events',1,'']]],
+  ['waiting_20in_20a_20task_5',['Waiting in a task',['../X:/Lib/IAR/Project/Examples/RTOS_Semaphore.dox#semaphore_usage_task',1,'']]],
+  ['watchdog_6',['Start the watchdog',['../X:/Lib/IAR/Project/Examples/Lib_HAL_IndependentWatchdog.dox#iwdg_usage_start',1,'']]],
+  ['waveform_7',['Circular waveform',['../X:/Lib/IAR/Project/Examples/Lib_HAL_DAC.dox#dac_usage_dma',1,'']]],
+  ['whole_20port_20access_8',['Whole-port access',['../X:/Lib/IAR/Project/Examples/Lib_HAL_GPIO.dox#gpio_usage_port',1,'']]],
+  ['window_20at_20run_20time_9',['Narrow the refresh window at run time',['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#wwdg_usage_window',1,'']]],
+  ['window_20short_10',['Keep the access window short',['../X:/Lib/IAR/Project/Examples/Lib_HAL_BackupRamDomain.dox#backup_usage_scope',1,'']]],
+  ['with_20a_20duty_20cycle_11',['Start with a duty cycle',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_basic',1,'']]],
+  ['with_20an_20indefinite_20wait_12',['Scoped lock with an indefinite wait',['../X:/Lib/IAR/Project/Examples/RTOS_MutexGuard.dox#mutexguard_usage_scope',1,'']]],
+  ['with_20completion_13',['Transmit with completion',['../X:/Lib/IAR/Project/Examples/Lib_HAL_CAN.dox#can_usage_it_send',1,'']]],
+  ['with_20dma_14',['Device role with DMA',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usb_usage_dma',1,'']]],
+  ['with_20event_20bits_15',['Worker task with event bits',['../X:/Lib/IAR/Project/Examples/RTOS_Task.dox#task_usage_worker',1,'']]],
+  ['with_20timeout_16',['Normal mutex with timeout',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_normal',1,'']]],
+  ['word_17',['Program one word',['../X:/Lib/IAR/Project/Examples/Lib_HAL_FlashInterface.dox#flash_usage_word',1,'']]],
+  ['word_20once_18',['Program a word once',['../X:/Lib/IAR/Project/Examples/Lib_HAL_OTP.dox#otp_usage_write',1,'']]],
+  ['worker_20task_20with_20event_20bits_19',['Worker task with event bits',['../X:/Lib/IAR/Project/Examples/RTOS_Task.dox#task_usage_worker',1,'']]],
+  ['write_20',['Read and write',['../X:/Lib/IAR/Project/Examples/Lib_BSP_FlashMemory_OSPI_W25Q128JVSIQ.dox#w25q128_usage_rw',1,'']]],
+  ['write_20and_20read_20back_20a_20record_20from_20a_20task_21',['Write and read back a record from a task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_IS62WV51216.dox#is62_usage_frame',1,'']]],
+  ['writers_22',['Several writers',['../X:/Lib/IAR/Project/Examples/RTOS_StreamBuffer.dox#streambuffer_usage_multiwriter',1,'']]],
+  ['writing_20and_20resynchronizing_23',['Writing and resynchronizing',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_write',1,'']]]
 ];

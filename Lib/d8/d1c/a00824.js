@@ -1,4 +1,4 @@
 var a00824 =
 [
-    [ "Lib::System::Configuration", "dc/dec/a05913.html", "dc/dec/a05913" ]
+    [ "Lib::Helper::Integrator&lt; T_VALUE, T_WINDOW_SIZE &gt;", "d6/df4/a05747.html", "d6/df4/a05747" ]
 ];

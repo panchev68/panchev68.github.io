@@ -1,6 +1,6 @@
 var a00098 =
 [
-    [ "Lib::BSP::Thermometer::DTH::Base&lt; T_DERIVED &gt;", "d8/df9/a04517.html", "d8/df9/a04517" ],
-    [ "Lib::BSP::Thermometer::DTH::Base&lt; T_DERIVED &gt;::TimerHandler", "de/dc5/a04521.html", "de/dc5/a04521" ],
-    [ "Lib::BSP::Thermometer::DTH::Base&lt; T_DERIVED &gt;::Config", "dc/dc2/a04525.html", "dc/dc2/a04525" ]
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;", "d4/d09/a04225.html", "d4/d09/a04225" ],
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;::CurrentCorrection", "d1/d7f/a04229.html", "d1/d7f/a04229" ],
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;::Config", "dd/d57/a04233.html", "dd/d57/a04233" ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Port.hpp</title>
+<title>IAR EWARM Library: RTOS::TickCounter example</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -109,41 +111,48 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d72/a08249.
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Port.hpp</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">RTOS::TickCounter example </div></div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Port number of an Ethernet endpoint. </p>
-<p>A 16-bit value with conversion to and from decimal text. Everything that does not touch hardware is 'constexpr', so port numbers can be built, parsed and printed at compile time.</p>
-<dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-10-13 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Ethernet/base/Port.hpp:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d0d/a08250.svg" width="619" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dad/a08251.svg" width="232" height="423"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AEthernet_3A_3APort" id="r_Lib_3A_3AEthernet_3A_3APort"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dd/d43/a05133.html">Lib::Ethernet::Port</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Port number (0 to 65535).  <a href="../../dd/d43/a05133.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d2/dac/a00876.html">Lib</a></td></tr>
-<tr class="memdesc:d2/dac/a00876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AEthernet" id="r_Lib_3A_3AEthernet"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d85/a00908.html">Lib::Ethernet</a></td></tr>
-<tr class="memdesc:d0/d85/a00908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ethernet networking primitives. <br /></td></tr>
-</table>
-</div><!-- contents -->
+<div class="textblock"><p>Shows reading the tick count, measuring elapsed ticks, and converting between ticks and time units.</p>
+<p>Conversions to ticks round up, so a wait is never shorter than requested, and they saturate at 'portMAX_DELAY'. <a class="el" href="../../d9/d7a/a05990.html#a3bd8941116778102907c08b9b5184316" title="RTOS::TickCounter::get()">RTOS::TickCounter::get()</a> asserts task context; from an interrupt use <a class="el" href="../../d9/d7a/a05990.html#af393a988abb6fd04e4b69529d19ba65f" title="RTOS::TickCounter::getFromISR()">RTOS::TickCounter::getFromISR()</a> and <a class="el" href="../../d9/d7a/a05990.html#a26129c317f81ddbd57a1d7ea37d14ed1" title="RTOS::TickCounter::getElapsedTicksSinceFromISR()">RTOS::TickCounter::getElapsedTicksSinceFromISR()</a> instead. All functions are static, so <a class="el" href="../../d9/d7a/a05990.html" title="RTOS::TickCounter">RTOS::TickCounter</a> is never instantiated.</p>
+<h1 class="doxsection"><a class="anchor" id="rtos_tickcounter_usage"></a>
+Usage</h1>
+<h2 class="doxsection"><a class="anchor" id="tickcounter_usage_timing"></a>
+Measure and convert time</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d82/a00920.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d38/a00926.html">Lib/RTOS/FreeRTOS/TickCounter.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> timingTask() noexcept {</div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d9/d7a/a05990.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a> = <a class="code hl_function" href="../../d9/d7a/a05990.html#a3bd8941116778102907c08b9b5184316">RTOS::TickCounter::get</a>();</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_function" href="../../d9/d69/a05958.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a>(150ms);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d9/d7a/a05990.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> elapsed = <a class="code hl_function" href="../../d9/d7a/a05990.html#a97f0500abd250ef6ac60226faa35ccfa">RTOS::TickCounter::getElapsedTicksSince</a>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a>);</div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> elapsedTime = <a class="code hl_function" href="../../d9/d7a/a05990.html#a9c2f37f5b366ec485302e551cafdb87a">RTOS::TickCounter::toDuration</a>(elapsed);</div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d9/d7a/a05990.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> timeoutTicks = <a class="code hl_function" href="../../d9/d7a/a05990.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a>(2s);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(elapsedTime);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(timeoutTicks);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00920_html"><div class="ttname"><a href="../../d6/d82/a00920.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
+<div class="ttc" id="aa00926_html"><div class="ttname"><a href="../../d8/d38/a00926.html">TickCounter.hpp</a></div><div class="ttdoc">Converts between scheduler ticks, milliseconds, seconds and std::chrono durations.</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
+<div class="ttc" id="aa05958_html_a1c0c1a0a57ee9332e741c8422eebbffe"><div class="ttname"><a href="../../d9/d69/a05958.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType ticks) noexcept</div><div class="ttdoc">Delays the calling task for the given number of ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:739</div></div>
+<div class="ttc" id="aa05990_html_a3bd8941116778102907c08b9b5184316"><div class="ttname"><a href="../../d9/d7a/a05990.html#a3bd8941116778102907c08b9b5184316">RTOS::TickCounter::get</a></div><div class="ttdeci">static TickType get() noexcept</div><div class="ttdoc">Returns the current scheduler tick count from task context.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:82</div></div>
+<div class="ttc" id="aa05990_html_a97f0500abd250ef6ac60226faa35ccfa"><div class="ttname"><a href="../../d9/d7a/a05990.html#a97f0500abd250ef6ac60226faa35ccfa">RTOS::TickCounter::getElapsedTicksSince</a></div><div class="ttdeci">static TickType getElapsedTicksSince(TickType startTick) noexcept</div><div class="ttdoc">Computes ticks elapsed since a previously captured tick value.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:110</div></div>
+<div class="ttc" id="aa05990_html_a9c2f37f5b366ec485302e551cafdb87a"><div class="ttname"><a href="../../d9/d7a/a05990.html#a9c2f37f5b366ec485302e551cafdb87a">RTOS::TickCounter::toDuration</a></div><div class="ttdeci">static constexpr T_DURATION toDuration(TickType ticks) noexcept</div><div class="ttdoc">Converts a scheduler tick count to a std::chrono duration.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:245</div></div>
+<div class="ttc" id="aa05990_html_ad6656fb17699eab5dc474d46e3e29234"><div class="ttname"><a href="../../d9/d7a/a05990.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a></div><div class="ttdeci">static constexpr TickType toTicks(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Converts a std::chrono duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:234</div></div>
+<div class="ttc" id="aa05990_html_af8b741f7cd6bd8cefd26aae83980fbfd"><div class="ttname"><a href="../../d9/d7a/a05990.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdoc">Scheduler tick count type.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:40</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -156,7 +165,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_c7240d7295280eb9592be0a257cd939d.html">Ethernet</a></li><li class="navelem"><a href="../../dir_dd581b7014d308663732db4f4fef0b37.html">base</a></li><li class="navelem"><a href="../../de/d72/a08249.html">Port.hpp</a></li>
+    <li class="navelem"><a href="../../d1/d16/a08184.html">Usage examples</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

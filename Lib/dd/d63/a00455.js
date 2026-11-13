@@ -1,4 +1,4 @@
 var a00455 =
 [
-    [ "Lib::HAL::IndependentWatchdog", "d9/d1e/a05361.html", "d9/d1e/a05361" ]
+    [ "Lib::Digi::Core::QueueMessage", "d3/d8f/a05099.html", "d3/d8f/a05099" ]
 ];

@@ -1,4 +1,4 @@
 var a00731 =
 [
-    [ "Lib::Helper::TimePeriod", "d0/d2a/a05669.html", "d0/d2a/a05669" ]
+    [ "Lib::HAL::UARTPort&lt; DriverMode::BLOCKING &gt;", "d6/d66/a05595.html", "d6/d66/a05595" ]
 ];

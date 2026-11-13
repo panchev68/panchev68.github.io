@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::BSP::EEPROM::FlashEmulation</title>
+<title>IAR EWARM Library: Member List</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -87,7 +89,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/dc9/a06044.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/d6a/a06047.html','../../',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -110,74 +112,21 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/dc9/a06044.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::EEPROM::FlashEmulation</div></div>
+  <div class="headertitle"><div class="title">Lib::System::ProduceDate Member List</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Keeps a boot counter and a calibration structure in the two flash pages reserved for the emulated EEPROM.</p>
-<p>Keeps a boot counter and a calibration structure in the two flash pages reserved for the emulated EEPROM.Each value has its own 16-bit key and its own length, so the counter and the calibration are stored side by side. A missing key reads as 0 bytes, which lets the first boot start from defaults. Every write() of a changed value appends a record, and the emulation compacts the pages when the active one is full.</p>
-<dl class="section important"><dt>Important</dt><dd>Call open() once, before the first read() or write(), and only from a task, never from an ISR.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Each boot writes the counter once, so frequent resets wear the flash. Store the counter less often when the device restarts many times.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d1/dc9/a06044.html" title="Lib::BSP::EEPROM::FlashEmulation">Lib::BSP::EEPROM::FlashEmulation</a>, <a class="el" href="../../dc/d08/a04317.html#a8947a65dd4bc123a43147aadad6d5328" title="Lib::BSP::EEPROM::FlashEmulation::open()">Lib::BSP::EEPROM::FlashEmulation::open()</a>, <a class="el" href="../../dc/d08/a04317.html#a3f58c8364b14419a8582e02eb79e613a" title="Lib::BSP::EEPROM::FlashEmulation::read()">Lib::BSP::EEPROM::FlashEmulation::read()</a>, <a class="el" href="../../dc/d08/a04317.html#a063c0d9941fea672cb74a10cb66f281e" title="Lib::BSP::EEPROM::FlashEmulation::write()">Lib::BSP::EEPROM::FlashEmulation::write()</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/dfe/a00125.html">Lib/BSP/EEPROM/Internal/FlashEmulation.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00314.html">cstring</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">constexpr</span> uint16_t KEY_BOOT_COUNT = 1U;  <span class="comment">// Number of boots, 4 bytes.</span></div>
-<div class="line">    <span class="keyword">constexpr</span> uint16_t KEY_CALIBRATION = 2U; <span class="comment">// Calibration structure.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">struct </span>Calibration {</div>
-<div class="line">        int16_t offset; <span class="comment">// Sensor offset in millimetres.</span></div>
-<div class="line">        uint16_t gain;  <span class="comment">// Gain in 1/1000 units.</span></div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// The two pages must be reserved in the linker script: the last sector pair of bank 2.</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d08/a04317.html">Lib::BSP::EEPROM::FlashEmulation</a> eeprom{0x081FC000U};</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startup() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!eeprom.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// The area could not be prepared; run with the default settings.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Boot counter: a missing key reads as 0 bytes, so the first boot starts from 0.</span></div>
-<div class="line">    uint32_t bootCount = 0U;</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <span class="keyword">sizeof</span>(bootCount)&gt; rawCount{};</div>
-<div class="line">    <span class="keywordflow">if</span> (eeprom.read(KEY_BOOT_COUNT, rawCount) == rawCount.size()) {</div>
-<div class="line">        std::memcpy(&amp;bootCount, rawCount.data(), <span class="keyword">sizeof</span>(bootCount));</div>
-<div class="line">    }</div>
-<div class="line">    ++bootCount;</div>
-<div class="line">    std::memcpy(rawCount.data(), &amp;bootCount, <span class="keyword">sizeof</span>(bootCount));</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(eeprom.write(KEY_BOOT_COUNT, rawCount));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Calibration: read it, or keep the defaults when it is missing or of another size.</span></div>
-<div class="line">    Calibration calibration{0, 1000U};</div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <span class="keyword">sizeof</span>(Calibration)&gt; rawCalibration{};</div>
-<div class="line">    <span class="keywordflow">if</span> (eeprom.read(KEY_CALIBRATION, rawCalibration) == rawCalibration.size()) {</div>
-<div class="line">        std::memcpy(&amp;calibration, rawCalibration.data(), <span class="keyword">sizeof</span>(calibration));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Store a new calibration after the user changes it.</span></div>
-<div class="line">    calibration.offset = 12;</div>
-<div class="line">    std::memcpy(rawCalibration.data(), &amp;calibration, <span class="keyword">sizeof</span>(calibration));</div>
-<div class="line">    <span class="keywordflow">if</span> (!eeprom.write(KEY_CALIBRATION, rawCalibration)) {</div>
-<div class="line">        <span class="comment">// The flash refused the record; keep the value in RAM and report the fault.</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00125_html"><div class="ttname"><a href="../../dc/dfe/a00125.html">FlashEmulation.hpp</a></div><div class="ttdoc">EEPROM emulation in the internal flash of an STM32U5 microcontroller, for small key-value settings an...</div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00314_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00314.html">cstring</a></div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa04317_html"><div class="ttname"><a href="../../dc/d08/a04317.html">Lib::BSP::EEPROM::FlashEmulation</a></div><div class="ttdoc">Stores 16-bit keyed records in two erasable flash pages, appended as a log and compacted when a page ...</div><div class="ttdef"><b>Definition</b> FlashEmulation.hpp:61</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+
+<p>This is the complete list of members for <a class="el" href="../../d2/d6a/a06047.html">Lib::System::ProduceDate</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/d6a/a06047.html#af06cc8ba2f87935c0445acf20bda3349">Date</a> typedef</td><td class="entry"><a class="el" href="../../d2/d6a/a06047.html">Lib::System::ProduceDate</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d2/d6a/a06047.html#a0ce46a41b58672615f57aadbcd88fe18">DateTime</a> typedef</td><td class="entry"><a class="el" href="../../d2/d6a/a06047.html">Lib::System::ProduceDate</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/d6a/a06047.html#ad008b4a0184f7be103f794baf96892fe">EMPTY_VALUE</a></td><td class="entry"><a class="el" href="../../d2/d6a/a06047.html">Lib::System::ProduceDate</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d2/d6a/a06047.html#a3a766915dafa66af64cd53f1c59eab9f">isEmpty</a>() const noexcept</td><td class="entry"><a class="el" href="../../d2/d6a/a06047.html">Lib::System::ProduceDate</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/d6a/a06047.html#a35243148dd7247b4f7926b4aed02485a">ProduceDate</a>(uint32_t offset) noexcept</td><td class="entry"><a class="el" href="../../d2/d6a/a06047.html">Lib::System::ProduceDate</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d2/d6a/a06047.html#aad534282cedf19b97f1bd45ca1a84da8">read</a>(Date &amp;result) const noexcept</td><td class="entry"><a class="el" href="../../d2/d6a/a06047.html">Lib::System::ProduceDate</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d2/d6a/a06047.html#ac1982c11ab6f79a7929a9d6d3a81784a">Status</a> enum name</td><td class="entry"><a class="el" href="../../d2/d6a/a06047.html">Lib::System::ProduceDate</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d2/d6a/a06047.html#a64c5c6d83cf80a34ec3561d61f1f93f9">write</a>(const Date &amp;value) noexcept</td><td class="entry"><a class="el" href="../../d2/d6a/a06047.html">Lib::System::ProduceDate</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::BSP::EEPROM::I2C::Driver</title>
+<title>IAR EWARM Library: Lib::System::Storage&lt; T_DERIVED &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -87,7 +89,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/de8/a06042.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/de8/a06042.html','../../','d1/dd7/a06039'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -110,97 +112,230 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/de8/a06042.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::EEPROM::I2C::Driver</div></div>
+  <div class="headertitle"><div class="title">Lib::System::Storage&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a ready-made chip driver and a new chip driver built on the CRTP base, both on one I2C bus.</p>
-<p>Demonstrates a ready-made chip driver and a new chip driver built on the CRTP base, both on one I2C bus.A chip driver derives from 'Driver&lt;Chip&gt;', passes its page and chip size to the base, and picks the word address width in 'readImpl()'/'writeImpl()' via the protected 8-bit or 16-bit primitives, keeping both private and befriending the base. 'read()'/'write()' take any object by address and size, and 'write()' splits the request into page-aligned chunks with the 5 ms write cycle after each. Each chip needs its own E2/E1/E0 strap value. A failed 'open()' leaves the shared port open, so a missing chip does not cut off the other devices on the bus.</p>
-<dl class="section important"><dt>Important</dt><dd>'write()' sleeps through the write cycle, so call it from a task, never from an ISR.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>An 8-bit chip larger than 256 bytes (M24C04 ... M24C16) needs strap 0: its upper address bits use those slave-address bits, so any other strap value addresses the wrong block.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/de8/a06042.html" title="Lib::BSP::EEPROM::I2C::Driver">Lib::BSP::EEPROM::I2C::Driver</a>, <a class="el" href="../../dc/df8/a04305.html" title="Lib::BSP::EEPROM::I2C::Driver::Config">Lib::BSP::EEPROM::I2C::Driver::Config</a>, <a class="el" href="../../d5/d11/a04313.html" title="Lib::BSP::EEPROM::I2C::M24C64W">Lib::BSP::EEPROM::I2C::M24C64W</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d0a/a08162.html">Lib/BSP/EEPROM/I2C/Driver.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dc8/a00122.html">Lib/BSP/EEPROM/I2C/M24C64W.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d33/a00536.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1; <span class="comment">// Generated by CubeMX in main.c.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>EEPROM = <a class="code hl_namespace" href="../../d1/d8f/a00880.html">Lib::BSP::EEPROM::I2C</a>;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// New chip on top of the base: M24C02, 256 bytes, 16-byte pages, 8-bit word address.</span></div>
-<div class="line"><span class="keyword">class </span>M24C02 final : <span class="keyword">public</span> EEPROM::Driver&lt;M24C02&gt; {</div>
-<div class="line">    <span class="keyword">friend</span> <span class="keyword">class </span>EEPROM::Driver&lt;M24C02&gt;; <span class="comment">// The base calls readImpl()/writeImpl().</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">explicit</span> M24C02(<span class="keyword">const</span> Config &amp; config) noexcept :</div>
-<div class="line">        Driver&lt;M24C02&gt;(config, PAGE_SIZE, CHIP_SIZE) {</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint8_t PAGE_SIZE = 16U;</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> CHIP_SIZE = 256U;</div>
-<div class="line"> </div>
-<div class="line">    [[nodiscard]] <span class="keywordtype">bool</span> readImpl(<span class="keyword">const</span> uint32_t addr, <span class="keywordtype">void</span> * <span class="keyword">const</span> buffer, <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a id="_a1" name="_a1"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a>) <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> read8(addr, buffer, <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a>);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    [[nodiscard]] <span class="keywordtype">bool</span> writeImpl(<span class="keyword">const</span> uint32_t addr, <span class="keyword">const</span> <span class="keywordtype">void</span> * <span class="keyword">const</span> buffer, <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a>) <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> write8(addr, buffer, <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a>);</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">struct </span>Settings {</div>
-<div class="line">    uint32_t serialNumber;</div>
-<div class="line">    uint16_t brightness;</div>
-<div class="line">    uint16_t crc;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line">Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::IT&gt; i2cPort{&amp;hi2c1};</div>
-<div class="line"> </div>
-<div class="line">EEPROM::M24C64W eeprom{{.i2cPort = i2cPort, .addr = 0x00}}; <span class="comment">// E2/E1/E0 tied low.</span></div>
-<div class="line">M24C02 calibration{{.i2cPort = i2cPort, .addr = 0x01}};     <span class="comment">// E0 tied high.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> uint32_t SETTINGS_ADDRESS = 0x0100U;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> storageTask() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!eeprom.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Port failed to open or the chip did not acknowledge.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    Settings settings{};</div>
-<div class="line">    <span class="keywordflow">if</span> (eeprom.read(SETTINGS_ADDRESS, &amp;settings, <span class="keyword">sizeof</span>(settings))) {</div>
-<div class="line">        settings.brightness = 80U;</div>
-<div class="line">        <span class="comment">// Split into page-aligned writes, each followed by the write-cycle delay.</span></div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(eeprom.write(SETTINGS_ADDRESS, &amp;settings, <span class="keyword">sizeof</span>(settings)));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (calibration.open()) {</div>
-<div class="line">        <a id="_a2" name="_a2"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 32&gt;</a> table{};</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(calibration.read(0x00, table.data(), table.size()));</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00122_html"><div class="ttname"><a href="../../df/dc8/a00122.html">M24C64W.hpp</a></div><div class="ttdoc">M24C64W EEPROM driver specialization.</div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00536_html"><div class="ttname"><a href="../../d4/d33/a00536.html">I2C.hpp</a></div><div class="ttdoc">Public umbrella include for the I2C subsystem, exposing the master-only I2CPort in all three modes.</div></div>
-<div class="ttc" id="aa00880_html"><div class="ttname"><a href="../../d1/d8f/a00880.html">Lib::BSP::EEPROM::I2C</a></div><div class="ttdoc">I2C EEPROM device drivers.</div><div class="ttdef"><b>Definition</b> EEPROM/I2C/Driver.hpp:34</div></div>
-<div class="ttc" id="aa01452_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa01692_html_a86f849fa422e14fa194d390bdcc1d2cd"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a></div><div class="ttdeci">constexpr auto size(const _Container &amp;__cont) noexcept(noexcept(__cont.size())) -&gt; decltype(__cont.size())</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa08162_html"><div class="ttname"><a href="../../d4/d0a/a08162.html">Driver.hpp</a></div><div class="ttdoc">I2C EEPROM driver base class (CRTP) shared by the M24Cxx chip drivers.</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::System::Storage&lt; T_DERIVED &gt;</div><p>CRTP base class for storage backend implementations. </p>
+<p>A concrete backend derives from 'Storage&lt;T_DERIVED&gt;' and implements 'openImpl()', 'closeImpl()', 'readImpl()' and 'writeImpl()' as public members. Dispatch happens through a 'static_cast' to 'T_DERIVED' rather than through a virtual table, so backends such as flash memory or EEPROM cost no runtime indirection.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete storage backend type inheriting from this class. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::System::Storage&lt; T_DERIVED &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d32/a06040.svg" width="286" height="180"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a94cdcfa1e6829286576a0e739c44f0dc" id="r_a94cdcfa1e6829286576a0e739c44f0dc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a94cdcfa1e6829286576a0e739c44f0dc">open</a> () noexcept</td></tr>
+<tr class="memdesc:a94cdcfa1e6829286576a0e739c44f0dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the storage device for read and write operations.  <br /></td></tr>
+<tr class="memitem:aa684e568a90f586209178bf82321e7eb" id="r_aa684e568a90f586209178bf82321e7eb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa684e568a90f586209178bf82321e7eb">close</a> () noexcept</td></tr>
+<tr class="memdesc:aa684e568a90f586209178bf82321e7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizes access to the storage device and releases what <a class="el" href="#a94cdcfa1e6829286576a0e739c44f0dc" title="open()">open()</a> acquired.  <br /></td></tr>
+<tr class="memitem:a882acb437b478460ef1a27f02bfbfa1c" id="r_a882acb437b478460ef1a27f02bfbfa1c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a882acb437b478460ef1a27f02bfbfa1c">read</a> (void *buffer, size_t size) noexcept</td></tr>
+<tr class="memdesc:a882acb437b478460ef1a27f02bfbfa1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from the opened storage device.  <br /></td></tr>
+<tr class="memitem:a7d3edbeec88b0807daece2241bb79d92" id="r_a7d3edbeec88b0807daece2241bb79d92"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7d3edbeec88b0807daece2241bb79d92">write</a> (const void *buffer, size_t size) noexcept</td></tr>
+<tr class="memdesc:a7d3edbeec88b0807daece2241bb79d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data to the opened storage device.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ae3c3f6af7c84c25d29109ca3e1dd90d3" id="r_ae3c3f6af7c84c25d29109ca3e1dd90d3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae3c3f6af7c84c25d29109ca3e1dd90d3">Storage</a> () noexcept=default</td></tr>
+<tr class="memdesc:ae3c3f6af7c84c25d29109ca3e1dd90d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the base; only a derived backend may do so.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae3c3f6af7c84c25d29109ca3e1dd90d3" name="ae3c3f6af7c84c25d29109ca3e1dd90d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3c3f6af7c84c25d29109ca3e1dd90d3">&#9670;&#160;</a></span>Storage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/de8/a06042.html">Lib::System::Storage</a>&lt; T_DERIVED &gt;::Storage </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs the base; only a derived backend may do so. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aa684e568a90f586209178bf82321e7eb" name="aa684e568a90f586209178bf82321e7eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa684e568a90f586209178bf82321e7eb">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/de8/a06042.html">Lib::System::Storage</a>&lt; T_DERIVED &gt;::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finalizes access to the storage device and releases what <a class="el" href="#a94cdcfa1e6829286576a0e739c44f0dc" title="open()">open()</a> acquired. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the storage device was closed, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a94cdcfa1e6829286576a0e739c44f0dc" name="a94cdcfa1e6829286576a0e739c44f0dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94cdcfa1e6829286576a0e739c44f0dc">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/de8/a06042.html">Lib::System::Storage</a>&lt; T_DERIVED &gt;::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Prepares the storage device for read and write operations. </p>
+<p>Must be called before any <a class="el" href="#a882acb437b478460ef1a27f02bfbfa1c" title="read()">read()</a> or <a class="el" href="#a7d3edbeec88b0807daece2241bb79d92" title="write()">write()</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the storage device was opened, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a882acb437b478460ef1a27f02bfbfa1c" name="a882acb437b478460ef1a27f02bfbfa1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a882acb437b478460ef1a27f02bfbfa1c">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/de8/a06042.html">Lib::System::Storage</a>&lt; T_DERIVED &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads data from the opened storage device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">buffer</td><td>Destination for the data; must be non-null and hold at least 'size' bytes. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the read succeeded, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a7d3edbeec88b0807daece2241bb79d92" name="a7d3edbeec88b0807daece2241bb79d92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d3edbeec88b0807daece2241bb79d92">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/de8/a06042.html">Lib::System::Storage</a>&lt; T_DERIVED &gt;::write </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes data to the opened storage device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>Data to write; must be non-null and hold at least 'size' bytes. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the write succeeded, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../df/d21/a01039.html">System</a></li><li class="navelem"><a href="../../d5/de8/a06042.html">Storage</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

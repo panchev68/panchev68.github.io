@@ -1,13 +1,14 @@
 var a05501 =
 [
-    [ "UARTPortBase", "d2/d18/a05501.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
-    [ "UARTPortBase", "d2/d18/a05501.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
-    [ "UARTPortBase", "d2/d18/a05501.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
-    [ "~UARTPortBase", "d2/d18/a05501.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
-    [ "close", "d2/d18/a05501.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
-    [ "isBusy", "d2/d18/a05501.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
-    [ "open", "d2/d18/a05501.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
-    [ "operator=", "d2/d18/a05501.html#ad0321a4f1297088a60c64e263c8c6816", null ],
-    [ "operator=", "d2/d18/a05501.html#af29977f244357cb79e8203dbd192840c", null ],
-    [ "setBaudRate", "d2/d18/a05501.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
+    [ "TimPwmOutput", "d2/d18/a05501.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
+    [ "~TimPwmOutput", "d2/d18/a05501.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
+    [ "TimPwmOutput", "d2/d18/a05501.html#a422a9009ca77380721da2502794a00a0", null ],
+    [ "TimPwmOutput", "d2/d18/a05501.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
+    [ "close", "d2/d18/a05501.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
+    [ "getPeriod", "d2/d18/a05501.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
+    [ "open", "d2/d18/a05501.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
+    [ "operator=", "d2/d18/a05501.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
+    [ "operator=", "d2/d18/a05501.html#a686c13d106e6d8d754e3020b7107d262", null ],
+    [ "setPeriod", "d2/d18/a05501.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
+    [ "setPulse", "d2/d18/a05501.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
 ];

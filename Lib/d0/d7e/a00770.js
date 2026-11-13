@@ -1,4 +1,4 @@
 var a00770 =
 [
-    [ "RTOS::MemoryManager", "db/d00/a05793.html", "db/d00/a05793" ]
+    [ "Lib::HAL::USBHostPortBase&lt; T_DERIVED &gt;", "da/dde/a05663.html", "da/dde/a05663" ]
 ];

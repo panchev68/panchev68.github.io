@@ -1,15 +1,11 @@
 var a04317 =
 [
-    [ "FlashEmulation", "dc/d08/a04317.html#a0e75388b44cd284464c96fb9a0c7fc1f", null ],
-    [ "FlashEmulation", "dc/d08/a04317.html#af5de4a71fd88ee41e580deb1e4a8b4e1", null ],
-    [ "FlashEmulation", "dc/d08/a04317.html#a65b04ccc40b81a011eafa3dd70ccd280", null ],
-    [ "close", "dc/d08/a04317.html#af34a366cd1952a3ba03b96af1976a0f6", null ],
-    [ "getFreeSpace", "dc/d08/a04317.html#a9edbfceb64b451800f603d97a165a446", null ],
-    [ "getUsedSpace", "dc/d08/a04317.html#aa1c59b98d1ce881640ce49d0d8b3e3ee", null ],
-    [ "isOpen", "dc/d08/a04317.html#ab3c80c5ea91d07003acec0528aeea7af", null ],
-    [ "open", "dc/d08/a04317.html#a8947a65dd4bc123a43147aadad6d5328", null ],
-    [ "operator=", "dc/d08/a04317.html#ac176ad5bc133ed1cdbc6b3e8e1e402e4", null ],
-    [ "operator=", "dc/d08/a04317.html#abd98d1e0a541c569e9a190459fdce6c8", null ],
-    [ "read", "dc/d08/a04317.html#a3f58c8364b14419a8582e02eb79e613a", null ],
-    [ "write", "dc/d08/a04317.html#a063c0d9941fea672cb74a10cb66f281e", null ]
+    [ "Config", "da/db5/a04321.html", "da/db5/a04321" ],
+    [ "Driver", "dc/d08/a04317.html#a1485030ad4d5221083358bb976d4f6a9", null ],
+    [ "~Driver", "dc/d08/a04317.html#a02b3a6700a07d6ec290c3b84098c3389", null ],
+    [ "handleTransferCompleteEvent", "dc/d08/a04317.html#a16f81d6e044e814af3071d70b3bfd029", null ],
+    [ "setBacklight", "dc/d08/a04317.html#a5c3019cb4ef6b0af87fb89c9b1e25ca4", null ],
+    [ "setRotation", "dc/d08/a04317.html#aa82bca6d7225f8fb51714daaa7b44ee1", null ],
+    [ "setup", "dc/d08/a04317.html#ae80e1a0a03b141829f376e2309e65a30", null ],
+    [ "transmitBlock", "dc/d08/a04317.html#a7c3b10e802400c9d45d7467ee59a7562", null ]
 ];

@@ -1,10 +1,8 @@
 var a05633 =
 [
-    [ "Integrator", "d1/d03/a05633.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
-    [ "addValue", "d1/d03/a05633.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
-    [ "computeResult", "d1/d03/a05633.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
-    [ "isWindowFull", "d1/d03/a05633.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
-    [ "operator()", "d1/d03/a05633.html#a97085ec2f9a9f65920181fffae409662", null ],
-    [ "processValue", "d1/d03/a05633.html#ab31a92d828aeae207fd9641101c217f5", null ],
-    [ "resetWindow", "d1/d03/a05633.html#a78e088ee416a676679fe227ceb71b1b0", null ]
+    [ "crc16", "d1/d03/a05633.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
+    [ "crc16", "d1/d03/a05633.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
+    [ "crc16", "d1/d03/a05633.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
+    [ "crc16", "d1/d03/a05633.html#abac152733a66bebdb4f969523dc9dbe1", null ],
+    [ "operator uint16_t", "d1/d03/a05633.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: RTOS::Mutex</title>
+<title>IAR EWARM Library: RTOS::EventGroup</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -110,98 +112,124 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/dc0/a05801.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Mutex<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">RTOS::EventGroup<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Priority-inheriting mutual exclusion lock, normal or recursive.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Priority-inheriting mutual exclusion lock, normal or recursive. </p>
-<p>Every <a class="el" href="#a2b2c30777cc3c44739df34e98fc05d0f" title="lock()">lock()</a> that returns <b>true</b> must be paired with exactly one <a class="el" href="#a55031b1cdaf584950893279ceac8ff93" title="unlock()">unlock()</a> by the same task; prefer <a class="el" href="../../db/d46/a06088.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a> to get that pairing automatically. Mutexes have an owner task and priority inheritance, so they are task-context only and must never be locked or unlocked from an ISR. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d46/a06088.html#_a0">RTOS::MutexGuard</a>, and <a class="el" href="../../dc/d9a/a06090.html#_a6">RTOS::StreamBuffer</a>.</dd>
+<div class="textblock"><p>Owning wrapper of a FreeRTOS event group, letting tasks wait on several flags at once. </p>
+<p>FreeRTOS keeps the top 8 bits of 'EventBits_t' for itself, so <a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Bits">Bits</a> holds only the usable width and a reserved bit can never be passed in. The ISR set and clear calls are deferred to the timer daemon task: they exist only with 'configUSE_TIMERS' and 'INCLUDE_xTimerPendFunctionCall', and fail when its command queue is full. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d15/a06124.html#_a0">RTOS::EventGroup</a>.</dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::Mutex:</div>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::EventGroup:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d27/a05799.svg" width="147" height="343"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d27/a05799.svg" width="203" height="343"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a32944cdf5acfc817c79a3b60e03bbc38" id="r_a32944cdf5acfc817c79a3b60e03bbc38"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">NORMAL</a> = 0
-, <br />
-&#160;&#160;<a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638">RECURSIVE</a> = 1
-<br />
- }</td></tr>
-<tr class="memdesc:a32944cdf5acfc817c79a3b60e03bbc38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locking behavior of a mutex instance.  <a href="#a32944cdf5acfc817c79a3b60e03bbc38">More...</a><br /></td></tr>
-<tr class="memitem:adc2e1b449462bfc5e02a4ee323b012e5" id="r_adc2e1b449462bfc5e02a4ee323b012e5"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> = TickType_t</td></tr>
-<tr class="memdesc:adc2e1b449462bfc5e02a4ee323b012e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scheduler tick count type.  <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a85140f0dfb31c3d5a8a27ce01e98fdc6" id="r_a85140f0dfb31c3d5a8a27ce01e98fdc6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> (<a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a> mutexType=<a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">Type::NORMAL</a>) noexcept</td></tr>
-<tr class="memdesc:a85140f0dfb31c3d5a8a27ce01e98fdc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a mutex wrapper without allocating the underlying FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:a301698c6b87d5cd81fda2792e6f14b4c" id="r_a301698c6b87d5cd81fda2792e6f14b4c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a301698c6b87d5cd81fda2792e6f14b4c">Mutex</a> (Mutex &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:a301698c6b87d5cd81fda2792e6f14b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfers ownership of the underlying handle from another mutex.  <br /></td></tr>
-<tr class="memitem:a032031894c38dfb5861f1be4a7e247dd" id="r_a032031894c38dfb5861f1be4a7e247dd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a032031894c38dfb5861f1be4a7e247dd">~Mutex</a> () noexcept</td></tr>
-<tr class="memdesc:a032031894c38dfb5861f1be4a7e247dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the mutex and releases the underlying FreeRTOS handle, if open.  <br /></td></tr>
-<tr class="memitem:acce47428aedbea4c3597ab4b07a0dc16" id="r_acce47428aedbea4c3597ab4b07a0dc16"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acce47428aedbea4c3597ab4b07a0dc16">Mutex</a> (const Mutex &amp;)=delete</td></tr>
-<tr class="memdesc:acce47428aedbea4c3597ab4b07a0dc16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:a1e606324a490dacaed78d56b0f2e463f" id="r_a1e606324a490dacaed78d56b0f2e463f"><td class="memItemLeft"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1e606324a490dacaed78d56b0f2e463f">operator=</a> (const <a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a1e606324a490dacaed78d56b0f2e463f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:aa0480ec896a8ce6959a8fe0069fc4a0f" id="r_aa0480ec896a8ce6959a8fe0069fc4a0f"><td class="memItemLeft"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa0480ec896a8ce6959a8fe0069fc4a0f">operator=</a> (<a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:aa0480ec896a8ce6959a8fe0069fc4a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes this mutex and takes ownership of another mutex's handle.  <br /></td></tr>
-<tr class="memitem:a9f2abf5c8b3442dd741bac7c15e5726a" id="r_a9f2abf5c8b3442dd741bac7c15e5726a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a">open</a> () noexcept</td></tr>
-<tr class="memdesc:a9f2abf5c8b3442dd741bac7c15e5726a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the underlying FreeRTOS mutex handle, if not already open.  <br /></td></tr>
-<tr class="memitem:a4a72a94370a00b530eb26b466ed373bc" id="r_a4a72a94370a00b530eb26b466ed373bc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4a72a94370a00b530eb26b466ed373bc">createStatic</a> (StaticSemaphore_t &amp;buffer) noexcept</td></tr>
-<tr class="memdesc:a4a72a94370a00b530eb26b466ed373bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the underlying FreeRTOS mutex in caller-provided static memory, if not already open.  <br /></td></tr>
-<tr class="memitem:acae6fb03115a857672d114638e6da0cb" id="r_acae6fb03115a857672d114638e6da0cb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acae6fb03115a857672d114638e6da0cb">close</a> () noexcept</td></tr>
-<tr class="memdesc:acae6fb03115a857672d114638e6da0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the underlying FreeRTOS handle and marks the mutex closed.  <br /></td></tr>
-<tr class="memitem:a2b2c30777cc3c44739df34e98fc05d0f" id="r_a2b2c30777cc3c44739df34e98fc05d0f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2b2c30777cc3c44739df34e98fc05d0f">lock</a> (<a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> timeout=<a class="el" href="#acb650bbb5d2ae6ae2bab2490d29712be">WAIT_FOREVER</a>) noexcept</td></tr>
-<tr class="memdesc:a2b2c30777cc3c44739df34e98fc05d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the mutex, blocking the calling task for up to the given number of ticks.  <br /></td></tr>
-<tr class="memitem:a9249f5e17ed3dc3621afb504a94f51c4" id="r_a9249f5e17ed3dc3621afb504a94f51c4"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a9249f5e17ed3dc3621afb504a94f51c4 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9249f5e17ed3dc3621afb504a94f51c4">lock</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a9249f5e17ed3dc3621afb504a94f51c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the mutex, blocking the calling task for up to the given duration.  <br /></td></tr>
-<tr class="memitem:a80b2989f05e4378994f3eb8e811d9a2b" id="r_a80b2989f05e4378994f3eb8e811d9a2b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a80b2989f05e4378994f3eb8e811d9a2b">lock</a> (const <a class="el" href="../../d1/dc8/a05877.html">Timeout</a> &amp;timeout) noexcept</td></tr>
-<tr class="memdesc:a80b2989f05e4378994f3eb8e811d9a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the mutex, blocking for at most the time remaining on a shared 'Timeout' budget.  <br /></td></tr>
-<tr class="memitem:a18a279e5ed19c174389ad7be7fb2264d" id="r_a18a279e5ed19c174389ad7be7fb2264d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a18a279e5ed19c174389ad7be7fb2264d">tryLock</a> () noexcept</td></tr>
-<tr class="memdesc:a18a279e5ed19c174389ad7be7fb2264d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to lock the mutex without blocking.  <br /></td></tr>
-<tr class="memitem:a55031b1cdaf584950893279ceac8ff93" id="r_a55031b1cdaf584950893279ceac8ff93"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a55031b1cdaf584950893279ceac8ff93">unlock</a> () noexcept</td></tr>
-<tr class="memdesc:a55031b1cdaf584950893279ceac8ff93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks a previously acquired mutex.  <br /></td></tr>
-<tr class="memitem:a616ca3c51747ccb7932dab4363b40ef5" id="r_a616ca3c51747ccb7932dab4363b40ef5"><td class="memItemLeft">TaskHandle_t&#160;</td><td class="memItemRight"><a class="el" href="#a616ca3c51747ccb7932dab4363b40ef5">getHolder</a> () const noexcept</td></tr>
-<tr class="memdesc:a616ca3c51747ccb7932dab4363b40ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the task that currently holds the lock.  <br /></td></tr>
-<tr class="memitem:a4442eb3b200cdfba2f9780f45b293ee4" id="r_a4442eb3b200cdfba2f9780f45b293ee4"><td class="memItemLeft">TaskHandle_t&#160;</td><td class="memItemRight"><a class="el" href="#a4442eb3b200cdfba2f9780f45b293ee4">getHolderFromISR</a> () const noexcept</td></tr>
-<tr class="memdesc:a4442eb3b200cdfba2f9780f45b293ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the task that currently holds the lock, from an ISR context.  <br /></td></tr>
-<tr class="memitem:a7797096bb17dedbd7f2dc83952a87ad0" id="r_a7797096bb17dedbd7f2dc83952a87ad0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7797096bb17dedbd7f2dc83952a87ad0">isLocked</a> () const noexcept</td></tr>
-<tr class="memdesc:a7797096bb17dedbd7f2dc83952a87ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether any task currently holds the lock.  <br /></td></tr>
-<tr class="memitem:a0fe980766d5bb3fb9f27336981430a6f" id="r_a0fe980766d5bb3fb9f27336981430a6f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0fe980766d5bb3fb9f27336981430a6f">isOwnedByCurrentTask</a> () const noexcept</td></tr>
-<tr class="memdesc:a0fe980766d5bb3fb9f27336981430a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the calling task currently holds the lock.  <br /></td></tr>
-<tr class="memitem:a2a35fb03473deda78f602d516fb9b09c" id="r_a2a35fb03473deda78f602d516fb9b09c"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a2a35fb03473deda78f602d516fb9b09c">isValid</a> () const noexcept</td></tr>
-<tr class="memdesc:a2a35fb03473deda78f602d516fb9b09c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the underlying FreeRTOS handle has been created.  <br /></td></tr>
-<tr class="memitem:a38014af85379eee8f59569c75f075995" id="r_a38014af85379eee8f59569c75f075995"><td class="memItemLeft">constexpr SemaphoreHandle_t&#160;</td><td class="memItemRight"><a class="el" href="#a38014af85379eee8f59569c75f075995">getNativeHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:a38014af85379eee8f59569c75f075995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the native FreeRTOS handle for interop with raw FreeRTOS APIs.  <br /></td></tr>
-<tr class="memitem:a4625bbff147fffc8861b3478c8430f94" id="r_a4625bbff147fffc8861b3478c8430f94"><td class="memItemLeft">constexpr <a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4625bbff147fffc8861b3478c8430f94">getType</a> () const noexcept</td></tr>
-<tr class="memdesc:a4625bbff147fffc8861b3478c8430f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the locking mode configured at construction.  <br /></td></tr>
+<tr class="memitem:a56df016b3829e560ce9e75a007e6e26c" id="r_a56df016b3829e560ce9e75a007e6e26c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a56df016b3829e560ce9e75a007e6e26c">EventGroup</a> () noexcept=default</td></tr>
+<tr class="memdesc:a56df016b3829e560ce9e75a007e6e26c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a closed instance without a native event group.  <br /></td></tr>
+<tr class="memitem:ae83c0e347985e554dbffd399d6749c28" id="r_ae83c0e347985e554dbffd399d6749c28"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae83c0e347985e554dbffd399d6749c28">EventGroup</a> (EventGroup &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:ae83c0e347985e554dbffd399d6749c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfers ownership of the native handle from another instance.  <br /></td></tr>
+<tr class="memitem:a28986dc28cf1e996b6c98f1020f26294" id="r_a28986dc28cf1e996b6c98f1020f26294"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a28986dc28cf1e996b6c98f1020f26294">~EventGroup</a> () noexcept</td></tr>
+<tr class="memdesc:a28986dc28cf1e996b6c98f1020f26294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the native event group, if open.  <br /></td></tr>
+<tr class="memitem:a674ca6cf44432becf24267dda94e547d" id="r_a674ca6cf44432becf24267dda94e547d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a674ca6cf44432becf24267dda94e547d">EventGroup</a> (const EventGroup &amp;)=delete</td></tr>
+<tr class="memdesc:a674ca6cf44432becf24267dda94e547d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
+<tr class="memitem:a81801feadd715f46e582f2bd0c8d2c99" id="r_a81801feadd715f46e582f2bd0c8d2c99"><td class="memItemLeft"><a class="el" href="#a56df016b3829e560ce9e75a007e6e26c">EventGroup</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a81801feadd715f46e582f2bd0c8d2c99">operator=</a> (const <a class="el" href="#a56df016b3829e560ce9e75a007e6e26c">EventGroup</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a81801feadd715f46e582f2bd0c8d2c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
+<tr class="memitem:a2576c192353ebd4e1261f2a0908f1946" id="r_a2576c192353ebd4e1261f2a0908f1946"><td class="memItemLeft"><a class="el" href="#a56df016b3829e560ce9e75a007e6e26c">EventGroup</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2576c192353ebd4e1261f2a0908f1946">operator=</a> (<a class="el" href="#a56df016b3829e560ce9e75a007e6e26c">EventGroup</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a2576c192353ebd4e1261f2a0908f1946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes this event group and takes ownership of the native handle of another instance.  <br /></td></tr>
+<tr class="memitem:ae966e8d3efe519e3138fedaa3108a300" id="r_ae966e8d3efe519e3138fedaa3108a300"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae966e8d3efe519e3138fedaa3108a300">open</a> () noexcept</td></tr>
+<tr class="memdesc:ae966e8d3efe519e3138fedaa3108a300"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the native event group on the FreeRTOS heap, with all bits cleared.  <br /></td></tr>
+<tr class="memitem:ae027cdcf3b41026b6a3cb3a70310c298" id="r_ae027cdcf3b41026b6a3cb3a70310c298"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae027cdcf3b41026b6a3cb3a70310c298">createStatic</a> (StaticEventGroup_t &amp;buffer) noexcept</td></tr>
+<tr class="memdesc:ae027cdcf3b41026b6a3cb3a70310c298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the native event group in caller-provided memory, with all bits cleared.  <br /></td></tr>
+<tr class="memitem:a86f5d90cf8de78fe435b35460bef5edd" id="r_a86f5d90cf8de78fe435b35460bef5edd"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a86f5d90cf8de78fe435b35460bef5edd">close</a> () noexcept</td></tr>
+<tr class="memdesc:a86f5d90cf8de78fe435b35460bef5edd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the native event group and releases its memory.  <br /></td></tr>
+<tr class="memitem:a14d4bddd8e6249a20ac2ae9f18e2caee" id="r_a14d4bddd8e6249a20ac2ae9f18e2caee"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a14d4bddd8e6249a20ac2ae9f18e2caee">isOpen</a> () const noexcept</td></tr>
+<tr class="memdesc:a14d4bddd8e6249a20ac2ae9f18e2caee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a native event group exists.  <br /></td></tr>
+<tr class="memitem:aec13a03913c66d345ec02187dbe579ec" id="r_aec13a03913c66d345ec02187dbe579ec"><td class="memItemLeft"><a class="el" href="#a8f85547a426b02f14d6e4ea12fe668d3">Handle</a>&#160;</td><td class="memItemRight"><a class="el" href="#aec13a03913c66d345ec02187dbe579ec">getHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:aec13a03913c66d345ec02187dbe579ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the native handle for interop with raw FreeRTOS APIs.  <br /></td></tr>
+<tr class="memitem:ac933f049ba3d9d3e242bdc243dea3482" id="r_ac933f049ba3d9d3e242bdc243dea3482"><td class="memItemLeft"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac933f049ba3d9d3e242bdc243dea3482">wait</a> (<a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> requestedBits, bool clearOnExit, bool waitForAll, <a class="el" href="#ad148e5ad55c065d22eaa6d5c10ce0768">TickType</a> timeout) noexcept</td></tr>
+<tr class="memdesc:ac933f049ba3d9d3e242bdc243dea3482"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until the requested bits are set or the timeout expires.  <br /></td></tr>
+<tr class="memitem:a98eed0f8fde6aee2a7c1df202f1807fa" id="r_a98eed0f8fde6aee2a7c1df202f1807fa"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a98eed0f8fde6aee2a7c1df202f1807fa template"><td class="memItemLeft"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#a98eed0f8fde6aee2a7c1df202f1807fa">wait</a> (<a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> requestedBits, bool clearOnExit, bool waitForAll, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a98eed0f8fde6aee2a7c1df202f1807fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until the requested bits are set or the timeout duration expires.  <br /></td></tr>
+<tr class="memitem:aa6e6dd0a0b50af7c854cce6e6f0be0c9" id="r_aa6e6dd0a0b50af7c854cce6e6f0be0c9"><td class="memItemLeft"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa6e6dd0a0b50af7c854cce6e6f0be0c9">sync</a> (<a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> bitsToSet, <a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> bitsToWaitFor, <a class="el" href="#ad148e5ad55c065d22eaa6d5c10ce0768">TickType</a> timeout) noexcept</td></tr>
+<tr class="memdesc:aa6e6dd0a0b50af7c854cce6e6f0be0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronizes several tasks at a common rendezvous point.  <br /></td></tr>
+<tr class="memitem:af47921ebb5a21fcedea78389027fec71" id="r_af47921ebb5a21fcedea78389027fec71"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:af47921ebb5a21fcedea78389027fec71 template"><td class="memItemLeft"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#af47921ebb5a21fcedea78389027fec71">sync</a> (<a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> bitsToSet, <a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> bitsToWaitFor, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:af47921ebb5a21fcedea78389027fec71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronizes several tasks at a common rendezvous point, with a duration timeout.  <br /></td></tr>
+<tr class="memitem:ad61d21c064aaec70b93bbe5a12ce9436" id="r_ad61d21c064aaec70b93bbe5a12ce9436"><td class="memItemLeft"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad61d21c064aaec70b93bbe5a12ce9436">getBits</a> () const noexcept</td></tr>
+<tr class="memdesc:ad61d21c064aaec70b93bbe5a12ce9436"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the current bits without changing them.  <br /></td></tr>
+<tr class="memitem:ac0074ec5d598a7d397984ff86e110e4a" id="r_ac0074ec5d598a7d397984ff86e110e4a"><td class="memItemLeft"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac0074ec5d598a7d397984ff86e110e4a">getBitsFromISR</a> () const noexcept</td></tr>
+<tr class="memdesc:ac0074ec5d598a7d397984ff86e110e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the current bits without changing them, from an ISR.  <br /></td></tr>
+<tr class="memitem:a154c164a4617cf8553683bb42f04ff11" id="r_a154c164a4617cf8553683bb42f04ff11"><td class="memItemLeft"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#a154c164a4617cf8553683bb42f04ff11">setBits</a> (<a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> bitsToSet) noexcept</td></tr>
+<tr class="memdesc:a154c164a4617cf8553683bb42f04ff11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets bits and unblocks every task whose wait condition is now met.  <br /></td></tr>
+<tr class="memitem:a564e679e348f400f7840978d5ae63d7f" id="r_a564e679e348f400f7840978d5ae63d7f"><td class="memItemLeft"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#a564e679e348f400f7840978d5ae63d7f">clearBits</a> (<a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> bitsToClear) noexcept</td></tr>
+<tr class="memdesc:a564e679e348f400f7840978d5ae63d7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the given bits.  <br /></td></tr>
+<tr class="memitem:a9e46ac55649d284c4950d9c85142bdcf" id="r_a9e46ac55649d284c4950d9c85142bdcf"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9e46ac55649d284c4950d9c85142bdcf">clearAllEvents</a> () noexcept</td></tr>
+<tr class="memdesc:a9e46ac55649d284c4950d9c85142bdcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears every usable bit.  <br /></td></tr>
+<tr class="memitem:a13c55cc45daa6d96a1f21460a4c71626" id="r_a13c55cc45daa6d96a1f21460a4c71626"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a13c55cc45daa6d96a1f21460a4c71626">setBitsFromISR</a> (<a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> bitsToSet) noexcept</td></tr>
+<tr class="memdesc:a13c55cc45daa6d96a1f21460a4c71626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the timer daemon to set bits from an ISR, and yields to it if it outranks the interrupted task.  <br /></td></tr>
+<tr class="memitem:a8145a3ffbcf914aa872e193c0368e43b" id="r_a8145a3ffbcf914aa872e193c0368e43b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8145a3ffbcf914aa872e193c0368e43b">setBitsFromISR</a> (<a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> bitsToSet, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
+<tr class="memdesc:a8145a3ffbcf914aa872e193c0368e43b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the timer daemon to set bits from an ISR, leaving the context switch to the caller.  <br /></td></tr>
+<tr class="memitem:a32ff3286f958a78cacaa0f4b80b9711b" id="r_a32ff3286f958a78cacaa0f4b80b9711b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a32ff3286f958a78cacaa0f4b80b9711b">clearBitsFromISR</a> (<a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> bitsToClear) noexcept</td></tr>
+<tr class="memdesc:a32ff3286f958a78cacaa0f4b80b9711b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the timer daemon to clear the given bits from an ISR.  <br /></td></tr>
+<tr class="memitem:a1a5e45f94b4b856ab55ff24bdef9595d" id="r_a1a5e45f94b4b856ab55ff24bdef9595d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1a5e45f94b4b856ab55ff24bdef9595d">clearFromISR</a> () noexcept</td></tr>
+<tr class="memdesc:a1a5e45f94b4b856ab55ff24bdef9595d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the timer daemon to clear every usable bit from an ISR.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a0779d3c4040c3be238b715fcd6786a4f" id="r_a0779d3c4040c3be238b715fcd6786a4f"><td class="memItemLeft">static constexpr <a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0779d3c4040c3be238b715fcd6786a4f">NO_WAIT</a> = 0U</td></tr>
-<tr class="memdesc:a0779d3c4040c3be238b715fcd6786a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block time that makes a lock non-blocking.  <br /></td></tr>
-<tr class="memitem:acb650bbb5d2ae6ae2bab2490d29712be" id="r_acb650bbb5d2ae6ae2bab2490d29712be"><td class="memItemLeft">static constexpr <a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#acb650bbb5d2ae6ae2bab2490d29712be">WAIT_FOREVER</a> = portMAX_DELAY</td></tr>
-<tr class="memdesc:acb650bbb5d2ae6ae2bab2490d29712be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block time that waits indefinitely.  <br /></td></tr>
+<tr class="memitem:af257d5be6ec189e19b77c2118187865f" id="r_af257d5be6ec189e19b77c2118187865f"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#af257d5be6ec189e19b77c2118187865f">EVENT_GROUP_BIT_WIDTH</a> = (sizeof(EventBits_t) * 8U) - 8U</td></tr>
+<tr class="memdesc:af257d5be6ec189e19b77c2118187865f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usable bits: 24 with 32-bit, 8 with 16-bit ticks.  <br /></td></tr>
+<tr class="memitem:a0cacf453d57740465013f488943a8003" id="r_a0cacf453d57740465013f488943a8003"><td class="memItemLeft">static constexpr EventBits_t&#160;</td><td class="memItemRight"><a class="el" href="#a0cacf453d57740465013f488943a8003">ALL_BITS_MASK</a> = static_cast&lt;EventBits_t&gt;((1ULL &lt;&lt; <a class="el" href="#af257d5be6ec189e19b77c2118187865f">EVENT_GROUP_BIT_WIDTH</a>) - 1U)</td></tr>
+<tr class="memdesc:a0cacf453d57740465013f488943a8003"><td class="mdescLeft">&#160;</td><td class="mdescRight">Every usable bit.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="adc2e1b449462bfc5e02a4ee323b012e5" name="adc2e1b449462bfc5e02a4ee323b012e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc2e1b449462bfc5e02a4ee323b012e5">&#9670;&#160;</a></span>TickType</h2>
+<a id="a27fe7bec268decd9b548d4ad2375ca34" name="a27fe7bec268decd9b548d4ad2375ca34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27fe7bec268decd9b548d4ad2375ca34">&#9670;&#160;</a></span>Bits</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">RTOS::Mutex::TickType</a> = TickType_t</td>
+          <td class="memname">using <a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02030.html">std::bitset</a>&lt;<a class="el" href="#af257d5be6ec189e19b77c2118187865f">EVENT_GROUP_BIT_WIDTH</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Event group bits; bits above the usable width cannot exist. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d15/a06124.html#_a1">RTOS::EventGroup</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a8f85547a426b02f14d6e4ea12fe668d3" name="a8f85547a426b02f14d6e4ea12fe668d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f85547a426b02f14d6e4ea12fe668d3">&#9670;&#160;</a></span>Handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a8f85547a426b02f14d6e4ea12fe668d3">RTOS::EventGroup::Handle</a> = EventGroupHandle_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Native FreeRTOS event group handle. </p>
+
+</div>
+</div>
+<a id="ad148e5ad55c065d22eaa6d5c10ce0768" name="ad148e5ad55c065d22eaa6d5c10ce0768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad148e5ad55c065d22eaa6d5c10ce0768">&#9670;&#160;</a></span>TickType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ad148e5ad55c065d22eaa6d5c10ce0768">RTOS::EventGroup::TickType</a> = TickType_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -210,40 +238,9 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a32944cdf5acfc817c79a3b60e03bbc38" name="a32944cdf5acfc817c79a3b60e03bbc38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32944cdf5acfc817c79a3b60e03bbc38">&#9670;&#160;</a></span>Type</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">RTOS::Mutex::Type</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Locking behavior of a mutex instance. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051" name="a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"></a>NORMAL&#160;</td><td class="fielddoc"><p>Standard non-recursive priority-inheritance mutex. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638" name="a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638"></a>RECURSIVE&#160;</td><td class="fielddoc"><p>Recursive mutex allowing nested lock acquisitions by the same task. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a85140f0dfb31c3d5a8a27ce01e98fdc6" name="a85140f0dfb31c3d5a8a27ce01e98fdc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">&#9670;&#160;</a></span>Mutex() <span class="overload">[1/3]</span></h2>
+<a id="a56df016b3829e560ce9e75a007e6e26c" name="a56df016b3829e560ce9e75a007e6e26c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56df016b3829e560ce9e75a007e6e26c">&#9670;&#160;</a></span>EventGroup() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,38 +249,32 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::Mutex::Mutex </td>
+          <td class="memname">RTOS::EventGroup::EventGroup </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a></td>          <td class="paramname"><span class="paramname"><em>mutexType</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">Type::NORMAL</a></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct a mutex wrapper without allocating the underlying FreeRTOS handle. </p>
-<p>Call <a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a" title="open()">open()</a> before the mutex can be locked.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">mutexType</td><td>Locking mode to use once opened. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Initializes a closed instance without a native event group. </p>
+<p>Call <a class="el" href="#ae966e8d3efe519e3138fedaa3108a300" title="open()">open()</a> or <a class="el" href="#ae027cdcf3b41026b6a3cb3a70310c298" title="createStatic()">createStatic()</a> before use. </p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a85140f0dfb31c3d5a8a27ce01e98fdc6_icgraph.svg" width="422" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a56df016b3829e560ce9e75a007e6e26c_icgraph.svg" width="550" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a301698c6b87d5cd81fda2792e6f14b4c" name="a301698c6b87d5cd81fda2792e6f14b4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a301698c6b87d5cd81fda2792e6f14b4c">&#9670;&#160;</a></span>Mutex() <span class="overload">[2/3]</span></h2>
+<a id="ae83c0e347985e554dbffd399d6749c28" name="ae83c0e347985e554dbffd399d6749c28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae83c0e347985e554dbffd399d6749c28">&#9670;&#160;</a></span>EventGroup() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,9 +283,9 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::Mutex::Mutex </td>
+          <td class="memname">RTOS::EventGroup::EventGroup </td>
           <td>(</td>
-          <td class="paramtype">Mutex &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">EventGroup &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -305,11 +296,10 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Transfers ownership of the underlying handle from another mutex. </p>
-<p>The source must not be locked or have waiting tasks, since they refer to the native handle, not the wrapper.</p>
+<p>Transfers ownership of the native handle from another instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Mutex to move from; left closed afterward. </td></tr>
+    <tr><td class="paramname">other</td><td>Instance to move from; left closed afterward. </td></tr>
   </table>
   </dd>
 </dl>
@@ -317,13 +307,13 @@ Static Public Attributes</h2></td></tr>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a301698c6b87d5cd81fda2792e6f14b4c_cgraph.svg" width="390" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_ae83c0e347985e554dbffd399d6749c28_cgraph.svg" width="550" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a032031894c38dfb5861f1be4a7e247dd" name="a032031894c38dfb5861f1be4a7e247dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a032031894c38dfb5861f1be4a7e247dd">&#9670;&#160;</a></span>~Mutex()</h2>
+<a id="a28986dc28cf1e996b6c98f1020f26294" name="a28986dc28cf1e996b6c98f1020f26294"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28986dc28cf1e996b6c98f1020f26294">&#9670;&#160;</a></span>~EventGroup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,7 +322,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::Mutex::~Mutex </td>
+          <td class="memname">RTOS::EventGroup::~EventGroup </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -345,18 +335,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the mutex and releases the underlying FreeRTOS handle, if open. </p>
+<p>Deletes the native event group, if open. </p>
+<p>Tasks still blocked on it are released with no bits set. </p>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a032031894c38dfb5861f1be4a7e247dd_cgraph.svg" width="619" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a28986dc28cf1e996b6c98f1020f26294_cgraph.svg" width="739" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="acce47428aedbea4c3597ab4b07a0dc16" name="acce47428aedbea4c3597ab4b07a0dc16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acce47428aedbea4c3597ab4b07a0dc16">&#9670;&#160;</a></span>Mutex() <span class="overload">[3/3]</span></h2>
+<a id="a674ca6cf44432becf24267dda94e547d" name="a674ca6cf44432becf24267dda94e547d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a674ca6cf44432becf24267dda94e547d">&#9670;&#160;</a></span>EventGroup() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -365,9 +356,9 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::Mutex::Mutex </td>
+          <td class="memname">RTOS::EventGroup::EventGroup </td>
           <td>(</td>
-          <td class="paramtype">const Mutex &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const EventGroup &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -383,14 +374,14 @@ Static Public Attributes</h2></td></tr>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_acce47428aedbea4c3597ab4b07a0dc16_cgraph.svg" width="390" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a674ca6cf44432becf24267dda94e547d_cgraph.svg" width="550" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="acae6fb03115a857672d114638e6da0cb" name="acae6fb03115a857672d114638e6da0cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acae6fb03115a857672d114638e6da0cb">&#9670;&#160;</a></span>close()</h2>
+<a id="a9e46ac55649d284c4950d9c85142bdcf" name="a9e46ac55649d284c4950d9c85142bdcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e46ac55649d284c4950d9c85142bdcf">&#9670;&#160;</a></span>clearAllEvents()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -399,7 +390,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void RTOS::Mutex::close </td>
+          <td class="memname">void RTOS::EventGroup::clearAllEvents </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -412,27 +403,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deletes the underlying FreeRTOS handle and marks the mutex closed. </p>
-<p>Does nothing if already closed. The mutex must not be locked or have waiting tasks when it is closed. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d46/a06088.html#a5">RTOS::MutexGuard</a>.</dd>
-</dl>
+<p>Clears every usable bit. </p>
+<p><a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only; does nothing if closed. Use <a class="el" href="#a1a5e45f94b4b856ab55ff24bdef9595d" title="clearFromISR()">clearFromISR()</a> in an interrupt. </p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_acae6fb03115a857672d114638e6da0cb_cgraph.svg" width="398" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_acae6fb03115a857672d114638e6da0cb_icgraph.svg" width="819" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a9e46ac55649d284c4950d9c85142bdcf_cgraph.svg" width="510" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a4a72a94370a00b530eb26b466ed373bc" name="a4a72a94370a00b530eb26b466ed373bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a72a94370a00b530eb26b466ed373bc">&#9670;&#160;</a></span>createStatic()</h2>
+<a id="a564e679e348f400f7840978d5ae63d7f" name="a564e679e348f400f7840978d5ae63d7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a564e679e348f400f7840978d5ae63d7f">&#9670;&#160;</a></span>clearBits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -441,9 +424,9 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Mutex::createStatic </td>
+          <td class="memname"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> RTOS::EventGroup::clearBits </td>
           <td>(</td>
-          <td class="paramtype">StaticSemaphore_t &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToClear</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -454,67 +437,171 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the underlying FreeRTOS mutex in caller-provided static memory, if not already open. </p>
+<p>Clears the given bits. </p>
+<p><a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only; use <a class="el" href="#a32ff3286f958a78cacaa0f4b80b9711b" title="clearBitsFromISR()">clearBitsFromISR()</a> in an interrupt.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>Static control structure; must outlive the mutex. </td></tr>
+    <tr><td class="paramname">bitsToClear</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> to clear. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the mutex is open (newly created or already open), <b>false</b> if creation failed or the configured type is disabled by the FreeRTOS configuration. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> before clearing, or no bits if closed. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a564e679e348f400f7840978d5ae63d7f_cgraph.svg" width="470" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a32ff3286f958a78cacaa0f4b80b9711b" name="a32ff3286f958a78cacaa0f4b80b9711b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32ff3286f958a78cacaa0f4b80b9711b">&#9670;&#160;</a></span>clearBitsFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::clearBitsFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToClear</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Requests the timer daemon to clear the given bits from an ISR. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitsToClear</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> to clear. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the request was queued, <b>false</b> if the timer command queue is full or the group is closed. </dd></dl>
+
+</div>
+</div>
+<a id="a1a5e45f94b4b856ab55ff24bdef9595d" name="a1a5e45f94b4b856ab55ff24bdef9595d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a5e45f94b4b856ab55ff24bdef9595d">&#9670;&#160;</a></span>clearFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::clearFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Requests the timer daemon to clear every usable bit from an ISR. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the request was queued, <b>false</b> if the timer command queue is full or the group is closed. </dd></dl>
+
+</div>
+</div>
+<a id="a86f5d90cf8de78fe435b35460bef5edd" name="a86f5d90cf8de78fe435b35460bef5edd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86f5d90cf8de78fe435b35460bef5edd">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::EventGroup::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deletes the native event group and releases its memory. </p>
+<p>Does nothing if already closed. <a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only; tasks still blocked on it are released with no bits set. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d15/a06124.html#a6">RTOS::EventGroup</a>.</dd>
+</dl>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
 <div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a4a72a94370a00b530eb26b466ed373bc_cgraph.svg" width="454" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a86f5d90cf8de78fe435b35460bef5edd_cgraph.svg" width="438" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="a616ca3c51747ccb7932dab4363b40ef5" name="a616ca3c51747ccb7932dab4363b40ef5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a616ca3c51747ccb7932dab4363b40ef5">&#9670;&#160;</a></span>getHolder()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TaskHandle_t RTOS::Mutex::getHolder </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the task that currently holds the lock. </p>
-<p>Task context only.</p>
-<p>Requires 'INCLUDE_xSemaphoreGetMutexHolder'. The answer can be stale by the time it is used, unless the caller is the holder itself, so use it for diagnostics or ownership checks only.</p>
-<dl class="section return"><dt>Returns</dt><dd>Handle of the holding task, or 'nullptr' if the mutex is free or not open. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
 <div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a616ca3c51747ccb7932dab4363b40ef5_cgraph.svg" width="430" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a86f5d90cf8de78fe435b35460bef5edd_icgraph.svg" width="590" height="182"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+
+</div>
+</div>
+<a id="ae027cdcf3b41026b6a3cb3a70310c298" name="ae027cdcf3b41026b6a3cb3a70310c298"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae027cdcf3b41026b6a3cb3a70310c298">&#9670;&#160;</a></span>createStatic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::createStatic </td>
+          <td>(</td>
+          <td class="paramtype">StaticEventGroup_t &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the native event group in caller-provided memory, with all bits cleared. </p>
+<p>Does nothing if already open. <a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>Control structure of the event group; must outlive it. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the event group is open afterwards. </dd></dl>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
 <div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a616ca3c51747ccb7932dab4363b40ef5_icgraph.svg" width="446" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_ae027cdcf3b41026b6a3cb3a70310c298_cgraph.svg" width="494" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a4442eb3b200cdfba2f9780f45b293ee4" name="a4442eb3b200cdfba2f9780f45b293ee4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4442eb3b200cdfba2f9780f45b293ee4">&#9670;&#160;</a></span>getHolderFromISR()</h2>
+<a id="ad61d21c064aaec70b93bbe5a12ce9436" name="ad61d21c064aaec70b93bbe5a12ce9436"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad61d21c064aaec70b93bbe5a12ce9436">&#9670;&#160;</a></span>getBits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -523,7 +610,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">TaskHandle_t RTOS::Mutex::getHolderFromISR </td>
+          <td class="memname"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> RTOS::EventGroup::getBits </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -536,105 +623,20 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the task that currently holds the lock, from an ISR context. </p>
-<p>Requires 'INCLUDE_xSemaphoreGetMutexHolder'.</p>
-<dl class="section return"><dt>Returns</dt><dd>Handle of the holding task, or 'nullptr' if the mutex is free or not open. </dd></dl>
-
-</div>
-</div>
-<a id="a38014af85379eee8f59569c75f075995" name="a38014af85379eee8f59569c75f075995"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38014af85379eee8f59569c75f075995">&#9670;&#160;</a></span>getNativeHandle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">SemaphoreHandle_t RTOS::Mutex::getNativeHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the native FreeRTOS handle for interop with raw FreeRTOS APIs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native semaphore handle, or 'nullptr' if not open. </dd></dl>
-
-</div>
-</div>
-<a id="a4625bbff147fffc8861b3478c8430f94" name="a4625bbff147fffc8861b3478c8430f94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4625bbff147fffc8861b3478c8430f94">&#9670;&#160;</a></span>getType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a> RTOS::Mutex::getType </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the locking mode configured at construction. </p>
-<dl class="section return"><dt>Returns</dt><dd>Configured locking mode. </dd></dl>
-
-</div>
-</div>
-<a id="a7797096bb17dedbd7f2dc83952a87ad0" name="a7797096bb17dedbd7f2dc83952a87ad0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7797096bb17dedbd7f2dc83952a87ad0">&#9670;&#160;</a></span>isLocked()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::isLocked </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether any task currently holds the lock. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if open and held by some task. </dd></dl>
+<p>Reads the current bits without changing them. </p>
+<p><a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only; use <a class="el" href="#ac0074ec5d598a7d397984ff86e110e4a" title="getBitsFromISR()">getBitsFromISR()</a> in an interrupt.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current bits, or no bits if closed. </dd></dl>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
 <div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a7797096bb17dedbd7f2dc83952a87ad0_cgraph.svg" width="667" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_ad61d21c064aaec70b93bbe5a12ce9436_cgraph.svg" width="454" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a0fe980766d5bb3fb9f27336981430a6f" name="a0fe980766d5bb3fb9f27336981430a6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fe980766d5bb3fb9f27336981430a6f">&#9670;&#160;</a></span>isOwnedByCurrentTask()</h2>
+<a id="ac0074ec5d598a7d397984ff86e110e4a" name="ac0074ec5d598a7d397984ff86e110e4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0074ec5d598a7d397984ff86e110e4a">&#9670;&#160;</a></span>getBitsFromISR()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -643,7 +645,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Mutex::isOwnedByCurrentTask </td>
+          <td class="memname"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> RTOS::EventGroup::getBitsFromISR </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -656,55 +658,112 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks whether the calling task currently holds the lock. </p>
-<p>Task context only.</p>
-<p>Requires 'INCLUDE_xSemaphoreGetMutexHolder' and 'INCLUDE_xTaskGetCurrentTaskHandle'.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if open and held by the calling task, <b>false</b> otherwise. </dd></dl>
+<p>Reads the current bits without changing them, from an ISR. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current bits, or no bits if closed. </dd></dl>
+
+</div>
+</div>
+<a id="aec13a03913c66d345ec02187dbe579ec" name="aec13a03913c66d345ec02187dbe579ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec13a03913c66d345ec02187dbe579ec">&#9670;&#160;</a></span>getHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8f85547a426b02f14d6e4ea12fe668d3">Handle</a> RTOS::EventGroup::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the native handle for interop with raw FreeRTOS APIs. </p>
+<dl class="section return"><dt>Returns</dt><dd>Native event group handle, or 'nullptr' if closed. </dd></dl>
+
+</div>
+</div>
+<a id="a14d4bddd8e6249a20ac2ae9f18e2caee" name="a14d4bddd8e6249a20ac2ae9f18e2caee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14d4bddd8e6249a20ac2ae9f18e2caee">&#9670;&#160;</a></span>isOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::isOpen </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether a native event group exists. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> after a successful <a class="el" href="#ae966e8d3efe519e3138fedaa3108a300" title="open()">open()</a> or <a class="el" href="#ae027cdcf3b41026b6a3cb3a70310c298" title="createStatic()">createStatic()</a> and before <a class="el" href="#a86f5d90cf8de78fe435b35460bef5edd" title="close()">close()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ae966e8d3efe519e3138fedaa3108a300" name="ae966e8d3efe519e3138fedaa3108a300"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae966e8d3efe519e3138fedaa3108a300">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the native event group on the FreeRTOS heap, with all bits cleared. </p>
+<p>Does nothing if already open. <a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the event group is open afterwards, <b>false</b> if the heap is exhausted. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d15/a06124.html#a3">RTOS::EventGroup</a>.</dd>
+</dl>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary">
 </div>
 <div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a0fe980766d5bb3fb9f27336981430a6f_cgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_ae966e8d3efe519e3138fedaa3108a300_cgraph.svg" width="430" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
 <div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a0fe980766d5bb3fb9f27336981430a6f_icgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_ae966e8d3efe519e3138fedaa3108a300_icgraph.svg" width="582" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a2a35fb03473deda78f602d516fb9b09c" name="a2a35fb03473deda78f602d516fb9b09c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a35fb03473deda78f602d516fb9b09c">&#9670;&#160;</a></span>isValid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::isValid </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the underlying FreeRTOS handle has been created. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a" title="open()">open()</a> has succeeded and <a class="el" href="#acae6fb03115a857672d114638e6da0cb" title="close()">close()</a> has not since been called. </dd></dl>
-
-</div>
-</div>
-<a id="a80b2989f05e4378994f3eb8e811d9a2b" name="a80b2989f05e4378994f3eb8e811d9a2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80b2989f05e4378994f3eb8e811d9a2b">&#9670;&#160;</a></span>lock() <span class="overload">[1/3]</span></h2>
+<a id="a81801feadd715f46e582f2bd0c8d2c99" name="a81801feadd715f46e582f2bd0c8d2c99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81801feadd715f46e582f2bd0c8d2c99">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -713,192 +772,9 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Mutex::lock </td>
+          <td class="memname"><a class="el" href="#a56df016b3829e560ce9e75a007e6e26c">EventGroup</a> &amp; RTOS::EventGroup::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d1/dc8/a05877.html">Timeout</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Locks the mutex, blocking for at most the time remaining on a shared 'Timeout' budget. </p>
-<p>Task context only.</p>
-<p>An expired budget makes the call non-blocking and a disabled one waits indefinitely.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>The shared timeout budget. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the lock was acquired, <b>false</b> on timeout or if the mutex is not open. </dd></dl>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
-</div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a80b2989f05e4378994f3eb8e811d9a2b_cgraph.svg" width="595" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a9249f5e17ed3dc3621afb504a94f51c4" name="a9249f5e17ed3dc3621afb504a94f51c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9249f5e17ed3dc3621afb504a94f51c4">&#9670;&#160;</a></span>lock() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::lock </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Locks the mutex, blocking the calling task for up to the given duration. </p>
-<p>Task context only.</p>
-<p>The duration is rounded up to whole ticks, so the wait is never shorter than requested.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the duration. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the duration. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait for the lock. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the lock was acquired, <b>false</b> on timeout or if the mutex is not open. </dd></dl>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
-</div>
-<div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a9249f5e17ed3dc3621afb504a94f51c4_cgraph.svg" width="944" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a2b2c30777cc3c44739df34e98fc05d0f" name="a2b2c30777cc3c44739df34e98fc05d0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b2c30777cc3c44739df34e98fc05d0f">&#9670;&#160;</a></span>lock() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::lock </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acb650bbb5d2ae6ae2bab2490d29712be">WAIT_FOREVER</a></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Locks the mutex, blocking the calling task for up to the given number of ticks. </p>
-<p>Task context only.</p>
-<p>The mutex must already be open via <a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a" title="open()">open()</a>; calling this while closed returns <b>false</b> without attempting to create the underlying handle, since lazily creating a synchronization primitive from within itself is not thread-safe. A recursive mutex may be locked again by its owner; every lock needs its own <a class="el" href="#a55031b1cdaf584950893279ceac8ff93" title="unlock()">unlock()</a>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait for the lock, in ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the lock was acquired, <b>false</b> on timeout or if the mutex is not open. </dd></dl>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
-</div>
-<div id="dynsection-15-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a2b2c30777cc3c44739df34e98fc05d0f_cgraph.svg" width="390" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary">
-</div>
-<div id="dynsection-16-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a2b2c30777cc3c44739df34e98fc05d0f_icgraph.svg" width="398" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a9f2abf5c8b3442dd741bac7c15e5726a" name="a9f2abf5c8b3442dd741bac7c15e5726a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f2abf5c8b3442dd741bac7c15e5726a">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::open </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates the underlying FreeRTOS mutex handle, if not already open. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the mutex is open (newly created or already open), <b>false</b> if creation failed or the configured type is disabled by the FreeRTOS configuration. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d46/a06088.html#a2">RTOS::MutexGuard</a>.</dd>
-</dl>
-<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary">
-</div>
-<div id="dynsection-17-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a9f2abf5c8b3442dd741bac7c15e5726a_cgraph.svg" width="390" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary">
-</div>
-<div id="dynsection-18-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a9f2abf5c8b3442dd741bac7c15e5726a_icgraph.svg" width="454" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a1e606324a490dacaed78d56b0f2e463f" name="a1e606324a490dacaed78d56b0f2e463f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e606324a490dacaed78d56b0f2e463f">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp; RTOS::Mutex::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a56df016b3829e560ce9e75a007e6e26c">EventGroup</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -911,17 +787,17 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Non-copyable: owns a unique FreeRTOS handle. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary">
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
 </div>
-<div id="dynsection-19-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a1e606324a490dacaed78d56b0f2e463f_cgraph.svg" width="422" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-13-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a81801feadd715f46e582f2bd0c8d2c99_cgraph.svg" width="542" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="aa0480ec896a8ce6959a8fe0069fc4a0f" name="aa0480ec896a8ce6959a8fe0069fc4a0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0480ec896a8ce6959a8fe0069fc4a0f">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a2576c192353ebd4e1261f2a0908f1946" name="a2576c192353ebd4e1261f2a0908f1946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2576c192353ebd4e1261f2a0908f1946">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -930,9 +806,9 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp; RTOS::Mutex::operator= </td>
+          <td class="memname"><a class="el" href="#a56df016b3829e560ce9e75a007e6e26c">EventGroup</a> &amp; RTOS::EventGroup::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a56df016b3829e560ce9e75a007e6e26c">EventGroup</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -943,25 +819,25 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Closes this mutex and takes ownership of another mutex's handle. </p>
+<p>Closes this event group and takes ownership of the native handle of another instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Mutex to move from; left closed afterward. </td></tr>
+    <tr><td class="paramname">other</td><td>Instance to move from; left closed afterward. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary">
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
 </div>
-<div id="dynsection-20-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_aa0480ec896a8ce6959a8fe0069fc4a0f_cgraph.svg" width="643" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-14-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a2576c192353ebd4e1261f2a0908f1946_cgraph.svg" width="763" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a18a279e5ed19c174389ad7be7fb2264d" name="a18a279e5ed19c174389ad7be7fb2264d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18a279e5ed19c174389ad7be7fb2264d">&#9670;&#160;</a></span>tryLock()</h2>
+<a id="a154c164a4617cf8553683bb42f04ff11" name="a154c164a4617cf8553683bb42f04ff11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a154c164a4617cf8553683bb42f04ff11">&#9670;&#160;</a></span>setBits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -970,9 +846,9 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Mutex::tryLock </td>
+          <td class="memname"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> RTOS::EventGroup::setBits </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToSet</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -983,20 +859,28 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Attempts to lock the mutex without blocking. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the lock was acquired immediately, <b>false</b> if it is held by another task or the mutex is not open. </dd></dl>
-<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary">
+<p>Sets bits and unblocks every task whose wait condition is now met. </p>
+<p><a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only; use <a class="el" href="#a13c55cc45daa6d96a1f21460a4c71626" title="setBitsFromISR()">setBitsFromISR()</a> in an interrupt.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitsToSet</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> when the call returned; a woken task may already have cleared some of 'bitsToSet'. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d15/a06124.html#a4">RTOS::EventGroup</a>.</dd>
+</dl>
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
 </div>
-<div id="dynsection-21-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a18a279e5ed19c174389ad7be7fb2264d_cgraph.svg" width="619" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-15-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a154c164a4617cf8553683bb42f04ff11_cgraph.svg" width="454" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a55031b1cdaf584950893279ceac8ff93" name="a55031b1cdaf584950893279ceac8ff93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55031b1cdaf584950893279ceac8ff93">&#9670;&#160;</a></span>unlock()</h2>
+<a id="a13c55cc45daa6d96a1f21460a4c71626" name="a13c55cc45daa6d96a1f21460a4c71626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13c55cc45daa6d96a1f21460a4c71626">&#9670;&#160;</a></span>setBitsFromISR() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1005,34 +889,339 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void RTOS::Mutex::unlock </td>
+          <td class="memname">bool RTOS::EventGroup::setBitsFromISR </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToSet</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Unlocks a previously acquired mutex. </p>
-<p>Task context only.</p>
-<p>Must be called by the task that holds the lock, once per successful <a class="el" href="#a2b2c30777cc3c44739df34e98fc05d0f" title="lock()">lock()</a>; anything else is a programming error that FreeRTOS answers with 'configASSERT()' or a silent failure. </p>
+<p>Requests the timer daemon to set bits from an ISR, and yields to it if it outranks the interrupted task. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitsToSet</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the request was queued, <b>false</b> if the timer command queue is full or the group is closed. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d15/a06124.html#a2">RTOS::EventGroup</a>.</dd>
+</dl>
+<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary">
+</div>
+<div id="dynsection-16-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a13c55cc45daa6d96a1f21460a4c71626_cgraph.svg" width="288" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary">
+</div>
+<div id="dynsection-17-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a13c55cc45daa6d96a1f21460a4c71626_icgraph.svg" width="662" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8145a3ffbcf914aa872e193c0368e43b" name="a8145a3ffbcf914aa872e193c0368e43b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8145a3ffbcf914aa872e193c0368e43b">&#9670;&#160;</a></span>setBitsFromISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::setBitsFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToSet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Requests the timer daemon to set bits from an ISR, leaving the context switch to the caller. </p>
+<p>Use this overload to collect several wake-ups in one ISR and yield once at its end.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">bitsToSet</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> to set. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the timer daemon task was woken and outranks the interrupted task, never cleared; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()'. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the request was queued, <b>false</b> if the timer command queue is full or the group is closed. </dd></dl>
+
+</div>
+</div>
+<a id="af47921ebb5a21fcedea78389027fec71" name="af47921ebb5a21fcedea78389027fec71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af47921ebb5a21fcedea78389027fec71">&#9670;&#160;</a></span>sync() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> RTOS::EventGroup::sync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToSet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToWaitFor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Synchronizes several tasks at a common rendezvous point, with a duration timeout. </p>
+<p><a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only; same behavior as the tick overload.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the duration. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitsToSet</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> the calling task sets on arrival, usually its own bit. </td></tr>
+    <tr><td class="paramname">bitsToWaitFor</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> that must all be set to pass; must not be empty. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum wait time, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> when the wait ended, before the automatic clear; the rendezvous succeeded if every bit of 'bitsToWaitFor' is set in it. </dd></dl>
+<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary">
+</div>
+<div id="dynsection-18-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_af47921ebb5a21fcedea78389027fec71_cgraph.svg" width="984" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa6e6dd0a0b50af7c854cce6e6f0be0c9" name="aa6e6dd0a0b50af7c854cce6e6f0be0c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6e6dd0a0b50af7c854cce6e6f0be0c9">&#9670;&#160;</a></span>sync() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> RTOS::EventGroup::sync </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToSet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToWaitFor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ad148e5ad55c065d22eaa6d5c10ce0768">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Synchronizes several tasks at a common rendezvous point. </p>
+<p><a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only. Each participant sets its own bit and waits for the bits of all participants as one atomic step; the last one to arrive releases every waiter, and the awaited bits are cleared once the condition is met.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitsToSet</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> the calling task sets on arrival, usually its own bit. </td></tr>
+    <tr><td class="paramname">bitsToWaitFor</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> that must all be set to pass; must not be empty. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum wait time, in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> when the wait ended, before the automatic clear; the rendezvous succeeded if every bit of 'bitsToWaitFor' is set in it. </dd></dl>
+<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary">
+</div>
+<div id="dynsection-19-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_aa6e6dd0a0b50af7c854cce6e6f0be0c9_cgraph.svg" width="430" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary">
+</div>
+<div id="dynsection-20-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_aa6e6dd0a0b50af7c854cce6e6f0be0c9_icgraph.svg" width="454" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a98eed0f8fde6aee2a7c1df202f1807fa" name="a98eed0f8fde6aee2a7c1df202f1807fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98eed0f8fde6aee2a7c1df202f1807fa">&#9670;&#160;</a></span>wait() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> RTOS::EventGroup::wait </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>requestedBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>clearOnExit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>waitForAll</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Blocks until the requested bits are set or the timeout duration expires. </p>
+<p><a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the duration. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">requestedBits</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> to wait for; must not be empty. </td></tr>
+    <tr><td class="paramname">clearOnExit</td><td>If <b>true</b>, clears the requested bits before returning, but only when the condition was met. </td></tr>
+    <tr><td class="paramname">waitForAll</td><td>If <b>true</b>, waits for all requested bits; if <b>false</b>, for any of them. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum wait time, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> when the wait ended, before the clear on exit; compare with 'requestedBits' to tell success from timeout. </dd></dl>
+<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary">
+</div>
+<div id="dynsection-21-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a98eed0f8fde6aee2a7c1df202f1807fa_cgraph.svg" width="984" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac933f049ba3d9d3e242bdc243dea3482" name="ac933f049ba3d9d3e242bdc243dea3482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac933f049ba3d9d3e242bdc243dea3482">&#9670;&#160;</a></span>wait() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a> RTOS::EventGroup::wait </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34">Bits</a></td>          <td class="paramname"><span class="paramname"><em>requestedBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>clearOnExit</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>waitForAll</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ad148e5ad55c065d22eaa6d5c10ce0768">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Blocks until the requested bits are set or the timeout expires. </p>
+<p><a class="el" href="../../d1/dc8/a05877.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">requestedBits</td><td><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> to wait for; must not be empty. </td></tr>
+    <tr><td class="paramname">clearOnExit</td><td>If <b>true</b>, clears the requested bits before returning, but only when the condition was met. </td></tr>
+    <tr><td class="paramname">waitForAll</td><td>If <b>true</b>, waits for all requested bits; if <b>false</b>, for any of them. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum wait time, in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a27fe7bec268decd9b548d4ad2375ca34" title="Event group bits; bits above the usable width cannot exist.">Bits</a> when the wait ended, before the clear on exit; compare with 'requestedBits' to tell success from timeout. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d15/a06124.html#a5">RTOS::EventGroup</a>.</dd>
+</dl>
 <div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-22-summary" class="dynsummary">
 </div>
 <div id="dynsection-22-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_a55031b1cdaf584950893279ceac8ff93_cgraph.svg" width="739" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_ac933f049ba3d9d3e242bdc243dea3482_cgraph.svg" width="430" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary">
+</div>
+<div id="dynsection-23-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dc0/a05801_ac933f049ba3d9d3e242bdc243dea3482_icgraph.svg" width="454" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a0779d3c4040c3be238b715fcd6786a4f" name="a0779d3c4040c3be238b715fcd6786a4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0779d3c4040c3be238b715fcd6786a4f">&#9670;&#160;</a></span>NO_WAIT</h2>
+<a id="a0cacf453d57740465013f488943a8003" name="a0cacf453d57740465013f488943a8003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cacf453d57740465013f488943a8003">&#9670;&#160;</a></span>ALL_BITS_MASK</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1041,7 +1230,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> RTOS::Mutex::NO_WAIT = 0U</td>
+          <td class="memname">EventBits_t RTOS::EventGroup::ALL_BITS_MASK = static_cast&lt;EventBits_t&gt;((1ULL &lt;&lt; <a class="el" href="#af257d5be6ec189e19b77c2118187865f">EVENT_GROUP_BIT_WIDTH</a>) - 1U)</td>
         </tr>
       </table>
   </td>
@@ -1051,12 +1240,12 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Block time that makes a lock non-blocking. </p>
+<p>Every usable bit. </p>
 
 </div>
 </div>
-<a id="acb650bbb5d2ae6ae2bab2490d29712be" name="acb650bbb5d2ae6ae2bab2490d29712be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb650bbb5d2ae6ae2bab2490d29712be">&#9670;&#160;</a></span>WAIT_FOREVER</h2>
+<a id="af257d5be6ec189e19b77c2118187865f" name="af257d5be6ec189e19b77c2118187865f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af257d5be6ec189e19b77c2118187865f">&#9670;&#160;</a></span>EVENT_GROUP_BIT_WIDTH</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1065,7 +1254,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> RTOS::Mutex::WAIT_FOREVER = portMAX_DELAY</td>
+          <td class="memname">size_t RTOS::EventGroup::EVENT_GROUP_BIT_WIDTH = (sizeof(EventBits_t) * 8U) - 8U</td>
         </tr>
       </table>
   </td>
@@ -1075,7 +1264,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Block time that waits indefinitely. </p>
+<p>Usable bits: 24 with 32-bit, 8 with 16-bit ticks. </p>
 
 </div>
 </div>
@@ -1092,7 +1281,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d6/d82/a00920.html">RTOS</a></li><li class="navelem"><a href="../../d5/dc0/a05801.html">Mutex</a></li>
+    <li class="navelem"><a href="../../d3/de5/a00956.html">RTOS</a></li><li class="navelem"><a href="../../d5/dc0/a05801.html">EventGroup</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

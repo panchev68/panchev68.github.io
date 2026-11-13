@@ -1,16 +1,17 @@
 var a04309 =
 [
-    [ "Config", "dd/d1b/a04309.html#a71f90ba5852d744d364d627c9200231e", null ],
-    [ "M24C16", "dd/d1b/a04309.html#a82d789de030a0346864f88543d0512e5", null ],
-    [ "~M24C16", "dd/d1b/a04309.html#a0db0fe864ae86e17a1406e2180d119af", null ],
-    [ "close", "dd/d1b/a04309.html#a379c6a49e0b3c1c663020582e61d6887", null ],
-    [ "getChipSize", "dd/d1b/a04309.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
-    [ "open", "dd/d1b/a04309.html#ababf497720b16b51762103ca82e56f49", null ],
-    [ "read", "dd/d1b/a04309.html#a54927e78496718fcd7a9cb0e02767604", null ],
-    [ "read16", "dd/d1b/a04309.html#a41825423769f79dd77cb1e77736e6e2a", null ],
-    [ "read8", "dd/d1b/a04309.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
-    [ "write", "dd/d1b/a04309.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
-    [ "write16", "dd/d1b/a04309.html#a1736b59146de0f5cacdb663197cd061e", null ],
-    [ "write8", "dd/d1b/a04309.html#a299a926321f0db8d9eac8527198f28fc", null ],
-    [ "Driver< M24C16 >", "dd/d1b/a04309.html#abc7b2f2488b46308e0ee7a50e8b5c26b", null ]
+    [ "Outputs", "dd/d1b/a04309.html#a247cd7c1b9224f24326b3776838b272f", null ],
+    [ "getChangesCounter", "dd/d1b/a04309.html#a20ce1721d96d5e27bdd04a0e1952f3fb", null ],
+    [ "getSpiHandle", "dd/d1b/a04309.html#a95099752d786b9afd12743cfed8e8f39", null ],
+    [ "getStatus", "dd/d1b/a04309.html#a5390728a76821a9b72e0bf604b09462e", null ],
+    [ "getValue", "dd/d1b/a04309.html#adfeabb3ecc2b63a7d2fdaef8972422d2", null ],
+    [ "hasSpiError", "dd/d1b/a04309.html#a577114566b65889dd42c95c3e3350b1a", null ],
+    [ "postUpdateCallback", "dd/d1b/a04309.html#a369ec8b311dd4871503593f3fd91e103", null ],
+    [ "preUpdateCallback", "dd/d1b/a04309.html#a785e5cd7daaf7419e296aaa67f4d785c", null ],
+    [ "setup", "dd/d1b/a04309.html#aeee2211d23c7dfc940b0d3f16ff4e531", null ],
+    [ "setValue", "dd/d1b/a04309.html#a6a6877af80563061eddc23c9bb71746d", null ],
+    [ "update", "dd/d1b/a04309.html#aae51811f331f09bf179cc6f2d9c2b974", null ],
+    [ "onSpiError", "dd/d1b/a04309.html#ac1712a00bda5093ed106f6f7924d6c54", null ],
+    [ "onStatusChanged", "dd/d1b/a04309.html#a931c2b178d43f30e3aad9ebdabe094d9", null ],
+    [ "onValueChanged", "dd/d1b/a04309.html#aeeff5cb2652ef6ff0541b09d96f4579c", null ]
 ];

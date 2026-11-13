@@ -1,19 +1,17 @@
 var a05401 =
 [
-    [ "Date", "d2/dbc/a05405.html", "d2/dbc/a05405" ],
-    [ "Time", "dc/d61/a05409.html", "dc/d61/a05409" ],
-    [ "Callback", "d1/d0a/a05401.html#a0a60ddd5d190a0aaa1bbe1c7e6d62c59", null ],
-    [ "RTCDevice", "d1/d0a/a05401.html#aef59f39cbffc698a357982cd0194a7f9", null ],
-    [ "~RTCDevice", "d1/d0a/a05401.html#a892362d24be775443627005ea8724b38", null ],
-    [ "RTCDevice", "d1/d0a/a05401.html#a0a276a7a9c7f0c70b9f23ff4d33f5e42", null ],
-    [ "RTCDevice", "d1/d0a/a05401.html#a6c8a82665278c72edbd09c517d929e67", null ],
-    [ "getDateTime", "d1/d0a/a05401.html#ad950fdd81c82bb7ecbe2f6f0a896c573", null ],
-    [ "getHandle", "d1/d0a/a05401.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isTickServiceRunning", "d1/d0a/a05401.html#a17d53ca66d3c3868cf28aea0df5922dc", null ],
-    [ "operator=", "d1/d0a/a05401.html#a97370a531742ca95f9bbb03daefd9919", null ],
-    [ "operator=", "d1/d0a/a05401.html#a9b9f7c009be9bbae886ca7082a302099", null ],
-    [ "setDateTime", "d1/d0a/a05401.html#a9911cafdfc9189dd93f7eb0494ffd54a", null ],
-    [ "startTickService", "d1/d0a/a05401.html#a653f2f434ecec9a018b72fd9101db1d0", null ],
-    [ "stopTickService", "d1/d0a/a05401.html#acdd2b9c31ba35c63f5873309d8f0130e", null ],
-    [ "void::HAL_RTC_AlarmAEventCallback", "d1/d0a/a05401.html#a292bc50e5b612af91527952bbffe57e9", null ]
+    [ "OSPIPort", "d1/d0a/a05401.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
+    [ "~OSPIPort", "d1/d0a/a05401.html#a08e56728c9a64f13a22b89d6b482b132", null ],
+    [ "OSPIPort", "d1/d0a/a05401.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
+    [ "OSPIPort", "d1/d0a/a05401.html#a50425950532682614be81eb8bb5216b7", null ],
+    [ "close", "d1/d0a/a05401.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "command", "d1/d0a/a05401.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
+    [ "getHandle", "d1/d0a/a05401.html#a696d949d69359bb54440fe22e1de963f", null ],
+    [ "getHandle", "d1/d0a/a05401.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
+    [ "isBusy", "d1/d0a/a05401.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d1/d0a/a05401.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d1/d0a/a05401.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
+    [ "operator=", "d1/d0a/a05401.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
+    [ "receive", "d1/d0a/a05401.html#aef7cf93602718e2d14816e122f15f3be", null ],
+    [ "transmit", "d1/d0a/a05401.html#a10d2dc1da9553992110c3752aa39e058", null ]
 ];

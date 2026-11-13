@@ -1,5 +1,5 @@
 var a08144 =
 [
-    [ "Lib::BSP::DeviceManager", "dc/d44/a04237.html", "dc/d44/a04237" ],
-    [ "Lib::BSP::DeviceManager::DeviceBase", "df/d88/a04241.html", "df/d88/a04241" ]
+    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;", "d8/dfd/a04293.html", "d8/dfd/a04293" ],
+    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;::Config", "dd/d80/a04297.html", "dd/d80/a04297" ]
 ];

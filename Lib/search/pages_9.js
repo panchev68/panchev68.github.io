@@ -1,11 +1,4 @@
 var searchData=
 [
-  ['layer_20x_3a_20lib_20iar_20inc_20lib_20hal_20readme_20md_20lib_3a_3ahal_0',['Hardware Abstraction Layer (&lt;a class=&quot;el&quot; href=&quot;dir_4ad11338be6ed64801f932656637dcad.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/HAL/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;Lib::HAL&lt;/span&gt;&lt;/a&gt;)',['../index.html#hardware-abstraction-layer-libhalinclibhalreadmemd',1,'']]],
-  ['lib_20hal_20readme_20md_20lib_3a_3ahal_1',['Hardware Abstraction Layer (&lt;a class=&quot;el&quot; href=&quot;dir_4ad11338be6ed64801f932656637dcad.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/HAL/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;Lib::HAL&lt;/span&gt;&lt;/a&gt;)',['../index.html#hardware-abstraction-layer-libhalinclibhalreadmemd',1,'']]],
-  ['lib_20iar_20inc_20lib_20hal_20readme_20md_20lib_3a_3ahal_2',['Hardware Abstraction Layer (&lt;a class=&quot;el&quot; href=&quot;dir_4ad11338be6ed64801f932656637dcad.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/HAL/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;Lib::HAL&lt;/span&gt;&lt;/a&gt;)',['../index.html#hardware-abstraction-layer-libhalinclibhalreadmemd',1,'']]],
-  ['lib_20iar_20inc_20lib_20rtos_20readme_20md_20rtos_3a_3a_3',['RTOS Abstractions (&lt;a class=&quot;el&quot; href=&quot;dir_3fba853156281524a1d2ff8b1fb19351.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/RTOS/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;RTOS::&lt;/span&gt;&lt;/a&gt;)',['../index.html#rtos-abstractions-rtosinclibrtosreadmemd',1,'']]],
-  ['lib_20rtos_20readme_20md_20rtos_3a_3a_4',['RTOS Abstractions (&lt;a class=&quot;el&quot; href=&quot;dir_3fba853156281524a1d2ff8b1fb19351.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/RTOS/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;RTOS::&lt;/span&gt;&lt;/a&gt;)',['../index.html#rtos-abstractions-rtosinclibrtosreadmemd',1,'']]],
-  ['lib_3a_3ahal_5',['Hardware Abstraction Layer (&lt;a class=&quot;el&quot; href=&quot;dir_4ad11338be6ed64801f932656637dcad.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/HAL/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;Lib::HAL&lt;/span&gt;&lt;/a&gt;)',['../index.html#hardware-abstraction-layer-libhalinclibhalreadmemd',1,'']]],
-  ['library_6',['IAR EWARM Library',['../index.html',1,'']]],
-  ['list_7',['Deprecated List',['../dd/db2/a00866.html',1,'']]]
+  ['keep_20the_20access_20window_20short_0',['Keep the access window short',['../X:/Lib/IAR/Project/Examples/Lib_HAL_BackupRamDomain.dox#backup_usage_scope',1,'']]]
 ];

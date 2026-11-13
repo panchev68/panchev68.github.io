@@ -1,6 +1,6 @@
 var indexSectionsWithContent =
 {
-  0: "12_abcdefghijklmnopqrstuvwxy~▶⚙🎯🏗📋📖📚🔧🗂🚀🧪",
+  0: "12_abcdefghijklmnopqrstuvwxy~📖",
   1: "_abcdefghijklmnopqrstuvwx",
   2: "_acflrs",
   3: "abcdefghijklmnopqrstuvwx",
@@ -12,7 +12,7 @@ var indexSectionsWithContent =
   9: "bcdhmorsuv",
   10: "npr",
   11: "12_abcdefghijklmnopqrstuvwx",
-  12: "abcdefhiklmnopqrstuwx▶⚙🎯🏗📋📖📚🔧🗂🚀🧪",
+  12: "abcdefghiklmnopqrstuvwy📖",
   13: "dehipqs"
 };
 

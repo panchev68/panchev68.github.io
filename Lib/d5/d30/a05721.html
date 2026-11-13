@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;</title>
+<title>IAR EWARM Library: Lib::HTTP::Client&lt; T_TRANSPORT &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -110,511 +112,440 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d30/a05721.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HTTP::Client&lt; T_TRANSPORT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Linear interpolation between a fixed-size table of (x, y) data points.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt;<br />
-class Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;</div><p>Linear interpolation between a fixed-size table of (x, y) data points. </p>
-<p>Supports up to MAX_POINTS data points, stored in a fixed-size array with no heap allocation. A lookup first binary-searches for the enclosing interval, then linearly interpolates between its two endpoints; values outside the table's range clamp to the nearest endpoint.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;HttpTransport T_TRANSPORT&gt;<br />
+class Lib::HTTP::Client&lt; T_TRANSPORT &gt;</div><p>HTTP/1.1 client over any connected <a class="el" href="../../df/d42/a06073.html" title="HttpTransport">HttpTransport</a>, without heap or exceptions. </p>
+<p>Builds the request line and headers itself, sends them and the optional body, then reads the response into a caller-provided buffer. For plain <a class="el" href="../../de/d49/a00952.html" title="Transport-agnostic HTTP/1.1 client.">HTTP</a> the transport is the project's own socket or modem stream; for HTTPS it is a <a class="el" href="../../df/ddb/a05729.html" title="WolfSSLTransport">WolfSSLTransport</a> wrapping that stream. Every request sends 'Connection: close', so the caller reconnects the transport between requests.</p>
+<dl class="section important"><dt>Important</dt><dd>Only Content-Length delimited responses are understood: a chunked response is reported as <a class="el" href="../../de/d49/a00952.html#afc43b899679a3737d2e7425a9168a85ca7850e7c3a0c981c95e69e331469c33b9" title="Status::MALFORMED_RESPONSE">Status::MALFORMED_RESPONSE</a>. Fine for typical cloud REST/JSON APIs, not for arbitrary servers.</dd>
+<dd>
+Requests block the calling task, polling the transport every tick, for at most 10 s while sending and 10 s while receiving.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_VALUE</td><td>Floating-point type of the output (y) values. </td></tr>
-    <tr><td class="paramname">T_INPUT</td><td>Floating-point type of the input (x) coordinates; defaults to 'T_VALUE'. </td></tr>
+    <tr><td class="paramname">T_TRANSPORT</td><td>Connected transport satisfying <a class="el" href="../../df/d42/a06073.html" title="HttpTransport">HttpTransport</a>. </td></tr>
   </table>
   </dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;:</div>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d09/a06120.html#_a10">Lib::HTTP::Client</a>.</dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HTTP::Client&lt; T_TRANSPORT &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d2e/a05719.svg" width="270" height="362"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d2e/a05719.svg" width="278" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Point" id="r_Point"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d3f/a05725.html">Point</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single (x, y) coordinate pair stored in the interpolation table.  <a href="../../d6/d3f/a05725.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6edc8e5ca9a2bce0f7e9198c72ea34f0" id="r_a6edc8e5ca9a2bce0f7e9198c72ea34f0"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a6edc8e5ca9a2bce0f7e9198c72ea34f0">LinearInterpolation</a> ()</td></tr>
-<tr class="memdesc:a6edc8e5ca9a2bce0f7e9198c72ea34f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty interpolation table.  <br /></td></tr>
-<tr class="memitem:af8dee1ed0a09d5cf17ab2fb2cc73d8cb" id="r_af8dee1ed0a09d5cf17ab2fb2cc73d8cb"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
-<tr class="memitem:af8dee1ed0a09d5cf17ab2fb2cc73d8cb template"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#af8dee1ed0a09d5cf17ab2fb2cc73d8cb">LinearInterpolation</a> (const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt; <a class="el" href="../../d6/d3f/a05725.html">Point</a>, N &gt; &amp;pointArray)</td></tr>
-<tr class="memdesc:af8dee1ed0a09d5cf17ab2fb2cc73d8cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interpolation table from an initial array of points, sorted by x coordinate.  <br /></td></tr>
-<tr class="memitem:afdd4b894d0803bc604d379fa4629d483" id="r_afdd4b894d0803bc604d379fa4629d483"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afdd4b894d0803bc604d379fa4629d483">addPoint</a> (const <a class="el" href="../../d6/d3f/a05725.html">Point</a> &amp;point)</td></tr>
-<tr class="memdesc:afdd4b894d0803bc604d379fa4629d483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a data point to the table.  <br /></td></tr>
-<tr class="memitem:a74376103d2a68f503d4edeac77bcb80c" id="r_a74376103d2a68f503d4edeac77bcb80c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a74376103d2a68f503d4edeac77bcb80c">addPoint</a> (T_INPUT x, T_VALUE y)</td></tr>
-<tr class="memdesc:a74376103d2a68f503d4edeac77bcb80c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a data point given by its coordinates.  <br /></td></tr>
-<tr class="memitem:aab5168233071bba85d5f5119cecdc12f" id="r_aab5168233071bba85d5f5119cecdc12f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aab5168233071bba85d5f5119cecdc12f">clear</a> ()</td></tr>
-<tr class="memdesc:aab5168233071bba85d5f5119cecdc12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes every point, returning the table to its initial empty state.  <br /></td></tr>
-<tr class="memitem:aff35d714c8d5e1859adca0de1f902a34" id="r_aff35d714c8d5e1859adca0de1f902a34"><td class="memItemLeft">constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aff35d714c8d5e1859adca0de1f902a34">getPointCount</a> () const</td></tr>
-<tr class="memdesc:aff35d714c8d5e1859adca0de1f902a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of points currently in the table.  <br /></td></tr>
-<tr class="memitem:a297a3b5b4a94c75ad444983025829924" id="r_a297a3b5b4a94c75ad444983025829924"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a297a3b5b4a94c75ad444983025829924">isEmpty</a> () const</td></tr>
-<tr class="memdesc:a297a3b5b4a94c75ad444983025829924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the table holds no points.  <br /></td></tr>
-<tr class="memitem:a15ad2325a927ddfead159579c0d375aa" id="r_a15ad2325a927ddfead159579c0d375aa"><td class="memItemLeft">T_VALUE&#160;</td><td class="memItemRight"><a class="el" href="#a15ad2325a927ddfead159579c0d375aa">interpolate</a> (T_INPUT x)</td></tr>
-<tr class="memdesc:a15ad2325a927ddfead159579c0d375aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the interpolated value at the given input coordinate.  <br /></td></tr>
-<tr class="memitem:a96708d1e4a7701724f4770d48a1b4661" id="r_a96708d1e4a7701724f4770d48a1b4661"><td class="memItemLeft">const <a class="el" href="../../d6/d3f/a05725.html">Point</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a96708d1e4a7701724f4770d48a1b4661">getPoint</a> (size_t index) const</td></tr>
-<tr class="memdesc:a96708d1e4a7701724f4770d48a1b4661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the point at the given table index.  <br /></td></tr>
-<tr class="memitem:a811655db142fd3fe1aa6dfbd5352a582" id="r_a811655db142fd3fe1aa6dfbd5352a582"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a811655db142fd3fe1aa6dfbd5352a582">sortPoints</a> ()</td></tr>
-<tr class="memdesc:a811655db142fd3fe1aa6dfbd5352a582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the table by x coordinate in ascending order, if not already sorted.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6f6fdaa95c5df133be213e1ad20f34a8" id="r_a6f6fdaa95c5df133be213e1ad20f34a8"><td class="memItemLeft">static constexpr T_VALUE&#160;</td><td class="memItemRight"><a class="el" href="#a6f6fdaa95c5df133be213e1ad20f34a8">interpolateBetween</a> (const <a class="el" href="../../d6/d3f/a05725.html">Point</a> &amp;point1, const <a class="el" href="../../d6/d3f/a05725.html">Point</a> &amp;point2, T_INPUT x)</td></tr>
-<tr class="memdesc:a6f6fdaa95c5df133be213e1ad20f34a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two points at the given input coordinate.  <br /></td></tr>
-<tr class="memitem:a637e9123547cb0cb5032cd680793c1e6" id="r_a637e9123547cb0cb5032cd680793c1e6"><td class="memItemLeft">static constexpr T_VALUE&#160;</td><td class="memItemRight"><a class="el" href="#a637e9123547cb0cb5032cd680793c1e6">interpolateSimple</a> (T_INPUT x1, T_VALUE y1, T_INPUT x2, T_VALUE y2, T_INPUT x)</td></tr>
-<tr class="memdesc:a637e9123547cb0cb5032cd680793c1e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two points given directly as coordinates, without a table.  <br /></td></tr>
+<tr class="memitem:afbf556ac8abd6b5e8b12958b7b7e8e87" id="r_afbf556ac8abd6b5e8b12958b7b7e8e87"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> (T_TRANSPORT &amp;transport) noexcept</td></tr>
+<tr class="memdesc:afbf556ac8abd6b5e8b12958b7b7e8e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the client to a connected transport.  <br /></td></tr>
+<tr class="memitem:a893ac5643ef917f5ca701fabbe75a429" id="r_a893ac5643ef917f5ca701fabbe75a429"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a893ac5643ef917f5ca701fabbe75a429">Client</a> (const Client &amp;)=delete</td></tr>
+<tr class="memdesc:a893ac5643ef917f5ca701fabbe75a429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: bound to one transport.  <br /></td></tr>
+<tr class="memitem:a3b9c27f75842a31365c97eaaa607d452" id="r_a3b9c27f75842a31365c97eaaa607d452"><td class="memItemLeft"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3b9c27f75842a31365c97eaaa607d452">operator=</a> (const <a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a3b9c27f75842a31365c97eaaa607d452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: bound to one transport.  <br /></td></tr>
+<tr class="memitem:a207055b9f6a7daac509985f971a0e14f" id="r_a207055b9f6a7daac509985f971a0e14f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a207055b9f6a7daac509985f971a0e14f">Client</a> (Client &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a207055b9f6a7daac509985f971a0e14f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: bound to one transport.  <br /></td></tr>
+<tr class="memitem:a19375415236ef7e6b214f897791eeb09" id="r_a19375415236ef7e6b214f897791eeb09"><td class="memItemLeft"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a19375415236ef7e6b214f897791eeb09">operator=</a> (<a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a19375415236ef7e6b214f897791eeb09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: bound to one transport.  <br /></td></tr>
+<tr class="memitem:aabf7e35c74111468fdd296e6931b047f" id="r_aabf7e35c74111468fdd296e6931b047f"><td class="memItemLeft"><a class="el" href="../../de/d49/a00952.html#afc43b899679a3737d2e7425a9168a85c">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aabf7e35c74111468fdd296e6931b047f">get</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> host, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> path, std::span&lt; uint8_t &gt; buffer, <a class="el" href="../../d0/d8e/a05717.html">Response</a> &amp;response) noexcept</td></tr>
+<tr class="memdesc:aabf7e35c74111468fdd296e6931b047f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a GET request and waits for the response.  <br /></td></tr>
+<tr class="memitem:aee5955fa4ffad931d4418d2f59af2880" id="r_aee5955fa4ffad931d4418d2f59af2880"><td class="memItemLeft"><a class="el" href="../../de/d49/a00952.html#afc43b899679a3737d2e7425a9168a85c">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aee5955fa4ffad931d4418d2f59af2880">post</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> host, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> path, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> contentType, std::span&lt; const uint8_t &gt; body, std::span&lt; uint8_t &gt; buffer, <a class="el" href="../../d0/d8e/a05717.html">Response</a> &amp;response) noexcept</td></tr>
+<tr class="memdesc:aee5955fa4ffad931d4418d2f59af2880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a POST request with a body and waits for the response.  <br /></td></tr>
+<tr class="memitem:aff0df8d671c191feb30e91ba3a1053a7" id="r_aff0df8d671c191feb30e91ba3a1053a7"><td class="memItemLeft"><a class="el" href="../../de/d49/a00952.html#afc43b899679a3737d2e7425a9168a85c">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aff0df8d671c191feb30e91ba3a1053a7">request</a> (<a class="el" href="../../de/d49/a00952.html#a8f753d750ea425a0a07f531674302436">Method</a> method, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> host, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> path, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> contentType, std::span&lt; const uint8_t &gt; body, std::span&lt; uint8_t &gt; buffer, <a class="el" href="../../d0/d8e/a05717.html">Response</a> &amp;response) noexcept</td></tr>
+<tr class="memdesc:aff0df8d671c191feb30e91ba3a1053a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a request with any method and waits for the response.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6edc8e5ca9a2bce0f7e9198c72ea34f0" name="a6edc8e5ca9a2bce0f7e9198c72ea34f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6edc8e5ca9a2bce0f7e9198c72ea34f0">&#9670;&#160;</a></span>LinearInterpolation() <span class="overload">[1/2]</span></h2>
+<a id="afbf556ac8abd6b5e8b12958b7b7e8e87" name="afbf556ac8abd6b5e8b12958b7b7e8e87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afbf556ac8abd6b5e8b12958b7b7e8e87">&#9670;&#160;</a></span>Client() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
+template&lt;HttpTransport T_TRANSPORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::LinearInterpolation </td>
+          <td class="memname"><a class="el" href="../../d5/d30/a05721.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::Client </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">T_TRANSPORT &amp;</td>          <td class="paramname"><span class="paramname"><em>transport</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates an empty interpolation table. </p>
-
-</div>
-</div>
-<a id="af8dee1ed0a09d5cf17ab2fb2cc73d8cb" name="af8dee1ed0a09d5cf17ab2fb2cc73d8cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8dee1ed0a09d5cf17ab2fb2cc73d8cb">&#9670;&#160;</a></span>LinearInterpolation() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<div class="memtemplate">
-template&lt;size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::LinearInterpolation </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt; <a class="el" href="../../d6/d3f/a05725.html">Point</a>, N &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pointArray</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates an interpolation table from an initial array of points, sorted by x coordinate. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">N</td><td>Number of points in 'pointArray'; must not exceed MAX_POINTS. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Binds the client to a connected transport. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pointArray</td><td>Initial data points for the table. </td></tr>
+    <tr><td class="paramname">transport</td><td>Transport requests go over; must outlive this client. </td></tr>
   </table>
   </dd>
 </dl>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d30/a05721_afbf556ac8abd6b5e8b12958b7b7e8e87_icgraph.svg" width="526" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a893ac5643ef917f5ca701fabbe75a429" name="a893ac5643ef917f5ca701fabbe75a429"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a893ac5643ef917f5ca701fabbe75a429">&#9670;&#160;</a></span>Client() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HttpTransport T_TRANSPORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d30/a05721.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::Client </td>
+          <td>(</td>
+          <td class="paramtype">const Client&lt; T_TRANSPORT &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: bound to one transport. </p>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d30/a05721_a893ac5643ef917f5ca701fabbe75a429_cgraph.svg" width="502" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a207055b9f6a7daac509985f971a0e14f" name="a207055b9f6a7daac509985f971a0e14f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a207055b9f6a7daac509985f971a0e14f">&#9670;&#160;</a></span>Client() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HttpTransport T_TRANSPORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/d30/a05721.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::Client </td>
+          <td>(</td>
+          <td class="paramtype">Client&lt; T_TRANSPORT &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: bound to one transport. </p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d30/a05721_a207055b9f6a7daac509985f971a0e14f_cgraph.svg" width="502" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="afdd4b894d0803bc604d379fa4629d483" name="afdd4b894d0803bc604d379fa4629d483"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdd4b894d0803bc604d379fa4629d483">&#9670;&#160;</a></span>addPoint() <span class="overload">[1/2]</span></h2>
+<a id="aabf7e35c74111468fdd296e6931b047f" name="aabf7e35c74111468fdd296e6931b047f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabf7e35c74111468fdd296e6931b047f">&#9670;&#160;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
+template&lt;HttpTransport T_TRANSPORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::addPoint </td>
+          <td class="memname"><a class="el" href="../../de/d49/a00952.html#afc43b899679a3737d2e7425a9168a85c">Status</a> <a class="el" href="../../d5/d30/a05721.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::get </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d6/d3f/a05725.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>host</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d8e/a05717.html">Response</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Appends a data point to the table. </p>
+<p>Sends a GET request and waits for the response. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Data point to add. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">host</td><td>Value of the Host header, such as 'api.example.com'. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">path</td><td>Request path including any query string, such as '/v1/status'. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; 'response.body' views into it. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Parsed response; valid only on <a class="el" href="../../de/d49/a00952.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if added, <b>false</b> if the table is already at MAX_POINTS. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Result of the request. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d30/a05721_aabf7e35c74111468fdd296e6931b047f_cgraph.svg" width="486" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a74376103d2a68f503d4edeac77bcb80c" name="a74376103d2a68f503d4edeac77bcb80c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74376103d2a68f503d4edeac77bcb80c">&#9670;&#160;</a></span>addPoint() <span class="overload">[2/2]</span></h2>
+<a id="a19375415236ef7e6b214f897791eeb09" name="a19375415236ef7e6b214f897791eeb09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19375415236ef7e6b214f897791eeb09">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
+template&lt;HttpTransport T_TRANSPORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::addPoint </td>
+          <td class="memname"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp; <a class="el" href="../../d5/d30/a05721.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a>&lt; T_TRANSPORT &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Appends a data point given by its coordinates. </p>
+<p>Non-movable: bound to one transport. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d30/a05721_a19375415236ef7e6b214f897791eeb09_cgraph.svg" width="526" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3b9c27f75842a31365c97eaaa607d452" name="a3b9c27f75842a31365c97eaaa607d452"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b9c27f75842a31365c97eaaa607d452">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HttpTransport T_TRANSPORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp; <a class="el" href="../../d5/d30/a05721.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a>&lt; T_TRANSPORT &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: bound to one transport. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d30/a05721_a3b9c27f75842a31365c97eaaa607d452_cgraph.svg" width="526" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aee5955fa4ffad931d4418d2f59af2880" name="aee5955fa4ffad931d4418d2f59af2880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee5955fa4ffad931d4418d2f59af2880">&#9670;&#160;</a></span>post()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;HttpTransport T_TRANSPORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d49/a00952.html#afc43b899679a3737d2e7425a9168a85c">Status</a> <a class="el" href="../../d5/d30/a05721.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::post </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>host</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>contentType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d8e/a05717.html">Response</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a POST request with a body and waits for the response. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Input coordinate. </td></tr>
-    <tr><td class="paramname">y</td><td>Output value. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">host</td><td>Value of the Host header, such as 'api.example.com'. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">path</td><td>Request path including any query string. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">contentType</td><td>Value of the Content-Type header, such as 'application/json'. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">body</td><td>Request body. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; 'response.body' views into it. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Parsed response; valid only on <a class="el" href="../../de/d49/a00952.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if added, <b>false</b> if the table is already at MAX_POINTS. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Result of the request. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d30/a05721_aee5955fa4ffad931d4418d2f59af2880_cgraph.svg" width="494" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="aab5168233071bba85d5f5119cecdc12f" name="aab5168233071bba85d5f5119cecdc12f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab5168233071bba85d5f5119cecdc12f">&#9670;&#160;</a></span>clear()</h2>
+<a id="aff0df8d671c191feb30e91ba3a1053a7" name="aff0df8d671c191feb30e91ba3a1053a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff0df8d671c191feb30e91ba3a1053a7">&#9670;&#160;</a></span>request()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
+template&lt;HttpTransport T_TRANSPORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::clear </td>
+          <td class="memname"><a class="el" href="../../de/d49/a00952.html#afc43b899679a3737d2e7425a9168a85c">Status</a> <a class="el" href="../../d5/d30/a05721.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::request </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../de/d49/a00952.html#a8f753d750ea425a0a07f531674302436">Method</a></td>          <td class="paramname"><span class="paramname"><em>method</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>host</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes every point, returning the table to its initial empty state. </p>
-
-</div>
-</div>
-<a id="a96708d1e4a7701724f4770d48a1b4661" name="a96708d1e4a7701724f4770d48a1b4661"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96708d1e4a7701724f4770d48a1b4661">&#9670;&#160;</a></span>getPoint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="../../d6/d3f/a05725.html">Point</a> &amp; <a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::getPoint </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>contentType</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d8e/a05717.html">Response</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Accesses the point at the given table index. </p>
+<p>Sends a request with any method and waits for the response. </p>
+<p>Content-Type and Content-Length headers are added only when 'body' is not empty.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>Index of the point; must be below <a class="el" href="#aff35d714c8d5e1859adca0de1f902a34" title="getPointCount()">getPointCount()</a>. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">method</td><td>Request method. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">host</td><td>Value of the Host header. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">path</td><td>Request path including any query string. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">contentType</td><td>Value of the Content-Type header; ignored when 'body' is empty. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">body</td><td>Request body; empty for none. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; 'response.body' views into it. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Parsed response; valid only on <a class="el" href="../../de/d49/a00952.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to the point at 'index'. </dd></dl>
-
+<dl class="section return"><dt>Returns</dt><dd>Result of the request. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d30/a05721_aff0df8d671c191feb30e91ba3a1053a7_icgraph.svg" width="494" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="aff35d714c8d5e1859adca0de1f902a34" name="aff35d714c8d5e1859adca0de1f902a34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff35d714c8d5e1859adca0de1f902a34">&#9670;&#160;</a></span>getPointCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::getPointCount </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of points currently in the table. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current point count. </dd></dl>
-
-</div>
-</div>
-<a id="a15ad2325a927ddfead159579c0d375aa" name="a15ad2325a927ddfead159579c0d375aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15ad2325a927ddfead159579c0d375aa">&#9670;&#160;</a></span>interpolate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T_VALUE <a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::interpolate </td>
-          <td>(</td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the interpolated value at the given input coordinate. </p>
-<p>A coordinate outside the table's range clamps to the nearest endpoint's output value.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>Input coordinate to interpolate at. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Interpolated value at 'x'. </dd></dl>
-
-</div>
-</div>
-<a id="a6f6fdaa95c5df133be213e1ad20f34a8" name="a6f6fdaa95c5df133be213e1ad20f34a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f6fdaa95c5df133be213e1ad20f34a8">&#9670;&#160;</a></span>interpolateBetween()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr T_VALUE <a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::interpolateBetween </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d6/d3f/a05725.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d6/d3f/a05725.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point2</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Linearly interpolates between two points at the given input coordinate. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">point1</td><td>First point. </td></tr>
-    <tr><td class="paramname">point2</td><td>Second point; must have a different x coordinate from 'point1'. </td></tr>
-    <tr><td class="paramname">x</td><td>Input coordinate to interpolate at. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Interpolated value at 'x'. </dd></dl>
-
-</div>
-</div>
-<a id="a637e9123547cb0cb5032cd680793c1e6" name="a637e9123547cb0cb5032cd680793c1e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a637e9123547cb0cb5032cd680793c1e6">&#9670;&#160;</a></span>interpolateSimple()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr T_VALUE <a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::interpolateSimple </td>
-          <td>(</td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>y2</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Linearly interpolates between two points given directly as coordinates, without a table. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x1</td><td>First point's input coordinate. </td></tr>
-    <tr><td class="paramname">y1</td><td>First point's output value. </td></tr>
-    <tr><td class="paramname">x2</td><td>Second point's input coordinate; must differ from 'x1'. </td></tr>
-    <tr><td class="paramname">y2</td><td>Second point's output value. </td></tr>
-    <tr><td class="paramname">x</td><td>Input coordinate to interpolate at. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Interpolated value at 'x'. </dd></dl>
-
-</div>
-</div>
-<a id="a297a3b5b4a94c75ad444983025829924" name="a297a3b5b4a94c75ad444983025829924"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a297a3b5b4a94c75ad444983025829924">&#9670;&#160;</a></span>isEmpty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::isEmpty </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the table holds no points. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the table is empty, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a811655db142fd3fe1aa6dfbd5352a582" name="a811655db142fd3fe1aa6dfbd5352a582"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a811655db142fd3fe1aa6dfbd5352a582">&#9670;&#160;</a></span>sortPoints()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d5/d30/a05721.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::sortPoints </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sorts the table by x coordinate in ascending order, if not already sorted. </p>
 
 </div>
 </div>
@@ -631,7 +562,7 @@ template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d2/dac/a00876.html">Lib</a></li><li class="navelem"><a href="../../d4/ddc/a00917.html">Math</a></li><li class="navelem"><a href="../../d5/d30/a05721.html">LinearInterpolation</a></li>
+    <li class="navelem"><a href="../../df/da5/a00912.html">Lib</a></li><li class="navelem"><a href="../../de/d49/a00952.html">HTTP</a></li><li class="navelem"><a href="../../d5/d30/a05721.html">Client</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

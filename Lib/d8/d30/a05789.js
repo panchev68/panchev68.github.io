@@ -1,8 +1,6 @@
 var a05789 =
 [
-    [ "allocations", "d8/d30/a05789.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "d8/d30/a05789.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "d8/d30/a05789.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "d8/d30/a05789.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "d8/d30/a05789.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "name", "d8/d30/a05789.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
+    [ "output", "d8/d30/a05789.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
+    [ "rotateTime", "d8/d30/a05789.html#aad96d287e9891431e5a7c99935482563", null ]
 ];

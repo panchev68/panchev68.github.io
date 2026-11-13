@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: RTOS::EventGroup</title>
+<title>IAR EWARM Library: Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;::PeakInfo</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -26,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/d33/a05659.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/d33/a05659.html','../../','d3/ddb/a05656'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -111,59 +112,119 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/d33/a05659.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::EventGroup</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;::PeakInfo<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates opening an <a class="el" href="../../d7/d33/a05659.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, setting bits from a task and from an ISR, and waiting for both.</p>
-<p>Demonstrates opening an <a class="el" href="../../d7/d33/a05659.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, setting bits from a task and from an ISR, and waiting for both.One bit is set by the task itself, the other by an interrupt through 'setBitsFromISR()'. That call is deferred to the timer daemon task, so it needs 'configUSE_TIMERS' and 'INCLUDE_xTimerPendFunctionCall'. 'Bits' is a '<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02030.html">std::bitset</a>' covering only the bits FreeRTOS leaves usable; its 'operator|' is not 'constexpr' here, so a combined mask is a plain 'const'. The returned bits hold the state when the wait ended, before the clear on exit.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d7/d33/a05659.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, <a class="elRef" target="_blank" href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#ac933f049ba3d9d3e242bdc243dea3482" title="RTOS::EventGroup::wait()">RTOS::EventGroup::wait()</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Lib/RTOS/FreeRTOS/EventGroup.hpp&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_classRef" target="_blank" href="https://panchev68.github.io/Lib/d6/d6d/a05768.html">RTOS::EventGroup</a> events;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> RTOS::EventGroup::Bits TASK_READY{1U &lt;&lt; 0U};</div>
-<div class="line"><span class="keyword">constexpr</span> RTOS::EventGroup::Bits DATA_READY{1U &lt;&lt; 3U};</div>
-<div class="line"><span class="keyword">const</span> RTOS::EventGroup::Bits ALL_READY = TASK_READY | DATA_READY;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> EXTI0_IRQHandler() {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a1" name="a1"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#a13c55cc45daa6d96a1f21460a4c71626">setBitsFromISR</a>(DATA_READY)); <span class="comment">// Deferred to the timer daemon task.</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> exampleTask() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!events.<a id="a2" name="a2"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#ae966e8d3efe519e3138fedaa3108a300">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a3" name="a3"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#a154c164a4617cf8553683bb42f04ff11">setBits</a>(TASK_READY));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Wait up to 1 s for both bits; they are cleared on exit only if both were set.</span></div>
-<div class="line">    <span class="keyword">const</span> RTOS::EventGroup::Bits result = events.<a id="a4" name="a4"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#ac933f049ba3d9d3e242bdc243dea3482">wait</a>(ALL_READY, <span class="keyword">true</span>, <span class="keyword">true</span>, 1s);</div>
-<div class="line">    <span class="keywordflow">if</span> ((result &amp; ALL_READY) == ALL_READY) {</div>
-<div class="line">        <span class="comment">// Both bits set.</span></div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// Timeout: at most one of the bits was set.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    events.<a id="a5" name="a5"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#a86f5d90cf8de78fe435b35460bef5edd">close</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa05768_html"><div class="ttname"><a href="https://panchev68.github.io/Lib/d6/d6d/a05768.html">RTOS::EventGroup</a></div></div>
-<div class="ttc" id="aa05768_html_a13c55cc45daa6d96a1f21460a4c71626"><div class="ttname"><a href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#a13c55cc45daa6d96a1f21460a4c71626">RTOS::EventGroup::setBitsFromISR</a></div><div class="ttdeci">bool setBitsFromISR(Bits bitsToSet) noexcept</div></div>
-<div class="ttc" id="aa05768_html_a154c164a4617cf8553683bb42f04ff11"><div class="ttname"><a href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#a154c164a4617cf8553683bb42f04ff11">RTOS::EventGroup::setBits</a></div><div class="ttdeci">Bits setBits(Bits bitsToSet) noexcept</div></div>
-<div class="ttc" id="aa05768_html_a86f5d90cf8de78fe435b35460bef5edd"><div class="ttname"><a href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#a86f5d90cf8de78fe435b35460bef5edd">RTOS::EventGroup::close</a></div><div class="ttdeci">void close() noexcept</div></div>
-<div class="ttc" id="aa05768_html_ac933f049ba3d9d3e242bdc243dea3482"><div class="ttname"><a href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#ac933f049ba3d9d3e242bdc243dea3482">RTOS::EventGroup::wait</a></div><div class="ttdeci">Bits wait(Bits requestedBits, bool clearOnExit, bool waitForAll, TickType timeout) noexcept</div></div>
-<div class="ttc" id="aa05768_html_ae966e8d3efe519e3138fedaa3108a300"><div class="ttname"><a href="https://panchev68.github.io/Lib/d6/d6d/a05768.html#ae966e8d3efe519e3138fedaa3108a300">RTOS::EventGroup::open</a></div><div class="ttdeci">bool open() noexcept</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt;<br />
+struct Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;::PeakInfo</div><p>Detected peak: accumulated value and the monotonic position of the sample where it was recorded. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;::PeakInfo:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dbf/a05657.svg" width="278" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a0384dbed539af8588014927e2cc2611e" id="r_a0384dbed539af8588014927e2cc2611e"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a0384dbed539af8588014927e2cc2611e">operator==</a> (const <a class="el" href="../../d7/d33/a05659.html">PeakInfo</a> &amp;other) const noexcept=default</td></tr>
+<tr class="memdesc:a0384dbed539af8588014927e2cc2611e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two peaks memberwise.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a036bbd4435de7509f8854ca2adf96d41" id="r_a036bbd4435de7509f8854ca2adf96d41"><td class="memItemLeft">T&#160;</td><td class="memItemRight"><a class="el" href="#a036bbd4435de7509f8854ca2adf96d41">value</a> {<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02702.html">std::numeric_limits</a>&lt;T&gt;::lowest()}</td></tr>
+<tr class="memdesc:a036bbd4435de7509f8854ca2adf96d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accumulated value at the peak.  <br /></td></tr>
+<tr class="memitem:a1e9e29c6bb250746612836ecee4e0f57" id="r_a1e9e29c6bb250746612836ecee4e0f57"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a1e9e29c6bb250746612836ecee4e0f57">position</a> {0U}</td></tr>
+<tr class="memdesc:a1e9e29c6bb250746612836ecee4e0f57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample position since the last reset; wraps around.  <br /></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a0384dbed539af8588014927e2cc2611e" name="a0384dbed539af8588014927e2cc2611e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0384dbed539af8588014927e2cc2611e">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dc/d03/a05655.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::PeakInfo::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d7/d33/a05659.html">PeakInfo</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares two peaks memberwise. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Peak to compare against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if value and position are equal, otherwise <b>false</b>. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a1e9e29c6bb250746612836ecee4e0f57" name="a1e9e29c6bb250746612836ecee4e0f57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9e29c6bb250746612836ecee4e0f57">&#9670;&#160;</a></span>position</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../dc/d03/a05655.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::PeakInfo::position {0U}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sample position since the last reset; wraps around. </p>
+
+</div>
+</div>
+<a id="a036bbd4435de7509f8854ca2adf96d41" name="a036bbd4435de7509f8854ca2adf96d41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a036bbd4435de7509f8854ca2adf96d41">&#9670;&#160;</a></span>value</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T <a class="el" href="../../dc/d03/a05655.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::PeakInfo::value {<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02702.html">std::numeric_limits</a>&lt;T&gt;::lowest()}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Accumulated value at the peak. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../da/dd8/a00906.html">Lib</a></li><li class="navelem"><a href="../../d9/dce/a00944.html">Helper</a></li><li class="navelem"><a href="../../dc/d03/a05655.html">FindPeaks</a></li><li class="navelem"><a href="../../d7/d33/a05659.html">PeakInfo</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

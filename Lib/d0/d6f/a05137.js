@@ -1,26 +1,29 @@
 var a05137 =
 [
-    [ "MessageHeader", "dd/dfc/a05141.html", "dd/dfc/a05141" ],
-    [ "Command", "d0/d6f/a05137.html#af1bf58d46a2365d039aa946466c931e4", [
-      [ "ECHO", "d0/d6f/a05137.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409", null ],
-      [ "INPUTS", "d0/d6f/a05137.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692", null ],
-      [ "OUTPUTS", "d0/d6f/a05137.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70", null ]
-    ] ],
-    [ "Error", "d0/d6f/a05137.html#af7acfca02d188807a9c220d5c0bfeda6", [
-      [ "OK", "d0/d6f/a05137.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "COMMAND_NOT_SUPPORT", "d0/d6f/a05137.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7", null ],
-      [ "EMPTY_MESSAGE", "d0/d6f/a05137.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0", null ],
-      [ "INVALID_PAYLOAD_LENGTH", "d0/d6f/a05137.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e", null ],
-      [ "INVALID_START_DELIMITER", "d0/d6f/a05137.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c", null ]
-    ] ],
-    [ "UserProtocol", "d0/d6f/a05137.html#ab11ca2634a103484248a6d8ea24a5407", null ],
-    [ "~UserProtocol", "d0/d6f/a05137.html#ad2bb639951ce599fce10adfb65668d02", null ],
-    [ "build", "d0/d6f/a05137.html#ae9170839094fc83686dd4af2244027fb", null ],
-    [ "echoCallback", "d0/d6f/a05137.html#a3061aa5da161fa13a28466c38e0f725f", null ],
-    [ "getLastSentTimeStamp", "d0/d6f/a05137.html#ad39a3a83a2a35aab8c09065f6ea63f0f", null ],
-    [ "handleIncomingMessageHeader", "d0/d6f/a05137.html#aa78f9b31828d798a794fcd69e78f46e2", null ],
-    [ "handleOutputsUpdate", "d0/d6f/a05137.html#a78c96c1519356f5ea3948970fff30d5c", null ],
-    [ "inputsUpdateCallback", "d0/d6f/a05137.html#a26f74b072f3f808ae2a3374051efa833", null ],
-    [ "parse", "d0/d6f/a05137.html#a5693bd9519902713725ab87ae72a635d", null ],
-    [ "updateNodeActivityCallback", "d0/d6f/a05137.html#a9937ef06792e7b6d381e0b29d25c1f27", null ]
+    [ "Error", "d0/d6f/a05137.html#a200281c0172b3a65057b86c77b175586", null ],
+    [ "Header", "d0/d6f/a05137.html#ad7428bbb83ea5af8171eee7e864fdda4", null ],
+    [ "Protocol", "d0/d6f/a05137.html#a03e55875290d9ac400cdac8cb14a858e", null ],
+    [ "Mailbox", "d0/d6f/a05137.html#a1debe96138e08d6ccb16868333feb2bf", null ],
+    [ "~Mailbox", "d0/d6f/a05137.html#a11d50ad6b758157d23c8d9afd1f9da50", null ],
+    [ "Mailbox", "d0/d6f/a05137.html#a237ac941b481e7903f53c72e3a84c37d", null ],
+    [ "Mailbox", "d0/d6f/a05137.html#ae1f42eb47014d50f8a22229504f9f812", null ],
+    [ "getAlStatus", "d0/d6f/a05137.html#a35431f80931e480938c96b76a926692d", null ],
+    [ "getAlStatusCode", "d0/d6f/a05137.html#a38924c6c0bb5575f566f139a7fbd83be", null ],
+    [ "getHeader", "d0/d6f/a05137.html#aedee8505e9fc71d9b8ee1f861aed18bd", null ],
+    [ "getMaxReceivePayload", "d0/d6f/a05137.html#ac7ab98301c17e070b6dc163a3c8cced5", null ],
+    [ "getMaxSendPayload", "d0/d6f/a05137.html#adde97f5c848352eeba6b208c92a29e67", null ],
+    [ "getPayload", "d0/d6f/a05137.html#a9872acce7c2cf2223766fcf44e1bab1b", null ],
+    [ "hasIncomingMessage", "d0/d6f/a05137.html#a42da399e1c4912a51547721ecd747034", null ],
+    [ "isSendFree", "d0/d6f/a05137.html#a1841296b5aeb9919b19eacf34f6f8c29", null ],
+    [ "isStarted", "d0/d6f/a05137.html#ab1bcb7c3a74502f21370427c1e31753c", null ],
+    [ "isWatchdogExpired", "d0/d6f/a05137.html#aa53136056fbab6f9ab30f59ecf2e1ede", null ],
+    [ "operator=", "d0/d6f/a05137.html#abae1162408c4bf8b2325a6f9bd12422b", null ],
+    [ "operator=", "d0/d6f/a05137.html#aac7d5d69054aa75c6c65ab7278e2136a", null ],
+    [ "process", "d0/d6f/a05137.html#a6ae0df748e2b7e0163d2d0e576c60e67", null ],
+    [ "release", "d0/d6f/a05137.html#a24ecfe28e44d01a0ef7402c9dd2b1929", null ],
+    [ "reply", "d0/d6f/a05137.html#aa8e763a2fb2fb167a2fb8507743e6a8c", null ],
+    [ "sendError", "d0/d6f/a05137.html#af16f83230223a0cfc670c79022e90a1b", null ],
+    [ "sendMessage", "d0/d6f/a05137.html#a307441f14d9e3120190624e16e92e238", null ],
+    [ "start", "d0/d6f/a05137.html#abf50b8069f4ceb92d29414e4c378b96a", null ],
+    [ "stop", "d0/d6f/a05137.html#a931f26c5e93d20514fbea7d2d011fe6a", null ]
 ];

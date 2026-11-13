@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: UserProtocol.hpp</title>
+<title>IAR EWARM Library: RTOS::Timeout example</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -109,37 +111,57 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d0d/a08250.
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">UserProtocol.hpp</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">RTOS::Timeout example </div></div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>CRTP base for the user protocol carried in XBee RF data: parses incoming messages and builds outgoing ones. </p>
-<p>A message is one command byte followed by an optional payload. Handlers are resolved at compile time through the derived class; every handler has an empty default, so a derived class defines only the commands it uses.</p>
-<dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-09-27 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Digi/API/UserProtocol.hpp:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dad/a08251.svg" width="478" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3ADigi_3A_3AAPI_3A_3AUserProtocol_3C_20Derived_20_3E" id="r_Lib_3A_3ADigi_3A_3AAPI_3A_3AUserProtocol_3C_20Derived_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/d9e/a04892.html">Lib::Digi::API::UserProtocol&lt; Derived &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses and builds user protocol messages and dispatches commands to the derived class.  <a href="../../db/d9e/a04892.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d2/da1/a00879.html">Lib</a></td></tr>
-<tr class="memdesc:d2/da1/a00879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3ADigi" id="r_Lib_3A_3ADigi"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d5/dd3/a00902.html">Lib::Digi</a></td></tr>
-<tr class="memdesc:d5/dd3/a00902"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digi/XBee radio module support. <br /></td></tr>
-<tr class="memitem:Lib_3A_3ADigi_3A_3AAPI" id="r_Lib_3A_3ADigi_3A_3AAPI"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d1c/a00903.html">Lib::Digi::API</a></td></tr>
-<tr class="memdesc:d4/d1c/a00903"><td class="mdescLeft">&#160;</td><td class="mdescRight">High-level <a class="el" href="../../d5/dd3/a00902.html" title="Digi/XBee radio module support.">Digi</a> radio module application framework. <br /></td></tr>
-</table>
-</div><!-- contents -->
+<div class="textblock"><p>Shows tracking a deadline in a polling loop with <a class="el" href="../../de/d1f/a05994.html" title="RTOS::Timeout">RTOS::Timeout</a>.</p>
+<p>Covers a timeout created from a duration, polled until it expires, restarted after a successful step, and disabled when no limit is needed. The timeout measures elapsed time with the scheduler tick count.</p>
+<h1 class="doxsection"><a class="anchor" id="rtos_timeout_usage"></a>
+Usage</h1>
+<h2 class="doxsection"><a class="anchor" id="timeout_usage_poll"></a>
+Polling until a deadline</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d92/a00929.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> waitForReady() noexcept {</div>
+<div class="line">    <a class="code hl_class" href="../../de/d1f/a05994.html">RTOS::Timeout</a> deadline(500ms);</div>
+<div class="line">    <span class="keywordflow">while</span> (!deadline.isExpired()) {</div>
+<div class="line">        <span class="comment">// Poll the peripheral here.</span></div>
+<div class="line">        <a class="code hl_function" href="../../d2/d41/a01037.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(10ms);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Not ready within 500 ms.</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00884_html"><div class="ttname"><a href="../../dd/d08/a00884.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
+<div class="ttc" id="aa00929_html"><div class="ttname"><a href="../../dc/d92/a00929.html">Timeout.hpp</a></div><div class="ttdoc">FreeRTOS-compatible timeout management utility.</div></div>
+<div class="ttc" id="aa01037_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d2/d41/a01037.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:604</div></div>
+<div class="ttc" id="aa05994_html"><div class="ttname"><a href="../../de/d1f/a05994.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:33</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="timeout_usage_restart"></a>
+Restarting and disabling</h2>
+<p><a class="el" href="../../de/d1f/a05994.html#a4f719fdc728f4b1e2a6a3b33c747c32e" title="RTOS::Timeout::reset()">RTOS::Timeout::reset()</a> restarts the window from the current tick, and <a class="el" href="../../de/d1f/a05994.html#a9f4c1790b62b338de5ee47cad756a53e" title="RTOS::Timeout::disable()">RTOS::Timeout::disable()</a> makes the timeout never expire until <a class="el" href="../../de/d1f/a05994.html#a859711fa5327754ac08a5a5f7b6175ba" title="RTOS::Timeout::set()">RTOS::Timeout::set()</a> is called again.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d92/a00929.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> restartWindows() noexcept {</div>
+<div class="line">    <a class="code hl_class" href="../../de/d1f/a05994.html">RTOS::Timeout</a> unlimited(1s);</div>
+<div class="line">    unlimited.disable();</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="../../de/d1f/a05994.html">RTOS::Timeout</a> retry(200ms);</div>
+<div class="line">    retry.reset();</div>
+<div class="line">    <span class="keywordflow">if</span> (retry.getRemainingTicks() &gt; 0U) {</div>
+<div class="line">        <span class="comment">// Still inside the window.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -152,7 +174,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_67df2c65d6bc148cc049a48bf38d4002.html">Digi</a></li><li class="navelem"><a href="../../dir_c24010df05eaccdf81dd52006b9a47df.html">API</a></li><li class="navelem"><a href="../../de/d0d/a08250.html">UserProtocol.hpp</a></li>
+    <li class="navelem"><a href="../../d1/d16/a08184.html">Usage examples</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

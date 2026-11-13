@@ -1,5 +1,4 @@
 var a00269 =
 [
-    [ "Lib::Digi::API::Service::PairService", "d6/ddb/a04853.html", "d6/ddb/a04853" ],
-    [ "Lib::Digi::API::Service::PairService::Config", "de/d4c/a04857.html", "de/d4c/a04857" ]
+    [ "Lib::BSP::RFID::Chipset", "de/d9c/a04551.html", "de/d9c/a04551" ]
 ];

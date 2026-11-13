@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['md_20lib_3a_3ahal_0',['Hardware Abstraction Layer (&lt;a class=&quot;el&quot; href=&quot;dir_4ad11338be6ed64801f932656637dcad.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/HAL/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;Lib::HAL&lt;/span&gt;&lt;/a&gt;)',['../index.html#hardware-abstraction-layer-libhalinclibhalreadmemd',1,'']]],
-  ['md_20rtos_3a_3a_1',['RTOS Abstractions (&lt;a class=&quot;el&quot; href=&quot;dir_3fba853156281524a1d2ff8b1fb19351.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/RTOS/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;RTOS::&lt;/span&gt;&lt;/a&gt;)',['../index.html#rtos-abstractions-rtosinclibrtosreadmemd',1,'']]],
-  ['measurement_2',['Single measurement',['../d2/dec/a08139.html#pga460_usage_basic',1,'']]],
-  ['measurement_20task_3',['Periodic measurement task',['../d2/dec/a08139.html#pga460_usage_task',1,'']]],
-  ['module_20documentation_4',['🗂️ Module Documentation',['../index.html#️-module-documentation',1,'']]],
-  ['monitoring_20and_20control_5',['Monitoring and control',['../X:/Lib/IAR/docs/Examples/RTOS_StreamBuffer.dox#streambuffer_monitor',1,'']]],
-  ['moving_20ownership_6',['Moving ownership',['../X:/Lib/IAR/docs/Examples/RTOS_StreamBuffer.dox#streambuffer_move',1,'']]]
+  ['last_20reset_0',['Report the cause of the last reset',['../X:/Lib/IAR/Project/Examples/Lib_HAL_Reset.dox#reset_usage_cause',1,'']]],
+  ['level_1',['Static level',['../X:/Lib/IAR/Project/Examples/Lib_HAL_DAC.dox#dac_usage_block',1,'']]],
+  ['library_2',['IAR EWARM Library',['../index.html',1,'']]],
+  ['lifecycle_3',['lifecycle',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_config',1,'Construction and lifecycle'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_OSPI.dox#ospi_usage_setup',1,'Setup and lifecycle'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_UART.dox#uart_usage_setup',1,'Setup and lifecycle']]],
+  ['like_20value_20to_20percentage_4',['Floating dBm-like value to percentage',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_dBM.dox#dbm_usage_percent',1,'']]],
+  ['list_5',['Deprecated List',['../db/d20/a00980.html',1,'']]],
+  ['local_20time_20to_20utc_20minutes_6',['Local time to UTC minutes',['../X:/Lib/IAR/Project/Examples/Lib_Helper_TimeZone.dox#timezone_usage_convert',1,'']]],
+  ['lock_7',['lock',['../X:/Lib/IAR/Project/Examples/RTOS_PowerManager.dox#power_manager_usage_lock',1,'Deep-sleep lock'],['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_recursive',1,'Recursive mutex and try-lock'],['../X:/Lib/IAR/Project/Examples/RTOS_MutexGuard.dox#mutexguard_usage_timed',1,'Timed lock']]],
+  ['lock_20with_20an_20indefinite_20wait_8',['Scoped lock with an indefinite wait',['../X:/Lib/IAR/Project/Examples/RTOS_MutexGuard.dox#mutexguard_usage_scope',1,'']]],
+  ['look_20up_20the_20owner_20inside_20a_20hal_20callback_9',['Look up the owner inside a HAL callback',['../X:/Lib/IAR/Project/Examples/Lib_HAL_DeviceManager.dox#devicemanager_usage_isr',1,'']]]
 ];

@@ -1,4 +1,4 @@
 var a00485 =
 [
-    [ "Lib::HAL::DACPortBase&lt; Derived &gt;", "da/dd7/a05285.html", "da/dd7/a05285" ]
+    [ "Lib::Digi::Core::Frame0x97", "db/d6b/a05139.html", "db/d6b/a05139" ]
 ];

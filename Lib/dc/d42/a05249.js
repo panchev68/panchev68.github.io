@@ -1,8 +1,18 @@
 var a05249 =
 [
-    [ "data", "dc/d42/a05249.html#a251018af6590442834ab27f31949ac0c", null ],
-    [ "frameType", "dc/d42/a05249.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
-    [ "id", "dc/d42/a05249.html#ac603c73011aa584e9a004fabd2239743", null ],
-    [ "idType", "dc/d42/a05249.html#ac4029cba49776e6f2942debd3ed78f58", null ],
-    [ "length", "dc/d42/a05249.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
+    [ "Event", "d4/d90/a05253.html", null ],
+    [ "ADCPort", "dc/d42/a05249.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
+    [ "~ADCPort", "dc/d42/a05249.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
+    [ "ADCPort", "dc/d42/a05249.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
+    [ "ADCPort", "dc/d42/a05249.html#af963171787341304aeec9ad771e5f523", null ],
+    [ "close", "dc/d42/a05249.html#a91651451878e1931de2457be52f68c92", null ],
+    [ "getHandle", "dc/d42/a05249.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "dc/d42/a05249.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getValue", "dc/d42/a05249.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "dc/d42/a05249.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
+    [ "operator=", "dc/d42/a05249.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
+    [ "operator=", "dc/d42/a05249.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
+    [ "start", "dc/d42/a05249.html#a97c4921b9e22a517072028d001c86ef1", null ],
+    [ "stop", "dc/d42/a05249.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
+    [ "waitForEvent", "dc/d42/a05249.html#af0c975bbd0a66ffabc210d52ec971714", null ]
 ];

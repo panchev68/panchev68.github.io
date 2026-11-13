@@ -1,18 +1,18 @@
 var a05509 =
 [
-    [ "EventHandler", "da/d38/a05509.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
-    [ "USBDevicePort", "da/d38/a05509.html#a73135119d83dd3a80c4b81f5bbe8fd61", null ],
-    [ "~USBDevicePort", "da/d38/a05509.html#a0a313f5efd10221e16714eece65dda0f", null ],
-    [ "abort", "da/d38/a05509.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
-    [ "close", "da/d38/a05509.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "da/d38/a05509.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "da/d38/a05509.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "da/d38/a05509.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "da/d38/a05509.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "da/d38/a05509.html#add4fb8ab17eac13116050ae3c8237acf", null ],
-    [ "send", "da/d38/a05509.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
-    [ "setEventHandler", "da/d38/a05509.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
-    [ "submitReceive", "da/d38/a05509.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
-    [ "submitSend", "da/d38/a05509.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
-    [ "waitForEvent", "da/d38/a05509.html#ac98dece292bb17828882e8d61e803880", null ]
+    [ "Config", "d8/dc9/a05513.html", "d8/dc9/a05513" ],
+    [ "StreamSerialPort", "da/d38/a05509.html#a273a38e15bd84ddcb1ab16c18bcb563a", null ],
+    [ "~StreamSerialPort", "da/d38/a05509.html#a82213704bb45f3f325b198dc0eb1ecab", null ],
+    [ "StreamSerialPort", "da/d38/a05509.html#a4385588b551ca7105aacb5fa1b83da65", null ],
+    [ "StreamSerialPort", "da/d38/a05509.html#a4dbd8a6587109d4ce29242ec1ddfdec0", null ],
+    [ "close", "da/d38/a05509.html#af4d1dbc5fcd691c510918d277281ee6e", null ],
+    [ "discardInput", "da/d38/a05509.html#ad313993195f0d6ea829d9c7b61df667f", null ],
+    [ "getDroppedCount", "da/d38/a05509.html#a32276aa918b5679e4f0e8df69175063f", null ],
+    [ "isOpen", "da/d38/a05509.html#a6fe88c556292e95190f066d34a6455a9", null ],
+    [ "open", "da/d38/a05509.html#a1b052f09718429b991946fea7724f411", null ],
+    [ "operator=", "da/d38/a05509.html#a49b22bf81050b4ee173b0cb712fce161", null ],
+    [ "operator=", "da/d38/a05509.html#a5d8430086822b05225d0b3f4372238b2", null ],
+    [ "read", "da/d38/a05509.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a", null ],
+    [ "write", "da/d38/a05509.html#a0a35058ffe6e3bb6d1a5a9fb335c3588", null ],
+    [ "write", "da/d38/a05509.html#aa11ae6544b3fe4193e42a03891973953", null ]
 ];

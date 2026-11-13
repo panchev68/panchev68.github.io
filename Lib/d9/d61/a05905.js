@@ -1,7 +1,6 @@
 var a05905 =
 [
-    [ "maxVoltage", "d9/d61/a05905.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
-    [ "minVoltage", "d9/d61/a05905.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
-    [ "powerThreshold", "d9/d61/a05905.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
-    [ "stepSize", "d9/d61/a05905.html#a5ac779799a2638585b8dbced18eff05d", null ]
+    [ "autoStart", "d9/d61/a05905.html#ab55e2272bf479804d0a0d2f1e6e5bed4", null ],
+    [ "name", "d9/d61/a05905.html#aacc889d1a77591ed4d41f693a1ad15e7", null ],
+    [ "period", "d9/d61/a05905.html#a72f5a204f1d7fe3831b3f7afddae31a7", null ]
 ];

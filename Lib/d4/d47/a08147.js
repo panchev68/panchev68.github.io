@@ -1,4 +1,5 @@
 var a08147 =
 [
-    [ "Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;", "dc/de1/a05261.html", "dc/de1/a05261" ]
+    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;", "d2/d27/a04301.html", "d2/d27/a04301" ],
+    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;::Config", "dc/df8/a04305.html", "dc/df8/a04305" ]
 ];

@@ -1,13 +1,6 @@
 var a04853 =
 [
-    [ "Config", "de/d4c/a04857.html", "de/d4c/a04857" ],
-    [ "Params", "d6/ddb/a04853.html#aa0a4f2bbe579882088ad1235acfe6fd9", null ],
-    [ "PairService", "d6/ddb/a04853.html#a5a54bddc9780ee25cf4d3807f36e1f12", null ],
-    [ "PairService", "d6/ddb/a04853.html#a469a4f643d4fa5a75c530cb6d7ec49d5", null ],
-    [ "close", "d6/ddb/a04853.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "isRunning", "d6/ddb/a04853.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d6/ddb/a04853.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "d6/ddb/a04853.html#a115a3537a0189cfcd83c231d716c0bb5", null ],
-    [ "process", "d6/ddb/a04853.html#a0747f885e5a9feba10647c760353f395", null ],
-    [ "update", "d6/ddb/a04853.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "getIdentifier", "d6/ddb/a04853.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
+    [ "setIdentifier", "d6/ddb/a04853.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
+    [ "identifier", "d6/ddb/a04853.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Slave.hpp</title>
+<title>IAR EWARM Library: RTOS::MessageBuffer example</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -25,10 +26,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">C++20</div>
   </td>
  </tr>
  </tbody>
@@ -109,37 +111,62 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d8b/a08238.
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">Slave.hpp</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">RTOS::MessageBuffer example </div></div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Modbus slave implementation for RTU protocol. </p>
-<p>Provides a Modbus slave that communicates with master devices via a serial port using the RTU protocol. Handles frame reception, processing, and transmission with callback-based request handling.</p>
-<dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-09-24 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Communication/Modbus/Slave.hpp:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/ded/a08239.svg" width="1007" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3ACommunication_3A_3AModbus_3A_3ASlave" id="r_Lib_3A_3ACommunication_3A_3AModbus_3A_3ASlave"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d94/a04672.html">Lib::Communication::Modbus::Slave</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d3/d8a/a00899.html" title="Modbus RTU protocol implementation.">Modbus</a> slave for RTU communication.  <a href="../../d7/d94/a04672.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d2/da1/a00879.html">Lib</a></td></tr>
-<tr class="memdesc:d2/da1/a00879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3ACommunication" id="r_Lib_3A_3ACommunication"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d2/d79/a00898.html">Lib::Communication</a></td></tr>
-<tr class="memdesc:d2/d79/a00898"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serial communication protocol stacks. <br /></td></tr>
-<tr class="memitem:Lib_3A_3ACommunication_3A_3AModbus" id="r_Lib_3A_3ACommunication_3A_3AModbus"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d8a/a00899.html">Lib::Communication::Modbus</a></td></tr>
-<tr class="memdesc:d3/d8a/a00899"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d3/d8a/a00899.html" title="Modbus RTU protocol implementation.">Modbus</a> RTU protocol implementation. <br /></td></tr>
-</table>
-</div><!-- contents -->
+<div class="textblock"><p>Shows creating an <a class="el" href="../../de/dec/a05914.html" title="RTOS::MessageBuffer">RTOS::MessageBuffer</a>, then sending and receiving one small message from a task.</p>
+<p>The example focuses on the API and leaves out task setup; FreeRTOS must already be running.</p>
+<ul>
+<li>A message buffer supports one writer and one reader.</li>
+<li>Every message costs its payload plus a length header, <b>4</b> bytes with the default 'configMESSAGE_BUFFER_LENGTH_TYPE', so a 256-byte buffer carries messages of up to <a class="el" href="../../de/dec/a05914.html#ac0cdf8e25be1101c88e2a89f0a109ce5" title="RTOS::MessageBuffer::getMaxMessageSize()">RTOS::MessageBuffer::getMaxMessageSize()</a> bytes (<b>252</b>).</li>
+<li>From an interrupt use <a class="el" href="../../de/dec/a05914.html#a895f6a523a73fe0a86afc445c60cad95" title="RTOS::MessageBuffer::sendFromISR()">RTOS::MessageBuffer::sendFromISR()</a> and <a class="el" href="../../de/dec/a05914.html#aa2cbd475f54d4d04bd40a1470fb8d0ea" title="RTOS::MessageBuffer::receiveFromISR()">RTOS::MessageBuffer::receiveFromISR()</a> instead. The overloads that take a 'higherPriorityTaskWoken' flag leave the 'portYIELD_FROM_ISR()' call to the caller.</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="rtos_messagebuffer_usage"></a>
+Usage</h1>
+<h2 class="doxsection"><a class="anchor" id="messagebuffer_usage_basic"></a>
+Send and receive a message</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d46/a00890.html">Lib/RTOS/FreeRTOS/MessageBuffer.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> taskSendReceiveExample() {</div>
+<div class="line">    <a class="code hl_class" href="../../de/dec/a05914.html">RTOS::MessageBuffer</a> mb;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Create a 256-byte underlying message buffer.</span></div>
+<div class="line">    <span class="keywordflow">if</span> (!mb.open(256)) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> payload[] = <span class="stringliteral">&quot;hello&quot;</span>;</div>
+<div class="line">    <span class="comment">// Send from a task, blocking up to 100 ticks if necessary.</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> sent = mb.<a class="code hl_function" href="../../de/dec/a05914.html#a10110decaf3c897711e612ba455525cd">send</a>(payload, <span class="keyword">sizeof</span>(payload), <span class="keyword">static_cast&lt;</span><a class="code hl_typedef" href="../../de/dec/a05914.html#a74349e8aa0172b4a9f4763e24b7c10a6">RTOS::MessageBuffer::TickType</a><span class="keyword">&gt;</span>(100));</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sent);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Receive the message, blocking up to 100 ms.</span></div>
+<div class="line">    <span class="keywordtype">char</span> recv[32] = {};</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> received = mb.<a class="code hl_function" href="../../de/dec/a05914.html#a8bc5b3b484124680e0b606c983ee095e">receive</a>(recv, <span class="keyword">sizeof</span>(recv), 100ms);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// &#39;received&#39; is the payload size, or 0 on timeout or if &#39;recv&#39; was too small for the message.</span></div>
+<div class="line">    <span class="keywordflow">if</span> (received &gt; 0 &amp;&amp; received &lt; <span class="keyword">sizeof</span>(recv)) {</div>
+<div class="line">        recv[received] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    mb.<a class="code hl_function" href="../../de/dec/a05914.html#a34199efdeb4b4ffc33966e52cb123bd8">close</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
+<div class="ttc" id="aa00890_html"><div class="ttname"><a href="../../d7/d46/a00890.html">MessageBuffer.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS message buffers.</div></div>
+<div class="ttc" id="aa05914_html"><div class="ttname"><a href="../../de/dec/a05914.html">RTOS::MessageBuffer</a></div><div class="ttdoc">Owner of a FreeRTOS message buffer handle.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:47</div></div>
+<div class="ttc" id="aa05914_html_a10110decaf3c897711e612ba455525cd"><div class="ttname"><a href="../../de/dec/a05914.html#a10110decaf3c897711e612ba455525cd">RTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *source, size_t length, TickType blockTime) noexcept</div><div class="ttdoc">Writes one message, blocking up to a timeout until it fits as a whole.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:236</div></div>
+<div class="ttc" id="aa05914_html_a34199efdeb4b4ffc33966e52cb123bd8"><div class="ttname"><a href="../../de/dec/a05914.html#a34199efdeb4b4ffc33966e52cb123bd8">RTOS::MessageBuffer::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the native message buffer; does nothing if already closed.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:200</div></div>
+<div class="ttc" id="aa05914_html_a74349e8aa0172b4a9f4763e24b7c10a6"><div class="ttname"><a href="../../de/dec/a05914.html#a74349e8aa0172b4a9f4763e24b7c10a6">RTOS::MessageBuffer::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdoc">Scheduler tick count used for timeouts.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:51</div></div>
+<div class="ttc" id="aa05914_html_a8bc5b3b484124680e0b606c983ee095e"><div class="ttname"><a href="../../de/dec/a05914.html#a8bc5b3b484124680e0b606c983ee095e">RTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dest, size_t length, TickType blockTime) noexcept</div><div class="ttdoc">Reads the oldest message, blocking up to a timeout for one to arrive.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:375</div></div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -152,7 +179,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_260f4157cc546599b110418e99a31b5e.html">Communication</a></li><li class="navelem"><a href="../../dir_7bf12331f0da0b5781278aacd83d6b3e.html">Modbus</a></li><li class="navelem"><a href="../../de/d8b/a08238.html">Slave.hpp</a></li>
+    <li class="navelem"><a href="../../d1/d16/a08184.html">Usage examples</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

@@ -1,11 +1,9 @@
 var a05733 =
 [
-    [ "Parameters", "d1/dc7/a05733.html#a1755515e60fdfe10aafe099283f9d593", null ],
-    [ "Parameters", "d1/dc7/a05733.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
-    [ "kd", "d1/dc7/a05733.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d1/dc7/a05733.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d1/dc7/a05733.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d1/dc7/a05733.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d1/dc7/a05733.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d1/dc7/a05733.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "Config", "d0/d2b/a05737.html", "d0/d2b/a05737" ],
+    [ "Kalman", "d1/dc7/a05733.html#aa1d2d569c178bee69ecdf55d472c9b50", null ],
+    [ "~Kalman", "d1/dc7/a05733.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
+    [ "operator()", "d1/dc7/a05733.html#a08ac86c068c49ae0ab36a020c0939f2c", null ],
+    [ "reset", "d1/dc7/a05733.html#ab92d894be215dcd5a1b3999997ca74a9", null ],
+    [ "setParam", "d1/dc7/a05733.html#a363c061b7ad96069e62fafd73dbdda8d", null ]
 ];

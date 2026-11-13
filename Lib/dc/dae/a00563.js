@@ -1,5 +1,5 @@
 var a00563 =
 [
-    [ "Lib::HAL::Reset", "d0/dc6/a05393.html", "d0/dc6/a05393" ],
-    [ "NVIC_SystemReset", "dc/dae/a00563.html#a6e0b05b8a10d1939b1820fd9f07e9cb9", null ]
+    [ "Lib::HAL::CANPort&lt; DriverMode::IT &gt;", "dd/dc9/a05355.html", "dd/dc9/a05355" ],
+    [ "Lib::HAL::CANPort&lt; DriverMode::IT &gt;::Event", "d1/dab/a05359.html", null ]
 ];

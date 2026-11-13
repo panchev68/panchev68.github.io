@@ -1,15 +1,9 @@
 var a05341 =
 [
-    [ "I2CPort", "d4/d27/a05341.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
-    [ "~I2CPort", "d4/d27/a05341.html#aa13047282a809658f54818a9b352d7bf", null ],
-    [ "abort", "d4/d27/a05341.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "d4/d27/a05341.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d4/d27/a05341.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d4/d27/a05341.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d4/d27/a05341.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "masterMemRead", "d4/d27/a05341.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "d4/d27/a05341.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "d4/d27/a05341.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "d4/d27/a05341.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "d4/d27/a05341.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "Handle", "d4/d27/a05341.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
+    [ "Handle", "d4/d27/a05341.html#a2ff88e41407c02b9858a201f579b32a1", null ],
+    [ "getPinNumber", "d4/d27/a05341.html#a8d29716bb6bcc278e753e55560639c17", null ],
+    [ "getPort", "d4/d27/a05341.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
+    [ "getPort", "d4/d27/a05341.html#a717fa8fdec63c64bef95cffab50ed478", null ],
+    [ "operator==", "d4/d27/a05341.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
 ];

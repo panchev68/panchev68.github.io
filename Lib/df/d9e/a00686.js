@@ -1,5 +1,4 @@
 var a00686 =
 [
-    [ "Lib::Helper::Convert::Hex&lt; T &gt;", "d3/d99/a05585.html", "d3/d99/a05585" ],
-    [ "hex", "df/d9e/a00686.html#a60e614729279abe20d7718c969b604bb", null ]
+    [ "Lib::HAL::SPIPort&lt; DriverMode::DMA &gt;", "d1/d01/a05531.html", "d1/d01/a05531" ]
 ];

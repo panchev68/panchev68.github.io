@@ -1,5 +1,4 @@
 var a00194 =
 [
-    [ "Lib::BSP::Thermometer::TMP102&lt; T_MODE &gt;", "d7/d8b/a04549.html", "d7/d8b/a04549" ],
-    [ "Lib::BSP::Thermometer::TMP102&lt; T_MODE &gt;::Config", "d3/d56/a04553.html", "d3/d56/a04553" ]
+    [ "Lib::BSP::RFID::MFRC522Config", "d5/d11/a04477.html", "d5/d11/a04477" ]
 ];

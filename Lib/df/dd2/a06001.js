@@ -1,6 +1,11 @@
 var a06001 =
 [
-    [ "pinNRST", "df/dd2/a06001.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "df/dd2/a06001.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "df/dd2/a06001.html#a7a30a24da1b05da04d34ae04d9601ed4", null ]
+    [ "FirmwareString", "df/dd2/a06001.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
+    [ "VersionString", "df/dd2/a06001.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
+    [ "Firmware", "df/dd2/a06001.html#af62d830e6120addddf7a108aef4c37d1", null ],
+    [ "getSubVersion", "df/dd2/a06001.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
+    [ "operator FirmwareString", "df/dd2/a06001.html#a0ddef4aded98c6307b972786bb6e5268", null ],
+    [ "operator uint32_t", "df/dd2/a06001.html#a7dcca38967251869c5bf305173fc13ee", null ],
+    [ "operator VersionString", "df/dd2/a06001.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
+    [ "subVersion", "df/dd2/a06001.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
 ];

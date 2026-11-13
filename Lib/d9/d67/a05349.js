@@ -1,16 +1,19 @@
 var a05349 =
 [
-    [ "I2CPortAsync", "d9/d67/a05349.html#a97738073feff35b79d6bb11c9bd2f351", null ],
-    [ "abort", "d9/d67/a05349.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "d9/d67/a05349.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d9/d67/a05349.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d9/d67/a05349.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "d9/d67/a05349.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
-    [ "isOpened", "d9/d67/a05349.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "isReady", "d9/d67/a05349.html#a14c943a270b82f4b76faffc2822e1408", null ],
-    [ "masterMemRead", "d9/d67/a05349.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "d9/d67/a05349.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "d9/d67/a05349.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "d9/d67/a05349.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "d9/d67/a05349.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "Output", "d9/d67/a05349.html#a1281e0a7881e9bbc4c5ab50eff8991a3", null ],
+    [ "~Output", "d9/d67/a05349.html#aa9c1a46117aa84b973279d61e591a610", null ],
+    [ "Output", "d9/d67/a05349.html#a2e5b8d5672d2476d29d0474439f58c30", null ],
+    [ "Output", "d9/d67/a05349.html#ab0a0cbf5fea7eaa9a5c04405b63cd798", null ],
+    [ "isHigh", "d9/d67/a05349.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "d9/d67/a05349.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "d9/d67/a05349.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "d9/d67/a05349.html#a8ee7e17225987004c3c73099e78d8b78", null ],
+    [ "operator=", "d9/d67/a05349.html#a3187afa0ce2671083228b6b536d45d4b", null ],
+    [ "operator=", "d9/d67/a05349.html#a13bc8e6bba332c350095666b72e568aa", null ],
+    [ "read", "d9/d67/a05349.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "setHigh", "d9/d67/a05349.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11", null ],
+    [ "setLow", "d9/d67/a05349.html#a0fc44f31312833d252e8aef8a1c4e361", null ],
+    [ "toggle", "d9/d67/a05349.html#ad11ab03ddf964b154331b7ffc708e4c2", null ],
+    [ "write", "d9/d67/a05349.html#a52416b95040bffe9915b005b33bc3600", null ],
+    [ "handle", "d9/d67/a05349.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

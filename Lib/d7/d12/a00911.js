@@ -1,4 +1,4 @@
 var a00911 =
 [
-    [ "PWR Private macros to check input parameters", "https://panchev68.github.io/HALF4/df/da5/a00912.html", null ]
+    [ "RTOS::SemaphoreCounting", "d1/d1f/a05947.html", "d1/d1f/a05947" ]
 ];

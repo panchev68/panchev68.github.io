@@ -1,14 +1,15 @@
 var a05377 =
 [
-    [ "OSPIPortAsync", "de/d16/a05377.html#a51c7bf376cb7e3701de6391b213701a9", null ],
-    [ "abort", "de/d16/a05377.html#a12a734c939e90c6c90510ba2c323dec0", null ],
+    [ "I2CPort", "de/d16/a05377.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
+    [ "~I2CPort", "de/d16/a05377.html#aa13047282a809658f54818a9b352d7bf", null ],
+    [ "abort", "de/d16/a05377.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
     [ "close", "de/d16/a05377.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "command", "de/d16/a05377.html#ab13d30c818279bf38505328181fa1409", null ],
     [ "getHandle", "de/d16/a05377.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "de/d16/a05377.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "de/d16/a05377.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
     [ "isOpened", "de/d16/a05377.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "de/d16/a05377.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "de/d16/a05377.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
-    [ "transmit", "de/d16/a05377.html#a2f58a3412364e7819ba973859d2389a7", null ]
+    [ "masterMemRead", "de/d16/a05377.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "de/d16/a05377.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "de/d16/a05377.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "de/d16/a05377.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "de/d16/a05377.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

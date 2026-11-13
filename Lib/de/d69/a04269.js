@@ -1,12 +1,7 @@
 var a04269 =
 [
-    [ "Inputs", "de/d69/a04269.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
-    [ "getChangesCounter", "de/d69/a04269.html#a02a156f7de35ad87391858c4284826ce", null ],
-    [ "getSpiHandle", "de/d69/a04269.html#afb55a694371e388292f94be2800d26b6", null ],
-    [ "getValue", "de/d69/a04269.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
-    [ "postUpdateCallback", "de/d69/a04269.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
-    [ "preUpdateCallback", "de/d69/a04269.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
-    [ "setup", "de/d69/a04269.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
-    [ "update", "de/d69/a04269.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
-    [ "onValueChanged", "de/d69/a04269.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
+    [ "correction", "de/d69/a04269.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
+    [ "i2cAddr", "de/d69/a04269.html#ae3266da82296416f02f68de0c610a2f9", null ],
+    [ "i2cPort", "de/d69/a04269.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
+    [ "shuntResistorOhms", "de/d69/a04269.html#a9808e99c30c4516f65cdae3a889ec038", null ]
 ];

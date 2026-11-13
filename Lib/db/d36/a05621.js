@@ -1,10 +1,5 @@
 var a05621 =
 [
-    [ "TerminateHandler", "db/d36/a05621.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
-    [ "Exception", "db/d36/a05621.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
-    [ "Exception", "db/d36/a05621.html#a25551a21318cf9b33efd57e954f91490", null ],
-    [ "Exception", "db/d36/a05621.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
-    [ "~Exception", "db/d36/a05621.html#aab05c0efba4581a5739c344c1d848c87", null ],
-    [ "operator=", "db/d36/a05621.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
-    [ "what", "db/d36/a05621.html#ad1278467b92ab31659263c92c3c292e1", null ]
+    [ "DecimalDigits", "db/d36/a05621.html#a7f58f0c943d4e885231b11dbd0697d08", null ],
+    [ "HexDigits", "db/d36/a05621.html#a73d7051255379fed271d86e4b50887f4", null ]
 ];

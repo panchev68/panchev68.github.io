@@ -1,4 +1,4 @@
 var a00524 =
 [
-    [ "Lib::HAL::I2CPort&lt; DriverMode::DMA &gt;", "d4/d27/a05341.html", "d4/d27/a05341" ]
+    [ "Lib::Ethernet::Node", "da/dc9/a05243.html", "da/dc9/a05243" ]
 ];

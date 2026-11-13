@@ -1,14 +1,14 @@
 var a05757 =
 [
-    [ "Config", "d9/d6a/a05761.html", "d9/d6a/a05761" ],
-    [ "State", "db/da0/a05757.html#a7063555b30fb75832750a0361328040e", [
-      [ "ACTIVE", "db/da0/a05757.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "INACTIVE", "db/da0/a05757.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
-      [ "DISABLED", "db/da0/a05757.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
-    ] ],
-    [ "Sensor", "db/da0/a05757.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
-    [ "getName", "db/da0/a05757.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
-    [ "isActive", "db/da0/a05757.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
-    [ "isPresent", "db/da0/a05757.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
-    [ "read", "db/da0/a05757.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
+    [ "Point", "d9/d6a/a05761.html", "d9/d6a/a05761" ],
+    [ "LinearInterpolation", "db/da0/a05757.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
+    [ "LinearInterpolation", "db/da0/a05757.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
+    [ "addPoint", "db/da0/a05757.html#afdd4b894d0803bc604d379fa4629d483", null ],
+    [ "addPoint", "db/da0/a05757.html#a74376103d2a68f503d4edeac77bcb80c", null ],
+    [ "clear", "db/da0/a05757.html#aab5168233071bba85d5f5119cecdc12f", null ],
+    [ "getPoint", "db/da0/a05757.html#a96708d1e4a7701724f4770d48a1b4661", null ],
+    [ "getPointCount", "db/da0/a05757.html#aff35d714c8d5e1859adca0de1f902a34", null ],
+    [ "interpolate", "db/da0/a05757.html#a15ad2325a927ddfead159579c0d375aa", null ],
+    [ "isEmpty", "db/da0/a05757.html#a297a3b5b4a94c75ad444983025829924", null ],
+    [ "sortPoints", "db/da0/a05757.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
 ];

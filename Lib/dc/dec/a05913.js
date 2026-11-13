@@ -1,14 +1,25 @@
 var a05913 =
 [
-    [ "Bitset", "dc/dec/a05913.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "dc/dec/a05913.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "dc/dec/a05913.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "dc/dec/a05913.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Configuration", "dc/dec/a05913.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "dc/dec/a05913.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "dc/dec/a05913.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "dc/dec/a05913.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "dc/dec/a05913.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "dc/dec/a05913.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "TickType", "dc/dec/a05913.html#a0285ec57b08218404301d71335490923", null ],
+    [ "Timeout", "dc/dec/a05913.html#a605a58d31953c1321b0571cfbf7809d8", null ],
+    [ "Timeout", "dc/dec/a05913.html#a56b69bed0df74101bf61b909cf9b564c", null ],
+    [ "Timeout", "dc/dec/a05913.html#ae6b31491258f8ac7db42a85c8a6410e3", null ],
+    [ "Timeout", "dc/dec/a05913.html#a3f457e44fdcf7ebe8be8e8c9f6281949", null ],
+    [ "disable", "dc/dec/a05913.html#a9f4c1790b62b338de5ee47cad756a53e", null ],
+    [ "getDuration", "dc/dec/a05913.html#a65bc60adcb34ab1336e932540580c545", null ],
+    [ "getElapsedTicks", "dc/dec/a05913.html#ace6d54a64c2dfa18c104111c9dfd1cb9", null ],
+    [ "getElapsedTime", "dc/dec/a05913.html#a5093d0c2c7d1f0fc3e6085c212a4f042", null ],
+    [ "getRemaining", "dc/dec/a05913.html#ab0740e27e7ef4e9e54410d06e32581d2", null ],
+    [ "getRemainingTicks", "dc/dec/a05913.html#a9960d8cda67ce72d1c02dcd7d3608066", null ],
+    [ "isDisabled", "dc/dec/a05913.html#a1262697a55934e1758ed633db12ff84b", null ],
+    [ "isExpired", "dc/dec/a05913.html#a4264c550073d457fa8f6ca89e591a0e6", null ],
+    [ "operator TickType", "dc/dec/a05913.html#a80beeb50cf335b4edd9b288f67fcbf31", null ],
+    [ "operator+=", "dc/dec/a05913.html#a4dc9099a6f012b5028a3156341c3d564", null ],
+    [ "operator-=", "dc/dec/a05913.html#aa7f234cb8c3ed2a313f76a323f75b10a", null ],
+    [ "operator=", "dc/dec/a05913.html#a572bb22f958387f0e5ef0f331553278a", null ],
+    [ "operator=", "dc/dec/a05913.html#a0459e730221c4ff43cd418ffcef83c24", null ],
+    [ "operator==", "dc/dec/a05913.html#a2823f4f34a13bb76fb12f52f16521b4e", null ],
+    [ "reset", "dc/dec/a05913.html#a4f719fdc728f4b1e2a6a3b33c747c32e", null ],
+    [ "set", "dc/dec/a05913.html#a776dc5dd77cf73624f452e0be0e32b8f", null ],
+    [ "set", "dc/dec/a05913.html#a859711fa5327754ac08a5a5f7b6175ba", null ]
 ];

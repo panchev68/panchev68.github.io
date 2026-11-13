@@ -1,8 +1,12 @@
 var a05925 =
 [
-    [ "Storage", "d6/d55/a05925.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
-    [ "close", "d6/d55/a05925.html#aa684e568a90f586209178bf82321e7eb", null ],
-    [ "open", "d6/d55/a05925.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
-    [ "read", "d6/d55/a05925.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
-    [ "write", "d6/d55/a05925.html#a7d3edbeec88b0807daece2241bb79d92", null ]
+    [ "ReferenceParameters", "dd/da9/a05929.html", "dd/da9/a05929" ],
+    [ "Measurement", "da/dca/a05933.html", "da/dca/a05933" ],
+    [ "MaxPowerEstimator", "d6/d55/a05925.html#a434bc885ae98e175c94cc0274463e3e5", null ],
+    [ "MPPT", "d6/d55/a05925.html#aedf986308c8dd799d4771f32d446ee01", null ],
+    [ "getIrradianceCoefficient", "d6/d55/a05925.html#a55a3b7a18c79deb5568e627889f76b86", null ],
+    [ "getTolerance", "d6/d55/a05925.html#a0ac8d81cbc06a7045f43424b16871253", null ],
+    [ "getVoltageSetpoint", "d6/d55/a05925.html#a455584e52b5677fe4bce93e58e80ca38", null ],
+    [ "setMaxPowerEstimationFunction", "d6/d55/a05925.html#abc619561c7180e6c69b8282c58157857", null ],
+    [ "update", "d6/d55/a05925.html#a15ca43314cd95e5cf3d7c302a9db56af", null ]
 ];

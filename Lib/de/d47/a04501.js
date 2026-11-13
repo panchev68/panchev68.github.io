@@ -1,12 +1,13 @@
 var a04501 =
 [
-    [ "Data", "d7/d43/a04505.html", "d7/d43/a04505" ],
-    [ "Color", "de/d47/a04501.html#a50992f4d62f0c135ac06fb09295272a9", null ],
-    [ "Color", "de/d47/a04501.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
-    [ "Color", "de/d47/a04501.html#a484309c52934f9c23460c4fe57f45530", null ],
-    [ "clear", "de/d47/a04501.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
-    [ "get", "de/d47/a04501.html#a4ad28e997f34f1873bf233a5d004e340", null ],
-    [ "getPacked", "de/d47/a04501.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
-    [ "set", "de/d47/a04501.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
-    [ "set", "de/d47/a04501.html#ac8926773deb153f9281f4e235896e4a0", null ]
+    [ "Bytes", "de/d47/a04501.html#aaa924b52936a11a36f991b92270eb1b6", null ],
+    [ "Digest", "de/d47/a04501.html#a97d15161e3e4d29994672b77e28ea856", null ],
+    [ "Message", "de/d47/a04501.html#a8ba002cb2db8c1b57b6534f88d77e2ab", null ],
+    [ "Uid", "de/d47/a04501.html#ab823c89537a28891f90d448eeb6122c1", null ],
+    [ "Result", "de/d47/a04501.html#ae690657e7ab3cf073f0d03abc2ee488b", [
+      [ "VALID", "de/d47/a04501.html#ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea", null ],
+      [ "BAD_FORMAT", "de/d47/a04501.html#ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a", null ],
+      [ "UNKNOWN_KEY", "de/d47/a04501.html#ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb", null ],
+      [ "BAD_SIGNATURE", "de/d47/a04501.html#ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a", null ]
+    ] ]
 ];

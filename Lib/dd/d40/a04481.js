@@ -1,6 +1,9 @@
 var a04481 =
 [
-    [ "operator==", "dd/d40/a04481.html#aaffc1273857ce092dc8ef57f2f569797", null ],
-    [ "address", "dd/d40/a04481.html#ad4d0d62f304ebdd08f759f363dd3932a", null ],
-    [ "value", "dd/d40/a04481.html#ac1e3de78a37a7229dfb525e2b82a1b4b", null ]
+    [ "Interface", "dd/d40/a04481.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
+    [ "~Interface", "dd/d40/a04481.html#a66b65dc5b7f6571301b7491242361a95", null ],
+    [ "hardwareReset", "dd/d40/a04481.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
+    [ "initialize", "dd/d40/a04481.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
+    [ "send", "dd/d40/a04481.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
+    [ "sendReceive", "dd/d40/a04481.html#a2d9014fe08fb984de211efd021eb1f35", null ]
 ];

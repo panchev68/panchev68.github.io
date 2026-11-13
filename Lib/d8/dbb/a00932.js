@@ -1,7 +1,6 @@
 var a00932 =
 [
-    [ "correction", "d8/dbb/a00932.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
-    [ "i2cAddr", "d8/dbb/a00932.html#ae3266da82296416f02f68de0c610a2f9", null ],
-    [ "i2cPort", "d8/dbb/a00932.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
-    [ "shuntResistorOhms", "d8/dbb/a00932.html#a9808e99c30c4516f65cdae3a889ec038", null ]
+    [ "Lib::SolarControl::MPPT", "d3/d59/a06003.html", "d3/d59/a06003" ],
+    [ "Lib::SolarControl::MPPT::ReferenceParameters", "dc/ddd/a06007.html", "dc/ddd/a06007" ],
+    [ "Lib::SolarControl::MPPT::Measurement", "d8/d4e/a06011.html", "d8/d4e/a06011" ]
 ];

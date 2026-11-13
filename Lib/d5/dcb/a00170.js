@@ -1,6 +1,5 @@
 var a00170 =
 [
-    [ "Lib::BSP::RFID::NTAG21x::OriginalitySignature", "d5/d55/a04469.html", "d5/d55/a04469" ],
-    [ "Lib::BSP::RFID::NTAG21x::Uid", "dd/d94/a00888.html#a435a19683e1fb32e426add14e68d0076", null ],
-    [ "Lib::BSP::RFID::NTAG21x::UID_SIZE", "dd/d94/a00888.html#aafd94c6505eb4a0544cc89a0caee007d", null ]
+    [ "Lib::BSP::EncoderTimer", "d1/da7/a04377.html", "d1/da7/a04377" ],
+    [ "Lib::BSP::EncoderTimer::Config", "d7/d17/a04381.html", "d7/d17/a04381" ]
 ];

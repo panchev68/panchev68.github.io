@@ -1,4 +1,5 @@
 var a08252 =
 [
-    [ "Lib::HAL::GPIO::Port", "d9/d96/a05317.html", "d9/d96/a05317" ]
+    [ "Lib::BSP::DeviceManager", "dd/d18/a04351.html", "dd/d18/a04351" ],
+    [ "Lib::BSP::DeviceManager::DeviceBase", "d2/d8a/a04355.html", "d2/d8a/a04355" ]
 ];

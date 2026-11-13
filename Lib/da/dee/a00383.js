@@ -1,4 +1,5 @@
 var a00383 =
 [
-    [ "Lib::Errors::Group", "dd/d13/a05041.html", "dd/d13/a05041" ]
+    [ "Lib::Digi::API::Service::PairService", "da/d70/a04967.html", "da/d70/a04967" ],
+    [ "Lib::Digi::API::Service::PairService::Config", "da/dd4/a04971.html", "da/dd4/a04971" ]
 ];

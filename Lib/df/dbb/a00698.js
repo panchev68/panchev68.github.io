@@ -1,4 +1,4 @@
 var a00698 =
 [
-    [ "Lib::Helper::crc8", "de/dc2/a05601.html", "de/dc2/a05601" ]
+    [ "Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;", "da/d41/a05550.html", "da/d41/a05550" ]
 ];

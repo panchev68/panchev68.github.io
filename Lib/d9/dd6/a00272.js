@@ -1,4 +1,4 @@
 var a00272 =
 [
-    [ "Lib::Digi::Core::Frame0x88", "d2/d38/a05005.html", "d2/d38/a05005" ]
+    [ "Lib::BSP::RFID::MFRC522Config", "dc/d65/a04555.html", "dc/d65/a04555" ]
 ];

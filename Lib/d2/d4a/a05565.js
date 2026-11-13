@@ -1,12 +1,14 @@
 var a05565 =
 [
-    [ "BitSet", "d2/d4a/a05565.html#a16d91d28edc897acf8833de8df82699f", null ],
-    [ "BitSet", "d2/d4a/a05565.html#addc6ad14e596e534eb7fd2a018719985", null ],
-    [ "getBit", "d2/d4a/a05565.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
-    [ "getValue", "d2/d4a/a05565.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
-    [ "operator uint32_t", "d2/d4a/a05565.html#ab085297affb7e2df90201d7e6cdd1172", null ],
-    [ "operator=", "d2/d4a/a05565.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
-    [ "operator[]", "d2/d4a/a05565.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
-    [ "setBit", "d2/d4a/a05565.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
-    [ "setValue", "d2/d4a/a05565.html#a2505d1f74074939a87d45d3343d8bea3", null ]
+    [ "EventHandler", "d2/d4a/a05565.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPort", "d2/d4a/a05565.html#a8c4ffe96e057ebee8d694a33d50ca85a", null ],
+    [ "~USBHostPort", "d2/d4a/a05565.html#a56f4dd3a3342b8ec3066733c10f723f1", null ],
+    [ "close", "d2/d4a/a05565.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d2/d4a/a05565.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d2/d4a/a05565.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d2/d4a/a05565.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d2/d4a/a05565.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "setEventHandler", "d2/d4a/a05565.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "transfer", "d2/d4a/a05565.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "d2/d4a/a05565.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

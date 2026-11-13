@@ -1,7 +1,7 @@
 var a00956 =
 [
-    [ "mappingFields", "d3/de5/a00956.html#a1ab61452f8c6716fefec2b2b8d48ddff", null ],
-    [ "nssPin", "d3/de5/a00956.html#a1057a60af84ee4d60342df596793afee", null ],
-    [ "pinCount", "d3/de5/a00956.html#a4ec50d1e310701baec42aebd409d8af6", null ],
-    [ "spiPort", "d3/de5/a00956.html#a7a00976594ca0e1ebcaf62159fddb767", null ]
+    [ "Lib::System::Version", "d7/d20/a06067.html", "d7/d20/a06067" ],
+    [ "Lib::System::Version::Base&lt; Derived &gt;", "df/d40/a06071.html", "df/d40/a06071" ],
+    [ "Lib::System::Version::Hardware", "db/d2e/a06075.html", "db/d2e/a06075" ],
+    [ "Lib::System::Version::Firmware", "d9/db8/a06079.html", "d9/db8/a06079" ]
 ];

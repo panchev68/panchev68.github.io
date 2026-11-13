@@ -1,6 +1,9 @@
 var a04817 =
 [
-    [ "getIdentifier", "db/da7/a04817.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
-    [ "setIdentifier", "db/da7/a04817.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
-    [ "identifier", "db/da7/a04817.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
+    [ "State", "db/da7/a04817.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
+    [ "State", "db/da7/a04817.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
+    [ "isConnected", "db/da7/a04817.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
+    [ "operator uint32_t", "db/da7/a04817.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
+    [ "operator=", "db/da7/a04817.html#a74040294aacf89a661c876eb5aadc081", null ],
+    [ "onConnectionChanged", "db/da7/a04817.html#af29d5ac1eff410a6876b1be865601ca8", null ]
 ];

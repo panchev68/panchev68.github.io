@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🎯_20architecture_20components_0',['🎯 Architecture Components',['../index.html#autotoc_md-architecture-components',1,'']]]
+  ['📖_20overview_0',['📖 Overview',['../index.html#autotoc_md-overview',1,'']]]
 ];

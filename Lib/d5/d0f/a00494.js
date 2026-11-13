@@ -1,7 +1,6 @@
 var a00494 =
 [
-    [ "Lib::HAL::GPIO::ExtInterrupt", "dc/d46/a05293.html", "dc/d46/a05293" ],
-    [ "HAL_GPIO_EXTI_Callback", "d5/d0f/a00494.html#af02d5f52d29caba0ba168f5c53539c8f", null ],
-    [ "HAL_GPIO_EXTI_Falling_Callback", "d5/d0f/a00494.html#a7088bd2852f337d068757b9779e01ca2", null ],
-    [ "HAL_GPIO_EXTI_Rising_Callback", "d5/d0f/a00494.html#a1b34b49712495210a4de76520345e0a7", null ]
+    [ "Lib::Errors::ErrorBase&lt; Derived &gt;", "d2/d38/a05147.html", "d2/d38/a05147" ],
+    [ "Lib::Errors::Error", "df/dc5/a05151.html", "df/dc5/a05151" ],
+    [ "Lib::Errors::Detail::errorIdCounter", "db/daf/a01019.html#a4aa716a71feabe9eb092678479bdfa78", null ]
 ];

@@ -1,8 +1,8 @@
 var a04297 =
 [
-    [ "bl", "dd/d80/a04297.html#a93656f94c882ca996c98bd294a4f268f", null ],
-    [ "dc", "dd/d80/a04297.html#a0a1a1de131448f5f9259510a9df8905e", null ],
-    [ "nrst", "dd/d80/a04297.html#a5f67207441de783f78571e1d72e2ad0e", null ],
-    [ "nss", "dd/d80/a04297.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
-    [ "spi", "dd/d80/a04297.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
+    [ "mappingFields", "dd/d80/a04297.html#a11dd2076fb88f533f185c4b3036c605c", null ],
+    [ "nssPin", "dd/d80/a04297.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
+    [ "oePin", "dd/d80/a04297.html#ad65334adb3ad809e06b272cedcb59224", null ],
+    [ "pinCount", "dd/d80/a04297.html#a85d8e563810275243c4b75899e92dab3", null ],
+    [ "spiPort", "dd/d80/a04297.html#aff796faea898891c8271e1b1dba76858", null ]
 ];

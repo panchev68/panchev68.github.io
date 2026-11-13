@@ -1,4 +1,4 @@
 var a00659 =
 [
-    [ "Lib::HAL::USBOtgPort", "dc/d3d/a05553.html", "dc/d3d/a05553" ]
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::DMA &gt;", "d1/d27/a05483.html", "d1/d27/a05483" ]
 ];

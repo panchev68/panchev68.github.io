@@ -1,9 +1,8 @@
 var a04617 =
 [
-    [ "errorCode", "d3/de5/a04617.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
-    [ "errorCounter", "d3/de5/a04617.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
-    [ "receivedMessages", "d3/de5/a04617.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
-    [ "rxFifoFullCounter", "d3/de5/a04617.html#ae1980d93ca6461dabf615247c5043049", null ],
-    [ "sentMessages", "d3/de5/a04617.html#a71de4cab31423207b05a464ff4024347", null ],
-    [ "txMailboxAbortCounter", "d3/de5/a04617.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
+    [ "ambientTemperatureCelsius", "d3/de5/a04617.html#afe46178f50e25346cca90112dc708790", null ],
+    [ "listenDuration", "d3/de5/a04617.html#aed97102995a3a032b9524b1e47731f17", null ],
+    [ "timeout", "d3/de5/a04617.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
+    [ "uart", "d3/de5/a04617.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
+    [ "uartAddress", "d3/de5/a04617.html#a07cd324da0adf0baf2262a0b33404164", null ]
 ];

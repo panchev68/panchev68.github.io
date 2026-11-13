@@ -1,4 +1,4 @@
 var a00656 =
 [
-    [ "Lib::HAL::USBHostPortBase&lt; T_DERIVED &gt;", "d1/da9/a05549.html", "d1/da9/a05549" ]
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::BLOCKING &gt;", "d6/d94/a05479.html", "d6/d94/a05479" ]
 ];

@@ -1,12 +1,10 @@
 var a05657 =
 [
-    [ "Sunset", "db/dbf/a05657.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "db/dbf/a05657.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
-    [ "calculateSunTime", "db/dbf/a05657.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
-    [ "computeHourAngle", "db/dbf/a05657.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
-    [ "setCurrentDate", "db/dbf/a05657.html#a0598ea08f953291be6bd331b39254b2a", null ],
-    [ "setCurrentDate", "db/dbf/a05657.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "db/dbf/a05657.html#afbc858a5944c47609616f459b657339b", null ],
-    [ "sunrise", "db/dbf/a05657.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
-    [ "sunset", "db/dbf/a05657.html#a3bea9bb96761c55203633434195d87c4", null ]
+    [ "TerminateHandler", "db/dbf/a05657.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
+    [ "Exception", "db/dbf/a05657.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
+    [ "Exception", "db/dbf/a05657.html#a25551a21318cf9b33efd57e954f91490", null ],
+    [ "Exception", "db/dbf/a05657.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
+    [ "~Exception", "db/dbf/a05657.html#aab05c0efba4581a5739c344c1d848c87", null ],
+    [ "operator=", "db/dbf/a05657.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
+    [ "what", "db/dbf/a05657.html#ad1278467b92ab31659263c92c3c292e1", null ]
 ];

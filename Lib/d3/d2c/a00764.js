@@ -1,4 +1,4 @@
 var a00764 =
 [
-    [ "RTOS::EventGroup", "d4/d48/a05765.html", "d4/d48/a05765" ]
+    [ "Lib::HAL::USBHostPort&lt; DriverMode::IT &gt;", "d2/da1/a05647.html", "d2/da1/a05647" ]
 ];

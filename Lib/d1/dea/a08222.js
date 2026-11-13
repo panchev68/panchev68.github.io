@@ -1,4 +1,4 @@
 var a08222 =
 [
-    [ "Lib::Communication::Modbus::Protocol", "df/d76/a04629.html", "df/d76/a04629" ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Registers", "dd/df8/a04409.html", null ]
 ];

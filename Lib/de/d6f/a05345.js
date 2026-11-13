@@ -1,15 +1,14 @@
 var a05345 =
 [
-    [ "I2CPort", "de/d6f/a05345.html#a5ed7014d6c1bb4669c90ada1b61bbffe", null ],
-    [ "~I2CPort", "de/d6f/a05345.html#a28d64cb04bd2cd5f1648ac33b94bf4ec", null ],
-    [ "abort", "de/d6f/a05345.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "de/d6f/a05345.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "de/d6f/a05345.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "de/d6f/a05345.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "de/d6f/a05345.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "masterMemRead", "de/d6f/a05345.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "de/d6f/a05345.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "de/d6f/a05345.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "de/d6f/a05345.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "de/d6f/a05345.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "Input", "de/d6f/a05345.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
+    [ "~Input", "de/d6f/a05345.html#a95f707a268014333f78d7378dd579ea4", null ],
+    [ "Input", "de/d6f/a05345.html#aba23478206e067c578a2081a0ba4d1ee", null ],
+    [ "Input", "de/d6f/a05345.html#a01d95887913602ed10325b5b07f8cef5", null ],
+    [ "isHigh", "de/d6f/a05345.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "de/d6f/a05345.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "de/d6f/a05345.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "de/d6f/a05345.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
+    [ "operator=", "de/d6f/a05345.html#aac4da8195bb51d393df961046635bfc0", null ],
+    [ "read", "de/d6f/a05345.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "handle", "de/d6f/a05345.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

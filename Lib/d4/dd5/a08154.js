@@ -1,4 +1,4 @@
 var a08154 =
 [
-    [ "Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;", "df/d65/a05264.html", "df/d65/a05264" ]
+    [ "Lib::Communication::Modbus::Slave", "d7/d54/a04666.html", "d7/d54/a04666" ]
 ];

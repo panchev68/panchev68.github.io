@@ -1,16 +1,11 @@
 var a05029 =
 [
-    [ "Container", "dd/dbe/a05029.html#aee7408e236983dfe716699922a20e848", null ],
-    [ "Status", "dd/dbe/a05029.html#abfa34fca2a40d9f990c238a66f2611aa", [
-      [ "STATUS_CHANGED", "dd/dbe/a05029.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
-      [ "ALL_ERRORS_CLEARED", "dd/dbe/a05029.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
-    ] ],
-    [ "BasicDispatcher", "dd/dbe/a05029.html#a8888661e1979a2b522e456f3e143e065", null ],
-    [ "BasicDispatcher", "dd/dbe/a05029.html#add10f2d01f474243d9fa895cff993e07", null ],
-    [ "createError", "dd/dbe/a05029.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
-    [ "operator=", "dd/dbe/a05029.html#a663a1359b4c59113e160a2da62046222", null ],
-    [ "operator=", "dd/dbe/a05029.html#a45f56f6db82a8095e39231ccf05639dc", null ],
-    [ "start", "dd/dbe/a05029.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
-    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "dd/dbe/a05029.html#a650ea0ef5048343da33f94d14c44e548", null ],
-    [ "statusChangedHook", "dd/dbe/a05029.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
+    [ "onExtendedTransmitStatusChanged", "dd/dbe/a05029.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
+    [ "onLocalAtCommand", "dd/dbe/a05029.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
+    [ "onModemStatusChanged", "dd/dbe/a05029.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
+    [ "onPacketReceived", "dd/dbe/a05029.html#a850cfb32fb4c250ebb5d07029d996133", null ],
+    [ "onReceivePacket16bit", "dd/dbe/a05029.html#a30dd6aca5f04efa028541965da0f724f", null ],
+    [ "onReceivePacket64bit", "dd/dbe/a05029.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
+    [ "onRemoteATCommand", "dd/dbe/a05029.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
+    [ "onTransmitStatus", "dd/dbe/a05029.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
 ];

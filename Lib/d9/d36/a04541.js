@@ -1,19 +1,8 @@
 var a04541 =
 [
-    [ "Config", "de/d21/a04545.html", "de/d21/a04545" ],
-    [ "Resolution", "d9/d36/a04541.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
-      [ "BITS_9", "d9/d36/a04541.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
-      [ "BITS_10", "d9/d36/a04541.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
-      [ "BITS_11", "d9/d36/a04541.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
-      [ "BITS_12", "d9/d36/a04541.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
-    ] ],
-    [ "DS18B20", "d9/d36/a04541.html#a6e8835c62b13a615346d69068ee41c97", null ],
-    [ "~DS18B20", "d9/d36/a04541.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
-    [ "close", "d9/d36/a04541.html#aab038c628d13a5369429107b4be42b3d", null ],
-    [ "getResolution", "d9/d36/a04541.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
-    [ "isGenuineDevice", "d9/d36/a04541.html#ae8e710761fe8b7931ba5d6893456b4a2", null ],
-    [ "isPresent", "d9/d36/a04541.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
-    [ "open", "d9/d36/a04541.html#a1dc439d417a53a57d054f811cf33402d", null ],
-    [ "readRom", "d9/d36/a04541.html#a26a1ebc99132937ee58668fd12c26263", null ],
-    [ "readTemperatureCelsius", "d9/d36/a04541.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
+    [ "operator==", "d9/d36/a04541.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
+    [ "blue", "d9/d36/a04541.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
+    [ "green", "d9/d36/a04541.html#aaac4b49f8ced6f8a10842162f110217d", null ],
+    [ "red", "d9/d36/a04541.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
+    [ "white", "d9/d36/a04541.html#a272f822cae4bd3b8e993080e2317636e", null ]
 ];

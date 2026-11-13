@@ -1,4 +1,5 @@
 var a00728 =
 [
-    [ "Lib::Helper::SwapBytes", "d2/d57/a05665.html", null ]
+    [ "Lib::HAL::StreamSerialPort", "dc/d4a/a05587.html", "dc/d4a/a05587" ],
+    [ "Lib::HAL::StreamSerialPort::Config", "d0/db9/a05591.html", "d0/db9/a05591" ]
 ];

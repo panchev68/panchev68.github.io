@@ -1,4 +1,4 @@
 var a00785 =
 [
-    [ "RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;", "d5/d9e/a05821.html", "d5/d9e/a05821" ]
+    [ "Lib::Helper::BitSet&lt; N_BITS &gt;", "d3/ddb/a05679.html", "d3/ddb/a05679" ]
 ];

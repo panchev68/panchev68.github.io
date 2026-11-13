@@ -1,4 +1,5 @@
 var a00551 =
 [
-    [ "Lib::HAL::OSPIPortAsync&lt; T_DERIVED &gt;", "de/d16/a05377.html", "de/d16/a05377" ]
+    [ "Lib::HAL::ADCPort&lt; DriverMode::IT &gt;", "d5/d15/a05335.html", "d5/d15/a05335" ],
+    [ "Lib::HAL::ADCPort&lt; DriverMode::IT &gt;::Event", "dc/d54/a05339.html", null ]
 ];

@@ -1,5 +1,5 @@
 var a08183 =
 [
-    [ "Lib::Digi::Core::Frame::Helper", "d0/d93/a04933.html", "d0/d93/a04933" ],
-    [ "Lib::Digi::Core::Frame::Helper::Convert", "dc/da2/a04937.html", null ]
+    [ "Lib::Canbus::Service&lt; Mode::CLIENT &gt;", "d7/d44/a04597.html", "d7/d44/a04597" ],
+    [ "Lib::Canbus::ClientBase", "dc/dfa/a00894.html#a6a342d3a95a10dc45d846c70f8fd7fb9", null ]
 ];

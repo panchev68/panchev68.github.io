@@ -1,4 +1,4 @@
 var a00857 =
 [
-    [ "vscode", "d7/d13/a06020.html", "d7/d13/a06020" ]
+    [ "Lib::Math::HammingCode", "d0/d47/a05819.html", null ]
 ];

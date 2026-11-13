@@ -1,5 +1,5 @@
 var a08151 =
 [
-    [ "Lib::BSP::DeviceManager", "dc/d32/a04240.html", "dc/d32/a04240" ],
-    [ "Lib::BSP::DeviceManager::DeviceBase", "d2/d98/a04244.html", "d2/d98/a04244" ]
+    [ "Lib::XCOM::Protocol", "d0/d6a/a06014.html", "d0/d6a/a06014" ],
+    [ "Lib::XCOM::Protocol::Frame", "de/d60/a06018.html", "de/d60/a06018" ]
 ];

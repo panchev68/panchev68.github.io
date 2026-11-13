@@ -1,6 +1,5 @@
 var a04905 =
 [
-    [ "resetPin", "da/de1/a04905.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
-    [ "rxHandle", "da/de1/a04905.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
-    [ "txHandle", "da/de1/a04905.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
+    [ "high", "da/de1/a04905.html#a463a9c11eea19eccb5ce4ac37c1a3d66", null ],
+    [ "low", "da/de1/a04905.html#a717f15e16e6d47bb9ae5a9290676ea33", null ]
 ];

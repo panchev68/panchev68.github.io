@@ -1,9 +1,13 @@
 var a04781 =
 [
-    [ "State", "d4/dcf/a04781.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
-    [ "State", "d4/dcf/a04781.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
-    [ "isConnected", "d4/dcf/a04781.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
-    [ "operator uint32_t", "d4/dcf/a04781.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
-    [ "operator=", "d4/dcf/a04781.html#a74040294aacf89a661c876eb5aadc081", null ],
-    [ "onConnectionChanged", "d4/dcf/a04781.html#af29d5ac1eff410a6876b1be865601ca8", null ]
+    [ "Tag", "d4/dcf/a04781.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
+    [ "WolfSSLAesGcm", "d4/dcf/a04781.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
+    [ "~WolfSSLAesGcm", "d4/dcf/a04781.html#a032c38854a99ed5c5a281809583c4bad", null ],
+    [ "WolfSSLAesGcm", "d4/dcf/a04781.html#a0948de3456c47ec4fcfdda7f14014566", null ],
+    [ "WolfSSLAesGcm", "d4/dcf/a04781.html#ae6206c63d09568b82e1efae3379c82d7", null ],
+    [ "decrypt", "d4/dcf/a04781.html#a70889db1697fa4212becb3acfb87a2a4", null ],
+    [ "encrypt", "d4/dcf/a04781.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
+    [ "open", "d4/dcf/a04781.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
+    [ "operator=", "d4/dcf/a04781.html#ab46183fdc3c915e95383d1216aac9109", null ],
+    [ "operator=", "d4/dcf/a04781.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
 ];

@@ -1,13 +1,10 @@
 var a05929 =
 [
-    [ "Status", "dd/da9/a05929.html#a335a74b2beee583b06c1cc6a0c928957", [
-      [ "OK", "dd/da9/a05929.html#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "dd/da9/a05929.html#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Parameters", "dd/da9/a05929.html#a0d2e425ec31b105ced5a1ec414518eb2", null ],
-    [ "Parameters", "dd/da9/a05929.html#a401c8f010740c371697fba3fa25b559c", null ],
-    [ "isValid", "dd/da9/a05929.html#aea6685c90b8a40bf879c93f795cb0d1a", null ],
-    [ "operator=", "dd/da9/a05929.html#ab7707d467c6b510fc640db358633fd8b", null ],
-    [ "setup", "dd/da9/a05929.html#a6c93bc540f4ca328949b18b8364730fc", null ],
-    [ "write", "dd/da9/a05929.html#ab2a15849ffa63fb1b31e58a50f802faa", null ]
+    [ "maxPowerRef", "dd/da9/a05929.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
+    [ "mppCurrentRef", "dd/da9/a05929.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
+    [ "mppVoltageRef", "dd/da9/a05929.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
+    [ "referenceIrradiance", "dd/da9/a05929.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
+    [ "temperatureCoefficient", "dd/da9/a05929.html#a199180804d52f432b3f8a4861146f827", null ],
+    [ "toleranceFactor", "dd/da9/a05929.html#a94dbf0194f1c0097467e34c0605131d4", null ],
+    [ "updateInterval", "dd/da9/a05929.html#a9a72ac9a78c42013979d67300e60de6d", null ]
 ];

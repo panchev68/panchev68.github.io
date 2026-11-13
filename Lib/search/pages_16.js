@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['⚙️_20configuration_0',['⚙️ Configuration',['../index.html#️-configuration',1,'']]]
+  ['yielding_0',['Heap statistics and yielding',['../X:/Lib/IAR/Project/Examples/RTOS_Kernel.dox#kernel_usage_heap',1,'']]]
 ];

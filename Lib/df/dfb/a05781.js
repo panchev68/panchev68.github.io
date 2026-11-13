@@ -1,9 +1,9 @@
 var a05781 =
 [
-    [ "Lock", "d7/dfe/a05785.html", "d7/dfe/a05785" ],
-    [ "State", "df/dfb/a05781.html#a329f49803f7880dc5d4e70b422ef08ff", [
-      [ "SUSPENDED", "df/dfb/a05781.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
-      [ "NOT_STARTED", "df/dfb/a05781.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
-      [ "RUNNING", "df/dfb/a05781.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
-    ] ]
+    [ "name", "df/dfb/a05781.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
+    [ "offSensor", "df/dfb/a05781.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
+    [ "onSensor", "df/dfb/a05781.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
+    [ "output", "df/dfb/a05781.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
+    [ "sensorCalmingTime", "df/dfb/a05781.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
+    [ "switchTimeout", "df/dfb/a05781.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
 ];

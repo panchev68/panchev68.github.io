@@ -1,4 +1,4 @@
 var a00683 =
 [
-    [ "Lib::Helper::Convert::dBM", "d7/df4/a05581.html", null ]
+    [ "Lib::HAL::SPIPort&lt; DriverMode::BLOCKING &gt;", "d3/d68/a05527.html", "d3/d68/a05527" ]
 ];

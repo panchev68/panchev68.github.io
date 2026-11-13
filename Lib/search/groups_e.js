@@ -2,7 +2,7 @@ var searchData=
 [
   ['last_20bit_0',['Last Bit',['https://panchev68.github.io/HALF4/db/d14/a01040.html',0,'SMARTCARD Last Bit'],['https://panchev68.github.io/HALF4/de/d1a/a01179.html',0,'USART Last Bit']]],
   ['latency_1',['FLASH Latency',['https://panchev68.github.io/HALF4/d5/d72/a00803.html',0,'']]],
-  ['layer_2',['Layer',['../d3/db2/a00869.html',1,'Data Application Layer'],['../dd/de1/a00871.html',1,'FreeRTOS Layer'],['../d2/db8/a00867.html',1,'Hardware Abstraction Layer'],['../da/d98/a00870.html',1,'System Layer'],['../dc/d17/a00872.html',1,'TouchGFX Layer']]],
+  ['layer_2',['Layer',['../d7/d98/a00983.html',1,'Data Application Layer'],['../da/deb/a00985.html',1,'FreeRTOS Layer'],['../dd/d24/a00981.html',1,'Hardware Abstraction Layer'],['../d2/d4c/a00984.html',1,'System Layer'],['../d3/d7b/a00986.html',1,'TouchGFX Layer']]],
   ['layer_20exported_20constants_3',['Layer Exported Constants',['https://panchev68.github.io/HALF4/dd/d6d/a01380.html',0,'FMC Low Layer Exported Constants'],['https://panchev68.github.io/HALF4/de/d9d/a01382.html',0,'FSMC Low Layer Exported Constants']]],
   ['layer_20exported_20types_4',['Layer Exported Types',['https://panchev68.github.io/HALF4/da/d1f/a01203.html',0,'FMC Low Layer Exported Types'],['https://panchev68.github.io/HALF4/d9/d31/a01208.html',0,'FSMC Low Layer Exported Types']]],
   ['layer_20flag_20definition_5',['Layer Flag definition',['https://panchev68.github.io/HALF4/de/d61/a01205.html',0,'FMC Low Layer Flag definition'],['https://panchev68.github.io/HALF4/d2/da6/a01210.html',0,'FSMC Low Layer Flag definition']]],

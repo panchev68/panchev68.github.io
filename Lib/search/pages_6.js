@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['hal_20readme_20md_20lib_3a_3ahal_0',['Hardware Abstraction Layer (&lt;a class=&quot;el&quot; href=&quot;dir_4ad11338be6ed64801f932656637dcad.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/HAL/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;Lib::HAL&lt;/span&gt;&lt;/a&gt;)',['../index.html#hardware-abstraction-layer-libhalinclibhalreadmemd',1,'']]],
-  ['hardware_20abstraction_20layer_20x_3a_20lib_20iar_20inc_20lib_20hal_20readme_20md_20lib_3a_3ahal_1',['Hardware Abstraction Layer (&lt;a class=&quot;el&quot; href=&quot;dir_4ad11338be6ed64801f932656637dcad.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/HAL/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;Lib::HAL&lt;/span&gt;&lt;/a&gt;)',['../index.html#hardware-abstraction-layer-libhalinclibhalreadmemd',1,'']]],
-  ['hardware_20assumptions_2',['Hardware assumptions',['../d2/dec/a08139.html#pga460_usage_hw',1,'']]]
+  ['generating_20a_20delayed_20pulse_20from_20a_20task_0',['Generating a delayed pulse from a task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOnePulse.dox#timop_usage_pulse',1,'']]],
+  ['get_20over_20the_20modem_1',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]]
 ];

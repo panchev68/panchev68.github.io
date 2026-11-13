@@ -1,4 +1,4 @@
 var a00125 =
 [
-    [ "Lib::BSP::EEPROM::FlashEmulation", "dc/d08/a04317.html", "dc/d08/a04317" ]
+    [ "Lib::Exception", "dc/d44/a04237.html", "dc/d44/a04237" ]
 ];

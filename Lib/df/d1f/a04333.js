@@ -1,8 +1,8 @@
 var a04333 =
 [
-    [ "button", "df/d1f/a04333.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
-    [ "channel1", "df/d1f/a04333.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
-    [ "channel2", "df/d1f/a04333.html#a360d21f775c66781831db2507e7a73fc", null ],
-    [ "divider", "df/d1f/a04333.html#a702af25fea0b8af225fc46b4f3fdaee3", null ],
-    [ "reversePolarity", "df/d1f/a04333.html#a979f1b4b2c4f2a9dd0b652da9bb5b724", null ]
+    [ "bl", "df/d1f/a04333.html#a93656f94c882ca996c98bd294a4f268f", null ],
+    [ "dc", "df/d1f/a04333.html#a0a1a1de131448f5f9259510a9df8905e", null ],
+    [ "nrst", "df/d1f/a04333.html#a5f67207441de783f78571e1d72e2ad0e", null ],
+    [ "nss", "df/d1f/a04333.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
+    [ "spi", "df/d1f/a04333.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
 ];

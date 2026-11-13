@@ -1,12 +1,11 @@
 var a04777 =
 [
-    [ "State", "d4/dcf/a04781.html", "d4/dcf/a04781" ],
-    [ "Quality", "db/d7b/a04785.html", "db/d7b/a04785" ],
-    [ "Info", "d9/da4/a04789.html", "d9/da4/a04789" ],
-    [ "Connection", "dd/d6d/a04777.html#ac3f7cec3bac26ebbbdfd93dc9d339f48", null ],
-    [ "Connection", "dd/d6d/a04777.html#afaa8af957c71adc2bf6b63d902caedf2", null ],
-    [ "operator=", "dd/d6d/a04777.html#a6bed4ce5a085f4b0a9bbeb1131272236", null ],
-    [ "info", "dd/d6d/a04777.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
-    [ "quality", "dd/d6d/a04777.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
-    [ "state", "dd/d6d/a04777.html#a79f4aecc9bd038f5938e6373412ed099", null ]
+    [ "WolfSSLRandom", "dd/d6d/a04777.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
+    [ "~WolfSSLRandom", "dd/d6d/a04777.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
+    [ "WolfSSLRandom", "dd/d6d/a04777.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
+    [ "WolfSSLRandom", "dd/d6d/a04777.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
+    [ "generate", "dd/d6d/a04777.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
+    [ "native", "dd/d6d/a04777.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
+    [ "operator=", "dd/d6d/a04777.html#a2b57fbc329feeb209aa7f41b29608488", null ],
+    [ "operator=", "dd/d6d/a04777.html#a61facc5365a377d384371cb51442e897", null ]
 ];

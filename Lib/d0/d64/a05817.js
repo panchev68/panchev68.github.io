@@ -1,9 +1,9 @@
 var a05817 =
 [
-    [ "DeepSleepLock", "d0/d64/a05817.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
-    [ "~DeepSleepLock", "d0/d64/a05817.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
-    [ "DeepSleepLock", "d0/d64/a05817.html#a40925e50ac0805b094e04973ed61f50b", null ],
-    [ "DeepSleepLock", "d0/d64/a05817.html#a653104e321c6b159eb7b5e5385d286ac", null ],
-    [ "operator=", "d0/d64/a05817.html#a3523f9fd591310866af37223de2c32d3", null ],
-    [ "operator=", "d0/d64/a05817.html#a10ab5d18c8a969841a27a2688604c55c", null ]
+    [ "Lock", "d5/d9e/a05821.html", "d5/d9e/a05821" ],
+    [ "State", "d0/d64/a05817.html#a329f49803f7880dc5d4e70b422ef08ff", [
+      [ "SUSPENDED", "d0/d64/a05817.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
+      [ "NOT_STARTED", "d0/d64/a05817.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
+      [ "RUNNING", "d0/d64/a05817.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
+    ] ]
 ];

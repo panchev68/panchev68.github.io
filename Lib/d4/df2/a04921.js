@@ -1,5 +1,16 @@
 var a04921 =
 [
-    [ "EscapedCode", "d4/df2/a04921.html#a0eba03e3a280131bad36582bede262ec", null ],
-    [ "operator bool", "d4/df2/a04921.html#aaec17e85d58e2a986fd4edae145b737c", null ]
+    [ "ChannelArray", "d4/df2/a04921.html#aa2fed2d2a6f2ce38866cce0b42f0fc1d", null ],
+    [ "SpectrumAnalyzer", "d4/df2/a04921.html#acffb15e4dc1a3f0ff7c89bc48f895f8e", null ],
+    [ "SpectrumAnalyzer", "d4/df2/a04921.html#a2c4d3982ffc82582c07ab45464cd9a9f", null ],
+    [ "close", "d4/df2/a04921.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
+    [ "getAverageArray", "d4/df2/a04921.html#a9a039ecee938e04e07e4fcb9227ae878", null ],
+    [ "getCurrentArray", "d4/df2/a04921.html#a8839a8b30ad3060298b6867566c1aa6d", null ],
+    [ "getMaxArray", "d4/df2/a04921.html#a8fa9bbae67bd369d3c4dcfd522299a06", null ],
+    [ "isNewData", "d4/df2/a04921.html#a2788be420fbb2acb1168d7aa21759804", null ],
+    [ "isRunning", "d4/df2/a04921.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "d4/df2/a04921.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "d4/df2/a04921.html#a9ca130f09d902c6ce140e87b155e8d00", null ],
+    [ "resetData", "d4/df2/a04921.html#a219916036b1120cc272129041d937770", null ],
+    [ "update", "d4/df2/a04921.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
 ];

@@ -1,18 +1,19 @@
 var a05257 =
 [
-    [ "EventBits", "dd/dde/a05257.html#a3c55c6775abc08a42ba3fb85ac9404c9", null ],
-    [ "AsyncPortCore", "dd/dde/a05257.html#a9e0e2e3d307485d3bc6cc4c54a4a9790", null ],
-    [ "AsyncPortCore", "dd/dde/a05257.html#ae4c323f8431fa6f03e914d953c4306c2", null ],
-    [ "AsyncPortCore", "dd/dde/a05257.html#a3fea82834797dbd505ac308e4ebe58a2", null ],
-    [ "~AsyncPortCore", "dd/dde/a05257.html#aa73910a82d1814199dbe1ec58c46f450", null ],
-    [ "close", "dd/dde/a05257.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "derived", "dd/dde/a05257.html#a3dbece6116a65776aa72cb7a95e4a79a", null ],
+    [ "Event", "dc/de1/a05261.html", null ],
+    [ "ADCPort", "dd/dde/a05257.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "dd/dde/a05257.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "dd/dde/a05257.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "dd/dde/a05257.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "dd/dde/a05257.html#a5701c9da4db47e937bec19f3d29c9855", null ],
     [ "getHandle", "dd/dde/a05257.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "dd/dde/a05257.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "dd/dde/a05257.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "dd/dde/a05257.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "operator=", "dd/dde/a05257.html#af7a0ea878376b289ff08600fa9477026", null ],
-    [ "operator=", "dd/dde/a05257.html#a83e0efb939206ab305b7b0c0b80a27e5", null ],
-    [ "events", "dd/dde/a05257.html#abb56ddd8ed19246084e1242e9075982f", null ],
-    [ "isOpen", "dd/dde/a05257.html#aa533ddd5b800443ba9ea9687a78b720e", null ]
+    [ "getValue", "dd/dde/a05257.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "dd/dde/a05257.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "dd/dde/a05257.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "dd/dde/a05257.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "dd/dde/a05257.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "dd/dde/a05257.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "dd/dde/a05257.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "dd/dde/a05257.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

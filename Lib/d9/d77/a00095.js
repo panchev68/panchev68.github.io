@@ -1,6 +1,5 @@
 var a00095 =
 [
-    [ "Lib::BSP::INA219&lt; T_MODE &gt;", "d4/d09/a04225.html", "d4/d09/a04225" ],
-    [ "Lib::BSP::INA219&lt; T_MODE &gt;::CurrentCorrection", "d1/d7f/a04229.html", "d1/d7f/a04229" ],
-    [ "Lib::BSP::INA219&lt; T_MODE &gt;::Config", "dd/d57/a04233.html", "dd/d57/a04233" ]
+    [ "Lib::BSP::Beep", "d3/d8f/a04217.html", "d3/d8f/a04217" ],
+    [ "Lib::BSP::Beep::Config", "d8/d7b/a04221.html", "d8/d7b/a04221" ]
 ];

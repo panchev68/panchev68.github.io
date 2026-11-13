@@ -1,12 +1,14 @@
 var a05677 =
 [
-    [ "getLocalTransition", "d1/d9b/a05677.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
-    [ "getOffset", "d1/d9b/a05677.html#a5b83c2cf38318866e23774caee880570", null ],
-    [ "isValid", "d1/d9b/a05677.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
-    [ "dayOfWeek", "d1/d9b/a05677.html#a71011003fee57e0e6420889a983146f2", null ],
-    [ "hour", "d1/d9b/a05677.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
-    [ "month", "d1/d9b/a05677.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
-    [ "offsetMinutes", "d1/d9b/a05677.html#ade82abb20d81fccacc264075f09a1667", null ],
-    [ "ruleName", "d1/d9b/a05677.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
-    [ "weekOfMonth", "d1/d9b/a05677.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
+    [ "JaggedArrayBase", "d1/d9b/a05677.html#ae79ec88b260154126e7ec280a136c14a", null ],
+    [ "addItem", "d1/d9b/a05677.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
+    [ "addItems", "d1/d9b/a05677.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
+    [ "clearItems", "d1/d9b/a05677.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
+    [ "getElements", "d1/d9b/a05677.html#a428409a8385b8547bfa65d04a71565b1", null ],
+    [ "getElements", "d1/d9b/a05677.html#a718f7db994c254bce01246ea32b1d653", null ],
+    [ "getSize", "d1/d9b/a05677.html#afca6ed09d7865e2bac45430fda768aae", null ],
+    [ "operator[]", "d1/d9b/a05677.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
+    [ "operator[]", "d1/d9b/a05677.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
+    [ "removeItem", "d1/d9b/a05677.html#a819041f4264ebfce07665c548d5dd7bc", null ],
+    [ "elementList", "d1/d9b/a05677.html#a319cd6aae084f711db14582ed55929a5", null ]
 ];

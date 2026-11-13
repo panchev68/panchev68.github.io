@@ -1,8 +1,7 @@
 var a05737 =
 [
-    [ "State", "d0/d2b/a05737.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
-    [ "firstRun", "d0/d2b/a05737.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
-    [ "integralSum", "d0/d2b/a05737.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
-    [ "lastInput", "d0/d2b/a05737.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
-    [ "lastOutput", "d0/d2b/a05737.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
+    [ "estimatedError", "d0/d2b/a05737.html#aa627467e596e97925629cac77c51da24", null ],
+    [ "processNoise", "d0/d2b/a05737.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
+    [ "sensorNoise", "d0/d2b/a05737.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
+    [ "value", "d0/d2b/a05737.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
 ];

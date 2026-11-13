@@ -1,7 +1,6 @@
 var a00212 =
 [
-    [ "Lib::Canbus::Mode", "dc/dfa/a00894.html#ad81e761f20d5185ff2c7cbf5e547ef02", [
-      [ "Lib::Canbus::Mode::CLIENT", "dc/dfa/a00894.html#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1", null ],
-      [ "Lib::Canbus::Mode::SERVER", "dc/dfa/a00894.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844", null ]
-    ] ]
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;", "d6/dac/a04339.html", "d6/dac/a04339" ],
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;::CurrentCorrection", "df/d59/a04343.html", "df/d59/a04343" ],
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;::Config", "d2/d4f/a04347.html", "d2/d4f/a04347" ]
 ];

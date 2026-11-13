@@ -1,8 +1,7 @@
 var a05005 =
 [
-    [ "Frame0x88", "d2/d38/a05005.html#a8cdabdda134adaf1796641f68581f1c8", null ],
-    [ "atCommand", "d2/d38/a05005.html#aba3a41028c41109166efaf024c9dca74", null ],
-    [ "data", "d2/d38/a05005.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
-    [ "frameId", "d2/d38/a05005.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
-    [ "status", "d2/d38/a05005.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
+    [ "writeTo", "d2/d38/a05005.html#a0fbf65ec7ca7d7ad1b75517bab647edd", null ],
+    [ "atCommand", "d2/d38/a05005.html#a270978a96cccd4b3ef127d536cde4a6d", null ],
+    [ "frameId", "d2/d38/a05005.html#a714c8902b6e8cc0a5f0265f4f1af9c84", null ],
+    [ "parameters", "d2/d38/a05005.html#aaf51e64f47cc8a54064df71903a793bb", null ]
 ];

@@ -1,11 +1,13 @@
 var a05965 =
 [
-    [ "FirmwareString", "d3/daf/a05965.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "VersionString", "d3/daf/a05965.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Firmware", "d3/daf/a05965.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "getSubVersion", "d3/daf/a05965.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator FirmwareString", "d3/daf/a05965.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "d3/daf/a05965.html#a7dcca38967251869c5bf305173fc13ee", null ],
-    [ "operator VersionString", "d3/daf/a05965.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d3/daf/a05965.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "Status", "d3/daf/a05965.html#a335a74b2beee583b06c1cc6a0c928957", [
+      [ "OK", "d3/daf/a05965.html#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d3/daf/a05965.html#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Parameters", "d3/daf/a05965.html#a0d2e425ec31b105ced5a1ec414518eb2", null ],
+    [ "Parameters", "d3/daf/a05965.html#a401c8f010740c371697fba3fa25b559c", null ],
+    [ "isValid", "d3/daf/a05965.html#aea6685c90b8a40bf879c93f795cb0d1a", null ],
+    [ "operator=", "d3/daf/a05965.html#ab7707d467c6b510fc640db358633fd8b", null ],
+    [ "setup", "d3/daf/a05965.html#a6c93bc540f4ca328949b18b8364730fc", null ],
+    [ "write", "d3/daf/a05965.html#ab2a15849ffa63fb1b31e58a50f802faa", null ]
 ];

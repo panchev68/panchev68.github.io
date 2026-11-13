@@ -1,5 +1,5 @@
 var a00386 =
 [
-    [ "Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;", "dd/d03/a05045.html", "dd/d03/a05045" ],
-    [ "Lib::Errors::Observer", "db/daa/a05049.html", "db/daa/a05049" ]
+    [ "Lib::Digi::API::Service::PairService", "db/db8/a04970.html", "db/db8/a04970" ],
+    [ "Lib::Digi::API::Service::PairService::Config", "d3/d64/a04974.html", "d3/d64/a04974" ]
 ];

@@ -1,20 +1,14 @@
 var a05709 =
 [
-    [ "Point", "da/ded/a05713.html", "da/ded/a05713" ],
-    [ "BoundaryType", "dd/d32/a05709.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "dd/d32/a05709.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "dd/d32/a05709.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "dd/d32/a05709.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "dd/d32/a05709.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "dd/d32/a05709.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "dd/d32/a05709.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "dd/d32/a05709.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "dd/d32/a05709.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "dd/d32/a05709.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "dd/d32/a05709.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "dd/d32/a05709.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "dd/d32/a05709.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "dd/d32/a05709.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "dd/d32/a05709.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "TimeChangeRule", "da/ded/a05713.html", "da/ded/a05713" ],
+    [ "TimeZone", "dd/d32/a05709.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
+    [ "TimeZone", "dd/d32/a05709.html#a0edb02c779df5ea86747377d1413c3d8", null ],
+    [ "TimeZone", "dd/d32/a05709.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
+    [ "convertLocalToUtcMinutes", "dd/d32/a05709.html#a479ec4792a22a5b314a497bb01be2047", null ],
+    [ "getName", "dd/d32/a05709.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
+    [ "getOffset", "dd/d32/a05709.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
+    [ "getOffsetMinutes", "dd/d32/a05709.html#a85aeda7715611b5af76b28bdc266c545", null ],
+    [ "setName", "dd/d32/a05709.html#a46b717d157e7f9b012a459cf78b723b5", null ],
+    [ "setOffset", "dd/d32/a05709.html#aedb03e610f976aba921183f41dd10501", null ],
+    [ "setOffsetMinutes", "dd/d32/a05709.html#a57128a66ae77de2e6d60521056cb33db", null ]
 ];

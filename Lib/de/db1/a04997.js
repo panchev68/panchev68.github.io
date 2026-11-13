@@ -1,8 +1,8 @@
 var a04997 =
 [
-    [ "Frame0x80", "de/db1/a04997.html#a6a35178c345302fc3fd7e0e797ecd87f", null ],
-    [ "option", "de/db1/a04997.html#abbdc105cf84ccfae7ac49dcad817a495", null ],
-    [ "rfData", "de/db1/a04997.html#acdd1182b90bc45f91b6d50fd4a0ff3eb", null ],
-    [ "rssi", "de/db1/a04997.html#a75c9b510bbf5bbdfae41d3f2cfff6428", null ],
-    [ "srcAddr64", "de/db1/a04997.html#a2ef2d6ca731ff433131e9a82b31ff492", null ]
+    [ "writeTo", "de/db1/a04997.html#a4b67abe71dc0cda3271d558cf7dc8567", null ],
+    [ "dstAddress", "de/db1/a04997.html#a9969bce892ba39508a48daebcde56b75", null ],
+    [ "frameId", "de/db1/a04997.html#ae540c1fa3f4c9c108127455e8ac5b127", null ],
+    [ "options", "de/db1/a04997.html#a61fadbd6372692084aabcea329f5f1ab", null ],
+    [ "rfData", "de/db1/a04997.html#a99cf3d6eb6a15b6b82e1f552a57c54af", null ]
 ];

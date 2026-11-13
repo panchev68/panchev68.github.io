@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['abstraction_20layer_0',['Hardware Abstraction Layer',['../d2/db8/a00867.html',1,'']]],
+  ['abstraction_20layer_0',['Hardware Abstraction Layer',['../dd/d24/a00981.html',1,'']]],
   ['abstractions_1',['Pointer Abstractions',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01616.html',0,'']]],
   ['access_20mode_20for_20multi_20mode_2',['ADC Direct Memory Access Mode For Multi Mode',['https://panchev68.github.io/HALF4/d1/d56/a00707.html',0,'']]],
   ['activation_3',['HSE Bypass activation',['https://panchev68.github.io/HALF4/d5/d39/a01219.html',0,'']]],
@@ -102,7 +102,7 @@ var searchData=
   ['apb2_20peripheral_20low_20power_20enable_20disable_99',['APB2 Peripheral Low Power Enable Disable',['https://panchev68.github.io/HALF4/d5/da3/a00953.html',0,'']]],
   ['api_20alias_100',['HASH API alias',['https://panchev68.github.io/HALF4/d5/de3/a00631.html',0,'']]],
   ['api_20aliases_101',['CRC API aliases',['https://panchev68.github.io/HALF4/d8/de9/a00595.html',0,'']]],
-  ['application_20layer_102',['Data Application Layer',['../d3/db2/a00869.html',1,'']]],
+  ['application_20layer_102',['Data Application Layer',['../d7/d98/a00983.html',1,'']]],
   ['arithmetic_103',['Arithmetic',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01657.html',0,'Decimal Floating-Point Arithmetic'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01620.html',0,'Rational Arithmetic']]],
   ['arithmetic_20function_20object_20classes_104',['Arithmetic Function Object Classes',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01643.html',0,'']]],
   ['array_20creation_20functions_105',['Array creation functions',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01661.html',0,'']]],

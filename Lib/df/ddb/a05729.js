@@ -1,23 +1,13 @@
 var a05729 =
 [
-    [ "Parameters", "d1/dc7/a05733.html", "d1/dc7/a05733" ],
-    [ "State", "d0/d2b/a05737.html", "d0/d2b/a05737" ],
-    [ "Pid", "df/ddb/a05729.html#a41a37f36dc432f8e971650f9ff2e7a8e", null ],
-    [ "Pid", "df/ddb/a05729.html#a1fabd4f5399e04107a81b4b5b8a74ddb", null ],
-    [ "Pid", "df/ddb/a05729.html#a3545b5dac092bbf4b74a70eb0d3e21a7", null ],
-    [ "compute", "df/ddb/a05729.html#a5ebd947fb71cac9e012eeda62346bb39", null ],
-    [ "getIntegralTerm", "df/ddb/a05729.html#a09cf8e3d1fb8e112834bb169d4479a55", null ],
-    [ "getOutput", "df/ddb/a05729.html#aa9cd09e31eeca872417ddc17552872f6", null ],
-    [ "getParameters", "df/ddb/a05729.html#a99de3209865162f13cf91f085b7fdea7", null ],
-    [ "getState", "df/ddb/a05729.html#a235d0900f482fef6b4cce1f1e5932cd4", null ],
-    [ "isAutomatic", "df/ddb/a05729.html#ae87f395bf6f7789860ecd320c3146844", null ],
-    [ "isReverse", "df/ddb/a05729.html#a86c187fc462eb3fbcda4c4765ca5dbef", null ],
-    [ "reset", "df/ddb/a05729.html#aa7e0c148fa92993acc0e062e7ebd50b2", null ],
-    [ "setDirection", "df/ddb/a05729.html#a131b9717e760441b15ff258f878c02a1", null ],
-    [ "setGains", "df/ddb/a05729.html#a6ebec94b45c9fd0543e2d4e529ba19c1", null ],
-    [ "setManualOutput", "df/ddb/a05729.html#aaf9fc6f5598723d89c5b53ab57d0523d", null ],
-    [ "setMode", "df/ddb/a05729.html#af5e5b90007ad75d2739fcbd55618265c", null ],
-    [ "setOutputLimits", "df/ddb/a05729.html#ac87b3672a759beebebc2a98ebbab8c00", null ],
-    [ "setParameters", "df/ddb/a05729.html#a168254291d8c630ee2ebfba757491daf", null ],
-    [ "setSampleTime", "df/ddb/a05729.html#a7eb49cd9682da72b19692d3eb28f1606", null ]
+    [ "WolfSSLTransport", "df/ddb/a05729.html#a902fc980deaff7372065ac354e424bd7", null ],
+    [ "~WolfSSLTransport", "df/ddb/a05729.html#a1af1ec7c8459af557cecf30e2fce9851", null ],
+    [ "WolfSSLTransport", "df/ddb/a05729.html#ac66ebbbe5867fdc9e41b120f0703afd9", null ],
+    [ "WolfSSLTransport", "df/ddb/a05729.html#aee33a9d5d619aea80630e5c113bc940c", null ],
+    [ "close", "df/ddb/a05729.html#afc96144cd745fe9fc116e7fa03ea0c00", null ],
+    [ "open", "df/ddb/a05729.html#a34b1d6a735d69895b3381e71a3d7b24f", null ],
+    [ "operator=", "df/ddb/a05729.html#a65c79de2e76f70c00d2a7117462aef12", null ],
+    [ "operator=", "df/ddb/a05729.html#ac0b3753689c57f39a30e72868cac2919", null ],
+    [ "receive", "df/ddb/a05729.html#a665163ec5d248c6f5f86737aec8901e8", null ],
+    [ "send", "df/ddb/a05729.html#a609db5ba4b95a1e99a742291477e322b", null ]
 ];

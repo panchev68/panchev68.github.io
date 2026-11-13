@@ -1,14 +1,12 @@
 var a04729 =
 [
-    [ "PasswordAuthHandler", "d9/d09/a04729.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
-    [ "WolfSSHServerContext", "d9/d09/a04729.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
-    [ "~WolfSSHServerContext", "d9/d09/a04729.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
-    [ "WolfSSHServerContext", "d9/d09/a04729.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
-    [ "WolfSSHServerContext", "d9/d09/a04729.html#a41d71d3b7597c69631a274d39e0fa345", null ],
-    [ "native", "d9/d09/a04729.html#a188293485b26e63785504b3f63d346fe", null ],
-    [ "operator=", "d9/d09/a04729.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
-    [ "operator=", "d9/d09/a04729.html#ac889915b8b230867843bb316a9bad1fc", null ],
-    [ "setBanner", "d9/d09/a04729.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
-    [ "setPasswordAuthHandler", "d9/d09/a04729.html#a72301d8027efc740d10b7d0d660c198f", null ],
-    [ "usePrivateKey", "d9/d09/a04729.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
+    [ "FreeFunctionPointer", "d9/d09/a04729.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "d9/d09/a04729.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "d9/d09/a04729.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "invoke", "d9/d09/a04729.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "d9/d09/a04729.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "d9/d09/a04729.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "d9/d09/a04729.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "d9/d09/a04729.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "d9/d09/a04729.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];
