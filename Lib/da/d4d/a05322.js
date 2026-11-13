@@ -1,11 +1,5 @@
 var a05322 =
 [
-    [ "Files", "da/d4d/a05322.html#a38af4a8bbb84ada91aaf714cea65a4c0", null ],
-    [ "exists", "da/d4d/a05322.html#a96b02cdaa566d256c443b29318a1e6a6", null ],
-    [ "getFreeSpace", "da/d4d/a05322.html#a53e0bf74fbdfc6f69365be421bb53216", null ],
-    [ "getSize", "da/d4d/a05322.html#aa7a33895cdee9255bbc3fbab18b779ef", null ],
-    [ "getStorage", "da/d4d/a05322.html#af41ed6ef5fc096962b172a60c6bd3a00", null ],
-    [ "read", "da/d4d/a05322.html#aa4b5f1d48ed8c3288a714d23bcbfc288", null ],
-    [ "remove", "da/d4d/a05322.html#a4455c4afbbb3df350f8e36787bb43307", null ],
-    [ "write", "da/d4d/a05322.html#aae6311d3306463d425bcc73662ab5323", null ]
+    [ "nssPin", "da/d4d/a05322.html#af56f9d2f7252dc530ec070d0aa211f2b", null ],
+    [ "spiPort", "da/d4d/a05322.html#aefcb5eddfdf2be760845ce74b7a29ec9", null ]
 ];

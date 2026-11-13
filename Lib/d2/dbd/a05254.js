@@ -1,26 +1,9 @@
 var a05254 =
 [
-    [ "MessageHeader", "d8/d44/a05258.html", "d8/d44/a05258" ],
-    [ "Command", "d2/dbd/a05254.html#af1bf58d46a2365d039aa946466c931e4", [
-      [ "ECHO", "d2/dbd/a05254.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409", null ],
-      [ "INPUTS", "d2/dbd/a05254.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692", null ],
-      [ "OUTPUTS", "d2/dbd/a05254.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70", null ]
-    ] ],
-    [ "Error", "d2/dbd/a05254.html#af7acfca02d188807a9c220d5c0bfeda6", [
-      [ "OK", "d2/dbd/a05254.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "COMMAND_NOT_SUPPORT", "d2/dbd/a05254.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7", null ],
-      [ "EMPTY_MESSAGE", "d2/dbd/a05254.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0", null ],
-      [ "INVALID_PAYLOAD_LENGTH", "d2/dbd/a05254.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e", null ],
-      [ "INVALID_START_DELIMITER", "d2/dbd/a05254.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c", null ]
-    ] ],
-    [ "UserProtocol", "d2/dbd/a05254.html#ab11ca2634a103484248a6d8ea24a5407", null ],
-    [ "~UserProtocol", "d2/dbd/a05254.html#ad2bb639951ce599fce10adfb65668d02", null ],
-    [ "build", "d2/dbd/a05254.html#ae9170839094fc83686dd4af2244027fb", null ],
-    [ "echoCallback", "d2/dbd/a05254.html#a3061aa5da161fa13a28466c38e0f725f", null ],
-    [ "getLastSentTimeStamp", "d2/dbd/a05254.html#ad39a3a83a2a35aab8c09065f6ea63f0f", null ],
-    [ "handleIncomingMessageHeader", "d2/dbd/a05254.html#aa78f9b31828d798a794fcd69e78f46e2", null ],
-    [ "handleOutputsUpdate", "d2/dbd/a05254.html#a78c96c1519356f5ea3948970fff30d5c", null ],
-    [ "inputsUpdateCallback", "d2/dbd/a05254.html#a26f74b072f3f808ae2a3374051efa833", null ],
-    [ "parse", "d2/dbd/a05254.html#a5693bd9519902713725ab87ae72a635d", null ],
-    [ "updateNodeActivityCallback", "d2/dbd/a05254.html#a9937ef06792e7b6d381e0b29d25c1f27", null ]
+    [ "address", "d2/dbd/a05254.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
+    [ "channel", "d2/dbd/a05254.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
+    [ "counter", "d2/dbd/a05254.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
+    [ "length", "d2/dbd/a05254.html#af80f349070d12d0ce2387f6d95764bfe", null ],
+    [ "priority", "d2/dbd/a05254.html#a0c3726e1ac6fed602491f21449c9a740", null ],
+    [ "protocol", "d2/dbd/a05254.html#ac094990b182d42c38feb302d144a6924", null ]
 ];

@@ -1,5 +1,5 @@
 var a00719 =
 [
-    [ "Lib::HAL::Timer::TimOutputCompare", "d5/da0/a05575.html", "d5/da0/a05575" ],
-    [ "HAL_TIM_OC_DelayElapsedCallback", "dd/dd8/a00719.html#a1fc39499fe9db8b7fb88005e9f107a36", null ]
+    [ "Lib::HAL::Timer::TimOnePulse", "d3/d27/a05574.html", "d3/d27/a05574" ],
+    [ "HAL_TIM_PWM_PulseFinishedCallback", "dd/dd8/a00719.html#a07e5fc4d223b16bec2fd6bed547cf91d", null ]
 ];

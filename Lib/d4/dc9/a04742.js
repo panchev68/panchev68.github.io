@@ -1,9 +1,5 @@
 var a04742 =
 [
-    [ "Address", "d4/dc9/a04742.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
-    [ "FunctionCode", "d4/dc9/a04742.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
-    [ "close", "d4/dc9/a04742.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
-    [ "open", "d4/dc9/a04742.html#a60baa47faf417d3e58c9da926ba26d49", null ],
-    [ "sendFrame", "d4/dc9/a04742.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
-    [ "setup", "d4/dc9/a04742.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
+    [ "decayPeriodMicroseconds", "d4/dc9/a04742.html#a12e79efa3a5a899b1e64d25ff5a0fdb3", null ],
+    [ "frequencyHz", "d4/dc9/a04742.html#a50257a628ef439fb965df1ee908f3e5e", null ]
 ];

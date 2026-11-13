@@ -1,4 +1,5 @@
 var a00824 =
 [
-    [ "Lib::Helper::Integrator&lt; T_VALUE, T_WINDOW_SIZE &gt;", "d6/df4/a05747.html", "d6/df4/a05747" ]
+    [ "Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;", "d5/d88/a05742.html", "d5/d88/a05742" ],
+    [ "Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;::PeakInfo", "d3/d16/a05746.html", "d3/d16/a05746" ]
 ];

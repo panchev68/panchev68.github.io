@@ -1,11 +1,20 @@
 var a04990 =
 [
-    [ "onExtendedTransmitStatusChanged", "d5/de1/a04990.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
-    [ "onLocalAtCommand", "d5/de1/a04990.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
-    [ "onModemStatusChanged", "d5/de1/a04990.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
-    [ "onPacketReceived", "d5/de1/a04990.html#a850cfb32fb4c250ebb5d07029d996133", null ],
-    [ "onReceivePacket16bit", "d5/de1/a04990.html#a30dd6aca5f04efa028541965da0f724f", null ],
-    [ "onReceivePacket64bit", "d5/de1/a04990.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
-    [ "onRemoteATCommand", "d5/de1/a04990.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
-    [ "onTransmitStatus", "d5/de1/a04990.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
+    [ "Config", "d5/de1/a04990.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
+    [ "State", "d5/de1/a04990.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
+    [ "ServerBase", "d5/de1/a04990.html#a024c8654b0689cd8af2775cba7efc9ca", null ],
+    [ "~ServerBase", "d5/de1/a04990.html#a7f9293f66a2b9cd19fb019f38e743049", null ],
+    [ "getModuleInstance", "d5/de1/a04990.html#af8063d3ad104519c1331b65494eea01b", null ],
+    [ "getModulePresent", "d5/de1/a04990.html#abefa9599b01a774884c7f5f1a8578084", null ],
+    [ "getState", "d5/de1/a04990.html#a569078f4b1701fb0579efd9d8e10655d", null ],
+    [ "pause", "d5/de1/a04990.html#a069f63d8ece09ad92a97696e558290b3", null ],
+    [ "resume", "d5/de1/a04990.html#abbf1050f972e12e9f892cbb50f712298", null ],
+    [ "start", "d5/de1/a04990.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
+    [ "channelScanner", "d5/de1/a04990.html#abcae86ac3f99158551b91f88f0c88de7", null ],
+    [ "connection", "d5/de1/a04990.html#a6cc363b4c00520c96b5d228aab8301b8", null ],
+    [ "diagnostic", "d5/de1/a04990.html#a6d0f2ae6cd2c2076945ec0be3c66436c", null ],
+    [ "modemStatus", "d5/de1/a04990.html#a3aed113d4e636bcad17894b64f1e5734", null ],
+    [ "networkDiscovery", "d5/de1/a04990.html#a1936fa3a20798013fd230a5b9ae5a651", null ],
+    [ "parameters", "d5/de1/a04990.html#a3a40ec0220eb721e07f56c02a206f485", null ],
+    [ "spectrumAnalyzer", "d5/de1/a04990.html#a94172a0bb6588a8bad00411e1e6ce038", null ]
 ];

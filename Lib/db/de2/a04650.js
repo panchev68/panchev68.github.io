@@ -1,9 +1,8 @@
 var a04650 =
 [
-    [ "calculatedChecksum", "db/de2/a04650.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
-    [ "frameChecksum", "db/de2/a04650.html#afd2a7854bded2de4881565573fc0d9b1", null ],
-    [ "invalidFrameChecksum", "db/de2/a04650.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
-    [ "invalidHumidity", "db/de2/a04650.html#a97069f405d3773e81b9930425efc8d74", null ],
-    [ "invalidTemperature", "db/de2/a04650.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
-    [ "receivedTimeout", "db/de2/a04650.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
+    [ "operator==", "db/de2/a04650.html#ada8e55f2f00e1f0256475c584eb863d5", null ],
+    [ "display4", "db/de2/a04650.html#a190805124006c5599e92dd544db486f4", null ],
+    [ "inPhaseAdc", "db/de2/a04650.html#a4dc0e13ddf52631bc23c4bf09f726650", null ],
+    [ "quadratureAdc", "db/de2/a04650.html#ad47ff67b3f90ab4180e577fa6d842ec9", null ],
+    [ "status", "db/de2/a04650.html#af495ab17ed6e1a39e137c8fd834ac9f3", null ]
 ];

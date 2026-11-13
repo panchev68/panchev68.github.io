@@ -1,10 +1,10 @@
 var a06038 =
 [
-    [ "VersionString", "dd/d4e/a06038.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "dd/d4e/a06038.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getSubVersion", "dd/d4e/a06038.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "dd/d4e/a06038.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "dd/d4e/a06038.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "dd/d4e/a06038.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "dd/d4e/a06038.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "VersionString", "dd/d4e/a06038.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
+    [ "FirmwareVersion", "dd/d4e/a06038.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
+    [ "getSubVersion", "dd/d4e/a06038.html#a74bafacd182d3ccff4da47e5aac54408", null ],
+    [ "getValue", "dd/d4e/a06038.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
+    [ "operator uint32_t", "dd/d4e/a06038.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
+    [ "operator VersionString", "dd/d4e/a06038.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
+    [ "toString", "dd/d4e/a06038.html#ac82dd7d67829e33f61b3625626f44742", null ]
 ];

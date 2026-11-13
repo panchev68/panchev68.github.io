@@ -1,5 +1,5 @@
 var a04986 =
 [
-    [ "high", "d4/de5/a04986.html#a463a9c11eea19eccb5ce4ac37c1a3d66", null ],
-    [ "low", "d4/de5/a04986.html#a717f15e16e6d47bb9ae5a9290676ea33", null ]
+    [ "ascFailureCount", "d4/de5/a04986.html#a1e6fa3ed0ff87b537b8ec7aed53093bb", null ],
+    [ "ccaFailureCount", "d4/de5/a04986.html#a20afcf39b211e185e969b8d770f99017", null ]
 ];

@@ -1,4 +1,4 @@
 var a00842 =
 [
-    [ "Lib::Helper::SwapBytes", "d6/d64/a05779.html", null ]
+    [ "Lib::Helper::Sunset", "d9/dc9/a05774.html", "d9/dc9/a05774" ]
 ];

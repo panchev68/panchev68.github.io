@@ -1,8 +1,8 @@
 var a05122 =
 [
-    [ "Frame0x88", "dc/d0c/a05122.html#a8cdabdda134adaf1796641f68581f1c8", null ],
-    [ "atCommand", "dc/d0c/a05122.html#aba3a41028c41109166efaf024c9dca74", null ],
-    [ "data", "dc/d0c/a05122.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
-    [ "frameId", "dc/d0c/a05122.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
-    [ "status", "dc/d0c/a05122.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
+    [ "writeTo", "dc/d0c/a05122.html#a46342f730043bd2cb721cafd68faf502", null ],
+    [ "dstAddress", "dc/d0c/a05122.html#a681024a962d2609634ac216a9325a808", null ],
+    [ "frameId", "dc/d0c/a05122.html#a30b2f9e311fce068c3facfca4084a959", null ],
+    [ "options", "dc/d0c/a05122.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
+    [ "rfData", "dc/d0c/a05122.html#a647a428c66648b2c7897b90431917f0b", null ]
 ];

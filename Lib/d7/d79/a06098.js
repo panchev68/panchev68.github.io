@@ -1,7 +1,15 @@
 var a06098 =
 [
-    [ "baudRate", "d7/d79/a06098.html#ad346dd14c75b113671501f286d5348d3", null ],
-    [ "dataBits", "d7/d79/a06098.html#a0834146908baa5e641e203755bcae7d0", null ],
-    [ "parity", "d7/d79/a06098.html#ae1d9173fb3c732649e3ae12b963b784c", null ],
-    [ "stopBits", "d7/d79/a06098.html#aece0199b65b1b9e27305ae98b9c7bc31", null ]
+    [ "bulkInFifoWords", "d7/d79/a06098.html#a0ed8db5411c1921c529630d3a44f7360", null ],
+    [ "ep0FifoWords", "d7/d79/a06098.html#abe18c856018762f3999b3364d7007211", null ],
+    [ "manufacturer", "d7/d79/a06098.html#a744ec90dd85932ef887d50642ebe38d7", null ],
+    [ "notifyFifoWords", "d7/d79/a06098.html#a9c483b42f1b4a8e9b20622f07d264bdf", null ],
+    [ "port", "d7/d79/a06098.html#aaf78772f776ce31d0da23466cc5000f9", null ],
+    [ "product", "d7/d79/a06098.html#ab780a9d88218c535e886fb1f2062438e", null ],
+    [ "productId", "d7/d79/a06098.html#a79f4483e676366581d5b0d0dfde54302", null ],
+    [ "releaseNumber", "d7/d79/a06098.html#a9cad8695fc2df220e8e749ca17a46b1e", null ],
+    [ "rxBufferSize", "d7/d79/a06098.html#ade2ac000564c55d1878eb4fb1755891f", null ],
+    [ "rxFifoWords", "d7/d79/a06098.html#a230b63ee56cf949511afd69dcfbc7b07", null ],
+    [ "serialNumber", "d7/d79/a06098.html#a9fb3962389441b192d0dbf27d5c7d570", null ],
+    [ "vendorId", "d7/d79/a06098.html#a901d8fbdeedadd519352ef01e124ebaa", null ]
 ];

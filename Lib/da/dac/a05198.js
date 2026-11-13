@@ -1,6 +1,7 @@
 var a05198 =
 [
-    [ "frameReceived", "da/dac/a05198.html#ac8bfe015a954f64ad27486a7f7b82059", null ],
-    [ "getParameters", "da/dac/a05198.html#af5c689938685464a5e8331e943afbf47", null ],
-    [ "setParameters", "da/dac/a05198.html#a4dbee9575ed5dc6f641f59c022b6b4d3", null ]
+    [ "Group", "da/dac/a05198.html#a48b74757679d549dd7d08383435d59b5", null ],
+    [ "~Group", "da/dac/a05198.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
+    [ "getCaption", "da/dac/a05198.html#a6b28a1279997058ac197a0579f4c818d", null ],
+    [ "tag", "da/dac/a05198.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
 ];

@@ -1,5 +1,4 @@
 var a00206 =
 [
-    [ "Lib::BSP::Backlight", "de/dc3/a04319.html", "de/dc3/a04319" ],
-    [ "Lib::BSP::Backlight::Config", "d2/dcd/a04323.html", "d2/dcd/a04323" ]
+    [ "Lib::Exception", "d3/d8c/a04318.html", "d3/d8c/a04318" ]
 ];

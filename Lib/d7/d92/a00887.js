@@ -1,4 +1,4 @@
 var a00887 =
 [
-    [ "RTOS::MessageBuffer", "db/da7/a05911.html", "db/da7/a05911" ]
+    [ "RTOS::MemoryManager", "de/dec/a05914.html", "de/dec/a05914" ]
 ];

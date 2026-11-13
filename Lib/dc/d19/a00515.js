@@ -1,20 +1,14 @@
 var a00515 =
 [
-    [ "Lib::Ethercat::SOES::FoEHandlers", "da/dc9/a05243.html", "da/dc9/a05243" ],
-    [ "Lib::Ethercat::SOES::FoE", "d8/da5/a05247.html", "d8/da5/a05247" ],
-    [ "Lib::Ethercat::SOES::FoEError", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4", [
-      [ "Lib::Ethercat::SOES::FoEError::NOT_DEFINED", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4abfd8c78fbb91fe67b9886fad146392a4", null ],
-      [ "Lib::Ethercat::SOES::FoEError::NOT_FOUND", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4a8c02547a8a3b02382bac3557bcb2280d", null ],
-      [ "Lib::Ethercat::SOES::FoEError::ACCESS", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4a0a3f43b00ddd148f64178deb155a9f45", null ],
-      [ "Lib::Ethercat::SOES::FoEError::DISK_FULL", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4a266c3e565a5b03d2174d5f11c1c9126f", null ],
-      [ "Lib::Ethercat::SOES::FoEError::ILLEGAL", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4a19b6dd9cf8414bce98a4f0b86c3258ec", null ],
-      [ "Lib::Ethercat::SOES::FoEError::PACKET_NUMBER", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4ae27d5f8fee9d7d99a630bf1bc94e821e", null ],
-      [ "Lib::Ethercat::SOES::FoEError::EXISTS", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4a6a240802522e95fc9e2c1d09122d8ec4", null ],
-      [ "Lib::Ethercat::SOES::FoEError::NO_USER", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4a5134e6105e32e094d2b6e33e22fbd84c", null ],
-      [ "Lib::Ethercat::SOES::FoEError::BOOTSTRAP_ONLY", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4a84d8c754faa2099140260a5169b1ab2f", null ],
-      [ "Lib::Ethercat::SOES::FoEError::NOT_IN_BOOTSTRAP", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4aaa14e68151e02922d8f04f7a9da4f01c", null ],
-      [ "Lib::Ethercat::SOES::FoEError::NO_RIGHTS", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4af8b0e3e1041bdc078ee24ea08024668d", null ],
-      [ "Lib::Ethercat::SOES::FoEError::PROGRAM_ERROR", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4ab71866328a7646335504d8d65b0a9b94", null ],
-      [ "Lib::Ethercat::SOES::FoEError::CHECKSUM", "d1/dd8/a01022.html#a058e47e5398a583fd14a446b7b2dbdb4ab9493189e36ddf81cabe5a2c63f62bc3", null ]
+    [ "Lib::Ethercat::SOES::EoEParameters", "d6/de6/a05234.html", "d6/de6/a05234" ],
+    [ "Lib::Ethercat::SOES::EoEHandlers", "d6/d66/a05238.html", "d6/d66/a05238" ],
+    [ "Lib::Ethercat::SOES::EoE", "d6/d63/a05242.html", "d6/d63/a05242" ],
+    [ "Lib::Ethercat::SOES::EoEResult", "db/d23/a01025.html#a4955423819d7bf676954f73daa32972b", [
+      [ "Lib::Ethercat::SOES::EoEResult::SUCCESS", "db/d23/a01025.html#a4955423819d7bf676954f73daa32972bad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "Lib::Ethercat::SOES::EoEResult::UNSPECIFIED_ERROR", "db/d23/a01025.html#a4955423819d7bf676954f73daa32972ba7a17d42e6fcc83c751f782541e0f154d", null ],
+      [ "Lib::Ethercat::SOES::EoEResult::UNSUPPORTED_FRAME_TYPE", "db/d23/a01025.html#a4955423819d7bf676954f73daa32972ba518aca26bc9a4e6feeac609023684898", null ],
+      [ "Lib::Ethercat::SOES::EoEResult::NO_IP_SUPPORT", "db/d23/a01025.html#a4955423819d7bf676954f73daa32972bad9b55c8a668b83ed87ef9e3cbb1818b2", null ],
+      [ "Lib::Ethercat::SOES::EoEResult::NO_DHCP_SUPPORT", "db/d23/a01025.html#a4955423819d7bf676954f73daa32972ba1aebf6a7b843eb8cd6721dd429ebb14b", null ],
+      [ "Lib::Ethercat::SOES::EoEResult::NO_FILTER_SUPPORT", "db/d23/a01025.html#a4955423819d7bf676954f73daa32972ba9f33dee7768e14a29b53b8dc6792a58c", null ]
     ] ]
 ];

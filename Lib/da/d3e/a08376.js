@@ -1,4 +1,4 @@
 var a08376 =
 [
-    [ "Lib::Digi::API::ClientBase&lt; Derived &gt;", "de/d42/a04927.html", "de/d42/a04927" ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Helper", "d1/d6c/a04478.html", null ]
 ];

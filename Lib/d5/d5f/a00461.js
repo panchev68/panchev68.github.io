@@ -1,4 +1,4 @@
 var a00461 =
 [
-    [ "Lib::Digi::Core::RemoteAtCommand", "db/d58/a05143.html", "db/d58/a05143" ]
+    [ "Lib::Digi::Core::QueueMessage", "d5/d6d/a05142.html", "d5/d6d/a05142" ]
 ];

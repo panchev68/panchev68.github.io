@@ -8,12 +8,15 @@ var searchData=
   ['handling_5',['Error handling',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_error',1,'']]],
   ['hardware_20and_20cubemx_20assumptions_6',['Hardware and CubeMX assumptions',['../X:/Lib/IAR/Project/Examples/Lib_HAL_LPTimer.dox#lptim_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimEncoder.dox#timenc_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimInputCapture.dox#timic_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOnePulse.dox#timop_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOutputCompare.dox#timoc_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimTimebase.dox#timtimebase_usage_hw',1,'Hardware and CubeMX assumptions']]],
   ['hardware_20assumptions_7',['Hardware assumptions',['../X:/Lib/IAR/Project/Examples/Lib_BSP_Ultrasonic_PGA460TPWRQ1.dox#pga460_usage_hw',1,'Hardware assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_hw',1,'Hardware assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_CAN.dox#can_usage_hw',1,'Hardware assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_DAC.dox#dac_usage_hw',1,'Hardware assumptions']]],
-  ['heap_20statistics_20and_20yielding_8',['Heap statistics and yielding',['../X:/Lib/IAR/Project/Examples/RTOS_Kernel.dox#kernel_usage_heap',1,'']]],
-  ['heap_20usage_9',['Checking heap usage',['../X:/Lib/IAR/Project/Examples/RTOS_MemoryManager.dox#memory_manager_usage_usage',1,'']]],
-  ['hex_20digit_20conversion_10',['Hex digit conversion',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_Ascii.dox#ascii_usage_hex',1,'']]],
-  ['hook_11',['Interrupt hook',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_isr',1,'']]],
-  ['hooks_12',['Begin and end transaction hooks',['../X:/Lib/IAR/Project/Examples/Lib_HAL_SPI.dox#spi_usage_hooks',1,'']]],
-  ['host_20role_13',['Host role',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usb_usage_host',1,'']]],
-  ['http_20get_20over_20the_20modem_14',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]],
-  ['https_20post_20and_20plain_20http_20get_20over_20the_20modem_15',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]]
+  ['hash_20peripheral_8',['Hashing with the HASH peripheral',['../X:/Lib/IAR/Project/Examples/Lib_Crypto_SHA256.dox#sha256_usage_hardware',1,'']]],
+  ['hashing_20with_20the_20hash_20peripheral_9',['Hashing with the HASH peripheral',['../X:/Lib/IAR/Project/Examples/Lib_Crypto_SHA256.dox#sha256_usage_hardware',1,'']]],
+  ['hashing_20with_20the_20software_20engine_10',['Hashing with the software engine',['../X:/Lib/IAR/Project/Examples/Lib_Crypto_SHA256.dox#sha256_usage_software',1,'']]],
+  ['heap_20statistics_20and_20yielding_11',['Heap statistics and yielding',['../X:/Lib/IAR/Project/Examples/RTOS_Kernel.dox#kernel_usage_heap',1,'']]],
+  ['heap_20usage_12',['Checking heap usage',['../X:/Lib/IAR/Project/Examples/RTOS_MemoryManager.dox#memory_manager_usage_usage',1,'']]],
+  ['hex_20digit_20conversion_13',['Hex digit conversion',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_Ascii.dox#ascii_usage_hex',1,'']]],
+  ['hook_14',['Interrupt hook',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_isr',1,'']]],
+  ['hooks_15',['Begin and end transaction hooks',['../X:/Lib/IAR/Project/Examples/Lib_HAL_SPI.dox#spi_usage_hooks',1,'']]],
+  ['host_20role_16',['Host role',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usb_usage_host',1,'']]],
+  ['http_20get_20over_20the_20modem_17',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]],
+  ['https_20post_20and_20plain_20http_20get_20over_20the_20modem_18',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]]
 ];

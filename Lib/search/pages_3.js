@@ -16,7 +16,7 @@ var searchData=
   ['delay_13',['Measuring a delay',['../X:/Lib/IAR/Project/Examples/Lib_Helper_TimePeriod.dox#timeperiod_usage_measure',1,'']]],
   ['delayed_20pulse_20from_20a_20task_14',['Generating a delayed pulse from a task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOnePulse.dox#timop_usage_pulse',1,'']]],
   ['delays_15',['Tick count and delays',['../X:/Lib/IAR/Project/Examples/RTOS_Kernel.dox#kernel_usage_timing',1,'']]],
-  ['deprecated_20list_16',['Deprecated List',['../db/d20/a00980.html',1,'']]],
+  ['deprecated_20list_16',['Deprecated List',['../d7/d98/a00983.html',1,'']]],
   ['derive_20a_20device_20from_20the_20base_17',['Derive a device from the base',['../X:/Lib/IAR/Project/Examples/Lib_HAL_DeviceManager.dox#devicemanager_usage_device',1,'']]],
   ['derived_20class_18',['Derived class',['../X:/Lib/IAR/Project/Examples/RTOS_TickClient.dox#tick_client_usage_class',1,'']]],
   ['device_20before_20use_19',['Probing a device before use',['../X:/Lib/IAR/Project/Examples/Lib_HAL_I2C.dox#i2c_usage_probe',1,'']]],

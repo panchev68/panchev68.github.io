@@ -1,15 +1,13 @@
 var a05074 =
 [
-    [ "dnsIp", "d9/d65/a05074.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
-    [ "dnsName", "d9/d65/a05074.html#a2b21f67fcea486054df4fbece648ef7f", null ],
-    [ "gateway", "d9/d65/a05074.html#ae526dc3391066f8447e665e962d7f3e1", null ],
-    [ "hasDnsIp", "d9/d65/a05074.html#ab1307f2487c4d9d8a056679335c62d47", null ],
-    [ "hasDnsName", "d9/d65/a05074.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
-    [ "hasGateway", "d9/d65/a05074.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
-    [ "hasIp", "d9/d65/a05074.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
-    [ "hasMac", "d9/d65/a05074.html#a44b23d072f52c270d4c722d93a8b6117", null ],
-    [ "hasSubnet", "d9/d65/a05074.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
-    [ "ip", "d9/d65/a05074.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
-    [ "mac", "d9/d65/a05074.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
-    [ "subnet", "d9/d65/a05074.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
+    [ "append", "d9/d65/a05074.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
+    [ "append", "d9/d65/a05074.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
+    [ "append", "d9/d65/a05074.html#a04412e1fc3a07248441dc288c99867f6", null ],
+    [ "assign", "d9/d65/a05074.html#a056342d102635bded069d9f153268884", null ],
+    [ "assign", "d9/d65/a05074.html#ae796119895d95296e7fe754347df07d7", null ],
+    [ "clear", "d9/d65/a05074.html#a4e9638e82e027739671827a11a48a211", null ],
+    [ "getData", "d9/d65/a05074.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
+    [ "getData", "d9/d65/a05074.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
+    [ "getSize", "d9/d65/a05074.html#a391a31513797286c540adbbc99195704", null ],
+    [ "setSize", "d9/d65/a05074.html#a55130d108aa3f8d6235341814cfd4c23", null ]
 ];

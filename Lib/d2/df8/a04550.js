@@ -1,6 +1,9 @@
 var a04550 =
 [
-    [ "sak", "d2/df8/a04550.html#a0a660971905a4d13ec801be99827ad26", null ],
-    [ "size", "d2/df8/a04550.html#ae19abed0f3be0cc580838b351a256404", null ],
-    [ "uidByte", "d2/df8/a04550.html#a8daf36157ed2f3632e9be6ec8b278293", null ]
+    [ "CommandBuilder", "d2/df8/a04550.html#a442ab1835f7266edde4e34c2250ecbdd", null ],
+    [ "append", "d2/df8/a04550.html#a38b279e79825b7c23b49c50fe237eb14", null ],
+    [ "appendNumber", "d2/df8/a04550.html#ad499ea67c235e84b1675ab6436881d6b", null ],
+    [ "appendSigned", "d2/df8/a04550.html#adcdc8035330612e7377e0ddd6abf99bc", null ],
+    [ "isComplete", "d2/df8/a04550.html#adeffe128f6f055bdb8fa5ff540489f04", null ],
+    [ "view", "d2/df8/a04550.html#ad77374ad2f3a699382ae5b108eee51f3", null ]
 ];

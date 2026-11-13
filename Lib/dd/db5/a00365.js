@@ -1,11 +1,16 @@
 var a00365 =
 [
-    [ "Lib::Crypto::WolfSSLSHA256", "d3/d3a/a04891.html", "d3/d3a/a04891" ],
-    [ "Lib::Crypto::WolfSSLRandom", "d7/d46/a04895.html", "d7/d46/a04895" ],
-    [ "Lib::Crypto::WolfSSLAesGcm", "d0/d0b/a04899.html", "d0/d0b/a04899" ],
-    [ "Lib::Crypto::WolfSSLChaCha20Poly1305", "df/d7b/a04903.html", "df/d7b/a04903" ],
-    [ "Lib::Crypto::WolfSSLEcc", "d6/d45/a04907.html", "d6/d45/a04907" ],
-    [ "Lib::Crypto::WolfSSLRsa", "d7/dda/a04911.html", "d7/dda/a04911" ],
-    [ "Lib::Crypto::WolfSSLDh", "da/dea/a04915.html", "da/dea/a04915" ],
-    [ "Lib::Crypto::WolfSSLDh::Config", "d4/d8a/a04919.html", "d4/d8a/a04919" ]
+    [ "Lib::Crypto::WolfSSH", "d9/dd0/a04882.html", "d9/dd0/a04882" ],
+    [ "Lib::Crypto::WolfSSHServerContext", "d1/d58/a04886.html", "d1/d58/a04886" ],
+    [ "Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;", "d1/d0b/a04890.html", "d1/d0b/a04890" ],
+    [ "Lib::Crypto::WolfSSHKeyFormat", "de/def/a01016.html#ac3c925af062f5b22fa21eff3b0af0542", [
+      [ "Lib::Crypto::WolfSSHKeyFormat::ASN1", "de/def/a01016.html#ac3c925af062f5b22fa21eff3b0af0542a4638457c14ad3dac251404cf286de87c", null ],
+      [ "Lib::Crypto::WolfSSHKeyFormat::PEM", "de/def/a01016.html#ac3c925af062f5b22fa21eff3b0af0542ac888957bb6d2fe3bdac6000656d3e2fe", null ],
+      [ "Lib::Crypto::WolfSSHKeyFormat::OPENSSH", "de/def/a01016.html#ac3c925af062f5b22fa21eff3b0af0542a8767bfd1184dbf95fa5c63a77a626a1f", null ]
+    ] ],
+    [ "Lib::Crypto::WolfSSHStatus", "de/def/a01016.html#a173e4abd0ef87e757ea6dfe73552a7c3", [
+      [ "Lib::Crypto::WolfSSHStatus::SUCCESS", "de/def/a01016.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "Lib::Crypto::WolfSSHStatus::WOULD_BLOCK", "de/def/a01016.html#a173e4abd0ef87e757ea6dfe73552a7c3aabb57fd8245067368ea2a5cfb5577614", null ],
+      [ "Lib::Crypto::WolfSSHStatus::ERROR", "de/def/a01016.html#a173e4abd0ef87e757ea6dfe73552a7c3abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ]
 ];

@@ -1,6 +1,26 @@
 var a05294 =
 [
-    [ "accuracy", "d6/df3/a05294.html#aa17a71455f9bd1440b0bf99c5004098b", null ],
-    [ "latitude", "d6/df3/a05294.html#ab5d5264adb3c13568a8ee4331c2841ef", null ],
-    [ "longitude", "d6/df3/a05294.html#aa8afd767d3361b3550baeeabd34e3cdc", null ]
+    [ "MessageHeader", "de/dd6/a05298.html", "de/dd6/a05298" ],
+    [ "Command", "d6/df3/a05294.html#af1bf58d46a2365d039aa946466c931e4", [
+      [ "ECHO", "d6/df3/a05294.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409", null ],
+      [ "INPUTS", "d6/df3/a05294.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692", null ],
+      [ "OUTPUTS", "d6/df3/a05294.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70", null ]
+    ] ],
+    [ "Error", "d6/df3/a05294.html#af7acfca02d188807a9c220d5c0bfeda6", [
+      [ "OK", "d6/df3/a05294.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "COMMAND_NOT_SUPPORT", "d6/df3/a05294.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7", null ],
+      [ "EMPTY_MESSAGE", "d6/df3/a05294.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0", null ],
+      [ "INVALID_PAYLOAD_LENGTH", "d6/df3/a05294.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e", null ],
+      [ "INVALID_START_DELIMITER", "d6/df3/a05294.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c", null ]
+    ] ],
+    [ "UserProtocol", "d6/df3/a05294.html#ab11ca2634a103484248a6d8ea24a5407", null ],
+    [ "~UserProtocol", "d6/df3/a05294.html#ad2bb639951ce599fce10adfb65668d02", null ],
+    [ "build", "d6/df3/a05294.html#ae9170839094fc83686dd4af2244027fb", null ],
+    [ "echoCallback", "d6/df3/a05294.html#a3061aa5da161fa13a28466c38e0f725f", null ],
+    [ "getLastSentTimeStamp", "d6/df3/a05294.html#ad39a3a83a2a35aab8c09065f6ea63f0f", null ],
+    [ "handleIncomingMessageHeader", "d6/df3/a05294.html#aa78f9b31828d798a794fcd69e78f46e2", null ],
+    [ "handleOutputsUpdate", "d6/df3/a05294.html#a78c96c1519356f5ea3948970fff30d5c", null ],
+    [ "inputsUpdateCallback", "d6/df3/a05294.html#a26f74b072f3f808ae2a3374051efa833", null ],
+    [ "parse", "d6/df3/a05294.html#a5693bd9519902713725ab87ae72a635d", null ],
+    [ "updateNodeActivityCallback", "d6/df3/a05294.html#a9937ef06792e7b6d381e0b29d25c1f27", null ]
 ];

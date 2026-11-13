@@ -1,8 +1,9 @@
 var a05134 =
 [
-    [ "Frame0x8b", "d2/dc4/a05134.html#acc41ed2fe2b266bab2e062bcc97b33cc", null ],
-    [ "deliveryStatus", "d2/dc4/a05134.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
-    [ "discoveryStatus", "d2/dc4/a05134.html#a7b5c383aff55a80124e65ff4565eb114", null ],
-    [ "frameId", "d2/dc4/a05134.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
-    [ "transmitRetryCount", "d2/dc4/a05134.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
+    [ "writeTo", "d2/dc4/a05134.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
+    [ "atCommand", "d2/dc4/a05134.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
+    [ "dstAddr", "d2/dc4/a05134.html#a15159440eb1dacb4ae4b49aa36144863", null ],
+    [ "frameId", "d2/dc4/a05134.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
+    [ "parameters", "d2/dc4/a05134.html#a69a8b0f293677febe578417b21dbba6b", null ],
+    [ "remoteCommandOption", "d2/dc4/a05134.html#ae4922577edd7679e2964fb14f35bc919", null ]
 ];

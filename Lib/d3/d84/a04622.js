@@ -1,8 +1,13 @@
 var a04622 =
 [
-    [ "operator==", "d3/d84/a04622.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
-    [ "blue", "d3/d84/a04622.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
-    [ "green", "d3/d84/a04622.html#aaac4b49f8ced6f8a10842162f110217d", null ],
-    [ "red", "d3/d84/a04622.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
-    [ "white", "d3/d84/a04622.html#a272f822cae4bd3b8e993080e2317636e", null ]
+    [ "Bytes", "d3/d84/a04622.html#aaa924b52936a11a36f991b92270eb1b6", null ],
+    [ "Digest", "d3/d84/a04622.html#a97d15161e3e4d29994672b77e28ea856", null ],
+    [ "Message", "d3/d84/a04622.html#a8ba002cb2db8c1b57b6534f88d77e2ab", null ],
+    [ "Uid", "d3/d84/a04622.html#ab823c89537a28891f90d448eeb6122c1", null ],
+    [ "Result", "d3/d84/a04622.html#ae690657e7ab3cf073f0d03abc2ee488b", [
+      [ "VALID", "d3/d84/a04622.html#ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea", null ],
+      [ "BAD_FORMAT", "d3/d84/a04622.html#ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a", null ],
+      [ "UNKNOWN_KEY", "d3/d84/a04622.html#ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb", null ],
+      [ "BAD_SIGNATURE", "d3/d84/a04622.html#ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a", null ]
+    ] ]
 ];

@@ -1,13 +1,53 @@
 var a05310 =
 [
-    [ "Power", "d8/dfd/a05310.html#adc1702e7ac52bb69068e5e8ecbf6e8a0", null ],
-    [ "hardReset", "d8/dfd/a05310.html#a6a1664bee69930f3f8d778403049f169", null ],
-    [ "isAsleep", "d8/dfd/a05310.html#a7f5ffcd60077f5301b8c482643ff3734", null ],
-    [ "isOn", "d8/dfd/a05310.html#a519e1c974ae70888a9c0f482a7a3cb04", null ],
-    [ "isStatusHigh", "d8/dfd/a05310.html#a5b1da41da472e0013c235e0d8c7e8d60", null ],
-    [ "off", "d8/dfd/a05310.html#afacd720ee6665a0ee76b89217cef58f6", null ],
-    [ "on", "d8/dfd/a05310.html#a32442509f762d3d3f57170aff612e43c", null ],
-    [ "setSavingMode", "d8/dfd/a05310.html#aaef6df65f3317f464ad60a9052a221e8", null ],
-    [ "sleep", "d8/dfd/a05310.html#ac11b53601d39245d7d34159281d56277", null ],
-    [ "wakeUp", "d8/dfd/a05310.html#a28075867aa6275e580541805a3b9c19f", null ]
+    [ "Error", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001c", [
+      [ "OK", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001cae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "BUSY", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001ca802706a9238e2928077f97736854bad4", null ],
+      [ "ERR_SOCKNUM", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001ca34abc6e59da21971262c3a60e035ba99", null ],
+      [ "ERR_SOCKOPT", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001cae1f6fd1c7ef6b72b3b94353ad3517bf3", null ],
+      [ "ERR_SOCKINIT", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001ca4b319737d8b61c85aa6eb7d9fdcddd1a", null ],
+      [ "ERR_SOCKCLOSED", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001ca71ad4369ad66f2584fb17b74d049af14", null ],
+      [ "ERR_SOCKMODE", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001cafe75e1054b0c7bbe5fa2186ea464d3f2", null ],
+      [ "ERR_SOCKFLAG", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001ca23af1b49132885cb2c56a7d67c4e79c0", null ],
+      [ "ERR_SOCKSTATUS", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001cad49f78ec042e29b63490f63b2b594054", null ],
+      [ "ERR_ARG", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001cadf301313a57a02615e57c15975f542f3", null ],
+      [ "ERR_PORTZERO", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001ca6c8a8a03e4c0693fcf32d094dde0ace4", null ],
+      [ "ERR_IPINVALID", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001ca9a6387f0870648ef9313f883fe7b31f3", null ],
+      [ "ERR_TIMEOUT", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001cac82a27709efb1143b08da2cb97822fd5", null ],
+      [ "ERR_DATALEN", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001caa286ecf0be73a5827568be97a81915e5", null ],
+      [ "ERR_BUFFER", "d8/dfd/a05310.html#a380dcfcd5533c4e9ef6de2ff096e001ca8ba1c55fa143d60b015bd69d68b066a6", null ]
+    ] ],
+    [ "Flag", "d8/dfd/a05310.html#a0d014768676f3aad8b6fb7f3fc1390c1", [
+      [ "NONE", "d8/dfd/a05310.html#a0d014768676f3aad8b6fb7f3fc1390c1ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "ETHER_OWN", "d8/dfd/a05310.html#a0d014768676f3aad8b6fb7f3fc1390c1ad2cb9319791b06d1bcd17cb943dccaa4", null ],
+      [ "IGMP_VER2", "d8/dfd/a05310.html#a0d014768676f3aad8b6fb7f3fc1390c1af58f8978fc845fc3ba928200ba8a62c5", null ],
+      [ "TCP_NODELAY", "d8/dfd/a05310.html#a0d014768676f3aad8b6fb7f3fc1390c1ab36785ce5f09738234366e09ed7cf3d6", null ],
+      [ "MULTI_ENABLE", "d8/dfd/a05310.html#a0d014768676f3aad8b6fb7f3fc1390c1a362797564247e15cc626a84e708f821c", null ],
+      [ "BROAD_BLOCK", "d8/dfd/a05310.html#a0d014768676f3aad8b6fb7f3fc1390c1a9394dd73709262e8dec6b9078966d5a3", null ],
+      [ "MULTI_BLOCK", "d8/dfd/a05310.html#a0d014768676f3aad8b6fb7f3fc1390c1ac12159b7ce2eaa56ab33901cd14f98c8", null ],
+      [ "IPv6_BLOCK", "d8/dfd/a05310.html#a0d014768676f3aad8b6fb7f3fc1390c1a6e51818145e3ff3432f0f7d6ab8385c8", null ],
+      [ "UNI_BLOCK", "d8/dfd/a05310.html#a0d014768676f3aad8b6fb7f3fc1390c1af906afe858098760513bd3ad1f78290d", null ]
+    ] ],
+    [ "Protocol", "d8/dfd/a05310.html#ae8736b16f707b5eab4e3b478d387e876", [
+      [ "TCP", "d8/dfd/a05310.html#ae8736b16f707b5eab4e3b478d387e876ab136ef5f6a01d816991fe3cf7a6ac763", null ],
+      [ "UDP", "d8/dfd/a05310.html#ae8736b16f707b5eab4e3b478d387e876af5ef036b4d8b630721e51fe23489fbc9", null ]
+    ] ],
+    [ "~Socket", "d8/dfd/a05310.html#ac2f0fd113d5bb92e776ada0fe2f75482", null ],
+    [ "Socket", "d8/dfd/a05310.html#a90bdb940a1050a054183fce68efeea29", null ],
+    [ "Socket", "d8/dfd/a05310.html#a85b5d7a965e422a05f260881b4ffc90d", null ],
+    [ "close", "d8/dfd/a05310.html#aceb5a60dda0b217c6ad542b0d47d506f", null ],
+    [ "connect", "d8/dfd/a05310.html#aeb1476e26ab6ef49712fb65caa50d36f", null ],
+    [ "disconnect", "d8/dfd/a05310.html#ad37a146756c156ad8e2260fd365f652e", null ],
+    [ "getReceivedSize", "d8/dfd/a05310.html#a72dfcfecf8b48823fe28d796307ff8f1", null ],
+    [ "isClosed", "d8/dfd/a05310.html#a218b2c81d140f89b904a7949d18006e9", null ],
+    [ "isConnected", "d8/dfd/a05310.html#abc495c361b084580c05c1c4bc6a911b9", null ],
+    [ "listen", "d8/dfd/a05310.html#acfc03ed724f200638b3724ed9f780879", null ],
+    [ "open", "d8/dfd/a05310.html#a5c22959e560a5eaa8604f84f29ee30ea", null ],
+    [ "operator=", "d8/dfd/a05310.html#a04a010bc74d9b6e875f0264a9a8e4d72", null ],
+    [ "operator=", "d8/dfd/a05310.html#ac01a09266d0e69c571688576d341e706", null ],
+    [ "receive", "d8/dfd/a05310.html#aa735f52d670e2860ef9be8ca3bf62190", null ],
+    [ "receiveFrom", "d8/dfd/a05310.html#a3bbf2431e053697de08f63ebdcbd9906", null ],
+    [ "send", "d8/dfd/a05310.html#a9196d4613bd0d92ace988ad51cf34948", null ],
+    [ "sendTo", "d8/dfd/a05310.html#ac2a80cfdd007100c8bd011f716e50517", null ],
+    [ "Sockets", "d8/dfd/a05310.html#adf6639d046f29568f3db637dbbdd334f", null ]
 ];

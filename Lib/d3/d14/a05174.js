@@ -1,6 +1,8 @@
 var a05174 =
 [
-    [ "code", "d3/d14/a05174.html#a4d8eace811bd06ebbd23b48cdcd55a97", null ],
-    [ "index", "d3/d14/a05174.html#a3c1fc7598e3500d7f06ac23818fd80a3", null ],
-    [ "name", "d3/d14/a05174.html#adb71631f3f01cfe4b407c729d606608c", null ]
+    [ "Frame0x8b", "d3/d14/a05174.html#acc41ed2fe2b266bab2e062bcc97b33cc", null ],
+    [ "deliveryStatus", "d3/d14/a05174.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
+    [ "discoveryStatus", "d3/d14/a05174.html#a7b5c383aff55a80124e65ff4565eb114", null ],
+    [ "frameId", "d3/d14/a05174.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
+    [ "transmitRetryCount", "d3/d14/a05174.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
 ];

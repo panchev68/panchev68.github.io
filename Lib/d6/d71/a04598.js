@@ -1,6 +1,8 @@
 var a04598 =
 [
-    [ "operator==", "d6/d71/a04598.html#aaffc1273857ce092dc8ef57f2f569797", null ],
-    [ "address", "d6/d71/a04598.html#ad4d0d62f304ebdd08f759f363dd3932a", null ],
-    [ "value", "d6/d71/a04598.html#ac1e3de78a37a7229dfb525e2b82a1b4b", null ]
+    [ "chipSelectPin", "d6/d71/a04598.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
+    [ "irqPin", "d6/d71/a04598.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
+    [ "resetPin", "d6/d71/a04598.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
+    [ "rxGain", "d6/d71/a04598.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
+    [ "spiHandle", "d6/d71/a04598.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
 ];

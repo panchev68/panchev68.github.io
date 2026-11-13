@@ -1,12 +1,6 @@
 var a04682 =
 [
-    [ "debounceDuration", "d3/d49/a04682.html#a645398d022257454438fc47ce15fcdb9", null ],
-    [ "height", "d3/d49/a04682.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
-    [ "rotationFlipped", "d3/d49/a04682.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
-    [ "rotationNormal", "d3/d49/a04682.html#aa5b75686141869dfbbfb78febc4822aa", null ],
-    [ "width", "d3/d49/a04682.html#a36fe0a7ac1def2933216417d9c50860b", null ],
-    [ "xMax", "d3/d49/a04682.html#ad7faa3502a791114bf456c98c0dbf644", null ],
-    [ "xMin", "d3/d49/a04682.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
-    [ "yMax", "d3/d49/a04682.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
-    [ "yMin", "d3/d49/a04682.html#acda2f52d642f3f712c72b8046d83fa30", null ]
+    [ "pinHandle", "d3/d49/a04682.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
+    [ "timerHandler", "d3/d49/a04682.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
+    [ "updatePeriod", "d3/d49/a04682.html#a08c430ab4ab176b490c190835f89b3b0", null ]
 ];

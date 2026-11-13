@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['query_0',['Query',['../d1/d3c/a06148.html',1,'Lib::Digi::Core']]]
+  ['query_0',['Query',['../de/d49/a06155.html',1,'Lib::Digi::Core']]]
 ];

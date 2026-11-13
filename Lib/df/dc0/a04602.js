@@ -1,8 +1,9 @@
 var a04602 =
 [
-    [ "operator==", "df/dc0/a04602.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
-    [ "inPhaseMax", "df/dc0/a04602.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
-    [ "inPhaseMin", "df/dc0/a04602.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
-    [ "quadratureMax", "df/dc0/a04602.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
-    [ "quadratureMin", "df/dc0/a04602.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
+    [ "Interface", "df/dc0/a04602.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
+    [ "~Interface", "df/dc0/a04602.html#a66b65dc5b7f6571301b7491242361a95", null ],
+    [ "hardwareReset", "df/dc0/a04602.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
+    [ "initialize", "df/dc0/a04602.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
+    [ "send", "df/dc0/a04602.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
+    [ "sendReceive", "df/dc0/a04602.html#a2d9014fe08fb984de211efd021eb1f35", null ]
 ];

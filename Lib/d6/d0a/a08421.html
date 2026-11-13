@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: UserProtocol.hpp</title>
+<title>IAR EWARM Library: Protocol.hpp</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -112,38 +111,43 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d0a/a08421.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">UserProtocol.hpp</div></div>
+  <div class="headertitle"><div class="title">Protocol.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Ethernet user protocol: builds and parses the framed messages exchanged between the nodes.  
+<p>Digi API1 frame building, validation, parsing and dispatch to the response events.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Ethernet user protocol: builds and parses the framed messages exchanged between the nodes. </p>
-<p>A message is a 10-byte little-endian header (delimiter 0x7E, frame ID, timestamp, command, option, payload length) followed by the payload; one buffer may hold several messages. The header is written and read byte by byte, so the code needs no packed structure and no unaligned access, and does not allocate: messages are built into a caller buffer and parsed from a std::span.</p>
-<p>The class is a CRTP base. A derived class implements the callbacks it needs and may leave the others to the empty defaults of this class.</p>
+<div class="textblock"><p>Digi API1 frame building, validation, parsing and dispatch to the response events. </p>
+<p>Stateless: every buffer is supplied by the caller. The former singleton built outgoing frames into one static buffer before the driver took its send mutex, so two tasks sending at once could overwrite each other's frame.</p>
 <dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-10-13 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Ethernet/base/UserProtocol.hpp:</div>
+<dl class="section date"><dt>Date</dt><dd>2026-09-27 </dd></dl>
+</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Digi/Core/Protocol.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dc6/a08422.svg" width="579" height="116"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dc6/a08422.svg" width="3367" height="347"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><div class="textblock"><div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dc0/a08423.svg" width="850" height="576"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AEthernet_3A_3AUserProtocol_3C_20T_5FDERIVED_20_3E" id="r_Lib_3A_3AEthernet_3A_3AUserProtocol_3C_20T_5FDERIVED_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/dbd/a05291.html">Lib::Ethernet::UserProtocol&lt; T_DERIVED &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds and parses user protocol messages.  <a href="../../d8/dbd/a05291.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Lib_3A_3AEthernet_3A_3AUserProtocol_3C_20T_5FDERIVED_20_3E_3A_3AMessageHeader" id="r_Lib_3A_3AEthernet_3A_3AUserProtocol_3C_20T_5FDERIVED_20_3E_3A_3AMessageHeader"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d1/df2/a05295.html">Lib::Ethernet::UserProtocol&lt; T_DERIVED &gt;::MessageHeader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header of a message.  <a href="../../d1/df2/a05295.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3ADigi_3A_3ACore_3A_3AProtocol" id="r_Lib_3A_3ADigi_3A_3ACore_3A_3AProtocol"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/d80/a05114.html">Lib::Digi::Core::Protocol</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static helpers for the <a class="el" href="../../d3/ded/a01017.html" title="Digi/XBee radio module support.">Digi</a> API1 frame format: start delimiter, 16-bit length, frame data, checksum.  <a href="../../d5/d80/a05114.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../dd/d7a/a00990.html">Lib</a></td></tr>
-<tr class="memdesc:dd/d7a/a00990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AEthernet" id="r_Lib_3A_3AEthernet"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d6/dcd/a01023.html">Lib::Ethernet</a></td></tr>
-<tr class="memdesc:d6/dcd/a01023"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d6/dcd/a01023.html" title="Ethernet networking primitives.">Ethernet</a> networking primitives. <br /></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../da/d0a/a00993.html">Lib</a></td></tr>
+<tr class="memdesc:da/d0a/a00993"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
+<tr class="memitem:Lib_3A_3ADigi" id="r_Lib_3A_3ADigi"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d3/ded/a01017.html">Lib::Digi</a></td></tr>
+<tr class="memdesc:d3/ded/a01017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digi/XBee radio module support. <br /></td></tr>
+<tr class="memitem:Lib_3A_3ADigi_3A_3ACore" id="r_Lib_3A_3ADigi_3A_3ACore"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d43/a01020.html">Lib::Digi::Core</a></td></tr>
+<tr class="memdesc:d0/d43/a01020"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/d43/a01020.html" title="Core communication and protocol primitives for Digi devices.">Core</a> communication and protocol primitives for <a class="el" href="../../d3/ded/a01017.html" title="Digi/XBee radio module support.">Digi</a> devices. <br /></td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -158,7 +162,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_c7240d7295280eb9592be0a257cd939d.html">Ethernet</a></li><li class="navelem"><a href="../../dir_dd581b7014d308663732db4f4fef0b37.html">base</a></li><li class="navelem"><a href="../../d6/d0a/a08421.html">UserProtocol.hpp</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_67df2c65d6bc148cc049a48bf38d4002.html">Digi</a></li><li class="navelem"><a href="../../dir_023c5fb9efdc6821c9104ed99559a611.html">Core</a></li><li class="navelem"><a href="../../d6/d0a/a08421.html">Protocol.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

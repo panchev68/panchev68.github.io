@@ -1,7 +1,14 @@
 var a05878 =
 [
-    [ "isInverted", "d7/de5/a05878.html#a527ce99ad9135c5ee638b478e35031de", null ],
-    [ "isPresent", "d7/de5/a05878.html#adeb1badd28d6911fa7c0422e5278feef", null ],
-    [ "name", "d7/de5/a05878.html#aa93f171d58ca1b53c5c589d81d12bf17", null ],
-    [ "source", "d7/de5/a05878.html#a13e98c772a216681f6a95506ba77144a", null ]
+    [ "Config", "dc/df8/a05882.html", "dc/df8/a05882" ],
+    [ "State", "d7/de5/a05878.html#a7063555b30fb75832750a0361328040e", [
+      [ "ACTIVE", "d7/de5/a05878.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
+      [ "INACTIVE", "d7/de5/a05878.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
+      [ "DISABLED", "d7/de5/a05878.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
+    ] ],
+    [ "Sensor", "d7/de5/a05878.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
+    [ "getName", "d7/de5/a05878.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
+    [ "isActive", "d7/de5/a05878.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
+    [ "isPresent", "d7/de5/a05878.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
+    [ "read", "d7/de5/a05878.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
 ];

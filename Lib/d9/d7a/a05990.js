@@ -1,9 +1,6 @@
 var a05990 =
 [
-    [ "Tick", "d9/d7a/a05990.html#a73acf8fc8b1cd8e08ae680600c7644ed", null ],
-    [ "TickType", "d9/d7a/a05990.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
-    [ "TickCounter", "d9/d7a/a05990.html#a2e4f16891a303abf7194b28efe452c4b", null ],
-    [ "~TickCounter", "d9/d7a/a05990.html#a82caaf97a995139e4dc974230659be08", null ],
-    [ "TickCounter", "d9/d7a/a05990.html#a06b8da334970d2eee58bc03a57c34687", null ],
-    [ "operator=", "d9/d7a/a05990.html#ab51f397146bf8a3184476a1b302318e4", null ]
+    [ "autoStart", "d9/d7a/a05990.html#ab55e2272bf479804d0a0d2f1e6e5bed4", null ],
+    [ "name", "d9/d7a/a05990.html#aacc889d1a77591ed4d41f693a1ad15e7", null ],
+    [ "period", "d9/d7a/a05990.html#a72f5a204f1d7fe3831b3f7afddae31a7", null ]
 ];

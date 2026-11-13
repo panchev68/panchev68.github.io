@@ -1,7 +1,5 @@
 var a05978 =
 [
-    [ "Config", "d6/d4d/a05978.html#a3dd0c854864c93e37dcf898eac213cf9", null ],
-    [ "name", "d6/d4d/a05978.html#a573525e01a356a23378c06c203754517", null ],
-    [ "priority", "d6/d4d/a05978.html#a5d982f29a32e7d0b156f2ea79f36ef74", null ],
-    [ "stackSize", "d6/d4d/a05978.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
+    [ "previousValue", "d6/d4d/a05978.html#a18bbde03afa6705ff2164f33a694f539", null ],
+    [ "success", "d6/d4d/a05978.html#aaef68ed1b6e5e9f438c5faedf6306ca3", null ]
 ];

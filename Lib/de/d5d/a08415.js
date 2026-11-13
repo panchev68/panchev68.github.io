@@ -1,5 +1,5 @@
 var a08415 =
 [
-    [ "Lib::System::Storage&lt; T_DERIVED &gt;", "d1/dd7/a06039.html", "d1/dd7/a06039" ],
-    [ "Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;", "d3/df2/a06043.html", "d3/df2/a06043" ]
+    [ "Lib::XCOM::ServiceBase", "dc/d71/a06146.html", "dc/d71/a06146" ],
+    [ "Lib::XCOM::ServiceBase::Value64Handle", "d6/d30/a06150.html", "d6/d30/a06150" ]
 ];

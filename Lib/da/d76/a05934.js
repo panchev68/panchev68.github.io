@@ -1,9 +1,6 @@
 var a05934 =
 [
-    [ "DeepSleepLock", "da/d76/a05934.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
-    [ "~DeepSleepLock", "da/d76/a05934.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
-    [ "DeepSleepLock", "da/d76/a05934.html#a40925e50ac0805b094e04973ed61f50b", null ],
-    [ "DeepSleepLock", "da/d76/a05934.html#a653104e321c6b159eb7b5e5385d286ac", null ],
-    [ "operator=", "da/d76/a05934.html#a3523f9fd591310866af37223de2c32d3", null ],
-    [ "operator=", "da/d76/a05934.html#a10ab5d18c8a969841a27a2688604c55c", null ]
+    [ "deepSleepCount", "da/d76/a05934.html#ae80981e088a11d9e03983df5989a0c57", null ],
+    [ "deepSleepTicks", "da/d76/a05934.html#a1db12ec46a399abd96da0e8362daeb40", null ],
+    [ "lightSleepCount", "da/d76/a05934.html#a01c394457f049509658022904e7ace56", null ]
 ];

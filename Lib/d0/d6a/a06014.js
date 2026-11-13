@@ -1,7 +1,10 @@
 var a06014 =
 [
-    [ "current", "d0/d6a/a06014.html#a03c2002021ee39257b3712ebb21f9804", null ],
-    [ "irradiance", "d0/d6a/a06014.html#aeb4a3f32aa352d29093581039d36dd08", null ],
-    [ "temperature", "d0/d6a/a06014.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
-    [ "voltage", "d0/d6a/a06014.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
+    [ "maxPowerRef", "d0/d6a/a06014.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
+    [ "mppCurrentRef", "d0/d6a/a06014.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
+    [ "mppVoltageRef", "d0/d6a/a06014.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
+    [ "referenceIrradiance", "d0/d6a/a06014.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
+    [ "temperatureCoefficient", "d0/d6a/a06014.html#a199180804d52f432b3f8a4861146f827", null ],
+    [ "toleranceFactor", "d0/d6a/a06014.html#a94dbf0194f1c0097467e34c0605131d4", null ],
+    [ "updateInterval", "d0/d6a/a06014.html#a9a72ac9a78c42013979d67300e60de6d", null ]
 ];

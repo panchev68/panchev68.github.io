@@ -1,10 +1,6 @@
 var a00293 =
 [
-    [ "Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;", "d8/da0/a04627.html", "d8/da0/a04627" ],
-    [ "Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::Config", "de/d65/a04631.html", "de/d65/a04631" ],
-    [ "Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::RegisterWrite", "d5/d6d/a04635.html", "d5/d6d/a04635" ],
-    [ "Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::ADCRange", "d1/d30/a04639.html", "d1/d30/a04639" ],
-    [ "Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::WakeupDiagnostics", "da/de7/a04643.html", "da/de7/a04643" ],
-    [ "Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::WuComparatorSnapshot", "d3/df2/a04647.html", "d3/df2/a04647" ],
-    [ "Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::TxRxDiagnostics", "da/d47/a04651.html", "da/d47/a04651" ]
+    [ "Lib::BSP::RFID::NTAG21x::OriginalitySignature", "de/da0/a04626.html", "de/da0/a04626" ],
+    [ "Lib::BSP::RFID::NTAG21x::Uid", "dc/d81/a01006.html#a435a19683e1fb32e426add14e68d0076", null ],
+    [ "Lib::BSP::RFID::NTAG21x::UID_SIZE", "dc/d81/a01006.html#aafd94c6505eb4a0544cc89a0caee007d", null ]
 ];

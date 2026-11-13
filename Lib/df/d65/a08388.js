@@ -1,7 +1,7 @@
 var a08388 =
 [
-    [ "Lib::Canbus::ServiceBase", "d0/dfa/a04759.html", "d0/dfa/a04759" ],
-    [ "Lib::Canbus::ServiceBase::RxMessage", "de/d5f/a04763.html", "de/d5f/a04763" ],
-    [ "Lib::Canbus::ServiceBase::Node", "d6/d67/a04767.html", "d6/d67/a04767" ],
-    [ "Lib::Canbus::ServiceBase::Diagnostic", "d8/def/a04771.html", "d8/def/a04771" ]
+    [ "Lib::BSP::FMEM::OSPI::Config", "d4/d22/a04494.html", "d4/d22/a04494" ],
+    [ "Lib::BSP::FMEM::OSPI::Info", "dc/dd0/a04498.html", "dc/dd0/a04498" ],
+    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ", "d7/dba/a04502.html", "d7/dba/a04502" ],
+    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register", "d8/d4c/a04506.html", "d8/d4c/a04506" ]
 ];

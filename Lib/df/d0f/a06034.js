@@ -1,10 +1,14 @@
 var a06034 =
 [
-    [ "VersionString", "df/d0f/a06034.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
-    [ "FirmwareVersion", "df/d0f/a06034.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
-    [ "getSubVersion", "df/d0f/a06034.html#a74bafacd182d3ccff4da47e5aac54408", null ],
-    [ "getValue", "df/d0f/a06034.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
-    [ "operator uint32_t", "df/d0f/a06034.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
-    [ "operator VersionString", "df/d0f/a06034.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
-    [ "toString", "df/d0f/a06034.html#ac82dd7d67829e33f61b3625626f44742", null ]
+    [ "Bitset", "df/d0f/a06034.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
+    [ "Status", "df/d0f/a06034.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
+      [ "OK", "df/d0f/a06034.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "df/d0f/a06034.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Configuration", "df/d0f/a06034.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
+    [ "isEmpty", "df/d0f/a06034.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
+    [ "isValid", "df/d0f/a06034.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
+    [ "read", "df/d0f/a06034.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
+    [ "write", "df/d0f/a06034.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
+    [ "flashAddress", "df/d0f/a06034.html#a889c51a86228ce8b18804cb2b455d889", null ]
 ];

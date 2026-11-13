@@ -1,12 +1,22 @@
 var a04686 =
 [
-    [ "FreeFunctionPointer", "d8/d20/a04686.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d8/d20/a04686.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d8/d20/a04686.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "d8/d20/a04686.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d8/d20/a04686.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d8/d20/a04686.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d8/d20/a04686.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d8/d20/a04686.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d8/d20/a04686.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "Diagnostic", "d8/d18/a04690.html", "d8/d18/a04690" ],
+    [ "PinHandle", "d8/d20/a04686.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
+    [ "Driver", "d8/d20/a04686.html#ab07845254f409b109812886c271c23fd", null ],
+    [ "~Driver", "d8/d20/a04686.html#a0d29d1fa0f72b7e7ee12c096389e8711", null ],
+    [ "beginReceiveData", "d8/d20/a04686.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
+    [ "endReceivedData", "d8/d20/a04686.html#a63785a9b88d7556f54e1e71118a760d4", null ],
+    [ "getHumidity", "d8/d20/a04686.html#af1b0389aae714142b8a606106d0a4a56", null ],
+    [ "getRawHumidity", "d8/d20/a04686.html#a3e8dacb5fd8d85536ca9a3c31f6feffd", null ],
+    [ "getRawTemperature", "d8/d20/a04686.html#ab776af450b94ccff9151de29e820c940", null ],
+    [ "getTemperature", "d8/d20/a04686.html#ae20843f3a9105a0d355f64cdb1096f9c", null ],
+    [ "hasNewData", "d8/d20/a04686.html#a1bc076c8cc5e10883a332ef5f6a090ee", null ],
+    [ "isValidData", "d8/d20/a04686.html#a76b28ab92569b5bf36888ef2cb155f63", null ],
+    [ "start", "d8/d20/a04686.html#a7bb2909673708c9ad956bc98034da91d", null ],
+    [ "startupImpulse", "d8/d20/a04686.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
+    [ "waitForComplete", "d8/d20/a04686.html#a9b5b96a6106c15c974463750529471d0", null ],
+    [ "writePinState", "d8/d20/a04686.html#a049430e063b46db8f7e7401c0af75df7", null ],
+    [ "Base< Driver< Type::DTH22 > >", "d8/d20/a04686.html#a563861f233361c18a30fd9049d7abd7a", null ],
+    [ "config", "d8/d20/a04686.html#a3b31347dab82ede045f6e076046e5762", null ],
+    [ "diagnostic", "d8/d20/a04686.html#a641741551ee87f815b7ca238c2fce09c", null ]
 ];

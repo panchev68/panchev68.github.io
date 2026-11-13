@@ -1,14 +1,7 @@
 var a06018 =
 [
-    [ "Config", "d0/da6/a06022.html", "d0/da6/a06022" ],
-    [ "Measurement", "d0/dbe/a06026.html", "d0/dbe/a06026" ],
-    [ "Direction", "de/d60/a06018.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
-      [ "DOWN", "de/d60/a06018.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
-      [ "UP", "de/d60/a06018.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
-    ] ],
-    [ "PerturbAndObserve", "de/d60/a06018.html#a7e1626362f778f8b7e085cdc41794a67", null ],
-    [ "getVoltageSetpoint", "de/d60/a06018.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
-    [ "reset", "de/d60/a06018.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
-    [ "setStepSize", "de/d60/a06018.html#a121c7b229d119d0ee55cd0b855065350", null ],
-    [ "update", "de/d60/a06018.html#ab0587469fdbaa626d9f751ef04255627", null ]
+    [ "current", "de/d60/a06018.html#a03c2002021ee39257b3712ebb21f9804", null ],
+    [ "irradiance", "de/d60/a06018.html#aeb4a3f32aa352d29093581039d36dd08", null ],
+    [ "temperature", "de/d60/a06018.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
+    [ "voltage", "de/d60/a06018.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
 ];

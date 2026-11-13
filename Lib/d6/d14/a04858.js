@@ -1,11 +1,12 @@
 var a04858 =
 [
-    [ "WolfSSLRandom", "d6/d14/a04858.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
-    [ "~WolfSSLRandom", "d6/d14/a04858.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
-    [ "WolfSSLRandom", "d6/d14/a04858.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
-    [ "WolfSSLRandom", "d6/d14/a04858.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
-    [ "generate", "d6/d14/a04858.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
-    [ "native", "d6/d14/a04858.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
-    [ "operator=", "d6/d14/a04858.html#a2b57fbc329feeb209aa7f41b29608488", null ],
-    [ "operator=", "d6/d14/a04858.html#a61facc5365a377d384371cb51442e897", null ]
+    [ "FreeFunctionPointer", "d6/d14/a04858.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "d6/d14/a04858.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "d6/d14/a04858.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "invoke", "d6/d14/a04858.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "d6/d14/a04858.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "d6/d14/a04858.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "d6/d14/a04858.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "d6/d14/a04858.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "d6/d14/a04858.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

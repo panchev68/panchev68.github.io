@@ -1,4 +1,4 @@
 var a00761 =
 [
-    [ "Lib::HAL::USBHostPort&lt; DriverMode::DMA &gt;", "d7/d3b/a05643.html", "d7/d3b/a05643" ]
+    [ "Lib::HAL::USBDevicePortBase&lt; T_DERIVED &gt;", "d9/d43/a05642.html", "d9/d43/a05642" ]
 ];

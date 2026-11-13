@@ -1,19 +1,15 @@
 var a05234 =
 [
-    [ "CANPort", "d6/de6/a05234.html#adc087231856d1ec6bde6f97494503899", null ],
-    [ "~CANPort", "d6/de6/a05234.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
-    [ "CANPort", "d6/de6/a05234.html#afceeecde4eb91455d12a7305342e889a", null ],
-    [ "CANPort", "d6/de6/a05234.html#a91653fb9445c55c224e60742c91718a2", null ],
-    [ "close", "d6/de6/a05234.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
-    [ "getFreeTxMailboxCount", "d6/de6/a05234.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getHandle", "d6/de6/a05234.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
-    [ "getHandle", "d6/de6/a05234.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
-    [ "getRxFifoFillLevel", "d6/de6/a05234.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "d6/de6/a05234.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
-    [ "operator=", "d6/de6/a05234.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
-    [ "operator=", "d6/de6/a05234.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
-    [ "read", "d6/de6/a05234.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "readBlocking", "d6/de6/a05234.html#a49854c8fa3a47517562c6761363bb281", null ],
-    [ "write", "d6/de6/a05234.html#a65aa681fa591b2d0956e06e67e990b15", null ],
-    [ "writeBlocking", "d6/de6/a05234.html#a290a918dfefeea6aab3500acb68b90de", null ]
+    [ "dnsIp", "d6/de6/a05234.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
+    [ "dnsName", "d6/de6/a05234.html#a2b21f67fcea486054df4fbece648ef7f", null ],
+    [ "gateway", "d6/de6/a05234.html#ae526dc3391066f8447e665e962d7f3e1", null ],
+    [ "hasDnsIp", "d6/de6/a05234.html#ab1307f2487c4d9d8a056679335c62d47", null ],
+    [ "hasDnsName", "d6/de6/a05234.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
+    [ "hasGateway", "d6/de6/a05234.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
+    [ "hasIp", "d6/de6/a05234.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
+    [ "hasMac", "d6/de6/a05234.html#a44b23d072f52c270d4c722d93a8b6117", null ],
+    [ "hasSubnet", "d6/de6/a05234.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
+    [ "ip", "d6/de6/a05234.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
+    [ "mac", "d6/de6/a05234.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
+    [ "subnet", "d6/de6/a05234.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
 ];

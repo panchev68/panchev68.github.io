@@ -1,4 +1,4 @@
 var a00560 =
 [
-    [ "Lib::HAL::CANPort&lt; DriverMode::BLOCKING &gt;", "df/d5e/a05351.html", "df/d5e/a05351" ]
+    [ "Lib::HAL::BackupRamDomain", "d7/d24/a05350.html", "d7/d24/a05350" ]
 ];

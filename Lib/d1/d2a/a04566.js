@@ -1,14 +1,27 @@
 var a04566 =
 [
-    [ "Mifare", "d1/d2a/a04566.html#a32c5c26548db5a62c135d462408f7eb8", null ],
-    [ "~Mifare", "d1/d2a/a04566.html#ab9292dbd07d2f2f0a579729beadce81a", null ],
-    [ "adjustValue", "d1/d2a/a04566.html#ae63c40816081c83b32237540fa351d20", null ],
-    [ "authenticate", "d1/d2a/a04566.html#a646ed2b83f740acca2902cf2bd94584a", null ],
-    [ "decrement", "d1/d2a/a04566.html#ad4aef0d4dd5dd87530916fd4e7899410", null ],
-    [ "formatValueBlock", "d1/d2a/a04566.html#ae321e9f7437818d3481f77afa3da63ec", null ],
-    [ "increment", "d1/d2a/a04566.html#a419ae2e457e93dfb3ad77a301758f796", null ],
-    [ "readBlock", "d1/d2a/a04566.html#ac2dfd03cabc019b9f3bf484f8affa113", null ],
-    [ "restore", "d1/d2a/a04566.html#a7dee5ed9db810229e38b0299ec1ed31a", null ],
-    [ "transfer", "d1/d2a/a04566.html#a7eac216ac4049cd65471896003a0d925", null ],
-    [ "writeBlock", "d1/d2a/a04566.html#a602509a99b488ae6354b4c75e9335610", null ]
+    [ "Mode", "d1/d2a/a04566.html#a1daedc54cbed94813a3f5a28788f02ee", [
+      [ "READ", "d1/d2a/a04566.html#a1daedc54cbed94813a3f5a28788f02eea3466fab4975481651940ed328aa990e4", null ],
+      [ "WRITE", "d1/d2a/a04566.html#a1daedc54cbed94813a3f5a28788f02eead4b9e47f65b6e79b010582f15785867e", null ],
+      [ "APPEND", "d1/d2a/a04566.html#a1daedc54cbed94813a3f5a28788f02eea375ffb668aa90f1c7fcae55e9734a752", null ]
+    ] ],
+    [ "Origin", "d1/d2a/a04566.html#a24d9949178c04dbff8a51a46404f5274", [
+      [ "BEGIN", "d1/d2a/a04566.html#a24d9949178c04dbff8a51a46404f5274a19aad9f2fe3ce0023298ab83f7e75775", null ],
+      [ "CURRENT", "d1/d2a/a04566.html#a24d9949178c04dbff8a51a46404f5274aa2770969c827f0f2910f6179418462df", null ],
+      [ "END", "d1/d2a/a04566.html#a24d9949178c04dbff8a51a46404f5274ab1a326c06d88bf042f73d70f50197905", null ]
+    ] ],
+    [ "File", "d1/d2a/a04566.html#a82552ae5d2d082b01cc048b6d5f28504", null ],
+    [ "~File", "d1/d2a/a04566.html#a8d5bf6c606ffd1d8d17f5d6bba29157a", null ],
+    [ "File", "d1/d2a/a04566.html#a25edad5fbc94c04a5121f75434361dfe", null ],
+    [ "File", "d1/d2a/a04566.html#ab85d612b0acb279719a29f07ec991d48", null ],
+    [ "close", "d1/d2a/a04566.html#a7c0a91066586518abbef60479f08ec66", null ],
+    [ "isOpen", "d1/d2a/a04566.html#a90b350290b06d5ee2cf1d7b325804454", null ],
+    [ "open", "d1/d2a/a04566.html#a96670932bba49251bcc459dac43017a1", null ],
+    [ "operator=", "d1/d2a/a04566.html#a095369cd880af04d889d44d6edb4ffe4", null ],
+    [ "operator=", "d1/d2a/a04566.html#adff8a97f3267437e7baa45a767cf3a3c", null ],
+    [ "read", "d1/d2a/a04566.html#ab53db1c5f8ccb661295ce0203e34d7ec", null ],
+    [ "seek", "d1/d2a/a04566.html#a66b6ed3c3e1e592174dc4ff92dfe8cd5", null ],
+    [ "size", "d1/d2a/a04566.html#ae432dc9450887014c08de3cc35287be2", null ],
+    [ "tell", "d1/d2a/a04566.html#aca9142e54a9033aeac167cdd5a56cd8b", null ],
+    [ "write", "d1/d2a/a04566.html#ad841aa788c7ebf36c0d12b1ded803d60", null ]
 ];

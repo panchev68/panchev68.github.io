@@ -1,12 +1,9 @@
 var a04690 =
 [
-    [ "FreeFunctionPointer", "d8/d18/a04690.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d8/d18/a04690.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d8/d18/a04690.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "d8/d18/a04690.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d8/d18/a04690.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d8/d18/a04690.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d8/d18/a04690.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d8/d18/a04690.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d8/d18/a04690.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "calculatedChecksum", "d8/d18/a04690.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
+    [ "frameChecksum", "d8/d18/a04690.html#afd2a7854bded2de4881565573fc0d9b1", null ],
+    [ "invalidFrameChecksum", "d8/d18/a04690.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
+    [ "invalidHumidity", "d8/d18/a04690.html#a97069f405d3773e81b9930425efc8d74", null ],
+    [ "invalidTemperature", "d8/d18/a04690.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
+    [ "receivedTimeout", "d8/d18/a04690.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
 ];

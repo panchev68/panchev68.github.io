@@ -1,7 +1,7 @@
 var a00611 =
 [
-    [ "Lib::HAL::GPIO::PinConfig", "d8/ddb/a05415.html", "d8/ddb/a05415" ],
-    [ "Lib::HAL::GPIO::Handle", "d5/dc5/a05419.html", "d5/dc5/a05419" ],
-    [ "PIN", "dd/dc0/a00611.html#a45dbeff58bd7e046067745552ea8044c", null ],
-    [ "PinHandle", "dd/dc0/a00611.html#acd389cc92a6a175118816d170af42e10", null ]
+    [ "Lib::HAL::GPIO::ExtInterrupt", "d3/d53/a05410.html", "d3/d53/a05410" ],
+    [ "HAL_GPIO_EXTI_Callback", "dd/dc0/a00611.html#af02d5f52d29caba0ba168f5c53539c8f", null ],
+    [ "HAL_GPIO_EXTI_Falling_Callback", "dd/dc0/a00611.html#a7088bd2852f337d068757b9779e01ca2", null ],
+    [ "HAL_GPIO_EXTI_Rising_Callback", "dd/dc0/a00611.html#a1b34b49712495210a4de76520345e0a7", null ]
 ];

@@ -1,4 +1,4 @@
 var a08427 =
 [
-    [ "Lib::HAL::GPIO::Port", "d7/d4f/a05431.html", "d7/d4f/a05431" ]
+    [ "Lib::Communication::Modbus::Slave", "d6/df5/a04826.html", "d6/df5/a04826" ]
 ];

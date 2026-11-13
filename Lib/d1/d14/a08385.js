@@ -1,4 +1,4 @@
 var a08385 =
 [
-    [ "Lib::Digi::API::ServerBase&lt; Derived &gt;", "db/d40/a04987.html", "db/d40/a04987" ]
+    [ "Lib::BSP::RFID::Interface", "df/dc0/a04602.html", "df/dc0/a04602" ]
 ];

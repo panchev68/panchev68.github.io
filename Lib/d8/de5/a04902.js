@@ -1,26 +1,13 @@
 var a04902 =
 [
-    [ "Mode", "d8/de5/a04902.html#a46b4913da28daeccef03e456b1d3a101", [
-      [ "RUNTIME", "d8/de5/a04902.html#a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8", null ],
-      [ "SCANNER", "d8/de5/a04902.html#a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d", null ]
-    ] ],
-    [ "State", "d8/de5/a04902.html#af7ac77ba20da5be346e1d3948da5de72", [
-      [ "DISCONNECTED", "d8/de5/a04902.html#af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785", null ],
-      [ "UNUSABLE", "d8/de5/a04902.html#af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e", null ],
-      [ "NOT_GOOD", "d8/de5/a04902.html#af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4", null ],
-      [ "OKAY", "d8/de5/a04902.html#af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734", null ],
-      [ "VERY_GOOD", "d8/de5/a04902.html#af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347", null ],
-      [ "AMAZING", "d8/de5/a04902.html#af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9", null ]
-    ] ],
-    [ "Quality", "d8/de5/a04902.html#addae8d177e3be6cf88efd4277f317ef7", null ],
-    [ "clear", "d8/de5/a04902.html#a609bf11d7132e415fcbb42bdb189c438", null ],
-    [ "getPercent", "d8/de5/a04902.html#a58d1f865ff5385df9120089b3b9be020", null ],
-    [ "getState", "d8/de5/a04902.html#acc0dd49fae439b6a503f21d2c2296569", null ],
-    [ "onExchange", "d8/de5/a04902.html#a889bc1271f7b0cf758338c7ee2514554", null ],
-    [ "onRssi", "d8/de5/a04902.html#acd7a4f8340c849e6247997e1fff9b177", null ],
-    [ "setRuntimeMode", "d8/de5/a04902.html#a55bae7d188caa41cd85b5960bc80b4c9", null ],
-    [ "setScannerMode", "d8/de5/a04902.html#a94bf3ed338180ddd04fe888b204907c7", null ],
-    [ "start", "d8/de5/a04902.html#ad5e27604826fa9613e36ac6186b344bb", null ],
-    [ "update", "d8/de5/a04902.html#a74c56a3babe14b32b8d4362d4e3ace1f", null ],
-    [ "onUpdate", "d8/de5/a04902.html#a6f2e37a3261d7339927cb06d1b32fa02", null ]
+    [ "Tag", "d8/de5/a04902.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
+    [ "WolfSSLAesGcm", "d8/de5/a04902.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
+    [ "~WolfSSLAesGcm", "d8/de5/a04902.html#a032c38854a99ed5c5a281809583c4bad", null ],
+    [ "WolfSSLAesGcm", "d8/de5/a04902.html#a0948de3456c47ec4fcfdda7f14014566", null ],
+    [ "WolfSSLAesGcm", "d8/de5/a04902.html#ae6206c63d09568b82e1efae3379c82d7", null ],
+    [ "decrypt", "d8/de5/a04902.html#a70889db1697fa4212becb3acfb87a2a4", null ],
+    [ "encrypt", "d8/de5/a04902.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
+    [ "open", "d8/de5/a04902.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
+    [ "operator=", "d8/de5/a04902.html#ab46183fdc3c915e95383d1216aac9109", null ],
+    [ "operator=", "d8/de5/a04902.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
 ];

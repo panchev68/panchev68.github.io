@@ -1,9 +1,9 @@
 var a05894 =
 [
-    [ "CriticalSection", "db/d9c/a05894.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
-    [ "~CriticalSection", "db/d9c/a05894.html#a4a507b226238920b8fae903a5bd87776", null ],
-    [ "CriticalSection", "db/d9c/a05894.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
-    [ "CriticalSection", "db/d9c/a05894.html#a9de7a81409af7b28d1da974ded4a7688", null ],
-    [ "operator=", "db/d9c/a05894.html#aabac4732503c72da02f8e49754bbc736", null ],
-    [ "operator=", "db/d9c/a05894.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
+    [ "CriticalSectionFromISR", "db/d9c/a05894.html#a94cda37183a61f5455dc5e641bcb5109", null ],
+    [ "~CriticalSectionFromISR", "db/d9c/a05894.html#a54e463ae72e1238776194c4cb941357b", null ],
+    [ "CriticalSectionFromISR", "db/d9c/a05894.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
+    [ "CriticalSectionFromISR", "db/d9c/a05894.html#a9d04ea07249455e75c39ce5450c33028", null ],
+    [ "operator=", "db/d9c/a05894.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
+    [ "operator=", "db/d9c/a05894.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
 ];

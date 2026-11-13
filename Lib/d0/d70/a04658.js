@@ -1,19 +1,12 @@
 var a04658 =
 [
-    [ "Config", "dd/d22/a04662.html", "dd/d22/a04662" ],
-    [ "Resolution", "d0/d70/a04658.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
-      [ "BITS_9", "d0/d70/a04658.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
-      [ "BITS_10", "d0/d70/a04658.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
-      [ "BITS_11", "d0/d70/a04658.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
-      [ "BITS_12", "d0/d70/a04658.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
-    ] ],
-    [ "DS18B20", "d0/d70/a04658.html#a6e8835c62b13a615346d69068ee41c97", null ],
-    [ "~DS18B20", "d0/d70/a04658.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
-    [ "close", "d0/d70/a04658.html#aab038c628d13a5369429107b4be42b3d", null ],
-    [ "getResolution", "d0/d70/a04658.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
-    [ "isGenuineDevice", "d0/d70/a04658.html#ae8e710761fe8b7931ba5d6893456b4a2", null ],
-    [ "isPresent", "d0/d70/a04658.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
-    [ "open", "d0/d70/a04658.html#a1dc439d417a53a57d054f811cf33402d", null ],
-    [ "readRom", "d0/d70/a04658.html#a26a1ebc99132937ee58668fd12c26263", null ],
-    [ "readTemperatureCelsius", "d0/d70/a04658.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
+    [ "Data", "dd/d22/a04662.html", "dd/d22/a04662" ],
+    [ "Color", "d0/d70/a04658.html#a50992f4d62f0c135ac06fb09295272a9", null ],
+    [ "Color", "d0/d70/a04658.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
+    [ "Color", "d0/d70/a04658.html#a484309c52934f9c23460c4fe57f45530", null ],
+    [ "clear", "d0/d70/a04658.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
+    [ "get", "d0/d70/a04658.html#a4ad28e997f34f1873bf233a5d004e340", null ],
+    [ "getPacked", "d0/d70/a04658.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
+    [ "set", "d0/d70/a04658.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
+    [ "set", "d0/d70/a04658.html#ac8926773deb153f9281f4e235896e4a0", null ]
 ];

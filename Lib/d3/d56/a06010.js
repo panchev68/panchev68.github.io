@@ -1,10 +1,12 @@
 var a06010 =
 [
-    [ "maxPowerRef", "d3/d56/a06010.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
-    [ "mppCurrentRef", "d3/d56/a06010.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
-    [ "mppVoltageRef", "d3/d56/a06010.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
-    [ "referenceIrradiance", "d3/d56/a06010.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
-    [ "temperatureCoefficient", "d3/d56/a06010.html#a199180804d52f432b3f8a4861146f827", null ],
-    [ "toleranceFactor", "d3/d56/a06010.html#a94dbf0194f1c0097467e34c0605131d4", null ],
-    [ "updateInterval", "d3/d56/a06010.html#a9a72ac9a78c42013979d67300e60de6d", null ]
+    [ "ReferenceParameters", "d0/d6a/a06014.html", "d0/d6a/a06014" ],
+    [ "Measurement", "de/d60/a06018.html", "de/d60/a06018" ],
+    [ "MaxPowerEstimator", "d3/d56/a06010.html#a434bc885ae98e175c94cc0274463e3e5", null ],
+    [ "MPPT", "d3/d56/a06010.html#aedf986308c8dd799d4771f32d446ee01", null ],
+    [ "getIrradianceCoefficient", "d3/d56/a06010.html#a55a3b7a18c79deb5568e627889f76b86", null ],
+    [ "getTolerance", "d3/d56/a06010.html#a0ac8d81cbc06a7045f43424b16871253", null ],
+    [ "getVoltageSetpoint", "d3/d56/a06010.html#a455584e52b5677fe4bce93e58e80ca38", null ],
+    [ "setMaxPowerEstimationFunction", "d3/d56/a06010.html#abc619561c7180e6c69b8282c58157857", null ],
+    [ "update", "d3/d56/a06010.html#ad36e9d2ea685d45133e207a156fb76cb", null ]
 ];

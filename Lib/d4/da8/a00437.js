@@ -1,4 +1,4 @@
 var a00437 =
 [
-    [ "Lib::Digi::Core::Module", "da/d41/a05107.html", "da/d41/a05107" ]
+    [ "Lib::Digi::Core::ModemStatus", "d1/ddb/a05106.html", "d1/ddb/a05106" ]
 ];

@@ -1,7 +1,6 @@
 var a05086 =
 [
-    [ "writeTo", "d2/d69/a05086.html#a0fbf65ec7ca7d7ad1b75517bab647edd", null ],
-    [ "atCommand", "d2/d69/a05086.html#a270978a96cccd4b3ef127d536cde4a6d", null ],
-    [ "frameId", "d2/d69/a05086.html#a714c8902b6e8cc0a5f0265f4f1af9c84", null ],
-    [ "parameters", "d2/d69/a05086.html#aaf51e64f47cc8a54064df71903a793bb", null ]
+    [ "lengthLSB", "d2/d69/a05086.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
+    [ "lengthMSB", "d2/d69/a05086.html#a975df99244301d7a71b2c326555ba6fd", null ],
+    [ "startDelimiter", "d2/d69/a05086.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
 ];

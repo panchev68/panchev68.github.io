@@ -1,7 +1,4 @@
 var a00581 =
 [
-    [ "Lib::HAL::DriverDataDirection", "db/d23/a01025.html#a82754326f2fd3bd32ea447c756ec2825", [
-      [ "Lib::HAL::DriverDataDirection::RX", "db/d23/a01025.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046", null ],
-      [ "Lib::HAL::DriverDataDirection::TX", "db/d23/a01025.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49", null ]
-    ] ]
+    [ "Lib::HAL::isDmaReachable", "db/d08/a01028.html#a6d025716096ef0a5098ff9db2688b2da", null ]
 ];

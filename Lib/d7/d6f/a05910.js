@@ -1,15 +1,8 @@
 var a05910 =
 [
-    [ "Status", "d7/d6f/a05910.html#a12545d9824f6613ee89191861f120584", [
-      [ "SUCCESS", "d7/d6f/a05910.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "INVALID_SIZE", "d7/d6f/a05910.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
-      [ "OUT_OF_MEMORY", "d7/d6f/a05910.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
-      [ "SIZE_TOO_LARGE", "d7/d6f/a05910.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
-    ] ],
-    [ "MemoryManager", "d7/d6f/a05910.html#a11985e607e9d0df1a66531314e37b38b", null ],
-    [ "~MemoryManager", "d7/d6f/a05910.html#a71e750b42ae7c18640c58654a6e54687", null ],
-    [ "MemoryManager", "d7/d6f/a05910.html#a7045943a317adab019e38e7c6bf2de73", null ],
-    [ "MemoryManager", "d7/d6f/a05910.html#a89bca016476ef966223eb6841d5cc034", null ],
-    [ "operator=", "d7/d6f/a05910.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
-    [ "operator=", "d7/d6f/a05910.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
+    [ "allocations", "d7/d6f/a05910.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
+    [ "freeHeap", "d7/d6f/a05910.html#a944d10ce32d8114a8a1349e2582022bd", null ],
+    [ "frees", "d7/d6f/a05910.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
+    [ "minimumFreeHeap", "d7/d6f/a05910.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
+    [ "totalHeap", "d7/d6f/a05910.html#a83580325c3df5098f79f23bd212fb20a", null ]
 ];

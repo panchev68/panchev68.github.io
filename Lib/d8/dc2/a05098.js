@@ -1,7 +1,13 @@
 var a05098 =
 [
-    [ "FrameWriter", "d8/dc2/a05098.html#a59412dd23cc927bfec3c14e563ce00ac", null ],
-    [ "put", "d8/dc2/a05098.html#a08ff6a358e2a048f64a0d79be8a77a3a", null ],
-    [ "put", "d8/dc2/a05098.html#afa16c8a90132f75fc0ca2fec2864fc19", null ],
-    [ "put", "d8/dc2/a05098.html#abb5db27849ce33eefe7c66d078a1372b", null ]
+    [ "Command", "d8/dc2/a05098.html#ad7de9040ab35a62c524e02edb5857497", null ],
+    [ "LocalAtCommand", "d8/dc2/a05098.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
+    [ "LocalAtCommand", "d8/dc2/a05098.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
+    [ "close", "d8/dc2/a05098.html#a5c97cd2a002f63083302783169a633fb", null ],
+    [ "isOpen", "d8/dc2/a05098.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
+    [ "open", "d8/dc2/a05098.html#a01489f683e248d7c2af355b8f1cd8992", null ],
+    [ "operator=", "d8/dc2/a05098.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
+    [ "receive", "d8/dc2/a05098.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
+    [ "send", "d8/dc2/a05098.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
+    [ "send", "d8/dc2/a05098.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
 ];

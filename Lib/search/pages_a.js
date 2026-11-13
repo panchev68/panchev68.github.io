@@ -5,7 +5,7 @@ var searchData=
   ['library_2',['IAR EWARM Library',['../index.html',1,'']]],
   ['lifecycle_3',['lifecycle',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_config',1,'Construction and lifecycle'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_OSPI.dox#ospi_usage_setup',1,'Setup and lifecycle'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_UART.dox#uart_usage_setup',1,'Setup and lifecycle']]],
   ['like_20value_20to_20percentage_4',['Floating dBm-like value to percentage',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_dBM.dox#dbm_usage_percent',1,'']]],
-  ['list_5',['Deprecated List',['../db/d20/a00980.html',1,'']]],
+  ['list_5',['Deprecated List',['../d7/d98/a00983.html',1,'']]],
   ['local_20time_20to_20utc_20minutes_6',['Local time to UTC minutes',['../X:/Lib/IAR/Project/Examples/Lib_Helper_TimeZone.dox#timezone_usage_convert',1,'']]],
   ['lock_7',['lock',['../X:/Lib/IAR/Project/Examples/RTOS_PowerManager.dox#power_manager_usage_lock',1,'Deep-sleep lock'],['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_recursive',1,'Recursive mutex and try-lock'],['../X:/Lib/IAR/Project/Examples/RTOS_MutexGuard.dox#mutexguard_usage_timed',1,'Timed lock']]],
   ['lock_20with_20an_20indefinite_20wait_8',['Scoped lock with an indefinite wait',['../X:/Lib/IAR/Project/Examples/RTOS_MutexGuard.dox#mutexguard_usage_scope',1,'']]],

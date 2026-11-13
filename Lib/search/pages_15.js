@@ -16,12 +16,14 @@ var searchData=
   ['with_20completion_13',['Transmit with completion',['../X:/Lib/IAR/Project/Examples/Lib_HAL_CAN.dox#can_usage_it_send',1,'']]],
   ['with_20dma_14',['Device role with DMA',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usb_usage_dma',1,'']]],
   ['with_20event_20bits_15',['Worker task with event bits',['../X:/Lib/IAR/Project/Examples/RTOS_Task.dox#task_usage_worker',1,'']]],
-  ['with_20timeout_16',['Normal mutex with timeout',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_normal',1,'']]],
-  ['word_17',['Program one word',['../X:/Lib/IAR/Project/Examples/Lib_HAL_FlashInterface.dox#flash_usage_word',1,'']]],
-  ['word_20once_18',['Program a word once',['../X:/Lib/IAR/Project/Examples/Lib_HAL_OTP.dox#otp_usage_write',1,'']]],
-  ['worker_20task_20with_20event_20bits_19',['Worker task with event bits',['../X:/Lib/IAR/Project/Examples/RTOS_Task.dox#task_usage_worker',1,'']]],
-  ['write_20',['Read and write',['../X:/Lib/IAR/Project/Examples/Lib_BSP_FlashMemory_OSPI_W25Q128JVSIQ.dox#w25q128_usage_rw',1,'']]],
-  ['write_20and_20read_20back_20a_20record_20from_20a_20task_21',['Write and read back a record from a task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_IS62WV51216.dox#is62_usage_frame',1,'']]],
-  ['writers_22',['Several writers',['../X:/Lib/IAR/Project/Examples/RTOS_StreamBuffer.dox#streambuffer_usage_multiwriter',1,'']]],
-  ['writing_20and_20resynchronizing_23',['Writing and resynchronizing',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_write',1,'']]]
+  ['with_20the_20hash_20peripheral_16',['Hashing with the HASH peripheral',['../X:/Lib/IAR/Project/Examples/Lib_Crypto_SHA256.dox#sha256_usage_hardware',1,'']]],
+  ['with_20the_20software_20engine_17',['Hashing with the software engine',['../X:/Lib/IAR/Project/Examples/Lib_Crypto_SHA256.dox#sha256_usage_software',1,'']]],
+  ['with_20timeout_18',['Normal mutex with timeout',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_normal',1,'']]],
+  ['word_19',['Program one word',['../X:/Lib/IAR/Project/Examples/Lib_HAL_FlashInterface.dox#flash_usage_word',1,'']]],
+  ['word_20once_20',['Program a word once',['../X:/Lib/IAR/Project/Examples/Lib_HAL_OTP.dox#otp_usage_write',1,'']]],
+  ['worker_20task_20with_20event_20bits_21',['Worker task with event bits',['../X:/Lib/IAR/Project/Examples/RTOS_Task.dox#task_usage_worker',1,'']]],
+  ['write_22',['Read and write',['../X:/Lib/IAR/Project/Examples/Lib_BSP_FlashMemory_OSPI_W25Q128JVSIQ.dox#w25q128_usage_rw',1,'']]],
+  ['write_20and_20read_20back_20a_20record_20from_20a_20task_23',['Write and read back a record from a task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_IS62WV51216.dox#is62_usage_frame',1,'']]],
+  ['writers_24',['Several writers',['../X:/Lib/IAR/Project/Examples/RTOS_StreamBuffer.dox#streambuffer_usage_multiwriter',1,'']]],
+  ['writing_20and_20resynchronizing_25',['Writing and resynchronizing',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_write',1,'']]]
 ];

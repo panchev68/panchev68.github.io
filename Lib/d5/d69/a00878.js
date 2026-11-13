@@ -1,4 +1,5 @@
 var a00878 =
 [
-    [ "RTOS::EventGroup", "de/d76/a05879.html", "de/d76/a05879" ]
+    [ "Lib::Pneumatics::Sensor", "d7/de5/a05878.html", "d7/de5/a05878" ],
+    [ "Lib::Pneumatics::Sensor::Config", "dc/df8/a05882.html", "dc/df8/a05882" ]
 ];

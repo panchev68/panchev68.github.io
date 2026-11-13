@@ -1,5 +1,5 @@
 var a05266 =
 [
-    [ "rxMessageCounter", "d7/dc7/a05266.html#ae09c04483f8353c553a966fcfd32c214", null ],
-    [ "txMessageCounter", "d7/dc7/a05266.html#a4286c02031295ce311297c75eee43398", null ]
+    [ "inputs", "d7/dc7/a05266.html#a430246e65df286593d6b44f5f1b3b720", null ],
+    [ "outputs", "d7/dc7/a05266.html#a40e1b2b17fe5558dd9d78175a8094a6a", null ]
 ];

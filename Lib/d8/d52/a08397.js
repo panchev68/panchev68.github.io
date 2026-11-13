@@ -1,4 +1,4 @@
 var a08397 =
 [
-    [ "Lib::Communication::Modbus::Protocol", "d0/d9d/a04783.html", "d0/d9d/a04783" ]
+    [ "Lib::Digi::API::ClientBase&lt; Derived &gt;", "da/d8f/a04930.html", "da/d8f/a04930" ]
 ];

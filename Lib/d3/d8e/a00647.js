@@ -1,4 +1,4 @@
 var a00647 =
 [
-    [ "Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;", "d5/d35/a05471.html", "d5/d35/a05471" ]
+    [ "Lib::HAL::I2CPortAsync&lt; T_DERIVED &gt;", "d8/d03/a05466.html", "d8/d03/a05466" ]
 ];

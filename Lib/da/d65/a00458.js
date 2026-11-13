@@ -1,4 +1,4 @@
 var a00458 =
 [
-    [ "Lib::Digi::Core::QueueMessage", "db/d6b/a05139.html", "db/d6b/a05139" ]
+    [ "Lib::Digi::Core::FrameWriter", "d4/d85/a05138.html", "d4/d85/a05138" ]
 ];

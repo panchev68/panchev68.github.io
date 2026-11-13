@@ -1,25 +1,20 @@
 var a00518 =
 [
-    [ "Lib::Ethercat::SOES::MailboxHeader", "d4/d19/a05251.html", "d4/d19/a05251" ],
-    [ "Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;", "d5/d12/a05255.html", "d5/d12/a05255" ],
-    [ "Lib::Ethercat::SOES::MailboxError", "d1/dd8/a01022.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8", [
-      [ "Lib::Ethercat::SOES::MailboxError::SYNTAX", "d1/dd8/a01022.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a3dee5c76b66ffa6cc917386bdfaeb2b5", null ],
-      [ "Lib::Ethercat::SOES::MailboxError::UNSUPPORTED_PROTOCOL", "d1/dd8/a01022.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a735c3d53d46c84c25dc772162b02ca6c", null ],
-      [ "Lib::Ethercat::SOES::MailboxError::INVALID_CHANNEL", "d1/dd8/a01022.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a141b94509ad9973b5ff2f08830956e07", null ],
-      [ "Lib::Ethercat::SOES::MailboxError::SERVICE_NOT_SUPPORTED", "d1/dd8/a01022.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8aaa40839b27fc41b0df06c99e92eac699", null ],
-      [ "Lib::Ethercat::SOES::MailboxError::INVALID_HEADER", "d1/dd8/a01022.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a5d0b2a5c7e6da1e3192112f4590ba199", null ],
-      [ "Lib::Ethercat::SOES::MailboxError::SIZE_TOO_SHORT", "d1/dd8/a01022.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a33673aed0ec13dc7f6916f55f26eb274", null ],
-      [ "Lib::Ethercat::SOES::MailboxError::NO_MORE_MEMORY", "d1/dd8/a01022.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a4f7ea67a3b4d3318968a6ade72dccb50", null ],
-      [ "Lib::Ethercat::SOES::MailboxError::INVALID_SIZE", "d1/dd8/a01022.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a51a0660230eb5c4b9f49430f9c2c0f05", null ]
-    ] ],
-    [ "Lib::Ethercat::SOES::MailboxProtocol", "d1/dd8/a01022.html#aec1c5f98acbef86d50b04a081702ff10", [
-      [ "Lib::Ethercat::SOES::MailboxProtocol::ERROR", "d1/dd8/a01022.html#aec1c5f98acbef86d50b04a081702ff10abb1ca97ec761fc37101737ba0aa2e7c5", null ],
-      [ "Lib::Ethercat::SOES::MailboxProtocol::AOE", "d1/dd8/a01022.html#aec1c5f98acbef86d50b04a081702ff10a95d1f66a657d5e79ada6e54c0b6f8de2", null ],
-      [ "Lib::Ethercat::SOES::MailboxProtocol::EOE", "d1/dd8/a01022.html#aec1c5f98acbef86d50b04a081702ff10abbbdde2289802b78dae96b36ea1d6607", null ],
-      [ "Lib::Ethercat::SOES::MailboxProtocol::COE", "d1/dd8/a01022.html#aec1c5f98acbef86d50b04a081702ff10af10a915e958de33deceb8525ce3338b7", null ],
-      [ "Lib::Ethercat::SOES::MailboxProtocol::FOE", "d1/dd8/a01022.html#aec1c5f98acbef86d50b04a081702ff10a47c87faef0716aa58d432391eca9d820", null ],
-      [ "Lib::Ethercat::SOES::MailboxProtocol::SOE", "d1/dd8/a01022.html#aec1c5f98acbef86d50b04a081702ff10a346d7fee0cdcc32a9f6e4f70ba312dc8", null ],
-      [ "Lib::Ethercat::SOES::MailboxProtocol::VOE", "d1/dd8/a01022.html#aec1c5f98acbef86d50b04a081702ff10abbff4fb3d7b89a39387f214d0ba1ee10", null ]
-    ] ],
-    [ "Lib::Ethercat::SOES::setSyncManagerEnabled", "d1/dd8/a01022.html#a98fb913e58940911741bebbe221d9af8", null ]
+    [ "Lib::Ethercat::SOES::FoEHandlers", "d6/dbd/a05246.html", "d6/dbd/a05246" ],
+    [ "Lib::Ethercat::SOES::FoE", "d8/de7/a05250.html", "d8/de7/a05250" ],
+    [ "Lib::Ethercat::SOES::FoEError", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4", [
+      [ "Lib::Ethercat::SOES::FoEError::NOT_DEFINED", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4abfd8c78fbb91fe67b9886fad146392a4", null ],
+      [ "Lib::Ethercat::SOES::FoEError::NOT_FOUND", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4a8c02547a8a3b02382bac3557bcb2280d", null ],
+      [ "Lib::Ethercat::SOES::FoEError::ACCESS", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4a0a3f43b00ddd148f64178deb155a9f45", null ],
+      [ "Lib::Ethercat::SOES::FoEError::DISK_FULL", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4a266c3e565a5b03d2174d5f11c1c9126f", null ],
+      [ "Lib::Ethercat::SOES::FoEError::ILLEGAL", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4a19b6dd9cf8414bce98a4f0b86c3258ec", null ],
+      [ "Lib::Ethercat::SOES::FoEError::PACKET_NUMBER", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4ae27d5f8fee9d7d99a630bf1bc94e821e", null ],
+      [ "Lib::Ethercat::SOES::FoEError::EXISTS", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4a6a240802522e95fc9e2c1d09122d8ec4", null ],
+      [ "Lib::Ethercat::SOES::FoEError::NO_USER", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4a5134e6105e32e094d2b6e33e22fbd84c", null ],
+      [ "Lib::Ethercat::SOES::FoEError::BOOTSTRAP_ONLY", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4a84d8c754faa2099140260a5169b1ab2f", null ],
+      [ "Lib::Ethercat::SOES::FoEError::NOT_IN_BOOTSTRAP", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4aaa14e68151e02922d8f04f7a9da4f01c", null ],
+      [ "Lib::Ethercat::SOES::FoEError::NO_RIGHTS", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4af8b0e3e1041bdc078ee24ea08024668d", null ],
+      [ "Lib::Ethercat::SOES::FoEError::PROGRAM_ERROR", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4ab71866328a7646335504d8d65b0a9b94", null ],
+      [ "Lib::Ethercat::SOES::FoEError::CHECKSUM", "db/d23/a01025.html#a058e47e5398a583fd14a446b7b2dbdb4ab9493189e36ddf81cabe5a2c63f62bc3", null ]
+    ] ]
 ];

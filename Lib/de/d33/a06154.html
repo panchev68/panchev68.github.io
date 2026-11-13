@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::Beep</title>
+<title>IAR EWARM Library: Lib::Digi::API::Pausable</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -112,54 +111,16 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d33/a06154.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::Beep</div></div>
+  <div class="headertitle"><div class="title">Lib::Digi::API::Pausable</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a short start-up click followed by a three-beep alarm on a buzzer driven by TIM1 channel 1.</p>
-<p>Demonstrates a short start-up click followed by a three-beep alarm on a buzzer driven by TIM1 channel 1.TIM1 is initialized by CubeMX; its prescaler and period set the tone, while the driver switches the channel to output-compare toggle mode on every beep. <a class="el" href="../../de/d68/a04331.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> returns at once and the sequence plays in the <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer service task, so the task waits with <a class="el" href="../../de/d68/a04331.html#ac6552c090b310890de41a06ba77a7e68" title="Lib::BSP::Beep::isPlaying()">Lib::BSP::Beep::isPlaying()</a> before queuing the next sequence: a <a class="el" href="../../de/d68/a04331.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> call made while one is still running returns <b>false</b> and is dropped.</p>
-<dl class="section important"><dt>Important</dt><dd>The <a class="el" href="../../de/d91/a01034.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer service task must be running ('configUSE_TIMERS'), since every beep is timed from it.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_bsp_beep_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="beep_usage_alarm"></a>
-Start-up click and alarm</h2>
-<p><a class="el" href="../../de/d68/a04331.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> takes the beep length in milliseconds, the repeat count and the pause between beeps in milliseconds. A call made while a sequence is still playing is dropped, so wait for <a class="el" href="../../de/d68/a04331.html#ac6552c090b310890de41a06ba77a7e68" title="Lib::BSP::Beep::isPlaying()">Lib::BSP::Beep::isPlaying()</a> to return <b>false</b> first.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/de5/a00209.html">Lib/BSP/Beep/Beep.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d41/a00881.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> htim1; <span class="comment">// TIM1 output compare, period sets the tone.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_class" href="../../de/d68/a04331.html">Lib::BSP::Beep</a> beeper{{.timerHandle = &amp;htim1, .timerChannel = <a id="_a2" name="_a2"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>}};</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> alarmTask() {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(beeper.<a id="a3" name="a3"></a><a class="code hl_function" href="../../de/d68/a04331.html#a4bc5b3cc66d266518992ce5dc14973c5">play</a>(50U)); <span class="comment">// Short click on start-up.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">while</span> (beeper.<a id="a4" name="a4"></a><a class="code hl_function" href="../../de/d68/a04331.html#ac6552c090b310890de41a06ba77a7e68">isPlaying</a>()) {</div>
-<div class="line">        <a id="a5" name="a5"></a><a class="code hl_function" href="../../de/d91/a01034.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(10ms);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!beeper.<a class="code hl_function" href="../../de/d68/a04331.html#a4bc5b3cc66d266518992ce5dc14973c5">play</a>(200U, 3U, 100U)) { <span class="comment">// Three 200 ms beeps, 100 ms apart.</span></div>
-<div class="line">        <span class="comment">// A sequence is still playing: this request is dropped.</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00209_html"><div class="ttname"><a href="../../d3/de5/a00209.html">Beep.hpp</a></div><div class="ttdoc">Declares the BSP buzzer driver on a HAL timer output-compare channel; compiles to nothing without HAL...</div></div>
-<div class="ttc" id="aa00881_html"><div class="ttname"><a href="../../df/d41/a00881.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
-<div class="ttc" id="aa01034_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d91/a01034.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:604</div></div>
-<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
-<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa04331_html"><div class="ttname"><a href="../../de/d68/a04331.html">Lib::BSP::Beep</a></div><div class="ttdoc">Buzzer driven by toggling a timer output-compare channel for a set duration and repeat count.</div><div class="ttdef"><b>Definition</b> Beep.hpp:40</div></div>
-<div class="ttc" id="aa04331_html_a4bc5b3cc66d266518992ce5dc14973c5"><div class="ttname"><a href="../../de/d68/a04331.html#a4bc5b3cc66d266518992ce5dc14973c5">Lib::BSP::Beep::play</a></div><div class="ttdeci">bool play(uint32_t duration, uint32_t count=1U, uint32_t pause=0U) noexcept</div><div class="ttdoc">Starts a beep sequence, unless one is already playing.</div><div class="ttdef"><b>Definition</b> Beep.hpp:141</div></div>
-<div class="ttc" id="aa04331_html_ac6552c090b310890de41a06ba77a7e68"><div class="ttname"><a href="../../de/d68/a04331.html#ac6552c090b310890de41a06ba77a7e68">Lib::BSP::Beep::isPlaying</a></div><div class="ttdeci">bool isPlaying() const noexcept</div><div class="ttdoc">Gets whether a beep sequence is playing.</div><div class="ttdef"><b>Definition</b> Beep.hpp:164</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d3/ded/a01017.html">Digi</a></li><li class="navelem"><a href="../../d3/d08/a01018.html">API</a></li><li class="navelem"><a href="../../de/d33/a06154.html">Pausable</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
