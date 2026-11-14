@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Member List</title>
+<title>IAR EWARM Library: Lib::BSP::RFID::NTAG21x::OriginalitySignature</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,35 +91,122 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d2/d4c/a00984.html">Lib</a></li><li class="navelem"><a href="../../da/deb/a00985.html">BSP</a></li><li class="navelem"><a href="../../d9/d9a/a00998.html">Thermometer</a></li><li class="navelem"><a href="../../d7/df2/a01000.html">OneWire</a></li><li class="navelem"><a href="../../df/d72/a04688.html">DS18B20</a></li>  </ul>
+<li class="navelem"><a href="../../d0/ddd/a01044.html">Lib</a></li><li class="navelem"><a href="../../d7/d46/a01045.html">BSP</a></li><li class="navelem"><a href="../../dc/d19/a01056.html">RFID</a></li><li class="navelem"><a href="../../d2/db8/a01057.html">NTAG21x</a></li><li class="navelem"><a href="../../d7/d47/a04685.html">OriginalitySignature</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::Thermometer::OneWire::DS18B20 Member List</div></div>
+  <div class="summary">
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="../../d3/d49/a04682.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::BSP::RFID::NTAG21x::OriginalitySignature<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Verifies that a card UID carries a genuine NXP originality signature. </p>
+<p>Every genuine NTAG21x carries a 32-byte ECDSA (<em class="arg">secp128r1</em>) signature of NXP over its 7-byte UID, readable with <em class="arg">READ_SIG</em> (<b>0x3C</b>, see NXP AN11350). A card whose signature does not verify against the fixed NXP public key is not a genuine NXP chip, for example a UID-changeable clone. The signed message is the UID itself, not a hash of it.</p>
+<p>This does not stop a full emulation of a genuine card (UID, signature and an issuer record all copied); catching that is the issuer's responsibility, for example with a signed record or a blocklist.</p>
+<p>Needs micro-ecc configured for <em class="arg">secp128r1</em> and reachable as 'ThirdParty/micro-ecc/uECC_config.h' (<a href="https://github.com/kmackay/micro-ecc">https://github.com/kmackay/micro-ecc</a>); the header compiles to nothing where that is missing.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://nxp.com/docs/en/data-sheet/NTAG213_215_216.pdf" target="_blank">NTAG213/215/216 datasheet (NXP)</a></dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/RFID/NTAG21x/NTAG21x.md" target="_blank">Detail Description</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/RFID/NTAG21x/OriginalitySignature.hpp" target="_blank">Source</a> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:af56142d138ec3896ba8dcfc8373b93d0" id="r_af56142d138ec3896ba8dcfc8373b93d0"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#af56142d138ec3896ba8dcfc8373b93d0">verify</a> (const <a class="el" href="../../d2/db8/a01057.html#a435a19683e1fb32e426add14e68d0076">Uid</a> &amp;uid, const <a class="el" href="#acf64c338747cbf1779eff24fba71054c">Bytes</a> &amp;signature) noexcept</td></tr>
+<tr class="memdesc:af56142d138ec3896ba8dcfc8373b93d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the signature of a card UID.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ab4b0050c0ce808f0dab961e3f78bec97" id="r_ab4b0050c0ce808f0dab961e3f78bec97"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ab4b0050c0ce808f0dab961e3f78bec97">SIZE</a> = 32U</td></tr>
+<tr class="memdesc:ab4b0050c0ce808f0dab961e3f78bec97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signature length, r || s.  <br /></td></tr>
+</table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="acf64c338747cbf1779eff24fba71054c" name="acf64c338747cbf1779eff24fba71054c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf64c338747cbf1779eff24fba71054c">&#9670;&#160;</a></span>Bytes</h2>
 
-<p>This is the complete list of members for <a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d72/a04688.html#aab038c628d13a5369429107b4be42b3d">close</a>()</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../df/d72/a04688.html#a6e8835c62b13a615346d69068ee41c97">DS18B20</a>(const Config &amp;config) noexcept</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d72/a04688.html#acda4b1ad64e7f70334f8222f464670a7">GENUINE_FAMILY_CODE</a></td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../df/d72/a04688.html#a4eea42ddf1b1a0a722ba6cac89caa674">getResolution</a>() const noexcept</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d72/a04688.html#ae8e710761fe8b7931ba5d6893456b4a2">isGenuineDevice</a>()</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../df/d72/a04688.html#a157de0af10de1ac0c5f24adc5cbefaae">isPlausibleTemperature</a>(float celsius) noexcept</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d72/a04688.html#a10cdce63d6506ecc491c015da2429b8e">isPowerOnDefaultTemperature</a>(float celsius) noexcept</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../df/d72/a04688.html#affe0375dcb019e883b9d72cfd2b38f73">isPresent</a>()</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d72/a04688.html#a664d8d5e41e3724a871b3311c5702769">MAX_PLAUSIBLE_CELSIUS</a></td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../df/d72/a04688.html#ae838bba5f59c88e4987d7ebac9bc3b98">MIN_PLAUSIBLE_CELSIUS</a></td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d72/a04688.html#a1dc439d417a53a57d054f811cf33402d">open</a>()</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../df/d72/a04688.html#a5b832e4234560b64acd27feef91589b5">POWER_ON_DEFAULT_CELSIUS</a></td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d72/a04688.html#a26a1ebc99132937ee58668fd12c26263">readRom</a>()</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../df/d72/a04688.html#ad7e16c37160102332ce9ca78b3fd59fb">readTemperatureCelsius</a>()</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d72/a04688.html#ada95ddee88d18f2cd77e60f7ed6a5173">Resolution</a> enum name</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../df/d72/a04688.html#a20e1f2a1a10060e7aa9e6ecf81af4d42">ROM_SIZE</a></td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../df/d72/a04688.html#ad96a41a08602dd6c62b535a54e81e10c">~DS18B20</a>()=default</td><td class="entry"><a class="el" href="../../df/d72/a04688.html">Lib::BSP::Thermometer::OneWire::DS18B20</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#acf64c338747cbf1779eff24fba71054c">Lib::BSP::RFID::NTAG21x::OriginalitySignature::Bytes</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ab4b0050c0ce808f0dab961e3f78bec97">SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raw signature. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="af56142d138ec3896ba8dcfc8373b93d0" name="af56142d138ec3896ba8dcfc8373b93d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af56142d138ec3896ba8dcfc8373b93d0">&#9670;&#160;</a></span>verify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::RFID::NTAG21x::OriginalitySignature::verify </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/db8/a01057.html#a435a19683e1fb32e426add14e68d0076">Uid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="#acf64c338747cbf1779eff24fba71054c">Bytes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifies the signature of a card UID. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uid</td><td>UID of the card. </td></tr>
+    <tr><td class="paramname">signature</td><td>Signature read with <em class="arg">READ_SIG</em>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if NXP signed this UID. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ab4b0050c0ce808f0dab961e3f78bec97" name="ab4b0050c0ce808f0dab961e3f78bec97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4b0050c0ce808f0dab961e3f78bec97">&#9670;&#160;</a></span>SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::RFID::NTAG21x::OriginalitySignature::SIZE = 32U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signature length, r || s. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

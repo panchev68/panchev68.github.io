@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Kernel</title>
+<title>IAR EWARM Library: Lib::BSP::FMEM::SPI::DriverImpl</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -91,69 +89,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../d0/ddd/a01044.html">Lib</a></li><li class="navelem"><a href="../../d7/d46/a01045.html">BSP</a></li><li class="navelem"><a href="../../d9/dce/a01052.html">FMEM</a></li><li class="navelem"><a href="../../dd/d57/a01054.html">SPI</a></li><li class="navelem"><a href="../../d4/d72/a06267.html">DriverImpl</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Kernel</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::FMEM::SPI::DriverImpl</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows the scheduler and critical-section helpers of <a class="el" href="../../d4/d72/a06267.html" title="RTOS::Kernel">RTOS::Kernel</a>.</p>
-<p>Shows the scheduler and critical-section helpers of RTOS::Kernel.Covers a short critical section that protects a shared counter from other tasks and ISRs, the tick count and the free-standing delay helpers, and the heap statistics. <a class="el" href="../../d9/d99/a05887.html" title="RTOS::Kernel::CriticalSection">RTOS::Kernel::CriticalSection</a> selects the variant that matches the context it is constructed in. <a class="el" href="../../df/df8/a05883.html" title="RTOS::Kernel::CriticalSectionFromISR">RTOS::Kernel::CriticalSectionFromISR</a> is the explicit interrupt variant that saves and restores the interrupt mask.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Keep critical sections as short as possible: no task switch and no blocking call can happen while one is active.</dd></dl>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="kernel_usage_critical"></a>
-Protecting shared data</h3>
-<p>Construction enters the critical section and destruction leaves it, so the scope braces bound its length.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dd3/a00902.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <span class="keyword">volatile</span> uint32_t sharedCounter = 0U;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> incrementCounter() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/d99/a05887.html">RTOS::Kernel::CriticalSection</a> criticalSection;</div>
-<div class="line">    sharedCounter = sharedCounter + 1U;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00902_html"><div class="ttname"><a href="../../d5/dd3/a00902.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
-<div class="ttc" id="aa05887_html"><div class="ttname"><a href="../../d9/d99/a05887.html">RTOS::Kernel::CriticalSection</a></div><div class="ttdoc">RAII guard for a kernel critical section, usable from both task and interrupt context.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:159</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="kernel_usage_timing"></a>
-Tick count and delays</h3>
-<p><a class="el" href="../../d1/d83/a01041.html#aa54eb7aeffc794961e60ade51c195480" title="RTOS::getTickCount()">RTOS::getTickCount()</a> is task-context only; use <a class="el" href="../../d1/d83/a01041.html#a80d033e9ce70fec78bacaa61cc1221bf" title="RTOS::getTickCountFromISR()">RTOS::getTickCountFromISR()</a> inside an interrupt.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dd3/a00902.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> measureDelay() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a1" name="_a1"></a><a class="code hl_typedef" href="../../de/d76/a05879.html#ab3a21cca75c9a9c61acc1cb12a3cc132">RTOS::Kernel::TickType</a> startTick = <a id="a2" name="a2"></a><a class="code hl_function" href="../../d1/d83/a01041.html#aa54eb7aeffc794961e60ade51c195480">RTOS::getTickCount</a>();</div>
-<div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="../../d1/d83/a01041.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(100ms);</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../de/d76/a05879.html#ab3a21cca75c9a9c61acc1cb12a3cc132">RTOS::Kernel::TickType</a> elapsedTicks = <a class="code hl_function" href="../../d1/d83/a01041.html#aa54eb7aeffc794961e60ade51c195480">RTOS::getTickCount</a>() - startTick;</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(elapsedTicks);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa01041_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d1/d83/a01041.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:610</div></div>
-<div class="ttc" id="aa01041_html_aa54eb7aeffc794961e60ade51c195480"><div class="ttname"><a href="../../d1/d83/a01041.html#aa54eb7aeffc794961e60ade51c195480">RTOS::getTickCount</a></div><div class="ttdeci">Kernel::TickType getTickCount() noexcept</div><div class="ttdoc">Retrieves current system tick count.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:670</div></div>
-<div class="ttc" id="aa05879_html_ab3a21cca75c9a9c61acc1cb12a3cc132"><div class="ttname"><a href="../../de/d76/a05879.html#ab3a21cca75c9a9c61acc1cb12a3cc132">RTOS::Kernel::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdoc">System tick count type.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:62</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="kernel_usage_heap"></a>
-Heap statistics and yielding</h3>
-<p><a class="el" href="../../de/d76/a05879.html#a4b6fcf3aac5f49123ae6f31506c23d23" title="RTOS::Kernel::getMemoryInfo()">RTOS::Kernel::getMemoryInfo()</a> reports the total and free heap in bytes, and the lowest free level reached so far. The allocation counters are filled only when <em class="arg">RTOS_HEAP_HAS_STATS</em> is set, which is the case for the heap_4 and heap_5 schemes.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dd3/a00902.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> checkHeap() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../d8/d88/a05899.html">RTOS::Kernel::MemoryInfo</a> heap = <a id="a5" name="a5"></a><a class="code hl_function" href="../../de/d76/a05879.html#a4b6fcf3aac5f49123ae6f31506c23d23">RTOS::Kernel::getMemoryInfo</a>();</div>
-<div class="line">    <span class="keywordflow">if</span> (heap.<a id="a6" name="a6"></a><a class="code hl_variable" href="../../d8/d88/a05899.html#a944d10ce32d8114a8a1349e2582022bd">freeHeap</a> &lt; heap.<a id="a7" name="a7"></a><a class="code hl_variable" href="../../d8/d88/a05899.html#a83580325c3df5098f79f23bd212fb20a">totalHeap</a> / 10U) {</div>
-<div class="line">        <span class="comment">// Less than 10 % of the heap is free.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <a id="a8" name="a8"></a><a class="code hl_function" href="../../de/d76/a05879.html#a297bee1d1e840d599f99a4260a551012">RTOS::Kernel::yield</a>(); <span class="comment">// Let other tasks of the same priority run.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa05879_html_a297bee1d1e840d599f99a4260a551012"><div class="ttname"><a href="../../de/d76/a05879.html#a297bee1d1e840d599f99a4260a551012">RTOS::Kernel::yield</a></div><div class="ttdeci">static void yield() noexcept</div><div class="ttdoc">Yields the processor to another ready task of equal priority.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:408</div></div>
-<div class="ttc" id="aa05879_html_a4b6fcf3aac5f49123ae6f31506c23d23"><div class="ttname"><a href="../../de/d76/a05879.html#a4b6fcf3aac5f49123ae6f31506c23d23">RTOS::Kernel::getMemoryInfo</a></div><div class="ttdeci">static MemoryInfo getMemoryInfo() noexcept</div><div class="ttdoc">Retrieves memory heap diagnostics.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:485</div></div>
-<div class="ttc" id="aa05899_html"><div class="ttname"><a href="../../d8/d88/a05899.html">RTOS::Kernel::MemoryInfo</a></div><div class="ttdoc">Heap memory diagnostics snapshot.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:384</div></div>
-<div class="ttc" id="aa05899_html_a83580325c3df5098f79f23bd212fb20a"><div class="ttname"><a href="../../d8/d88/a05899.html#a83580325c3df5098f79f23bd212fb20a">RTOS::Kernel::MemoryInfo::totalHeap</a></div><div class="ttdeci">size_t totalHeap</div><div class="ttdoc">Total configured heap size.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:385</div></div>
-<div class="ttc" id="aa05899_html_a944d10ce32d8114a8a1349e2582022bd"><div class="ttname"><a href="../../d8/d88/a05899.html#a944d10ce32d8114a8a1349e2582022bd">RTOS::Kernel::MemoryInfo::freeHeap</a></div><div class="ttdeci">size_t freeHeap</div><div class="ttdoc">Current free heap bytes.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:386</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

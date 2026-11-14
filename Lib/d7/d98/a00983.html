@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: CDCDevice.hpp</title>
+<title>IAR EWARM Library: Task.hpp</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_faeb283bf437ec86682d826ccb2ce3ea.html">USB</a></li>  </ul>
+<li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_3fba853156281524a1d2ff8b1fb19351.html">RTOS</a></li><li class="navelem"><a href="../../dir_bf0c9d5bfc6077936fe54f546ca4ff63.html">FreeRTOS</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -99,31 +99,37 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
-  <div class="headertitle"><div class="title">CDCDevice.hpp</div></div>
+  <div class="headertitle"><div class="title">Task.hpp</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>RAII wrapper for FreeRTOS tasks.  
+<a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>USB CDC-ACM device (virtual COM port) on top of 'Lib::HAL::USBDevicePort'. </p>
-<p>Answers the standard requests of the enumeration and the CDC class requests (line coding, control line state) in the interrupt of the controller, so a host can open the port without any task running. Data goes through two bulk endpoints: received bytes are collected in a stream buffer that 'read()' empties, and 'write()' sends from the caller's buffer. The bulk OUT endpoint is armed only while the stream buffer has room for a packet, so a slow reader makes the controller answer NAK instead of losing data.</p>
-<p>The class owns no clock, pin or interrupt setup: those stay in the CubeMX code ('HAL_PCD_MspInit()' and the USB interrupt calling 'HAL_PCD_IRQHandler()'). 'HAL_PCD_Start()' connects the device to the bus.</p>
+<div class="textblock"><p>RAII wrapper for FreeRTOS tasks. </p>
+<p>Declares <a class="el" href="../../df/d53/a06418.html" title="RTOS::Task">RTOS::Task</a> with its nested priority, state and notification helpers.</p>
 <dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-10-13 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-10-22 </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AUSB_3A_3ACDCDevice" id="r_Lib_3A_3AUSB_3A_3ACDCDevice"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d7a/a06083.html">Lib::USB::CDCDevice</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CDC-ACM virtual COM port with a single data interface.  <a href="../../d8/d7a/a06083.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Lib_3A_3AUSB_3A_3ACDCDevice_3A_3AConfig" id="r_Lib_3A_3AUSB_3A_3ACDCDevice_3A_3AConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../df/df6/a06087.html">Lib::USB::CDCDevice::Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameters of the device and its buffers.  <a href="../../df/df6/a06087.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Lib_3A_3AUSB_3A_3ACDCDevice_3A_3ALineCoding" id="r_Lib_3A_3AUSB_3A_3ACDCDevice_3A_3ALineCoding"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d1b/a06091.html">Lib::USB::CDCDevice::LineCoding</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line coding the host sets with SET_LINE_CODING; it only describes the virtual line, the data is not changed.  <a href="../../d0/d1b/a06091.html#details">More...</a><br /></td></tr>
+<tr class="memitem:RTOS_3A_3ATask" id="r_RTOS_3A_3ATask"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d2/d1c/a06077.html">RTOS::Task</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII-managed FreeRTOS task abstraction.  <a href="../../d2/d1c/a06077.html#details">More...</a><br /></td></tr>
+<tr class="memitem:RTOS_3A_3ATask_3A_3APriority" id="r_RTOS_3A_3ATask_3A_3APriority"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d69/a06081.html">RTOS::Task::Priority</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles task priority configuration.  <a href="../../dc/d69/a06081.html#details">More...</a><br /></td></tr>
+<tr class="memitem:RTOS_3A_3ATask_3A_3AState" id="r_RTOS_3A_3ATask_3A_3AState"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d5c/a06085.html">RTOS::Task::State</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monitors task states within the kernel.  <a href="../../de/d5c/a06085.html#details">More...</a><br /></td></tr>
+<tr class="memitem:RTOS_3A_3ATask_3A_3ANotify" id="r_RTOS_3A_3ATask_3A_3ANotify"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/d15/a06089.html">RTOS::Task::Notify</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encapsulates FreeRTOS task notification mechanics.  <a href="../../d5/d15/a06089.html#details">More...</a><br /></td></tr>
+<tr class="memitem:RTOS_3A_3ATask_3A_3ANotify_3A_3AResult" id="r_RTOS_3A_3ATask_3A_3ANotify_3A_3AResult"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../da/d8b/a06093.html">RTOS::Task::Notify::Result</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result structure for notification queries.  <a href="../../da/d8b/a06093.html#details">More...</a><br /></td></tr>
+<tr class="memitem:RTOS_3A_3ATask_3A_3AConfig" id="r_RTOS_3A_3ATask_3A_3AConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../de/da7/a06097.html">RTOS::Task::Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration parameters for task creation.  <a href="../../de/da7/a06097.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../de/de2/a00999.html">Lib</a></td></tr>
-<tr class="memdesc:de/de2/a00999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AUSB" id="r_Lib_3A_3AUSB"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/ddd/a01044.html">Lib::USB</a></td></tr>
-<tr class="memdesc:d0/ddd/a01044"><td class="mdescLeft">&#160;</td><td class="mdescRight">USB serial port abstractions and helpers. <br /></td></tr>
+<tr class="memitem:RTOS" id="r_RTOS"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d1f/a01087.html">RTOS</a></td></tr>
+<tr class="memdesc:d0/d1f/a01087"><td class="mdescLeft">&#160;</td><td class="mdescRight">C++20 RAII wrappers over FreeRTOS primitives. <br /></td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->

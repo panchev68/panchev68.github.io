@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::USB::CDCDevice</title>
+<title>IAR EWARM Library: Member List</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -91,96 +89,46 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../d0/ddd/a01044.html">Lib</a></li><li class="navelem"><a href="../../da/d73/a01090.html">USB</a></li><li class="navelem"><a href="../../d5/d41/a06241.html">SerialPortRepeaterBase</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::USB::CDCDevice</div></div>
+  <div class="headertitle"><div class="title">Lib::USB::SerialPortRepeaterBase Member List</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a USB virtual COM port (<a class="el" href="../../d5/db1/a06238.html" title="Lib::USB::CDCDevice">Lib::USB::CDCDevice</a>) that echoes the received bytes back to the host.</p>
-<p>Demonstrates a USB virtual COM port (<a class="el" href="../../d5/db1/a06238.html" title="Lib::USB::CDCDevice">Lib::USB::CDCDevice</a>) that echoes the received bytes back to the host.The device answers the enumeration and the CDC class requests in the USB interrupt, so a host can enumerate the port without any task running. Clock, pins and the USB interrupt stay in the CubeMX code (<b>HAL_PCD_MspInit()</b> and the USB interrupt calling <b>HAL_PCD_IRQHandler()</b>). <a class="el" href="../../d8/d17/a06068.html#a413023729a8480cdd9c834fa089163e8" title="Lib::USB::CDCDevice::read()">Lib::USB::CDCDevice::read()</a> and <a class="el" href="../../d8/d17/a06068.html#aae8ec892d4f13050681e77062b651054" title="Lib::USB::CDCDevice::write()">Lib::USB::CDCDevice::write()</a> are for task context only, so the echo runs in its own task. <a class="el" href="../../d8/d17/a06068.html#aae8ec892d4f13050681e77062b651054" title="Lib::USB::CDCDevice::write()">Lib::USB::CDCDevice::write()</a> fails early until the host has selected the configuration, so the task waits for <a class="el" href="../../d8/d17/a06068.html#a305d79f8cbcefeee5562a1a06a67e674" title="Lib::USB::CDCDevice::getIsConfigured()">Lib::USB::CDCDevice::getIsConfigured()</a> first.</p>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="cdc_usage_echo"></a>
-Echo task</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/dd4/a00968.html">Lib/USB/CDCDevice.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;usb_otg.h&quot;</span> <span class="comment">// CubeMX: declares the USB controller handle &#39;hpcd_USB_OTG_FS&#39;.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>UsbEcho {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a0" name="_a0"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!device.start()) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        task.setup({<span class="stringliteral">&quot;UsbEcho&quot;</span>, 256, <a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../da/d70/a05940.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>});</div>
-<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">bool</span> isStopped = task.stop();</div>
-<div class="line">        device.stop();</div>
-<div class="line">        <span class="keywordflow">return</span> isStopped;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::IT&gt; port{&amp;<a id="_a3" name="_a3"></a><a class="code hl_variable" href="../../d0/d3c/a00971.html#a3ec0d70a6cb9406d997fb3d006cc940d">hpcd_USB_OTG_FS</a>};</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d8/d17/a06068.html">Lib::USB::CDCDevice</a> device{<a id="_a5" name="_a5"></a><a class="code hl_struct" href="../../d1/db6/a06072.html">Lib::USB::CDCDevice::Config</a>{</div>
-<div class="line">        .port = port,</div>
-<div class="line">        .vendorId = 0x0483U,</div>
-<div class="line">        .productId = 0x5740U,</div>
-<div class="line">        .releaseNumber = 0x0100U,</div>
-<div class="line">        .manufacturer = <span class="stringliteral">&quot;Senstate&quot;</span>,</div>
-<div class="line">        .product = <span class="stringliteral">&quot;Virtual COM Port&quot;</span>,</div>
-<div class="line">        .serialNumber = <span class="stringliteral">&quot;0001&quot;</span>,</div>
-<div class="line">    }};</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d7/d35/a05936.html">RTOS::Task</a> task;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <a id="_a7" name="_a7"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> buffer{};</div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keywordflow">if</span> (!device.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d8/d17/a06068.html#a305d79f8cbcefeee5562a1a06a67e674">getIsConfigured</a>()) {</div>
-<div class="line">                <a id="a9" name="a9"></a><a class="code hl_function" href="../../d7/d35/a05936.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a>(100ms);</div>
-<div class="line">                <span class="keywordflow">continue</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a id="_a10" name="_a10"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a> = device.<a id="a11" name="a11"></a><a class="code hl_function" href="../../d8/d17/a06068.html#a413023729a8480cdd9c834fa089163e8">read</a>(buffer, 500ms);</div>
-<div class="line">            <span class="keywordflow">if</span> (<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a> &gt; 0U) {</div>
-<div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(device.<a id="a12" name="a12"></a><a class="code hl_function" href="../../d8/d17/a06068.html#aae8ec892d4f13050681e77062b651054">write</a>(std::span&lt;const uint8_t&gt;(buffer.data(), <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>), 100ms));</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00968_html"><div class="ttname"><a href="../../d7/dd4/a00968.html">CDCDevice.hpp</a></div><div class="ttdoc">USB CDC-ACM device (virtual COM port) on top of &#39;Lib::HAL::USBDevicePort&#39;.</div></div>
-<div class="ttc" id="aa00971_html_a3ec0d70a6cb9406d997fb3d006cc940d"><div class="ttname"><a href="../../d0/d3c/a00971.html#a3ec0d70a6cb9406d997fb3d006cc940d">hpcd_USB_OTG_FS</a></div><div class="ttdeci">PCD_HandleTypeDef hpcd_USB_OTG_FS</div></div>
-<div class="ttc" id="aa00974_html"><div class="ttname"><a href="../../df/dce/a00974.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01627_html_ga5a30c8541e506f4962cb5103a18f1fd1"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a></div><div class="ttdeci">constexpr iterator_traits&lt; _InputIterator &gt;::difference_type count(_InputIterator __first, _InputIterator __last, const _Tp &amp;__value)</div></div>
-<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
-<div class="ttc" id="aa01692_html_aaf6b4883d69cf5ba182f4f29a103cc4b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a></div><div class="ttdeci">constexpr auto end(_Container &amp;__cont) -&gt; decltype(__cont.end())</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa05936_html"><div class="ttname"><a href="../../d7/d35/a05936.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
-<div class="ttc" id="aa05936_html_a1c0c1a0a57ee9332e741c8422eebbffe"><div class="ttname"><a href="../../d7/d35/a05936.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType ticks) noexcept</div><div class="ttdoc">Delays the calling task for the given number of ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:738</div></div>
-<div class="ttc" id="aa05940_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../da/d70/a05940.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:87</div></div>
-<div class="ttc" id="aa06068_html"><div class="ttname"><a href="../../d8/d17/a06068.html">Lib::USB::CDCDevice</a></div><div class="ttdoc">CDC-ACM virtual COM port with a single data interface.</div><div class="ttdef"><b>Definition</b> CDCDevice.hpp:43</div></div>
-<div class="ttc" id="aa06068_html_a305d79f8cbcefeee5562a1a06a67e674"><div class="ttname"><a href="../../d8/d17/a06068.html#a305d79f8cbcefeee5562a1a06a67e674">Lib::USB::CDCDevice::getIsConfigured</a></div><div class="ttdeci">bool getIsConfigured() const noexcept</div><div class="ttdoc">Reports whether the host selected the configuration, i.e.</div><div class="ttdef"><b>Definition</b> CDCDevice.hpp:248</div></div>
-<div class="ttc" id="aa06068_html_a413023729a8480cdd9c834fa089163e8"><div class="ttname"><a href="../../d8/d17/a06068.html#a413023729a8480cdd9c834fa089163e8">Lib::USB::CDCDevice::read</a></div><div class="ttdeci">size_t read(std::span&lt; uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</div><div class="ttdoc">Receives bytes the host sent.</div><div class="ttdef"><b>Definition</b> CDCDevice.hpp:229</div></div>
-<div class="ttc" id="aa06068_html_aae8ec892d4f13050681e77062b651054"><div class="ttname"><a href="../../d8/d17/a06068.html#aae8ec892d4f13050681e77062b651054">Lib::USB::CDCDevice::write</a></div><div class="ttdeci">size_t write(std::span&lt; const uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</div><div class="ttdoc">Sends bytes to the host and waits until the host has taken them.</div><div class="ttdef"><b>Definition</b> CDCDevice.hpp:199</div></div>
-<div class="ttc" id="aa06072_html"><div class="ttname"><a href="../../d1/db6/a06072.html">Lib::USB::CDCDevice::Config</a></div><div class="ttdoc">Parameters of the device and its buffers.</div><div class="ttdef"><b>Definition</b> CDCDevice.hpp:51</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+
+<p>This is the complete list of members for <a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#adbee3abb5c99ee9cf98632fd71e8a1df">close</a>() override</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#adc7fac7fb29a13eea289322a26425397">enableUSBPort</a>(bool value)</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#a369b78a9d6f52d4076e777b8d96a25f0">handlePostReceivedEvent</a>(std::span&lt; const uint8_t &gt; data) override</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#ad6ef51bd1c8018d7ee0e8576d7f51b06">handlePostTransmitEvent</a>() override</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#ac6a20178fbb9fa9edd7182cfdb8368e5">isConnected</a>() const noexcept</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#ad681efdf3e8eaee1fa0f7f44c1352481">isPoweredByUSB</a>() const</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#a452bd0a884b3a32c8b09df66688e14b2">onConnected</a></td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#a9869e02a625d87d244bb9fa24407a398">open</a>() override</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#ade6e8c09bc7602c46fabd0b5bc38b0a2">operator=</a>(const SerialPortRepeaterBase &amp;)=delete</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d14/a06233.html#a91db90b93d921f24baf5b96ce0aa578c">Lib::USB::SerialPort::operator=</a>(const SerialPort &amp;)=delete</td><td class="entry"><a class="el" href="../../d5/d14/a06233.html">Lib::USB::SerialPort</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d14/a06233.html#a484a85d98faebe518ae3b89b6e0cf5d0">send</a>(std::span&lt; const uint8_t &gt; data)</td><td class="entry"><a class="el" href="../../d5/d14/a06233.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d14/a06233.html#a0ad3de935e20dec9db20515d75bf4f0a">send</a>(const uint8_t *data, size_t length)</td><td class="entry"><a class="el" href="../../d5/d14/a06233.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d14/a06233.html#a598e18433429c3e9aa74a063852aaccd">SerialPort</a>(const Config &amp;config)</td><td class="entry"><a class="el" href="../../d5/d14/a06233.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d14/a06233.html#aa66d3cdfabe12244a2c6c1b5554058d3">SerialPort</a>(const SerialPort &amp;)=delete</td><td class="entry"><a class="el" href="../../d5/d14/a06233.html">Lib::USB::SerialPort</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#abc48d5df5532ace88e0b869d74c9402d">SerialPortRepeaterBase</a>(const Config &amp;config)</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#a80538ec6535fc978efc92d1dd3755b12">SerialPortRepeaterBase</a>(const SerialPortRepeaterBase &amp;)=delete</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d14/a06233.html#aaf6c85e6f10e0756e438bf61460c7563">setBaudRate</a>(uint32_t baudRate)</td><td class="entry"><a class="el" href="../../d5/d14/a06233.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#acf3b15d8b0fe17fd8341b16e38284202">setModuleResetPin</a>(bool value)</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d14/a06233.html#a0abe8e602336b586b790df6ea81b4ab0">setResetPin</a>(bool value)</td><td class="entry"><a class="el" href="../../d5/d14/a06233.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#a6bbbdcd4be7e1c161148e5a4064f799c">signalReceivedBegin</a>()</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#ae7e6f9868883bcb06e6f214b24192c10">signalReceivedEnd</a>()</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#acdc6aba10abfdf39b35e51b9654d779b">signalTransmitBegin</a>()</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#ac5a426dc66dbabe1f6884132060811c7">signalTransmitEnd</a>()</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#a02700dee6676fa9bcb527b7187e2813e">Status</a> typedef</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d14/a06233.html#afded1dc48b51225406bff4ec53c93689">~SerialPort</a>()=default</td><td class="entry"><a class="el" href="../../d5/d14/a06233.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d41/a06241.html#a58fa656cbf94ed6c21c195f984d6d174">~SerialPortRepeaterBase</a>() override=default</td><td class="entry"><a class="el" href="../../d5/d41/a06241.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

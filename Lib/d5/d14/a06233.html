@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::Convert::Bcd</title>
+<title>IAR EWARM Library: Lib::USB::SerialPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -91,89 +89,470 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../d0/ddd/a01044.html">Lib</a></li><li class="navelem"><a href="../../da/d73/a01090.html">USB</a></li><li class="navelem"><a href="../../d5/d14/a06233.html">SerialPort</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Convert::Bcd</div></div>
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../d6/d60/a06230.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::USB::SerialPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows converting packed BCD values to a string, a single ASCII digit and a numeric decimal value with <a class="el" href="../../d5/d14/a06233.html" title="Lib::Helper::Convert::Bcd">Lib::Helper::Convert::Bcd</a>.</p>
-<p>Shows converting packed BCD values to a string, a single ASCII digit and a numeric decimal value with Lib::Helper::Convert::Bcd.The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs. In debug builds <a class="el" href="../../d6/d3e/a05683.html#a80040dcbd66043680f5816ef3c803548" title="Lib::Helper::Convert::Bcd::toHex()">Lib::Helper::Convert::Bcd::toHex()</a> and <a class="el" href="../../d6/d3e/a05683.html#ac378c88aeb98cda33147af9b58972d59" title="Lib::Helper::Convert::Bcd::toString()">Lib::Helper::Convert::Bcd::toString()</a> assert on a nibble outside 0 to 9. Release builds return <a class="el" href="../../d6/d3e/a05683.html#ac586158913763067b5249cc245ac87c1" title="Lib::Helper::Convert::Bcd::INVALID_VALUE">Lib::Helper::Convert::Bcd::INVALID_VALUE</a> from toHex(), <a class="el" href="../../d6/d3e/a05683.html#a6ae8dbcfa90bb81fb27b4b128b61ba24" title="Lib::Helper::Convert::Bcd::INVALID_CHARACTER">Lib::Helper::Convert::Bcd::INVALID_CHARACTER</a> from toAsc() and an all-NUL buffer from toString(). Check untrusted input with <a class="el" href="../../d6/d3e/a05683.html#a57f48aee3deb0a51f57ffebbf6d931c6" title="Lib::Helper::Convert::Bcd::isValid()">Lib::Helper::Convert::Bcd::isValid()</a> first.</p>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_string"></a>
-Digits to string</h3>
-<p><a class="el" href="../../d6/d3e/a05683.html#ac378c88aeb98cda33147af9b58972d59" title="Lib::Helper::Convert::Bcd::toString()">Lib::Helper::Convert::Bcd::toString()</a> returns a fixed, NUL-terminated buffer of <a class="el" href="../../d6/d3e/a05683.html#a6d4a05d6f245e02cf8f764801f23f0fc" title="Lib::Helper::Convert::Bcd::Digits">Lib::Helper::Convert::Bcd::Digits</a>, so the result is printed through 'data()'.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d2d/a00815.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printBcdDigits() {</div>
-<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/d3e/a05683.html">Lib::Helper::Convert::Bcd</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint16_t bcdValue = 0x1234;</div>
-<div class="line">    <span class="keyword">const</span> Bcd::Digits digits = Bcd::toString(bcdValue);</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;toString(0x1234) = &quot;</span> &lt;&lt; digits.data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00815_html"><div class="ttname"><a href="../../d8/d2d/a00815.html">Bcd.hpp</a></div><div class="ttdoc">Binary Coded Decimal (BCD) conversion helpers for 16-bit values.</div></div>
-<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
-<div class="ttc" id="aa05683_html"><div class="ttname"><a href="../../d6/d3e/a05683.html">Lib::Helper::Convert::Bcd</a></div><div class="ttdoc">Static helpers that turn 16-bit BCD values into decimal strings, ASCII digits and numeric values.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:33</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">toString(0x1234) = 1234</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_ascii"></a>
-Single digit to ASCII</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d2d/a00815.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printBcdDigitAsAscii() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d6/d3e/a05683.html">Lib::Helper::Convert::Bcd</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> ch = Bcd::toAsc(0x05);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;toAsc(0x05) = &quot;</span> &lt;&lt; ch &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line"><a id="a0" name="a0"></a><a class="code hl_function" href="../../d6/d3e/a05683.html#a0040e3e357251de248c5e740c1af493b">toAsc</a>(0x05) = 5</div>
-<div class="ttc" id="aa05683_html_a0040e3e357251de248c5e740c1af493b"><div class="ttname"><a href="../../d6/d3e/a05683.html#a0040e3e357251de248c5e740c1af493b">Lib::Helper::Convert::Bcd::toAsc</a></div><div class="ttdeci">static constexpr char toAsc(uint8_t bcd) noexcept</div><div class="ttdoc">Convert a single BCD digit to its ASCII character.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:101</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_hex"></a>
-BCD to numeric decimal value</h3>
-<p><a class="el" href="../../d6/d3e/a05683.html#a80040dcbd66043680f5816ef3c803548" title="Lib::Helper::Convert::Bcd::toHex()">Lib::Helper::Convert::Bcd::toHex()</a> reads the packed BCD digits as a decimal number, so <b>0x0102</b> yields <b>102</b>.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d2d/a00815.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printBcdAsDecimal() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d6/d3e/a05683.html">Lib::Helper::Convert::Bcd</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint16_t num = Bcd::toHex(0x0102);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;toHex(0x0102) = &quot;</span> &lt;&lt; num &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line"><a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/d3e/a05683.html#a80040dcbd66043680f5816ef3c803548">toHex</a>(0x0102) = 102</div>
-<div class="ttc" id="aa05683_html_a80040dcbd66043680f5816ef3c803548"><div class="ttname"><a href="../../d6/d3e/a05683.html#a80040dcbd66043680f5816ef3c803548">Lib::Helper::Convert::Bcd::toHex</a></div><div class="ttdeci">static constexpr uint16_t toHex(uint16_t bcd) noexcept</div><div class="ttdoc">Convert a 16-bit BCD value to its numeric value.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:120</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_invalid"></a>
-Rejecting malformed input</h3>
-<p>The nibble <b>0xA</b> is not a decimal digit, so <b>0x12A4</b> is malformed. <a class="el" href="../../d6/d3e/a05683.html#a57f48aee3deb0a51f57ffebbf6d931c6" title="Lib::Helper::Convert::Bcd::isValid()">Lib::Helper::Convert::Bcd::isValid()</a> reports it without side effects, and <a class="el" href="../../d6/d3e/a05683.html#a80040dcbd66043680f5816ef3c803548" title="Lib::Helper::Convert::Bcd::toHex()">Lib::Helper::Convert::Bcd::toHex()</a> should only be called after it returns <em class="arg">true</em>.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d2d/a00815.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> acceptBcd(uint16_t raw, uint16_t &amp; decimal) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d6/d3e/a05683.html">Lib::Helper::Convert::Bcd</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!Bcd::isValid(raw)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Bcd::isValid(0x12A4) is false.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    decimal = Bcd::toHex(raw);</div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">}</div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>USB-UART bridge serial port with buffered receive and transmit tasks. </p>
+<dl class="deprecated"><dt><b><a class="el" href="../../d8/d27/a01043.html#_deprecated000004">Deprecated</a></b></dt><dd>Use <a class="el" href="../../de/d8a/a06392.html" title="Lib::USB::CDCDevice">Lib::USB::CDCDevice</a> instead. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../d8/d27/a01043.html#_deprecated000005">Deprecated</a></b></dt><dd>use Lib::USB::CDCDevice instead</dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d93/a06237.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration required to construct a SerialPort instance.  <a href="../../d0/d93/a06237.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a598e18433429c3e9aa74a063852aaccd" id="r_a598e18433429c3e9aa74a063852aaccd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a598e18433429c3e9aa74a063852aaccd">SerialPort</a> (const <a class="el" href="../../d0/d93/a06237.html">Config</a> &amp;config)</td></tr>
+<tr class="memdesc:a598e18433429c3e9aa74a063852aaccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores non-owning references to the UART ports and creates the receive and transmit task objects.  <br /></td></tr>
+<tr class="memitem:afded1dc48b51225406bff4ec53c93689" id="r_afded1dc48b51225406bff4ec53c93689"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#afded1dc48b51225406bff4ec53c93689">~SerialPort</a> ()=default</td></tr>
+<tr class="memdesc:afded1dc48b51225406bff4ec53c93689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor for polymorphic use.  <br /></td></tr>
+<tr class="memitem:aa66d3cdfabe12244a2c6c1b5554058d3" id="r_aa66d3cdfabe12244a2c6c1b5554058d3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa66d3cdfabe12244a2c6c1b5554058d3">SerialPort</a> (const SerialPort &amp;)=delete</td></tr>
+<tr class="memdesc:aa66d3cdfabe12244a2c6c1b5554058d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted, the object owns RTOS tasks that capture its address.  <br /></td></tr>
+<tr class="memitem:a91db90b93d921f24baf5b96ce0aa578c" id="r_a91db90b93d921f24baf5b96ce0aa578c"><td class="memItemLeft"><a class="el" href="#a598e18433429c3e9aa74a063852aaccd">SerialPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a91db90b93d921f24baf5b96ce0aa578c">operator=</a> (const <a class="el" href="#a598e18433429c3e9aa74a063852aaccd">SerialPort</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a91db90b93d921f24baf5b96ce0aa578c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted, the object owns RTOS tasks that capture its address.  <br /></td></tr>
+<tr class="memitem:a1c7223a50d6f9dcb2ad12810ceb0ca4a" id="r_a1c7223a50d6f9dcb2ad12810ceb0ca4a"><td class="memItemLeft">virtual <a class="el" href="#a69d5fbac0f2c325b3f576b76a1db1204">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1c7223a50d6f9dcb2ad12810ceb0ca4a">open</a> ()</td></tr>
+<tr class="memdesc:a1c7223a50d6f9dcb2ad12810ceb0ca4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the UART ports and the message buffer, starts the tasks, and pulses the reset pin (low for RESET_PULSE, then high).  <br /></td></tr>
+<tr class="memitem:aacd6fe508350e10b40ccc284a2b25770" id="r_aacd6fe508350e10b40ccc284a2b25770"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aacd6fe508350e10b40ccc284a2b25770">close</a> ()</td></tr>
+<tr class="memdesc:aacd6fe508350e10b40ccc284a2b25770"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the serial port and stop internal tasks.  <br /></td></tr>
+<tr class="memitem:a484a85d98faebe518ae3b89b6e0cf5d0" id="r_a484a85d98faebe518ae3b89b6e0cf5d0"><td class="memItemLeft"><a class="el" href="#a69d5fbac0f2c325b3f576b76a1db1204">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a484a85d98faebe518ae3b89b6e0cf5d0">send</a> (std::span&lt; const uint8_t &gt; data)</td></tr>
+<tr class="memdesc:a484a85d98faebe518ae3b89b6e0cf5d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueue a buffer for transmission via the USB message buffer.  <br /></td></tr>
+<tr class="memitem:a0ad3de935e20dec9db20515d75bf4f0a" id="r_a0ad3de935e20dec9db20515d75bf4f0a"><td class="memItemLeft"><a class="el" href="#a69d5fbac0f2c325b3f576b76a1db1204">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0ad3de935e20dec9db20515d75bf4f0a">send</a> (const uint8_t *data, size_t length)</td></tr>
+<tr class="memdesc:a0ad3de935e20dec9db20515d75bf4f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as the span overload, with the data given as a pointer and a length.  <br /></td></tr>
+<tr class="memitem:abe6dcde3251bf403edbf507d07eac6bc" id="r_abe6dcde3251bf403edbf507d07eac6bc"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#abe6dcde3251bf403edbf507d07eac6bc">handlePostReceivedEvent</a> (std::span&lt; const uint8_t &gt; data)</td></tr>
+<tr class="memdesc:abe6dcde3251bf403edbf507d07eac6bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional hook invoked after a completed receive operation.  <br /></td></tr>
+<tr class="memitem:a3f8514c11b7df4573af3eda89f9105e6" id="r_a3f8514c11b7df4573af3eda89f9105e6"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a3f8514c11b7df4573af3eda89f9105e6">handlePostTransmitEvent</a> ()</td></tr>
+<tr class="memdesc:a3f8514c11b7df4573af3eda89f9105e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional hook invoked after a completed transmit operation.  <br /></td></tr>
+<tr class="memitem:a0abe8e602336b586b790df6ea81b4ab0" id="r_a0abe8e602336b586b790df6ea81b4ab0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0abe8e602336b586b790df6ea81b4ab0">setResetPin</a> (bool value)</td></tr>
+<tr class="memdesc:a0abe8e602336b586b790df6ea81b4ab0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the reset pin level for the USB interface.  <br /></td></tr>
+<tr class="memitem:aaf6c85e6f10e0756e438bf61460c7563" id="r_aaf6c85e6f10e0756e438bf61460c7563"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaf6c85e6f10e0756e438bf61460c7563">setBaudRate</a> (uint32_t baudRate)</td></tr>
+<tr class="memdesc:aaf6c85e6f10e0756e438bf61460c7563"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the baud rate on both UART endpoints.  <br /></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a69d5fbac0f2c325b3f576b76a1db1204" name="a69d5fbac0f2c325b3f576b76a1db1204"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d5fbac0f2c325b3f576b76a1db1204">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a69d5fbac0f2c325b3f576b76a1db1204">Lib::USB::SerialPort::Status</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Simple status codes returned by SerialPort operations. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a69d5fbac0f2c325b3f576b76a1db1204ae0aa021e21dddbd6d8cecec71e9cf564" name="a69d5fbac0f2c325b3f576b76a1db1204ae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a69d5fbac0f2c325b3f576b76a1db1204abb1ca97ec761fc37101737ba0aa2e7c5" name="a69d5fbac0f2c325b3f576b76a1db1204abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"><p>Operation failed. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a598e18433429c3e9aa74a063852aaccd" name="a598e18433429c3e9aa74a063852aaccd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a598e18433429c3e9aa74a063852aaccd">&#9670;&#160;</a></span>SerialPort() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::USB::SerialPort::SerialPort </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d0/d93/a06237.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores non-owning references to the UART ports and creates the receive and transmit task objects. </p>
+<p>The tasks are started by open().</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Configuration with the UART ports and the reset pin. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afded1dc48b51225406bff4ec53c93689" name="afded1dc48b51225406bff4ec53c93689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afded1dc48b51225406bff4ec53c93689">&#9670;&#160;</a></span>~SerialPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Lib::USB::SerialPort::~SerialPort </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual destructor for polymorphic use. </p>
+
+</div>
+</div>
+<a id="aa66d3cdfabe12244a2c6c1b5554058d3" name="aa66d3cdfabe12244a2c6c1b5554058d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa66d3cdfabe12244a2c6c1b5554058d3">&#9670;&#160;</a></span>SerialPort() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::USB::SerialPort::SerialPort </td>
+          <td>(</td>
+          <td class="paramtype">const SerialPort &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted, the object owns RTOS tasks that capture its address. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aacd6fe508350e10b40ccc284a2b25770" name="aacd6fe508350e10b40ccc284a2b25770"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacd6fe508350e10b40ccc284a2b25770">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::USB::SerialPort::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Close the serial port and stop internal tasks. </p>
+
+<p>Reimplemented in <a class="el" href="../../d5/d41/a06241.html#adbee3abb5c99ee9cf98632fd71e8a1df">Lib::USB::SerialPortRepeaterBase</a>.</p>
+
+</div>
+</div>
+<a id="abe6dcde3251bf403edbf507d07eac6bc" name="abe6dcde3251bf403edbf507d07eac6bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe6dcde3251bf403edbf507d07eac6bc">&#9670;&#160;</a></span>handlePostReceivedEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::USB::SerialPort::handlePostReceivedEvent </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Optional hook invoked after a completed receive operation. </p>
+<p>Subclasses may override to handle the received buffer content.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Received bytes, valid only during the call. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="../../d5/d41/a06241.html#a369b78a9d6f52d4076e777b8d96a25f0">Lib::USB::SerialPortRepeaterBase</a>.</p>
+
+</div>
+</div>
+<a id="a3f8514c11b7df4573af3eda89f9105e6" name="a3f8514c11b7df4573af3eda89f9105e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f8514c11b7df4573af3eda89f9105e6">&#9670;&#160;</a></span>handlePostTransmitEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::USB::SerialPort::handlePostTransmitEvent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Optional hook invoked after a completed transmit operation. </p>
+
+<p>Reimplemented in <a class="el" href="../../d5/d41/a06241.html#ad6ef51bd1c8018d7ee0e8576d7f51b06">Lib::USB::SerialPortRepeaterBase</a>.</p>
+
+</div>
+</div>
+<a id="a1c7223a50d6f9dcb2ad12810ceb0ca4a" name="a1c7223a50d6f9dcb2ad12810ceb0ca4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c7223a50d6f9dcb2ad12810ceb0ca4a">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="#a69d5fbac0f2c325b3f576b76a1db1204">Status</a> Lib::USB::SerialPort::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opens the UART ports and the message buffer, starts the tasks, and pulses the reset pin (low for RESET_PULSE, then high). </p>
+<dl class="section return"><dt>Returns</dt><dd>Status::OK on success, Status::ERROR on failure. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="../../d5/d41/a06241.html#a9869e02a625d87d244bb9fa24407a398">Lib::USB::SerialPortRepeaterBase</a>.</p>
+
+</div>
+</div>
+<a id="a91db90b93d921f24baf5b96ce0aa578c" name="a91db90b93d921f24baf5b96ce0aa578c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91db90b93d921f24baf5b96ce0aa578c">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a598e18433429c3e9aa74a063852aaccd">SerialPort</a> &amp; Lib::USB::SerialPort::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a598e18433429c3e9aa74a063852aaccd">SerialPort</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted, the object owns RTOS tasks that capture its address. </p>
+
+</div>
+</div>
+<a id="a0ad3de935e20dec9db20515d75bf4f0a" name="a0ad3de935e20dec9db20515d75bf4f0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad3de935e20dec9db20515d75bf4f0a">&#9670;&#160;</a></span>send() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a69d5fbac0f2c325b3f576b76a1db1204">Status</a> Lib::USB::SerialPort::send </td>
+          <td>(</td>
+          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Same as the span overload, with the data given as a pointer and a length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Pointer to the data to send. </td></tr>
+    <tr><td class="paramname">length</td><td>Length of the data in bytes; must be &gt; 0 and less than USB_MSG_BUF_SIZE. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status::OK if the data was queued successfully; Status::ERROR otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a484a85d98faebe518ae3b89b6e0cf5d0" name="a484a85d98faebe518ae3b89b6e0cf5d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a484a85d98faebe518ae3b89b6e0cf5d0">&#9670;&#160;</a></span>send() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a69d5fbac0f2c325b3f576b76a1db1204">Status</a> Lib::USB::SerialPort::send </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enqueue a buffer for transmission via the USB message buffer. </p>
+<p>Safe to call from an interrupt, the data goes through the message buffer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Data to send; must be non-empty and shorter than USB_MSG_BUF_SIZE. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status::OK if the data was queued successfully; Status::ERROR otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="aaf6c85e6f10e0756e438bf61460c7563" name="aaf6c85e6f10e0756e438bf61460c7563"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf6c85e6f10e0756e438bf61460c7563">&#9670;&#160;</a></span>setBaudRate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::USB::SerialPort::setBaudRate </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>baudRate</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the baud rate on both UART endpoints. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">baudRate</td><td>New baud rate to configure on both UART ports. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0abe8e602336b586b790df6ea81b4ab0" name="a0abe8e602336b586b790df6ea81b4ab0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0abe8e602336b586b790df6ea81b4ab0">&#9670;&#160;</a></span>setResetPin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::USB::SerialPort::setResetPin </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the reset pin level for the USB interface. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>New logical level to drive the reset pin. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

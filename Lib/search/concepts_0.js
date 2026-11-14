@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['driverimpl_0',['DriverImpl',['../d6/db5/a06140.html',1,'Lib::BSP::EEPROM::I2C'],['../dd/d73/a06141.html',1,'Lib::BSP::FMEM::SPI']]]
+  ['displaydriver_0',['DisplayDriver',['../d3/d28/a06274.html',1,'Lib::GUI']]],
+  ['driverimpl_1',['DriverImpl',['../d1/d66/a06266.html',1,'Lib::BSP::EEPROM::I2C'],['../d4/d72/a06267.html',1,'Lib::BSP::FMEM::SPI']]]
 ];

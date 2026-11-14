@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Math::Pid</title>
+<title>IAR EWARM Library: Lib::XCOM::ServiceBase</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -91,113 +89,278 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../d0/ddd/a01044.html">Lib</a></li><li class="navelem"><a href="../../d6/d0d/a01091.html">XCOM</a></li><li class="navelem"><a href="../../de/d45/a06261.html">ServiceBase</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Math::Pid</div></div>
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="../../de/dd2/a06258.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::XCOM::ServiceBase</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Controls a process variable such as a heater temperature with <a class="el" href="../../de/d45/a06261.html" title="Lib::Math::Pid">Lib::Math::Pid</a>.</p>
-<p>Controls a process variable such as a heater temperature with <a class="el" href="../../de/d45/a06261.html" title="Lib::Math::Pid">Lib::Math::Pid</a>. The controller keeps no timer of its own: call <a class="el" href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5" title="Lib::Math::Pid::compute()">Lib::Math::Pid::compute()</a> once per sample time from a single context, for example a periodic task, and apply the returned output to the actuator. The class is not thread-safe, so guard an instance shared between contexts with a mutex. The snippets use the single-precision alias <a class="el" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060" title="Lib::Math::PidF">Lib::Math::PidF</a>.</p>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="pid_usage_auto"></a>
-Automatic mode and output limits</h3>
-<p>A new controller starts in manual mode, so call <a class="el" href="../../dd/d49/a05839.html#aebd5e41e575e74237648c428cdde731f" title="Lib::Math::Pid::setMode()">Lib::Math::Pid::setMode()</a> with <em class="arg">true</em> before the first <a class="el" href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5" title="Lib::Math::Pid::compute()">Lib::Math::Pid::compute()</a>. The output is clamped to <a class="el" href="../../d8/d08/a05843.html#a23515cb5c24f985549f55404aee2928a" title="Lib::Math::Pid::Parameters::outputMin">Lib::Math::Pid::Parameters::outputMin</a> and <a class="el" href="../../d8/d08/a05843.html#a413072c853e2fdf9a83cb1b601c736ab" title="Lib::Math::Pid::Parameters::outputMax">Lib::Math::Pid::Parameters::outputMax</a>, and the integral term is held back so that it cannot wind up beyond them.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/Math/Pid.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> heater(Lib::Math::PidF::Parameters{2.0F, 4.0F, 0.0F, 0.25F, 0.0F, 100.0F});</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Called every 0.25 seconds from a control task.</span></div>
-<div class="line"><span class="keywordtype">void</span> controlStep(<span class="keywordtype">float</span> setpoint, <span class="keywordtype">float</span> measuredTemperature) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> duty = heater.compute(setpoint, measuredTemperature);</div>
-<div class="line">    <span class="comment">// Apply duty (0 to 100 percent) to the heater PWM.</span></div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(duty);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> controlStart() noexcept {</div>
-<div class="line">    heater.<a id="a1" name="a1"></a><a class="code hl_function" href="../../dd/d49/a05839.html#aebd5e41e575e74237648c428cdde731f">setMode</a>(<span class="keyword">true</span>);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00887_html"><div class="ttname"><a href="../../d7/d92/a00887.html">Pid.hpp</a></div><div class="ttdoc">Generic, template-based PID controller with output limits, anti-windup and manual mode.</div></div>
-<div class="ttc" id="aa01038_html_a948fc056c1100dd929fbdca345047060"><div class="ttname"><a href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a></div><div class="ttdeci">Pid&lt; float &gt; PidF</div><div class="ttdoc">Type alias for a PID controller using single-precision floating-point arithmetic.</div><div class="ttdef"><b>Definition</b> Pid.hpp:350</div></div>
-<div class="ttc" id="aa05839_html_aebd5e41e575e74237648c428cdde731f"><div class="ttname"><a href="../../dd/d49/a05839.html#aebd5e41e575e74237648c428cdde731f">Lib::Math::Pid::setMode</a></div><div class="ttdeci">void setMode(bool automatic) noexcept</div><div class="ttdoc">Switches the controller between automatic and manual operation modes.</div><div class="ttdef"><b>Definition</b> Pid.hpp:250</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="pid_usage_manual"></a>
-Manual mode and bumpless transfer</h3>
-<p>In manual mode <a class="el" href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5" title="Lib::Math::Pid::compute()">Lib::Math::Pid::compute()</a> returns the last output without calculating. Set the output with <a class="el" href="../../dd/d49/a05839.html#a6c5209d65800c0490e2d728de766193c" title="Lib::Math::Pid::setManualOutput()">Lib::Math::Pid::setManualOutput()</a>, which clamps it to the output limits. Switching back to automatic mode seeds the integral term with the current output, so the output does not jump at the moment of the transfer.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/Math/Pid.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> manualOverride() noexcept {</div>
-<div class="line">    <a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> pid(2.0F, 0.5F, 0.0F, 0.1F);</div>
-<div class="line"> </div>
-<div class="line">    pid.<a class="code hl_function" href="../../dd/d49/a05839.html#aebd5e41e575e74237648c428cdde731f">setMode</a>(<span class="keyword">false</span>);</div>
-<div class="line">    pid.<a id="a2" name="a2"></a><a class="code hl_function" href="../../dd/d49/a05839.html#a6c5209d65800c0490e2d728de766193c">setManualOutput</a>(40.0F);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> held = pid.<a id="a3" name="a3"></a><a class="code hl_function" href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5">compute</a>(50.0F, 20.0F);</div>
-<div class="line"> </div>
-<div class="line">    pid.<a class="code hl_function" href="../../dd/d49/a05839.html#aebd5e41e575e74237648c428cdde731f">setMode</a>(<span class="keyword">true</span>);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> resumed = pid.<a class="code hl_function" href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5">compute</a>(50.0F, 50.0F);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(held);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(resumed);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05839_html_a6c5209d65800c0490e2d728de766193c"><div class="ttname"><a href="../../dd/d49/a05839.html#a6c5209d65800c0490e2d728de766193c">Lib::Math::Pid::setManualOutput</a></div><div class="ttdeci">void setManualOutput(T output) noexcept</div><div class="ttdoc">Sets the controller output value for manual mode operation.</div><div class="ttdef"><b>Definition</b> Pid.hpp:278</div></div>
-<div class="ttc" id="aa05839_html_accc19771dadaeca56f565357a30be1a5"><div class="ttname"><a href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5">Lib::Math::Pid::compute</a></div><div class="ttdeci">T compute(T setpoint, T input) noexcept</div><div class="ttdoc">Computes the controller output for the given setpoint and input.</div><div class="ttdef"><b>Definition</b> Pid.hpp:141</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="pid_usage_reverse"></a>
-Reverse action</h3>
-<p>A cooling loop must raise its output when the measurement is above the setpoint. Call <a class="el" href="../../dd/d49/a05839.html#a08d3fcd293e6dae6b70325b02fad5440" title="Lib::Math::Pid::setDirection()">Lib::Math::Pid::setDirection()</a> with <em class="arg">true</em> to invert the sign of the error; the gains stay positive.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/Math/Pid.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> cooler(Lib::Math::PidF::Parameters{3.0F, 0.1F, 0.0F, 0.5F, 0.0F, 100.0F});</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> coolerInit() noexcept {</div>
-<div class="line">    cooler.<a id="a4" name="a4"></a><a class="code hl_function" href="../../dd/d49/a05839.html#a08d3fcd293e6dae6b70325b02fad5440">setDirection</a>(<span class="keyword">true</span>);</div>
-<div class="line">    cooler.setMode(<span class="keyword">true</span>);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">float</span> coolerStep(<span class="keywordtype">float</span> setpoint, <span class="keywordtype">float</span> temperature) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="comment">// A temperature above the setpoint gives a positive error and a rising fan speed.</span></div>
-<div class="line">    <span class="keywordflow">return</span> cooler.compute(setpoint, temperature);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05839_html_a08d3fcd293e6dae6b70325b02fad5440"><div class="ttname"><a href="../../dd/d49/a05839.html#a08d3fcd293e6dae6b70325b02fad5440">Lib::Math::Pid::setDirection</a></div><div class="ttdeci">void setDirection(bool reverse) noexcept</div><div class="ttdoc">Sets the control direction of the PID controller.</div><div class="ttdef"><b>Definition</b> Pid.hpp:266</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="pid_usage_tuning"></a>
-Changing gains, sample time and limits at run time</h3>
-<p>The gains, the sample time and the output limits can be changed while the controller runs. The sample time is already part of the integral and derivative terms, so after a change of the control period only <a class="el" href="../../dd/d49/a05839.html#a19ce3436614fa5177748195210f07673" title="Lib::Math::Pid::setSampleTime()">Lib::Math::Pid::setSampleTime()</a> is needed. <a class="el" href="../../dd/d49/a05839.html#a94c9810cbce5b0f500f8ef07214ab213" title="Lib::Math::Pid::setParameters()">Lib::Math::Pid::setParameters()</a> replaces every parameter at once.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/Math/Pid.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> retune(<a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> &amp; pid) <span class="keyword">noexcept</span> {</div>
-<div class="line">    pid.setGains(2.5F, 0.8F, 0.05F);</div>
-<div class="line">    pid.setSampleTime(0.05F);</div>
-<div class="line">    pid.setOutputLimits(10.0F, 90.0F);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> loadProfile(<a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> &amp; pid) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">const</span> Lib::Math::PidF::Parameters profile{1.0F, 0.2F, 0.0F, 0.1F, 0.0F, 100.0F};</div>
-<div class="line">    pid.setParameters(profile);</div>
-<div class="line">}</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="pid_usage_reset"></a>
-Reset and status</h3>
-<p><a class="el" href="../../dd/d49/a05839.html#a56616b9fc06643e4f53dcc572fe0eb5f" title="Lib::Math::Pid::reset()">Lib::Math::Pid::reset()</a> clears the integral term, the stored input and the output; the parameters, the mode and the direction are kept. Call it when the process restarts, for example after the heater was off for a long time. The getters expose the controller status for logging.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/Math/Pid.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> restartProcess(<a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> &amp; pid) <span class="keyword">noexcept</span> {</div>
-<div class="line">    pid.reset();</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> logStatus(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> &amp; pid) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> output = pid.getOutput();</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> integral = pid.getIntegralTerm();</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> automatic = pid.isAutomatic();</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01626.html#ga8e7ff99a606d89406c0a9f5ec215b041">reverse</a> = pid.isReverse();</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> proportionalGain = pid.getParameters().kp;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(output);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(integral);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(automatic);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01626.html#ga8e7ff99a606d89406c0a9f5ec215b041">reverse</a>);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(proportionalGain);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa01626_html_ga8e7ff99a606d89406c0a9f5ec215b041"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01626.html#ga8e7ff99a606d89406c0a9f5ec215b041">reverse</a></div><div class="ttdeci">constexpr void reverse(_BidirectionalIterator __first, _BidirectionalIterator __last)</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Base class for XCOM services. </p>
+<p>Provides common functionality and type definitions used by concrete service implementations within the XCOM subsystem: serialization helpers for plain-old-data types to and from byte containers, and the nested 'Value64Handle' change-tracking type. The helpers are intentionally simple and do not perform bounds checks beyond assertions; callers are responsible for ensuring valid offsets and sizes. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Value64Handle" id="r_Value64Handle"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d3/dfe/a06265.html">Value64Handle</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change tracker for an external uint64_t, for lightweight change detection in communication code.  <a href="../../d3/dfe/a06265.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a53a9eea61415dd09f7459b8b382eeb58" id="r_a53a9eea61415dd09f7459b8b382eeb58"><td class="memItemLeft">virtual <a class="el" href="#ae95109eada6e1d27cd31567f2ba169de">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a53a9eea61415dd09f7459b8b382eeb58">open</a> ()</td></tr>
+<tr class="memdesc:a53a9eea61415dd09f7459b8b382eeb58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the service and perform any necessary initialization.  <br /></td></tr>
+<tr class="memitem:a53db90908f030950c411387229c0e443" id="r_a53db90908f030950c411387229c0e443"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a53db90908f030950c411387229c0e443">close</a> ()</td></tr>
+<tr class="memdesc:a53db90908f030950c411387229c0e443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the service and release any resources.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a34d96332461fbe7c3988643653d8a70d" id="r_a34d96332461fbe7c3988643653d8a70d"><td class="memTemplParams" colspan="2">template&lt;typename T, size_t SIZE = sizeof(T)&gt; </td></tr>
+<tr class="memitem:a34d96332461fbe7c3988643653d8a70d template"><td class="memItemLeft">static <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt; uint8_t, SIZE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a34d96332461fbe7c3988643653d8a70d">toArray</a> (const T &amp;value)</td></tr>
+<tr class="memdesc:a34d96332461fbe7c3988643653d8a70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a trivially-copyable value into a fixed-size byte array.  <br /></td></tr>
+<tr class="memitem:aad2dd55d8080a01e454b388691cfcaba" id="r_aad2dd55d8080a01e454b388691cfcaba"><td class="memTemplParams" colspan="2">template&lt;typename T, size_t SIZE = sizeof(T)&gt; </td></tr>
+<tr class="memitem:aad2dd55d8080a01e454b388691cfcaba template"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aad2dd55d8080a01e454b388691cfcaba">appendArray</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;bytes, const T &amp;value)</td></tr>
+<tr class="memdesc:aad2dd55d8080a01e454b388691cfcaba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Append the raw bytes of a trivially-copyable value to a dynamic byte container.  <br /></td></tr>
+<tr class="memitem:acc36df0222469815ada991d92335c599" id="r_acc36df0222469815ada991d92335c599"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:acc36df0222469815ada991d92335c599 template"><td class="memItemLeft">static T&#160;</td><td class="memItemRight"><a class="el" href="#acc36df0222469815ada991d92335c599">fromVector</a> (const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;bytes, uint32_t offset=0)</td></tr>
+<tr class="memdesc:acc36df0222469815ada991d92335c599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconstruct a trivially-copyable value from a byte vector.  <br /></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="ae95109eada6e1d27cd31567f2ba169de" name="ae95109eada6e1d27cd31567f2ba169de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae95109eada6e1d27cd31567f2ba169de">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ae95109eada6e1d27cd31567f2ba169de">Lib::XCOM::ServiceBase::Status</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generic status results returned by service operations. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae95109eada6e1d27cd31567f2ba169deae0aa021e21dddbd6d8cecec71e9cf564" name="ae95109eada6e1d27cd31567f2ba169deae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae95109eada6e1d27cd31567f2ba169deabb1ca97ec761fc37101737ba0aa2e7c5" name="ae95109eada6e1d27cd31567f2ba169deabb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"><p>Generic error occurred during operation. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aad2dd55d8080a01e454b388691cfcaba" name="aad2dd55d8080a01e454b388691cfcaba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad2dd55d8080a01e454b388691cfcaba">&#9670;&#160;</a></span>appendArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t SIZE = sizeof(T)&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::XCOM::ServiceBase::appendArray </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Append the raw bytes of a trivially-copyable value to a dynamic byte container. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of the value to append. </td></tr>
+    <tr><td class="paramname">SIZE</td><td>Number of bytes to append; defaults to sizeof(T). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td>Destination vector to which the raw bytes will be appended. </td></tr>
+    <tr><td class="paramname">value</td><td>Reference to the value to append. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a53db90908f030950c411387229c0e443" name="a53db90908f030950c411387229c0e443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53db90908f030950c411387229c0e443">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::XCOM::ServiceBase::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Close the service and release any resources. </p>
+<p>Default implementation is a no-op; override in derived classes when resource cleanup is required. </p>
+
+</div>
+</div>
+<a id="acc36df0222469815ada991d92335c599" name="acc36df0222469815ada991d92335c599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc36df0222469815ada991d92335c599">&#9670;&#160;</a></span>fromVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T Lib::XCOM::ServiceBase::fromVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>offset</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reconstruct a trivially-copyable value from a byte vector. </p>
+<p>Copies up to sizeof(T) bytes starting from the provided offset. If the vector does not contain enough bytes the remaining bytes of the result are left zero-initialized.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type to reconstruct from the byte vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bytes</td><td>Source byte vector. </td></tr>
+    <tr><td class="paramname">offset</td><td>Byte offset within bytes from which to start copying. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reconstructed value of type T.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>offset &lt;= bytes.size() </dd></dl>
+
+</div>
+</div>
+<a id="a53a9eea61415dd09f7459b8b382eeb58" name="a53a9eea61415dd09f7459b8b382eeb58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53a9eea61415dd09f7459b8b382eeb58">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="#ae95109eada6e1d27cd31567f2ba169de">Status</a> Lib::XCOM::ServiceBase::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Open the service and perform any necessary initialization. </p>
+<p>Default implementation returns Status::OK. Concrete services should override this method to perform initialization work and return an appropriate Status value.</p>
+<dl class="section return"><dt>Returns</dt><dd>Status result of the open operation. </dd></dl>
+
+</div>
+</div>
+<a id="a34d96332461fbe7c3988643653d8a70d" name="a34d96332461fbe7c3988643653d8a70d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34d96332461fbe7c3988643653d8a70d">&#9670;&#160;</a></span>toArray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t SIZE = sizeof(T)&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt; uint8_t, SIZE &gt; Lib::XCOM::ServiceBase::toArray </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Convert a trivially-copyable value into a fixed-size byte array. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Type of the value to serialize. </td></tr>
+    <tr><td class="paramname">SIZE</td><td>Number of bytes to produce; defaults to sizeof(T). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Reference to the value to serialize. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Array of SIZE bytes containing the raw representation of value. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

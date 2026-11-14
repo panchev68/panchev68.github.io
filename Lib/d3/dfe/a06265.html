@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::EventGroup</title>
+<title>IAR EWARM Library: Lib::XCOM::ServiceBase::Value64Handle</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -91,61 +89,310 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../d0/ddd/a01044.html">Lib</a></li><li class="navelem"><a href="../../d6/d0d/a01091.html">XCOM</a></li><li class="navelem"><a href="../../de/d45/a06261.html">ServiceBase</a></li><li class="navelem"><a href="../../d3/dfe/a06265.html">Value64Handle</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::EventGroup</div></div>
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../da/d8a/a06262.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::XCOM::ServiceBase::Value64Handle</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows opening an <a class="el" href="../../d3/dfe/a06265.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, setting one bit from a task and one from an interrupt, and waiting for both.</p>
-<p>Shows opening an <a class="el" href="../../d3/dfe/a06265.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, setting one bit from a task and one from an interrupt, and waiting for both. <a class="el" href="../../dd/dc3/a05875.html#a13c55cc45daa6d96a1f21460a4c71626" title="RTOS::EventGroup::setBitsFromISR()">RTOS::EventGroup::setBitsFromISR()</a> is deferred by FreeRTOS to the timer daemon task, so it needs <em class="arg">configUSE_TIMERS</em> and <em class="arg">INCLUDE_xTimerPendFunctionCall</em> enabled. <a class="el" href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34" title="RTOS::EventGroup::Bits">RTOS::EventGroup::Bits</a> is an <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02030.html" title="std::bitset">std::bitset</a> limited to the bits FreeRTOS leaves usable. Only the FromISR calls may run in an interrupt; <a class="el" href="../../dd/dc3/a05875.html#ac933f049ba3d9d3e242bdc243dea3482" title="RTOS::EventGroup::wait()">RTOS::EventGroup::wait()</a> and <a class="el" href="../../dd/dc3/a05875.html#a154c164a4617cf8553683bb42f04ff11" title="RTOS::EventGroup::setBits()">RTOS::EventGroup::setBits()</a> must run in a task. The value returned by <a class="el" href="../../dd/dc3/a05875.html#ac933f049ba3d9d3e242bdc243dea3482" title="RTOS::EventGroup::wait()">RTOS::EventGroup::wait()</a> is the state when the wait ended, before the clear on exit.</p>
-<dl class="section important"><dt>Important</dt><dd>Open the event group before the interrupt that calls <a class="el" href="../../dd/dc3/a05875.html#a13c55cc45daa6d96a1f21460a4c71626" title="RTOS::EventGroup::setBitsFromISR()">RTOS::EventGroup::setBitsFromISR()</a> is enabled.</dd></dl>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="eventgroup_usage_basic"></a>
-Set and wait for bits</h3>
-<ul>
-<li><em class="arg">TASK_READY</em> is set by the task itself.</li>
-<li><em class="arg">DATA_READY</em> is set by an interrupt through <a class="el" href="../../dd/dc3/a05875.html#a13c55cc45daa6d96a1f21460a4c71626" title="RTOS::EventGroup::setBitsFromISR()">RTOS::EventGroup::setBitsFromISR()</a>.</li>
-<li>The wait clears both bits on exit only when both were set.</li>
-</ul>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/EventGroup.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dd/dc3/a05875.html">RTOS::EventGroup</a> events;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> <a id="_a1" name="_a1"></a><a class="code hl_typedef" href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> TASK_READY{1U &lt;&lt; 0U}; <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> DATA_READY{1U &lt;&lt; 3U}; <span class="keyword">const</span></div>
-<div class="line"><a class="code hl_typedef" href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> ALL_READY = TASK_READY | DATA_READY;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> EXTI0_IRQHandler() { <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a2" name="a2"></a><a class="code hl_function" href="../../dd/dc3/a05875.html#a13c55cc45daa6d96a1f21460a4c71626">setBitsFromISR</a>(DATA_READY)); <span class="comment">// Deferred to the timer daemon</span></div>
-<div class="line">task.</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> exampleTask() { <span class="keywordflow">if</span> (!events.<a id="a3" name="a3"></a><a class="code hl_function" href="../../dd/dc3/a05875.html#ae966e8d3efe519e3138fedaa3108a300">open</a>()) { <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a4" name="a4"></a><a class="code hl_function" href="../../dd/dc3/a05875.html#a154c164a4617cf8553683bb42f04ff11">setBits</a>(TASK_READY));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Wait up to 1 s for both bits.</span></div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> result = events.<a id="a5" name="a5"></a><a class="code hl_function" href="../../dd/dc3/a05875.html#ac933f049ba3d9d3e242bdc243dea3482">wait</a>(ALL_READY, <span class="keyword">true</span>, <span class="keyword">true</span>, 1s);</div>
-<div class="line">    <span class="keywordflow">if</span> ((result &amp; ALL_READY) == ALL_READY) {</div>
-<div class="line">        <span class="comment">// Both bits set.</span></div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// Timeout: not both bits were set.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    events.<a id="a6" name="a6"></a><a class="code hl_function" href="../../dd/dc3/a05875.html#a86f5d90cf8de78fe435b35460bef5edd">close</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00899_html"><div class="ttname"><a href="../../d3/d8a/a00899.html">EventGroup.hpp</a></div><div class="ttdoc">Declares the RTOS event group wrapper; compiles to nothing without FreeRTOS or dynamic allocation.</div></div>
-<div class="ttc" id="aa05875_html"><div class="ttname"><a href="../../dd/dc3/a05875.html">RTOS::EventGroup</a></div><div class="ttdoc">Owning wrapper of a FreeRTOS event group, letting tasks wait on several flags at once.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:43</div></div>
-<div class="ttc" id="aa05875_html_a13c55cc45daa6d96a1f21460a4c71626"><div class="ttname"><a href="../../dd/dc3/a05875.html#a13c55cc45daa6d96a1f21460a4c71626">RTOS::EventGroup::setBitsFromISR</a></div><div class="ttdeci">bool setBitsFromISR(Bits bitsToSet) noexcept</div><div class="ttdoc">Requests the timer daemon to set bits from an ISR, and yields to it if it outranks the interrupted ta...</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:391</div></div>
-<div class="ttc" id="aa05875_html_a154c164a4617cf8553683bb42f04ff11"><div class="ttname"><a href="../../dd/dc3/a05875.html#a154c164a4617cf8553683bb42f04ff11">RTOS::EventGroup::setBits</a></div><div class="ttdeci">Bits setBits(Bits bitsToSet) noexcept</div><div class="ttdoc">Sets bits and unblocks every task whose wait condition is now met.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:338</div></div>
-<div class="ttc" id="aa05875_html_a27fe7bec268decd9b548d4ad2375ca34"><div class="ttname"><a href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a></div><div class="ttdeci">std::bitset&lt; EVENT_GROUP_BIT_WIDTH &gt; Bits</div><div class="ttdoc">Event group bits; bits above the usable width cannot exist.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:49</div></div>
-<div class="ttc" id="aa05875_html_a86f5d90cf8de78fe435b35460bef5edd"><div class="ttname"><a href="../../dd/dc3/a05875.html#a86f5d90cf8de78fe435b35460bef5edd">RTOS::EventGroup::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the native event group and releases its memory.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:173</div></div>
-<div class="ttc" id="aa05875_html_ac933f049ba3d9d3e242bdc243dea3482"><div class="ttname"><a href="../../dd/dc3/a05875.html#ac933f049ba3d9d3e242bdc243dea3482">RTOS::EventGroup::wait</a></div><div class="ttdeci">Bits wait(Bits requestedBits, bool clearOnExit, bool waitForAll, TickType timeout) noexcept</div><div class="ttdoc">Blocks until the requested bits are set or the timeout expires.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:213</div></div>
-<div class="ttc" id="aa05875_html_ae966e8d3efe519e3138fedaa3108a300"><div class="ttname"><a href="../../dd/dc3/a05875.html#ae966e8d3efe519e3138fedaa3108a300">RTOS::EventGroup::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the native event group on the FreeRTOS heap, with all bits cleared.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:127</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Change tracker for an external uint64_t, for lightweight change detection in communication code. </p>
+<p>Binds to the reference, detects changes against the last completed value and marks the update cycle. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ae91f7070344c27bb733ae287d79e858d" id="r_ae91f7070344c27bb733ae287d79e858d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae91f7070344c27bb733ae287d79e858d">Value64Handle</a> ()=default</td></tr>
+<tr class="memitem:a5421aedc1179a53c55c2d4d93ce22391" id="r_a5421aedc1179a53c55c2d4d93ce22391"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#a5421aedc1179a53c55c2d4d93ce22391">~Value64Handle</a> ()=default</td></tr>
+<tr class="memdesc:a5421aedc1179a53c55c2d4d93ce22391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual: a derived handle may be deleted through a 'Value64Handle' pointer.  <br /></td></tr>
+<tr class="memitem:aa4aa8de706f83b39bb1006637a938ff3" id="r_aa4aa8de706f83b39bb1006637a938ff3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa4aa8de706f83b39bb1006637a938ff3">operator const uint64_t &amp;</a> () const</td></tr>
+<tr class="memdesc:aa4aa8de706f83b39bb1006637a938ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access operator returning the currently bound value or the last known previous value if not bound.  <br /></td></tr>
+<tr class="memitem:aa8cf727f1d905c276f8dadefb6a080dc" id="r_aa8cf727f1d905c276f8dadefb6a080dc"><td class="memItemLeft"><a class="el" href="#ae91f7070344c27bb733ae287d79e858d">Value64Handle</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa8cf727f1d905c276f8dadefb6a080dc">operator=</a> (uint64_t value)</td></tr>
+<tr class="memdesc:aa8cf727f1d905c276f8dadefb6a080dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a new value to the bound reference, only in COMPLETED state.  <br /></td></tr>
+<tr class="memitem:a3b562544e02a39556f90e7dac8d760ca" id="r_a3b562544e02a39556f90e7dac8d760ca"><td class="memItemLeft"><a class="el" href="#a61454ee42b2bfba6e7e63296f6011ff2">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3b562544e02a39556f90e7dac8d760ca">update</a> ()</td></tr>
+<tr class="memdesc:a3b562544e02a39556f90e7dac8d760ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the internal state by comparing the bound value with the previous recorded value.  <br /></td></tr>
+<tr class="memitem:ac621a9cf7d72e05de784a76929a7dab4" id="r_ac621a9cf7d72e05de784a76929a7dab4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac621a9cf7d72e05de784a76929a7dab4">complete</a> ()</td></tr>
+<tr class="memdesc:ac621a9cf7d72e05de784a76929a7dab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark the handle as completed and record the current bound value as the previous value.  <br /></td></tr>
+<tr class="memitem:ade6d2f8f79b9705b6078b0d797bdee41" id="r_ade6d2f8f79b9705b6078b0d797bdee41"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ade6d2f8f79b9705b6078b0d797bdee41">inProgress</a> ()</td></tr>
+<tr class="memdesc:ade6d2f8f79b9705b6078b0d797bdee41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark the handle as currently processing an update.  <br /></td></tr>
+<tr class="memitem:add5c3b1dc3041fd34c3f7da2614cbb4a" id="r_add5c3b1dc3041fd34c3f7da2614cbb4a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#add5c3b1dc3041fd34c3f7da2614cbb4a">bind</a> (uint64_t &amp;ref)</td></tr>
+<tr class="memdesc:add5c3b1dc3041fd34c3f7da2614cbb4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind the handle to an external uint64_t reference.  <br /></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a61454ee42b2bfba6e7e63296f6011ff2" name="a61454ee42b2bfba6e7e63296f6011ff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61454ee42b2bfba6e7e63296f6011ff2">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a61454ee42b2bfba6e7e63296f6011ff2">Lib::XCOM::ServiceBase::Value64Handle::Status</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>State machine for the handle lifecycle. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d" name="a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d"></a>NO_INIT&#160;</td><td class="fielddoc"><p>Handle not bound to a value yet. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a" name="a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a"></a>CHANGED&#160;</td><td class="fielddoc"><p>Bound value has changed since last complete(). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9" name="a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9"></a>IN_PROGRESS&#160;</td><td class="fielddoc"><p>An update is currently in progress. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e" name="a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e"></a>COMPLETED&#160;</td><td class="fielddoc"><p>Last change was acknowledged and completed. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae91f7070344c27bb733ae287d79e858d" name="ae91f7070344c27bb733ae287d79e858d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae91f7070344c27bb733ae287d79e858d">&#9670;&#160;</a></span>Value64Handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::XCOM::ServiceBase::Value64Handle::Value64Handle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5421aedc1179a53c55c2d4d93ce22391" name="a5421aedc1179a53c55c2d4d93ce22391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5421aedc1179a53c55c2d4d93ce22391">&#9670;&#160;</a></span>~Value64Handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Lib::XCOM::ServiceBase::Value64Handle::~Value64Handle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual: a derived handle may be deleted through a 'Value64Handle' pointer. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="add5c3b1dc3041fd34c3f7da2614cbb4a" name="add5c3b1dc3041fd34c3f7da2614cbb4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add5c3b1dc3041fd34c3f7da2614cbb4a">&#9670;&#160;</a></span>bind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::XCOM::ServiceBase::Value64Handle::bind </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t &amp;</td>          <td class="paramname"><span class="paramname"><em>ref</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bind the handle to an external uint64_t reference. </p>
+<p>Binding sets the state to CHANGED to indicate that a new value should be considered.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ref</td><td>Reference to the external uint64_t to bind. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac621a9cf7d72e05de784a76929a7dab4" name="ac621a9cf7d72e05de784a76929a7dab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac621a9cf7d72e05de784a76929a7dab4">&#9670;&#160;</a></span>complete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::XCOM::ServiceBase::Value64Handle::complete </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mark the handle as completed and record the current bound value as the previous value. </p>
+
+</div>
+</div>
+<a id="ade6d2f8f79b9705b6078b0d797bdee41" name="ade6d2f8f79b9705b6078b0d797bdee41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade6d2f8f79b9705b6078b0d797bdee41">&#9670;&#160;</a></span>inProgress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::XCOM::ServiceBase::Value64Handle::inProgress </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mark the handle as currently processing an update. </p>
+
+</div>
+</div>
+<a id="aa4aa8de706f83b39bb1006637a938ff3" name="aa4aa8de706f83b39bb1006637a938ff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4aa8de706f83b39bb1006637a938ff3">&#9670;&#160;</a></span>operator const uint64_t &amp;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::XCOM::ServiceBase::Value64Handle::operator const uint64_t &amp; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access operator returning the currently bound value or the last known previous value if not bound. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the current or previous uint64_t value. </dd></dl>
+
+</div>
+</div>
+<a id="aa8cf727f1d905c276f8dadefb6a080dc" name="aa8cf727f1d905c276f8dadefb6a080dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8cf727f1d905c276f8dadefb6a080dc">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae91f7070344c27bb733ae287d79e858d">Value64Handle</a> &amp; Lib::XCOM::ServiceBase::Value64Handle::operator= </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigns a new value to the bound reference, only in COMPLETED state. </p>
+<p>A different value saves the old one and sets the state to CHANGED.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>New uint64_t value to assign. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this handle. </dd></dl>
+
+</div>
+</div>
+<a id="a3b562544e02a39556f90e7dac8d760ca" name="a3b562544e02a39556f90e7dac8d760ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b562544e02a39556f90e7dac8d760ca">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a61454ee42b2bfba6e7e63296f6011ff2">Status</a> Lib::XCOM::ServiceBase::Value64Handle::update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update the internal state by comparing the bound value with the previous recorded value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current Status after the update. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
