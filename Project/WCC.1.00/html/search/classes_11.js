@@ -1,9 +1,9 @@
 var searchData=
 [
   ['quadratic_5fprobe_5ffn_0',['quadratic_probe_fn',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a11626.html',1,'__gnu_pbds']]],
-  ['quality_1',['Quality',['https://panchev68.github.io/Lib/d4/d8a/a04919.html',1,'Lib::Digi::API::Connection']]],
-  ['queue_2',['Queue',['https://panchev68.github.io/Lib/da/dc6/a05919.html',1,'RTOS']]],
+  ['quality_1',['Quality',['https://panchev68.github.io/Lib/de/de4/a04922.html',1,'Lib::Digi::API::Connection']]],
+  ['queue_2',['Queue',['https://panchev68.github.io/Lib/df/dc9/a05922.html',1,'RTOS']]],
   ['queue_3',['queue',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07314.html',1,'std']]],
-  ['queuemessage_4',['QueueMessage',['https://panchev68.github.io/Lib/d3/d91/a05119.html',1,'Lib::Digi::Core']]],
+  ['queuemessage_4',['QueueMessage',['https://panchev68.github.io/Lib/dc/d0c/a05122.html',1,'Lib::Digi::Core']]],
   ['quicksort_5ftag_5',['quicksort_tag',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a09058.html',1,'__gnu_parallel']]]
 ];
