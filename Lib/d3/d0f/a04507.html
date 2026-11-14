@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::FMEM::SPI::Info</title>
+<title>IAR EWARM Library: Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,168 +91,614 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/d48/a00988.html">BSP</a></li><li class="navelem"><a href="../../dd/d48/a00995.html">FMEM</a></li><li class="navelem"><a href="../../d0/d28/a00997.html">SPI</a></li><li class="navelem"><a href="../../d3/d0f/a04507.html">Info</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d7/df2/a01000.html">BSP</a></li><li class="navelem"><a href="../../d6/d8d/a01007.html">FMEM</a></li><li class="navelem"><a href="../../dd/dac/a01008.html">OSPI</a></li><li class="navelem"><a href="../../d3/d0f/a04507.html">W25Q128JVSIQ</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../de/da6/a04504.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::FMEM::SPI::Info</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Device information populated by the driver after probe/initialization.  
+<p>Quad-SPI (OCTOSPI) device driver for the Winbond W25Q128JVSIQ.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Device information populated by the driver after probe/initialization. </p>
+<div class="textblock"><p>Quad-SPI (OCTOSPI) device driver for the Winbond W25Q128JVSIQ. </p>
+<p>Read, write and erase run over OCTOSPI in regular command mode: Fast Read Quad I/O for reads and Quad Page Program (1-1-4) for writes. <a class="el" href="#acc5fbed9faca7400c7d70130fbb74131" title="open()">open()</a> runs a power-up, reset and JEDEC ID probe, and the driver is present only when the probe reports the 16 MB capacity code.</p>
+<p>Deep power-down: <b>powerDown()</b> and <b>powerUp()</b> wait the datasheet time tDP / tRES1 (3 us), so the next command may follow at once. While powered down the device ignores every command except Release Power-Down, so a caller that uses <a class="el" href="#a8a0d94550896c7062f6594cd0e532007" title="enterPowerDown()">enterPowerDown()</a> must call <a class="el" href="#a686c0c59ab4f223b15aefeeab43ca2bd" title="releasePowerDown()">releasePowerDown()</a> before the next access.</p>
+<p>Program and erase waits sleep the calling task between BUSY polls once the scheduler runs. For the same device on a plain 4-wire SPI bus, see <a class="el" href="../../df/dd3/a04527.html" title="Lib::BSP::W25Q128JVSIQ">Lib::BSP::W25Q128JVSIQ</a>.</p>
+<p>The header compiles to nothing unless the HAL configuration defines <em class="arg">HAL_OSPI_MODULE_ENABLED</em>, so it is only usable on an MCU with an OCTOSPI peripheral and that module enabled.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://www.winbond.com/resource-files/W25Q128JV%20RevI%2008232021%20Plus.pdf" target="_blank">W25Q128JV datasheet, Rev I (Winbond-hosted copy)</a>, older revision; the newest found is Rev M (December 2024), not yet confirmed on winbond.com</dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d3d/a06161.html#_a0">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
+</dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a51f97ba3d60d343706487241e08e252e" id="r_a51f97ba3d60d343706487241e08e252e"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a51f97ba3d60d343706487241e08e252e">chipId</a> = 0</td></tr>
-<tr class="memdesc:a51f97ba3d60d343706487241e08e252e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device-specific chip identifier.  <br /></td></tr>
-<tr class="memitem:a5c3278897e2a6732479c70a4efed141c" id="r_a5c3278897e2a6732479c70a4efed141c"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a5c3278897e2a6732479c70a4efed141c">manufacturerId</a> = 0</td></tr>
-<tr class="memdesc:a5c3278897e2a6732479c70a4efed141c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manufacturer identifier.  <br /></td></tr>
-<tr class="memitem:a6dfa782b4e1075bfbba5e05921a75e4d" id="r_a6dfa782b4e1075bfbba5e05921a75e4d"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a6dfa782b4e1075bfbba5e05921a75e4d">capacityBytes</a> = 0</td></tr>
-<tr class="memdesc:a6dfa782b4e1075bfbba5e05921a75e4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total capacity in bytes.  <br /></td></tr>
-<tr class="memitem:af9ad76ca92b33af38466c11344584476" id="r_af9ad76ca92b33af38466c11344584476"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#af9ad76ca92b33af38466c11344584476">pageCount</a> = 0</td></tr>
-<tr class="memdesc:af9ad76ca92b33af38466c11344584476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of pages.  <br /></td></tr>
-<tr class="memitem:aa482de6c6eee01a82cb064c799fbf0bd" id="r_aa482de6c6eee01a82cb064c799fbf0bd"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aa482de6c6eee01a82cb064c799fbf0bd">pageSize</a> = 0</td></tr>
-<tr class="memdesc:aa482de6c6eee01a82cb064c799fbf0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Page size in bytes.  <br /></td></tr>
-<tr class="memitem:acabb2e9f89395ebfeab0b0992b2afe6c" id="r_acabb2e9f89395ebfeab0b0992b2afe6c"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#acabb2e9f89395ebfeab0b0992b2afe6c">sectorSize</a> = 0</td></tr>
-<tr class="memdesc:acabb2e9f89395ebfeab0b0992b2afe6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sector size in bytes.  <br /></td></tr>
-<tr class="memitem:ae20b701cb3f48cd89f4a524b004c870f" id="r_ae20b701cb3f48cd89f4a524b004c870f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae20b701cb3f48cd89f4a524b004c870f">sectorCount</a> = 0</td></tr>
-<tr class="memdesc:ae20b701cb3f48cd89f4a524b004c870f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of sectors.  <br /></td></tr>
-<tr class="memitem:a1bc7cd413b6b77127b198f35133f01cf" id="r_a1bc7cd413b6b77127b198f35133f01cf"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a1bc7cd413b6b77127b198f35133f01cf">pagesPerSector</a> = 0</td></tr>
-<tr class="memdesc:a1bc7cd413b6b77127b198f35133f01cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pages per sector.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Register" id="r_Register"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d2/d5d/a04511.html">Register</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-level instruction opcodes used to communicate with the device over OCTOSPI.  <a href="../../d2/d5d/a04511.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a5627e540e90ee9b11c249f9dfd3596ec" id="r_a5627e540e90ee9b11c249f9dfd3596ec"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a5627e540e90ee9b11c249f9dfd3596ec">Config</a> = <a class="el" href="../../da/dec/a04499.html">Lib::BSP::FMEM::OSPI::Config</a></td></tr>
+<tr class="memdesc:a5627e540e90ee9b11c249f9dfd3596ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime configuration for driver construction; see <a class="el" href="../../da/dec/a04499.html" title="Lib::BSP::FMEM::OSPI::Config">Lib::BSP::FMEM::OSPI::Config</a> for field documentation.  <br /></td></tr>
+<tr class="memitem:a4d44e5999bff4b46f38692666fdcc25d" id="r_a4d44e5999bff4b46f38692666fdcc25d"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a4d44e5999bff4b46f38692666fdcc25d">Info</a> = <a class="el" href="../../d2/d71/a04503.html">Lib::BSP::FMEM::OSPI::Info</a></td></tr>
+<tr class="memdesc:a4d44e5999bff4b46f38692666fdcc25d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device information obtained from JEDEC ID; see <a class="el" href="../../d2/d71/a04503.html" title="Lib::BSP::FMEM::OSPI::Info">Lib::BSP::FMEM::OSPI::Info</a> for field documentation.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a59ef93437c59f8f672e38905b5e11dc7" id="r_a59ef93437c59f8f672e38905b5e11dc7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> (const <a class="el" href="#a5627e540e90ee9b11c249f9dfd3596ec">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a59ef93437c59f8f672e38905b5e11dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the driver bound to the provided OCTOSPI port.  <br /></td></tr>
+<tr class="memitem:aeb4e3658c1a50d80811bddb4e5794788" id="r_aeb4e3658c1a50d80811bddb4e5794788"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aeb4e3658c1a50d80811bddb4e5794788">~W25Q128JVSIQ</a> () noexcept=default</td></tr>
+<tr class="memdesc:aeb4e3658c1a50d80811bddb4e5794788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the driver; the referenced OCTOSPI port is owned and closed by its caller, not by this class.  <br /></td></tr>
+<tr class="memitem:a8e63f6957e7d3835c28850539c92b803" id="r_a8e63f6957e7d3835c28850539c92b803"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8e63f6957e7d3835c28850539c92b803">W25Q128JVSIQ</a> (const W25Q128JVSIQ &amp;)=delete</td></tr>
+<tr class="memdesc:a8e63f6957e7d3835c28850539c92b803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor; the referenced OCTOSPI port must have exactly one owner.  <br /></td></tr>
+<tr class="memitem:aede81ab56acac1b91b78600c0c6e82c5" id="r_aede81ab56acac1b91b78600c0c6e82c5"><td class="memItemLeft"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aede81ab56acac1b91b78600c0c6e82c5">operator=</a> (const <a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;)=delete</td></tr>
+<tr class="memdesc:aede81ab56acac1b91b78600c0c6e82c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator; the referenced OCTOSPI port must have exactly one owner.  <br /></td></tr>
+<tr class="memitem:ab86a72c21a4af20d878b815237041775" id="r_ab86a72c21a4af20d878b815237041775"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab86a72c21a4af20d878b815237041775">W25Q128JVSIQ</a> (W25Q128JVSIQ &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:ab86a72c21a4af20d878b815237041775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted move constructor; the referenced OCTOSPI port must have exactly one owner.  <br /></td></tr>
+<tr class="memitem:a042aafe50feeb5ffe960d362458e460e" id="r_a042aafe50feeb5ffe960d362458e460e"><td class="memItemLeft"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a042aafe50feeb5ffe960d362458e460e">operator=</a> (<a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a042aafe50feeb5ffe960d362458e460e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted move assignment operator; the referenced OCTOSPI port must have exactly one owner.  <br /></td></tr>
+<tr class="memitem:acc5fbed9faca7400c7d70130fbb74131" id="r_acc5fbed9faca7400c7d70130fbb74131"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acc5fbed9faca7400c7d70130fbb74131">open</a> () noexcept</td></tr>
+<tr class="memdesc:acc5fbed9faca7400c7d70130fbb74131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the device and caches its parameters.  <br /></td></tr>
+<tr class="memitem:ab84d3fc2e1e49b6feddd226fdc925ae6" id="r_ab84d3fc2e1e49b6feddd226fdc925ae6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab84d3fc2e1e49b6feddd226fdc925ae6">close</a> () noexcept</td></tr>
+<tr class="memdesc:ab84d3fc2e1e49b6feddd226fdc925ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the device and powers it down.  <br /></td></tr>
+<tr class="memitem:a8a0d94550896c7062f6594cd0e532007" id="r_a8a0d94550896c7062f6594cd0e532007"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8a0d94550896c7062f6594cd0e532007">enterPowerDown</a> () noexcept</td></tr>
+<tr class="memdesc:a8a0d94550896c7062f6594cd0e532007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts an opened device into deep power-down between accesses; the port stays open.  <br /></td></tr>
+<tr class="memitem:a686c0c59ab4f223b15aefeeab43ca2bd" id="r_a686c0c59ab4f223b15aefeeab43ca2bd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a686c0c59ab4f223b15aefeeab43ca2bd">releasePowerDown</a> () noexcept</td></tr>
+<tr class="memdesc:a686c0c59ab4f223b15aefeeab43ca2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the device from deep power-down; call before any access after <a class="el" href="#a8a0d94550896c7062f6594cd0e532007" title="enterPowerDown()">enterPowerDown()</a>.  <br /></td></tr>
+<tr class="memitem:a3f7a3b245b2a704b45e6a638a2c9c971" id="r_a3f7a3b245b2a704b45e6a638a2c9c971"><td class="memItemLeft">const <a class="el" href="#a4d44e5999bff4b46f38692666fdcc25d">Info</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3f7a3b245b2a704b45e6a638a2c9c971">getInfo</a> () const noexcept</td></tr>
+<tr class="memdesc:a3f7a3b245b2a704b45e6a638a2c9c971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the cached device information.  <br /></td></tr>
+<tr class="memitem:a40a9ef783ecafece7202ae4ec39d4939" id="r_a40a9ef783ecafece7202ae4ec39d4939"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a40a9ef783ecafece7202ae4ec39d4939">isPresent</a> () const noexcept</td></tr>
+<tr class="memdesc:a40a9ef783ecafece7202ae4ec39d4939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the device is present and initialized.  <br /></td></tr>
+<tr class="memitem:abb4813e3ca50641c3bc3d1a367927ab8" id="r_abb4813e3ca50641c3bc3d1a367927ab8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abb4813e3ca50641c3bc3d1a367927ab8">read</a> (uint32_t addr, void *buffer, size_t size) noexcept</td></tr>
+<tr class="memdesc:abb4813e3ca50641c3bc3d1a367927ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads <em class="arg">size</em> bytes from the device starting at <em class="arg">addr</em> into <em class="arg">buffer</em>.  <br /></td></tr>
+<tr class="memitem:a48fee6a63474b5ad43a51157fcd0129a" id="r_a48fee6a63474b5ad43a51157fcd0129a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a48fee6a63474b5ad43a51157fcd0129a">write</a> (uint32_t addr, const void *data, size_t size) noexcept</td></tr>
+<tr class="memdesc:a48fee6a63474b5ad43a51157fcd0129a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <em class="arg">size</em> bytes from <em class="arg">data</em> to the device starting at <em class="arg">addr</em>.  <br /></td></tr>
+<tr class="memitem:aff869cb6bde4f4f94493097c4c7e2da6" id="r_aff869cb6bde4f4f94493097c4c7e2da6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aff869cb6bde4f4f94493097c4c7e2da6">eraseSector</a> (uint32_t addr) noexcept</td></tr>
+<tr class="memdesc:aff869cb6bde4f4f94493097c4c7e2da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases the 4 KB sector that contains <em class="arg">addr</em>.  <br /></td></tr>
+<tr class="memitem:a0b3b683afc77b0c0ee69e757c581a722" id="r_a0b3b683afc77b0c0ee69e757c581a722"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0b3b683afc77b0c0ee69e757c581a722">eraseChip</a> () noexcept</td></tr>
+<tr class="memdesc:a0b3b683afc77b0c0ee69e757c581a722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases the entire device.  <br /></td></tr>
 </table>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a6dfa782b4e1075bfbba5e05921a75e4d" name="a6dfa782b4e1075bfbba5e05921a75e4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dfa782b4e1075bfbba5e05921a75e4d">&#9670;&#160;</a></span>capacityBytes</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a5627e540e90ee9b11c249f9dfd3596ec" name="a5627e540e90ee9b11c249f9dfd3596ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5627e540e90ee9b11c249f9dfd3596ec">&#9670;&#160;</a></span>Config</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::BSP::FMEM::SPI::Info::capacityBytes = 0</td>
+          <td class="memname">using <a class="el" href="#a5627e540e90ee9b11c249f9dfd3596ec">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Config</a> = <a class="el" href="../../da/dec/a04499.html">Lib::BSP::FMEM::OSPI::Config</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Total capacity in bytes. </p>
+<p>Runtime configuration for driver construction; see <a class="el" href="../../da/dec/a04499.html" title="Lib::BSP::FMEM::OSPI::Config">Lib::BSP::FMEM::OSPI::Config</a> for field documentation. </p>
 
 </div>
 </div>
-<a id="a51f97ba3d60d343706487241e08e252e" name="a51f97ba3d60d343706487241e08e252e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51f97ba3d60d343706487241e08e252e">&#9670;&#160;</a></span>chipId</h2>
+<a id="a4d44e5999bff4b46f38692666fdcc25d" name="a4d44e5999bff4b46f38692666fdcc25d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d44e5999bff4b46f38692666fdcc25d">&#9670;&#160;</a></span>Info</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::BSP::FMEM::SPI::Info::chipId = 0</td>
+          <td class="memname">using <a class="el" href="#a4d44e5999bff4b46f38692666fdcc25d">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Info</a> = <a class="el" href="../../d2/d71/a04503.html">Lib::BSP::FMEM::OSPI::Info</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Device-specific chip identifier. </p>
+<p>Device information obtained from JEDEC ID; see <a class="el" href="../../d2/d71/a04503.html" title="Lib::BSP::FMEM::OSPI::Info">Lib::BSP::FMEM::OSPI::Info</a> for field documentation. </p>
 
 </div>
 </div>
-<a id="a5c3278897e2a6732479c70a4efed141c" name="a5c3278897e2a6732479c70a4efed141c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c3278897e2a6732479c70a4efed141c">&#9670;&#160;</a></span>manufacturerId</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a59ef93437c59f8f672e38905b5e11dc7" name="a59ef93437c59f8f672e38905b5e11dc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59ef93437c59f8f672e38905b5e11dc7">&#9670;&#160;</a></span>W25Q128JVSIQ() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::BSP::FMEM::SPI::Info::manufacturerId = 0</td>
+          <td class="memname">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::W25Q128JVSIQ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a5627e540e90ee9b11c249f9dfd3596ec">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Manufacturer identifier. </p>
+<p>Constructs the driver bound to the provided OCTOSPI port. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Runtime configuration referencing the shared OCTOSPI port. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="af9ad76ca92b33af38466c11344584476" name="af9ad76ca92b33af38466c11344584476"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9ad76ca92b33af38466c11344584476">&#9670;&#160;</a></span>pageCount</h2>
+<a id="aeb4e3658c1a50d80811bddb4e5794788" name="aeb4e3658c1a50d80811bddb4e5794788"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb4e3658c1a50d80811bddb4e5794788">&#9670;&#160;</a></span>~W25Q128JVSIQ()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::BSP::FMEM::SPI::Info::pageCount = 0</td>
+          <td class="memname">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::~W25Q128JVSIQ </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Number of pages. </p>
+<p>Destroys the driver; the referenced OCTOSPI port is owned and closed by its caller, not by this class. </p>
 
 </div>
 </div>
-<a id="aa482de6c6eee01a82cb064c799fbf0bd" name="aa482de6c6eee01a82cb064c799fbf0bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa482de6c6eee01a82cb064c799fbf0bd">&#9670;&#160;</a></span>pageSize</h2>
+<a id="a8e63f6957e7d3835c28850539c92b803" name="a8e63f6957e7d3835c28850539c92b803"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e63f6957e7d3835c28850539c92b803">&#9670;&#160;</a></span>W25Q128JVSIQ() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::BSP::FMEM::SPI::Info::pageSize = 0</td>
+          <td class="memname">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::W25Q128JVSIQ </td>
+          <td>(</td>
+          <td class="paramtype">const W25Q128JVSIQ &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Page size in bytes. </p>
+<p>Deleted copy constructor; the referenced OCTOSPI port must have exactly one owner. </p>
 
 </div>
 </div>
-<a id="a1bc7cd413b6b77127b198f35133f01cf" name="a1bc7cd413b6b77127b198f35133f01cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bc7cd413b6b77127b198f35133f01cf">&#9670;&#160;</a></span>pagesPerSector</h2>
+<a id="ab86a72c21a4af20d878b815237041775" name="ab86a72c21a4af20d878b815237041775"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab86a72c21a4af20d878b815237041775">&#9670;&#160;</a></span>W25Q128JVSIQ() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::BSP::FMEM::SPI::Info::pagesPerSector = 0</td>
+          <td class="memname">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::W25Q128JVSIQ </td>
+          <td>(</td>
+          <td class="paramtype">W25Q128JVSIQ &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Pages per sector. </p>
+<p>Deleted move constructor; the referenced OCTOSPI port must have exactly one owner. </p>
 
 </div>
 </div>
-<a id="ae20b701cb3f48cd89f4a524b004c870f" name="ae20b701cb3f48cd89f4a524b004c870f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae20b701cb3f48cd89f4a524b004c870f">&#9670;&#160;</a></span>sectorCount</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ab84d3fc2e1e49b6feddd226fdc925ae6" name="ab84d3fc2e1e49b6feddd226fdc925ae6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab84d3fc2e1e49b6feddd226fdc925ae6">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::BSP::FMEM::SPI::Info::sectorCount = 0</td>
+          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Number of sectors. </p>
+<p>Closes the device and powers it down. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if both power-down and port close succeeded; otherwise <em class="arg">false</em>. </dd></dl>
 
 </div>
 </div>
-<a id="acabb2e9f89395ebfeab0b0992b2afe6c" name="acabb2e9f89395ebfeab0b0992b2afe6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acabb2e9f89395ebfeab0b0992b2afe6c">&#9670;&#160;</a></span>sectorSize</h2>
+<a id="a8a0d94550896c7062f6594cd0e532007" name="a8a0d94550896c7062f6594cd0e532007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a0d94550896c7062f6594cd0e532007">&#9670;&#160;</a></span>enterPowerDown()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::BSP::FMEM::SPI::Info::sectorSize = 0</td>
+          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Sector size in bytes. </p>
+<p>Puts an opened device into deep power-down between accesses; the port stays open. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the device was present and the command was sent; otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d3d/a06161.html#a6">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a0b3b683afc77b0c0ee69e757c581a722" name="a0b3b683afc77b0c0ee69e757c581a722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b3b683afc77b0c0ee69e757c581a722">&#9670;&#160;</a></span>eraseChip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseChip </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erases the entire device. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
+
+</div>
+</div>
+<a id="aff869cb6bde4f4f94493097c4c7e2da6" name="aff869cb6bde4f4f94493097c4c7e2da6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff869cb6bde4f4f94493097c4c7e2da6">&#9670;&#160;</a></span>eraseSector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erases the 4 KB sector that contains <em class="arg">addr</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Address inside the sector to erase. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d3d/a06161.html#a3">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a3f7a3b245b2a704b45e6a638a2c9c971" name="a3f7a3b245b2a704b45e6a638a2c9c971"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f7a3b245b2a704b45e6a638a2c9c971">&#9670;&#160;</a></span>getInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="#a4d44e5999bff4b46f38692666fdcc25d">Info</a> &amp; Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::getInfo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the cached device information. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the device Info structure. </dd></dl>
+
+</div>
+</div>
+<a id="a40a9ef783ecafece7202ae4ec39d4939" name="a40a9ef783ecafece7202ae4ec39d4939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40a9ef783ecafece7202ae4ec39d4939">&#9670;&#160;</a></span>isPresent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the device is present and initialized. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the device is present; otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d3d/a06161.html#a1">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="acc5fbed9faca7400c7d70130fbb74131" name="acc5fbed9faca7400c7d70130fbb74131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5fbed9faca7400c7d70130fbb74131">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the device and caches its parameters. </p>
+<p>Opens the OCTOSPI port, then performs a power-up, reset and JEDEC probe sequence. If the power-up or reset step fails, the OCTOSPI port opened here is closed again before returning.</p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when device is present and initialized; otherwise <em class="arg">false</em>. </dd></dl>
+
+</div>
+</div>
+<a id="aede81ab56acac1b91b78600c0c6e82c5" name="aede81ab56acac1b91b78600c0c6e82c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aede81ab56acac1b91b78600c0c6e82c5">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp; Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted copy assignment operator; the referenced OCTOSPI port must have exactly one owner. </p>
+
+</div>
+</div>
+<a id="a042aafe50feeb5ffe960d362458e460e" name="a042aafe50feeb5ffe960d362458e460e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a042aafe50feeb5ffe960d362458e460e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp; Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted move assignment operator; the referenced OCTOSPI port must have exactly one owner. </p>
+
+</div>
+</div>
+<a id="abb4813e3ca50641c3bc3d1a367927ab8" name="abb4813e3ca50641c3bc3d1a367927ab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb4813e3ca50641c3bc3d1a367927ab8">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::read </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads <em class="arg">size</em> bytes from the device starting at <em class="arg">addr</em> into <em class="arg">buffer</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Start address in device memory. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Destination buffer, not <em class="arg">nullptr</em>. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d3d/a06161.html#a5">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a686c0c59ab4f223b15aefeeab43ca2bd" name="a686c0c59ab4f223b15aefeeab43ca2bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a686c0c59ab4f223b15aefeeab43ca2bd">&#9670;&#160;</a></span>releasePowerDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wakes the device from deep power-down; call before any access after <a class="el" href="#a8a0d94550896c7062f6594cd0e532007" title="enterPowerDown()">enterPowerDown()</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the device was present and the command was sent; otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d3d/a06161.html#a7">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a48fee6a63474b5ad43a51157fcd0129a" name="a48fee6a63474b5ad43a51157fcd0129a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48fee6a63474b5ad43a51157fcd0129a">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes <em class="arg">size</em> bytes from <em class="arg">data</em> to the device starting at <em class="arg">addr</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Start address in device memory. </td></tr>
+    <tr><td class="paramname">data</td><td>Source data buffer, not <em class="arg">nullptr</em>. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d3d/a06161.html#a4">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
+</dl>
 
 </div>
 </div>

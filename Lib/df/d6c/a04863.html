@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Crypto::WolfSSH</title>
+<title>IAR EWARM Library: Lib::Crypto::SHA256&lt; SHA256Engine::SOFTWARE &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,45 +91,73 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../dd/dac/a01008.html">Crypto</a></li><li class="navelem"><a href="../../df/d6c/a04863.html">WolfSSH</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">Crypto</a></li><li class="navelem"><a href="../../df/d6c/a04863.html">SHA256&lt; SHA256Engine::SOFTWARE &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d1/dda/a04860.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSH<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::SHA256&lt; SHA256Engine::SOFTWARE &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>RAII guard for wolfSSH's global library state.  
+<p>Streaming SHA-256 hasher with a portable C++ compression function.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>RAII guard for wolfSSH's global library state. </p>
-<p>Exactly one instance must exist, constructed before any other WolfSSH class is used and outliving all of them; construct it once at startup, for example alongside <a class="el" href="../../d3/df2/a06043.html" title="Lib::System::System">Lib::System::System</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Crypto/WolfSSH.hpp" target="_blank">Source</a> </dd></dl>
+<div class="textblock"><p>Streaming SHA-256 hasher with a portable C++ compression function. </p>
+<p>Owns no tables beyond the 64 round constants and never allocates: the state is the eight hash words, one pending 64-byte block and two counters. Whole blocks of the input are compressed straight from the caller's buffer, and the message schedule keeps only 16 words, so the compression needs little stack. </p>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a177e084473b0593a7a7d9bf1e0dce133" id="r_a177e084473b0593a7a7d9bf1e0dce133"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a177e084473b0593a7a7d9bf1e0dce133">Digest</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a4753064242805c450f326a1572add768">DIGEST_SIZE</a>&gt;</td></tr>
+<tr class="memdesc:a177e084473b0593a7a7d9bf1e0dce133"><td class="mdescLeft">&#160;</td><td class="mdescRight">Big-endian digest bytes.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acda587d771e0b88270bdf9263d156fd0" id="r_acda587d771e0b88270bdf9263d156fd0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acda587d771e0b88270bdf9263d156fd0">WolfSSH</a> () noexcept</td></tr>
-<tr class="memdesc:acda587d771e0b88270bdf9263d156fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the wolfSSH library.  <br /></td></tr>
-<tr class="memitem:ad07d509cc2a825d9165ab30739d84515" id="r_ad07d509cc2a825d9165ab30739d84515"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad07d509cc2a825d9165ab30739d84515">~WolfSSH</a> () noexcept</td></tr>
-<tr class="memdesc:ad07d509cc2a825d9165ab30739d84515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfSSH library's global state.  <br /></td></tr>
-<tr class="memitem:ab03771dcd75546ec452cb768b0a29da5" id="r_ab03771dcd75546ec452cb768b0a29da5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab03771dcd75546ec452cb768b0a29da5">WolfSSH</a> (const WolfSSH &amp;)=delete</td></tr>
-<tr class="memdesc:ab03771dcd75546ec452cb768b0a29da5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: it owns the wolfSSH library's global state.  <br /></td></tr>
-<tr class="memitem:a1f81fc8aa460ffe7dbbdb89186833a9a" id="r_a1f81fc8aa460ffe7dbbdb89186833a9a"><td class="memItemLeft"><a class="el" href="#acda587d771e0b88270bdf9263d156fd0">WolfSSH</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1f81fc8aa460ffe7dbbdb89186833a9a">operator=</a> (const <a class="el" href="#acda587d771e0b88270bdf9263d156fd0">WolfSSH</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a1f81fc8aa460ffe7dbbdb89186833a9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: it owns the wolfSSH library's global state.  <br /></td></tr>
-<tr class="memitem:ae46df48c97bb9fb2b64975cdd5568a57" id="r_ae46df48c97bb9fb2b64975cdd5568a57"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae46df48c97bb9fb2b64975cdd5568a57">WolfSSH</a> (WolfSSH &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:ae46df48c97bb9fb2b64975cdd5568a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: it owns the wolfSSH library's global state.  <br /></td></tr>
-<tr class="memitem:ad0a8cf68d06a11f49564b2798aaebe30" id="r_ad0a8cf68d06a11f49564b2798aaebe30"><td class="memItemLeft"><a class="el" href="#acda587d771e0b88270bdf9263d156fd0">WolfSSH</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad0a8cf68d06a11f49564b2798aaebe30">operator=</a> (<a class="el" href="#acda587d771e0b88270bdf9263d156fd0">WolfSSH</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:ad0a8cf68d06a11f49564b2798aaebe30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: it owns the wolfSSH library's global state.  <br /></td></tr>
-<tr class="memitem:aac3ff36b57e422860d83792bb84c84f3" id="r_aac3ff36b57e422860d83792bb84c84f3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aac3ff36b57e422860d83792bb84c84f3">isOpen</a> () const noexcept</td></tr>
-<tr class="memdesc:aac3ff36b57e422860d83792bb84c84f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the library initialized successfully.  <br /></td></tr>
+<tr class="memitem:a495e4d841b6752aecbcdaa9d1c805420" id="r_a495e4d841b6752aecbcdaa9d1c805420"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a495e4d841b6752aecbcdaa9d1c805420">SHA256</a> () noexcept=default</td></tr>
+<tr class="memdesc:a495e4d841b6752aecbcdaa9d1c805420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a new digest.  <br /></td></tr>
+<tr class="memitem:a79e12cbf01846349b78a18c75338c38e" id="r_a79e12cbf01846349b78a18c75338c38e"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a79e12cbf01846349b78a18c75338c38e">update</a> (std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a79e12cbf01846349b78a18c75338c38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends message bytes.  <br /></td></tr>
+<tr class="memitem:abcfe6df3f9c2f8197fd365f99e07551f" id="r_abcfe6df3f9c2f8197fd365f99e07551f"><td class="memItemLeft">constexpr <a class="el" href="#a177e084473b0593a7a7d9bf1e0dce133">Digest</a>&#160;</td><td class="memItemRight"><a class="el" href="#abcfe6df3f9c2f8197fd365f99e07551f">finish</a> () noexcept</td></tr>
+<tr class="memdesc:abcfe6df3f9c2f8197fd365f99e07551f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pads the message and returns the digest; the hasher must not be updated afterwards.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a734b256d33a142c4cbb48989fb3b31f2" id="r_a734b256d33a142c4cbb48989fb3b31f2"><td class="memItemLeft">static constexpr <a class="el" href="#a177e084473b0593a7a7d9bf1e0dce133">Digest</a>&#160;</td><td class="memItemRight"><a class="el" href="#a734b256d33a142c4cbb48989fb3b31f2">hash</a> (std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a734b256d33a142c4cbb48989fb3b31f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hashes a complete message in one call.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a4753064242805c450f326a1572add768" id="r_a4753064242805c450f326a1572add768"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a4753064242805c450f326a1572add768">DIGEST_SIZE</a> = 32U</td></tr>
+<tr class="memdesc:a4753064242805c450f326a1572add768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digest length, in bytes.  <br /></td></tr>
+<tr class="memitem:a40a860803a494d53743ad3fe6fe138c0" id="r_a40a860803a494d53743ad3fe6fe138c0"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a40a860803a494d53743ad3fe6fe138c0">BLOCK_SIZE</a> = 64U</td></tr>
+<tr class="memdesc:a40a860803a494d53743ad3fe6fe138c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compression block length, in bytes.  <br /></td></tr>
 </table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a177e084473b0593a7a7d9bf1e0dce133" name="a177e084473b0593a7a7d9bf1e0dce133"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a177e084473b0593a7a7d9bf1e0dce133">&#9670;&#160;</a></span>Digest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../da/d9f/a04859.html">Lib::Crypto::SHA256</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a9f3539ae201a7873d936d653c9bd56bbaaea541d7f9574587656dc5125116e548">SHA256Engine::SOFTWARE</a> &gt;::Digest = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a4753064242805c450f326a1572add768">DIGEST_SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Big-endian digest bytes. </p>
+
+</div>
+</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acda587d771e0b88270bdf9263d156fd0" name="acda587d771e0b88270bdf9263d156fd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acda587d771e0b88270bdf9263d156fd0">&#9670;&#160;</a></span>WolfSSH() <span class="overload">[1/3]</span></h2>
+<a id="a495e4d841b6752aecbcdaa9d1c805420" name="a495e4d841b6752aecbcdaa9d1c805420"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a495e4d841b6752aecbcdaa9d1c805420">&#9670;&#160;</a></span>SHA256()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -138,7 +166,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSH::WolfSSH </td>
+          <td class="memname"><a class="el" href="../../da/d9f/a04859.html">Lib::Crypto::SHA256</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a9f3539ae201a7873d936d653c9bd56bbaaea541d7f9574587656dc5125116e548">SHA256Engine::SOFTWARE</a> &gt;::SHA256 </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -146,99 +174,18 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the wolfSSH library. </p>
-
-</div>
-</div>
-<a id="ad07d509cc2a825d9165ab30739d84515" name="ad07d509cc2a825d9165ab30739d84515"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad07d509cc2a825d9165ab30739d84515">&#9670;&#160;</a></span>~WolfSSH()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSH::~WolfSSH </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Releases the wolfSSH library's global state. </p>
-
-</div>
-</div>
-<a id="ab03771dcd75546ec452cb768b0a29da5" name="ab03771dcd75546ec452cb768b0a29da5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab03771dcd75546ec452cb768b0a29da5">&#9670;&#160;</a></span>WolfSSH() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSH::WolfSSH </td>
-          <td>(</td>
-          <td class="paramtype">const WolfSSH &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: it owns the wolfSSH library's global state. </p>
-
-</div>
-</div>
-<a id="ae46df48c97bb9fb2b64975cdd5568a57" name="ae46df48c97bb9fb2b64975cdd5568a57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae46df48c97bb9fb2b64975cdd5568a57">&#9670;&#160;</a></span>WolfSSH() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSH::WolfSSH </td>
-          <td>(</td>
-          <td class="paramtype">WolfSSH &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: it owns the wolfSSH library's global state. </p>
+<p>Starts a new digest. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aac3ff36b57e422860d83792bb84c84f3" name="aac3ff36b57e422860d83792bb84c84f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac3ff36b57e422860d83792bb84c84f3">&#9670;&#160;</a></span>isOpen()</h2>
+<a id="abcfe6df3f9c2f8197fd365f99e07551f" name="abcfe6df3f9c2f8197fd365f99e07551f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcfe6df3f9c2f8197fd365f99e07551f">&#9670;&#160;</a></span>finish()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -247,26 +194,26 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSH::isOpen </td>
+          <td class="memname"><a class="el" href="#a177e084473b0593a7a7d9bf1e0dce133">Digest</a> <a class="el" href="../../da/d9f/a04859.html">Lib::Crypto::SHA256</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a9f3539ae201a7873d936d653c9bd56bbaaea541d7f9574587656dc5125116e548">SHA256Engine::SOFTWARE</a> &gt;::finish </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Tells whether the library initialized successfully. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <a class="el" href="../../da/dbb/a04871.html" title="WolfSSHServer">WolfSSHServer</a> may be used, <b>false</b> otherwise. </dd></dl>
+<p>Pads the message and returns the digest; the hasher must not be updated afterwards. </p>
+<dl class="section return"><dt>Returns</dt><dd>Big-endian digest. </dd></dl>
 
 </div>
 </div>
-<a id="a1f81fc8aa460ffe7dbbdb89186833a9a" name="a1f81fc8aa460ffe7dbbdb89186833a9a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f81fc8aa460ffe7dbbdb89186833a9a">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a734b256d33a142c4cbb48989fb3b31f2" name="a734b256d33a142c4cbb48989fb3b31f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a734b256d33a142c4cbb48989fb3b31f2">&#9670;&#160;</a></span>hash()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,26 +222,32 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#acda587d771e0b88270bdf9263d156fd0">WolfSSH</a> &amp; Lib::Crypto::WolfSSH::operator= </td>
+          <td class="memname">constexpr <a class="el" href="#a177e084473b0593a7a7d9bf1e0dce133">Digest</a> <a class="el" href="../../da/d9f/a04859.html">Lib::Crypto::SHA256</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a9f3539ae201a7873d936d653c9bd56bbaaea541d7f9574587656dc5125116e548">SHA256Engine::SOFTWARE</a> &gt;::hash </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#acda587d771e0b88270bdf9263d156fd0">WolfSSH</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: it owns the wolfSSH library's global state. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Hashes a complete message in one call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Message bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Digest of <em class="arg">data</em>. </dd></dl>
 
 </div>
 </div>
-<a id="ad0a8cf68d06a11f49564b2798aaebe30" name="ad0a8cf68d06a11f49564b2798aaebe30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0a8cf68d06a11f49564b2798aaebe30">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a79e12cbf01846349b78a18c75338c38e" name="a79e12cbf01846349b78a18c75338c38e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79e12cbf01846349b78a18c75338c38e">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,21 +256,75 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#acda587d771e0b88270bdf9263d156fd0">WolfSSH</a> &amp; Lib::Crypto::WolfSSH::operator= </td>
+          <td class="memname">void <a class="el" href="../../da/d9f/a04859.html">Lib::Crypto::SHA256</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a9f3539ae201a7873d936d653c9bd56bbaaea541d7f9574587656dc5125116e548">SHA256Engine::SOFTWARE</a> &gt;::update </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#acda587d771e0b88270bdf9263d156fd0">WolfSSH</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: it owns the wolfSSH library's global state. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Appends message bytes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Bytes to append; may be empty. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a40a860803a494d53743ad3fe6fe138c0" name="a40a860803a494d53743ad3fe6fe138c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40a860803a494d53743ad3fe6fe138c0">&#9670;&#160;</a></span>BLOCK_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../da/d9f/a04859.html">Lib::Crypto::SHA256</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a9f3539ae201a7873d936d653c9bd56bbaaea541d7f9574587656dc5125116e548">SHA256Engine::SOFTWARE</a> &gt;::BLOCK_SIZE = 64U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compression block length, in bytes. </p>
+
+</div>
+</div>
+<a id="a4753064242805c450f326a1572add768" name="a4753064242805c450f326a1572add768"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4753064242805c450f326a1572add768">&#9670;&#160;</a></span>DIGEST_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../da/d9f/a04859.html">Lib::Crypto::SHA256</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a9f3539ae201a7873d936d653c9bd56bbaaea541d7f9574587656dc5125116e548">SHA256Engine::SOFTWARE</a> &gt;::DIGEST_SIZE = 32U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Digest length, in bytes. </p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Ethercat::SOES::EepromEmulation</title>
+<title>IAR EWARM Library: Lib::Ethercat::SOES::CoE</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../de/def/a01016.html">Ethercat</a></li><li class="navelem"><a href="../../d3/ded/a01017.html">SOES</a></li><li class="navelem"><a href="../../d1/d50/a05211.html">EepromEmulation</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">Ethercat</a></li><li class="navelem"><a href="../../d0/daa/a01029.html">SOES</a></li><li class="navelem"><a href="../../d1/d50/a05211.html">CoE</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -99,71 +99,143 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../df/dfd/a05208.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::EepromEmulation<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::CoE<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>EEPROM emulation of an EtherCAT slave controller.  
+<p>CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>EEPROM emulation of an EtherCAT slave controller. </p>
-<p>An ESC reads its configuration and the identity of the slave (the SII data) from an I2C EEPROM. Without one, or with the chip set to emulation, the ESC passes every EEPROM command to the PDI and waits for the application to answer it. This class serves those commands: it reads the control and status register, executes the read, write and reload commands against a memory the application provides (flash, RAM) and reports the result to the ESC, so the master can read the SII data with the usual EEPROM commands.</p>
-<p>Call <a class="el" href="#a43d5b4d5c217949b71744e5cc7f4ea38" title="process()">process()</a> periodically (or on the EEPROM event of the ESC). </p>
+<div class="textblock"><p>CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave. </p>
+<p>Serves the object dictionary of the slave to the master over the mailbox. It handles the SDO upload (read) and download (write) of an object, expedited (up to 4 bytes), normal (the whole value in one mailbox message) and segmented (a value split over several messages), checks the access rights of the object against the AL state, lets the application validate and react to a transfer, and answers a failed request with an SDO abort. The SDO information service lists the objects (also over several fragments) and describes an object and its entries, from the names, data types and sizes in the dictionary.</p>
+<p>Not covered: complete access (answered with the abort for 'complete access not supported') and the object lists other than 'all objects'.</p>
+<p>The dictionary is a table given by the application, ordered by index and then subindex, with the entries of one object next to each other; this class owns no data. Use it from the mailbox handler of a 'Slave': pass every message to <a class="el" href="#afdb20681a34fcdfcb78cf75a78ce0347" title="handle()">handle()</a>, call <a class="el" href="#aaa57403f24de4e0bd9670919c80376ac" title="service()">service()</a> in the idle hook of the slave, and <a class="el" href="#ab2c195af5b9a058b13b9b6cca0f9159f" title="reset()">reset()</a> when the mailbox stops. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a341e46394d44eaa24f4fb65f459bf98e" id="r_a341e46394d44eaa24f4fb65f459bf98e"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a341e46394d44eaa24f4fb65f459bf98e">Handlers</a> = <a class="el" href="../../d8/d42/a05207.html">EepromHandlers</a></td></tr>
-<tr class="memdesc:a341e46394d44eaa24f4fb65f459bf98e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The memory behind the emulated EEPROM.  <br /></td></tr>
+<tr class="memitem:a827cdba5edb655bcc4f5784b4a4e893d" id="r_a827cdba5edb655bcc4f5784b4a4e893d"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> = <a class="el" href="../../d4/ddd/a05199.html">CoEObject</a></td></tr>
+<tr class="memdesc:a827cdba5edb655bcc4f5784b4a4e893d"><td class="mdescLeft">&#160;</td><td class="mdescRight">An entry of the object dictionary.  <br /></td></tr>
+<tr class="memitem:a35b9281b5d29eae7fab95112ba1e5115" id="r_a35b9281b5d29eae7fab95112ba1e5115"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">ObjectInfo</a> = <a class="el" href="../../de/d1b/a05203.html">CoEObjectInfo</a></td></tr>
+<tr class="memdesc:a35b9281b5d29eae7fab95112ba1e5115"><td class="mdescLeft">&#160;</td><td class="mdescRight">The description of an object.  <br /></td></tr>
+<tr class="memitem:a4dfbb7a5575c7ee9e62bfeab0e6aca45" id="r_a4dfbb7a5575c7ee9e62bfeab0e6aca45"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Handlers</a> = <a class="el" href="../../d8/d42/a05207.html">CoEHandlers</a></td></tr>
+<tr class="memdesc:a4dfbb7a5575c7ee9e62bfeab0e6aca45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Application hooks.  <br /></td></tr>
+<tr class="memitem:a19c1714c2af7e709205e93053af6fee9" id="r_a19c1714c2af7e709205e93053af6fee9"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a19c1714c2af7e709205e93053af6fee9">Access</a> = <a class="el" href="../../d0/daa/a01029.html#a0a85aabfc74e31864de76e3f26f1b197">ObjectAccess</a></td></tr>
+<tr class="memdesc:a19c1714c2af7e709205e93053af6fee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access rights of an object.  <br /></td></tr>
+<tr class="memitem:a34422d4477e1d28e96ff0a570ccb0832" id="r_a34422d4477e1d28e96ff0a570ccb0832"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a34422d4477e1d28e96ff0a570ccb0832">Abort</a> = <a class="el" href="../../d0/daa/a01029.html#ab9edefd3f6cea3cfc71c65cdd01019de">SdoAbort</a></td></tr>
+<tr class="memdesc:a34422d4477e1d28e96ff0a570ccb0832"><td class="mdescLeft">&#160;</td><td class="mdescRight">SDO abort codes.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1146daff507a230799851b6c5f9ee835" id="r_a1146daff507a230799851b6c5f9ee835"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> () noexcept=default</td></tr>
-<tr class="memdesc:a1146daff507a230799851b6c5f9ee835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the emulation.  <br /></td></tr>
-<tr class="memitem:a7958db98ab3c05231a7b72cb1af0b541" id="r_a7958db98ab3c05231a7b72cb1af0b541"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7958db98ab3c05231a7b72cb1af0b541">~EepromEmulation</a> ()=default</td></tr>
-<tr class="memdesc:a7958db98ab3c05231a7b72cb1af0b541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the emulation.  <br /></td></tr>
-<tr class="memitem:ad7dff510056bdddc1b0f203d3b4b4706" id="r_ad7dff510056bdddc1b0f203d3b4b4706"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad7dff510056bdddc1b0f203d3b4b4706">EepromEmulation</a> (const EepromEmulation &amp;other)=delete</td></tr>
-<tr class="memdesc:ad7dff510056bdddc1b0f203d3b4b4706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the object stands for the EEPROM of one slave controller.  <br /></td></tr>
-<tr class="memitem:a907dfb13c5a60c36936f72539a54bb0f" id="r_a907dfb13c5a60c36936f72539a54bb0f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a907dfb13c5a60c36936f72539a54bb0f">EepromEmulation</a> (EepromEmulation &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a907dfb13c5a60c36936f72539a54bb0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the object stands for the EEPROM of one slave controller.  <br /></td></tr>
-<tr class="memitem:ac18054ff925ab9ff88d05d79a8674626" id="r_ac18054ff925ab9ff88d05d79a8674626"><td class="memItemLeft"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac18054ff925ab9ff88d05d79a8674626">operator=</a> (const <a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:ac18054ff925ab9ff88d05d79a8674626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the object stands for the EEPROM of one slave controller.  <br /></td></tr>
-<tr class="memitem:a8a0057afb82e294f720a93b50ad87908" id="r_a8a0057afb82e294f720a93b50ad87908"><td class="memItemLeft"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8a0057afb82e294f720a93b50ad87908">operator=</a> (<a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a8a0057afb82e294f720a93b50ad87908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the object stands for the EEPROM of one slave controller.  <br /></td></tr>
-<tr class="memitem:a070225a3de178cf14fb35d7a18f183e0" id="r_a070225a3de178cf14fb35d7a18f183e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a070225a3de178cf14fb35d7a18f183e0">setHandlers</a> (const <a class="el" href="#a341e46394d44eaa24f4fb65f459bf98e">Handlers</a> &amp;newHandlers) noexcept</td></tr>
-<tr class="memdesc:a070225a3de178cf14fb35d7a18f183e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the memory.  <br /></td></tr>
-<tr class="memitem:af5db1919319a4d3ff6af2f55f54bee74" id="r_af5db1919319a4d3ff6af2f55f54bee74"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af5db1919319a4d3ff6af2f55f54bee74">setReadSize</a> (size_t bytes) noexcept</td></tr>
-<tr class="memdesc:af5db1919319a4d3ff6af2f55f54bee74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets how many bytes a read command returns: 8, or 4 if the ESC is configured for 4-byte reads.  <br /></td></tr>
-<tr class="memitem:a43d5b4d5c217949b71744e5cc7f4ea38" id="r_a43d5b4d5c217949b71744e5cc7f4ea38"><td class="memTemplParams" colspan="2">template&lt;EscAccess T_ESC&gt; </td></tr>
-<tr class="memitem:a43d5b4d5c217949b71744e5cc7f4ea38 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a43d5b4d5c217949b71744e5cc7f4ea38">process</a> (T_ESC &amp;esc) noexcept</td></tr>
-<tr class="memdesc:a43d5b4d5c217949b71744e5cc7f4ea38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serves the EEPROM commands the ESC has handed to the PDI.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:aea9b75ed4e210eddf4a3f65a2986adbf" id="r_aea9b75ed4e210eddf4a3f65a2986adbf"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aea9b75ed4e210eddf4a3f65a2986adbf">WORD_SIZE</a> = 2U</td></tr>
-<tr class="memdesc:aea9b75ed4e210eddf4a3f65a2986adbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The EEPROM is addressed in 16-bit words.  <br /></td></tr>
+<tr class="memitem:aaf9d8025b89e7899d8cb2c83ae135e45" id="r_aaf9d8025b89e7899d8cb2c83ae135e45"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> (std::span&lt; const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> &gt; objects, std::span&lt; const <a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">ObjectInfo</a> &gt; descriptions={}) noexcept</td></tr>
+<tr class="memdesc:aaf9d8025b89e7899d8cb2c83ae135e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the server for an object dictionary.  <br /></td></tr>
+<tr class="memitem:ac46699d9659c29b73d7c01ca84cbfb5f" id="r_ac46699d9659c29b73d7c01ca84cbfb5f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac46699d9659c29b73d7c01ca84cbfb5f">~CoE</a> ()=default</td></tr>
+<tr class="memdesc:ac46699d9659c29b73d7c01ca84cbfb5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the server.  <br /></td></tr>
+<tr class="memitem:a71024e33a92eff3dd5b442e02f0b9425" id="r_a71024e33a92eff3dd5b442e02f0b9425"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a71024e33a92eff3dd5b442e02f0b9425">CoE</a> (const CoE &amp;other)=delete</td></tr>
+<tr class="memdesc:a71024e33a92eff3dd5b442e02f0b9425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:a7b986f95ef2d9b17a078924eddf7d17c" id="r_a7b986f95ef2d9b17a078924eddf7d17c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7b986f95ef2d9b17a078924eddf7d17c">CoE</a> (CoE &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a7b986f95ef2d9b17a078924eddf7d17c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:aaa3b4bee41d8960bb544d7299a183270" id="r_aaa3b4bee41d8960bb544d7299a183270"><td class="memItemLeft"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aaa3b4bee41d8960bb544d7299a183270">operator=</a> (const <a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:aaa3b4bee41d8960bb544d7299a183270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:ac45513fde48737f49471c84707ec42fa" id="r_ac45513fde48737f49471c84707ec42fa"><td class="memItemLeft"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac45513fde48737f49471c84707ec42fa">operator=</a> (<a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:ac45513fde48737f49471c84707ec42fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:abfa900feff906b9e829ef4ac5da55711" id="r_abfa900feff906b9e829ef4ac5da55711"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abfa900feff906b9e829ef4ac5da55711">setHandlers</a> (const <a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Handlers</a> &amp;newHandlers) noexcept</td></tr>
+<tr class="memdesc:abfa900feff906b9e829ef4ac5da55711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the application hooks.  <br /></td></tr>
+<tr class="memitem:ab2c195af5b9a058b13b9b6cca0f9159f" id="r_ab2c195af5b9a058b13b9b6cca0f9159f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab2c195af5b9a058b13b9b6cca0f9159f">reset</a> () noexcept</td></tr>
+<tr class="memdesc:ab2c195af5b9a058b13b9b6cca0f9159f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops a segmented transfer and an object list that is being sent.  <br /></td></tr>
+<tr class="memitem:afdb20681a34fcdfcb78cf75a78ce0347" id="r_afdb20681a34fcdfcb78cf75a78ce0347"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
+<tr class="memitem:afdb20681a34fcdfcb78cf75a78ce0347 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afdb20681a34fcdfcb78cf75a78ce0347">handle</a> (T_MAILBOX &amp;mailbox, const <a class="el" href="../../da/dc9/a05243.html">MailboxHeader</a> &amp;header, std::span&lt; const uint8_t &gt; payload, uint8_t state) noexcept</td></tr>
+<tr class="memdesc:afdb20681a34fcdfcb78cf75a78ce0347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a mailbox message.  <br /></td></tr>
+<tr class="memitem:aaa57403f24de4e0bd9670919c80376ac" id="r_aaa57403f24de4e0bd9670919c80376ac"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
+<tr class="memitem:aaa57403f24de4e0bd9670919c80376ac template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaa57403f24de4e0bd9670919c80376ac">service</a> (T_MAILBOX &amp;mailbox) noexcept</td></tr>
+<tr class="memdesc:aaa57403f24de4e0bd9670919c80376ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the next fragment of an object list that is being sent.  <br /></td></tr>
+<tr class="memitem:afca119caf11fde38cdab46d3d4205107" id="r_afca119caf11fde38cdab46d3d4205107"><td class="memItemLeft">constexpr const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> *&#160;</td><td class="memItemRight"><a class="el" href="#afca119caf11fde38cdab46d3d4205107">find</a> (uint16_t index, uint8_t subIndex) const noexcept</td></tr>
+<tr class="memdesc:afca119caf11fde38cdab46d3d4205107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looks an entry up in the dictionary.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a341e46394d44eaa24f4fb65f459bf98e" name="a341e46394d44eaa24f4fb65f459bf98e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a341e46394d44eaa24f4fb65f459bf98e">&#9670;&#160;</a></span>Handlers</h2>
+<a id="a34422d4477e1d28e96ff0a570ccb0832" name="a34422d4477e1d28e96ff0a570ccb0832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34422d4477e1d28e96ff0a570ccb0832">&#9670;&#160;</a></span>Abort</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a341e46394d44eaa24f4fb65f459bf98e">Lib::Ethercat::SOES::EepromEmulation::Handlers</a> = <a class="el" href="../../d8/d42/a05207.html">EepromHandlers</a></td>
+          <td class="memname">using <a class="el" href="../../d0/daa/a01029.html#ab9edefd3f6cea3cfc71c65cdd01019de">Lib::Ethercat::SOES::CoE::Abort</a> = <a class="el" href="../../d0/daa/a01029.html#ab9edefd3f6cea3cfc71c65cdd01019de">SdoAbort</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The memory behind the emulated EEPROM. </p>
+<p>SDO abort codes. </p>
+
+</div>
+</div>
+<a id="a19c1714c2af7e709205e93053af6fee9" name="a19c1714c2af7e709205e93053af6fee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19c1714c2af7e709205e93053af6fee9">&#9670;&#160;</a></span>Access</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d0/daa/a01029.html#a0a85aabfc74e31864de76e3f26f1b197">Lib::Ethercat::SOES::CoE::Access</a> = <a class="el" href="../../d0/daa/a01029.html#a0a85aabfc74e31864de76e3f26f1b197">ObjectAccess</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Access rights of an object. </p>
+
+</div>
+</div>
+<a id="a4dfbb7a5575c7ee9e62bfeab0e6aca45" name="a4dfbb7a5575c7ee9e62bfeab0e6aca45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">&#9670;&#160;</a></span>Handlers</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Lib::Ethercat::SOES::CoE::Handlers</a> = <a class="el" href="../../d8/d42/a05207.html">CoEHandlers</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Application hooks. </p>
+
+</div>
+</div>
+<a id="a827cdba5edb655bcc4f5784b4a4e893d" name="a827cdba5edb655bcc4f5784b4a4e893d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a827cdba5edb655bcc4f5784b4a4e893d">&#9670;&#160;</a></span>Object</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Lib::Ethercat::SOES::CoE::Object</a> = <a class="el" href="../../d4/ddd/a05199.html">CoEObject</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An entry of the object dictionary. </p>
+
+</div>
+</div>
+<a id="a35b9281b5d29eae7fab95112ba1e5115" name="a35b9281b5d29eae7fab95112ba1e5115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b9281b5d29eae7fab95112ba1e5115">&#9670;&#160;</a></span>ObjectInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">Lib::Ethercat::SOES::CoE::ObjectInfo</a> = <a class="el" href="../../de/d1b/a05203.html">CoEObjectInfo</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The description of an object. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1146daff507a230799851b6c5f9ee835" name="a1146daff507a230799851b6c5f9ee835"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1146daff507a230799851b6c5f9ee835">&#9670;&#160;</a></span>EepromEmulation() <span class="overload">[1/3]</span></h2>
+<a id="aaf9d8025b89e7899d8cb2c83ae135e45" name="aaf9d8025b89e7899d8cb2c83ae135e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9d8025b89e7899d8cb2c83ae135e45">&#9670;&#160;</a></span>CoE() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,25 +244,36 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethercat::SOES::EepromEmulation::EepromEmulation </td>
+          <td class="memname">Lib::Ethercat::SOES::CoE::CoE </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>objects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::span&lt; const <a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">ObjectInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>descriptions</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the emulation. </p>
+<p>Creates the server for an object dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objects</td><td>The dictionary, ordered by index and subindex; the table and the values it points to must outlive the server. </td></tr>
+    <tr><td class="paramname">descriptions</td><td>Optional descriptions of whole objects, for the SDO information service. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a7958db98ab3c05231a7b72cb1af0b541" name="a7958db98ab3c05231a7b72cb1af0b541"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7958db98ab3c05231a7b72cb1af0b541">&#9670;&#160;</a></span>~EepromEmulation()</h2>
+<a id="ac46699d9659c29b73d7c01ca84cbfb5f" name="ac46699d9659c29b73d7c01ca84cbfb5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac46699d9659c29b73d7c01ca84cbfb5f">&#9670;&#160;</a></span>~CoE()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +282,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethercat::SOES::EepromEmulation::~EepromEmulation </td>
+          <td class="memname">Lib::Ethercat::SOES::CoE::~CoE </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -212,12 +295,12 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the emulation. </p>
+<p>Destroys the server. </p>
 
 </div>
 </div>
-<a id="ad7dff510056bdddc1b0f203d3b4b4706" name="ad7dff510056bdddc1b0f203d3b4b4706"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7dff510056bdddc1b0f203d3b4b4706">&#9670;&#160;</a></span>EepromEmulation() <span class="overload">[2/3]</span></h2>
+<a id="a71024e33a92eff3dd5b442e02f0b9425" name="a71024e33a92eff3dd5b442e02f0b9425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71024e33a92eff3dd5b442e02f0b9425">&#9670;&#160;</a></span>CoE() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -226,9 +309,9 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethercat::SOES::EepromEmulation::EepromEmulation </td>
+          <td class="memname">Lib::Ethercat::SOES::CoE::CoE </td>
           <td>(</td>
-          <td class="paramtype">const EepromEmulation &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const CoE &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -239,7 +322,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: the object stands for the EEPROM of one slave controller. </p>
+<p>Copying is deleted: the server serves one dictionary. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -249,8 +332,8 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a907dfb13c5a60c36936f72539a54bb0f" name="a907dfb13c5a60c36936f72539a54bb0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a907dfb13c5a60c36936f72539a54bb0f">&#9670;&#160;</a></span>EepromEmulation() <span class="overload">[3/3]</span></h2>
+<a id="a7b986f95ef2d9b17a078924eddf7d17c" name="a7b986f95ef2d9b17a078924eddf7d17c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b986f95ef2d9b17a078924eddf7d17c">&#9670;&#160;</a></span>CoE() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,9 +342,9 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethercat::SOES::EepromEmulation::EepromEmulation </td>
+          <td class="memname">Lib::Ethercat::SOES::CoE::CoE </td>
           <td>(</td>
-          <td class="paramtype">EepromEmulation &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">CoE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -272,7 +355,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is deleted: the object stands for the EEPROM of one slave controller. </p>
+<p>Moving is deleted: the server serves one dictionary. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -283,8 +366,8 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ac18054ff925ab9ff88d05d79a8674626" name="ac18054ff925ab9ff88d05d79a8674626"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac18054ff925ab9ff88d05d79a8674626">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="afca119caf11fde38cdab46d3d4205107" name="afca119caf11fde38cdab46d3d4205107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca119caf11fde38cdab46d3d4205107">&#9670;&#160;</a></span>find()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -293,108 +376,97 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp; Lib::Ethercat::SOES::EepromEmulation::operator= </td>
+          <td class="memname">const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> * Lib::Ethercat::SOES::CoE::find </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy assignment is deleted: the object stands for the EEPROM of one slave controller. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-
-</div>
-</div>
-<a id="a8a0057afb82e294f720a93b50ad87908" name="a8a0057afb82e294f720a93b50ad87908"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a0057afb82e294f720a93b50ad87908">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp; Lib::Ethercat::SOES::EepromEmulation::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>subIndex</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: the object stands for the EEPROM of one slave controller. </p>
+<p>Looks an entry up in the dictionary. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+    <tr><td class="paramname">index</td><td>Object index. </td></tr>
+    <tr><td class="paramname">subIndex</td><td>Subindex. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The entry, or nothing if the dictionary has none. </dd></dl>
 
 </div>
 </div>
-<a id="a43d5b4d5c217949b71744e5cc7f4ea38" name="a43d5b4d5c217949b71744e5cc7f4ea38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43d5b4d5c217949b71744e5cc7f4ea38">&#9670;&#160;</a></span>process()</h2>
+<a id="afdb20681a34fcdfcb78cf75a78ce0347" name="afdb20681a34fcdfcb78cf75a78ce0347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdb20681a34fcdfcb78cf75a78ce0347">&#9670;&#160;</a></span>handle()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;EscAccess T_ESC&gt; </div>
+template&lt;typename T_MAILBOX&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::Ethercat::SOES::EepromEmulation::process </td>
+          <td class="memname">bool Lib::Ethercat::SOES::CoE::handle </td>
           <td>(</td>
-          <td class="paramtype">T_ESC &amp;</td>          <td class="paramname"><span class="paramname"><em>esc</em></span></td><td>)</td>
+          <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="../../da/dc9/a05243.html">MailboxHeader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>header</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Serves the EEPROM commands the ESC has handed to the PDI. </p>
+<p>Handles a mailbox message. </p>
+<p>Does nothing for a protocol other than CoE. For CoE it answers through 'mailbox': an SDO response, an SDO abort, an SDO information response or error, or a mailbox error.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller. </td></tr>
+    <tr><td class="paramname">T_MAILBOX</td><td>A 'Mailbox' type. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">esc</td><td>The slave controller. </td></tr>
+    <tr><td class="paramname">mailbox</td><td>The mailbox the message came from; the answer is sent through it. </td></tr>
+    <tr><td class="paramname">header</td><td>Header of the message. </td></tr>
+    <tr><td class="paramname">payload</td><td>Payload of the message. </td></tr>
+    <tr><td class="paramname">state</td><td>AL state of the slave, as the 'SlaveState' values encode it. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of commands served. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the message was a CoE message. </dd></dl>
 
 </div>
 </div>
-<a id="a070225a3de178cf14fb35d7a18f183e0" name="a070225a3de178cf14fb35d7a18f183e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a070225a3de178cf14fb35d7a18f183e0">&#9670;&#160;</a></span>setHandlers()</h2>
+<a id="ac45513fde48737f49471c84707ec42fa" name="ac45513fde48737f49471c84707ec42fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac45513fde48737f49471c84707ec42fa">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -403,9 +475,77 @@ template&lt;EscAccess T_ESC&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Ethercat::SOES::EepromEmulation::setHandlers </td>
+          <td class="memname"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp; Lib::Ethercat::SOES::CoE::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a341e46394d44eaa24f4fb65f459bf98e">Handlers</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newHandlers</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the server serves one dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="aaa3b4bee41d8960bb544d7299a183270" name="aaa3b4bee41d8960bb544d7299a183270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa3b4bee41d8960bb544d7299a183270">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp; Lib::Ethercat::SOES::CoE::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the server serves one dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="ab2c195af5b9a058b13b9b6cca0f9159f" name="ab2c195af5b9a058b13b9b6cca0f9159f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c195af5b9a058b13b9b6cca0f9159f">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethercat::SOES::CoE::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -416,29 +556,26 @@ template&lt;EscAccess T_ESC&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the memory. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">newHandlers</td><td>The hooks. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Drops a segmented transfer and an object list that is being sent. </p>
+<p>Call it when the mailbox stops. </p>
 
 </div>
 </div>
-<a id="af5db1919319a4d3ff6af2f55f54bee74" name="af5db1919319a4d3ff6af2f55f54bee74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5db1919319a4d3ff6af2f55f54bee74">&#9670;&#160;</a></span>setReadSize()</h2>
+<a id="aaa57403f24de4e0bd9670919c80376ac" name="aaa57403f24de4e0bd9670919c80376ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa57403f24de4e0bd9670919c80376ac">&#9670;&#160;</a></span>service()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_MAILBOX&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Ethercat::SOES::EepromEmulation::setReadSize </td>
+          <td class="memname">void Lib::Ethercat::SOES::CoE::service </td>
           <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span></td><td>)</td>
+          <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -449,19 +586,25 @@ template&lt;EscAccess T_ESC&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sets how many bytes a read command returns: 8, or 4 if the ESC is configured for 4-byte reads. </p>
+<p>Sends the next fragment of an object list that is being sent. </p>
+<p>Call it periodically, for example from the idle hook of the slave; it does nothing while the master has not read the previous message.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_MAILBOX</td><td>A 'Mailbox' type. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bytes</td><td>4 or 8; another value is ignored. </td></tr>
+    <tr><td class="paramname">mailbox</td><td>The mailbox to send through. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="aea9b75ed4e210eddf4a3f65a2986adbf" name="aea9b75ed4e210eddf4a3f65a2986adbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea9b75ed4e210eddf4a3f65a2986adbf">&#9670;&#160;</a></span>WORD_SIZE</h2>
+<a id="abfa900feff906b9e829ef4ac5da55711" name="abfa900feff906b9e829ef4ac5da55711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfa900feff906b9e829ef4ac5da55711">&#9670;&#160;</a></span>setHandlers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -470,17 +613,26 @@ template&lt;EscAccess T_ESC&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::Ethercat::SOES::EepromEmulation::WORD_SIZE = 2U</td>
+          <td class="memname">void Lib::Ethercat::SOES::CoE::setHandlers </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Handlers</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newHandlers</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>The EEPROM is addressed in 16-bit words. </p>
+<p>Sets the application hooks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newHandlers</td><td>The hooks; an empty one is not called. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

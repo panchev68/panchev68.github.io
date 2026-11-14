@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::SemaphoreCounting</title>
+<title>IAR EWARM Library: RTOS::EventGroup</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,58 +92,59 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::SemaphoreCounting</div></div>
+  <div class="headertitle"><div class="title">RTOS::EventGroup</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows limiting concurrent access to a pool of resources with an <a class="el" href="../../d3/dfe/a06265.html" title="RTOS::SemaphoreCounting">RTOS::SemaphoreCounting</a>.</p>
-<p>Shows limiting concurrent access to a pool of resources with an <a class="el" href="../../d3/dfe/a06265.html" title="RTOS::SemaphoreCounting">RTOS::SemaphoreCounting</a>. Covers a pool of three buffers guarded by a counting semaphore: a task takes a slot before using a buffer and gives it back afterwards. <a class="el" href="../../d8/d5e/a05930.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> and <a class="el" href="../../d8/d5e/a05930.html#a5682e0c5d8eb6b2076978634963b4020" title="RTOS::SemaphoreBase::give()">RTOS::SemaphoreBase::give()</a> are task-context only; the FromISR variants serve interrupt handlers. Requires <em class="arg">configUSE_COUNTING_SEMAPHORES</em> set to <b>1</b>.</p>
+<p>Shows opening an <a class="el" href="../../d3/dfe/a06265.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, setting one bit from a task and one from an interrupt, and waiting for both.</p>
+<p>Shows opening an <a class="el" href="../../d3/dfe/a06265.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, setting one bit from a task and one from an interrupt, and waiting for both. <a class="el" href="../../dd/dc3/a05875.html#a13c55cc45daa6d96a1f21460a4c71626" title="RTOS::EventGroup::setBitsFromISR()">RTOS::EventGroup::setBitsFromISR()</a> is deferred by FreeRTOS to the timer daemon task, so it needs <em class="arg">configUSE_TIMERS</em> and <em class="arg">INCLUDE_xTimerPendFunctionCall</em> enabled. <a class="el" href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34" title="RTOS::EventGroup::Bits">RTOS::EventGroup::Bits</a> is an <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02030.html" title="std::bitset">std::bitset</a> limited to the bits FreeRTOS leaves usable. Only the FromISR calls may run in an interrupt; <a class="el" href="../../dd/dc3/a05875.html#ac933f049ba3d9d3e242bdc243dea3482" title="RTOS::EventGroup::wait()">RTOS::EventGroup::wait()</a> and <a class="el" href="../../dd/dc3/a05875.html#a154c164a4617cf8553683bb42f04ff11" title="RTOS::EventGroup::setBits()">RTOS::EventGroup::setBits()</a> must run in a task. The value returned by <a class="el" href="../../dd/dc3/a05875.html#ac933f049ba3d9d3e242bdc243dea3482" title="RTOS::EventGroup::wait()">RTOS::EventGroup::wait()</a> is the state when the wait ended, before the clear on exit.</p>
+<dl class="section important"><dt>Important</dt><dd>Open the event group before the interrupt that calls <a class="el" href="../../dd/dc3/a05875.html#a13c55cc45daa6d96a1f21460a4c71626" title="RTOS::EventGroup::setBitsFromISR()">RTOS::EventGroup::setBitsFromISR()</a> is enabled.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_counting_usage_pool"></a>
-Buffer pool</h3>
-<p>The constructor takes the maximum count and the initial count, so both are <b>3</b> here: all slots are free at start.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/ddc/a00917.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../da/d76/a05934.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> openPool() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> bufferPool.open();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00917_html"><div class="ttname"><a href="../../d4/ddc/a00917.html">SemaphoreCounting.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS counting semaphores.</div></div>
-<div class="ttc" id="aa05934_html"><div class="ttname"><a href="../../da/d76/a05934.html">RTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting semaphore resource manager for tracking multiple resource instances or queued events.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:41</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_counting_usage_take"></a>
-Taking and returning a slot</h3>
-<p><a class="el" href="../../d8/d5e/a05930.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> with an <a class="el" href="../../dd/d51/a06275.html" title="RTOS::Timeout">RTOS::Timeout</a> returns <b>false</b> when every slot stays busy for the whole window.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/ddc/a00917.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="eventgroup_usage_basic"></a>
+Set and wait for bits</h3>
+<ul>
+<li><em class="arg">TASK_READY</em> is set by the task itself.</li>
+<li><em class="arg">DATA_READY</em> is set by an interrupt through <a class="el" href="../../dd/dc3/a05875.html#a13c55cc45daa6d96a1f21460a4c71626" title="RTOS::EventGroup::setBitsFromISR()">RTOS::EventGroup::setBitsFromISR()</a>.</li>
+<li>The wait clears both bits on exit only when both were set.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/EventGroup.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../da/d76/a05934.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dd/dc3/a05875.html">RTOS::EventGroup</a> events;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">constexpr</span> <a id="_a1" name="_a1"></a><a class="code hl_typedef" href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> TASK_READY{1U &lt;&lt; 0U}; <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> DATA_READY{1U &lt;&lt; 3U}; <span class="keyword">const</span></div>
+<div class="line"><a class="code hl_typedef" href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> ALL_READY = TASK_READY | DATA_READY;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> EXTI0_IRQHandler() { <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a2" name="a2"></a><a class="code hl_function" href="../../dd/dc3/a05875.html#a13c55cc45daa6d96a1f21460a4c71626">setBitsFromISR</a>(DATA_READY)); <span class="comment">// Deferred to the timer daemon</span></div>
+<div class="line">task.</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> workerTask(<span class="keywordtype">void</span> * parameters) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!bufferPool.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line"><span class="keywordtype">void</span> exampleTask() { <span class="keywordflow">if</span> (!events.<a id="a3" name="a3"></a><a class="code hl_function" href="../../dd/dc3/a05875.html#ae966e8d3efe519e3138fedaa3108a300">open</a>()) { <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (bufferPool.take(<a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d6/d4d/a05978.html">RTOS::Timeout</a>(20ms))) {</div>
-<div class="line">        <span class="comment">// Use the buffer reserved for this task here.</span></div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(bufferPool.give());</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a4" name="a4"></a><a class="code hl_function" href="../../dd/dc3/a05875.html#a154c164a4617cf8553683bb42f04ff11">setBits</a>(TASK_READY));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Wait up to 1 s for both bits.</span></div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> result = events.<a id="a5" name="a5"></a><a class="code hl_function" href="../../dd/dc3/a05875.html#ac933f049ba3d9d3e242bdc243dea3482">wait</a>(ALL_READY, <span class="keyword">true</span>, <span class="keyword">true</span>, 1s);</div>
+<div class="line">    <span class="keywordflow">if</span> ((result &amp; ALL_READY) == ALL_READY) {</div>
+<div class="line">        <span class="comment">// Both bits set.</span></div>
 <div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// All buffers were busy for 20 ms.</span></div>
+<div class="line">        <span class="comment">// Timeout: not both bits were set.</span></div>
 <div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    events.<a id="a6" name="a6"></a><a class="code hl_function" href="../../dd/dc3/a05875.html#a86f5d90cf8de78fe435b35460bef5edd">close</a>();</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00932_html"><div class="ttname"><a href="../../d8/dbb/a00932.html">Timeout.hpp</a></div><div class="ttdoc">FreeRTOS-compatible timeout management utility.</div></div>
-<div class="ttc" id="aa05978_html"><div class="ttname"><a href="../../d6/d4d/a05978.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:36</div></div>
+<div class="ttc" id="aa00899_html"><div class="ttname"><a href="../../d3/d8a/a00899.html">EventGroup.hpp</a></div><div class="ttdoc">Declares the RTOS event group wrapper; compiles to nothing without FreeRTOS or dynamic allocation.</div></div>
+<div class="ttc" id="aa05875_html"><div class="ttname"><a href="../../dd/dc3/a05875.html">RTOS::EventGroup</a></div><div class="ttdoc">Owning wrapper of a FreeRTOS event group, letting tasks wait on several flags at once.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:42</div></div>
+<div class="ttc" id="aa05875_html_a13c55cc45daa6d96a1f21460a4c71626"><div class="ttname"><a href="../../dd/dc3/a05875.html#a13c55cc45daa6d96a1f21460a4c71626">RTOS::EventGroup::setBitsFromISR</a></div><div class="ttdeci">bool setBitsFromISR(Bits bitsToSet) noexcept</div><div class="ttdoc">Requests the timer daemon to set bits from an ISR, and yields to it if it outranks the interrupted ta...</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:396</div></div>
+<div class="ttc" id="aa05875_html_a154c164a4617cf8553683bb42f04ff11"><div class="ttname"><a href="../../dd/dc3/a05875.html#a154c164a4617cf8553683bb42f04ff11">RTOS::EventGroup::setBits</a></div><div class="ttdeci">Bits setBits(Bits bitsToSet) noexcept</div><div class="ttdoc">Sets bits and unblocks every task whose wait condition is now met.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:342</div></div>
+<div class="ttc" id="aa05875_html_a27fe7bec268decd9b548d4ad2375ca34"><div class="ttname"><a href="../../dd/dc3/a05875.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a></div><div class="ttdeci">std::bitset&lt; EVENT_GROUP_BIT_WIDTH &gt; Bits</div><div class="ttdoc">Event group bits; bits above the usable width cannot exist.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:48</div></div>
+<div class="ttc" id="aa05875_html_a86f5d90cf8de78fe435b35460bef5edd"><div class="ttname"><a href="../../dd/dc3/a05875.html#a86f5d90cf8de78fe435b35460bef5edd">RTOS::EventGroup::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the native event group and releases its memory.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:172</div></div>
+<div class="ttc" id="aa05875_html_ac933f049ba3d9d3e242bdc243dea3482"><div class="ttname"><a href="../../dd/dc3/a05875.html#ac933f049ba3d9d3e242bdc243dea3482">RTOS::EventGroup::wait</a></div><div class="ttdeci">Bits wait(Bits requestedBits, bool clearOnExit, bool waitForAll, TickType timeout) noexcept</div><div class="ttdoc">Blocks until the requested bits are set or the timeout expires.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:214</div></div>
+<div class="ttc" id="aa05875_html_ae966e8d3efe519e3138fedaa3108a300"><div class="ttname"><a href="../../dd/dc3/a05875.html#ae966e8d3efe519e3138fedaa3108a300">RTOS::EventGroup::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the native event group on the FreeRTOS heap, with all bits cleared.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:126</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

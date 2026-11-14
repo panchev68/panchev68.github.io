@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::USBDevicePort</title>
+<title>IAR EWARM Library: Lib::HAL::Timer::TimOnePulse</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,165 +92,100 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::USBDevicePort</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOnePulse</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Drives the USB controller through the port layer: <a class="el" href="../../d8/d44/a06217.html" title="Lib::HAL::USBDevicePort">Lib::HAL::USBDevicePort</a> for the device role, Lib::HAL::USBHostPort for the host role, and <a class="el" href="../../db/d53/a05650.html" title="Lib::HAL::USBOtgPort">Lib::HAL::USBOtgPort</a>, which switches one controller between the two.</p>
-<p>Drives the USB controller through the port layer: <a class="el" href="../../d8/d44/a06217.html" title="Lib::HAL::USBDevicePort">Lib::HAL::USBDevicePort</a> for the device role, Lib::HAL::USBHostPort for the host role, and <a class="el" href="../../db/d53/a05650.html" title="Lib::HAL::USBOtgPort">Lib::HAL::USBOtgPort</a>, which switches one controller between the two.The ports wrap the CubeMX <b>PCD_HandleTypeDef</b> (device) and <b>HCD_HandleTypeDef</b> (host) and report bus and transfer events; they do not implement a USB class. For the CDC class built on this layer see 'Lib_USB_CDCDevice.dox'.</p>
-<p>Only the <em class="arg">IT</em> and <em class="arg">DMA</em> specializations exist. There is no <em class="arg">BLOCKING</em> mode, because the controller completes an endpoint transfer in a later interrupt, and the device port's send() and receive() block the calling task until that interrupt arrives. The blocking calls (waitForEvent(), send(), receive() and transfer()) assert on task context. submitSend() and submitReceive() are interrupt-safe, and they are the calls the event handler makes, because the handler runs in interrupt context. The CubeMX <b>OTG_FS_IRQHandler()</b> must call <b>HAL_PCD_IRQHandler()</b> for a device role and <b>HAL_HCD_IRQHandler()</b> for a host role.</p>
-<dl class="section important"><dt>Important</dt><dd>The device port compiles only when <em class="arg">HAL_PCD_MODULE_ENABLED</em> is defined, and the host and OTG ports only when <em class="arg">HAL_HCD_MODULE_ENABLED</em> is defined as well. In the project's HAL configuration header ('EWARM/Core/Inc/stm32f4xx_hal_conf.h') <em class="arg">HAL_PCD_MODULE_ENABLED</em> is defined and <em class="arg">HAL_HCD_MODULE_ENABLED</em> is commented out, so the host and OTG examples below compile to nothing until the HCD module is enabled.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Both device and host ports require <em class="arg">USE_HAL_PCD_REGISTER_CALLBACKS</em> and <em class="arg">USE_HAL_HCD_REGISTER_CALLBACKS</em> set to <b>1</b> in the HAL configuration header; otherwise the build stops with a compile-time error.</dd></dl>
+<p>Emits one pulse after a delay with <a class="el" href="../../d8/d44/a06217.html" title="Lib::HAL::Timer::TimOnePulse">Lib::HAL::Timer::TimOnePulse</a>.</p>
+<p>Emits one pulse after a delay with <a class="el" href="../../d8/d44/a06217.html" title="Lib::HAL::Timer::TimOnePulse">Lib::HAL::Timer::TimOnePulse</a>. The delay and width are set with <a class="el" href="../../d5/d7e/a05563.html#adcd5d98b02d7d70c3dbcd75ab4f117b6" title="Lib::HAL::Timer::TimOnePulse::setTiming()">Lib::HAL::Timer::TimOnePulse::setTiming()</a>; <a class="el" href="../../d5/d7e/a05563.html#a4dd784ca9da4b8c662101a2b232a1f61" title="Lib::HAL::Timer::TimOnePulse::start()">Lib::HAL::Timer::TimOnePulse::start()</a> arms the timer, and the interrupt wakes the task blocked in <a class="el" href="../../d5/d7e/a05563.html#aeba87dc02428bea360275fd39706fa18" title="Lib::HAL::Timer::TimOnePulse::waitPulseStart()">Lib::HAL::Timer::TimOnePulse::waitPulseStart()</a>. Call <a class="el" href="../../d5/d7e/a05563.html#a4dd784ca9da4b8c662101a2b232a1f61" title="Lib::HAL::Timer::TimOnePulse::start()">Lib::HAL::Timer::TimOnePulse::start()</a> from that task, because it binds the task that will wait.</p>
+<p>The header defines the HAL callback <b>HAL_TIM_PWM_PulseFinishedCallback()</b> itself, so do not define it elsewhere. The The callback name comes from the HAL. In One Pulse mode the compare event fires when the pulse starts, so <a class="el" href="../../d5/d7e/a05563.html#aeba87dc02428bea360275fd39706fa18" title="Lib::HAL::Timer::TimOnePulse::waitPulseStart()">Lib::HAL::Timer::TimOnePulse::waitPulseStart()</a> returns at the start of the pulse, not at its end. The ISR path only notifies the task.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="usbdeviceport_usage_device"></a>
-Device role</h3>
-<p>Set the event handler before <a class="el" href="../../d4/dc8/a05622.html#a1f538f3e7aec739023c189ee6fe3550b" title="Lib::HAL::USBDevicePortBase::start()">Lib::HAL::USBDevicePortBase::start()</a>. The handler receives a <em class="arg">context</em> pointer, a <a class="el" href="../../d0/d43/a01020.html#a5d499d7d2a344d0473d62dcf724d9a12" title="Lib::HAL::USBDeviceEvent">Lib::HAL::USBDeviceEvent</a> and, for <em class="arg">IN_COMPLETE</em> and <em class="arg">OUT_COMPLETE</em>, an endpoint number. For a <em class="arg">SETUP</em> event the handler reads the request with <a class="el" href="../../d4/dc8/a05622.html#a1d83533b43ad863b76211ee532686a9b" title="Lib::HAL::USBDevicePortBase::getSetupPacket()">Lib::HAL::USBDevicePortBase::getSetupPacket()</a>. Inside the handler use only <a class="el" href="../../d6/dea/a05610.html#adef4f58b97bcabf7e0d7ae9317e6fb39" title="Lib::HAL::USBDevicePortAsync::submitSend()">Lib::HAL::USBDevicePortAsync::submitSend()</a> and <a class="el" href="../../d6/dea/a05610.html#a9fce4aa5997956a9b232bb7f32df0a5f" title="Lib::HAL::USBDevicePortAsync::submitReceive()">Lib::HAL::USBDevicePortAsync::submitReceive()</a>; the buffers they reference must stay valid until the matching event arrives.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d00/a00785.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timop_usage_hw"></a>
+Hardware and CubeMX assumptions</h3>
+<ul>
+<li>Timer in One Pulse mode in CubeMX, with the output channel set to <em class="arg">TIM_CHANNEL_1</em> or <em class="arg">TIM_CHANNEL_2</em>. The wrapper asserts on any other channel. The other channel of the pair is the trigger input and must be configured in CubeMX too.</li>
+<li>Interrupt enabled in the NVIC.</li>
+<li>One <a class="el" href="../../d8/d44/a06217.html" title="Lib::HAL::Timer::TimOnePulse">Lib::HAL::Timer::TimOnePulse</a> per timer handle.</li>
+</ul>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timop_usage_pulse"></a>
+Generating a delayed pulse from a task</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/db2/a00737.html">Lib/HAL/TIM/TimOnePulse.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d95/a00989.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> PCD_HandleTypeDef <a id="_a0" name="_a0"></a><a class="code hl_variable" href="../../df/dce/a00974.html#a3ec0d70a6cb9406d997fb3d006cc940d">hpcd_USB_OTG_FS</a>;</div>
+<div class="line"><span class="keyword">class </span>TriggerPulse final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> uint8_t BULK_IN = 0x81U;   <span class="comment">// Endpoint 1, IN direction.</span></div>
-<div class="line"><span class="keyword">constexpr</span> uint8_t BULK_OUT = 0x01U;  <span class="comment">// Endpoint 1, OUT direction.</span></div>
-<div class="line"><span class="keyword">constexpr</span> uint16_t RX_FIFO_WORDS = 128U;</div>
-<div class="line"> </div>
-<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> txBuffer{};</div>
-<div class="line"><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> rxBuffer{};</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Runs in interrupt context: only the interrupt-safe submit calls are used here.</span></div>
-<div class="line"><span class="keywordtype">void</span> onDeviceEvent(<span class="keywordtype">void</span> * context, <a id="_a2" name="_a2"></a><a class="code hl_enumeration" href="../../d0/d43/a01020.html#a5d499d7d2a344d0473d62dcf724d9a12">Lib::HAL::USBDeviceEvent</a> event, uint8_t endpoint) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">auto</span> * device = <span class="keyword">static_cast&lt;</span>Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::IT&gt; *<span class="keyword">&gt;</span>(context);</div>
-<div class="line">    <span class="keywordflow">if</span> ((event == <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d0/d43/a01020.html#a5d499d7d2a344d0473d62dcf724d9a12a9a2941dc70612c1552391bbafaedc788">Lib::HAL::USBDeviceEvent::OUT_COMPLETE</a>) &amp;&amp; (endpoint == 1U)) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(device-&gt;submitReceive(BULK_OUT, rxBuffer));</div>
+<div class="line">    <span class="keyword">explicit</span> TriggerPulse(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
+<div class="line">        pulse(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>),</div>
+<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d3/d67/a05971.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Pulse&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d0/d5d/a05955.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
 <div class="line">    }</div>
-<div class="line">}</div>
 <div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
+<div class="line"><span class="keyword">private</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> startDevice(Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::IT&gt; &amp; device) <span class="keyword">noexcept</span> {</div>
-<div class="line">    device.setEventHandler(&amp;onDeviceEvent, &amp;device);</div>
-<div class="line">    <span class="keywordflow">if</span> (!device.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(device.setRxFifo(RX_FIFO_WORDS));</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(device.setTxFifo(1U, 32U));</div>
-<div class="line">    <span class="keywordflow">if</span> (!device.openEndpoint(BULK_IN, 64U, <a id="_a4" name="_a4"></a><a class="code hl_enumvalue" href="../../d0/d43/a01020.html#ae1783f3c88baf78f222c313659cf4a98a6d5b457ed4205e7f1144ef21b944e552">Lib::HAL::USBEndpointType::BULK</a>) ||</div>
-<div class="line">        !device.openEndpoint(BULK_OUT, 64U, <a class="code hl_enumvalue" href="../../d0/d43/a01020.html#ae1783f3c88baf78f222c313659cf4a98a6d5b457ed4205e7f1144ef21b944e552">Lib::HAL::USBEndpointType::BULK</a>) ||</div>
-<div class="line">        !device.submitReceive(BULK_OUT, rxBuffer)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> device.start() &amp;&amp; device.connect();</div>
-<div class="line">}</div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d5/d7e/a05563.html">Lib::HAL::Timer::TimOnePulse</a> pulse; <span class="comment">// Constructed before the task starts using it.</span></div>
+<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../dc/d21/a05951.html">RTOS::Task</a> task;                    <span class="comment">// Must stay the last member.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Task context: waits for the host to configure the bus, then sends a block.</span></div>
-<div class="line"><span class="keywordtype">bool</span> sendReport(Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::IT&gt; &amp; device) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (!device.waitForEvent(<a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d0/d43/a01020.html#a5d499d7d2a344d0473d62dcf724d9a12ab5859d8721cfdc0312b2838b9c985bc1">Lib::HAL::USBDeviceEvent::RESET</a>, <a id="_a6" name="_a6"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(5))) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!pulse.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d5/d7e/a05563.html#a4dd784ca9da4b8c662101a2b232a1f61">start</a>()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;TriggerPulse: one-pulse mode failed to start&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Delay 100 ticks, then a 50-tick wide pulse; setTiming() keeps the width and delay in timer ticks.</span></div>
+<div class="line">        pulse.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d5/d7e/a05563.html#adcd5d98b02d7d70c3dbcd75ab4f117b6">setTiming</a>(100U, 50U);</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (pulse.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d5/d7e/a05563.html#aeba87dc02428bea360275fd39706fa18">waitPulseStart</a>(<a id="_a9" name="_a9"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(200))) {</div>
+<div class="line">                <span class="comment">// The pulse has started; the trigger delay has elapsed.</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> device.send(BULK_IN, std::span&lt;const uint8_t&gt;(txBuffer).first(16U), <a id="_a7" name="_a7"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="line">};</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00785_html"><div class="ttname"><a href="../../d3/d00/a00785.html">USB.hpp</a></div><div class="ttdoc">Public umbrella include for the USB subsystem, pulling in the &#39;USBDevicePort&#39;, &#39;USBHostPort&#39; and &#39;USB...</div></div>
-<div class="ttc" id="aa00974_html_a3ec0d70a6cb9406d997fb3d006cc940d"><div class="ttname"><a href="../../df/dce/a00974.html#a3ec0d70a6cb9406d997fb3d006cc940d">hpcd_USB_OTG_FS</a></div><div class="ttdeci">PCD_HandleTypeDef hpcd_USB_OTG_FS</div></div>
-<div class="ttc" id="aa01020_html_a5d499d7d2a344d0473d62dcf724d9a12"><div class="ttname"><a href="../../d0/d43/a01020.html#a5d499d7d2a344d0473d62dcf724d9a12">Lib::HAL::USBDeviceEvent</a></div><div class="ttdeci">USBDeviceEvent</div><div class="ttdoc">Bus and transfer events a device port reports to its event handler.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:58</div></div>
-<div class="ttc" id="aa01020_html_a5d499d7d2a344d0473d62dcf724d9a12a9a2941dc70612c1552391bbafaedc788"><div class="ttname"><a href="../../d0/d43/a01020.html#a5d499d7d2a344d0473d62dcf724d9a12a9a2941dc70612c1552391bbafaedc788">Lib::HAL::USBDeviceEvent::OUT_COMPLETE</a></div><div class="ttdeci">@ OUT_COMPLETE</div><div class="ttdoc">An OUT transfer finished; the endpoint number is passed to the handler.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:66</div></div>
-<div class="ttc" id="aa01020_html_a5d499d7d2a344d0473d62dcf724d9a12ab5859d8721cfdc0312b2838b9c985bc1"><div class="ttname"><a href="../../d0/d43/a01020.html#a5d499d7d2a344d0473d62dcf724d9a12ab5859d8721cfdc0312b2838b9c985bc1">Lib::HAL::USBDeviceEvent::RESET</a></div><div class="ttdeci">@ RESET</div><div class="ttdoc">The host reset the bus; endpoints must be reopened.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:59</div></div>
-<div class="ttc" id="aa01020_html_ae1783f3c88baf78f222c313659cf4a98a6d5b457ed4205e7f1144ef21b944e552"><div class="ttname"><a href="../../d0/d43/a01020.html#ae1783f3c88baf78f222c313659cf4a98a6d5b457ed4205e7f1144ef21b944e552">Lib::HAL::USBEndpointType::BULK</a></div><div class="ttdeci">@ BULK</div><div class="ttdoc">Bulk transfers.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:26</div></div>
-<div class="ttc" id="aa01610_html_ga2872cfa04b6162d31b737f1e21fefb3b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a></div><div class="ttdeci">duration&lt; int64_t &gt; seconds</div></div>
+<div class="ttc" id="aa00737_html"><div class="ttname"><a href="../../dd/db2/a00737.html">TimOnePulse.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware One-Pulse (Monostable) interface using STM32 Timers.</div></div>
+<div class="ttc" id="aa00989_html"><div class="ttname"><a href="../../d4/d95/a00989.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
 <div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="ttc" id="aa05563_html"><div class="ttname"><a href="../../d5/d7e/a05563.html">Lib::HAL::Timer::TimOnePulse</a></div><div class="ttdoc">Controls a hardware timer configured in One-Pulse Mode.</div><div class="ttdef"><b>Definition</b> TimOnePulse.hpp:44</div></div>
+<div class="ttc" id="aa05563_html_a4dd784ca9da4b8c662101a2b232a1f61"><div class="ttname"><a href="../../d5/d7e/a05563.html#a4dd784ca9da4b8c662101a2b232a1f61">Lib::HAL::Timer::TimOnePulse::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Arms the timer for trigger events; the calling task becomes the one waitPulseStart() serves.</div><div class="ttdef"><b>Definition</b> TimOnePulse.hpp:84</div></div>
+<div class="ttc" id="aa05563_html_adcd5d98b02d7d70c3dbcd75ab4f117b6"><div class="ttname"><a href="../../d5/d7e/a05563.html#adcd5d98b02d7d70c3dbcd75ab4f117b6">Lib::HAL::Timer::TimOnePulse::setTiming</a></div><div class="ttdeci">void setTiming(uint32_t delay, uint32_t pulseWidth) noexcept</div><div class="ttdoc">Sets the trigger-to-pulse delay and the pulse width.</div><div class="ttdef"><b>Definition</b> TimOnePulse.hpp:148</div></div>
+<div class="ttc" id="aa05563_html_aeba87dc02428bea360275fd39706fa18"><div class="ttname"><a href="../../d5/d7e/a05563.html#aeba87dc02428bea360275fd39706fa18">Lib::HAL::Timer::TimOnePulse::waitPulseStart</a></div><div class="ttdeci">bool waitPulseStart(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the next pulse starts, i.e.</div><div class="ttdef"><b>Definition</b> TimOnePulse.hpp:120</div></div>
+<div class="ttc" id="aa05951_html"><div class="ttname"><a href="../../dc/d21/a05951.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
+<div class="ttc" id="aa05955_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d0/d5d/a05955.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:87</div></div>
+<div class="ttc" id="aa05971_html"><div class="ttname"><a href="../../d3/d67/a05971.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="usbdeviceport_usage_dma"></a>
-Device role with DMA</h3>
-<p>The <em class="arg">DMA</em> specialization has the same public API as the <em class="arg">IT</em> one. The handle must be created with <em class="arg">Init.dma_enable</em> set to <b>1</b>, which the constructor asserts, and every buffer passed to the port must be 4-byte aligned, which each transfer asserts.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d00/a00785.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timop_usage_width"></a>
+Validating timing</h3>
+<p><a class="el" href="../../d5/d7e/a05563.html#adcd5d98b02d7d70c3dbcd75ab4f117b6" title="Lib::HAL::Timer::TimOnePulse::setTiming()">Lib::HAL::Timer::TimOnePulse::setTiming()</a> asserts when the width is zero or when 'delay + width - 1' does not fit in 32 bits, and it then changes nothing. The assertion is disabled in release builds, so check the values before calling it there.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/db2/a00737.html">Lib/HAL/TIM/TimOnePulse.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00128.html">limits</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">alignas</span>(4) <span class="keyword">static</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> dmaTx{};</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> sendDma(Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; device) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> device.send(0x81U, std::span&lt;const uint8_t&gt;(dmaTx), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line"><span class="keywordtype">void</span> retime(<a class="code hl_class" href="../../d5/d7e/a05563.html">Lib::HAL::Timer::TimOnePulse</a> &amp; pulse, uint32_t delayTicks, uint32_t widthTicks) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> ((widthTicks == 0U) || (delayTicks &gt; (<a id="_a10" name="_a10"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02702.html#a27b481b529885d1b1b714c7fe69a1945">std::numeric_limits&lt;uint32_t&gt;::max</a>)() - (widthTicks - 1U))) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    pulse.setTiming(delayTicks, widthTicks);</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00128_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00128.html">limits</a></div></div>
+<div class="ttc" id="aa02702_html_a27b481b529885d1b1b714c7fe69a1945"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02702.html#a27b481b529885d1b1b714c7fe69a1945">std::numeric_limits::max</a></div><div class="ttdeci">static constexpr _Tp max() noexcept</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="usbdeviceport_usage_host"></a>
-Host role</h3>
-<p>The host port opens the controller, starts it, waits for a device to attach, and resets the port. A channel is opened with <a class="el" href="../../d1/d00/a05646.html#aa013c6f71e1233cd4ef77f9d22d951f1" title="Lib::HAL::USBHostPortBase::openChannel()">Lib::HAL::USBHostPortBase::openChannel()</a> for each endpoint that is used; after that <a class="el" href="../../d7/d1a/a05634.html#a3bcff372802df7955ce5761f4e32e420" title="Lib::HAL::USBHostPortAsync::transfer()">Lib::HAL::USBHostPortAsync::transfer()</a> moves data on it and returns a <a class="el" href="../../d0/d43/a01020.html#a62152c846403f6b93d0f2e9ff14adafe" title="Lib::HAL::USBHostTransferResult">Lib::HAL::USBHostTransferResult</a>. The result <em class="arg">NOT_READY</em> asks the caller to submit the same transfer again.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d00/a00785.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timop_usage_stop"></a>
+Stopping</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/db2/a00737.html">Lib/HAL/TIM/TimOnePulse.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> readDeviceDescriptor(Lib::HAL::USBHostPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; host) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (!host.open() || !host.start()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">if</span> (!host.waitForEvent(<a id="_a8" name="_a8"></a><a class="code hl_enumvalue" href="../../d0/d43/a01020.html#a53f17b15be5eab9c94b2c21a10f050fdab57e2519e26151feacdbe52076bc39ec">Lib::HAL::USBHostEvent::CONNECT</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(5))) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">if</span> (!host.resetPort() || !host.waitForEvent(<a id="_a9" name="_a9"></a><a class="code hl_enumvalue" href="../../d0/d43/a01020.html#a53f17b15be5eab9c94b2c21a10f050fda5bcb737b3b015475d3595f95b82f6604">Lib::HAL::USBHostEvent::PORT_ENABLED</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(1))) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <a id="_a10" name="_a10"></a><a class="code hl_enumeration" href="../../d0/d43/a01020.html#a8cde9e5e92df1421df294fcb1a50b4e7">Lib::HAL::USBSpeed</a> speed = host.getSpeed();</div>
-<div class="line">    <span class="comment">// Channel 0 talks to address 0 (the default address) on endpoint 0, the control pipe.</span></div>
-<div class="line">    <span class="keywordflow">if</span> (!host.openChannel(0U, 0U, 0U, speed, <a id="_a11" name="_a11"></a><a class="code hl_enumvalue" href="../../d0/d43/a01020.html#ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130">Lib::HAL::USBEndpointType::CONTROL</a>, 8U)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// The setup packet is a standard GET_DESCRIPTOR request, 8 bytes.</span></div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 8&gt;</a> setup{0x80U, 0x06U, 0x00U, 0x01U, 0x00U, 0x00U, 0x12U, 0x00U};</div>
-<div class="line">    <span class="keywordflow">if</span> (host.transfer(0U, <a id="_a12" name="_a12"></a><a class="code hl_enumvalue" href="../../d0/d43/a01020.html#a0feace7a2249d65bd2313f48bf07ba0baef373774188a51f80463f37b6bd9e83a">Lib::HAL::USBDirection::OUT</a>, <a class="code hl_enumvalue" href="../../d0/d43/a01020.html#ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130">Lib::HAL::USBEndpointType::CONTROL</a>, <span class="keyword">true</span>, setup, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100)) !=</div>
-<div class="line">        <a id="_a13" name="_a13"></a><a class="code hl_enumvalue" href="../../d0/d43/a01020.html#a62152c846403f6b93d0f2e9ff14adafea2ba22e58ca17bb728d522bba36cf8350">Lib::HAL::USBHostTransferResult::DONE</a>) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 18&gt;</a> descriptor{};</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a14" name="_a14"></a><a class="code hl_enumeration" href="../../d0/d43/a01020.html#a62152c846403f6b93d0f2e9ff14adafe">Lib::HAL::USBHostTransferResult</a> result =</div>
-<div class="line">        host.transfer(0U, <a id="_a15" name="_a15"></a><a class="code hl_enumvalue" href="../../d0/d43/a01020.html#a0feace7a2249d65bd2313f48bf07ba0bac86ee0d9d7ed3e7b4fdbf486fa6c0ebb">Lib::HAL::USBDirection::IN</a>, <a class="code hl_enumvalue" href="../../d0/d43/a01020.html#ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130">Lib::HAL::USBEndpointType::CONTROL</a>, <span class="keyword">false</span>, descriptor, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
-<div class="line">    <span class="keywordflow">return</span> (result == <a class="code hl_enumvalue" href="../../d0/d43/a01020.html#a62152c846403f6b93d0f2e9ff14adafea2ba22e58ca17bb728d522bba36cf8350">Lib::HAL::USBHostTransferResult::DONE</a>) &amp;&amp; (host.getTransferCount(0U) == descriptor.size());</div>
+<div class="line"><span class="keywordtype">void</span> disarm(<a class="code hl_class" href="../../d5/d7e/a05563.html">Lib::HAL::Timer::TimOnePulse</a> &amp; pulse) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(pulse.stop());</div>
 <div class="line">}</div>
-<div class="ttc" id="aa01020_html_a0feace7a2249d65bd2313f48bf07ba0bac86ee0d9d7ed3e7b4fdbf486fa6c0ebb"><div class="ttname"><a href="../../d0/d43/a01020.html#a0feace7a2249d65bd2313f48bf07ba0bac86ee0d9d7ed3e7b4fdbf486fa6c0ebb">Lib::HAL::USBDirection::IN</a></div><div class="ttdeci">@ IN</div><div class="ttdoc">Device to host.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:35</div></div>
-<div class="ttc" id="aa01020_html_a0feace7a2249d65bd2313f48bf07ba0baef373774188a51f80463f37b6bd9e83a"><div class="ttname"><a href="../../d0/d43/a01020.html#a0feace7a2249d65bd2313f48bf07ba0baef373774188a51f80463f37b6bd9e83a">Lib::HAL::USBDirection::OUT</a></div><div class="ttdeci">@ OUT</div><div class="ttdoc">Host to device.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:34</div></div>
-<div class="ttc" id="aa01020_html_a53f17b15be5eab9c94b2c21a10f050fda5bcb737b3b015475d3595f95b82f6604"><div class="ttname"><a href="../../d0/d43/a01020.html#a53f17b15be5eab9c94b2c21a10f050fda5bcb737b3b015475d3595f95b82f6604">Lib::HAL::USBHostEvent::PORT_ENABLED</a></div><div class="ttdeci">@ PORT_ENABLED</div><div class="ttdoc">The port was enabled after a bus reset.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:75</div></div>
-<div class="ttc" id="aa01020_html_a53f17b15be5eab9c94b2c21a10f050fdab57e2519e26151feacdbe52076bc39ec"><div class="ttname"><a href="../../d0/d43/a01020.html#a53f17b15be5eab9c94b2c21a10f050fdab57e2519e26151feacdbe52076bc39ec">Lib::HAL::USBHostEvent::CONNECT</a></div><div class="ttdeci">@ CONNECT</div><div class="ttdoc">A device was attached.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:73</div></div>
-<div class="ttc" id="aa01020_html_a62152c846403f6b93d0f2e9ff14adafe"><div class="ttname"><a href="../../d0/d43/a01020.html#a62152c846403f6b93d0f2e9ff14adafe">Lib::HAL::USBHostTransferResult</a></div><div class="ttdeci">USBHostTransferResult</div><div class="ttdoc">Result of a host channel transfer.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:83</div></div>
-<div class="ttc" id="aa01020_html_a62152c846403f6b93d0f2e9ff14adafea2ba22e58ca17bb728d522bba36cf8350"><div class="ttname"><a href="../../d0/d43/a01020.html#a62152c846403f6b93d0f2e9ff14adafea2ba22e58ca17bb728d522bba36cf8350">Lib::HAL::USBHostTransferResult::DONE</a></div><div class="ttdeci">@ DONE</div><div class="ttdoc">The transfer completed.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:84</div></div>
-<div class="ttc" id="aa01020_html_a8cde9e5e92df1421df294fcb1a50b4e7"><div class="ttname"><a href="../../d0/d43/a01020.html#a8cde9e5e92df1421df294fcb1a50b4e7">Lib::HAL::USBSpeed</a></div><div class="ttdeci">USBSpeed</div><div class="ttdoc">Bus speed of a host channel, as the HAL &#39;HCD_SPEED_*&#39; macros encode it.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:41</div></div>
-<div class="ttc" id="aa01020_html_ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130"><div class="ttname"><a href="../../d0/d43/a01020.html#ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130">Lib::HAL::USBEndpointType::CONTROL</a></div><div class="ttdeci">@ CONTROL</div><div class="ttdoc">Control transfers (endpoint 0).</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:24</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="usbdeviceport_usage_otg"></a>
-Dual-role OTG controller</h3>
-<p><a class="el" href="../../db/d53/a05650.html" title="Lib::HAL::USBOtgPort">Lib::HAL::USBOtgPort</a> owns one device port and one host port over the same controller. Only one role is initialized at a time: <a class="el" href="../../db/d53/a05650.html#aec9af265280bdd162bad2fc3ab471564" title="Lib::HAL::USBOtgPort::setRole()">Lib::HAL::USBOtgPort::setRole()</a> releases the active role before it opens the new one. The role is taken from the ID pin read by the caller, passed through <a class="el" href="../../db/d53/a05650.html#abc564dd159948064f407b82bb9f122bb" title="Lib::HAL::USBOtgPort::roleFromIdPin()">Lib::HAL::USBOtgPort::roleFromIdPin()</a>. The ports returned by <a class="el" href="../../db/d53/a05650.html#a023ac50c5d201c51c5b288f17fc86ec9" title="Lib::HAL::USBOtgPort::getDevice()">Lib::HAL::USBOtgPort::getDevice()</a> and <a class="el" href="../../db/d53/a05650.html#a5e5a4a2c6e79efb76f4ef3bbd18fbdfa" title="Lib::HAL::USBOtgPort::getHost()">Lib::HAL::USBOtgPort::getHost()</a> are the <em class="arg">IT</em> specializations.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d00/a00785.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> useRoleFromIdPin(<a id="_a16" name="_a16"></a><a class="code hl_class" href="../../db/d53/a05650.html">Lib::HAL::USBOtgPort</a> &amp; otg, <span class="keywordtype">bool</span> isIdPinLow) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a17" name="_a17"></a><a class="code hl_enumeration" href="../../d0/d43/a01020.html#ada24ea1dfe0720a6a56871f1392f9955">Lib::HAL::USBRole</a> role = <a id="a18" name="a18"></a><a class="code hl_function" href="../../db/d53/a05650.html#abc564dd159948064f407b82bb9f122bb">Lib::HAL::USBOtgPort::roleFromIdPin</a>(isIdPinLow);</div>
-<div class="line">    <span class="keywordflow">if</span> (!otg.setRole(role)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">if</span> (role == <a id="_a19" name="_a19"></a><a class="code hl_enumvalue" href="../../d0/d43/a01020.html#ada24ea1dfe0720a6a56871f1392f9955ae10b6ab6a278644ce40631f62f360b6d">Lib::HAL::USBRole::DEVICE</a>) {</div>
-<div class="line">        <span class="keywordflow">return</span> otg.getDevice().start();</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> otg.getHost().start();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa01020_html_ada24ea1dfe0720a6a56871f1392f9955"><div class="ttname"><a href="../../d0/d43/a01020.html#ada24ea1dfe0720a6a56871f1392f9955">Lib::HAL::USBRole</a></div><div class="ttdeci">USBRole</div><div class="ttdoc">Role of an OTG port.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:50</div></div>
-<div class="ttc" id="aa01020_html_ada24ea1dfe0720a6a56871f1392f9955ae10b6ab6a278644ce40631f62f360b6d"><div class="ttname"><a href="../../d0/d43/a01020.html#ada24ea1dfe0720a6a56871f1392f9955ae10b6ab6a278644ce40631f62f360b6d">Lib::HAL::USBRole::DEVICE</a></div><div class="ttdeci">@ DEVICE</div><div class="ttdoc">The controller acts as a USB device.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:51</div></div>
-<div class="ttc" id="aa05650_html"><div class="ttname"><a href="../../db/d53/a05650.html">Lib::HAL::USBOtgPort</a></div><div class="ttdoc">USB OTG port with a run-time role.</div><div class="ttdef"><b>Definition</b> USBOtgPort.hpp:42</div></div>
-<div class="ttc" id="aa05650_html_abc564dd159948064f407b82bb9f122bb"><div class="ttname"><a href="../../db/d53/a05650.html#abc564dd159948064f407b82bb9f122bb">Lib::HAL::USBOtgPort::roleFromIdPin</a></div><div class="ttdeci">static constexpr USBRole roleFromIdPin(bool isIdLow) noexcept</div><div class="ttdoc">Chooses the role from the ID pin of a micro-AB or USB-C connector.</div><div class="ttdef"><b>Definition</b> USBOtgPort.hpp:159</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

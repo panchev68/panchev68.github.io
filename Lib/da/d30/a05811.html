@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Math::CubicInterpolation&lt; T_VALUE, T_INPUT &gt;</title>
+<title>IAR EWARM Library: Lib::Math::HammingCode</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,575 +91,210 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../de/d02/a01026.html">Math</a></li><li class="navelem"><a href="../../da/d30/a05811.html">CubicInterpolation</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d4/dbc/a01038.html">Math</a></li><li class="navelem"><a href="../../da/d30/a05811.html">HammingCode</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../db/d2a/a05808.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Math::CubicInterpolation&lt; T_VALUE, T_INPUT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Math::HammingCode</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Fixed-capacity cubic spline interpolator.  
+<p>Hamming(21,16) error-correcting code implementation.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt;<br />
-class Lib::Math::CubicInterpolation&lt; T_VALUE, T_INPUT &gt;</div><p>Fixed-capacity cubic spline interpolator. </p>
-<p>Builds a piecewise cubic spline from a set of (x,y) points and provides evaluation and derivative queries. Designed for embedded systems with fixed memory usage and no dynamic allocation: the spline coefficients are computed in place in the segment table, so computing them needs no extra stack. Points may be added in any order; they are sorted and the coefficients are recomputed before the next query.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_VALUE</td><td>Floating-point type used for coefficients and outputs. </td></tr>
-    <tr><td class="paramname">T_INPUT</td><td>Input type for x-coordinates (defaults to 'T_VALUE'). </td></tr>
-  </table>
-  </dd>
-</dl>
+<div class="textblock"><p>Hamming(21,16) error-correcting code implementation. </p>
+<p>Encodes 16-bit data into a 21-bit codeword with 5 parity bits and decodes codewords back to data, correcting any single-bit error. Codeword positions are numbered from 1: the parity bits sit at the power-of-two positions 1, 2, 4, 8 and 16, the data bits fill the other positions in order, and the parity bit at position 2^k covers every position whose number has bit k set. All operations are constexpr, so they can also build lookup tables at compile time.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Math/HammingCode.hpp" target="_blank">Source</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Math/doc/HammingCode.md" target="_blank">Detail Description</a> </dd></dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Point" id="r_Point"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d2/df9/a05815.html">Point</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single (x, y) data point for interpolation.  <a href="../../d2/df9/a05815.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:aa4199170b826f8a973a54466af4c6ee7" id="r_aa4199170b826f8a973a54466af4c6ee7"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#aa4199170b826f8a973a54466af4c6ee7">BoundaryType</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f">NATURAL</a> = 0U
-, <br />
-&#160;&#160;<a class="el" href="#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad">CLAMPED</a> = 1U
-<br />
- }</td></tr>
-<tr class="memdesc:aa4199170b826f8a973a54466af4c6ee7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boundary condition applied to the first and last spline segment.  <a href="#aa4199170b826f8a973a54466af4c6ee7">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ab036a2fd8ca103e4758c6df093edaf14" id="r_ab036a2fd8ca103e4758c6df093edaf14"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#ab036a2fd8ca103e4758c6df093edaf14">CubicInterpolation</a> ()=default</td></tr>
-<tr class="memdesc:ab036a2fd8ca103e4758c6df093edaf14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty interpolator with natural boundary conditions.  <br /></td></tr>
-<tr class="memitem:a4a43a32405ea514da8602d0b35b84868" id="r_a4a43a32405ea514da8602d0b35b84868"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
-<tr class="memitem:a4a43a32405ea514da8602d0b35b84868 template"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a4a43a32405ea514da8602d0b35b84868">CubicInterpolation</a> (const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt; <a class="el" href="../../d2/df9/a05815.html">Point</a>, N &gt; &amp;pointArray, <a class="el" href="#aa4199170b826f8a973a54466af4c6ee7">BoundaryType</a> boundary=<a class="el" href="#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f">BoundaryType::NATURAL</a>, T_VALUE leftDeriv=T_VALUE{}, T_VALUE rightDeriv=T_VALUE{}) noexcept</td></tr>
-<tr class="memdesc:a4a43a32405ea514da8602d0b35b84868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the interpolator from an array of points, which may be in any order.  <br /></td></tr>
-<tr class="memitem:ac25d98350678032e22250cfb3e5d6f6c" id="r_ac25d98350678032e22250cfb3e5d6f6c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac25d98350678032e22250cfb3e5d6f6c">addPoint</a> (const <a class="el" href="../../d2/df9/a05815.html">Point</a> &amp;point) noexcept</td></tr>
-<tr class="memdesc:ac25d98350678032e22250cfb3e5d6f6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a point and marks the spline coefficients as needing recomputation.  <br /></td></tr>
-<tr class="memitem:a0b929d4a4af7056b393a4e6c90611819" id="r_a0b929d4a4af7056b393a4e6c90611819"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0b929d4a4af7056b393a4e6c90611819">addPoint</a> (T_INPUT x, T_VALUE y) noexcept</td></tr>
-<tr class="memdesc:a0b929d4a4af7056b393a4e6c90611819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a point given by its coordinates; see <a class="el" href="#ac25d98350678032e22250cfb3e5d6f6c" title="addPoint(const Point &amp;)">addPoint(const Point &amp;)</a>.  <br /></td></tr>
-<tr class="memitem:ae0955a5674c3c10f5eab1eb0fff390a5" id="r_ae0955a5674c3c10f5eab1eb0fff390a5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae0955a5674c3c10f5eab1eb0fff390a5">clear</a> () noexcept</td></tr>
-<tr class="memdesc:ae0955a5674c3c10f5eab1eb0fff390a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes every point, returning the interpolator to its initial empty state.  <br /></td></tr>
-<tr class="memitem:a85e1404919ead5d47edb147006232b3e" id="r_a85e1404919ead5d47edb147006232b3e"><td class="memItemLeft">constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a85e1404919ead5d47edb147006232b3e">getPointCount</a> () const noexcept</td></tr>
-<tr class="memdesc:a85e1404919ead5d47edb147006232b3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the number of stored points.  <br /></td></tr>
-<tr class="memitem:a552b92b0ae650ee4098030fa28a91528" id="r_a552b92b0ae650ee4098030fa28a91528"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a552b92b0ae650ee4098030fa28a91528">isEmpty</a> () const noexcept</td></tr>
-<tr class="memdesc:a552b92b0ae650ee4098030fa28a91528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the interpolator holds no points.  <br /></td></tr>
-<tr class="memitem:a4c58ae1763d8feb237d96f55d5f6b5f5" id="r_a4c58ae1763d8feb237d96f55d5f6b5f5"><td class="memItemLeft">constexpr <a class="el" href="../../d2/df9/a05815.html">Point</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4c58ae1763d8feb237d96f55d5f6b5f5">getPoint</a> (size_t index) noexcept</td></tr>
-<tr class="memdesc:a4c58ae1763d8feb237d96f55d5f6b5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses a stored point by index.  <br /></td></tr>
-<tr class="memitem:a9e8759ad8a98c3f4108e3d59ac52577e" id="r_a9e8759ad8a98c3f4108e3d59ac52577e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9e8759ad8a98c3f4108e3d59ac52577e">sortPoints</a> () noexcept</td></tr>
-<tr class="memdesc:a9e8759ad8a98c3f4108e3d59ac52577e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the stored points in ascending x order.  <br /></td></tr>
-<tr class="memitem:aad89790e19eeff17d5af45f4201e9430" id="r_aad89790e19eeff17d5af45f4201e9430"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aad89790e19eeff17d5af45f4201e9430">setBoundaryConditions</a> (<a class="el" href="#aa4199170b826f8a973a54466af4c6ee7">BoundaryType</a> boundary, T_VALUE leftDeriv=T_VALUE{}, T_VALUE rightDeriv=T_VALUE{}) noexcept</td></tr>
-<tr class="memdesc:aad89790e19eeff17d5af45f4201e9430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the boundary condition mode and endpoint derivatives, and marks the spline coefficients as needing recomputation.  <br /></td></tr>
-<tr class="memitem:a1e9efb980eff0b0bf4d45b23b118a437" id="r_a1e9efb980eff0b0bf4d45b23b118a437"><td class="memItemLeft">T_VALUE&#160;</td><td class="memItemRight"><a class="el" href="#a1e9efb980eff0b0bf4d45b23b118a437">interpolate</a> (T_INPUT x) noexcept</td></tr>
-<tr class="memdesc:a1e9efb980eff0b0bf4d45b23b118a437"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates the spline at the specified x position.  <br /></td></tr>
-<tr class="memitem:a8cbe3d4cea98501bacb9f4d5e69fedef" id="r_a8cbe3d4cea98501bacb9f4d5e69fedef"><td class="memItemLeft">T_VALUE&#160;</td><td class="memItemRight"><a class="el" href="#a8cbe3d4cea98501bacb9f4d5e69fedef">getDerivative</a> (T_INPUT x) noexcept</td></tr>
-<tr class="memdesc:a8cbe3d4cea98501bacb9f4d5e69fedef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the first derivative of the spline at x.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ad9d4101cb404a5c8eaff5d9592047d0a" id="r_ad9d4101cb404a5c8eaff5d9592047d0a"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ad9d4101cb404a5c8eaff5d9592047d0a">encode</a> (uint16_t value) noexcept</td></tr>
+<tr class="memdesc:ad9d4101cb404a5c8eaff5d9592047d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a 16-bit value into a Hamming(21,16) codeword.  <br /></td></tr>
+<tr class="memitem:a4191c3eb813016d80f65ff66f6f13b80" id="r_a4191c3eb813016d80f65ff66f6f13b80"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a4191c3eb813016d80f65ff66f6f13b80">decode</a> (uint32_t value) noexcept</td></tr>
+<tr class="memdesc:a4191c3eb813016d80f65ff66f6f13b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes and corrects a Hamming(21,16) codeword.  <br /></td></tr>
+<tr class="memitem:a840a90d96caceeafec7fb6ebaf51b8e1" id="r_a840a90d96caceeafec7fb6ebaf51b8e1"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a840a90d96caceeafec7fb6ebaf51b8e1">syndrome</a> (uint32_t value) noexcept</td></tr>
+<tr class="memdesc:a840a90d96caceeafec7fb6ebaf51b8e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the error syndrome of a codeword.  <br /></td></tr>
+<tr class="memitem:a913e4f9bbfd5bbfe99493a28c8124527" id="r_a913e4f9bbfd5bbfe99493a28c8124527"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a913e4f9bbfd5bbfe99493a28c8124527">canCorrect</a> (uint32_t syndrome) noexcept</td></tr>
+<tr class="memdesc:a913e4f9bbfd5bbfe99493a28c8124527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a syndrome value indicates a correctable error position.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:af3e9fcf2202a3c9d9d27544bfe6c69e7" id="r_af3e9fcf2202a3c9d9d27544bfe6c69e7"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#af3e9fcf2202a3c9d9d27544bfe6c69e7">MAX_POINTS</a> = 128U</td></tr>
-<tr class="memdesc:af3e9fcf2202a3c9d9d27544bfe6c69e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of data points supported.  <br /></td></tr>
+<tr class="memitem:a7815b3007ea3f4155c630ee1c6f10c37" id="r_a7815b3007ea3f4155c630ee1c6f10c37"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a7815b3007ea3f4155c630ee1c6f10c37">CODE_BITS</a> = 21U</td></tr>
+<tr class="memdesc:a7815b3007ea3f4155c630ee1c6f10c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of bits in a codeword.  <br /></td></tr>
+<tr class="memitem:a647d37385b963452363628f518227d3b" id="r_a647d37385b963452363628f518227d3b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a647d37385b963452363628f518227d3b">DATA_BITS</a> = 16U</td></tr>
+<tr class="memdesc:a647d37385b963452363628f518227d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of payload bits carried by a codeword.  <br /></td></tr>
+<tr class="memitem:aab153ec6e8d90ef5dc6aa49d2ef8d0ad" id="r_aab153ec6e8d90ef5dc6aa49d2ef8d0ad"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aab153ec6e8d90ef5dc6aa49d2ef8d0ad">PARITY_BITS</a> = 5U</td></tr>
+<tr class="memdesc:aab153ec6e8d90ef5dc6aa49d2ef8d0ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of parity bits appended to the payload.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="aa4199170b826f8a973a54466af4c6ee7" name="aa4199170b826f8a973a54466af4c6ee7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4199170b826f8a973a54466af4c6ee7">&#9670;&#160;</a></span>BoundaryType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#aa4199170b826f8a973a54466af4c6ee7">Lib::Math::CubicInterpolation::BoundaryType</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Boundary condition applied to the first and last spline segment. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f" name="aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f"></a>NATURAL&#160;</td><td class="fielddoc"><p>Second derivative is zero at both ends. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad" name="aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad"></a>CLAMPED&#160;</td><td class="fielddoc"><p>First derivative is fixed at both ends. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab036a2fd8ca103e4758c6df093edaf14" name="ab036a2fd8ca103e4758c6df093edaf14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab036a2fd8ca103e4758c6df093edaf14">&#9670;&#160;</a></span>CubicInterpolation() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::CubicInterpolation </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates an empty interpolator with natural boundary conditions. </p>
-
-</div>
-</div>
-<a id="a4a43a32405ea514da8602d0b35b84868" name="a4a43a32405ea514da8602d0b35b84868"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a43a32405ea514da8602d0b35b84868">&#9670;&#160;</a></span>CubicInterpolation() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<div class="memtemplate">
-template&lt;size_t N&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::CubicInterpolation </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt; <a class="el" href="../../d2/df9/a05815.html">Point</a>, N &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pointArray</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#aa4199170b826f8a973a54466af4c6ee7">BoundaryType</a></td>          <td class="paramname"><span class="paramname"><em>boundary</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f">BoundaryType::NATURAL</a></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>leftDeriv</em></span><span class="paramdefsep"> = </span><span class="paramdefval">T_VALUE{}</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>rightDeriv</em></span><span class="paramdefsep"> = </span><span class="paramdefval">T_VALUE{}</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates the interpolator from an array of points, which may be in any order. </p>
-<p>Points are copied, sorted, and spline coefficients are precomputed.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">N</td><td>Number of points in 'pointArray'; must not exceed <a class="el" href="#af3e9fcf2202a3c9d9d27544bfe6c69e7" title="MAX_POINTS">MAX_POINTS</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pointArray</td><td>Array of input points. </td></tr>
-    <tr><td class="paramname">boundary</td><td>Boundary condition type (natural or clamped). </td></tr>
-    <tr><td class="paramname">leftDeriv</td><td>Left endpoint derivative for clamped mode. </td></tr>
-    <tr><td class="paramname">rightDeriv</td><td>Right endpoint derivative for clamped mode. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ac25d98350678032e22250cfb3e5d6f6c" name="ac25d98350678032e22250cfb3e5d6f6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac25d98350678032e22250cfb3e5d6f6c">&#9670;&#160;</a></span>addPoint() <span class="overload">[1/2]</span></h2>
+<a id="a913e4f9bbfd5bbfe99493a28c8124527" name="a913e4f9bbfd5bbfe99493a28c8124527"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a913e4f9bbfd5bbfe99493a28c8124527">&#9670;&#160;</a></span>canCorrect()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::addPoint </td>
+          <td class="memname">constexpr bool Lib::Math::HammingCode::canCorrect </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d2/df9/a05815.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>syndrome</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Appends a point and marks the spline coefficients as needing recomputation. </p>
+<p>Checks whether a syndrome value indicates a correctable error position. </p>
+<p>A syndrome of 0 indicates no error; a non-zero syndrome in the range [1, <a class="el" href="#a7815b3007ea3f4155c630ee1c6f10c37" title="CODE_BITS">CODE_BITS</a>] indicates a correctable single-bit error at that position. Syndromes outside this range are uncorrectable.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Data point to add. </td></tr>
+    <tr><td class="paramname">syndrome</td><td>Error syndrome computed from parity checks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if added, <b>false</b> if the table is already at <a class="el" href="#af3e9fcf2202a3c9d9d27544bfe6c69e7" title="MAX_POINTS">MAX_POINTS</a>. </dd></dl>
-
-</div>
-</div>
-<a id="a0b929d4a4af7056b393a4e6c90611819" name="a0b929d4a4af7056b393a4e6c90611819"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b929d4a4af7056b393a4e6c90611819">&#9670;&#160;</a></span>addPoint() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::addPoint </td>
-          <td>(</td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Appends a point given by its coordinates; see <a class="el" href="#ac25d98350678032e22250cfb3e5d6f6c" title="addPoint(const Point &amp;)">addPoint(const Point &amp;)</a>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>Input coordinate. </td></tr>
-    <tr><td class="paramname">y</td><td>Output value. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if added, <b>false</b> if the table is already at <a class="el" href="#af3e9fcf2202a3c9d9d27544bfe6c69e7" title="MAX_POINTS">MAX_POINTS</a>. </dd></dl>
-
-</div>
-</div>
-<a id="ae0955a5674c3c10f5eab1eb0fff390a5" name="ae0955a5674c3c10f5eab1eb0fff390a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0955a5674c3c10f5eab1eb0fff390a5">&#9670;&#160;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::clear </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes every point, returning the interpolator to its initial empty state. </p>
-
-</div>
-</div>
-<a id="a8cbe3d4cea98501bacb9f4d5e69fedef" name="a8cbe3d4cea98501bacb9f4d5e69fedef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cbe3d4cea98501bacb9f4d5e69fedef">&#9670;&#160;</a></span>getDerivative()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T_VALUE <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::getDerivative </td>
-          <td>(</td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the first derivative of the spline at x. </p>
-<p>Uses the segment polynomial derivative when inside the domain; at the endpoints the boundary derivative of the end segment is returned.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>Input coordinate to evaluate the derivative at. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Derivative of the spline at x. </dd></dl>
-
-</div>
-</div>
-<a id="a4c58ae1763d8feb237d96f55d5f6b5f5" name="a4c58ae1763d8feb237d96f55d5f6b5f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c58ae1763d8feb237d96f55d5f6b5f5">&#9670;&#160;</a></span>getPoint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d2/df9/a05815.html">Point</a> &amp; <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::getPoint </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Accesses a stored point by index. </p>
-<p>Changing the point through the reference does not mark the spline as stale: add the point again, or call <a class="el" href="#aad89790e19eeff17d5af45f4201e9430" title="setBoundaryConditions()">setBoundaryConditions()</a>, to force a recomputation.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">index</td><td>Index of the point (0-based). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the stored point. </dd></dl>
-
-</div>
-</div>
-<a id="a85e1404919ead5d47edb147006232b3e" name="a85e1404919ead5d47edb147006232b3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85e1404919ead5d47edb147006232b3e">&#9670;&#160;</a></span>getPointCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::getPointCount </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves the number of stored points. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of points currently stored. </dd></dl>
-
-</div>
-</div>
-<a id="a1e9efb980eff0b0bf4d45b23b118a437" name="a1e9efb980eff0b0bf4d45b23b118a437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e9efb980eff0b0bf4d45b23b118a437">&#9670;&#160;</a></span>interpolate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T_VALUE <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::interpolate </td>
-          <td>(</td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Evaluates the spline at the specified x position. </p>
-<p>Sorts the points and computes the spline coefficients first when they are out of date. Values outside the data range return the endpoint values.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>Input coordinate to evaluate. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Interpolated y value. </dd></dl>
-
-</div>
-</div>
-<a id="a552b92b0ae650ee4098030fa28a91528" name="a552b92b0ae650ee4098030fa28a91528"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a552b92b0ae650ee4098030fa28a91528">&#9670;&#160;</a></span>isEmpty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::isEmpty </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the interpolator holds no points. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if no points are stored, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="aad89790e19eeff17d5af45f4201e9430" name="aad89790e19eeff17d5af45f4201e9430"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad89790e19eeff17d5af45f4201e9430">&#9670;&#160;</a></span>setBoundaryConditions()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::setBoundaryConditions </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#aa4199170b826f8a973a54466af4c6ee7">BoundaryType</a></td>          <td class="paramname"><span class="paramname"><em>boundary</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>leftDeriv</em></span><span class="paramdefsep"> = </span><span class="paramdefval">T_VALUE{}</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>rightDeriv</em></span><span class="paramdefsep"> = </span><span class="paramdefval">T_VALUE{}</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the boundary condition mode and endpoint derivatives, and marks the spline coefficients as needing recomputation. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">boundary</td><td>Boundary condition type (natural or clamped). </td></tr>
-    <tr><td class="paramname">leftDeriv</td><td>Left endpoint derivative; only used in <a class="el" href="#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad" title="BoundaryType::CLAMPED">BoundaryType::CLAMPED</a>. </td></tr>
-    <tr><td class="paramname">rightDeriv</td><td>Right endpoint derivative; only used in <a class="el" href="#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad" title="BoundaryType::CLAMPED">BoundaryType::CLAMPED</a>. </td></tr>
-  </table>
-  </dd>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if 'syndrome' is in the correctable range [1, 21], <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d62/a06257.html#_a4">Lib::Math::HammingCode</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="a9e8759ad8a98c3f4108e3d59ac52577e" name="a9e8759ad8a98c3f4108e3d59ac52577e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e8759ad8a98c3f4108e3d59ac52577e">&#9670;&#160;</a></span>sortPoints()</h2>
+<a id="a4191c3eb813016d80f65ff66f6f13b80" name="a4191c3eb813016d80f65ff66f6f13b80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4191c3eb813016d80f65ff66f6f13b80">&#9670;&#160;</a></span>decode()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::sortPoints </td>
+          <td class="memname">constexpr uint16_t Lib::Math::HammingCode::decode </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sorts the stored points in ascending x order. </p>
-<p>Marks the spline as needing recomputation. </p>
+<p>Decodes and corrects a Hamming(21,16) codeword. </p>
+<p>Computes the syndrome with syndrome(), which is the position of a single flipped bit, corrects that bit and extracts the original 16 data bits. A codeword with two or more flipped bits is not reliably detected and may decode to wrong data. Call syndrome() and <a class="el" href="#a913e4f9bbfd5bbfe99493a28c8124527" title="canCorrect()">canCorrect()</a> first to learn whether the codeword was clean, corrected or uncorrectable.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>21-bit Hamming codeword, possibly with a single-bit error. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Corrected 16-bit original data. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d62/a06257.html#a2">Lib::Math::HammingCode</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ad9d4101cb404a5c8eaff5d9592047d0a" name="ad9d4101cb404a5c8eaff5d9592047d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9d4101cb404a5c8eaff5d9592047d0a">&#9670;&#160;</a></span>encode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t Lib::Math::HammingCode::encode </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encodes a 16-bit value into a Hamming(21,16) codeword. </p>
+<p>Moves the 16 data bits to the non-parity positions of the codeword, then sets each of the 5 parity bits so that the positions it covers hold an even number of ones.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>16-bit unsigned data to encode. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>21-bit Hamming codeword with error correction capability. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d62/a06257.html#a0">Lib::Math::HammingCode</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a840a90d96caceeafec7fb6ebaf51b8e1" name="a840a90d96caceeafec7fb6ebaf51b8e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840a90d96caceeafec7fb6ebaf51b8e1">&#9670;&#160;</a></span>syndrome()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t Lib::Math::HammingCode::syndrome </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the error syndrome of a codeword. </p>
+<p>The syndrome is 0 for a clean codeword. A value in [1, <a class="el" href="#a7815b3007ea3f4155c630ee1c6f10c37" title="CODE_BITS">CODE_BITS</a>] is the position of the flipped bit when exactly one bit is wrong. A value above <a class="el" href="#a7815b3007ea3f4155c630ee1c6f10c37" title="CODE_BITS">CODE_BITS</a> can only come from a corrupted codeword with two or more flipped bits and is uncorrectable; a double-bit error can also produce a value in the correctable range, which Hamming(21,16) cannot tell apart from a single-bit error.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>21-bit Hamming codeword. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error syndrome, in the range [0, 31]. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d62/a06257.html#a3">Lib::Math::HammingCode</a>.</dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="af3e9fcf2202a3c9d9d27544bfe6c69e7" name="af3e9fcf2202a3c9d9d27544bfe6c69e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3e9fcf2202a3c9d9d27544bfe6c69e7">&#9670;&#160;</a></span>MAX_POINTS</h2>
+<a id="a7815b3007ea3f4155c630ee1c6f10c37" name="a7815b3007ea3f4155c630ee1c6f10c37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7815b3007ea3f4155c630ee1c6f10c37">&#9670;&#160;</a></span>CODE_BITS</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../da/d30/a05811.html">Lib::Math::CubicInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::MAX_POINTS = 128U</td>
+          <td class="memname">size_t Lib::Math::HammingCode::CODE_BITS = 21U</td>
         </tr>
       </table>
   </td>
@@ -669,7 +304,55 @@ template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Maximum number of data points supported. </p>
+<p>Total number of bits in a codeword. </p>
+
+</div>
+</div>
+<a id="a647d37385b963452363628f518227d3b" name="a647d37385b963452363628f518227d3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a647d37385b963452363628f518227d3b">&#9670;&#160;</a></span>DATA_BITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::Math::HammingCode::DATA_BITS = 16U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of payload bits carried by a codeword. </p>
+
+</div>
+</div>
+<a id="aab153ec6e8d90ef5dc6aa49d2ef8d0ad" name="aab153ec6e8d90ef5dc6aa49d2ef8d0ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab153ec6e8d90ef5dc6aa49d2ef8d0ad">&#9670;&#160;</a></span>PARITY_BITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::Math::HammingCode::PARITY_BITS = 5U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of parity bits appended to the payload. </p>
 
 </div>
 </div>

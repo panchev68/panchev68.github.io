@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Queue</title>
+<title>IAR EWARM Library: Lib::Math::LinearInterpolation</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,85 +92,100 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Queue</div></div>
+  <div class="headertitle"><div class="title">Lib::Math::LinearInterpolation</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows passing typed messages between a producer task and a consumer with an <a class="el" href="../../da/d78/a06259.html" title="RTOS::Queue">RTOS::Queue</a>.</p>
-<p>Shows passing typed messages between a producer task and a consumer with an <a class="el" href="../../da/d78/a06259.html" title="RTOS::Queue">RTOS::Queue</a>. Covers a queue of eight 32-bit samples with a blocking send and receive that take a timeout, and a latest-value queue of length one that uses <a class="el" href="../../df/dc9/a05922.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe" title="RTOS::Queue::overwrite()">RTOS::Queue::overwrite()</a>. Each element is copied into the queue, so the sender may reuse its variable immediately. Use the FromISR variants for sends and receives inside an interrupt handler.</p>
-<dl class="section important"><dt>Important</dt><dd>Open the queues from task context before any ISR uses them.</dd></dl>
+<p>Converts a measured value to a physical quantity with <a class="el" href="../../da/d78/a06259.html" title="Lib::Math::LinearInterpolation">Lib::Math::LinearInterpolation</a>, a piecewise linear table stored in a fixed-size array without heap allocation.</p>
+<p>Converts a measured value to a physical quantity with <a class="el" href="../../da/d78/a06259.html" title="Lib::Math::LinearInterpolation">Lib::Math::LinearInterpolation</a>, a piecewise linear table stored in a fixed-size array without heap allocation. Values outside the table clamp to the first or last point. The table is not thread-safe because a lookup may sort it first, so use it from one context or guard it with a mutex.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="queue_usage_declare"></a>
-Declaring the queues</h3>
-<p>The second template argument is the length; it defaults to 1.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="linear_usage_table"></a>
+Table from an array</h3>
+<p>Build the table from a <em class="arg">std::array</em> of points in any order; the constructor sorts it. The aliases <a class="el" href="../../d4/dbc/a01038.html#a8e491be310ee384e098186699963cc0e" title="Lib::Math::LinearInterpolationF">Lib::Math::LinearInterpolationF</a> and <a class="el" href="../../d4/dbc/a01038.html#a9bf9bc3df3d95d1280a4ea6c6f33ce4e" title="Lib::Math::LinearInterpolationD">Lib::Math::LinearInterpolationD</a> use the same type for input and output.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/Math/Interpolation/LinearInterpolation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using </span>Curve = <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d4/dbc/a01038.html#a8e491be310ee384e098186699963cc0e">Lib::Math::LinearInterpolationF</a>;</div>
+<div class="line"> </div>
+<div class="line">Curve ntcCurve(<a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;Curve::Point, 4U&gt;</a>{{</div>
+<div class="line">    {-20.0F, 96.3F},</div>
+<div class="line">    {0.0F, 32.6F},</div>
+<div class="line">    {25.0F, 10.0F},</div>
+<div class="line">    {85.0F, 1.2F},</div>
+<div class="line">}});</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">float</span> resistanceAt(<span class="keywordtype">float</span> celsius) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> ntcCurve.interpolate(celsius);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00884_html"><div class="ttname"><a href="../../dd/d08/a00884.html">LinearInterpolation.hpp</a></div><div class="ttdoc">Linear interpolation over a fixed-capacity table of (x, y) points.</div></div>
+<div class="ttc" id="aa01038_html_a8e491be310ee384e098186699963cc0e"><div class="ttname"><a href="../../d4/dbc/a01038.html#a8e491be310ee384e098186699963cc0e">Lib::Math::LinearInterpolationF</a></div><div class="ttdeci">LinearInterpolation&lt; float &gt; LinearInterpolationF</div><div class="ttdoc">Linear interpolation using &#39;float&#39; for input and output.</div><div class="ttdef"><b>Definition</b> LinearInterpolation.hpp:257</div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="linear_usage_add"></a>
+Adding points at run time</h3>
+<p><a class="el" href="../../d8/d08/a05831.html#a899e4fc629040c693f4513f50baba169" title="Lib::Math::LinearInterpolation::addPoint()">Lib::Math::LinearInterpolation::addPoint()</a> appends a point and returns <em class="arg">false</em> when the table already holds <a class="el" href="../../d8/d08/a05831.html#a02d4089503144bce3916c6b2304dd831" title="Lib::Math::LinearInterpolation::MAX_POINTS">Lib::Math::LinearInterpolation::MAX_POINTS</a> points. Points may arrive in any order; the next lookup sorts them. At least two points are needed before the first lookup.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/Math/Interpolation/LinearInterpolation.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_typedef" href="../../d4/dbc/a01038.html#a8e491be310ee384e098186699963cc0e">Lib::Math::LinearInterpolationF</a> calibration;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> addCalibrationPoint(<span class="keywordtype">float</span> reference, <span class="keywordtype">float</span> measured) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> calibration.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d8/d08/a05831.html#a899e4fc629040c693f4513f50baba169">addPoint</a>(measured, reference);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> resetCalibration() noexcept {</div>
+<div class="line">    calibration.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d8/d08/a05831.html#a4e24492b9c447060beed4a198636f3b4">clear</a>();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">float</span> correct(<span class="keywordtype">float</span> measured) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (calibration.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d8/d08/a05831.html#a038da817b90fe59e655561803c0094c9">getPointCount</a>() &lt; 2U) {</div>
+<div class="line">        <span class="keywordflow">return</span> measured;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> calibration.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d8/d08/a05831.html#abe222c022160affacc4dd077c9a50cfc">interpolate</a>(measured);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05831_html_a038da817b90fe59e655561803c0094c9"><div class="ttname"><a href="../../d8/d08/a05831.html#a038da817b90fe59e655561803c0094c9">Lib::Math::LinearInterpolation::getPointCount</a></div><div class="ttdeci">constexpr size_t getPointCount() const noexcept</div><div class="ttdoc">Returns the number of points currently in the table.</div><div class="ttdef"><b>Definition</b> LinearInterpolation.hpp:130</div></div>
+<div class="ttc" id="aa05831_html_a4e24492b9c447060beed4a198636f3b4"><div class="ttname"><a href="../../d8/d08/a05831.html#a4e24492b9c447060beed4a198636f3b4">Lib::Math::LinearInterpolation::clear</a></div><div class="ttdeci">void clear() noexcept</div><div class="ttdoc">Removes every point, returning the table to its initial empty state.</div><div class="ttdef"><b>Definition</b> LinearInterpolation.hpp:120</div></div>
+<div class="ttc" id="aa05831_html_a899e4fc629040c693f4513f50baba169"><div class="ttname"><a href="../../d8/d08/a05831.html#a899e4fc629040c693f4513f50baba169">Lib::Math::LinearInterpolation::addPoint</a></div><div class="ttdeci">bool addPoint(const Point &amp;point) noexcept</div><div class="ttdoc">Appends a data point to the table.</div><div class="ttdef"><b>Definition</b> LinearInterpolation.hpp:97</div></div>
+<div class="ttc" id="aa05831_html_abe222c022160affacc4dd077c9a50cfc"><div class="ttname"><a href="../../d8/d08/a05831.html#abe222c022160affacc4dd077c9a50cfc">Lib::Math::LinearInterpolation::interpolate</a></div><div class="ttdeci">T_VALUE interpolate(T_INPUT x) noexcept</div><div class="ttdoc">Computes the interpolated value at the given input coordinate.</div><div class="ttdef"><b>Definition</b> LinearInterpolation.hpp:179</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="linear_usage_adc"></a>
+Raw ADC counts as input</h3>
+<p>The second template argument sets the type of the input coordinate. With an integral type, such as raw ADC counts, the interpolation still runs in floating point, so there is no integer rounding. <a class="el" href="../../da/d9d/a04751.html" title="Lib::BSP::Voltmeter">Lib::BSP::Voltmeter</a> uses this form to convert counts to volts.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/Math/Interpolation/LinearInterpolation.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint32_t, 8U&gt;</a> samples;</div>
-<div class="line">    <a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint32_t&gt;</a> latestSetpoint; <span class="comment">// Length 1 by default.</span></div>
+<div class="line"><span class="keyword">using </span>AdcCurve = <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d8/d08/a05831.html">Lib::Math::LinearInterpolation&lt;float, uint32_t&gt;</a>;</div>
+<div class="line"> </div>
+<div class="line">AdcCurve adcToVolt(<a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;AdcCurve::Point, 3U&gt;</a>{{</div>
+<div class="line">    {0U, 0.0F},</div>
+<div class="line">    {2048U, 1.65F},</div>
+<div class="line">    {4095U, 3.3F},</div>
+<div class="line">}});</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">float</span> voltage(uint32_t counts) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> adcToVolt.interpolate(counts);</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00905_html"><div class="ttname"><a href="../../da/d5b/a00905.html">Queue.hpp</a></div><div class="ttdoc">Type-safe RAII wrapper for FreeRTOS queues.</div></div>
-<div class="ttc" id="aa05922_html"><div class="ttname"><a href="../../df/dc9/a05922.html">RTOS::Queue</a></div><div class="ttdoc">Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type.</div><div class="ttdef"><b>Definition</b> Queue.hpp:55</div></div>
+<div class="ttc" id="aa05831_html"><div class="ttname"><a href="../../d8/d08/a05831.html">Lib::Math::LinearInterpolation</a></div><div class="ttdoc">Linear interpolation between a fixed-size table of (x, y) data points.</div><div class="ttdef"><b>Definition</b> LinearInterpolation.hpp:37</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="queue_usage_producer"></a>
-Producer task</h3>
-<p><a class="el" href="../../df/dc9/a05922.html#ab15322e6aead7ac29c01289b9be388d8" title="RTOS::Queue::send()">RTOS::Queue::send()</a> returns <b>false</b> and does not queue the item when the queue stays full for the whole timeout. <a class="el" href="../../df/dc9/a05922.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe" title="RTOS::Queue::overwrite()">RTOS::Queue::overwrite()</a> never blocks and replaces the single stored value.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="linear_usage_static"></a>
+Interpolating between two points</h3>
+<p><a class="el" href="../../d8/d08/a05831.html#a68d1868ede8383a716a47810eb196c51" title="Lib::Math::LinearInterpolation::interpolateBetween()">Lib::Math::LinearInterpolation::interpolateBetween()</a> and <a class="el" href="../../d8/d08/a05831.html#a1dd4f4c9507120d4c121cb88d1491a1d" title="Lib::Math::LinearInterpolation::interpolateSimple()">Lib::Math::LinearInterpolation::interpolateSimple()</a> are static and constexpr and need no table. They do not clamp, so a coordinate outside the two points extrapolates along the line.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/Math/Interpolation/LinearInterpolation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><span class="keyword">using </span>Curve = <a class="code hl_class" href="../../d8/d08/a05831.html">Lib::Math::LinearInterpolation&lt;float, uint32_t&gt;</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint32_t, 8U&gt;</a> samples;</div>
-<div class="line">    <a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint32_t&gt;</a> latestSetpoint;</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">constexpr</span> <span class="keywordtype">float</span> QUARTER = Curve::interpolateBetween(Curve::Point(0U, 0.0F), Curve::Point(4096U, 4.0F), 1024U);</div>
+<div class="line"><span class="keyword">constexpr</span> <span class="keywordtype">float</span> SIMPLE = Curve::interpolateSimple(0U, 0.0F, 4096U, 4.0F, 3072U);</div>
+<div class="line"><span class="keyword">constexpr</span> <span class="keywordtype">float</span> OUTSIDE = Curve::interpolateSimple(0U, 0.0F, 4096U, 4.0F, 8192U);</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> producerTask(<span class="keywordtype">void</span> * parameters) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!samples.open() || !latestSetpoint.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    uint32_t value = 0U;</div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(samples.send(value++, 10ms));</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(latestSetpoint.overwrite(value));</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="queue_usage_consumer"></a>
-Consumer task</h3>
-<p><a class="el" href="../../df/dc9/a05922.html#abe1cd4bde4ff79326492fd1d5c56ffc6" title="RTOS::Queue::receive()">RTOS::Queue::receive()</a> returns <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> when no item arrives within the timeout.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint32_t, 8U&gt;</a> samples;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> consumerTask(<span class="keywordtype">void</span> * parameters) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="keywordflow">if</span> (<span class="keyword">const</span> <a id="_a1" name="_a1"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint32_t&gt;</a> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01702.html#a483f29861e583496e66e73e420ae7ab8">sample</a> = samples.receive(100ms); <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01702.html#a483f29861e583496e66e73e420ae7ab8">sample</a>.has_value()) {</div>
-<div class="line">            <span class="comment">// Process *sample.</span></div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa01702_html_a483f29861e583496e66e73e420ae7ab8"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01702.html#a483f29861e583496e66e73e420ae7ab8">sample</a></div><div class="ttdeci">_SampleIterator sample(_PopulationIterator __first, _PopulationIterator __last, _SampleIterator __out, _Distance __n, _UniformRandomNumberGenerator &amp;&amp;__g)</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+<div class="line"><span class="keyword">static_assert</span>(QUARTER == 1.0F);</div>
+<div class="line"><span class="keyword">static_assert</span>(SIMPLE == 3.0F);</div>
+<div class="line"><span class="keyword">static_assert</span>(OUTSIDE == 8.0F);</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

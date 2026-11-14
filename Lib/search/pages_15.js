@@ -24,10 +24,11 @@ var searchData=
   ['with_20timeout_21',['Normal mutex with timeout',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_normal',1,'']]],
   ['word_22',['Program one word',['../X:/Lib/IAR/Project/Examples/Lib_HAL_FlashInterface.dox#flash_usage_word',1,'']]],
   ['word_20once_23',['Program a word once',['../X:/Lib/IAR/Project/Examples/Lib_HAL_OTP.dox#otp_usage_write',1,'']]],
-  ['worker_20task_20with_20event_20bits_24',['Worker task with event bits',['../X:/Lib/IAR/Project/Examples/RTOS_Task.dox#task_usage_worker',1,'']]],
-  ['write_25',['Read and write',['../X:/Lib/IAR/Project/Examples/Lib_BSP_FlashMemory_OSPI_W25Q128JVSIQ.dox#w25q128_usage_rw',1,'']]],
-  ['write_20and_20read_26',['Whole-file write and read',['../X:/Lib/IAR/Project/Examples/Lib_BSP_GSM_A7670E.dox#a7670e_usage_files',1,'']]],
-  ['write_20and_20read_20back_20a_20record_20from_20a_20task_27',['Write and read back a record from a task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_IS62WV51216.dox#is62_usage_frame',1,'']]],
-  ['writers_28',['Several writers',['../X:/Lib/IAR/Project/Examples/RTOS_StreamBuffer.dox#streambuffer_usage_multiwriter',1,'']]],
-  ['writing_20and_20resynchronizing_29',['Writing and resynchronizing',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_write',1,'']]]
+  ['words_24',['Clean, corrected and uncorrectable words',['../X:/Lib/IAR/Project/Examples/Lib_Math_HammingCode.dox#hamming_usage_syndrome',1,'']]],
+  ['worker_20task_20with_20event_20bits_25',['Worker task with event bits',['../X:/Lib/IAR/Project/Examples/RTOS_Task.dox#task_usage_worker',1,'']]],
+  ['write_26',['Read and write',['../X:/Lib/IAR/Project/Examples/Lib_BSP_FlashMemory_OSPI_W25Q128JVSIQ.dox#w25q128_usage_rw',1,'']]],
+  ['write_20and_20read_27',['Whole-file write and read',['../X:/Lib/IAR/Project/Examples/Lib_BSP_GSM_A7670E.dox#a7670e_usage_files',1,'']]],
+  ['write_20and_20read_20back_20a_20record_20from_20a_20task_28',['Write and read back a record from a task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_IS62WV51216.dox#is62_usage_frame',1,'']]],
+  ['writers_29',['Several writers',['../X:/Lib/IAR/Project/Examples/RTOS_StreamBuffer.dox#streambuffer_usage_multiwriter',1,'']]],
+  ['writing_20and_20resynchronizing_30',['Writing and resynchronizing',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_write',1,'']]]
 ];

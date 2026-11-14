@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::RegisterWrite</title>
+<title>IAR EWARM Library: Lib::BSP::RFID::NTAG21x::OriginalitySignature</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,109 +91,127 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/d48/a00988.html">BSP</a></li><li class="navelem"><a href="../../de/de2/a00999.html">RFID</a></li><li class="navelem"><a href="../../df/d53/a04623.html">ST25R100</a></li><li class="navelem"><a href="../../de/d65/a04631.html">RegisterWrite</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d7/df2/a01000.html">BSP</a></li><li class="navelem"><a href="../../d6/d36/a01011.html">RFID</a></li><li class="navelem"><a href="../../d4/d45/a01012.html">NTAG21x</a></li><li class="navelem"><a href="../../de/d65/a04631.html">OriginalitySignature</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d3/d6e/a04628.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::RegisterWrite</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::RFID::NTAG21x::OriginalitySignature<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>One register address paired with the value to write into it.  
+<p>Verifies that a card UID carries a genuine NXP originality signature.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt;<br />
-struct Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::RegisterWrite</div><p>One register address paired with the value to write into it. </p>
-<p>Lets a bring-up sequence be expressed as a constexpr table instead of a chain of individual calls. </p>
+<div class="textblock"><p>Verifies that a card UID carries a genuine NXP originality signature. </p>
+<p>Every genuine NTAG21x carries a 32-byte ECDSA (<em class="arg">secp128r1</em>) signature of NXP over its 7-byte UID, readable with <em class="arg">READ_SIG</em> (<b>0x3C</b>, see NXP AN11350). A card whose signature does not verify against the fixed NXP public key is not a genuine NXP chip, for example a UID-changeable clone. The signed message is the UID itself, not a hash of it.</p>
+<p>This does not stop a full emulation of a genuine card (UID, signature and an issuer record all copied); catching that is the issuer's responsibility, for example with a signed record or a blocklist.</p>
+<p>Needs micro-ecc configured for <em class="arg">secp128r1</em> and reachable as 'ThirdParty/micro-ecc/uECC_config.h' (<a href="https://github.com/kmackay/micro-ecc">https://github.com/kmackay/micro-ecc</a>); the header compiles to nothing where that is missing.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://nxp.com/docs/en/data-sheet/NTAG213_215_216.pdf" target="_blank">NTAG213/215/216 datasheet (NXP)</a></dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/RFID/NTAG21x/NTAG21x.md" target="_blank">Detail Description</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/RFID/NTAG21x/OriginalitySignature.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:aaffc1273857ce092dc8ef57f2f569797" id="r_aaffc1273857ce092dc8ef57f2f569797"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aaffc1273857ce092dc8ef57f2f569797">operator==</a> (const <a class="el" href="../../de/d65/a04631.html">RegisterWrite</a> &amp;other) const noexcept=default</td></tr>
-<tr class="memdesc:aaffc1273857ce092dc8ef57f2f569797"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two entries field by field.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:acf64c338747cbf1779eff24fba71054c" id="r_acf64c338747cbf1779eff24fba71054c"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#acf64c338747cbf1779eff24fba71054c">Bytes</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ab4b0050c0ce808f0dab961e3f78bec97">SIZE</a>&gt;</td></tr>
+<tr class="memdesc:acf64c338747cbf1779eff24fba71054c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw signature.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ad4d0d62f304ebdd08f759f363dd3932a" id="r_ad4d0d62f304ebdd08f759f363dd3932a"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ad4d0d62f304ebdd08f759f363dd3932a">address</a></td></tr>
-<tr class="memdesc:ad4d0d62f304ebdd08f759f363dd3932a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Raw register address.  <br /></td></tr>
-<tr class="memitem:ac1e3de78a37a7229dfb525e2b82a1b4b" id="r_ac1e3de78a37a7229dfb525e2b82a1b4b"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ac1e3de78a37a7229dfb525e2b82a1b4b">value</a></td></tr>
-<tr class="memdesc:ac1e3de78a37a7229dfb525e2b82a1b4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte to write.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:af56142d138ec3896ba8dcfc8373b93d0" id="r_af56142d138ec3896ba8dcfc8373b93d0"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#af56142d138ec3896ba8dcfc8373b93d0">verify</a> (const <a class="el" href="../../d4/d45/a01012.html#a435a19683e1fb32e426add14e68d0076">Uid</a> &amp;uid, const <a class="el" href="#acf64c338747cbf1779eff24fba71054c">Bytes</a> &amp;signature) noexcept</td></tr>
+<tr class="memdesc:af56142d138ec3896ba8dcfc8373b93d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the signature of a card UID.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ab4b0050c0ce808f0dab961e3f78bec97" id="r_ab4b0050c0ce808f0dab961e3f78bec97"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ab4b0050c0ce808f0dab961e3f78bec97">SIZE</a> = 32U</td></tr>
+<tr class="memdesc:ab4b0050c0ce808f0dab961e3f78bec97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signature length, r || s.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aaffc1273857ce092dc8ef57f2f569797" name="aaffc1273857ce092dc8ef57f2f569797"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaffc1273857ce092dc8ef57f2f569797">&#9670;&#160;</a></span>operator==()</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="acf64c338747cbf1779eff24fba71054c" name="acf64c338747cbf1779eff24fba71054c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf64c338747cbf1779eff24fba71054c">&#9670;&#160;</a></span>Bytes</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#acf64c338747cbf1779eff24fba71054c">Lib::BSP::RFID::NTAG21x::OriginalitySignature::Bytes</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ab4b0050c0ce808f0dab961e3f78bec97">SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raw signature. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="af56142d138ec3896ba8dcfc8373b93d0" name="af56142d138ec3896ba8dcfc8373b93d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af56142d138ec3896ba8dcfc8373b93d0">&#9670;&#160;</a></span>verify()</h2>
+
+<div class="memitem">
+<div class="memproto">
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../df/d53/a04623.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::RegisterWrite::operator== </td>
+          <td class="memname">bool Lib::BSP::RFID::NTAG21x::OriginalitySignature::verify </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../de/d65/a04631.html">RegisterWrite</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="../../d4/d45/a01012.html#a435a19683e1fb32e426add14e68d0076">Uid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="#acf64c338747cbf1779eff24fba71054c">Bytes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Compares two entries field by field. </p>
+<p>Verifies the signature of a card UID. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Entry to compare against. </td></tr>
+    <tr><td class="paramname">uid</td><td>UID of the card. </td></tr>
+    <tr><td class="paramname">signature</td><td>Signature read with <em class="arg">READ_SIG</em>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if both the address and the value match. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if NXP signed this UID. </dd></dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="ad4d0d62f304ebdd08f759f363dd3932a" name="ad4d0d62f304ebdd08f759f363dd3932a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4d0d62f304ebdd08f759f363dd3932a">&#9670;&#160;</a></span>address</h2>
+<a id="ab4b0050c0ce808f0dab961e3f78bec97" name="ab4b0050c0ce808f0dab961e3f78bec97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4b0050c0ce808f0dab961e3f78bec97">&#9670;&#160;</a></span>SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t <a class="el" href="../../df/d53/a04623.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::RegisterWrite::address</td>
+          <td class="memname">size_t Lib::BSP::RFID::NTAG21x::OriginalitySignature::SIZE = 32U</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Raw register address. </p>
-
-</div>
-</div>
-<a id="ac1e3de78a37a7229dfb525e2b82a1b4b" name="ac1e3de78a37a7229dfb525e2b82a1b4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1e3de78a37a7229dfb525e2b82a1b4b">&#9670;&#160;</a></span>value</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t <a class="el" href="../../df/d53/a04623.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::RegisterWrite::value</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Byte to write. </p>
+<p>Signature length, r || s. </p>
 
 </div>
 </div>

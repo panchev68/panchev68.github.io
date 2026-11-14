@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::SK6812</title>
+<title>IAR EWARM Library: Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::TxRxDiagnostics</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,427 +91,209 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/d48/a00988.html">BSP</a></li><li class="navelem"><a href="../../de/d12/a04659.html">SK6812</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d7/df2/a01000.html">BSP</a></li><li class="navelem"><a href="../../d6/d36/a01011.html">RFID</a></li><li class="navelem"><a href="../../d5/d6d/a04635.html">ST25R100</a></li><li class="navelem"><a href="../../de/d12/a04659.html">TxRxDiagnostics</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../df/d42/a04656.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::SK6812</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::TxRxDiagnostics</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>One SK6812 RGBW LED, encoded as PWM compare values for a timer driven by DMA.  
+<p>Snapshot of the transmit/receive pipeline state.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>One SK6812 RGBW LED, encoded as PWM compare values for a timer driven by DMA. </p>
-<p>Keeps the linear color and writes it, gamma corrected, into its 32-word slice of a shared compare buffer: one word per bit, green-red-blue-white, MSB first. The class only fills the buffer; starting the PWM DMA transfer is up to the caller.</p>
-<dl class="section important"><dt>Important</dt><dd>The timer ARR must be 219: the compare values assume 220 ticks per bit, 1.25 us at a 176 MHz timer.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The buffer holds no reset gap: keep the line low for at least 80 us between frames, for example by stopping the PWM after the transfer, or the LEDs never latch the new colors.</dd>
-<dd>
-Not tested on hardware.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a href="https://www.digikey.co.uk/htmldatasheets/production/1857559/0/0/1/sk6812rgbw-specification.html" target="_blank">SK6812RGBW specification (DigiKey, Adafruit copy)</a>, third-party; the official Worldsemi revision was not found, the newest copy seen is Rev. 07 (2019)</dd>
-<dd>
-<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/RGBWLed/SK6812.hpp" target="_blank">Source</a> </dd></dl>
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt;<br />
+struct Lib::BSP::RFID::ST25R100&lt; T_MODE &gt;::TxRxDiagnostics</div><p>Snapshot of the transmit/receive pipeline state. </p>
+<p>Meant to be captured right after a failed REQA/anticollision exchange so a debugger can see hard register evidence instead of guessing at the cause. </p>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Ring" id="r_Ring"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/da5/a04663.html">Ring</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed number of SK6812 LEDs sharing one contiguous compare buffer for a single DMA transfer.  <a href="../../db/da5/a04663.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a029fda2bec067f1632bb4c002c0cc4d7" id="r_a029fda2bec067f1632bb4c002c0cc4d7"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a029fda2bec067f1632bb4c002c0cc4d7">Slice</a> = std::span&lt;uint32_t, <a class="el" href="#a53755b9a8caa2bedd44497fc41230db1">DATA_SIZE</a>&gt;</td></tr>
-<tr class="memdesc:a029fda2bec067f1632bb4c002c0cc4d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare words owned by one LED.  <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a713fbeedeb85ff82f1097b206afd7918" id="r_a713fbeedeb85ff82f1097b206afd7918"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> (<a class="el" href="#a029fda2bec067f1632bb4c002c0cc4d7">Slice</a> slice) noexcept</td></tr>
-<tr class="memdesc:a713fbeedeb85ff82f1097b206afd7918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the LED to its compare words and encodes it as switched off.  <br /></td></tr>
-<tr class="memitem:a9324fa6fb841ad9e67fb3bd936636c40" id="r_a9324fa6fb841ad9e67fb3bd936636c40"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9324fa6fb841ad9e67fb3bd936636c40">SK6812</a> (const SK6812 &amp;)=delete</td></tr>
-<tr class="memdesc:a9324fa6fb841ad9e67fb3bd936636c40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: bound to one slice of a shared buffer.  <br /></td></tr>
-<tr class="memitem:a2f9a219363ee150f8efa09f1bd6ec064" id="r_a2f9a219363ee150f8efa09f1bd6ec064"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2f9a219363ee150f8efa09f1bd6ec064">SK6812</a> (SK6812 &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a2f9a219363ee150f8efa09f1bd6ec064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: bound to one slice of a shared buffer.  <br /></td></tr>
-<tr class="memitem:a9d8fc15934e49458ed3b8b81fcd0dbec" id="r_a9d8fc15934e49458ed3b8b81fcd0dbec"><td class="memItemLeft"><a class="el" href="#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a9d8fc15934e49458ed3b8b81fcd0dbec">operator=</a> (const <a class="el" href="#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a9d8fc15934e49458ed3b8b81fcd0dbec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: bound to one slice of a shared buffer.  <br /></td></tr>
-<tr class="memitem:aa21ec5517b393c1649c2045e822978e7" id="r_aa21ec5517b393c1649c2045e822978e7"><td class="memItemLeft"><a class="el" href="#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa21ec5517b393c1649c2045e822978e7">operator=</a> (<a class="el" href="#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:aa21ec5517b393c1649c2045e822978e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: bound to one slice of a shared buffer.  <br /></td></tr>
-<tr class="memitem:a31d240cb8095311a4ae5575a19d4dda0" id="r_a31d240cb8095311a4ae5575a19d4dda0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a31d240cb8095311a4ae5575a19d4dda0">setColor</a> (uint8_t red, uint8_t green, uint8_t blue, uint8_t white) noexcept</td></tr>
-<tr class="memdesc:a31d240cb8095311a4ae5575a19d4dda0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the color from separate channel values and re-encodes the LED.  <br /></td></tr>
-<tr class="memitem:a1dee091ab3a22cc834dc6fa77f72a733" id="r_a1dee091ab3a22cc834dc6fa77f72a733"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1dee091ab3a22cc834dc6fa77f72a733">setColor</a> (const <a class="el" href="../../da/d47/a04651.html">::Color</a> &amp;other) noexcept</td></tr>
-<tr class="memdesc:a1dee091ab3a22cc834dc6fa77f72a733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the color of another instance and re-encodes the LED.  <br /></td></tr>
-<tr class="memitem:a61d6e4bc62a095e3a5553f184a8f0651" id="r_a61d6e4bc62a095e3a5553f184a8f0651"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a61d6e4bc62a095e3a5553f184a8f0651">setColor</a> (uint32_t value) noexcept</td></tr>
-<tr class="memdesc:a61d6e4bc62a095e3a5553f184a8f0651"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the color from a packed value and re-encodes the LED.  <br /></td></tr>
-<tr class="memitem:a8ea54ab6bb547eb76e71dface16f8de7" id="r_a8ea54ab6bb547eb76e71dface16f8de7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8ea54ab6bb547eb76e71dface16f8de7">clear</a> () noexcept</td></tr>
-<tr class="memdesc:a8ea54ab6bb547eb76e71dface16f8de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets all channels to 0 and re-encodes the LED.  <br /></td></tr>
-<tr class="memitem:a1a0907fe121161268c1b859d90232628" id="r_a1a0907fe121161268c1b859d90232628"><td class="memItemLeft">const <a class="el" href="../../da/d47/a04651.html">::Color</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1a0907fe121161268c1b859d90232628">getColor</a> () const noexcept</td></tr>
-<tr class="memdesc:a1a0907fe121161268c1b859d90232628"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the stored color.  <br /></td></tr>
+<tr class="memitem:a6d55cf519f280eb9c0e3a26e175a07f1" id="r_a6d55cf519f280eb9c0e3a26e175a07f1"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a6d55cf519f280eb9c0e3a26e175a07f1">operator==</a> (const <a class="el" href="../../de/d12/a04659.html">TxRxDiagnostics</a> &amp;other) const noexcept=default</td></tr>
+<tr class="memdesc:a6d55cf519f280eb9c0e3a26e175a07f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two snapshots field by field.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a53755b9a8caa2bedd44497fc41230db1" id="r_a53755b9a8caa2bedd44497fc41230db1"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a53755b9a8caa2bedd44497fc41230db1">DATA_SIZE</a> = 32</td></tr>
-<tr class="memdesc:a53755b9a8caa2bedd44497fc41230db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare words per LED: 4 channels of 8 bits.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a5b9150d2c316bf04c90a8e926eaf8f81" id="r_a5b9150d2c316bf04c90a8e926eaf8f81"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a5b9150d2c316bf04c90a8e926eaf8f81">operation</a></td></tr>
+<tr class="memdesc:a5b9150d2c316bf04c90a8e926eaf8f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">OPERATION register (0x00) content.  <br /></td></tr>
+<tr class="memitem:afd9a8486968b9512fd0de55e3d549edf" id="r_afd9a8486968b9512fd0de55e3d549edf"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#afd9a8486968b9512fd0de55e3d549edf">status</a></td></tr>
+<tr class="memdesc:afd9a8486968b9512fd0de55e3d549edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">STATUS register (0x11) content.  <br /></td></tr>
+<tr class="memitem:a8d4064983272456f2bb02cc0e9f0c920" id="r_a8d4064983272456f2bb02cc0e9f0c920"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a8d4064983272456f2bb02cc0e9f0c920">fifoStatus1</a></td></tr>
+<tr class="memdesc:a8d4064983272456f2bb02cc0e9f0c920"><td class="mdescLeft">&#160;</td><td class="mdescRight">FIFO_STATUS_1 register (0x36) content.  <br /></td></tr>
+<tr class="memitem:aa768730607ddfadbd98e83d9e2dad318" id="r_aa768730607ddfadbd98e83d9e2dad318"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aa768730607ddfadbd98e83d9e2dad318">irqStatus1</a></td></tr>
+<tr class="memdesc:aa768730607ddfadbd98e83d9e2dad318"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ_STATUS_1 register (0x3C) content.  <br /></td></tr>
+<tr class="memitem:adac7641fc9718f5eadda0e0b4ab2ed71" id="r_adac7641fc9718f5eadda0e0b4ab2ed71"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#adac7641fc9718f5eadda0e0b4ab2ed71">irqStatus2</a></td></tr>
+<tr class="memdesc:adac7641fc9718f5eadda0e0b4ab2ed71"><td class="mdescLeft">&#160;</td><td class="mdescRight">IRQ_STATUS_2 register (0x3D) content.  <br /></td></tr>
+<tr class="memitem:a7057ac56ad3d604ce1fcb392d89f6e1c" id="r_a7057ac56ad3d604ce1fcb392d89f6e1c"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a7057ac56ad3d604ce1fcb392d89f6e1c">protocol</a></td></tr>
+<tr class="memdesc:a7057ac56ad3d604ce1fcb392d89f6e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">PROTOCOL register (0x12) content.  <br /></td></tr>
+<tr class="memitem:a3286298ea7c4dc967dd97d575455c368" id="r_a3286298ea7c4dc967dd97d575455c368"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a3286298ea7c4dc967dd97d575455c368">protocolRx1</a></td></tr>
+<tr class="memdesc:a3286298ea7c4dc967dd97d575455c368"><td class="mdescLeft">&#160;</td><td class="mdescRight">PROTOCOL_RX_1 register (0x16) content.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a029fda2bec067f1632bb4c002c0cc4d7" name="a029fda2bec067f1632bb4c002c0cc4d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a029fda2bec067f1632bb4c002c0cc4d7">&#9670;&#160;</a></span>Slice</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a029fda2bec067f1632bb4c002c0cc4d7">Lib::BSP::SK6812::Slice</a> = std::span&lt;uint32_t, <a class="el" href="#a53755b9a8caa2bedd44497fc41230db1">DATA_SIZE</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Compare words owned by one LED. </p>
-
-</div>
-</div>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a713fbeedeb85ff82f1097b206afd7918" name="a713fbeedeb85ff82f1097b206afd7918"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a713fbeedeb85ff82f1097b206afd7918">&#9670;&#160;</a></span>SK6812() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::BSP::SK6812::SK6812 </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a029fda2bec067f1632bb4c002c0cc4d7">Slice</a></td>          <td class="paramname"><span class="paramname"><em>slice</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Binds the LED to its compare words and encodes it as switched off. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">slice</td><td>Compare words of this LED; must outlive the instance. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a9324fa6fb841ad9e67fb3bd936636c40" name="a9324fa6fb841ad9e67fb3bd936636c40"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9324fa6fb841ad9e67fb3bd936636c40">&#9670;&#160;</a></span>SK6812() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::BSP::SK6812::SK6812 </td>
-          <td>(</td>
-          <td class="paramtype">const SK6812 &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: bound to one slice of a shared buffer. </p>
-
-</div>
-</div>
-<a id="a2f9a219363ee150f8efa09f1bd6ec064" name="a2f9a219363ee150f8efa09f1bd6ec064"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f9a219363ee150f8efa09f1bd6ec064">&#9670;&#160;</a></span>SK6812() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::BSP::SK6812::SK6812 </td>
-          <td>(</td>
-          <td class="paramtype">SK6812 &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: bound to one slice of a shared buffer. </p>
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a8ea54ab6bb547eb76e71dface16f8de7" name="a8ea54ab6bb547eb76e71dface16f8de7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ea54ab6bb547eb76e71dface16f8de7">&#9670;&#160;</a></span>clear()</h2>
+<a id="a6d55cf519f280eb9c0e3a26e175a07f1" name="a6d55cf519f280eb9c0e3a26e175a07f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d55cf519f280eb9c0e3a26e175a07f1">&#9670;&#160;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::BSP::SK6812::clear </td>
+          <td class="memname">bool <a class="el" href="../../d5/d6d/a04635.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::TxRxDiagnostics::operator== </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets all channels to 0 and re-encodes the LED. </p>
-
-</div>
-</div>
-<a id="a1a0907fe121161268c1b859d90232628" name="a1a0907fe121161268c1b859d90232628"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a0907fe121161268c1b859d90232628">&#9670;&#160;</a></span>getColor()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="../../da/d47/a04651.html">::Color</a> &amp; Lib::BSP::SK6812::getColor </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../de/d12/a04659.html">TxRxDiagnostics</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the stored color. </p>
-<dl class="section return"><dt>Returns</dt><dd>Linear color, before gamma correction. </dd></dl>
-
-</div>
-</div>
-<a id="a9d8fc15934e49458ed3b8b81fcd0dbec" name="a9d8fc15934e49458ed3b8b81fcd0dbec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d8fc15934e49458ed3b8b81fcd0dbec">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> &amp; Lib::BSP::SK6812::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: bound to one slice of a shared buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="aa21ec5517b393c1649c2045e822978e7" name="aa21ec5517b393c1649c2045e822978e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa21ec5517b393c1649c2045e822978e7">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> &amp; Lib::BSP::SK6812::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: bound to one slice of a shared buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a1dee091ab3a22cc834dc6fa77f72a733" name="a1dee091ab3a22cc834dc6fa77f72a733"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1dee091ab3a22cc834dc6fa77f72a733">&#9670;&#160;</a></span>setColor() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::BSP::SK6812::setColor </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../da/d47/a04651.html">::Color</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies the color of another instance and re-encodes the LED. </p>
+<p>Compares two snapshots field by field. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source color. </td></tr>
+    <tr><td class="paramname">other</td><td>Snapshot to compare against. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a61d6e4bc62a095e3a5553f184a8f0651" name="a61d6e4bc62a095e3a5553f184a8f0651"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61d6e4bc62a095e3a5553f184a8f0651">&#9670;&#160;</a></span>setColor() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::BSP::SK6812::setColor </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the color from a packed value and re-encodes the LED. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Packed color: red in bits 0..7, green 8..15, blue 16..23, white 24..31, as the named <a class="el" href="../../da/d47/a04651.html" title="Color">Color</a> constants. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a31d240cb8095311a4ae5575a19d4dda0" name="a31d240cb8095311a4ae5575a19d4dda0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31d240cb8095311a4ae5575a19d4dda0">&#9670;&#160;</a></span>setColor() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::BSP::SK6812::setColor </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>red</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>green</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>blue</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>white</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the color from separate channel values and re-encodes the LED. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">red</td><td>Linear red value. </td></tr>
-    <tr><td class="paramname">green</td><td>Linear green value. </td></tr>
-    <tr><td class="paramname">blue</td><td>Linear blue value. </td></tr>
-    <tr><td class="paramname">white</td><td>Linear white value. </td></tr>
-  </table>
-  </dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if every field matches. </dd></dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a53755b9a8caa2bedd44497fc41230db1" name="a53755b9a8caa2bedd44497fc41230db1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53755b9a8caa2bedd44497fc41230db1">&#9670;&#160;</a></span>DATA_SIZE</h2>
+<a id="a8d4064983272456f2bb02cc0e9f0c920" name="a8d4064983272456f2bb02cc0e9f0c920"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d4064983272456f2bb02cc0e9f0c920">&#9670;&#160;</a></span>fifoStatus1</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::BSP::SK6812::DATA_SIZE = 32</td>
+          <td class="memname">uint8_t <a class="el" href="../../d5/d6d/a04635.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::TxRxDiagnostics::fifoStatus1</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Compare words per LED: 4 channels of 8 bits. </p>
+<p>FIFO_STATUS_1 register (0x36) content. </p>
+
+</div>
+</div>
+<a id="aa768730607ddfadbd98e83d9e2dad318" name="aa768730607ddfadbd98e83d9e2dad318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa768730607ddfadbd98e83d9e2dad318">&#9670;&#160;</a></span>irqStatus1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../d5/d6d/a04635.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::TxRxDiagnostics::irqStatus1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ_STATUS_1 register (0x3C) content. </p>
+
+</div>
+</div>
+<a id="adac7641fc9718f5eadda0e0b4ab2ed71" name="adac7641fc9718f5eadda0e0b4ab2ed71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adac7641fc9718f5eadda0e0b4ab2ed71">&#9670;&#160;</a></span>irqStatus2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../d5/d6d/a04635.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::TxRxDiagnostics::irqStatus2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>IRQ_STATUS_2 register (0x3D) content. </p>
+
+</div>
+</div>
+<a id="a5b9150d2c316bf04c90a8e926eaf8f81" name="a5b9150d2c316bf04c90a8e926eaf8f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b9150d2c316bf04c90a8e926eaf8f81">&#9670;&#160;</a></span>operation</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../d5/d6d/a04635.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::TxRxDiagnostics::operation</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OPERATION register (0x00) content. </p>
+
+</div>
+</div>
+<a id="a7057ac56ad3d604ce1fcb392d89f6e1c" name="a7057ac56ad3d604ce1fcb392d89f6e1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7057ac56ad3d604ce1fcb392d89f6e1c">&#9670;&#160;</a></span>protocol</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../d5/d6d/a04635.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::TxRxDiagnostics::protocol</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>PROTOCOL register (0x12) content. </p>
+
+</div>
+</div>
+<a id="a3286298ea7c4dc967dd97d575455c368" name="a3286298ea7c4dc967dd97d575455c368"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3286298ea7c4dc967dd97d575455c368">&#9670;&#160;</a></span>protocolRx1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../d5/d6d/a04635.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::TxRxDiagnostics::protocolRx1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>PROTOCOL_RX_1 register (0x16) content. </p>
+
+</div>
+</div>
+<a id="afd9a8486968b9512fd0de55e3d549edf" name="afd9a8486968b9512fd0de55e3d549edf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd9a8486968b9512fd0de55e3d549edf">&#9670;&#160;</a></span>status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../d5/d6d/a04635.html">Lib::BSP::RFID::ST25R100</a>&lt; T_MODE &gt;::TxRxDiagnostics::status</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>STATUS register (0x11) content. </p>
 
 </div>
 </div>

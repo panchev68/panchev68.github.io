@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Crypto::WolfSSLRsa</title>
+<title>IAR EWARM Library: Lib::Crypto::WolfSSLChaCha20Poly1305</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,60 +91,111 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../dd/dac/a01008.html">Crypto</a></li><li class="navelem"><a href="../../d7/d46/a04895.html">WolfSSLRsa</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">Crypto</a></li><li class="navelem"><a href="../../d7/d46/a04895.html">WolfSSLChaCha20Poly1305</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../db/d9e/a04892.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSLRsa<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSLChaCha20Poly1305<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>RSA key generation, PKCS#1 v1.5 signatures and encryption on wolfCrypt (CubeMX: RSA Support).  
+<p>ChaCha20-Poly1305 authenticated encryption on wolfCrypt (CubeMX: ChaCha20 / Poly1305 Support).  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>RSA key generation, PKCS#1 v1.5 signatures and encryption on wolfCrypt (CubeMX: RSA Support). </p>
-<p><a class="el" href="#a43de0d37ba0f47417c537dba6ce37ad4" title="generateKey()">generateKey()</a> also attaches the generator to the key, since wolfCrypt's RSA blinding needs it for private key operations. Signatures and encrypted blocks are exactly <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes long.</p>
-<dl class="section important"><dt>Important</dt><dd><a class="el" href="#aaa7fa629597c530db9a29c108a50c076" title="sign()">sign()</a> pads the given bytes as they are, without the DigestInfo header: for interoperability with other PKCS#1 v1.5 verifiers, pass the DER DigestInfo of the hash, not the bare hash.</dd>
-<dd>
-The <a class="el" href="../../d1/d8e/a04879.html" title="WolfSSLRandom">WolfSSLRandom</a> passed to generateKey() must outlive the key, or be replaced by a later generateKey() call.</dd>
-<dd>
-Not thread-safe: give each task its own instance, or guard a shared one with an <a class="el" href="../../d6/d3a/a06254.html" title="RTOS::Mutex">RTOS::Mutex</a>.</dd></dl>
+<div class="textblock"><p>ChaCha20-Poly1305 authenticated encryption on wolfCrypt (CubeMX: ChaCha20 / Poly1305 Support). </p>
+<p>Stateless: every call takes the key, since wolfCrypt offers this cipher only as one-shot functions. Faster than AES-GCM in software on a core without an AES accelerator.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Never reuse a nonce with the same key: it reveals the plaintext and lets an attacker forge tags.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Crypto/WolfSSL.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a01aa89923019ee3bf5249396252577a0" id="r_a01aa89923019ee3bf5249396252577a0"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a01aa89923019ee3bf5249396252577a0">Key</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ac4008236e8ab12e80436fcd9c33d2a32">KEY_SIZE</a>&gt;</td></tr>
+<tr class="memdesc:a01aa89923019ee3bf5249396252577a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cipher key.  <br /></td></tr>
+<tr class="memitem:ae4ce9fb8d76a85f4786b936d4bdb3327" id="r_ae4ce9fb8d76a85f4786b936d4bdb3327"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Nonce</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ad486fdcf9d54ee4a93e364f413abe40e">NONCE_SIZE</a>&gt;</td></tr>
+<tr class="memdesc:ae4ce9fb8d76a85f4786b936d4bdb3327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonce; unique per message for one key.  <br /></td></tr>
+<tr class="memitem:a73ebbac632c0982dc3eeb3880cd7febc" id="r_a73ebbac632c0982dc3eeb3880cd7febc"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Tag</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a6dc704aabffb7770213f90aa42f59f82">TAG_SIZE</a>&gt;</td></tr>
+<tr class="memdesc:a73ebbac632c0982dc3eeb3880cd7febc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authentication tag produced by encrypt().  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1308729d8ff35f469e9f9b371d525d28" id="r_a1308729d8ff35f469e9f9b371d525d28"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> () noexcept</td></tr>
-<tr class="memdesc:a1308729d8ff35f469e9f9b371d525d28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the RSA context without a key.  <br /></td></tr>
-<tr class="memitem:ab6ae34e7912a123c6835ee6840762239" id="r_ab6ae34e7912a123c6835ee6840762239"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab6ae34e7912a123c6835ee6840762239">~WolfSSLRsa</a> () noexcept</td></tr>
-<tr class="memdesc:ab6ae34e7912a123c6835ee6840762239"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfCrypt RSA context.  <br /></td></tr>
-<tr class="memitem:acc7f398f326414a4d2f5bea6b308a0b0" id="r_acc7f398f326414a4d2f5bea6b308a0b0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acc7f398f326414a4d2f5bea6b308a0b0">WolfSSLRsa</a> (const WolfSSLRsa &amp;)=delete</td></tr>
-<tr class="memdesc:acc7f398f326414a4d2f5bea6b308a0b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:a0767271bfdf8f54002f922c2ee09944a" id="r_a0767271bfdf8f54002f922c2ee09944a"><td class="memItemLeft"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0767271bfdf8f54002f922c2ee09944a">operator=</a> (const <a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a0767271bfdf8f54002f922c2ee09944a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:a3814f988249760683546ddc093b8ba4e" id="r_a3814f988249760683546ddc093b8ba4e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3814f988249760683546ddc093b8ba4e">WolfSSLRsa</a> (WolfSSLRsa &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a3814f988249760683546ddc093b8ba4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:a09d6b1e65a5e85ce8c839c0001917c96" id="r_a09d6b1e65a5e85ce8c839c0001917c96"><td class="memItemLeft"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a09d6b1e65a5e85ce8c839c0001917c96">operator=</a> (<a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a09d6b1e65a5e85ce8c839c0001917c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:a8886d49ea9dc962dd7e5dfded3314703" id="r_a8886d49ea9dc962dd7e5dfded3314703"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703">encryptedSize</a> () const noexcept</td></tr>
-<tr class="memdesc:a8886d49ea9dc962dd7e5dfded3314703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the modulus size of the current key.  <br /></td></tr>
-<tr class="memitem:a43de0d37ba0f47417c537dba6ce37ad4" id="r_a43de0d37ba0f47417c537dba6ce37ad4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a43de0d37ba0f47417c537dba6ce37ad4">generateKey</a> (int sizeBits, long publicExponent, <a class="el" href="../../d1/d8e/a04879.html">WolfSSLRandom</a> &amp;rng) noexcept</td></tr>
-<tr class="memdesc:a43de0d37ba0f47417c537dba6ce37ad4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new key pair, replacing any key this instance held, and attaches the generator to it.  <br /></td></tr>
-<tr class="memitem:aaa7fa629597c530db9a29c108a50c076" id="r_aaa7fa629597c530db9a29c108a50c076"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaa7fa629597c530db9a29c108a50c076">sign</a> (std::span&lt; const uint8_t &gt; digest, <a class="el" href="../../d1/d8e/a04879.html">WolfSSLRandom</a> &amp;rng, std::span&lt; uint8_t &gt; signature) noexcept</td></tr>
-<tr class="memdesc:aaa7fa629597c530db9a29c108a50c076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signs data with the private key, with PKCS#1 v1.5 type 1 padding.  <br /></td></tr>
-<tr class="memitem:a8efa778b2f9627a75054ee625e3a5c2e" id="r_a8efa778b2f9627a75054ee625e3a5c2e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8efa778b2f9627a75054ee625e3a5c2e">verify</a> (std::span&lt; const uint8_t &gt; signature, std::span&lt; uint8_t &gt; digest, size_t &amp;digestLength) noexcept</td></tr>
-<tr class="memdesc:a8efa778b2f9627a75054ee625e3a5c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies a signature with the public key and recovers the signed bytes.  <br /></td></tr>
-<tr class="memitem:a5e86c36f992625c03945c115ab436f54" id="r_a5e86c36f992625c03945c115ab436f54"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5e86c36f992625c03945c115ab436f54">encrypt</a> (std::span&lt; const uint8_t &gt; plaintext, <a class="el" href="../../d1/d8e/a04879.html">WolfSSLRandom</a> &amp;rng, std::span&lt; uint8_t &gt; ciphertext) noexcept</td></tr>
-<tr class="memdesc:a5e86c36f992625c03945c115ab436f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypts data with the public key, with PKCS#1 v1.5 type 2 padding.  <br /></td></tr>
-<tr class="memitem:a690ac94f5fdb51b1a82a680b427e80f6" id="r_a690ac94f5fdb51b1a82a680b427e80f6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a690ac94f5fdb51b1a82a680b427e80f6">decrypt</a> (std::span&lt; const uint8_t &gt; ciphertext, std::span&lt; uint8_t &gt; plaintext, size_t &amp;plaintextLength) noexcept</td></tr>
-<tr class="memdesc:a690ac94f5fdb51b1a82a680b427e80f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decrypts data with the private key.  <br /></td></tr>
+<tr class="memitem:af47892a2a6a403161bf652674b3fbaf8" id="r_af47892a2a6a403161bf652674b3fbaf8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af47892a2a6a403161bf652674b3fbaf8">WolfSSLChaCha20Poly1305</a> ()=delete</td></tr>
+<tr class="memdesc:af47892a2a6a403161bf652674b3fbaf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted: the class is static-only and cannot be constructed.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a45d85fbe3b63ebd2773575cb508d70eb" id="r_a45d85fbe3b63ebd2773575cb508d70eb"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a45d85fbe3b63ebd2773575cb508d70eb">encrypt</a> (const <a class="el" href="#a01aa89923019ee3bf5249396252577a0">Key</a> &amp;key, const <a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Nonce</a> &amp;nonce, std::span&lt; const uint8_t &gt; associatedData, std::span&lt; const uint8_t &gt; plaintext, std::span&lt; uint8_t &gt; ciphertext, <a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Tag</a> &amp;tag) noexcept</td></tr>
+<tr class="memdesc:a45d85fbe3b63ebd2773575cb508d70eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypts a plaintext and produces its authentication tag.  <br /></td></tr>
+<tr class="memitem:a83a9b4590d8b55c09801436788209d9f" id="r_a83a9b4590d8b55c09801436788209d9f"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a83a9b4590d8b55c09801436788209d9f">decrypt</a> (const <a class="el" href="#a01aa89923019ee3bf5249396252577a0">Key</a> &amp;key, const <a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Nonce</a> &amp;nonce, std::span&lt; const uint8_t &gt; associatedData, std::span&lt; const uint8_t &gt; ciphertext, const <a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Tag</a> &amp;tag, std::span&lt; uint8_t &gt; plaintext) noexcept</td></tr>
+<tr class="memdesc:a83a9b4590d8b55c09801436788209d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the authentication tag and decrypts the ciphertext.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ac4008236e8ab12e80436fcd9c33d2a32" id="r_ac4008236e8ab12e80436fcd9c33d2a32"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac4008236e8ab12e80436fcd9c33d2a32">KEY_SIZE</a> = CHACHA20_POLY1305_AEAD_KEYSIZE</td></tr>
+<tr class="memdesc:ac4008236e8ab12e80436fcd9c33d2a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Key length, in bytes.  <br /></td></tr>
+<tr class="memitem:ad486fdcf9d54ee4a93e364f413abe40e" id="r_ad486fdcf9d54ee4a93e364f413abe40e"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ad486fdcf9d54ee4a93e364f413abe40e">NONCE_SIZE</a> = CHACHA20_POLY1305_AEAD_IV_SIZE</td></tr>
+<tr class="memdesc:ad486fdcf9d54ee4a93e364f413abe40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonce length, in bytes.  <br /></td></tr>
+<tr class="memitem:a6dc704aabffb7770213f90aa42f59f82" id="r_a6dc704aabffb7770213f90aa42f59f82"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a6dc704aabffb7770213f90aa42f59f82">TAG_SIZE</a> = CHACHA20_POLY1305_AEAD_AUTHTAG_SIZE</td></tr>
+<tr class="memdesc:a6dc704aabffb7770213f90aa42f59f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authentication tag length, in bytes.  <br /></td></tr>
 </table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a01aa89923019ee3bf5249396252577a0" name="a01aa89923019ee3bf5249396252577a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01aa89923019ee3bf5249396252577a0">&#9670;&#160;</a></span>Key</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a01aa89923019ee3bf5249396252577a0">Lib::Crypto::WolfSSLChaCha20Poly1305::Key</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ac4008236e8ab12e80436fcd9c33d2a32">KEY_SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cipher key. </p>
+
+</div>
+</div>
+<a id="ae4ce9fb8d76a85f4786b936d4bdb3327" name="ae4ce9fb8d76a85f4786b936d4bdb3327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ce9fb8d76a85f4786b936d4bdb3327">&#9670;&#160;</a></span>Nonce</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Lib::Crypto::WolfSSLChaCha20Poly1305::Nonce</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ad486fdcf9d54ee4a93e364f413abe40e">NONCE_SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nonce; unique per message for one key. </p>
+
+</div>
+</div>
+<a id="a73ebbac632c0982dc3eeb3880cd7febc" name="a73ebbac632c0982dc3eeb3880cd7febc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73ebbac632c0982dc3eeb3880cd7febc">&#9670;&#160;</a></span>Tag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Lib::Crypto::WolfSSLChaCha20Poly1305::Tag</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a6dc704aabffb7770213f90aa42f59f82">TAG_SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Authentication tag produced by encrypt(). </p>
+
+</div>
+</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a1308729d8ff35f469e9f9b371d525d28" name="a1308729d8ff35f469e9f9b371d525d28"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1308729d8ff35f469e9f9b371d525d28">&#9670;&#160;</a></span>WolfSSLRsa() <span class="overload">[1/3]</span></h2>
+<a id="af47892a2a6a403161bf652674b3fbaf8" name="af47892a2a6a403161bf652674b3fbaf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af47892a2a6a403161bf652674b3fbaf8">&#9670;&#160;</a></span>WolfSSLChaCha20Poly1305()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,64 +204,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLRsa::WolfSSLRsa </td>
+          <td class="memname">Lib::Crypto::WolfSSLChaCha20Poly1305::WolfSSLChaCha20Poly1305 </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Prepares the RSA context without a key. </p>
-<p>Call <a class="el" href="#a43de0d37ba0f47417c537dba6ce37ad4" title="generateKey()">generateKey()</a> before signing, verifying, encrypting or decrypting. </p>
-
-</div>
-</div>
-<a id="ab6ae34e7912a123c6835ee6840762239" name="ab6ae34e7912a123c6835ee6840762239"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6ae34e7912a123c6835ee6840762239">&#9670;&#160;</a></span>~WolfSSLRsa()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSLRsa::~WolfSSLRsa </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Releases the wolfCrypt RSA context. </p>
-
-</div>
-</div>
-<a id="acc7f398f326414a4d2f5bea6b308a0b0" name="acc7f398f326414a4d2f5bea6b308a0b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc7f398f326414a4d2f5bea6b308a0b0">&#9670;&#160;</a></span>WolfSSLRsa() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSLRsa::WolfSSLRsa </td>
-          <td>(</td>
-          <td class="paramtype">const WolfSSLRsa &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -221,40 +217,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: owns a wolfCrypt context holding the key. </p>
-
-</div>
-</div>
-<a id="a3814f988249760683546ddc093b8ba4e" name="a3814f988249760683546ddc093b8ba4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3814f988249760683546ddc093b8ba4e">&#9670;&#160;</a></span>WolfSSLRsa() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSLRsa::WolfSSLRsa </td>
-          <td>(</td>
-          <td class="paramtype">WolfSSLRsa &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: owns a wolfCrypt context holding the key. </p>
+<p>Deleted: the class is static-only and cannot be constructed. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a690ac94f5fdb51b1a82a680b427e80f6" name="a690ac94f5fdb51b1a82a680b427e80f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a690ac94f5fdb51b1a82a680b427e80f6">&#9670;&#160;</a></span>decrypt()</h2>
+<a id="a83a9b4590d8b55c09801436788209d9f" name="a83a9b4590d8b55c09801436788209d9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83a9b4590d8b55c09801436788209d9f">&#9670;&#160;</a></span>decrypt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,44 +232,61 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLRsa::decrypt </td>
+          <td class="memname">bool Lib::Crypto::WolfSSLChaCha20Poly1305::decrypt </td>
           <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a01aa89923019ee3bf5249396252577a0">Key</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Nonce</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>nonce</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>associatedData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>ciphertext</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>plaintext</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Tag</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tag</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>plaintextLength</em></span>&#160;)</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>plaintext</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Decrypts data with the private key. </p>
-<p>Uses the generator attached by <a class="el" href="#a43de0d37ba0f47417c537dba6ce37ad4" title="generateKey()">generateKey()</a> for blinding.</p>
+<p>Verifies the authentication tag and decrypts the ciphertext. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">ciphertext</td><td>Encrypted block, <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes long. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">plaintext</td><td>Destination; should hold <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">plaintextLength</td><td>Number of bytes recovered. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Cipher key. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">nonce</td><td>Nonce of the matching encrypt() call. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">associatedData</td><td>Associated data of the matching encrypt() call; may be empty. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ciphertext</td><td>Data to decrypt. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">tag</td><td>Authentication tag of the matching encrypt() call. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">plaintext</td><td>Destination; must hold at least 'ciphertext.size()' bytes. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the tag verified and decryption succeeded; on <em class="arg">false</em> discard <em class="arg">plaintext</em>. </dd></dl>
 
 </div>
 </div>
-<a id="a5e86c36f992625c03945c115ab436f54" name="a5e86c36f992625c03945c115ab436f54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e86c36f992625c03945c115ab436f54">&#9670;&#160;</a></span>encrypt()</h2>
+<a id="a45d85fbe3b63ebd2773575cb508d70eb" name="a45d85fbe3b63ebd2773575cb508d70eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45d85fbe3b63ebd2773575cb508d70eb">&#9670;&#160;</a></span>encrypt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -309,43 +295,62 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLRsa::encrypt </td>
+          <td class="memname">bool Lib::Crypto::WolfSSLChaCha20Poly1305::encrypt </td>
           <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a01aa89923019ee3bf5249396252577a0">Key</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Nonce</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>nonce</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>associatedData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>plaintext</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d1/d8e/a04879.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>ciphertext</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>ciphertext</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Tag</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tag</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Encrypts data with the public key, with PKCS#1 v1.5 type 2 padding. </p>
+<p>Encrypts a plaintext and produces its authentication tag. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">plaintext</td><td>Data to encrypt; at most <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> minus 11 bytes. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">rng</td><td>Seeded random generator. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ciphertext</td><td>Destination; must hold <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Cipher key. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">nonce</td><td>Nonce; must be unique for this key. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">associatedData</td><td>Data authenticated but not encrypted, such as a header; may be empty. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">plaintext</td><td>Data to encrypt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ciphertext</td><td>Destination; must hold at least 'plaintext.size()' bytes. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tag</td><td>Authentication tag of this message. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> if wolfCrypt reported a failure. </dd></dl>
 
 </div>
 </div>
-<a id="a8886d49ea9dc962dd7e5dfded3314703" name="a8886d49ea9dc962dd7e5dfded3314703"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8886d49ea9dc962dd7e5dfded3314703">&#9670;&#160;</a></span>encryptedSize()</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ac4008236e8ab12e80436fcd9c33d2a32" name="ac4008236e8ab12e80436fcd9c33d2a32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4008236e8ab12e80436fcd9c33d2a32">&#9670;&#160;</a></span>KEY_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,26 +359,22 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int Lib::Crypto::WolfSSLRsa::encryptedSize </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="memname">size_t Lib::Crypto::WolfSSLChaCha20Poly1305::KEY_SIZE = CHACHA20_POLY1305_AEAD_KEYSIZE</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the modulus size of the current key. </p>
-<dl class="section return"><dt>Returns</dt><dd>Modulus size in bytes, which is the length of every signature and encrypted block, or a negative wolfCrypt error code if no key is set. </dd></dl>
+<p>Key length, in bytes. </p>
 
 </div>
 </div>
-<a id="a43de0d37ba0f47417c537dba6ce37ad4" name="a43de0d37ba0f47417c537dba6ce37ad4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43de0d37ba0f47417c537dba6ce37ad4">&#9670;&#160;</a></span>generateKey()</h2>
+<a id="ad486fdcf9d54ee4a93e364f413abe40e" name="ad486fdcf9d54ee4a93e364f413abe40e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad486fdcf9d54ee4a93e364f413abe40e">&#9670;&#160;</a></span>NONCE_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -382,44 +383,22 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLRsa::generateKey </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>sizeBits</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>publicExponent</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d1/d8e/a04879.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>&#160;)</td>
+          <td class="memname">size_t Lib::Crypto::WolfSSLChaCha20Poly1305::NONCE_SIZE = CHACHA20_POLY1305_AEAD_IV_SIZE</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generates a new key pair, replacing any key this instance held, and attaches the generator to it. </p>
-<p>Exists only with <em class="arg">WOLFSSL_KEY_GEN</em> in the wolfSSL configuration. A 2048-bit key takes seconds on a Cortex-M4, so call it from a low-priority task.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sizeBits</td><td>Modulus size, in bits, such as 2048. </td></tr>
-    <tr><td class="paramname">publicExponent</td><td>Public exponent, normally 65537. </td></tr>
-    <tr><td class="paramname">rng</td><td>Seeded random generator; must outlive the key. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
+<p>Nonce length, in bytes. </p>
 
 </div>
 </div>
-<a id="a0767271bfdf8f54002f922c2ee09944a" name="a0767271bfdf8f54002f922c2ee09944a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0767271bfdf8f54002f922c2ee09944a">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a6dc704aabffb7770213f90aa42f59f82" name="a6dc704aabffb7770213f90aa42f59f82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc704aabffb7770213f90aa42f59f82">&#9670;&#160;</a></span>TAG_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -428,140 +407,17 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp; Lib::Crypto::WolfSSLRsa::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="memname">size_t Lib::Crypto::WolfSSLChaCha20Poly1305::TAG_SIZE = CHACHA20_POLY1305_AEAD_AUTHTAG_SIZE</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: owns a wolfCrypt context holding the key. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a09d6b1e65a5e85ce8c839c0001917c96" name="a09d6b1e65a5e85ce8c839c0001917c96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09d6b1e65a5e85ce8c839c0001917c96">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp; Lib::Crypto::WolfSSLRsa::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a1308729d8ff35f469e9f9b371d525d28">WolfSSLRsa</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: owns a wolfCrypt context holding the key. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="aaa7fa629597c530db9a29c108a50c076" name="aaa7fa629597c530db9a29c108a50c076"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa7fa629597c530db9a29c108a50c076">&#9670;&#160;</a></span>sign()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLRsa::sign </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d1/d8e/a04879.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Signs data with the private key, with PKCS#1 v1.5 type 1 padding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">digest</td><td>Bytes to sign, normally a DER DigestInfo of a hash; see the class description. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">rng</td><td>Seeded random generator. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">signature</td><td>Destination; must hold <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
-
-</div>
-</div>
-<a id="a8efa778b2f9627a75054ee625e3a5c2e" name="a8efa778b2f9627a75054ee625e3a5c2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8efa778b2f9627a75054ee625e3a5c2e">&#9670;&#160;</a></span>verify()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLRsa::verify </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>digestLength</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Verifies a signature with the public key and recovers the signed bytes. </p>
-<p>Compare the recovered bytes with the expected digest yourself: a successful return only means the padding was valid.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">signature</td><td>Signature to verify. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">digest</td><td>Destination for the recovered bytes; should hold <a class="el" href="#a8886d49ea9dc962dd7e5dfded3314703" title="encryptedSize()">encryptedSize()</a> bytes. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">digestLength</td><td>Number of bytes recovered. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the padding verified, <b>false</b> if the context failed to initialize or the signature is invalid. </dd></dl>
+<p>Authentication tag length, in bytes. </p>
 
 </div>
 </div>

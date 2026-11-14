@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Ethercat::SOES::FoE</title>
+<title>IAR EWARM Library: Lib::Ethercat::SOES::EoE</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../de/def/a01016.html">Ethercat</a></li><li class="navelem"><a href="../../d3/ded/a01017.html">SOES</a></li><li class="navelem"><a href="../../d4/d54/a05231.html">FoE</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">Ethercat</a></li><li class="navelem"><a href="../../d0/daa/a01029.html">SOES</a></li><li class="navelem"><a href="../../d4/d54/a05231.html">EoE</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -100,84 +100,107 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../d6/dd5/a05228.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::FoE<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::EoE<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>File access over EtherCAT (FoE): the file server of an EtherCAT slave.  
+<p>Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>File access over EtherCAT (FoE): the file server of an EtherCAT slave. </p>
-<p>Lets the master write a file to the slave (a firmware image, a configuration) and read a file from it, over the mailbox, in packets of the size the mailbox allows. The class runs the protocol (request, data packets with their numbers, acknowledgements, errors, busy) and leaves the files to the application: it asks a handler to open a file by name and password, to take the data of a write, to give the data of a read and to finish a write.</p>
-<p>Use it from the mailbox handler of a 'Slave': pass every message to <a class="el" href="#a89eda74e421aaa19c4a146f169dee6d6" title="handle()">handle()</a>. FoE is allowed in PRE-OP, SAFE-OP, OP and BOOTSTRAP; the AL state is passed to the open handler, which can refuse a file in a state (a firmware image is usually accepted only in BOOTSTRAP). </p>
+<div class="textblock"><p>Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave. </p>
+<p>Carries Ethernet frames between the master and a network stack on the slave over the mailbox. A frame is cut into fragments that fit a mailbox message; this class puts the fragments of a received frame together and hands the frame to the application, and cuts a frame the application queues into fragments and sends them. It also answers the requests that set and get the IP parameters of the slave. It does not contain a network stack: the application passes received frames to its stack and queues the frames the stack wants to send.</p>
+<p>Use it from the mailbox handler of a 'Slave': pass every message to <a class="el" href="#a41416e8882dd613876cb3a6bcbfc9b44" title="handle()">handle()</a> and call <a class="el" href="#a4d41465f94d62fdbab816ab8d8ebd674" title="service()">service()</a> in the idle hook, which sends the fragments. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a9d7546738e259f57d9e431d88a39ac23" id="r_a9d7546738e259f57d9e431d88a39ac23"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a9d7546738e259f57d9e431d88a39ac23">Error</a> = <a class="el" href="../../d3/ded/a01017.html#a058e47e5398a583fd14a446b7b2dbdb4">FoEError</a></td></tr>
-<tr class="memdesc:a9d7546738e259f57d9e431d88a39ac23"><td class="mdescLeft">&#160;</td><td class="mdescRight">FoE error codes.  <br /></td></tr>
-<tr class="memitem:a0cc369eea636a2b7334c4fcb151bacdb" id="r_a0cc369eea636a2b7334c4fcb151bacdb"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a0cc369eea636a2b7334c4fcb151bacdb">Handlers</a> = <a class="el" href="../../d3/d6e/a05227.html">FoEHandlers</a></td></tr>
-<tr class="memdesc:a0cc369eea636a2b7334c4fcb151bacdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files of the slave.  <br /></td></tr>
+<tr class="memitem:a6870bc1d903b1d83b238ba51088eb134" id="r_a6870bc1d903b1d83b238ba51088eb134"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a6870bc1d903b1d83b238ba51088eb134">Result</a> = <a class="el" href="../../d0/daa/a01029.html#a4955423819d7bf676954f73daa32972b">EoEResult</a></td></tr>
+<tr class="memdesc:a6870bc1d903b1d83b238ba51088eb134"><td class="mdescLeft">&#160;</td><td class="mdescRight">Results of an EoE request.  <br /></td></tr>
+<tr class="memitem:a4d66198ad9a9b1a75925e1a97dbc5fb9" id="r_a4d66198ad9a9b1a75925e1a97dbc5fb9"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a4d66198ad9a9b1a75925e1a97dbc5fb9">Parameters</a> = <a class="el" href="../../d7/d00/a05223.html">EoEParameters</a></td></tr>
+<tr class="memdesc:a4d66198ad9a9b1a75925e1a97dbc5fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Network parameters of a port.  <br /></td></tr>
+<tr class="memitem:a272ea34043ce0f3bb7014fc2c4df927e" id="r_a272ea34043ce0f3bb7014fc2c4df927e"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a272ea34043ce0f3bb7014fc2c4df927e">Handlers</a> = <a class="el" href="../../d3/d6e/a05227.html">EoEHandlers</a></td></tr>
+<tr class="memdesc:a272ea34043ce0f3bb7014fc2c4df927e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The network stack of the slave.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad7dd21bafde30794cef6a653baacc862" id="r_ad7dd21bafde30794cef6a653baacc862"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> () noexcept=default</td></tr>
-<tr class="memdesc:ad7dd21bafde30794cef6a653baacc862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the server.  <br /></td></tr>
-<tr class="memitem:a2b79ec9ea18a8e18adac7ce48a7e5463" id="r_a2b79ec9ea18a8e18adac7ce48a7e5463"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2b79ec9ea18a8e18adac7ce48a7e5463">~FoE</a> ()=default</td></tr>
-<tr class="memdesc:a2b79ec9ea18a8e18adac7ce48a7e5463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the server.  <br /></td></tr>
-<tr class="memitem:a62eae3fa84fd6deb7d3bdb96b4b8386d" id="r_a62eae3fa84fd6deb7d3bdb96b4b8386d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a62eae3fa84fd6deb7d3bdb96b4b8386d">FoE</a> (const FoE &amp;other)=delete</td></tr>
-<tr class="memdesc:a62eae3fa84fd6deb7d3bdb96b4b8386d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the server holds the state of one transfer.  <br /></td></tr>
-<tr class="memitem:a4c9554c1e4ac15ef4c1fa1fa81e0be9b" id="r_a4c9554c1e4ac15ef4c1fa1fa81e0be9b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4c9554c1e4ac15ef4c1fa1fa81e0be9b">FoE</a> (FoE &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a4c9554c1e4ac15ef4c1fa1fa81e0be9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the server holds the state of one transfer.  <br /></td></tr>
-<tr class="memitem:ad4ee1458ee523b0108e1a4ab32655e4e" id="r_ad4ee1458ee523b0108e1a4ab32655e4e"><td class="memItemLeft"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad4ee1458ee523b0108e1a4ab32655e4e">operator=</a> (const <a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:ad4ee1458ee523b0108e1a4ab32655e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the server holds the state of one transfer.  <br /></td></tr>
-<tr class="memitem:a2e66c6e267a7bf4dfa07d74ee5fb7b46" id="r_a2e66c6e267a7bf4dfa07d74ee5fb7b46"><td class="memItemLeft"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2e66c6e267a7bf4dfa07d74ee5fb7b46">operator=</a> (<a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a2e66c6e267a7bf4dfa07d74ee5fb7b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the server holds the state of one transfer.  <br /></td></tr>
-<tr class="memitem:a39b767747ef43947171f73021ee9dd76" id="r_a39b767747ef43947171f73021ee9dd76"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a39b767747ef43947171f73021ee9dd76">setHandlers</a> (const <a class="el" href="#a0cc369eea636a2b7334c4fcb151bacdb">Handlers</a> &amp;newHandlers) noexcept</td></tr>
-<tr class="memdesc:a39b767747ef43947171f73021ee9dd76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the files of the slave.  <br /></td></tr>
-<tr class="memitem:a33f80a76d8f7d890ff15f88f6567e7a8" id="r_a33f80a76d8f7d890ff15f88f6567e7a8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a33f80a76d8f7d890ff15f88f6567e7a8">reset</a> () noexcept</td></tr>
-<tr class="memdesc:a33f80a76d8f7d890ff15f88f6567e7a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops the transfer in progress.  <br /></td></tr>
-<tr class="memitem:a4463e44a62dae7598614225dc069e03c" id="r_a4463e44a62dae7598614225dc069e03c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4463e44a62dae7598614225dc069e03c">isBusy</a> () const noexcept</td></tr>
-<tr class="memdesc:a4463e44a62dae7598614225dc069e03c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a transfer is in progress.  <br /></td></tr>
-<tr class="memitem:a89eda74e421aaa19c4a146f169dee6d6" id="r_a89eda74e421aaa19c4a146f169dee6d6"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
-<tr class="memitem:a89eda74e421aaa19c4a146f169dee6d6 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a89eda74e421aaa19c4a146f169dee6d6">handle</a> (T_MAILBOX &amp;mailbox, const <a class="el" href="../../d8/dd0/a05235.html">MailboxHeader</a> &amp;header, std::span&lt; const uint8_t &gt; payload, uint8_t state) noexcept</td></tr>
-<tr class="memdesc:a89eda74e421aaa19c4a146f169dee6d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a mailbox message.  <br /></td></tr>
+<tr class="memitem:a57ce3b2cab796d2623bc80be2bc75e80" id="r_a57ce3b2cab796d2623bc80be2bc75e80"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> (std::span&lt; uint8_t &gt; frameBuffer) noexcept</td></tr>
+<tr class="memdesc:a57ce3b2cab796d2623bc80be2bc75e80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the tunnel.  <br /></td></tr>
+<tr class="memitem:a5babb7f332ba38f3e2e33203e39e615d" id="r_a5babb7f332ba38f3e2e33203e39e615d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5babb7f332ba38f3e2e33203e39e615d">~EoE</a> ()=default</td></tr>
+<tr class="memdesc:a5babb7f332ba38f3e2e33203e39e615d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the tunnel.  <br /></td></tr>
+<tr class="memitem:a07829bbfc5250b03c81968ebd709bf4e" id="r_a07829bbfc5250b03c81968ebd709bf4e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a07829bbfc5250b03c81968ebd709bf4e">EoE</a> (const EoE &amp;other)=delete</td></tr>
+<tr class="memdesc:a07829bbfc5250b03c81968ebd709bf4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the tunnel holds the state of the frames in transit.  <br /></td></tr>
+<tr class="memitem:ac52aa3b6cbf2a17e467cfba61ddbf48e" id="r_ac52aa3b6cbf2a17e467cfba61ddbf48e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac52aa3b6cbf2a17e467cfba61ddbf48e">EoE</a> (EoE &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:ac52aa3b6cbf2a17e467cfba61ddbf48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the tunnel holds the state of the frames in transit.  <br /></td></tr>
+<tr class="memitem:a82f98b2311b36aea43517d9a31df5d08" id="r_a82f98b2311b36aea43517d9a31df5d08"><td class="memItemLeft"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a82f98b2311b36aea43517d9a31df5d08">operator=</a> (const <a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a82f98b2311b36aea43517d9a31df5d08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the tunnel holds the state of the frames in transit.  <br /></td></tr>
+<tr class="memitem:ae9237ef17cddb3bf83d5e2b41580c4af" id="r_ae9237ef17cddb3bf83d5e2b41580c4af"><td class="memItemLeft"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae9237ef17cddb3bf83d5e2b41580c4af">operator=</a> (<a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:ae9237ef17cddb3bf83d5e2b41580c4af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the tunnel holds the state of the frames in transit.  <br /></td></tr>
+<tr class="memitem:a6b26ad71662f36a666db683b5755a119" id="r_a6b26ad71662f36a666db683b5755a119"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6b26ad71662f36a666db683b5755a119">setHandlers</a> (const <a class="el" href="#a272ea34043ce0f3bb7014fc2c4df927e">Handlers</a> &amp;newHandlers) noexcept</td></tr>
+<tr class="memdesc:a6b26ad71662f36a666db683b5755a119"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the network stack hooks.  <br /></td></tr>
+<tr class="memitem:a85ee64bff9f15d5ace7999ebdb5643ef" id="r_a85ee64bff9f15d5ace7999ebdb5643ef"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a85ee64bff9f15d5ace7999ebdb5643ef">reset</a> () noexcept</td></tr>
+<tr class="memdesc:a85ee64bff9f15d5ace7999ebdb5643ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops the frame being put together and the one being sent.  <br /></td></tr>
+<tr class="memitem:a2afc345b5bcd9326d015eb678e620201" id="r_a2afc345b5bcd9326d015eb678e620201"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2afc345b5bcd9326d015eb678e620201">queueFrame</a> (std::span&lt; const uint8_t &gt; frame, uint8_t port=0U) noexcept</td></tr>
+<tr class="memdesc:a2afc345b5bcd9326d015eb678e620201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queues an Ethernet frame for the master.  <br /></td></tr>
+<tr class="memitem:a91f842049f97f5f7055e5a7f6de7c6ac" id="r_a91f842049f97f5f7055e5a7f6de7c6ac"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a91f842049f97f5f7055e5a7f6de7c6ac">isSendPending</a> () const noexcept</td></tr>
+<tr class="memdesc:a91f842049f97f5f7055e5a7f6de7c6ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a queued frame is still being sent.  <br /></td></tr>
+<tr class="memitem:a4d41465f94d62fdbab816ab8d8ebd674" id="r_a4d41465f94d62fdbab816ab8d8ebd674"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
+<tr class="memitem:a4d41465f94d62fdbab816ab8d8ebd674 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4d41465f94d62fdbab816ab8d8ebd674">service</a> (T_MAILBOX &amp;mailbox) noexcept</td></tr>
+<tr class="memdesc:a4d41465f94d62fdbab816ab8d8ebd674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the next fragment of the queued frame.  <br /></td></tr>
+<tr class="memitem:a41416e8882dd613876cb3a6bcbfc9b44" id="r_a41416e8882dd613876cb3a6bcbfc9b44"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
+<tr class="memitem:a41416e8882dd613876cb3a6bcbfc9b44 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a41416e8882dd613876cb3a6bcbfc9b44">handle</a> (T_MAILBOX &amp;mailbox, const <a class="el" href="../../da/dc9/a05243.html">MailboxHeader</a> &amp;header, std::span&lt; const uint8_t &gt; payload) noexcept</td></tr>
+<tr class="memdesc:a41416e8882dd613876cb3a6bcbfc9b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a mailbox message.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a9d7546738e259f57d9e431d88a39ac23" name="a9d7546738e259f57d9e431d88a39ac23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d7546738e259f57d9e431d88a39ac23">&#9670;&#160;</a></span>Error</h2>
+<a id="a272ea34043ce0f3bb7014fc2c4df927e" name="a272ea34043ce0f3bb7014fc2c4df927e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a272ea34043ce0f3bb7014fc2c4df927e">&#9670;&#160;</a></span>Handlers</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../d3/ded/a01017.html#a058e47e5398a583fd14a446b7b2dbdb4">Lib::Ethercat::SOES::FoE::Error</a> = <a class="el" href="../../d3/ded/a01017.html#a058e47e5398a583fd14a446b7b2dbdb4">FoEError</a></td>
+          <td class="memname">using <a class="el" href="#a272ea34043ce0f3bb7014fc2c4df927e">Lib::Ethercat::SOES::EoE::Handlers</a> = <a class="el" href="../../d3/d6e/a05227.html">EoEHandlers</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>FoE error codes. </p>
+<p>The network stack of the slave. </p>
 
 </div>
 </div>
-<a id="a0cc369eea636a2b7334c4fcb151bacdb" name="a0cc369eea636a2b7334c4fcb151bacdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cc369eea636a2b7334c4fcb151bacdb">&#9670;&#160;</a></span>Handlers</h2>
+<a id="a4d66198ad9a9b1a75925e1a97dbc5fb9" name="a4d66198ad9a9b1a75925e1a97dbc5fb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d66198ad9a9b1a75925e1a97dbc5fb9">&#9670;&#160;</a></span>Parameters</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a0cc369eea636a2b7334c4fcb151bacdb">Lib::Ethercat::SOES::FoE::Handlers</a> = <a class="el" href="../../d3/d6e/a05227.html">FoEHandlers</a></td>
+          <td class="memname">using <a class="el" href="#a4d66198ad9a9b1a75925e1a97dbc5fb9">Lib::Ethercat::SOES::EoE::Parameters</a> = <a class="el" href="../../d7/d00/a05223.html">EoEParameters</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The files of the slave. </p>
+<p>Network parameters of a port. </p>
+
+</div>
+</div>
+<a id="a6870bc1d903b1d83b238ba51088eb134" name="a6870bc1d903b1d83b238ba51088eb134"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6870bc1d903b1d83b238ba51088eb134">&#9670;&#160;</a></span>Result</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d0/daa/a01029.html#a4955423819d7bf676954f73daa32972b">Lib::Ethercat::SOES::EoE::Result</a> = <a class="el" href="../../d0/daa/a01029.html#a4955423819d7bf676954f73daa32972b">EoEResult</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Results of an EoE request. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad7dd21bafde30794cef6a653baacc862" name="ad7dd21bafde30794cef6a653baacc862"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7dd21bafde30794cef6a653baacc862">&#9670;&#160;</a></span>FoE() <span class="overload">[1/3]</span></h2>
+<a id="a57ce3b2cab796d2623bc80be2bc75e80" name="a57ce3b2cab796d2623bc80be2bc75e80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57ce3b2cab796d2623bc80be2bc75e80">&#9670;&#160;</a></span>EoE() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,25 +209,31 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethercat::SOES::FoE::FoE </td>
+          <td class="memname">Lib::Ethercat::SOES::EoE::EoE </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>frameBuffer</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the server. </p>
+<p>Creates the tunnel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frameBuffer</td><td>Buffer a received frame is put together in; it must hold the largest frame the master sends (1522 bytes with a VLAN tag) and outlive the tunnel. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a2b79ec9ea18a8e18adac7ce48a7e5463" name="a2b79ec9ea18a8e18adac7ce48a7e5463"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b79ec9ea18a8e18adac7ce48a7e5463">&#9670;&#160;</a></span>~FoE()</h2>
+<a id="a5babb7f332ba38f3e2e33203e39e615d" name="a5babb7f332ba38f3e2e33203e39e615d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5babb7f332ba38f3e2e33203e39e615d">&#9670;&#160;</a></span>~EoE()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,7 +242,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethercat::SOES::FoE::~FoE </td>
+          <td class="memname">Lib::Ethercat::SOES::EoE::~EoE </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -226,12 +255,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the server. </p>
+<p>Destroys the tunnel. </p>
 
 </div>
 </div>
-<a id="a62eae3fa84fd6deb7d3bdb96b4b8386d" name="a62eae3fa84fd6deb7d3bdb96b4b8386d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62eae3fa84fd6deb7d3bdb96b4b8386d">&#9670;&#160;</a></span>FoE() <span class="overload">[2/3]</span></h2>
+<a id="a07829bbfc5250b03c81968ebd709bf4e" name="a07829bbfc5250b03c81968ebd709bf4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07829bbfc5250b03c81968ebd709bf4e">&#9670;&#160;</a></span>EoE() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -240,9 +269,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethercat::SOES::FoE::FoE </td>
+          <td class="memname">Lib::Ethercat::SOES::EoE::EoE </td>
           <td>(</td>
-          <td class="paramtype">const FoE &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const EoE &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -253,7 +282,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: the server holds the state of one transfer. </p>
+<p>Copying is deleted: the tunnel holds the state of the frames in transit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -263,8 +292,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4c9554c1e4ac15ef4c1fa1fa81e0be9b" name="a4c9554c1e4ac15ef4c1fa1fa81e0be9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c9554c1e4ac15ef4c1fa1fa81e0be9b">&#9670;&#160;</a></span>FoE() <span class="overload">[3/3]</span></h2>
+<a id="ac52aa3b6cbf2a17e467cfba61ddbf48e" name="ac52aa3b6cbf2a17e467cfba61ddbf48e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac52aa3b6cbf2a17e467cfba61ddbf48e">&#9670;&#160;</a></span>EoE() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,9 +302,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethercat::SOES::FoE::FoE </td>
+          <td class="memname">Lib::Ethercat::SOES::EoE::EoE </td>
           <td>(</td>
-          <td class="paramtype">FoE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">EoE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -286,7 +315,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is deleted: the server holds the state of one transfer. </p>
+<p>Moving is deleted: the tunnel holds the state of the frames in transit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -297,8 +326,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a89eda74e421aaa19c4a146f169dee6d6" name="a89eda74e421aaa19c4a146f169dee6d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89eda74e421aaa19c4a146f169dee6d6">&#9670;&#160;</a></span>handle()</h2>
+<a id="a41416e8882dd613876cb3a6bcbfc9b44" name="a41416e8882dd613876cb3a6bcbfc9b44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41416e8882dd613876cb3a6bcbfc9b44">&#9670;&#160;</a></span>handle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -309,24 +338,19 @@ template&lt;typename T_MAILBOX&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Ethercat::SOES::FoE::handle </td>
+          <td class="memname">bool Lib::Ethercat::SOES::EoE::handle </td>
           <td>(</td>
           <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d8/dd0/a05235.html">MailboxHeader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>header</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="../../da/dc9/a05243.html">MailboxHeader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>header</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -337,7 +361,7 @@ template&lt;typename T_MAILBOX&gt; </div>
 </div><div class="memdoc">
 
 <p>Handles a mailbox message. </p>
-<p>Does nothing for a protocol other than FoE. For FoE it answers through 'mailbox': an acknowledgement, a data packet or an error.</p>
+<p>Does nothing for a protocol other than EoE. For EoE it collects a fragment of a frame, or answers a request.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T_MAILBOX</td><td>A 'Mailbox' type. </td></tr>
@@ -349,16 +373,15 @@ template&lt;typename T_MAILBOX&gt; </div>
     <tr><td class="paramname">mailbox</td><td>The mailbox the message came from; the answer is sent through it. </td></tr>
     <tr><td class="paramname">header</td><td>Header of the message. </td></tr>
     <tr><td class="paramname">payload</td><td>Payload of the message. </td></tr>
-    <tr><td class="paramname">state</td><td>AL state of the slave, as the state registers encode it. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the message was an FoE message. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the message was an EoE message. </dd></dl>
 
 </div>
 </div>
-<a id="a4463e44a62dae7598614225dc069e03c" name="a4463e44a62dae7598614225dc069e03c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4463e44a62dae7598614225dc069e03c">&#9670;&#160;</a></span>isBusy()</h2>
+<a id="a91f842049f97f5f7055e5a7f6de7c6ac" name="a91f842049f97f5f7055e5a7f6de7c6ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f842049f97f5f7055e5a7f6de7c6ac">&#9670;&#160;</a></span>isSendPending()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -367,7 +390,7 @@ template&lt;typename T_MAILBOX&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Ethercat::SOES::FoE::isBusy </td>
+          <td class="memname">bool Lib::Ethercat::SOES::EoE::isSendPending </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -380,13 +403,13 @@ template&lt;typename T_MAILBOX&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Checks whether a transfer is in progress. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> between the request and the last acknowledgement. </dd></dl>
+<p>Checks whether a queued frame is still being sent. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> until its last fragment was written. </dd></dl>
 
 </div>
 </div>
-<a id="ad4ee1458ee523b0108e1a4ab32655e4e" name="ad4ee1458ee523b0108e1a4ab32655e4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4ee1458ee523b0108e1a4ab32655e4e">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a82f98b2311b36aea43517d9a31df5d08" name="a82f98b2311b36aea43517d9a31df5d08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82f98b2311b36aea43517d9a31df5d08">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -395,9 +418,9 @@ template&lt;typename T_MAILBOX&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp; Lib::Ethercat::SOES::FoE::operator= </td>
+          <td class="memname"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp; Lib::Ethercat::SOES::EoE::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -408,7 +431,7 @@ template&lt;typename T_MAILBOX&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: the server holds the state of one transfer. </p>
+<p>Copy assignment is deleted: the tunnel holds the state of the frames in transit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -419,8 +442,8 @@ template&lt;typename T_MAILBOX&gt; </div>
 
 </div>
 </div>
-<a id="a2e66c6e267a7bf4dfa07d74ee5fb7b46" name="a2e66c6e267a7bf4dfa07d74ee5fb7b46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e66c6e267a7bf4dfa07d74ee5fb7b46">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="ae9237ef17cddb3bf83d5e2b41580c4af" name="ae9237ef17cddb3bf83d5e2b41580c4af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9237ef17cddb3bf83d5e2b41580c4af">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -429,9 +452,9 @@ template&lt;typename T_MAILBOX&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp; Lib::Ethercat::SOES::FoE::operator= </td>
+          <td class="memname"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp; Lib::Ethercat::SOES::EoE::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a57ce3b2cab796d2623bc80be2bc75e80">EoE</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -442,7 +465,7 @@ template&lt;typename T_MAILBOX&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: the server holds the state of one transfer. </p>
+<p>Move assignment is deleted: the tunnel holds the state of the frames in transit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -453,8 +476,8 @@ template&lt;typename T_MAILBOX&gt; </div>
 
 </div>
 </div>
-<a id="a33f80a76d8f7d890ff15f88f6567e7a8" name="a33f80a76d8f7d890ff15f88f6567e7a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33f80a76d8f7d890ff15f88f6567e7a8">&#9670;&#160;</a></span>reset()</h2>
+<a id="a2afc345b5bcd9326d015eb678e620201" name="a2afc345b5bcd9326d015eb678e620201"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2afc345b5bcd9326d015eb678e620201">&#9670;&#160;</a></span>queueFrame()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -463,7 +486,47 @@ template&lt;typename T_MAILBOX&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Ethercat::SOES::FoE::reset </td>
+          <td class="memname">bool Lib::Ethercat::SOES::EoE::queueFrame </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Queues an Ethernet frame for the master. </p>
+<p>The fragments go out from <a class="el" href="#a4d41465f94d62fdbab816ab8d8ebd674" title="service()">service()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">frame</td><td>The frame; it must stay valid until <a class="el" href="#a91f842049f97f5f7055e5a7f6de7c6ac" title="isSendPending()">isSendPending()</a> is false. </td></tr>
+    <tr><td class="paramname">port</td><td>EoE port, 0 to 15. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the frame was queued; <em class="arg">false</em> if another one is still being sent or the frame is empty or too long to describe (above 2016 bytes). </dd></dl>
+
+</div>
+</div>
+<a id="a85ee64bff9f15d5ace7999ebdb5643ef" name="a85ee64bff9f15d5ace7999ebdb5643ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85ee64bff9f15d5ace7999ebdb5643ef">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethercat::SOES::EoE::reset </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -476,24 +539,26 @@ template&lt;typename T_MAILBOX&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Drops the transfer in progress. </p>
+<p>Drops the frame being put together and the one being sent. </p>
 <p>Call it when the mailbox stops. </p>
 
 </div>
 </div>
-<a id="a39b767747ef43947171f73021ee9dd76" name="a39b767747ef43947171f73021ee9dd76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39b767747ef43947171f73021ee9dd76">&#9670;&#160;</a></span>setHandlers()</h2>
+<a id="a4d41465f94d62fdbab816ab8d8ebd674" name="a4d41465f94d62fdbab816ab8d8ebd674"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d41465f94d62fdbab816ab8d8ebd674">&#9670;&#160;</a></span>service()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_MAILBOX&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Ethercat::SOES::FoE::setHandlers </td>
+          <td class="memname">void Lib::Ethercat::SOES::EoE::service </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a0cc369eea636a2b7334c4fcb151bacdb">Handlers</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newHandlers</em></span></td><td>)</td>
+          <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -504,7 +569,47 @@ template&lt;typename T_MAILBOX&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the files of the slave. </p>
+<p>Sends the next fragment of the queued frame. </p>
+<p>Call it periodically, for example from the idle hook of the slave; it does nothing while the master has not read the previous message.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_MAILBOX</td><td>A 'Mailbox' type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mailbox</td><td>The mailbox to send through. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6b26ad71662f36a666db683b5755a119" name="a6b26ad71662f36a666db683b5755a119"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b26ad71662f36a666db683b5755a119">&#9670;&#160;</a></span>setHandlers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethercat::SOES::EoE::setHandlers </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a272ea34043ce0f3bb7014fc2c4df927e">Handlers</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newHandlers</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the network stack hooks. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newHandlers</td><td>The hooks. </td></tr>

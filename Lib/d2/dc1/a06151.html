@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</title>
+<title>IAR EWARM Library: Lib::BSP::Beep</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,81 +92,47 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Beep</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.</p>
-<p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.The driver takes a shared Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; by reference and does not own it. Addresses are byte addresses within the 16 MB chip, and <a class="el" href="../../d4/d22/a04494.html#aff869cb6bde4f4f94493097c4c7e2da6" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()</a> works on 4 KB sectors, so a write must be preceded by an erase of the sector it touches.</p>
-<dl class="section important"><dt>Important</dt><dd>Target: a part with OCTOSPI, such as STM32U5. The class is compiled only when <em class="arg">HAL_OSPI_MODULE_ENABLED</em> is defined; on STM32F407 the whole class compiles to nothing.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Erasing and writing block the calling task while the chip is busy, which can take milliseconds. Do not call them from an ISR.</dd></dl>
+<p>Demonstrates a short start-up click followed by a three-beep alarm on a buzzer driven by TIM1 channel 1.</p>
+<p>Demonstrates a short start-up click followed by a three-beep alarm on a buzzer driven by TIM1 channel 1.TIM1 is initialized by CubeMX; its prescaler and period set the tone, while the driver switches the channel to output-compare toggle mode on every beep. <a class="el" href="../../d6/dac/a04339.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> returns at once and the sequence plays in the RTOS timer service task, so the task waits with <a class="el" href="../../d6/dac/a04339.html#ac6552c090b310890de41a06ba77a7e68" title="Lib::BSP::Beep::isPlaying()">Lib::BSP::Beep::isPlaying()</a> before queuing the next sequence: a <a class="el" href="../../d6/dac/a04339.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> call made while one is still running returns <em class="arg">false</em> and is dropped.</p>
+<dl class="section important"><dt>Important</dt><dd>The RTOS timer service task must be running (<em class="arg">configUSE_TIMERS</em>), since every beep is timed from it. The class compiles to nothing unless <em class="arg">HAL_TIM_MODULE_ENABLED</em> is defined.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="w25q128_usage_open"></a>
-Open and identify</h3>
-<p><a class="el" href="../../d4/d22/a04494.html#acc5fbed9faca7400c7d70130fbb74131" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()</a> powers the chip up, resets it and reads the JEDEC ID; the driver is present only for the 16 MB part. <a class="el" href="../../d4/d22/a04494.html#a40a9ef783ecafece7202ae4ec39d4939" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()</a> reports the cached result without touching the bus.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dfe/a08327.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/de4/a00677.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="beep_usage_alarm"></a>
+Start-up click and alarm</h3>
+<p><a class="el" href="../../d6/dac/a04339.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> takes the beep length in milliseconds, the repeat count and the pause between beeps in milliseconds. A call made while a sequence is still playing is dropped, so wait for <a class="el" href="../../d6/dac/a04339.html#ac6552c090b310890de41a06ba77a7e68" title="Lib::BSP::Beep::isPlaying()">Lib::BSP::Beep::isPlaying()</a> to return <em class="arg">false</em> first.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/da8/a00230.html">Lib/BSP/Beep/Beep.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dd3/a00902.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// OCTOSPI port configured in the application (CubeMX) and shared with other consumers; defined outside this file.</span></div>
-<div class="line"><span class="keyword">extern</span> Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; ospiPort;</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> htim1; <span class="comment">// TIM1 output compare, period sets the tone.</span></div>
 <div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/d22/a04494.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> flash({.ospi = ospiPort});</div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
+<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d6/dac/a04339.html">Lib::BSP::Beep</a> beeper{{.timerHandle = &amp;htim1, .timerChannel = <a id="_a2" name="_a2"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>}};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> openFlash() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Chip did not answer or the JEDEC ID is unexpected.</span></div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> flash.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d4/d22/a04494.html#a40a9ef783ecafece7202ae4ec39d4939">isPresent</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00677_html"><div class="ttname"><a href="../../dc/de4/a00677.html">OSPI.hpp</a></div><div class="ttdoc">Public umbrella include for the OCTOSPI subsystem.</div></div>
-<div class="ttc" id="aa04494_html"><div class="ttname"><a href="../../d4/d22/a04494.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a></div><div class="ttdoc">Quad-SPI (OCTOSPI) device driver for the Winbond W25Q128JVSIQ.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:82</div></div>
-<div class="ttc" id="aa04494_html_a40a9ef783ecafece7202ae4ec39d4939"><div class="ttname"><a href="../../d4/d22/a04494.html#a40a9ef783ecafece7202ae4ec39d4939">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent</a></div><div class="ttdeci">bool isPresent() const noexcept</div><div class="ttdoc">Checks whether the device is present and initialized.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:236</div></div>
-<div class="ttc" id="aa08327_html"><div class="ttname"><a href="../../de/dfe/a08327.html">W25Q128JVSIQ.hpp</a></div><div class="ttdoc">Quad-SPI (OCTOSPI) driver for the Winbond W25Q128JVSIQ 128 Mbit device.</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="w25q128_usage_rw"></a>
-Read and write</h3>
-<p><a class="el" href="../../d4/d22/a04494.html#a48fee6a63474b5ad43a51157fcd0129a" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()</a> programs pages of <b>256</b> bytes. The sector must be erased first, because programming can only clear bits.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dfe/a08327.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
+<div class="line"><span class="keywordtype">void</span> alarmTask() {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(beeper.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d6/dac/a04339.html#a4bc5b3cc66d266518992ce5dc14973c5">play</a>(50U)); <span class="comment">// Short click on start-up.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> storeRecord(<a class="code hl_class" href="../../d4/d22/a04494.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> &amp; flash) {</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t RECORD_ADDRESS = 0x000000U;</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> record{0x12U, 0x34U, 0x56U, 0x78U};</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d4/d22/a04494.html#aff869cb6bde4f4f94493097c4c7e2da6">eraseSector</a>(RECORD_ADDRESS)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d4/d22/a04494.html#a48fee6a63474b5ad43a51157fcd0129a">write</a>(RECORD_ADDRESS, record.data(), record.size())) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    <span class="keywordflow">while</span> (beeper.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d6/dac/a04339.html#ac6552c090b310890de41a06ba77a7e68">isPlaying</a>()) {</div>
+<div class="line">        <a id="a5" name="a5"></a><a class="code hl_function" href="../../d1/d83/a01041.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(10ms);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> readBack{};</div>
-<div class="line">    <span class="keywordflow">return</span> flash.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d4/d22/a04494.html#abb4813e3ca50641c3bc3d1a367927ab8">read</a>(RECORD_ADDRESS, readBack.data(), readBack.size()) &amp;&amp; readBack == record;</div>
+<div class="line">    <span class="keywordflow">if</span> (!beeper.<a class="code hl_function" href="../../d6/dac/a04339.html#a4bc5b3cc66d266518992ce5dc14973c5">play</a>(200U, 3U, 100U)) { <span class="comment">// Three 200 ms beeps, 100 ms apart.</span></div>
+<div class="line">        <span class="comment">// A sequence is still playing: this request is dropped.</span></div>
+<div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa04494_html_a48fee6a63474b5ad43a51157fcd0129a"><div class="ttname"><a href="../../d4/d22/a04494.html#a48fee6a63474b5ad43a51157fcd0129a">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write</a></div><div class="ttdeci">bool write(uint32_t addr, const void *data, size_t size) noexcept</div><div class="ttdoc">Writes size bytes from data to the device starting at addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:287</div></div>
-<div class="ttc" id="aa04494_html_abb4813e3ca50641c3bc3d1a367927ab8"><div class="ttname"><a href="../../d4/d22/a04494.html#abb4813e3ca50641c3bc3d1a367927ab8">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::read</a></div><div class="ttdeci">bool read(uint32_t addr, void *buffer, size_t size) noexcept</div><div class="ttdoc">Reads size bytes from the device starting at addr into buffer.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:252</div></div>
-<div class="ttc" id="aa04494_html_aff869cb6bde4f4f94493097c4c7e2da6"><div class="ttname"><a href="../../d4/d22/a04494.html#aff869cb6bde4f4f94493097c4c7e2da6">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t addr) noexcept</div><div class="ttdoc">Erases the 4 KB sector that contains addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:330</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="w25q128_usage_power"></a>
-Power down</h3>
-<p><a class="el" href="../../d4/d22/a04494.html#a8a0d94550896c7062f6594cd0e532007" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()</a> lowers the standby current between accesses. Call <a class="el" href="../../d4/d22/a04494.html#a686c0c59ab4f223b15aefeeab43ca2bd" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()</a> before the next access.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dfe/a08327.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> idleFlash(<a class="code hl_class" href="../../d4/d22/a04494.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> &amp; flash) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(flash.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d4/d22/a04494.html#a8a0d94550896c7062f6594cd0e532007">enterPowerDown</a>());</div>
-<div class="line">    <span class="comment">// ... long idle period ...</span></div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(flash.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d4/d22/a04494.html#a686c0c59ab4f223b15aefeeab43ca2bd">releasePowerDown</a>());</div>
-<div class="line">}</div>
-<div class="ttc" id="aa04494_html_a686c0c59ab4f223b15aefeeab43ca2bd"><div class="ttname"><a href="../../d4/d22/a04494.html#a686c0c59ab4f223b15aefeeab43ca2bd">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown</a></div><div class="ttdeci">bool releasePowerDown() noexcept</div><div class="ttdoc">Wakes the device from deep power-down; call before any access after enterPowerDown().</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:214</div></div>
-<div class="ttc" id="aa04494_html_a8a0d94550896c7062f6594cd0e532007"><div class="ttname"><a href="../../d4/d22/a04494.html#a8a0d94550896c7062f6594cd0e532007">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown</a></div><div class="ttdeci">bool enterPowerDown() noexcept</div><div class="ttdoc">Puts an opened device into deep power-down between accesses; the port stays open.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:205</div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00230_html"><div class="ttname"><a href="../../d1/da8/a00230.html">Beep.hpp</a></div><div class="ttdoc">Declares the BSP buzzer driver on a HAL timer output-compare channel; compiles to nothing without HAL...</div></div>
+<div class="ttc" id="aa00902_html"><div class="ttname"><a href="../../d5/dd3/a00902.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
+<div class="ttc" id="aa01041_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d1/d83/a01041.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
+<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa04339_html"><div class="ttname"><a href="../../d6/dac/a04339.html">Lib::BSP::Beep</a></div><div class="ttdoc">Buzzer driven by toggling a timer output-compare channel for a set duration and repeat count.</div><div class="ttdef"><b>Definition</b> Beep.hpp:40</div></div>
+<div class="ttc" id="aa04339_html_a4bc5b3cc66d266518992ce5dc14973c5"><div class="ttname"><a href="../../d6/dac/a04339.html#a4bc5b3cc66d266518992ce5dc14973c5">Lib::BSP::Beep::play</a></div><div class="ttdeci">bool play(uint32_t duration, uint32_t count=1U, uint32_t pause=0U) noexcept</div><div class="ttdoc">Starts a beep sequence, unless one is already playing.</div><div class="ttdef"><b>Definition</b> Beep.hpp:141</div></div>
+<div class="ttc" id="aa04339_html_ac6552c090b310890de41a06ba77a7e68"><div class="ttname"><a href="../../d6/dac/a04339.html#ac6552c090b310890de41a06ba77a7e68">Lib::BSP::Beep::isPlaying</a></div><div class="ttdeci">bool isPlaying() const noexcept</div><div class="ttdoc">Gets whether a beep sequence is playing.</div><div class="ttdef"><b>Definition</b> Beep.hpp:164</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::ADCPort&lt; DriverMode::BLOCKING &gt;</title>
+<title>IAR EWARM Library: Lib::Ethernet::Wiznet::W5500</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,64 +91,206 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../d3/dac/a05307.html">ADCPort&lt; DriverMode::BLOCKING &gt;</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../de/d41/a01030.html">Ethernet</a></li><li class="navelem"><a href="../../d6/dcf/a01031.html">Wiznet</a></li><li class="navelem"><a href="../../d3/dac/a05307.html">W5500</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../dc/da0/a05304.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::ADCPort&lt; DriverMode::BLOCKING &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Ethernet::Wiznet::W5500<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Blocking specialization for single conversions.  
+<p>Register access and basic configuration of the Wiznet W5500 Ethernet controller over SPI.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Blocking specialization for single conversions. </p>
-<p>A full blocking single-shot read is <a class="el" href="#a1b1e5f9a230b0baaaebe9e34bf3948f1" title="start()">start()</a>, then 'poll(timeout)', then <a class="el" href="#a9ada6411f9d589391a3f4a8396ba87fe" title="stop()">stop()</a>. This matches how a blocking regular-group conversion works on this hardware: <b>HAL_ADC_PollForConversion()</b> spins on the end-of-conversion flag itself rather than waiting on an interrupt. Does not depend on DeviceManager or Device, since a blocking conversion completes inside the poll call and raises no HAL callback to route.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">DriverMode</td><td>Must be <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="DriverMode::BLOCKING">DriverMode::BLOCKING</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
+<div class="textblock"><p>Register access and basic configuration of the Wiznet W5500 Ethernet controller over SPI. </p>
+<p>Talks to the chip in variable-length data mode (the NSS pin stays low for a whole frame), with an externally owned SPI port and a chip-select pin. The register map and the frame format follow the W5500 datasheet; no vendor driver is needed.</p>
+<p>One chip transaction is a sequence of SPI transfers, so the object must be used by one task at a time (the TCP client in 'ClientBase' is that one task). </p>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d7/df8/a05311.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wiring of the chip.  <a href="../../d7/df8/a05311.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae512c6fbc41b960578bc87b0ad0d646a" id="r_ae512c6fbc41b960578bc87b0ad0d646a"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ae512c6fbc41b960578bc87b0ad0d646a">CommonRegister</a> : uint16_t { <br />
+&#160;&#160;<a class="el" href="#ae512c6fbc41b960578bc87b0ad0d646aab742db58b16f1d7de716d5e8a8afabbb">MODE</a> = 0x0000U
+, <br />
+&#160;&#160;<a class="el" href="#ae512c6fbc41b960578bc87b0ad0d646aa440cdde6c35c88ad8799575226adda15">GATEWAY</a> = 0x0001U
+, <br />
+&#160;&#160;<a class="el" href="#ae512c6fbc41b960578bc87b0ad0d646aae22f8a27bf93b0156e027b5c8dce2130">SUBNET</a> = 0x0005U
+, <br />
+&#160;&#160;<a class="el" href="#ae512c6fbc41b960578bc87b0ad0d646aa2e25c285356cbb0ed8785a1377027d79">MAC</a> = 0x0009U
+, <br />
+&#160;&#160;<a class="el" href="#ae512c6fbc41b960578bc87b0ad0d646aaa12a3079e14ced46e69ba52b8a90b21a">IP</a> = 0x000FU
+, <br />
+&#160;&#160;<a class="el" href="#ae512c6fbc41b960578bc87b0ad0d646aa963e255657f5a1dddda6be8410b22407">PHY_CONFIG</a> = 0x002EU
+, <br />
+&#160;&#160;<a class="el" href="#ae512c6fbc41b960578bc87b0ad0d646aa021321e8c168ba3ae39ce3a2e7b3ec87">VERSION</a> = 0x0039U
+<br />
+ }</td></tr>
+<tr class="memdesc:ae512c6fbc41b960578bc87b0ad0d646a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common registers.  <a href="#ae512c6fbc41b960578bc87b0ad0d646a">More...</a><br /></td></tr>
+<tr class="memitem:a4c45951d2789ed9c7f962f0f40580b1b" id="r_a4c45951d2789ed9c7f962f0f40580b1b"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1b">SocketRegister</a> : uint16_t { <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1bab742db58b16f1d7de716d5e8a8afabbb">MODE</a> = 0x0000U
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba26097a57f572fe88a7cdf80543422cb1">COMMAND</a> = 0x0001U
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba81b7fe15c43052525db74111aa314cc9">INTERRUPT</a> = 0x0002U
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba5f241c8c8f985b3c51e05d39cf030f4c">STATUS</a> = 0x0003U
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba463c00141b4c3a7f76acd3540052f8f5">PORT</a> = 0x0004U
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba72aa81103db4b58b1fdb4e2eb7a78de5">DEST_IP</a> = 0x000CU
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba3eb5bf75163a74720dea049592b3a7ee">DEST_PORT</a> = 0x0010U
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1bab8f3b9239aa219d1ef15991f5f754a9a">RX_BUFFER_SIZE</a> = 0x001EU
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba9ac43021b55f33f838207c1aa6f55ef5">TX_BUFFER_SIZE</a> = 0x001FU
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba214069b2b78ed237facb2b48bef3c466">TX_FREE</a> = 0x0020U
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1bafd5ab5f5fee5fb3a17a141043681439b">TX_WRITE</a> = 0x0024U
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba2695f2864165d10958625d41621cf102">RX_RECEIVED</a> = 0x0026U
+, <br />
+&#160;&#160;<a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1baca0cc56ce52c839ca2c1516ee57d90b5">RX_READ</a> = 0x0028U
+<br />
+ }</td></tr>
+<tr class="memdesc:a4c45951d2789ed9c7f962f0f40580b1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers of one socket.  <a href="#a4c45951d2789ed9c7f962f0f40580b1b">More...</a><br /></td></tr>
+<tr class="memitem:a62c5fc351b3d40f6fe408dc69de9b0f4" id="r_a62c5fc351b3d40f6fe408dc69de9b0f4"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4">Command</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4aa38bd5138bf35514df41a1795ebbf5c3">OPEN</a> = 0x01U
+, <br />
+&#160;&#160;<a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4ac1f9314a03f63f33410be3489b12b29b">LISTEN</a> = 0x02U
+, <br />
+&#160;&#160;<a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4ab57e2519e26151feacdbe52076bc39ec">CONNECT</a> = 0x04U
+, <br />
+&#160;&#160;<a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4add7cd0eb57db08d4f98abc48e5593462">DISCONNECT</a> = 0x08U
+, <br />
+&#160;&#160;<a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4a7286293c9125ac7d7bace94c190bc16d">CLOSE</a> = 0x10U
+, <br />
+&#160;&#160;<a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4a548e51fa67d541384e9585adf0db95dc">SEND</a> = 0x20U
+, <br />
+&#160;&#160;<a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4ab882f51794befb4d8c136ce9b5e2d6e7">RECV</a> = 0x40U
+<br />
+ }</td></tr>
+<tr class="memdesc:a62c5fc351b3d40f6fe408dc69de9b0f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Socket commands, written to <a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba26097a57f572fe88a7cdf80543422cb1" title="SocketRegister::COMMAND">SocketRegister::COMMAND</a>.  <a href="#a62c5fc351b3d40f6fe408dc69de9b0f4">More...</a><br /></td></tr>
+<tr class="memitem:a3b9069502a12025b5bd8ef811d3c87ca" id="r_a3b9069502a12025b5bd8ef811d3c87ca"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a3b9069502a12025b5bd8ef811d3c87ca">Status</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caa110ccf2f5d2ff4eda1fd1a494293467d">CLOSED</a> = 0x00U
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caafaee4ca3c30ee18148ce3ada37466498">INIT</a> = 0x13U
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caac1f9314a03f63f33410be3489b12b29b">LISTEN</a> = 0x14U
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caa22ee0e543a2820dcbb2dcc90ed8fdb7c">SYN_SENT</a> = 0x15U
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caa027356d5e2d689dd48894303e715f2f1">SYN_RECEIVED</a> = 0x16U
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caa7640f170af693e00a6c91df543aa2b76">ESTABLISHED</a> = 0x17U
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caaffbb6fc96becdbc047310a7b6322de47">FIN_WAIT</a> = 0x18U
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caaa71a44c4c886bfc66b1edd511e6a677e">CLOSING</a> = 0x1AU
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caa29766b42abee01f792492da03e732083">TIME_WAIT</a> = 0x1BU
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caa831862ab9b2e65d7f51841e0c739180f">CLOSE_WAIT</a> = 0x1CU
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caa9cbd9a647dc3edd29dd880e97c352032">LAST_ACK</a> = 0x1DU
+, <br />
+&#160;&#160;<a class="el" href="#a3b9069502a12025b5bd8ef811d3c87caaf5ef036b4d8b630721e51fe23489fbc9">UDP</a> = 0x22U
+<br />
+ }</td></tr>
+<tr class="memdesc:a3b9069502a12025b5bd8ef811d3c87ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Socket states, read from <a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba5f241c8c8f985b3c51e05d39cf030f4c" title="SocketRegister::STATUS">SocketRegister::STATUS</a>.  <a href="#a3b9069502a12025b5bd8ef811d3c87ca">More...</a><br /></td></tr>
+<tr class="memitem:adca286013ca6500d4efec12c1f60ae9c" id="r_adca286013ca6500d4efec12c1f60ae9c"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#adca286013ca6500d4efec12c1f60ae9c">SpiPort</a> = Lib::HAL::SPIPort&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">Lib::HAL::DriverMode::IT</a>&gt;</td></tr>
+<tr class="memdesc:adca286013ca6500d4efec12c1f60ae9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI port type the chip is driven through.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad3590b6cb223a01016ad98732fcce676" id="r_ad3590b6cb223a01016ad98732fcce676"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *handle) noexcept</td></tr>
-<tr class="memdesc:ad3590b6cb223a01016ad98732fcce676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block.  <br /></td></tr>
-<tr class="memitem:a75f470b6bc8c1c091c0bab98709a70d0" id="r_a75f470b6bc8c1c091c0bab98709a70d0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a75f470b6bc8c1c091c0bab98709a70d0">~ADCPort</a> () noexcept</td></tr>
-<tr class="memdesc:a75f470b6bc8c1c091c0bab98709a70d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the conversion before the object goes out of scope.  <br /></td></tr>
-<tr class="memitem:a9e044644fe3be9918072830d224a30df" id="r_a9e044644fe3be9918072830d224a30df"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9e044644fe3be9918072830d224a30df">ADCPort</a> (const ADCPort &amp;other)=delete</td></tr>
-<tr class="memdesc:a9e044644fe3be9918072830d224a30df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:aeaa518b84bd8f90fcef8791a36bf4d5f" id="r_aeaa518b84bd8f90fcef8791a36bf4d5f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aeaa518b84bd8f90fcef8791a36bf4d5f">ADCPort</a> (ADCPort &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:aeaa518b84bd8f90fcef8791a36bf4d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a583519bd204ed44fa1fe54a2b6f2e024" id="r_a583519bd204ed44fa1fe54a2b6f2e024"><td class="memItemLeft"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a583519bd204ed44fa1fe54a2b6f2e024">operator=</a> (const <a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a583519bd204ed44fa1fe54a2b6f2e024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:ab1c16fcf45ece2edac96b496f440eba5" id="r_ab1c16fcf45ece2edac96b496f440eba5"><td class="memItemLeft"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab1c16fcf45ece2edac96b496f440eba5">operator=</a> (<a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ab1c16fcf45ece2edac96b496f440eba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a67ec812f689c32e443b0f0b0693c358a" id="r_a67ec812f689c32e443b0f0b0693c358a"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a67ec812f689c32e443b0f0b0693c358a">getHandle</a> () noexcept</td></tr>
-<tr class="memdesc:a67ec812f689c32e443b0f0b0693c358a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:a5614da14358698185ca50bab6f0ffb90" id="r_a5614da14358698185ca50bab6f0ffb90"><td class="memItemLeft">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a5614da14358698185ca50bab6f0ffb90">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:a5614da14358698185ca50bab6f0ffb90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
-<tr class="memitem:a1b1e5f9a230b0baaaebe9e34bf3948f1" id="r_a1b1e5f9a230b0baaaebe9e34bf3948f1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1b1e5f9a230b0baaaebe9e34bf3948f1">start</a> () noexcept</td></tr>
-<tr class="memdesc:a1b1e5f9a230b0baaaebe9e34bf3948f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the regular group conversion sequence.  <br /></td></tr>
-<tr class="memitem:a9ada6411f9d589391a3f4a8396ba87fe" id="r_a9ada6411f9d589391a3f4a8396ba87fe"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9ada6411f9d589391a3f4a8396ba87fe">stop</a> () noexcept</td></tr>
-<tr class="memdesc:a9ada6411f9d589391a3f4a8396ba87fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the regular group conversion sequence.  <br /></td></tr>
-<tr class="memitem:a7f4263cc22040a8ca759022ba6097646" id="r_a7f4263cc22040a8ca759022ba6097646"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a7f4263cc22040a8ca759022ba6097646">poll</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
-<tr class="memdesc:a7f4263cc22040a8ca759022ba6097646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until the current regular group conversion completes, then reads the converted value.  <br /></td></tr>
-<tr class="memitem:aed764265c454323ee0b2d718d2f447cb" id="r_aed764265c454323ee0b2d718d2f447cb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d0/d31/a05327.html#aed764265c454323ee0b2d718d2f447cb">open</a> () noexcept</td></tr>
-<tr class="memdesc:aed764265c454323ee0b2d718d2f447cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Powers up the hardware channel and configures the initial peripheral parameters.  <br /></td></tr>
-<tr class="memitem:a9ea6813ddd5a710a237c3c7d6ddc93ba" id="r_a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d0/d31/a05327.html#a9ea6813ddd5a710a237c3c7d6ddc93ba">close</a> () noexcept</td></tr>
-<tr class="memdesc:a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the peripheral block and releases its system resources.  <br /></td></tr>
-<tr class="memitem:a2e87465b382640a36ec07e5abd45f434" id="r_a2e87465b382640a36ec07e5abd45f434"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="../../d0/d31/a05327.html#a2e87465b382640a36ec07e5abd45f434">getValue</a> () const noexcept</td></tr>
-<tr class="memdesc:a2e87465b382640a36ec07e5abd45f434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the raw digitized value register content from the latest regular group conversion.  <br /></td></tr>
+<tr class="memitem:a71413fd7d1bdcc225be1a8dad872a512" id="r_a71413fd7d1bdcc225be1a8dad872a512"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a71413fd7d1bdcc225be1a8dad872a512">W5500</a> (const <a class="el" href="../../d7/df8/a05311.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a71413fd7d1bdcc225be1a8dad872a512"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to its SPI port and chip-select pin.  <br /></td></tr>
+<tr class="memitem:ab7afde2f80e2040610c4336405be99da" id="r_ab7afde2f80e2040610c4336405be99da"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab7afde2f80e2040610c4336405be99da">~W5500</a> () noexcept=default</td></tr>
+<tr class="memdesc:ab7afde2f80e2040610c4336405be99da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the driver; the SPI port stays open for its owner.  <br /></td></tr>
+<tr class="memitem:a990156c9b54305e38956e376270e4390" id="r_a990156c9b54305e38956e376270e4390"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a990156c9b54305e38956e376270e4390">W5500</a> (const W5500 &amp;other)=delete</td></tr>
+<tr class="memdesc:a990156c9b54305e38956e376270e4390"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the object stands for one chip.  <br /></td></tr>
+<tr class="memitem:abf3b1a08b3c27348c6211bbe4f5d574a" id="r_abf3b1a08b3c27348c6211bbe4f5d574a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abf3b1a08b3c27348c6211bbe4f5d574a">W5500</a> (W5500 &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:abf3b1a08b3c27348c6211bbe4f5d574a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the object stands for one chip.  <br /></td></tr>
+<tr class="memitem:a89d3d2a51b691bdfef6973747fabaecb" id="r_a89d3d2a51b691bdfef6973747fabaecb"><td class="memItemLeft"><a class="el" href="#a71413fd7d1bdcc225be1a8dad872a512">W5500</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a89d3d2a51b691bdfef6973747fabaecb">operator=</a> (const <a class="el" href="#a71413fd7d1bdcc225be1a8dad872a512">W5500</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a89d3d2a51b691bdfef6973747fabaecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the object stands for one chip.  <br /></td></tr>
+<tr class="memitem:a138aa3503d428bfd608f627cc5c4d443" id="r_a138aa3503d428bfd608f627cc5c4d443"><td class="memItemLeft"><a class="el" href="#a71413fd7d1bdcc225be1a8dad872a512">W5500</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a138aa3503d428bfd608f627cc5c4d443">operator=</a> (<a class="el" href="#a71413fd7d1bdcc225be1a8dad872a512">W5500</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a138aa3503d428bfd608f627cc5c4d443"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the object stands for one chip.  <br /></td></tr>
+<tr class="memitem:a32095d814ba739ea3f53c9ef651677ec" id="r_a32095d814ba739ea3f53c9ef651677ec"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a32095d814ba739ea3f53c9ef651677ec">open</a> () noexcept</td></tr>
+<tr class="memdesc:a32095d814ba739ea3f53c9ef651677ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the SPI port, resets the chip and checks that it answers as a W5500.  <br /></td></tr>
+<tr class="memitem:a99b0907433ad24ae4cbaf7493e19526c" id="r_a99b0907433ad24ae4cbaf7493e19526c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a99b0907433ad24ae4cbaf7493e19526c">close</a> () noexcept</td></tr>
+<tr class="memdesc:a99b0907433ad24ae4cbaf7493e19526c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the SPI port.  <br /></td></tr>
+<tr class="memitem:ad50d6ac4935a266cb948fe95b4de5fec" id="r_ad50d6ac4935a266cb948fe95b4de5fec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad50d6ac4935a266cb948fe95b4de5fec">setNetwork</a> (const <a class="el" href="../../de/d07/a05271.html">MacAddress</a> &amp;mac, const <a class="el" href="../../d1/dad/a05267.html">IpAddress</a> &amp;ip, const <a class="el" href="../../d1/dad/a05267.html">IpAddress</a> &amp;gateway, const <a class="el" href="../../d1/dad/a05267.html">IpAddress</a> &amp;subnet) noexcept</td></tr>
+<tr class="memdesc:ad50d6ac4935a266cb948fe95b4de5fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the MAC address and the network parameters of the chip.  <br /></td></tr>
+<tr class="memitem:aebdc287e29dc35142c781658e648320f" id="r_aebdc287e29dc35142c781658e648320f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aebdc287e29dc35142c781658e648320f">setBufferSize</a> (uint8_t socket, uint8_t txKiB, uint8_t rxKiB) noexcept</td></tr>
+<tr class="memdesc:aebdc287e29dc35142c781658e648320f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a socket a transmit and a receive buffer size.  <br /></td></tr>
+<tr class="memitem:aa7d07e14bd05207b9dcb17c02af3312a" id="r_aa7d07e14bd05207b9dcb17c02af3312a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa7d07e14bd05207b9dcb17c02af3312a">isLinkUp</a> () noexcept</td></tr>
+<tr class="memdesc:aa7d07e14bd05207b9dcb17c02af3312a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the Ethernet link.  <br /></td></tr>
+<tr class="memitem:a8bee3361424ab2dd11ef6e6fc1bd51be" id="r_a8bee3361424ab2dd11ef6e6fc1bd51be"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt; uint8_t, 4U &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a8bee3361424ab2dd11ef6e6fc1bd51be">readSourceIp</a> () noexcept</td></tr>
+<tr class="memdesc:a8bee3361424ab2dd11ef6e6fc1bd51be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the source IP address set in the chip.  <br /></td></tr>
+<tr class="memitem:a28b7eb2803fd691a4e91a4b208ebfdaf" id="r_a28b7eb2803fd691a4e91a4b208ebfdaf"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a28b7eb2803fd691a4e91a4b208ebfdaf">readSocket8</a> (uint8_t socket, <a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1b">SocketRegister</a> reg) noexcept</td></tr>
+<tr class="memdesc:a28b7eb2803fd691a4e91a4b208ebfdaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an 8-bit register of a socket.  <br /></td></tr>
+<tr class="memitem:af3b3011ea9e107eb129523e34f7a9a58" id="r_af3b3011ea9e107eb129523e34f7a9a58"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#af3b3011ea9e107eb129523e34f7a9a58">readSocket16</a> (uint8_t socket, <a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1b">SocketRegister</a> reg) noexcept</td></tr>
+<tr class="memdesc:af3b3011ea9e107eb129523e34f7a9a58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a 16-bit register of a socket.  <br /></td></tr>
+<tr class="memitem:ad16ee3a80345e76634f6c9b0f81db517" id="r_ad16ee3a80345e76634f6c9b0f81db517"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad16ee3a80345e76634f6c9b0f81db517">writeSocket8</a> (uint8_t socket, <a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1b">SocketRegister</a> reg, uint8_t value) noexcept</td></tr>
+<tr class="memdesc:ad16ee3a80345e76634f6c9b0f81db517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes an 8-bit register of a socket.  <br /></td></tr>
+<tr class="memitem:a45c43a7eccbdf2847f6b5c3a7a5b56ea" id="r_a45c43a7eccbdf2847f6b5c3a7a5b56ea"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a45c43a7eccbdf2847f6b5c3a7a5b56ea">writeSocket16</a> (uint8_t socket, <a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1b">SocketRegister</a> reg, uint16_t value) noexcept</td></tr>
+<tr class="memdesc:a45c43a7eccbdf2847f6b5c3a7a5b56ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a 16-bit register of a socket.  <br /></td></tr>
+<tr class="memitem:a94d91461ed6fd9403ecec99bf1edf939" id="r_a94d91461ed6fd9403ecec99bf1edf939"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a94d91461ed6fd9403ecec99bf1edf939">writeDestination</a> (uint8_t socket, const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt; uint8_t, 4U &gt; &amp;address) noexcept</td></tr>
+<tr class="memdesc:a94d91461ed6fd9403ecec99bf1edf939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the 4-byte destination address of a socket.  <br /></td></tr>
+<tr class="memitem:a034a674b71df08d057beed85b8908739" id="r_a034a674b71df08d057beed85b8908739"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a034a674b71df08d057beed85b8908739">sendCommand</a> (uint8_t socket, <a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4">Command</a> command) noexcept</td></tr>
+<tr class="memdesc:a034a674b71df08d057beed85b8908739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a command to a socket and waits until the chip has taken it.  <br /></td></tr>
+<tr class="memitem:a9a632e68f9f498469036455a1f443053" id="r_a9a632e68f9f498469036455a1f443053"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9a632e68f9f498469036455a1f443053">writeTxBuffer</a> (uint8_t socket, uint16_t pointer, std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a9a632e68f9f498469036455a1f443053"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes into the transmit buffer of a socket, starting at a pointer.  <br /></td></tr>
+<tr class="memitem:ac73a1a6d737f0930ac229a004e9c5d47" id="r_ac73a1a6d737f0930ac229a004e9c5d47"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac73a1a6d737f0930ac229a004e9c5d47">readRxBuffer</a> (uint8_t socket, uint16_t pointer, std::span&lt; uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:ac73a1a6d737f0930ac229a004e9c5d47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from the receive buffer of a socket, starting at a pointer.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:abcf38470ff9c0ab0c47582f8e654582a" id="r_abcf38470ff9c0ab0c47582f8e654582a"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#abcf38470ff9c0ab0c47582f8e654582a">SOCKET_COUNT</a> = 8U</td></tr>
+<tr class="memdesc:abcf38470ff9c0ab0c47582f8e654582a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of hardware sockets.  <br /></td></tr>
+<tr class="memitem:a5e08dd6b22845d8fce8cc8b26e5a8c49" id="r_a5e08dd6b22845d8fce8cc8b26e5a8c49"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a5e08dd6b22845d8fce8cc8b26e5a8c49">CHIP_VERSION</a> = 0x04U</td></tr>
+<tr class="memdesc:a5e08dd6b22845d8fce8cc8b26e5a8c49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value of the version register of a W5500.  <br /></td></tr>
+<tr class="memitem:a74df32d6bddfe7215e852ee5d19197a0" id="r_a74df32d6bddfe7215e852ee5d19197a0"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a74df32d6bddfe7215e852ee5d19197a0">BUFFER_UNIT_SIZE</a> = 1024U</td></tr>
+<tr class="memdesc:a74df32d6bddfe7215e852ee5d19197a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Socket buffer sizes are set in units of 1 KiB.  <br /></td></tr>
+<tr class="memitem:a847d09ac676567630cab52d82bdf7ed7" id="r_a847d09ac676567630cab52d82bdf7ed7"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a847d09ac676567630cab52d82bdf7ed7">INTERRUPT_TIMEOUT</a> = 0x08U</td></tr>
+<tr class="memdesc:a847d09ac676567630cab52d82bdf7ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Socket interrupt flag: connection or send timed out.  <br /></td></tr>
+<tr class="memitem:a3229237f69c520e960a214296498f8a7" id="r_a3229237f69c520e960a214296498f8a7"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a3229237f69c520e960a214296498f8a7">INTERRUPT_SEND_OK</a> = 0x10U</td></tr>
+<tr class="memdesc:a3229237f69c520e960a214296498f8a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Socket interrupt flag: send finished.  <br /></td></tr>
+<tr class="memitem:a44996a42bcf1cc58245aa2fd4eb9df6f" id="r_a44996a42bcf1cc58245aa2fd4eb9df6f"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a44996a42bcf1cc58245aa2fd4eb9df6f">INTERRUPT_ALL</a> = 0xFFU</td></tr>
+<tr class="memdesc:a44996a42bcf1cc58245aa2fd4eb9df6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Every socket interrupt flag.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad3590b6cb223a01016ad98732fcce676" name="ad3590b6cb223a01016ad98732fcce676"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3590b6cb223a01016ad98732fcce676">&#9670;&#160;</a></span>ADCPort() <span class="overload">[1/3]</span></h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="adca286013ca6500d4efec12c1f60ae9c" name="adca286013ca6500d4efec12c1f60ae9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adca286013ca6500d4efec12c1f60ae9c">&#9670;&#160;</a></span>SpiPort</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#adca286013ca6500d4efec12c1f60ae9c">Lib::Ethernet::Wiznet::W5500::SpiPort</a> = Lib::HAL::SPIPort&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">Lib::HAL::DriverMode::IT</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SPI port type the chip is driven through. </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a62c5fc351b3d40f6fe408dc69de9b0f4" name="a62c5fc351b3d40f6fe408dc69de9b0f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62c5fc351b3d40f6fe408dc69de9b0f4">&#9670;&#160;</a></span>Command</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,9 +299,192 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::ADCPort </td>
+          <td class="memname">enum class <a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4">Lib::Ethernet::Wiznet::W5500::Command</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Socket commands, written to <a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba26097a57f572fe88a7cdf80543422cb1" title="SocketRegister::COMMAND">SocketRegister::COMMAND</a>. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a62c5fc351b3d40f6fe408dc69de9b0f4aa38bd5138bf35514df41a1795ebbf5c3" name="a62c5fc351b3d40f6fe408dc69de9b0f4aa38bd5138bf35514df41a1795ebbf5c3"></a>OPEN&#160;</td><td class="fielddoc"><p>Open the socket with the mode that is set. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a62c5fc351b3d40f6fe408dc69de9b0f4ac1f9314a03f63f33410be3489b12b29b" name="a62c5fc351b3d40f6fe408dc69de9b0f4ac1f9314a03f63f33410be3489b12b29b"></a>LISTEN&#160;</td><td class="fielddoc"><p>Wait for a connection (TCP server). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a62c5fc351b3d40f6fe408dc69de9b0f4ab57e2519e26151feacdbe52076bc39ec" name="a62c5fc351b3d40f6fe408dc69de9b0f4ab57e2519e26151feacdbe52076bc39ec"></a>CONNECT&#160;</td><td class="fielddoc"><p>Connect to the destination (TCP client). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a62c5fc351b3d40f6fe408dc69de9b0f4add7cd0eb57db08d4f98abc48e5593462" name="a62c5fc351b3d40f6fe408dc69de9b0f4add7cd0eb57db08d4f98abc48e5593462"></a>DISCONNECT&#160;</td><td class="fielddoc"><p>Start closing the connection. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a62c5fc351b3d40f6fe408dc69de9b0f4a7286293c9125ac7d7bace94c190bc16d" name="a62c5fc351b3d40f6fe408dc69de9b0f4a7286293c9125ac7d7bace94c190bc16d"></a>CLOSE&#160;</td><td class="fielddoc"><p>Close the socket. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a62c5fc351b3d40f6fe408dc69de9b0f4a548e51fa67d541384e9585adf0db95dc" name="a62c5fc351b3d40f6fe408dc69de9b0f4a548e51fa67d541384e9585adf0db95dc"></a>SEND&#160;</td><td class="fielddoc"><p>Send the data written to the transmit buffer. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a62c5fc351b3d40f6fe408dc69de9b0f4ab882f51794befb4d8c136ce9b5e2d6e7" name="a62c5fc351b3d40f6fe408dc69de9b0f4ab882f51794befb4d8c136ce9b5e2d6e7"></a>RECV&#160;</td><td class="fielddoc"><p>Tell the chip the received data was read. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae512c6fbc41b960578bc87b0ad0d646a" name="ae512c6fbc41b960578bc87b0ad0d646a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae512c6fbc41b960578bc87b0ad0d646a">&#9670;&#160;</a></span>CommonRegister</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ae512c6fbc41b960578bc87b0ad0d646a">Lib::Ethernet::Wiznet::W5500::CommonRegister</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Common registers. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae512c6fbc41b960578bc87b0ad0d646aab742db58b16f1d7de716d5e8a8afabbb" name="ae512c6fbc41b960578bc87b0ad0d646aab742db58b16f1d7de716d5e8a8afabbb"></a>MODE&#160;</td><td class="fielddoc"><p>Mode (bit 7 resets the chip). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae512c6fbc41b960578bc87b0ad0d646aa440cdde6c35c88ad8799575226adda15" name="ae512c6fbc41b960578bc87b0ad0d646aa440cdde6c35c88ad8799575226adda15"></a>GATEWAY&#160;</td><td class="fielddoc"><p>Gateway IP address, 4 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae512c6fbc41b960578bc87b0ad0d646aae22f8a27bf93b0156e027b5c8dce2130" name="ae512c6fbc41b960578bc87b0ad0d646aae22f8a27bf93b0156e027b5c8dce2130"></a>SUBNET&#160;</td><td class="fielddoc"><p>Subnet mask, 4 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae512c6fbc41b960578bc87b0ad0d646aa2e25c285356cbb0ed8785a1377027d79" name="ae512c6fbc41b960578bc87b0ad0d646aa2e25c285356cbb0ed8785a1377027d79"></a>MAC&#160;</td><td class="fielddoc"><p>Source MAC address, 6 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae512c6fbc41b960578bc87b0ad0d646aaa12a3079e14ced46e69ba52b8a90b21a" name="ae512c6fbc41b960578bc87b0ad0d646aaa12a3079e14ced46e69ba52b8a90b21a"></a>IP&#160;</td><td class="fielddoc"><p>Source IP address, 4 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae512c6fbc41b960578bc87b0ad0d646aa963e255657f5a1dddda6be8410b22407" name="ae512c6fbc41b960578bc87b0ad0d646aa963e255657f5a1dddda6be8410b22407"></a>PHY_CONFIG&#160;</td><td class="fielddoc"><p>PHY configuration and status (bit 0 is the link). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae512c6fbc41b960578bc87b0ad0d646aa021321e8c168ba3ae39ce3a2e7b3ec87" name="ae512c6fbc41b960578bc87b0ad0d646aa021321e8c168ba3ae39ce3a2e7b3ec87"></a>VERSION&#160;</td><td class="fielddoc"><p>Chip version. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a4c45951d2789ed9c7f962f0f40580b1b" name="a4c45951d2789ed9c7f962f0f40580b1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c45951d2789ed9c7f962f0f40580b1b">&#9670;&#160;</a></span>SocketRegister</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1b">Lib::Ethernet::Wiznet::W5500::SocketRegister</a> : uint16_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registers of one socket. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1bab742db58b16f1d7de716d5e8a8afabbb" name="a4c45951d2789ed9c7f962f0f40580b1bab742db58b16f1d7de716d5e8a8afabbb"></a>MODE&#160;</td><td class="fielddoc"><p>Protocol and option flags. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1ba26097a57f572fe88a7cdf80543422cb1" name="a4c45951d2789ed9c7f962f0f40580b1ba26097a57f572fe88a7cdf80543422cb1"></a>COMMAND&#160;</td><td class="fielddoc"><p>Command; reads 0 once the chip has taken it. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1ba81b7fe15c43052525db74111aa314cc9" name="a4c45951d2789ed9c7f962f0f40580b1ba81b7fe15c43052525db74111aa314cc9"></a>INTERRUPT&#160;</td><td class="fielddoc"><p>Interrupt flags; written with 1 to clear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1ba5f241c8c8f985b3c51e05d39cf030f4c" name="a4c45951d2789ed9c7f962f0f40580b1ba5f241c8c8f985b3c51e05d39cf030f4c"></a>STATUS&#160;</td><td class="fielddoc"><p>Socket state. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1ba463c00141b4c3a7f76acd3540052f8f5" name="a4c45951d2789ed9c7f962f0f40580b1ba463c00141b4c3a7f76acd3540052f8f5"></a>PORT&#160;</td><td class="fielddoc"><p>Local port. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1ba72aa81103db4b58b1fdb4e2eb7a78de5" name="a4c45951d2789ed9c7f962f0f40580b1ba72aa81103db4b58b1fdb4e2eb7a78de5"></a>DEST_IP&#160;</td><td class="fielddoc"><p>Destination IP address, 4 bytes. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1ba3eb5bf75163a74720dea049592b3a7ee" name="a4c45951d2789ed9c7f962f0f40580b1ba3eb5bf75163a74720dea049592b3a7ee"></a>DEST_PORT&#160;</td><td class="fielddoc"><p>Destination port. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1bab8f3b9239aa219d1ef15991f5f754a9a" name="a4c45951d2789ed9c7f962f0f40580b1bab8f3b9239aa219d1ef15991f5f754a9a"></a>RX_BUFFER_SIZE&#160;</td><td class="fielddoc"><p>Receive buffer size, in KiB. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1ba9ac43021b55f33f838207c1aa6f55ef5" name="a4c45951d2789ed9c7f962f0f40580b1ba9ac43021b55f33f838207c1aa6f55ef5"></a>TX_BUFFER_SIZE&#160;</td><td class="fielddoc"><p>Transmit buffer size, in KiB. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1ba214069b2b78ed237facb2b48bef3c466" name="a4c45951d2789ed9c7f962f0f40580b1ba214069b2b78ed237facb2b48bef3c466"></a>TX_FREE&#160;</td><td class="fielddoc"><p>Free space in the transmit buffer. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1bafd5ab5f5fee5fb3a17a141043681439b" name="a4c45951d2789ed9c7f962f0f40580b1bafd5ab5f5fee5fb3a17a141043681439b"></a>TX_WRITE&#160;</td><td class="fielddoc"><p>Transmit write pointer. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1ba2695f2864165d10958625d41621cf102" name="a4c45951d2789ed9c7f962f0f40580b1ba2695f2864165d10958625d41621cf102"></a>RX_RECEIVED&#160;</td><td class="fielddoc"><p>Number of received bytes waiting. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a4c45951d2789ed9c7f962f0f40580b1baca0cc56ce52c839ca2c1516ee57d90b5" name="a4c45951d2789ed9c7f962f0f40580b1baca0cc56ce52c839ca2c1516ee57d90b5"></a>RX_READ&#160;</td><td class="fielddoc"><p>Receive read pointer. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a3b9069502a12025b5bd8ef811d3c87ca" name="a3b9069502a12025b5bd8ef811d3c87ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b9069502a12025b5bd8ef811d3c87ca">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a3b9069502a12025b5bd8ef811d3c87ca">Lib::Ethernet::Wiznet::W5500::Status</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Socket states, read from <a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1ba5f241c8c8f985b3c51e05d39cf030f4c" title="SocketRegister::STATUS">SocketRegister::STATUS</a>. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caa110ccf2f5d2ff4eda1fd1a494293467d" name="a3b9069502a12025b5bd8ef811d3c87caa110ccf2f5d2ff4eda1fd1a494293467d"></a>CLOSED&#160;</td><td class="fielddoc"><p>Socket closed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caafaee4ca3c30ee18148ce3ada37466498" name="a3b9069502a12025b5bd8ef811d3c87caafaee4ca3c30ee18148ce3ada37466498"></a>INIT&#160;</td><td class="fielddoc"><p>TCP socket opened. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caac1f9314a03f63f33410be3489b12b29b" name="a3b9069502a12025b5bd8ef811d3c87caac1f9314a03f63f33410be3489b12b29b"></a>LISTEN&#160;</td><td class="fielddoc"><p>TCP socket waiting for a connection. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caa22ee0e543a2820dcbb2dcc90ed8fdb7c" name="a3b9069502a12025b5bd8ef811d3c87caa22ee0e543a2820dcbb2dcc90ed8fdb7c"></a>SYN_SENT&#160;</td><td class="fielddoc"><p>Connection request sent. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caa027356d5e2d689dd48894303e715f2f1" name="a3b9069502a12025b5bd8ef811d3c87caa027356d5e2d689dd48894303e715f2f1"></a>SYN_RECEIVED&#160;</td><td class="fielddoc"><p>Connection request received. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caa7640f170af693e00a6c91df543aa2b76" name="a3b9069502a12025b5bd8ef811d3c87caa7640f170af693e00a6c91df543aa2b76"></a>ESTABLISHED&#160;</td><td class="fielddoc"><p>Connection open. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caaffbb6fc96becdbc047310a7b6322de47" name="a3b9069502a12025b5bd8ef811d3c87caaffbb6fc96becdbc047310a7b6322de47"></a>FIN_WAIT&#160;</td><td class="fielddoc"><p>Closing. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caaa71a44c4c886bfc66b1edd511e6a677e" name="a3b9069502a12025b5bd8ef811d3c87caaa71a44c4c886bfc66b1edd511e6a677e"></a>CLOSING&#160;</td><td class="fielddoc"><p>Closing. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caa29766b42abee01f792492da03e732083" name="a3b9069502a12025b5bd8ef811d3c87caa29766b42abee01f792492da03e732083"></a>TIME_WAIT&#160;</td><td class="fielddoc"><p>Closing. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caa831862ab9b2e65d7f51841e0c739180f" name="a3b9069502a12025b5bd8ef811d3c87caa831862ab9b2e65d7f51841e0c739180f"></a>CLOSE_WAIT&#160;</td><td class="fielddoc"><p>The peer closed; data may still be pending. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caa9cbd9a647dc3edd29dd880e97c352032" name="a3b9069502a12025b5bd8ef811d3c87caa9cbd9a647dc3edd29dd880e97c352032"></a>LAST_ACK&#160;</td><td class="fielddoc"><p>Closing. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a3b9069502a12025b5bd8ef811d3c87caaf5ef036b4d8b630721e51fe23489fbc9" name="a3b9069502a12025b5bd8ef811d3c87caaf5ef036b4d8b630721e51fe23489fbc9"></a>UDP&#160;</td><td class="fielddoc"><p>UDP socket opened. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a71413fd7d1bdcc225be1a8dad872a512" name="a71413fd7d1bdcc225be1a8dad872a512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71413fd7d1bdcc225be1a8dad872a512">&#9670;&#160;</a></span>W5500() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethernet::Wiznet::W5500::W5500 </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d7/df8/a05311.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -170,18 +495,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the port to a native hardware descriptor block. </p>
+<p>Binds the driver to its SPI port and chip-select pin. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+    <tr><td class="paramname">config</td><td>Wiring of the chip. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a75f470b6bc8c1c091c0bab98709a70d0" name="a75f470b6bc8c1c091c0bab98709a70d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75f470b6bc8c1c091c0bab98709a70d0">&#9670;&#160;</a></span>~ADCPort()</h2>
+<a id="ab7afde2f80e2040610c4336405be99da" name="ab7afde2f80e2040610c4336405be99da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7afde2f80e2040610c4336405be99da">&#9670;&#160;</a></span>~W5500()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -190,10 +515,239 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::~<a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> </td>
+          <td class="memname">Lib::Ethernet::Wiznet::W5500::~W5500 </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the driver; the SPI port stays open for its owner. </p>
+
+</div>
+</div>
+<a id="a990156c9b54305e38956e376270e4390" name="a990156c9b54305e38956e376270e4390"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a990156c9b54305e38956e376270e4390">&#9670;&#160;</a></span>W5500() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethernet::Wiznet::W5500::W5500 </td>
+          <td>(</td>
+          <td class="paramtype">const W5500 &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the object stands for one chip. </p>
+
+</div>
+</div>
+<a id="abf3b1a08b3c27348c6211bbe4f5d574a" name="abf3b1a08b3c27348c6211bbe4f5d574a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf3b1a08b3c27348c6211bbe4f5d574a">&#9670;&#160;</a></span>W5500() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethernet::Wiznet::W5500::W5500 </td>
+          <td>(</td>
+          <td class="paramtype">W5500 &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the object stands for one chip. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a99b0907433ad24ae4cbaf7493e19526c" name="a99b0907433ad24ae4cbaf7493e19526c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99b0907433ad24ae4cbaf7493e19526c">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Ethernet::Wiznet::W5500::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Closes the SPI port. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the port closed cleanly. </dd></dl>
+
+</div>
+</div>
+<a id="aa7d07e14bd05207b9dcb17c02af3312a" name="aa7d07e14bd05207b9dcb17c02af3312a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7d07e14bd05207b9dcb17c02af3312a">&#9670;&#160;</a></span>isLinkUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Ethernet::Wiznet::W5500::isLinkUp </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks the Ethernet link. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the PHY has a link. </dd></dl>
+
+</div>
+</div>
+<a id="a32095d814ba739ea3f53c9ef651677ec" name="a32095d814ba739ea3f53c9ef651677ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32095d814ba739ea3f53c9ef651677ec">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Ethernet::Wiznet::W5500::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opens the SPI port, resets the chip and checks that it answers as a W5500. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the chip was reset and reports the W5500 version. </dd></dl>
+
+</div>
+</div>
+<a id="a89d3d2a51b691bdfef6973747fabaecb" name="a89d3d2a51b691bdfef6973747fabaecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89d3d2a51b691bdfef6973747fabaecb">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a71413fd7d1bdcc225be1a8dad872a512">W5500</a> &amp; Lib::Ethernet::Wiznet::W5500::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a71413fd7d1bdcc225be1a8dad872a512">W5500</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the object stands for one chip. </p>
+
+</div>
+</div>
+<a id="a138aa3503d428bfd608f627cc5c4d443" name="a138aa3503d428bfd608f627cc5c4d443"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138aa3503d428bfd608f627cc5c4d443">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a71413fd7d1bdcc225be1a8dad872a512">W5500</a> &amp; Lib::Ethernet::Wiznet::W5500::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a71413fd7d1bdcc225be1a8dad872a512">W5500</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the object stands for one chip. </p>
+
+</div>
+</div>
+<a id="ac73a1a6d737f0930ac229a004e9c5d47" name="ac73a1a6d737f0930ac229a004e9c5d47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac73a1a6d737f0930ac229a004e9c5d47">&#9670;&#160;</a></span>readRxBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethernet::Wiznet::W5500::readRxBuffer </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>pointer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -203,45 +757,20 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the conversion before the object goes out of scope. </p>
-
-</div>
-</div>
-<a id="a9e044644fe3be9918072830d224a30df" name="a9e044644fe3be9918072830d224a30df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e044644fe3be9918072830d224a30df">&#9670;&#160;</a></span>ADCPort() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::ADCPort </td>
-          <td>(</td>
-          <td class="paramtype">const ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copying is deleted: each instance owns a unique native handle binding. </p>
+<p>Reads bytes from the receive buffer of a socket, starting at a pointer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+    <tr><td class="paramname">socket</td><td>Socket number. </td></tr>
+    <tr><td class="paramname">pointer</td><td>Offset to read from (the read pointer register, advanced by the caller). </td></tr>
+    <tr><td class="paramname">data</td><td>Destination for the bytes. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="aeaa518b84bd8f90fcef8791a36bf4d5f" name="aeaa518b84bd8f90fcef8791a36bf4d5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaa518b84bd8f90fcef8791a36bf4d5f">&#9670;&#160;</a></span>ADCPort() <span class="overload">[3/3]</span></h2>
+<a id="af3b3011ea9e107eb129523e34f7a9a58" name="af3b3011ea9e107eb129523e34f7a9a58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3b3011ea9e107eb129523e34f7a9a58">&#9670;&#160;</a></span>readSocket16()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -250,72 +779,14 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::ADCPort </td>
+          <td class="memname">uint16_t Lib::Ethernet::Wiznet::W5500::readSocket16 </td>
           <td>(</td>
-          <td class="paramtype">ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moving is deleted: each instance owns a unique native handle binding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a9ea6813ddd5a710a237c3c7d6ddc93ba" name="a9ea6813ddd5a710a237c3c7d6ddc93ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ea6813ddd5a710a237c3c7d6ddc93ba">&#9670;&#160;</a></span>close()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d31/a05327.html">Lib::HAL::ADCPortBase</a>&lt; <a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::close </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Disables the peripheral block and releases its system resources. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the shutdown sequence was fully committed. </dd></dl>
-
-</div>
-</div>
-<a id="a5614da14358698185ca50bab6f0ffb90" name="a5614da14358698185ca50bab6f0ffb90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5614da14358698185ca50bab6f0ffb90">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> * Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1b">SocketRegister</a></td>          <td class="paramname"><span class="paramname"><em>reg</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -325,13 +796,21 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or 'nullptr' if unbound. </dd></dl>
+<p>Reads a 16-bit register of a socket. </p>
+<p>The chip may update the counters while they are read, so the value is read until two reads agree.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Socket number. </td></tr>
+    <tr><td class="paramname">reg</td><td>Register. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Register value. </dd></dl>
 
 </div>
 </div>
-<a id="a67ec812f689c32e443b0f0b0693c358a" name="a67ec812f689c32e443b0f0b0693c358a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67ec812f689c32e443b0f0b0693c358a">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
+<a id="a28b7eb2803fd691a4e91a4b208ebfdaf" name="a28b7eb2803fd691a4e91a4b208ebfdaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28b7eb2803fd691a4e91a4b208ebfdaf">&#9670;&#160;</a></span>readSocket8()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,7 +819,46 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> * Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getHandle </td>
+          <td class="memname">uint8_t Lib::Ethernet::Wiznet::W5500::readSocket8 </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1b">SocketRegister</a></td>          <td class="paramname"><span class="paramname"><em>reg</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads an 8-bit register of a socket. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Socket number. </td></tr>
+    <tr><td class="paramname">reg</td><td>Register. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Register value. </dd></dl>
+
+</div>
+</div>
+<a id="a8bee3361424ab2dd11ef6e6fc1bd51be" name="a8bee3361424ab2dd11ef6e6fc1bd51be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bee3361424ab2dd11ef6e6fc1bd51be">&#9670;&#160;</a></span>readSourceIp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt; uint8_t, 4U &gt; Lib::Ethernet::Wiznet::W5500::readSourceIp </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -353,13 +871,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or 'nullptr' if unbound. </dd></dl>
+<p>Reads the source IP address set in the chip. </p>
+<dl class="section return"><dt>Returns</dt><dd>The address; all zeros until <a class="el" href="#ad50d6ac4935a266cb948fe95b4de5fec" title="setNetwork()">setNetwork()</a> was called. </dd></dl>
 
 </div>
 </div>
-<a id="a2e87465b382640a36ec07e5abd45f434" name="a2e87465b382640a36ec07e5abd45f434"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e87465b382640a36ec07e5abd45f434">&#9670;&#160;</a></span>getValue()</h2>
+<a id="a034a674b71df08d057beed85b8908739" name="a034a674b71df08d057beed85b8908739"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034a674b71df08d057beed85b8908739">&#9670;&#160;</a></span>sendCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,134 +886,14 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t <a class="el" href="../../d0/d31/a05327.html">Lib::HAL::ADCPortBase</a>&lt; <a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::getValue </td>
+          <td class="memname">bool Lib::Ethernet::Wiznet::W5500::sendCommand </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Extracts the raw digitized value register content from the latest regular group conversion. </p>
-<dl class="section return"><dt>Returns</dt><dd>Captured raw digital data bits from the peripheral data register, or 0 if unopened. </dd></dl>
-
-</div>
-</div>
-<a id="aed764265c454323ee0b2d718d2f447cb" name="aed764265c454323ee0b2d718d2f447cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed764265c454323ee0b2d718d2f447cb">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d31/a05327.html">Lib::HAL::ADCPortBase</a>&lt; <a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::open </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Powers up the hardware channel and configures the initial peripheral parameters. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware open sequence succeeded. </dd></dl>
-
-</div>
-</div>
-<a id="ab1c16fcf45ece2edac96b496f440eba5" name="ab1c16fcf45ece2edac96b496f440eba5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1c16fcf45ece2edac96b496f440eba5">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp; Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move assignment is deleted: each instance owns a unique native handle binding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a583519bd204ed44fa1fe54a2b6f2e024" name="a583519bd204ed44fa1fe54a2b6f2e024"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a583519bd204ed44fa1fe54a2b6f2e024">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp; Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a>&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy assignment is deleted: each instance owns a unique native handle binding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a7f4263cc22040a8ca759022ba6097646" name="a7f4263cc22040a8ca759022ba6097646"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f4263cc22040a8ca759022ba6097646">&#9670;&#160;</a></span>poll()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::poll </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="#a62c5fc351b3d40f6fe408dc69de9b0f4">Command</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -505,19 +903,20 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks until the current regular group conversion completes, then reads the converted value. </p>
+<p>Gives a command to a socket and waits until the chip has taken it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum duration to wait for the conversion to complete. </td></tr>
+    <tr><td class="paramname">socket</td><td>Socket number. </td></tr>
+    <tr><td class="paramname">command</td><td>Command. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Captured raw digital data bits, or 0 if the poll failed or timed out. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the chip took the command in time. </dd></dl>
 
 </div>
 </div>
-<a id="a1b1e5f9a230b0baaaebe9e34bf3948f1" name="a1b1e5f9a230b0baaaebe9e34bf3948f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b1e5f9a230b0baaaebe9e34bf3948f1">&#9670;&#160;</a></span>start()</h2>
+<a id="aebdc287e29dc35142c781658e648320f" name="aebdc287e29dc35142c781658e648320f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebdc287e29dc35142c781658e648320f">&#9670;&#160;</a></span>setBufferSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -526,26 +925,43 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::start </td>
+          <td class="memname">void Lib::Ethernet::Wiznet::W5500::setBufferSize </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>txKiB</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>rxKiB</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Starts the regular group conversion sequence. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the conversion sequence was started successfully. </dd></dl>
+<p>Gives a socket a transmit and a receive buffer size. </p>
+<p>The chip has 16 KiB for each direction; the sizes of all sockets together must not exceed that. After a reset every socket has 2 KiB each way.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Socket number. </td></tr>
+    <tr><td class="paramname">txKiB</td><td>Transmit buffer size in KiB: 0, 1, 2, 4, 8 or 16. </td></tr>
+    <tr><td class="paramname">rxKiB</td><td>Receive buffer size in KiB: 0, 1, 2, 4, 8 or 16. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a9ada6411f9d589391a3f4a8396ba87fe" name="a9ada6411f9d589391a3f4a8396ba87fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ada6411f9d589391a3f4a8396ba87fe">&#9670;&#160;</a></span>stop()</h2>
+<a id="ad50d6ac4935a266cb948fe95b4de5fec" name="ad50d6ac4935a266cb948fe95b4de5fec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad50d6ac4935a266cb948fe95b4de5fec">&#9670;&#160;</a></span>setNetwork()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -554,21 +970,359 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::ADCPort&lt; <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::stop </td>
+          <td class="memname">void Lib::Ethernet::Wiznet::W5500::setNetwork </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../de/d07/a05271.html">MacAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>mac</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/dad/a05267.html">IpAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ip</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/dad/a05267.html">IpAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>gateway</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d1/dad/a05267.html">IpAddress</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>subnet</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the regular group conversion sequence. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the conversion sequence was stopped successfully. </dd></dl>
+<p>Sets the MAC address and the network parameters of the chip. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mac</td><td>Source MAC address. </td></tr>
+    <tr><td class="paramname">ip</td><td>Source IP address. </td></tr>
+    <tr><td class="paramname">gateway</td><td>Gateway IP address. </td></tr>
+    <tr><td class="paramname">subnet</td><td>Subnet mask. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a94d91461ed6fd9403ecec99bf1edf939" name="a94d91461ed6fd9403ecec99bf1edf939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94d91461ed6fd9403ecec99bf1edf939">&#9670;&#160;</a></span>writeDestination()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethernet::Wiznet::W5500::writeDestination </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt; uint8_t, 4U &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>address</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes the 4-byte destination address of a socket. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Socket number. </td></tr>
+    <tr><td class="paramname">address</td><td>IPv4 address. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a45c43a7eccbdf2847f6b5c3a7a5b56ea" name="a45c43a7eccbdf2847f6b5c3a7a5b56ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45c43a7eccbdf2847f6b5c3a7a5b56ea">&#9670;&#160;</a></span>writeSocket16()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethernet::Wiznet::W5500::writeSocket16 </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1b">SocketRegister</a></td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes a 16-bit register of a socket. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Socket number. </td></tr>
+    <tr><td class="paramname">reg</td><td>Register. </td></tr>
+    <tr><td class="paramname">value</td><td>Value to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad16ee3a80345e76634f6c9b0f81db517" name="ad16ee3a80345e76634f6c9b0f81db517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad16ee3a80345e76634f6c9b0f81db517">&#9670;&#160;</a></span>writeSocket8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethernet::Wiznet::W5500::writeSocket8 </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a4c45951d2789ed9c7f962f0f40580b1b">SocketRegister</a></td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes an 8-bit register of a socket. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Socket number. </td></tr>
+    <tr><td class="paramname">reg</td><td>Register. </td></tr>
+    <tr><td class="paramname">value</td><td>Value to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9a632e68f9f498469036455a1f443053" name="a9a632e68f9f498469036455a1f443053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a632e68f9f498469036455a1f443053">&#9670;&#160;</a></span>writeTxBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethernet::Wiznet::W5500::writeTxBuffer </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>socket</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>pointer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes bytes into the transmit buffer of a socket, starting at a pointer. </p>
+<p>The chip wraps the pointer inside the buffer, so a write may cross the end of the buffer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">socket</td><td>Socket number. </td></tr>
+    <tr><td class="paramname">pointer</td><td>Offset to write at (the write pointer register, advanced by the caller). </td></tr>
+    <tr><td class="paramname">data</td><td>Bytes to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a74df32d6bddfe7215e852ee5d19197a0" name="a74df32d6bddfe7215e852ee5d19197a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74df32d6bddfe7215e852ee5d19197a0">&#9670;&#160;</a></span>BUFFER_UNIT_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::Ethernet::Wiznet::W5500::BUFFER_UNIT_SIZE = 1024U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Socket buffer sizes are set in units of 1 KiB. </p>
+
+</div>
+</div>
+<a id="a5e08dd6b22845d8fce8cc8b26e5a8c49" name="a5e08dd6b22845d8fce8cc8b26e5a8c49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e08dd6b22845d8fce8cc8b26e5a8c49">&#9670;&#160;</a></span>CHIP_VERSION</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::Ethernet::Wiznet::W5500::CHIP_VERSION = 0x04U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Value of the version register of a W5500. </p>
+
+</div>
+</div>
+<a id="a44996a42bcf1cc58245aa2fd4eb9df6f" name="a44996a42bcf1cc58245aa2fd4eb9df6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44996a42bcf1cc58245aa2fd4eb9df6f">&#9670;&#160;</a></span>INTERRUPT_ALL</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::Ethernet::Wiznet::W5500::INTERRUPT_ALL = 0xFFU</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Every socket interrupt flag. </p>
+
+</div>
+</div>
+<a id="a3229237f69c520e960a214296498f8a7" name="a3229237f69c520e960a214296498f8a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3229237f69c520e960a214296498f8a7">&#9670;&#160;</a></span>INTERRUPT_SEND_OK</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::Ethernet::Wiznet::W5500::INTERRUPT_SEND_OK = 0x10U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Socket interrupt flag: send finished. </p>
+
+</div>
+</div>
+<a id="a847d09ac676567630cab52d82bdf7ed7" name="a847d09ac676567630cab52d82bdf7ed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a847d09ac676567630cab52d82bdf7ed7">&#9670;&#160;</a></span>INTERRUPT_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::Ethernet::Wiznet::W5500::INTERRUPT_TIMEOUT = 0x08U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Socket interrupt flag: connection or send timed out. </p>
+
+</div>
+</div>
+<a id="abcf38470ff9c0ab0c47582f8e654582a" name="abcf38470ff9c0ab0c47582f8e654582a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcf38470ff9c0ab0c47582f8e654582a">&#9670;&#160;</a></span>SOCKET_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::Ethernet::Wiznet::W5500::SOCKET_COUNT = 8U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Number of hardware sockets. </p>
 
 </div>
 </div>

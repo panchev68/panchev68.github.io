@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::CANPortBase&lt; T_DERIVED &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,107 +91,152 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../d1/dab/a05359.html">DeviceManager</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../df/d89/a01032.html">HAL</a></li><li class="navelem"><a href="../../d1/dab/a05359.html">CANPortBase</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../d3/d06/a05356.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::CANPortBase&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Forward declaration of the registry that owns the <a class="el" href="../../d3/dea/a05363.html" title="Device">Device</a> list links.  
+<p>CRTP foundation implementing the lifecycle and mailbox/FIFO policy shared by every transfer mode.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DEVICE, typename T_HANDLE&gt;<br />
-class Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;</div><p>Forward declaration of the registry that owns the <a class="el" href="../../d3/dea/a05363.html" title="Device">Device</a> list links. </p>
-<p>Process-wide registry that maps native HAL handles to their concrete CRTP drivers.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::HAL::CANPortBase&lt; T_DERIVED &gt;</div><p>CRTP foundation implementing the lifecycle and mailbox/FIFO policy shared by every transfer mode. </p>
+<p>Owns no state of its own, not even the native handle: it reaches it through 'derived()-&gt;getHandle()'. Blocking and interrupt-driven transfers use the same non-blocking HAL primitives (<b>HAL_CAN_AddTxMessage()</b> returns at once when a mailbox is free, <b>HAL_CAN_GetRxMessage()</b> only drains what is already latched), so <a class="el" href="#a65aa681fa591b2d0956e06e67e990b15" title="write()">write()</a> and <a class="el" href="#a19f3a9f56a84a6b351315710b9aa7cd4" title="read()">read()</a> live here once. Only how a caller learns that a mailbox freed up or a FIFO filled differs per mode.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_DEVICE</td><td>The concrete derived driver class implementation tracking this framework. </td></tr>
-    <tr><td class="paramname">T_HANDLE</td><td>Native micro-controller hardware handle descriptor structure type.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Registration and removal run under <a class="el" href="../../de/d76/a05879.html" title="RTOS::Kernel::CriticalSection">RTOS::Kernel::CriticalSection</a>, so an interrupt cannot observe a half-updated list. Lookups do not take the critical section.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_DEVICE</td><td>Concrete driver class derived from Device. </td></tr>
-    <tr><td class="paramname">T_HANDLE</td><td>Native STM32 HAL handle descriptor structure type. </td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>High-level concrete driver class owning the native handle. </td></tr>
   </table>
   </dd>
 </dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a20731f8c338ecda6068a2f416c8e9e97" id="r_a20731f8c338ecda6068a2f416c8e9e97"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a20731f8c338ecda6068a2f416c8e9e97">registerDevice</a> (T_DEVICE *device)</td></tr>
-<tr class="memdesc:a20731f8c338ecda6068a2f416c8e9e97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a concrete driver to the lookup list.  <br /></td></tr>
-<tr class="memitem:aa1c87169c3e9040cd552e10c08e0eee4" id="r_aa1c87169c3e9040cd552e10c08e0eee4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa1c87169c3e9040cd552e10c08e0eee4">unregisterDevice</a> (T_DEVICE *device) noexcept</td></tr>
-<tr class="memdesc:aa1c87169c3e9040cd552e10c08e0eee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a device from the lookup list.  <br /></td></tr>
-<tr class="memitem:a44399c0b88c31ab172615c8522506511" id="r_a44399c0b88c31ab172615c8522506511"><td class="memItemLeft">T_DEVICE *&#160;</td><td class="memItemRight"><a class="el" href="#a44399c0b88c31ab172615c8522506511">getDevice</a> (const T_HANDLE *handle) const</td></tr>
-<tr class="memdesc:a44399c0b88c31ab172615c8522506511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the registered device that owns a native handle by a linear search.  <br /></td></tr>
+<tr class="memitem:a49874a4fadbeed6acb5df1cd34d8b425" id="r_a49874a4fadbeed6acb5df1cd34d8b425"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> (const CANPortBase &amp;other)=delete</td></tr>
+<tr class="memdesc:a49874a4fadbeed6acb5df1cd34d8b425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memitem:a36fdf7b60492dfecc0b7bba144d57de0" id="r_a36fdf7b60492dfecc0b7bba144d57de0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a36fdf7b60492dfecc0b7bba144d57de0">CANPortBase</a> (CANPortBase &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a36fdf7b60492dfecc0b7bba144d57de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memitem:a472090855651f87bac97104e8a80dee6" id="r_a472090855651f87bac97104e8a80dee6"><td class="memItemLeft"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a472090855651f87bac97104e8a80dee6">operator=</a> (const <a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a472090855651f87bac97104e8a80dee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memitem:a9d5120e2646e18222b7569d1caeda00e" id="r_a9d5120e2646e18222b7569d1caeda00e"><td class="memItemLeft"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a9d5120e2646e18222b7569d1caeda00e">operator=</a> (<a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a9d5120e2646e18222b7569d1caeda00e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memitem:a37ea285eb3fe4ea3c94cb248cc1215d3" id="r_a37ea285eb3fe4ea3c94cb248cc1215d3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a37ea285eb3fe4ea3c94cb248cc1215d3">open</a> () noexcept</td></tr>
+<tr class="memdesc:a37ea285eb3fe4ea3c94cb248cc1215d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the CAN peripheral's core state machine.  <br /></td></tr>
+<tr class="memitem:a733145a4ed7d5fce544cdb2b2e298859" id="r_a733145a4ed7d5fce544cdb2b2e298859"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a733145a4ed7d5fce544cdb2b2e298859">close</a> () noexcept</td></tr>
+<tr class="memdesc:a733145a4ed7d5fce544cdb2b2e298859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Halts the CAN peripheral's core state machine.  <br /></td></tr>
+<tr class="memitem:a65aa681fa591b2d0956e06e67e990b15" id="r_a65aa681fa591b2d0956e06e67e990b15"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a65aa681fa591b2d0956e06e67e990b15">write</a> (uint32_t identifier, std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a65aa681fa591b2d0956e06e67e990b15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits a classic CAN frame to the first free transmit mailbox.  <br /></td></tr>
+<tr class="memitem:a19f3a9f56a84a6b351315710b9aa7cd4" id="r_a19f3a9f56a84a6b351315710b9aa7cd4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a19f3a9f56a84a6b351315710b9aa7cd4">read</a> (uint32_t fifoIndex, <a class="el" href="../../dd/dc9/a05355.html">CANFrame</a> &amp;frame) noexcept</td></tr>
+<tr class="memdesc:a19f3a9f56a84a6b351315710b9aa7cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads whatever frame is currently latched in the given hardware FIFO.  <br /></td></tr>
+<tr class="memitem:ac88a1857130f01ccafcb72baae483a84" id="r_ac88a1857130f01ccafcb72baae483a84"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ac88a1857130f01ccafcb72baae483a84">getFreeTxMailboxCount</a> () const noexcept</td></tr>
+<tr class="memdesc:ac88a1857130f01ccafcb72baae483a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports how many transmit mailboxes are currently free.  <br /></td></tr>
+<tr class="memitem:a7c5ae94d27408eb8d67405648fd2f154" id="r_a7c5ae94d27408eb8d67405648fd2f154"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a7c5ae94d27408eb8d67405648fd2f154">getRxFifoFillLevel</a> (uint32_t fifoIndex) const noexcept</td></tr>
+<tr class="memdesc:a7c5ae94d27408eb8d67405648fd2f154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports how many frames are currently latched in the given hardware FIFO.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a2832654a46fcf40b5673a27a282e278b" id="r_a2832654a46fcf40b5673a27a282e278b"><td class="memItemLeft">static DeviceManager &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2832654a46fcf40b5673a27a282e278b">instance</a> () noexcept</td></tr>
-<tr class="memdesc:a2832654a46fcf40b5673a27a282e278b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the process-wide registry instance.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a91a941265090b2ee4f3c05dbc2354fd9" id="r_a91a941265090b2ee4f3c05dbc2354fd9"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a91a941265090b2ee4f3c05dbc2354fd9">MAX_CLASSIC_CAN_PAYLOAD</a> = 8U</td></tr>
+<tr class="memdesc:a91a941265090b2ee4f3c05dbc2354fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum payload length of a classic (non-FD) CAN frame.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a3758c35d87fdeafd08f0cc9845888bea" id="r_a3758c35d87fdeafd08f0cc9845888bea"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3758c35d87fdeafd08f0cc9845888bea">CANPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:a3758c35d87fdeafd08f0cc9845888bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the CRTP foundation.  <br /></td></tr>
+<tr class="memitem:afe0c3c29da222264a12b2ade136c866c" id="r_afe0c3c29da222264a12b2ade136c866c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afe0c3c29da222264a12b2ade136c866c">~CANPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:afe0c3c29da222264a12b2ade136c866c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; owns no state of its own, so there is nothing to release here.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a44399c0b88c31ab172615c8522506511" name="a44399c0b88c31ab172615c8522506511"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44399c0b88c31ab172615c8522506511">&#9670;&#160;</a></span>getDevice()</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a49874a4fadbeed6acb5df1cd34d8b425" name="a49874a4fadbeed6acb5df1cd34d8b425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49874a4fadbeed6acb5df1cd34d8b425">&#9670;&#160;</a></span>CANPortBase() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_DEVICE, typename T_HANDLE&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T_DEVICE * <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::DeviceManager</a>&lt; T_DEVICE, T_HANDLE &gt;::getDevice </td>
+          <td class="memname"><a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::CANPortBase </td>
           <td>(</td>
-          <td class="paramtype">const T_HANDLE *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const CANPortBase&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Finds the registered device that owns a native handle by a linear search. </p>
+<p>Copying is deleted: each instance is bound to a unique 'T_DERIVED' driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Native handle to look up; compared by address. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The matching driver, or 'nullptr' if none is registered for the handle. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/d53/a06178.html#a6">Lib::HAL::DeviceManager</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="a2832654a46fcf40b5673a27a282e278b" name="a2832654a46fcf40b5673a27a282e278b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2832654a46fcf40b5673a27a282e278b">&#9670;&#160;</a></span>instance()</h2>
+<a id="a36fdf7b60492dfecc0b7bba144d57de0" name="a36fdf7b60492dfecc0b7bba144d57de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36fdf7b60492dfecc0b7bba144d57de0">&#9670;&#160;</a></span>CANPortBase() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_DEVICE, typename T_HANDLE&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">DeviceManager &amp; <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::DeviceManager</a>&lt; T_DEVICE, T_HANDLE &gt;::instance </td>
+          <td class="memname"><a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::CANPortBase </td>
+          <td>(</td>
+          <td class="paramtype">CANPortBase&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: each instance is bound to a unique 'T_DERIVED' driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3758c35d87fdeafd08f0cc9845888bea" name="a3758c35d87fdeafd08f0cc9845888bea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3758c35d87fdeafd08f0cc9845888bea">&#9670;&#160;</a></span>CANPortBase() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::CANPortBase </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -199,89 +244,353 @@ template&lt;typename T_DEVICE, typename T_HANDLE&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the process-wide registry instance. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the single registry instance, created on first use. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/d53/a06178.html#a3">Lib::HAL::DeviceManager</a>.</dd>
-</dl>
+<p>Constructs the CRTP foundation. </p>
+<p>Carries no state; the native handle lives on 'T_DERIVED'.</p>
+<p>Protected: the base only makes sense as part of a 'T_DERIVED' driver. </p>
 
 </div>
 </div>
-<a id="a20731f8c338ecda6068a2f416c8e9e97" name="a20731f8c338ecda6068a2f416c8e9e97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20731f8c338ecda6068a2f416c8e9e97">&#9670;&#160;</a></span>registerDevice()</h2>
+<a id="afe0c3c29da222264a12b2ade136c866c" name="afe0c3c29da222264a12b2ade136c866c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe0c3c29da222264a12b2ade136c866c">&#9670;&#160;</a></span>~CANPortBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_DEVICE, typename T_HANDLE&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::DeviceManager</a>&lt; T_DEVICE, T_HANDLE &gt;::registerDevice </td>
+          <td class="memname"><a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> </td>
           <td>(</td>
-          <td class="paramtype">T_DEVICE *</td>          <td class="paramname"><span class="paramname"><em>device</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Adds a concrete driver to the lookup list. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">device</td><td>Driver instance to register. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if stored, <b>false</b> if the pointer is null or its handle is already registered. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/d53/a06178.html#a4">Lib::HAL::DeviceManager</a>.</dd>
-</dl>
+<p>Destroys the object; owns no state of its own, so there is nothing to release here. </p>
+<p>Protected and non-virtual: it is never destroyed through a base pointer. </p>
 
 </div>
 </div>
-<a id="aa1c87169c3e9040cd552e10c08e0eee4" name="aa1c87169c3e9040cd552e10c08e0eee4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1c87169c3e9040cd552e10c08e0eee4">&#9670;&#160;</a></span>unregisterDevice()</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a733145a4ed7d5fce544cdb2b2e298859" name="a733145a4ed7d5fce544cdb2b2e298859"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a733145a4ed7d5fce544cdb2b2e298859">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_DEVICE, typename T_HANDLE&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::DeviceManager</a>&lt; T_DEVICE, T_HANDLE &gt;::unregisterDevice </td>
+          <td class="memname">bool <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::close </td>
           <td>(</td>
-          <td class="paramtype">T_DEVICE *</td>          <td class="paramname"><span class="paramname"><em>device</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes a device from the lookup list. </p>
+<p>Halts the CAN peripheral's core state machine. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware stop sequence succeeded, <em class="arg">false</em> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ac88a1857130f01ccafcb72baae483a84" name="ac88a1857130f01ccafcb72baae483a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88a1857130f01ccafcb72baae483a84">&#9670;&#160;</a></span>getFreeTxMailboxCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::getFreeTxMailboxCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports how many transmit mailboxes are currently free. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of free transmit mailboxes (0-3), or 0 if unbound. </dd></dl>
+
+</div>
+</div>
+<a id="a7c5ae94d27408eb8d67405648fd2f154" name="a7c5ae94d27408eb8d67405648fd2f154"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5ae94d27408eb8d67405648fd2f154">&#9670;&#160;</a></span>getRxFifoFillLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::getRxFifoFillLevel </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>fifoIndex</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports how many frames are currently latched in the given hardware FIFO. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">device</td><td>Driver instance to remove. </td></tr>
+    <tr><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer ('CAN_RX_FIFO0' or 'CAN_RX_FIFO1'). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if it was found and unlinked, <b>false</b> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of pending frames in the selected FIFO, or 0 if unbound. </dd></dl>
+
+</div>
+</div>
+<a id="a37ea285eb3fe4ea3c94cb248cc1215d3" name="a37ea285eb3fe4ea3c94cb248cc1215d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37ea285eb3fe4ea3c94cb248cc1215d3">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the CAN peripheral's core state machine. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware start sequence succeeded, <em class="arg">false</em> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a9d5120e2646e18222b7569d1caeda00e" name="a9d5120e2646e18222b7569d1caeda00e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d5120e2646e18222b7569d1caeda00e">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp; <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: each instance is bound to a unique 'T_DERIVED' driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a472090855651f87bac97104e8a80dee6" name="a472090855651f87bac97104e8a80dee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a472090855651f87bac97104e8a80dee6">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp; <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: each instance is bound to a unique 'T_DERIVED' driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a19f3a9f56a84a6b351315710b9aa7cd4" name="a19f3a9f56a84a6b351315710b9aa7cd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19f3a9f56a84a6b351315710b9aa7cd4">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>fifoIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/dc9/a05355.html">CANFrame</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads whatever frame is currently latched in the given hardware FIFO. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer ('CAN_RX_FIFO0' or 'CAN_RX_FIFO1'). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">frame</td><td>Output structure receiving the parsed message. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a valid frame was extracted from the selected hardware FIFO, <em class="arg">false</em> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a65aa681fa591b2d0956e06e67e990b15" name="a65aa681fa591b2d0956e06e67e990b15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65aa681fa591b2d0956e06e67e990b15">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::write </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Submits a classic CAN frame to the first free transmit mailbox. </p>
+<p>Returns as soon as the hardware accepts the frame into a mailbox. The bus transmission itself completes asynchronously and is observed through a mode-specific completion signal.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>Standard or Extended arbitration CAN frame ID. </td></tr>
+    <tr><td class="paramname">data</td><td>Payload bytes, at most 'MAX_CLASSIC_CAN_PAYLOAD' long. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware mailbox accepted the transmission, <em class="arg">false</em> otherwise. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a91a941265090b2ee4f3c05dbc2354fd9" name="a91a941265090b2ee4f3c05dbc2354fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a941265090b2ee4f3c05dbc2354fd9">&#9670;&#160;</a></span>MAX_CLASSIC_CAN_PAYLOAD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../d1/dab/a05359.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::MAX_CLASSIC_CAN_PAYLOAD = 8U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maximum payload length of a classic (non-FD) CAN frame. </p>
 
 </div>
 </div>

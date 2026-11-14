@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Timeout</title>
+<title>IAR EWARM Library: RTOS::Queue</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,58 +92,85 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Timeout</div></div>
+  <div class="headertitle"><div class="title">RTOS::Queue</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows tracking a deadline in a polling loop with <a class="el" href="../../d4/d36/a06279.html" title="RTOS::Timeout">RTOS::Timeout</a>.</p>
-<p>Shows tracking a deadline in a polling loop with RTOS::Timeout.Covers a timeout created from a duration, polled until it expires, restarted after a successful step, and disabled when no limit is needed. The timeout measures elapsed time with the scheduler tick count.</p>
+<p>Shows passing typed messages between a producer task and a consumer with an <a class="el" href="../../d4/d36/a06279.html" title="RTOS::Queue">RTOS::Queue</a>.</p>
+<p>Shows passing typed messages between a producer task and a consumer with an <a class="el" href="../../d4/d36/a06279.html" title="RTOS::Queue">RTOS::Queue</a>. Covers a queue of eight 32-bit samples with a blocking send and receive that take a timeout, and a latest-value queue of length one that uses <a class="el" href="../../d7/d57/a05931.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe" title="RTOS::Queue::overwrite()">RTOS::Queue::overwrite()</a>. Each element is copied into the queue, so the sender may reuse its variable immediately. Use the FromISR variants for sends and receives inside an interrupt handler.</p>
+<dl class="section important"><dt>Important</dt><dd>Open the queues from task context before any ISR uses them.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timeout_usage_poll"></a>
-Polling until a deadline</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d92/a00929.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="queue_usage_declare"></a>
+Declaring the queues</h3>
+<p>The second template argument is the length; it defaults to 1.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d82/a00920.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/d57/a05931.html">RTOS::Queue&lt;uint32_t, 8U&gt;</a> samples;</div>
+<div class="line">    <a class="code hl_class" href="../../d7/d57/a05931.html">RTOS::Queue&lt;uint32_t&gt;</a> latestSetpoint; <span class="comment">// Length 1 by default.</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00920_html"><div class="ttname"><a href="../../d6/d82/a00920.html">Queue.hpp</a></div><div class="ttdoc">Type-safe RAII wrapper for FreeRTOS queues.</div></div>
+<div class="ttc" id="aa05931_html"><div class="ttname"><a href="../../d7/d57/a05931.html">RTOS::Queue</a></div><div class="ttdoc">Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type.</div><div class="ttdef"><b>Definition</b> Queue.hpp:55</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="queue_usage_producer"></a>
+Producer task</h3>
+<p><a class="el" href="../../d7/d57/a05931.html#ab15322e6aead7ac29c01289b9be388d8" title="RTOS::Queue::send()">RTOS::Queue::send()</a> returns <em class="arg">false</em> and does not queue the item when the queue stays full for the whole timeout. <a class="el" href="../../d7/d57/a05931.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe" title="RTOS::Queue::overwrite()">RTOS::Queue::overwrite()</a> never blocks and replaces the single stored value.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d82/a00920.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> waitForReady() noexcept {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/df6/a05984.html">RTOS::Timeout</a> deadline(500ms);</div>
-<div class="line">    <span class="keywordflow">while</span> (!deadline.<a id="a1" name="a1"></a><a class="code hl_function" href="../../db/df6/a05984.html#a4264c550073d457fa8f6ca89e591a0e6">isExpired</a>()) {</div>
-<div class="line">        <span class="comment">// Poll the peripheral here.</span></div>
-<div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d26/a01035.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(10ms);</div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a class="code hl_class" href="../../d7/d57/a05931.html">RTOS::Queue&lt;uint32_t, 8U&gt;</a> samples;</div>
+<div class="line">    <a class="code hl_class" href="../../d7/d57/a05931.html">RTOS::Queue&lt;uint32_t&gt;</a> latestSetpoint;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> producerTask(<span class="keywordtype">void</span> * parameters) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!samples.open() || !latestSetpoint.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Not ready within 500 ms.</span></div>
+<div class="line"> </div>
+<div class="line">    uint32_t value = 0U;</div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(samples.send(value++, 10ms));</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(latestSetpoint.overwrite(value));</div>
+<div class="line">    }</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00884_html"><div class="ttname"><a href="../../dd/d08/a00884.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
-<div class="ttc" id="aa00929_html"><div class="ttname"><a href="../../dc/d92/a00929.html">Timeout.hpp</a></div><div class="ttdoc">FreeRTOS-compatible timeout management utility.</div></div>
-<div class="ttc" id="aa01035_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d26/a01035.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:604</div></div>
-<div class="ttc" id="aa05984_html"><div class="ttname"><a href="../../db/df6/a05984.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:33</div></div>
-<div class="ttc" id="aa05984_html_a4264c550073d457fa8f6ca89e591a0e6"><div class="ttname"><a href="../../db/df6/a05984.html#a4264c550073d457fa8f6ca89e591a0e6">RTOS::Timeout::isExpired</a></div><div class="ttdeci">bool isExpired() const noexcept</div><div class="ttdoc">Checks if the timeout duration has elapsed.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:140</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timeout_usage_restart"></a>
-Restarting and disabling</h3>
-<p><a class="el" href="../../db/df6/a05984.html#a4f719fdc728f4b1e2a6a3b33c747c32e" title="RTOS::Timeout::reset()">RTOS::Timeout::reset()</a> restarts the window from the current tick, and <a class="el" href="../../db/df6/a05984.html#a9f4c1790b62b338de5ee47cad756a53e" title="RTOS::Timeout::disable()">RTOS::Timeout::disable()</a> makes the timeout never expire until <a class="el" href="../../db/df6/a05984.html#a859711fa5327754ac08a5a5f7b6175ba" title="RTOS::Timeout::set()">RTOS::Timeout::set()</a> is called again.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d92/a00929.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="queue_usage_consumer"></a>
+Consumer task</h3>
+<p><a class="el" href="../../d7/d57/a05931.html#abe1cd4bde4ff79326492fd1d5c56ffc6" title="RTOS::Queue::receive()">RTOS::Queue::receive()</a> returns <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> when no item arrives within the timeout.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d82/a00920.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> restartWindows() noexcept {</div>
-<div class="line">    <a class="code hl_class" href="../../db/df6/a05984.html">RTOS::Timeout</a> unlimited(1s);</div>
-<div class="line">    unlimited.<a id="a3" name="a3"></a><a class="code hl_function" href="../../db/df6/a05984.html#a9f4c1790b62b338de5ee47cad756a53e">disable</a>();</div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a class="code hl_class" href="../../d7/d57/a05931.html">RTOS::Queue&lt;uint32_t, 8U&gt;</a> samples;</div>
+<div class="line">}</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="../../db/df6/a05984.html">RTOS::Timeout</a> retry(200ms);</div>
-<div class="line">    retry.<a id="a4" name="a4"></a><a class="code hl_function" href="../../db/df6/a05984.html#a4f719fdc728f4b1e2a6a3b33c747c32e">reset</a>();</div>
-<div class="line">    <span class="keywordflow">if</span> (retry.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/df6/a05984.html#a9960d8cda67ce72d1c02dcd7d3608066">getRemainingTicks</a>() &gt; 0U) {</div>
-<div class="line">        <span class="comment">// Still inside the window.</span></div>
+<div class="line"><span class="keywordtype">void</span> consumerTask(<span class="keywordtype">void</span> * parameters) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="keywordflow">if</span> (<span class="keyword">const</span> <a id="_a1" name="_a1"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint32_t&gt;</a> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01702.html#a483f29861e583496e66e73e420ae7ab8">sample</a> = samples.receive(100ms); <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01702.html#a483f29861e583496e66e73e420ae7ab8">sample</a>.has_value()) {</div>
+<div class="line">            <span class="comment">// Process *sample.</span></div>
+<div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05984_html_a4f719fdc728f4b1e2a6a3b33c747c32e"><div class="ttname"><a href="../../db/df6/a05984.html#a4f719fdc728f4b1e2a6a3b33c747c32e">RTOS::Timeout::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdoc">Restarts the clock at the current tick, keeping the configured duration; does nothing if disabled.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:125</div></div>
-<div class="ttc" id="aa05984_html_a9960d8cda67ce72d1c02dcd7d3608066"><div class="ttname"><a href="../../db/df6/a05984.html#a9960d8cda67ce72d1c02dcd7d3608066">RTOS::Timeout::getRemainingTicks</a></div><div class="ttdeci">TickType getRemainingTicks() const noexcept</div><div class="ttdoc">Retrieves the remaining ticks until expiration.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:152</div></div>
-<div class="ttc" id="aa05984_html_a9f4c1790b62b338de5ee47cad756a53e"><div class="ttname"><a href="../../db/df6/a05984.html#a9f4c1790b62b338de5ee47cad756a53e">RTOS::Timeout::disable</a></div><div class="ttdeci">void disable() noexcept</div><div class="ttdoc">Disables the timeout.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:96</div></div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa01702_html_a483f29861e583496e66e73e420ae7ab8"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01702.html#a483f29861e583496e66e73e420ae7ab8">sample</a></div><div class="ttdeci">_SampleIterator sample(_PopulationIterator __first, _PopulationIterator __last, _SampleIterator __out, _Distance __n, _UniformRandomNumberGenerator &amp;&amp;__g)</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

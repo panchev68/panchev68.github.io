@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::INA219</title>
+<title>IAR EWARM Library: Lib::BSP::EEPROM::FlashEmulation</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,88 +92,77 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::INA219</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::EEPROM::FlashEmulation</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates two <a class="el" href="../../de/d49/a06155.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.</p>
-<p>Demonstrates two <a class="el" href="../../de/d49/a06155.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.The battery channel reports signed current, so power turns negative while charging. The motor channel uses <a class="el" href="../../d2/d6b/a04334.html#a12dbe47287cc8ea3e6057097e7679d5baab6c31432785221bae58327ef5f6ea58" title="Lib::BSP::INA219::Polarity::POSITIVE">Lib::BSP::INA219::Polarity::POSITIVE</a> with a 20 mA offset to hide noise around zero. A reading comes back as <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on a bus failure or when the shunt ADC saturates. Both monitors are initialized before the task starts and then used only from that task, since the driver is not thread-safe. With 128-sample averaging each result takes tens of milliseconds, so polling faster than a few times per second gains nothing.</p>
+<p>Keeps a boot counter and a calibration structure in the two flash pages reserved for the emulated EEPROM.</p>
+<p>Keeps a boot counter and a calibration structure in the two flash pages reserved for the emulated EEPROM.Each value has its own 16-bit key and its own length, so the counter and the calibration are stored side by side. A missing key reads as <b>0</b> bytes, which lets the first boot start from defaults. Every <a class="el" href="../../d8/d3a/a04439.html#a063c0d9941fea672cb74a10cb66f281e" title="Lib::BSP::EEPROM::FlashEmulation::write()">Lib::BSP::EEPROM::FlashEmulation::write()</a> of a changed value appends a record, and the emulation compacts the pages when the active one is full.</p>
+<dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="../../d8/d3a/a04439.html#a8947a65dd4bc123a43147aadad6d5328" title="Lib::BSP::EEPROM::FlashEmulation::open()">Lib::BSP::EEPROM::FlashEmulation::open()</a> before the first read() or write(); calling it again is harmless. Call it only from a task, never from an ISR.</dd>
+<dd>
+Target: STM32U5 with <em class="arg">HAL_FLASH_MODULE_ENABLED</em> defined. The header is written for the STM32U5 flash layout (16-byte quadword programming, page and bank addressing); it is not a supported driver on STM32F407.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Each boot writes the counter once, so frequent resets wear the flash. Store the counter less often when the device restarts many times.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="ina219_usage_task"></a>
-Battery and motor channels polled from one task</h3>
-<p><a class="el" href="../../d2/d6b/a04334.html#a1b96174980d4785dbabfcaa110656cbe" title="Lib::BSP::INA219::init()">Lib::BSP::INA219::init()</a> configures both monitors before the task starts. <a class="el" href="../../d2/d6b/a04334.html#a1aa8cad61e1ccdb3899c6929726963fd" title="Lib::BSP::INA219::readVoltage()">Lib::BSP::INA219::readVoltage()</a> and <a class="el" href="../../d2/d6b/a04334.html#abb224ceec2374ac08e8ea58d3c898ab6" title="Lib::BSP::INA219::readCurrent()">Lib::BSP::INA219::readCurrent()</a> each return <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html" title="std::optional">std::optional</a>, so check for a value before using it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d9a/a00218.html">Lib/BSP/CurrentAndPowerMonitor/INA219.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/df2/a00656.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/de9/a00923.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="flashemu_usage_values"></a>
+Boot counter and calibration</h3>
+<p>A key read as <b>0</b> bytes starts from the default value. Read the value into a buffer of its size, compare the returned length with that size, and write back only what changed.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/da9/a00263.html">Lib/BSP/EEPROM/Internal/FlashEmulation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00314.html">cstring</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1; <span class="comment">// Generated by CubeMX in main.c.</span></div>
+<div class="line"><span class="keyword">namespace </span>{</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line">    <span class="keyword">constexpr</span> uint16_t KEY_BOOT_COUNT = 1U;  <span class="comment">// Number of boots, 4 bytes.</span></div>
+<div class="line">    <span class="keyword">constexpr</span> uint16_t KEY_CALIBRATION = 2U; <span class="comment">// Calibration structure.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>PowerMonitor final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">struct </span>Calibration {</div>
+<div class="line">        int16_t offset; <span class="comment">// Sensor offset in millimetres.</span></div>
+<div class="line">        uint16_t gain;  <span class="comment">// Gain in 1/1000 units.</span></div>
+<div class="line">    };</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">using </span>Monitor = <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d2/d6b/a04334.html">Lib::BSP::INA219&lt;Lib::HAL::DriverMode::BLOCKING&gt;</a>;</div>
+<div class="line">    <span class="comment">// Reserve the two pages in the linker script; the base must be page aligned and both pages must lie in one bank.</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d8/d3a/a04439.html">Lib::BSP::EEPROM::FlashEmulation</a> eeprom{0x081FC000U};</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!battery.init() || !motor.init()) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        task.setup({<span class="stringliteral">&quot;Power&quot;</span>, 256, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../de/d4a/a05946.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a>});</div>
-<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
+<div class="line">} <span class="comment">// namespace</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> startup() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!eeprom.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// The area could not be prepared; run with the default settings.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; i2cPort{&amp;hi2c1}; <span class="comment">///&lt; Bus shared by both monitors.</span></div>
-<div class="line"> </div>
-<div class="line">    Monitor battery{{</div>
-<div class="line">        .i2cPort = i2cPort,</div>
-<div class="line">        .i2cAddr = 0x40,</div>
-<div class="line">        .shuntResistorOhms = 0.1F,</div>
-<div class="line">    }}; <span class="comment">///&lt; Charge and discharge: signed current.</span></div>
-<div class="line"> </div>
-<div class="line">    Monitor motor{{</div>
-<div class="line">        .i2cPort = i2cPort,</div>
-<div class="line">        .i2cAddr = 0x41,</div>
-<div class="line">        .shuntResistorOhms = 0.01F,</div>
-<div class="line">        .correction = {.polarity = Monitor::Polarity::POSITIVE, .offsetAmperes = 0.02F},</div>
-<div class="line">    }}; <span class="comment">///&lt; Load only: magnitude above a 20 mA noise floor.</span></div>
-<div class="line"> </div>
-<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../df/de3/a05942.html">RTOS::Task</a> task;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keyword">const</span> <a id="_a5" name="_a5"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> volts = battery.readVoltage();</div>
-<div class="line">            <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> amperes = battery.readCurrent();</div>
-<div class="line">            <span class="keywordflow">if</span> (volts &amp;&amp; amperes) {</div>
-<div class="line">                [[maybe_unused]] <span class="keyword">const</span> <span class="keywordtype">float</span> watts = *volts * *amperes; <span class="comment">// Negative while charging.</span></div>
-<div class="line">            }</div>
-<div class="line"> </div>
-<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> motorAmperes = motor.readCurrent(); !motorAmperes) {</div>
-<div class="line">                <span class="comment">// Bus failure or shunt saturated: the true current is above the +-320 mV range.</span></div>
-<div class="line">            }</div>
-<div class="line"> </div>
-<div class="line">            <a id="a6" name="a6"></a><a class="code hl_function" href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(250ms);</div>
-<div class="line">        }</div>
+<div class="line">    <span class="comment">// Boot counter: a missing key reads as 0 bytes, so the first boot starts from 0.</span></div>
+<div class="line">    uint32_t bootCount = 0U;</div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <span class="keyword">sizeof</span>(bootCount)&gt; rawCount{};</div>
+<div class="line">    <span class="keywordflow">if</span> (eeprom.read(KEY_BOOT_COUNT, rawCount) == rawCount.size()) {</div>
+<div class="line">        std::memcpy(&amp;bootCount, rawCount.data(), <span class="keyword">sizeof</span>(bootCount));</div>
 <div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa00218_html"><div class="ttname"><a href="../../dc/d9a/a00218.html">INA219.hpp</a></div><div class="ttdoc">Declares the BSP driver template for the INA219 current and power monitor on a HAL I2C port.</div></div>
-<div class="ttc" id="aa00656_html"><div class="ttname"><a href="../../dc/df2/a00656.html">I2C.hpp</a></div><div class="ttdoc">Public umbrella include for the I2C subsystem, exposing the master-only &#39;I2CPort&#39; in all three modes.</div></div>
-<div class="ttc" id="aa00887_html"><div class="ttname"><a href="../../d7/d92/a00887.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
-<div class="ttc" id="aa00923_html"><div class="ttname"><a href="../../df/de9/a00923.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
-<div class="ttc" id="aa01029_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
-<div class="ttc" id="aa01452_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
-<div class="ttc" id="aa04334_html"><div class="ttname"><a href="../../d2/d6b/a04334.html">Lib::BSP::INA219</a></div><div class="ttdoc">Driver for the INA219 high-side current and power monitor.</div><div class="ttdef"><b>Definition</b> INA219.hpp:36</div></div>
-<div class="ttc" id="aa05942_html"><div class="ttname"><a href="../../df/de3/a05942.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
-<div class="ttc" id="aa05946_html_a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a"><div class="ttname"><a href="../../de/d4a/a05946.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a></div><div class="ttdeci">@ LOW</div><div class="ttdoc">Low priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:86</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+<div class="line">    ++bootCount;</div>
+<div class="line">    std::memcpy(rawCount.data(), &amp;bootCount, <span class="keyword">sizeof</span>(bootCount));</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(eeprom.write(KEY_BOOT_COUNT, rawCount));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Calibration: read it, or keep the defaults when it is missing or of another size.</span></div>
+<div class="line">    Calibration calibration{0, 1000U};</div>
+<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <span class="keyword">sizeof</span>(Calibration)&gt; rawCalibration{};</div>
+<div class="line">    <span class="keywordflow">if</span> (eeprom.read(KEY_CALIBRATION, rawCalibration) == rawCalibration.size()) {</div>
+<div class="line">        std::memcpy(&amp;calibration, rawCalibration.data(), <span class="keyword">sizeof</span>(calibration));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Store a new calibration after the user changes it.</span></div>
+<div class="line">    calibration.offset = 12;</div>
+<div class="line">    std::memcpy(rawCalibration.data(), &amp;calibration, <span class="keyword">sizeof</span>(calibration));</div>
+<div class="line">    <span class="keywordflow">if</span> (!eeprom.write(KEY_CALIBRATION, rawCalibration)) {</div>
+<div class="line">        <span class="comment">// The flash refused the record; keep the value in RAM and report the fault.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00263_html"><div class="ttname"><a href="../../df/da9/a00263.html">FlashEmulation.hpp</a></div><div class="ttdoc">EEPROM emulation in the internal flash of an STM32U5 microcontroller, for small key-value settings an...</div></div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00314_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00314.html">cstring</a></div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="ttc" id="aa04439_html"><div class="ttname"><a href="../../d8/d3a/a04439.html">Lib::BSP::EEPROM::FlashEmulation</a></div><div class="ttdoc">Stores 16-bit keyed records in two erasable flash pages, appended as a log and compacted when a page ...</div><div class="ttdef"><b>Definition</b> FlashEmulation.hpp:61</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

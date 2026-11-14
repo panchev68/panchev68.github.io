@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS</title>
+<title>IAR EWARM Library: Lib::Errors</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -89,400 +89,62 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../de/d02/a01026.html">Errors</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">RTOS</div></div>
+<a href="#typedef-members">Typedefs</a>  </div>
+  <div class="headertitle"><div class="title">Lib::Errors</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>C++20 RAII wrappers over FreeRTOS primitives. </p>
-<p>Provides type-safe classes for tasks, queues, message and stream buffers, semaphores, mutexes, timers, event groups, tick helpers and the kernel and power-management calls, so application code reaches for these wrappers instead of raw FreeRTOS calls. </p>
+<div class="textblock"><p>Centralized error creation, state tracking and observation. </p>
+<p>The <a class="el" href="#a32937fedfac156d84189cbf2133bd0ab" title="Lib::Errors::Dispatcher">Lib::Errors::Dispatcher</a> singleton owns every <a class="el" href="../../d7/d48/a05183.html" title="Lib::Errors::Error">Lib::Errors::Error</a> created through <em class="arg">createError()</em> and periodically scans them for state transitions. <a class="el" href="../../dc/d65/a05195.html" title="Lib::Errors::Observer">Lib::Errors::Observer</a> provides the pull-based read side, which can be filtered by <a class="el" href="../../db/d48/a05187.html" title="Lib::Errors::Group">Lib::Errors::Group</a>. </p>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:Detail" id="r_Detail"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../dd/dfd/a01027.html">Detail</a></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:EventGroup" id="r_EventGroup"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d7d/a05860.html">EventGroup</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owning wrapper of a FreeRTOS event group, letting tasks wait on several flags at once.  <a href="../../d8/d7d/a05860.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Kernel" id="r_Kernel"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/d49/a05864.html">Kernel</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static utility class providing kernel-level control and diagnostics.  <a href="../../db/d49/a05864.html#details">More...</a><br /></td></tr>
-<tr class="memitem:MemoryManager" id="r_MemoryManager"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d6/dd1/a05888.html">MemoryManager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static utility class for managing heap memory in FreeRTOS.  <a href="../../d6/dd1/a05888.html#details">More...</a><br /></td></tr>
-<tr class="memitem:MessageBuffer" id="r_MessageBuffer"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d3/da5/a05892.html">MessageBuffer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owner of a FreeRTOS message buffer handle.  <a href="../../d3/da5/a05892.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Mutex" id="r_Mutex"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/dd4/a05896.html">Mutex</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Priority-inheriting mutual exclusion lock, normal or recursive.  <a href="../../d5/dd4/a05896.html#details">More...</a><br /></td></tr>
-<tr class="memitem:MutexGuard" id="r_MutexGuard"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d9b/a05900.html">MutexGuard</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scope-based lock guard for <a class="el" href="../../dd/d91/a06248.html" title="RTOS::Mutex">RTOS::Mutex</a>, in the style of <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06570.html" title="std::lock_guard">std::lock_guard</a>.  <a href="../../d3/d9b/a05900.html#details">More...</a><br /></td></tr>
-<tr class="memitem:PowerManager" id="r_PowerManager"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dd/d2a/a05904.html">PowerManager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages low-power states and peripheral synchronization for the RTOS tickless idle mechanism.  <a href="../../dd/d2a/a05904.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Queue" id="r_Queue"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/d98/a05916.html">Queue</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type.  <a href="../../d5/d98/a05916.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Semaphore" id="r_Semaphore"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/dbf/a05920.html">Semaphore</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binary semaphore resource manager for task and ISR synchronization.  <a href="../../db/dbf/a05920.html#details">More...</a><br /></td></tr>
-<tr class="memitem:SemaphoreBase" id="r_SemaphoreBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d4/dde/a05924.html">SemaphoreBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common take/give logic and handle ownership for the FreeRTOS semaphore wrappers, shared through CRTP.  <a href="../../d4/dde/a05924.html#details">More...</a><br /></td></tr>
-<tr class="memitem:SemaphoreCounting" id="r_SemaphoreCounting"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/dec/a05928.html">SemaphoreCounting</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counting semaphore resource manager for tracking multiple resource instances or queued events.  <a href="../../d8/dec/a05928.html#details">More...</a><br /></td></tr>
-<tr class="memitem:StreamBuffer" id="r_StreamBuffer"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/dc3/a05932.html">StreamBuffer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owner of a FreeRTOS stream buffer handle.  <a href="../../dc/dc3/a05932.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Task" id="r_Task"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d35/a05936.html">Task</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII-managed FreeRTOS task abstraction.  <a href="../../d7/d35/a05936.html#details">More...</a><br /></td></tr>
-<tr class="memitem:TickClient" id="r_TickClient"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d3f/a05960.html">TickClient</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII owner of a periodic FreeRTOS software timer that calls <em class="arg">handleTickEvent()</em> of the derived class on every expiry.  <a href="../../d8/d3f/a05960.html#details">More...</a><br /></td></tr>
-<tr class="memitem:TickCounter" id="r_TickCounter"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dd/d44/a05968.html">TickCounter</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static utility class for reading the system tick count and converting between ticks and time units.  <a href="../../dd/d44/a05968.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Timeout" id="r_Timeout"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d4e/a05972.html">Timeout</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for tracking time-based event timeouts.  <a href="../../d1/d4e/a05972.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Timer" id="r_Timer"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d3c/a05976.html">Timer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII wrapper for managing FreeRTOS software timer resources.  <a href="../../d7/d3c/a05976.html#details">More...</a><br /></td></tr>
+<tr class="memitem:BasicDispatcher" id="r_BasicDispatcher"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d07/a05175.html">BasicDispatcher</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owns every constructed error and periodically scans it for state changes through an <a class="el" href="../../d2/df2/a06291.html" title="RTOS::TickClient">RTOS::TickClient</a>.  <a href="../../dc/d07/a05175.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Error" id="r_Error"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d48/a05183.html">Error</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ready-made error without extra behavior, used by the default <a class="el" href="#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher">Dispatcher</a>.  <a href="../../d7/d48/a05183.html#details">More...</a><br /></td></tr>
+<tr class="memitem:ErrorBase" id="r_ErrorBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/daa/a05179.html">ErrorBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP foundation tracking a single error condition through an explicit lifecycle.  <a href="../../dc/daa/a05179.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Group" id="r_Group"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/d48/a05187.html">Group</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A named category that <a class="el" href="../../d7/d48/a05183.html" title="Error">Error</a> instances can be tagged with, and that <a class="el" href="../../dc/d65/a05195.html" title="Observer">Observer</a> can filter by.  <a href="../../db/d48/a05187.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Observer" id="r_Observer"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d65/a05195.html">Observer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ready-made observer using the default group filter of <a class="el" href="../../de/d61/a05191.html" title="ObserverBase">ObserverBase</a>.  <a href="../../dc/d65/a05195.html#details">More...</a><br /></td></tr>
+<tr class="memitem:ObserverBase" id="r_ObserverBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d61/a05191.html">ObserverBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP foundation reading active errors from the <a class="el" href="#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher">Dispatcher</a>, optionally restricted to a single <a class="el" href="../../db/d48/a05187.html" title="Group">Group</a>.  <a href="../../de/d61/a05191.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ab892d206cb79c31e373b3631e023b644" id="r_ab892d206cb79c31e373b3631e023b644"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:ab892d206cb79c31e373b3631e023b644 template"><td class="memItemLeft">constexpr <a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab892d206cb79c31e373b3631e023b644">durationToTicks</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; duration) noexcept</td></tr>
-<tr class="memdesc:ab892d206cb79c31e373b3631e023b644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a duration to scheduler ticks, rounding up so the resulting wait is never shorter than requested.  <br /></td></tr>
-<tr class="memitem:a5c21e23f0bba6fde645ac808660b30f8" id="r_a5c21e23f0bba6fde645ac808660b30f8"><td class="memItemLeft">constexpr <a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5c21e23f0bba6fde645ac808660b30f8">millisecondsToTicks</a> (int64_t milliseconds<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">milliseconds</a>) noexcept</td></tr>
-<tr class="memdesc:a5c21e23f0bba6fde645ac808660b30f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a raw millisecond count to the equivalent FreeRTOS tick count, rounding up to the nearest whole tick.  <br /></td></tr>
-<tr class="memitem:a974867cff953c89df2c50da604d4b606" id="r_a974867cff953c89df2c50da604d4b606"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a974867cff953c89df2c50da604d4b606">inISR</a> () noexcept</td></tr>
-<tr class="memdesc:a974867cff953c89df2c50da604d4b606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free-function form of <a class="el" href="../../db/d49/a05864.html#a6695f15f6fcc8336d691de6aca8f06a2" title="Kernel::inISR()">Kernel::inISR()</a>.  <br /></td></tr>
-<tr class="memitem:a9457a17b234e2e6b6336f69c9f756021" id="r_a9457a17b234e2e6b6336f69c9f756021"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a9457a17b234e2e6b6336f69c9f756021 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9457a17b234e2e6b6336f69c9f756021">delay</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; duration) noexcept</td></tr>
-<tr class="memdesc:a9457a17b234e2e6b6336f69c9f756021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for a specific duration, rounded up to whole ticks.  <br /></td></tr>
-<tr class="memitem:a0960b26725ee8ac0c2798f5d3036b37a" id="r_a0960b26725ee8ac0c2798f5d3036b37a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0960b26725ee8ac0c2798f5d3036b37a">delay</a> (<a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> duration) noexcept</td></tr>
-<tr class="memdesc:a0960b26725ee8ac0c2798f5d3036b37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for a specific tick count.  <br /></td></tr>
-<tr class="memitem:a071ed92c20109dd07c3785eb87914136" id="r_a071ed92c20109dd07c3785eb87914136"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a071ed92c20109dd07c3785eb87914136">delayUntil</a> (<a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> targetTick) noexcept</td></tr>
-<tr class="memdesc:a071ed92c20109dd07c3785eb87914136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution until a target system tick is reached.  <br /></td></tr>
-<tr class="memitem:aeaddd65089a8190241b5922399d6168c" id="r_aeaddd65089a8190241b5922399d6168c"><td class="memTemplParams" colspan="2">template&lt;typename Clock, typename Duration&gt; </td></tr>
-<tr class="memitem:aeaddd65089a8190241b5922399d6168c template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aeaddd65089a8190241b5922399d6168c">delayUntil</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04262.html">std::chrono::time_point</a>&lt; Clock, Duration &gt; target) noexcept</td></tr>
-<tr class="memdesc:aeaddd65089a8190241b5922399d6168c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution until a target time point.  <br /></td></tr>
-<tr class="memitem:aa54eb7aeffc794961e60ade51c195480" id="r_aa54eb7aeffc794961e60ade51c195480"><td class="memItemLeft"><a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa54eb7aeffc794961e60ade51c195480">getTickCount</a> () noexcept</td></tr>
-<tr class="memdesc:aa54eb7aeffc794961e60ade51c195480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves current system tick count.  <br /></td></tr>
-<tr class="memitem:a80d033e9ce70fec78bacaa61cc1221bf" id="r_a80d033e9ce70fec78bacaa61cc1221bf"><td class="memItemLeft"><a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a80d033e9ce70fec78bacaa61cc1221bf">getTickCountFromISR</a> () noexcept</td></tr>
-<tr class="memdesc:a80d033e9ce70fec78bacaa61cc1221bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves current system tick count from an ISR context.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a32937fedfac156d84189cbf2133bd0ab" id="r_a32937fedfac156d84189cbf2133bd0ab"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a32937fedfac156d84189cbf2133bd0ab">Dispatcher</a> = <a class="el" href="../../dc/d07/a05175.html">BasicDispatcher</a>&lt;<a class="el" href="../../d7/d48/a05183.html">Error</a>&gt;</td></tr>
+<tr class="memdesc:a32937fedfac156d84189cbf2133bd0ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatcher for the plain <a class="el" href="../../d7/d48/a05183.html" title="Error">Error</a> type.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a0960b26725ee8ac0c2798f5d3036b37a" name="a0960b26725ee8ac0c2798f5d3036b37a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0960b26725ee8ac0c2798f5d3036b37a">&#9670;&#160;</a></span>delay() <span class="overload">[1/2]</span></h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a id="a32937fedfac156d84189cbf2133bd0ab" name="a32937fedfac156d84189cbf2133bd0ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32937fedfac156d84189cbf2133bd0ab">&#9670;&#160;</a></span>Dispatcher</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void RTOS::delay </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a></td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
-          <td></td>
+          <td class="memname">using <a class="el" href="#a32937fedfac156d84189cbf2133bd0ab">Lib::Errors::Dispatcher</a> = <a class="el" href="../../dc/d07/a05175.html">BasicDispatcher</a>&lt;<a class="el" href="../../d7/d48/a05183.html">Error</a>&gt;</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Delays execution for a specific tick count. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">duration</td><td>Duration in ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a9457a17b234e2e6b6336f69c9f756021" name="a9457a17b234e2e6b6336f69c9f756021"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9457a17b234e2e6b6336f69c9f756021">&#9670;&#160;</a></span>delay() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::delay </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Delays execution for a specific duration, rounded up to whole ticks. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Duration representation. </td></tr>
-    <tr><td class="paramname">Period</td><td>Duration period ratio. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">duration</td><td>Time duration to block. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/da4/a06136.html#a5">Lib::BSP::Beep</a>, <a class="el" href="../../d5/db3/a06144.html#a6">Lib::BSP::EncoderTimer</a>, <a class="el" href="../../d6/d30/a06150.html#a6">Lib::BSP::INA219</a>, <a class="el" href="../../d4/dac/a06156.html#a9">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a>, <a class="el" href="../../dc/d55/a06164.html#a5">Lib::HAL::ADCPort</a>, <a class="el" href="../../d7/d53/a06178.html#a4">Lib::HAL::HASHPort</a>, <a class="el" href="../../d1/d27/a06180.html#a8">Lib::HAL::I2CPort</a>, <a class="el" href="../../d4/dfc/a06182.html#a4">Lib::HAL::IndependentWatchdog</a>, <a class="el" href="../../d8/df6/a06194.html#a10">Lib::HAL::SPIPort</a>, <a class="el" href="../../d6/d0b/a06214.html#a4">Lib::HAL::WindowWatchdog</a>, <a class="el" href="../../d8/d23/a06242.html#a3">RTOS::Kernel</a>, and <a class="el" href="../../df/d41/a06270.html#a2">RTOS::Timeout</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a071ed92c20109dd07c3785eb87914136" name="a071ed92c20109dd07c3785eb87914136"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a071ed92c20109dd07c3785eb87914136">&#9670;&#160;</a></span>delayUntil() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::delayUntil </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a></td>          <td class="paramname"><span class="paramname"><em>targetTick</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Delays execution until a target system tick is reached. </p>
-<p>Safe across tick counter wraparound.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">targetTick</td><td>Target tick value; if already in the past, returns immediately without delaying. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aeaddd65089a8190241b5922399d6168c" name="aeaddd65089a8190241b5922399d6168c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaddd65089a8190241b5922399d6168c">&#9670;&#160;</a></span>delayUntil() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Clock, typename Duration&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::delayUntil </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04262.html">std::chrono::time_point</a>&lt; Clock, Duration &gt;</td>          <td class="paramname"><span class="paramname"><em>target</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Delays execution until a target time point. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Clock</td><td>Chrono clock type. </td></tr>
-    <tr><td class="paramname">Duration</td><td>Chrono duration type. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">target</td><td>Target time point; if already in the past, returns immediately without delaying. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab892d206cb79c31e373b3631e023b644" name="ab892d206cb79c31e373b3631e023b644"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab892d206cb79c31e373b3631e023b644">&#9670;&#160;</a></span>durationToTicks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> RTOS::durationToTicks </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts a duration to scheduler ticks, rounding up so the resulting wait is never shorter than requested. </p>
-<p>The single conversion every wrapper uses for its overloads taking a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>. Non-positive durations yield <b>0</b>; durations beyond the tick range saturate at the largest tick value, which equals <em class="arg">portMAX_DELAY</em> (wait forever). The duration must be representable as a 64-bit tick count.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Duration representation. </td></tr>
-    <tr><td class="paramname">Period</td><td>Duration period ratio. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">duration</td><td>Duration to convert. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Equivalent tick count. </dd></dl>
-
-</div>
-</div>
-<a id="aa54eb7aeffc794961e60ade51c195480" name="aa54eb7aeffc794961e60ade51c195480"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa54eb7aeffc794961e60ade51c195480">&#9670;&#160;</a></span>getTickCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> RTOS::getTickCount </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves current system tick count. </p>
-<p>Must be called from task context.</p>
-<dl class="section return"><dt>Returns</dt><dd>Tick count. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d23/a06242.html#a2">RTOS::Kernel</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a80d033e9ce70fec78bacaa61cc1221bf" name="a80d033e9ce70fec78bacaa61cc1221bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80d033e9ce70fec78bacaa61cc1221bf">&#9670;&#160;</a></span>getTickCountFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> RTOS::getTickCountFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves current system tick count from an ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>Tick count. </dd></dl>
-
-</div>
-</div>
-<a id="a974867cff953c89df2c50da604d4b606" name="a974867cff953c89df2c50da604d4b606"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a974867cff953c89df2c50da604d4b606">&#9670;&#160;</a></span>inISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::inISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Free-function form of <a class="el" href="../../db/d49/a05864.html#a6695f15f6fcc8336d691de6aca8f06a2" title="Kernel::inISR()">Kernel::inISR()</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if in ISR. </dd></dl>
-
-</div>
-</div>
-<a id="a5c21e23f0bba6fde645ac808660b30f8" name="a5c21e23f0bba6fde645ac808660b30f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c21e23f0bba6fde645ac808660b30f8">&#9670;&#160;</a></span>millisecondsToTicks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d49/a05864.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> RTOS::millisecondsToTicks </td>
-          <td>(</td>
-          <td class="paramtype">int64_t</td>          <td class="paramname"><span class="paramname"><em>milliseconds</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts a raw millisecond count to the equivalent FreeRTOS tick count, rounding up to the nearest whole tick. </p>
-<p>Kept for legacy call sites only; pass the <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> itself to <a class="el" href="#ab892d206cb79c31e373b3631e023b644" title="RTOS::durationToTicks()">RTOS::durationToTicks()</a> or to the duration overload of the consuming API instead of unwrapping it with <em class="arg">count()</em>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">milliseconds</td><td>Duration in milliseconds; must be non-negative. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Equivalent tick count, saturated at <em class="arg">portMAX_DELAY</em>.</dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="../../d7/d98/a00983.html#_deprecated000001">Deprecated</a></b></dt><dd>Pass a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> to <a class="el" href="#ab892d206cb79c31e373b3631e023b644" title="RTOS::durationToTicks()">RTOS::durationToTicks()</a> instead. </dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="../../d7/d98/a00983.html#_deprecated000002">Deprecated</a></b></dt><dd>pass a std::chrono duration to durationToTicks() instead</dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="../../d7/d98/a00983.html#_deprecated000003">Deprecated</a></b></dt><dd>pass a std::chrono duration to durationToTicks() instead</dd></dl>
+<p>Dispatcher for the plain <a class="el" href="../../d7/d48/a05183.html" title="Error">Error</a> type. </p>
 
 </div>
 </div>

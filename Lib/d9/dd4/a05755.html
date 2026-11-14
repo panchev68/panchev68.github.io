@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::Sunset</title>
+<title>IAR EWARM Library: Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,82 +91,156 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/dcd/a01023.html">Helper</a></li><li class="navelem"><a href="../../d9/dd4/a05755.html">Sunset</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../de/d26/a01035.html">Helper</a></li><li class="navelem"><a href="../../d9/dd4/a05755.html">RingBuffer</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../da/d85/a05752.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Helper::Sunset<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Computes solar events (sunrise and sunset) for a stored location, UTC offset and date.  
+<p>Fixed-capacity FIFO container with lock-free single-producer/single-consumer semantics.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Computes solar events (sunrise and sunset) for a stored location, UTC offset and date. </p>
-<p>Results are expressed in minutes since local midnight of the set date. A value below 0 or at or above 1440 means that the event falls on the previous or next local day. During polar day or polar night the hour angle is clamped, so sunrise and sunset collapse to solar midnight or solar noon respectively.</p>
-<p>The solar model runs in single precision, which the Cortex-M4F FPU executes in hardware. Only the Julian date stays double, since a float cannot hold it to better than a quarter of a day.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, size_t T_SIZE&gt;<br />
+requires (std::default_initializable&lt;T&gt; &amp;&amp; (T_SIZE &gt; 0U) &amp;&amp; (T_SIZE &lt;= <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02702.html">std::numeric_limits</a>&lt;size_t&gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01628.html#gab98f0838f871a26317aaa71211b65a9c">::max</a>() / 2U))<br />
+class Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</div><p>Fixed-capacity FIFO container with lock-free single-producer/single-consumer semantics. </p>
+<p><em class="arg">writePos</em> is written only by <em class="arg">push()</em>, by the bulk write and by the write-side DMA calls, and <em class="arg">readPos</em> only by <em class="arg">pop()</em>, by the bulk read and by the read-side DMA calls, so no shared counter is mutated from both sides. Both indices are <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01934.html" title="std::atomic">std::atomic</a> (lock-free on Cortex-M) with release/acquire ordering: a slot written by the producer is visible to the consumer before the index that publishes it, and the compiler does not cache an index across a polling loop. One producer context (for example an ISR) and one consumer context (for example a task) are therefore safe against each other without a lock. Queries such as <a class="el" href="#a8ab973e4fda57588b6a238c8d7537b60" title="available()">available()</a> return a momentary snapshot when used across contexts. <a class="el" href="#ab0835299e7ff3714143b1196743a174f" title="overwrite()">overwrite()</a> is the one exception: it advances the read index from the producer side, so it must not run concurrently with <a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="pop()">pop()</a> or with consumer-side reads.</p>
+<p>All <em class="arg">T_SIZE</em> slots are usable; no slot is sacrificed to tell full from empty. The indices run over twice the capacity, so the distance between them covers [0, <em class="arg">T_SIZE</em>]. When <em class="arg">T_SIZE</em> is a power of two the indices are free-running and the slot is found by masking; otherwise they wrap at 2 * <em class="arg">T_SIZE</em>.</p>
+<p>Exactly one execution context may act as producer (<em class="arg">push()</em>, bulk write(), the linear write block / <a class="el" href="#a18fc2b9e414d300e7fba07ffb189c7e2" title="advance()">advance()</a> pair) and exactly one (possibly different) context may act as consumer (<em class="arg">pop()</em>, <a class="el" href="#abee3c56eacd254c643cb51f9cd4a7839" title="front()">front()</a>, bulk <a class="el" href="#a03a48e3cd8a1b0b70db7a640e62a3bd7" title="read()">read()</a>, <a class="el" href="#ac8f19fd1bbb63ee4460be1de5658cdf3" title="peek()">peek()</a>, the linear read block / <a class="el" href="#a5c9a29852441fa6ed23a28ce0ec0c8db" title="skip()">skip()</a> pair). <em class="arg">overwrite()</em> runs in the producer context but also advances the read side, so it needs exclusive access to both. <a class="el" href="#aecba3227be66614ad5db50f238e8970f" title="clear()">clear()</a>, copy and move are not concurrency-safe.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Element type stored in the buffer; must be default-constructible. </td></tr>
+    <tr><td class="paramname">T_SIZE</td><td>Maximum number of stored elements; must be greater than 0 and at most half of the largest <em class="arg">size_t</em> value.</td></tr>
+  </table>
+  </dd>
+</dl>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/Sunset.hpp" target="_blank">Source</a> </dd></dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/RingBuffer.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/de1/a06245.html#_a0">Lib::Helper::RingBuffer</a>.</dd>
+</dl>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aa23cc1803af6341d29a2fd130530914c" id="r_aa23cc1803af6341d29a2fd130530914c"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#aa23cc1803af6341d29a2fd130530914c">TransferMode</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">PARTIAL</a>
+, <br />
+&#160;&#160;<a class="el" href="#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d">ALL</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:aa23cc1803af6341d29a2fd130530914c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects all-or-nothing vs.  <a href="#aa23cc1803af6341d29a2fd130530914c">More...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a402a1203f51a88c0d732a65d431084b2" id="r_a402a1203f51a88c0d732a65d431084b2"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a402a1203f51a88c0d732a65d431084b2">Sunset</a> ()=default</td></tr>
-<tr class="memdesc:a402a1203f51a88c0d732a65d431084b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the helper at latitude and longitude 0, UTC offset 0, on the date 2000-01-01.  <br /></td></tr>
-<tr class="memitem:a2c1f6f04de77d5868feb1fa1a6039fd0" id="r_a2c1f6f04de77d5868feb1fa1a6039fd0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2c1f6f04de77d5868feb1fa1a6039fd0">Sunset</a> (float lat, float lon, float tz) noexcept</td></tr>
-<tr class="memdesc:a2c1f6f04de77d5868feb1fa1a6039fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the helper and sets the geographic position immediately.  <br /></td></tr>
-<tr class="memitem:afbc858a5944c47609616f459b657339b" id="r_afbc858a5944c47609616f459b657339b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afbc858a5944c47609616f459b657339b">setPosition</a> (float lat, float lon, float tz) noexcept</td></tr>
-<tr class="memdesc:afbc858a5944c47609616f459b657339b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the geographic position and UTC offset used for calculations.  <br /></td></tr>
-<tr class="memitem:a29094e288d78ced6c06c9652828bb343" id="r_a29094e288d78ced6c06c9652828bb343"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a29094e288d78ced6c06c9652828bb343">setCurrentDate</a> (int y, int m, int d) noexcept</td></tr>
-<tr class="memdesc:a29094e288d78ced6c06c9652828bb343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the date used for calculations from its year, month and day.  <br /></td></tr>
-<tr class="memitem:a0598ea08f953291be6bd331b39254b2a" id="r_a0598ea08f953291be6bd331b39254b2a"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a0598ea08f953291be6bd331b39254b2a">setCurrentDate</a> (const <a class="el" href="../../dd/de0/a05711.html">::Lib::Helper::DateTime::Date</a> &amp;date) noexcept</td></tr>
-<tr class="memdesc:a0598ea08f953291be6bd331b39254b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the date used for calculations.  <br /></td></tr>
-<tr class="memitem:ac18d69149ba7a8ed86b70ce314aa7d0a" id="r_ac18d69149ba7a8ed86b70ce314aa7d0a"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ac18d69149ba7a8ed86b70ce314aa7d0a">sunrise</a> (float angle=<a class="el" href="#a65e2891761a8080adda2e2a21a0375ad">OFFICIAL_ANGLE</a>) const noexcept</td></tr>
-<tr class="memdesc:ac18d69149ba7a8ed86b70ce314aa7d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sunrise time for the set date and position.  <br /></td></tr>
-<tr class="memitem:a3bea9bb96761c55203633434195d87c4" id="r_a3bea9bb96761c55203633434195d87c4"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a3bea9bb96761c55203633434195d87c4">sunset</a> (float angle=<a class="el" href="#a65e2891761a8080adda2e2a21a0375ad">OFFICIAL_ANGLE</a>) const noexcept</td></tr>
-<tr class="memdesc:a3bea9bb96761c55203633434195d87c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sunset time for the set date and position.  <br /></td></tr>
-<tr class="memitem:ac1f5e5819f84b104cb7a80ac1bf582e0" id="r_ac1f5e5819f84b104cb7a80ac1bf582e0"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ac1f5e5819f84b104cb7a80ac1bf582e0">calculateSunTime</a> (float angle, bool isSunrise) const noexcept</td></tr>
-<tr class="memdesc:ac1f5e5819f84b104cb7a80ac1bf582e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the time of a solar event in minutes since UTC midnight of the set date.  <br /></td></tr>
-<tr class="memitem:aef3e93cf3eecbb7ea862c973e2a27740" id="r_aef3e93cf3eecbb7ea862c973e2a27740"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aef3e93cf3eecbb7ea862c973e2a27740">computeHourAngle</a> (float dec, float angle) const noexcept</td></tr>
-<tr class="memdesc:aef3e93cf3eecbb7ea862c973e2a27740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the hour angle of the sun at the given horizon angle for the stored latitude.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a34270fa1445d0c51cb686a4c51cd4c44" id="r_a34270fa1445d0c51cb686a4c51cd4c44"><td class="memItemLeft">static float&#160;</td><td class="memItemRight"><a class="el" href="#a34270fa1445d0c51cb686a4c51cd4c44">calculateEquationOfTime</a> (float t) noexcept</td></tr>
-<tr class="memdesc:a34270fa1445d0c51cb686a4c51cd4c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the equation of time, the difference between apparent and mean solar time.  <br /></td></tr>
-<tr class="memitem:a8b62813b9c952c41af6189fed8317650" id="r_a8b62813b9c952c41af6189fed8317650"><td class="memItemLeft">static float&#160;</td><td class="memItemRight"><a class="el" href="#a8b62813b9c952c41af6189fed8317650">calculateSunDeclination</a> (float t) noexcept</td></tr>
-<tr class="memdesc:a8b62813b9c952c41af6189fed8317650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the apparent declination of the sun.  <br /></td></tr>
+<tr class="memitem:a90e56f1bb6c70b02947f83ebf3123417" id="r_a90e56f1bb6c70b02947f83ebf3123417"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> () noexcept=default</td></tr>
+<tr class="memdesc:a90e56f1bb6c70b02947f83ebf3123417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty buffer.  <br /></td></tr>
+<tr class="memitem:ad1cdbedc5516901d8c9139809a3fbef7" id="r_ad1cdbedc5516901d8c9139809a3fbef7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad1cdbedc5516901d8c9139809a3fbef7">RingBuffer</a> (const RingBuffer &amp;other) noexcept</td></tr>
+<tr class="memdesc:ad1cdbedc5516901d8c9139809a3fbef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the content and indices of <em class="arg">other</em>; must not race with <em class="arg">push()</em> or <em class="arg">pop()</em> on it.  <br /></td></tr>
+<tr class="memitem:a1d9fb75c4c8143ec1b6fe200253b8197" id="r_a1d9fb75c4c8143ec1b6fe200253b8197"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1d9fb75c4c8143ec1b6fe200253b8197">RingBuffer</a> (RingBuffer &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a1d9fb75c4c8143ec1b6fe200253b8197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the content and copies the indices of <em class="arg">other</em>; must not race with <em class="arg">push()</em> or <em class="arg">pop()</em> on it.  <br /></td></tr>
+<tr class="memitem:ab2ab8845bd1a8a943917d668efa8ff90" id="r_ab2ab8845bd1a8a943917d668efa8ff90"><td class="memItemLeft"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab2ab8845bd1a8a943917d668efa8ff90">operator=</a> (const <a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;other) noexcept</td></tr>
+<tr class="memdesc:ab2ab8845bd1a8a943917d668efa8ff90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the content and indices of <em class="arg">other</em>; must not race with <em class="arg">push()</em> or <em class="arg">pop()</em> on either.  <br /></td></tr>
+<tr class="memitem:a005ffd7b8657f70cb1ed18f0c1488e8e" id="r_a005ffd7b8657f70cb1ed18f0c1488e8e"><td class="memItemLeft"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a005ffd7b8657f70cb1ed18f0c1488e8e">operator=</a> (<a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a005ffd7b8657f70cb1ed18f0c1488e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the content and copies the indices of <em class="arg">other</em>; must not race with <em class="arg">push()</em> or <em class="arg">pop()</em> on either.  <br /></td></tr>
+<tr class="memitem:a15a0e34223bfa6bb69410c75ff946f0c" id="r_a15a0e34223bfa6bb69410c75ff946f0c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c">push</a> (const T &amp;value) noexcept</td></tr>
+<tr class="memdesc:a15a0e34223bfa6bb69410c75ff946f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a copy of <em class="arg">value</em> if space is available (producer side).  <br /></td></tr>
+<tr class="memitem:a99986517429df0512c8d2ecb01411fc0" id="r_a99986517429df0512c8d2ecb01411fc0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a99986517429df0512c8d2ecb01411fc0">push</a> (T &amp;&amp;value) noexcept</td></tr>
+<tr class="memdesc:a99986517429df0512c8d2ecb01411fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends <em class="arg">value</em> by move if space is available (producer side).  <br /></td></tr>
+<tr class="memitem:a8355cafc3456b4a8c5f5122ea38ca0d8" id="r_a8355cafc3456b4a8c5f5122ea38ca0d8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8">pop</a> (T &amp;value) noexcept</td></tr>
+<tr class="memdesc:a8355cafc3456b4a8c5f5122ea38ca0d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest element and moves it into <em class="arg">value</em> (consumer side).  <br /></td></tr>
+<tr class="memitem:a4eb0599938edcdc26882c4a3b9ba7d98" id="r_a4eb0599938edcdc26882c4a3b9ba7d98"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a4eb0599938edcdc26882c4a3b9ba7d98">write</a> (std::span&lt; const T &gt; data, <a class="el" href="#aa23cc1803af6341d29a2fd130530914c">TransferMode</a> mode=<a class="el" href="#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">TransferMode::PARTIAL</a>) noexcept</td></tr>
+<tr class="memdesc:a4eb0599938edcdc26882c4a3b9ba7d98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies as many elements of <em class="arg">data</em> as fit into the buffer (producer side).  <br /></td></tr>
+<tr class="memitem:a03a48e3cd8a1b0b70db7a640e62a3bd7" id="r_a03a48e3cd8a1b0b70db7a640e62a3bd7"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a03a48e3cd8a1b0b70db7a640e62a3bd7">read</a> (std::span&lt; T &gt; data, <a class="el" href="#aa23cc1803af6341d29a2fd130530914c">TransferMode</a> mode=<a class="el" href="#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">TransferMode::PARTIAL</a>) noexcept</td></tr>
+<tr class="memdesc:a03a48e3cd8a1b0b70db7a640e62a3bd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies as many stored elements into <em class="arg">data</em> as fit, removing them from the buffer (consumer side).  <br /></td></tr>
+<tr class="memitem:ab0835299e7ff3714143b1196743a174f" id="r_ab0835299e7ff3714143b1196743a174f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ab0835299e7ff3714143b1196743a174f">overwrite</a> (std::span&lt; const T &gt; data) noexcept</td></tr>
+<tr class="memdesc:ab0835299e7ff3714143b1196743a174f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies <em class="arg">data</em> in, discarding the oldest elements to make room if needed (producer side).  <br /></td></tr>
+<tr class="memitem:a7c67da9354083f337c51e4e0c60c3938" id="r_a7c67da9354083f337c51e4e0c60c3938"><td class="memItemLeft">std::span&lt; T &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a7c67da9354083f337c51e4e0c60c3938">getLinearWriteBlock</a> () noexcept</td></tr>
+<tr class="memdesc:a7c67da9354083f337c51e4e0c60c3938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the longest contiguous free span starting at the write position (producer side).  <br /></td></tr>
+<tr class="memitem:a18fc2b9e414d300e7fba07ffb189c7e2" id="r_a18fc2b9e414d300e7fba07ffb189c7e2"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a18fc2b9e414d300e7fba07ffb189c7e2">advance</a> (size_t count) noexcept</td></tr>
+<tr class="memdesc:a18fc2b9e414d300e7fba07ffb189c7e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publishes elements already written into the span from <a class="el" href="#a7c67da9354083f337c51e4e0c60c3938" title="getLinearWriteBlock()">getLinearWriteBlock()</a> (producer side).  <br /></td></tr>
+<tr class="memitem:ad539c026bf02e5545168b2182f0a89f3" id="r_ad539c026bf02e5545168b2182f0a89f3"><td class="memItemLeft">std::span&lt; const T &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad539c026bf02e5545168b2182f0a89f3">getLinearReadBlock</a> () const noexcept</td></tr>
+<tr class="memdesc:ad539c026bf02e5545168b2182f0a89f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the longest contiguous stored span starting at the read position (consumer side).  <br /></td></tr>
+<tr class="memitem:a5c9a29852441fa6ed23a28ce0ec0c8db" id="r_a5c9a29852441fa6ed23a28ce0ec0c8db"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5c9a29852441fa6ed23a28ce0ec0c8db">skip</a> (size_t count) noexcept</td></tr>
+<tr class="memdesc:a5c9a29852441fa6ed23a28ce0ec0c8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases elements already consumed from the span returned by <a class="el" href="#ad539c026bf02e5545168b2182f0a89f3" title="getLinearReadBlock()">getLinearReadBlock()</a> (consumer side).  <br /></td></tr>
+<tr class="memitem:abee3c56eacd254c643cb51f9cd4a7839" id="r_abee3c56eacd254c643cb51f9cd4a7839"><td class="memItemLeft">T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abee3c56eacd254c643cb51f9cd4a7839">front</a> () noexcept</td></tr>
+<tr class="memdesc:abee3c56eacd254c643cb51f9cd4a7839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the oldest element without removing it (consumer side).  <br /></td></tr>
+<tr class="memitem:a6b6348d736c026af7bfe86e8f178c5dd" id="r_a6b6348d736c026af7bfe86e8f178c5dd"><td class="memItemLeft">const T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6b6348d736c026af7bfe86e8f178c5dd">front</a> () const noexcept</td></tr>
+<tr class="memdesc:a6b6348d736c026af7bfe86e8f178c5dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the oldest element without removing it (consumer side).  <br /></td></tr>
+<tr class="memitem:ac8f19fd1bbb63ee4460be1de5658cdf3" id="r_ac8f19fd1bbb63ee4460be1de5658cdf3"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac8f19fd1bbb63ee4460be1de5658cdf3">peek</a> (size_t skipCount, std::span&lt; T &gt; data) const noexcept</td></tr>
+<tr class="memdesc:ac8f19fd1bbb63ee4460be1de5658cdf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies up to 'data.size()' stored elements without removing them (consumer side).  <br /></td></tr>
+<tr class="memitem:a8ab973e4fda57588b6a238c8d7537b60" id="r_a8ab973e4fda57588b6a238c8d7537b60"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8ab973e4fda57588b6a238c8d7537b60">available</a> () const noexcept</td></tr>
+<tr class="memdesc:a8ab973e4fda57588b6a238c8d7537b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of stored elements.  <br /></td></tr>
+<tr class="memitem:ae898513d6e4fff77f261633e9d739da7" id="r_ae898513d6e4fff77f261633e9d739da7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae898513d6e4fff77f261633e9d739da7">isEmpty</a> () const noexcept</td></tr>
+<tr class="memdesc:ae898513d6e4fff77f261633e9d739da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries whether the buffer holds no element.  <br /></td></tr>
+<tr class="memitem:acbbdeea50582b8f5ecdae7259746e571" id="r_acbbdeea50582b8f5ecdae7259746e571"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acbbdeea50582b8f5ecdae7259746e571">isFull</a> () const noexcept</td></tr>
+<tr class="memdesc:acbbdeea50582b8f5ecdae7259746e571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries whether the buffer reached its capacity.  <br /></td></tr>
+<tr class="memitem:aecba3227be66614ad5db50f238e8970f" id="r_aecba3227be66614ad5db50f238e8970f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aecba3227be66614ad5db50f238e8970f">clear</a> () noexcept</td></tr>
+<tr class="memdesc:aecba3227be66614ad5db50f238e8970f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards all stored elements by resetting both indices.  <br /></td></tr>
+<tr class="memitem:a487f0704a4c18ab43bc1ca7b17207604" id="r_a487f0704a4c18ab43bc1ca7b17207604"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; size_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a487f0704a4c18ab43bc1ca7b17207604">find</a> (std::span&lt; const T &gt; pattern, size_t startOffset=0U) const noexcept</td></tr>
+<tr class="memdesc:a487f0704a4c18ab43bc1ca7b17207604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the first occurrence of <em class="arg">pattern</em> among the stored elements (consumer side).  <br /></td></tr>
+<tr class="memitem:ae57e9627fe4a5aba889a59c0a7d0ecdc" id="r_ae57e9627fe4a5aba889a59c0a7d0ecdc"><td class="memTemplParams" colspan="2">template&lt;size_t SOURCE_CAPACITY&gt; </td></tr>
+<tr class="memitem:ae57e9627fe4a5aba889a59c0a7d0ecdc template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae57e9627fe4a5aba889a59c0a7d0ecdc">moveFrom</a> (<a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a>&lt; T, SOURCE_CAPACITY &gt; &amp;source) noexcept</td></tr>
+<tr class="memdesc:ae57e9627fe4a5aba889a59c0a7d0ecdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves as many stored elements of <em class="arg">source</em> into this buffer as fit, without an intermediate copy.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a65e2891761a8080adda2e2a21a0375ad" id="r_a65e2891761a8080adda2e2a21a0375ad"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a65e2891761a8080adda2e2a21a0375ad">OFFICIAL_ANGLE</a> {90.833F}</td></tr>
-<tr class="memdesc:a65e2891761a8080adda2e2a21a0375ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Official sunrise/sunset zenith angle in degrees.  <br /></td></tr>
-<tr class="memitem:a3265faa6de55d95a489cfc20db5ca87d" id="r_a3265faa6de55d95a489cfc20db5ca87d"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a3265faa6de55d95a489cfc20db5ca87d">NAUTICAL_ANGLE</a> {102.0F}</td></tr>
-<tr class="memdesc:a3265faa6de55d95a489cfc20db5ca87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nautical twilight zenith angle in degrees.  <br /></td></tr>
-<tr class="memitem:ab925b27b1ad112678ec1f7f76ad8f6ea" id="r_ab925b27b1ad112678ec1f7f76ad8f6ea"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#ab925b27b1ad112678ec1f7f76ad8f6ea">CIVIL_ANGLE</a> {96.0F}</td></tr>
-<tr class="memdesc:ab925b27b1ad112678ec1f7f76ad8f6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Civil twilight zenith angle in degrees.  <br /></td></tr>
-<tr class="memitem:a28a29a705a78047330cbebb0be7d4189" id="r_a28a29a705a78047330cbebb0be7d4189"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a28a29a705a78047330cbebb0be7d4189">ASTRONOMICAL_ANGLE</a> {108.0F}</td></tr>
-<tr class="memdesc:a28a29a705a78047330cbebb0be7d4189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Astronomical twilight zenith angle in degrees.  <br /></td></tr>
-<tr class="memitem:a7cff9440a46a7f27f318477280787fd6" id="r_a7cff9440a46a7f27f318477280787fd6"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a7cff9440a46a7f27f318477280787fd6">PI</a> {std::numbers::pi_v&lt;float&gt;}</td></tr>
-<tr class="memdesc:a7cff9440a46a7f27f318477280787fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pi constant.  <br /></td></tr>
+<tr class="memitem:ae0f1f8ce0127b345fb8300195fdab62e" id="r_ae0f1f8ce0127b345fb8300195fdab62e"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e">CAPACITY</a> = T_SIZE</td></tr>
+<tr class="memdesc:ae0f1f8ce0127b345fb8300195fdab62e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usable capacity of the buffer, in elements.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a402a1203f51a88c0d732a65d431084b2" name="a402a1203f51a88c0d732a65d431084b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a402a1203f51a88c0d732a65d431084b2">&#9670;&#160;</a></span>Sunset() <span class="overload">[1/2]</span></h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="aa23cc1803af6341d29a2fd130530914c" name="aa23cc1803af6341d29a2fd130530914c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa23cc1803af6341d29a2fd130530914c">&#9670;&#160;</a></span>TransferMode</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Helper::Sunset::Sunset </td>
+          <td class="memname">enum class <a class="el" href="#aa23cc1803af6341d29a2fd130530914c">Lib::Helper::RingBuffer::TransferMode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Selects all-or-nothing vs. </p>
+<p>best-effort semantics for a bulk transfer. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19" name="aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19"></a>PARTIAL&#160;</td><td class="fielddoc"><p>Transfers as many elements as fit/are available. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d" name="aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d"></a>ALL&#160;</td><td class="fielddoc"><p>Transfers nothing unless the whole request fits/is available. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a90e56f1bb6c70b02947f83ebf3123417" name="a90e56f1bb6c70b02947f83ebf3123417"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90e56f1bb6c70b02947f83ebf3123417">&#9670;&#160;</a></span>RingBuffer() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::RingBuffer </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -174,53 +248,79 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs the helper at latitude and longitude 0, UTC offset 0, on the date 2000-01-01. </p>
+<p>Constructs an empty buffer. </p>
 
 </div>
 </div>
-<a id="a2c1f6f04de77d5868feb1fa1a6039fd0" name="a2c1f6f04de77d5868feb1fa1a6039fd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c1f6f04de77d5868feb1fa1a6039fd0">&#9670;&#160;</a></span>Sunset() <span class="overload">[2/2]</span></h2>
+<a id="ad1cdbedc5516901d8c9139809a3fbef7" name="ad1cdbedc5516901d8c9139809a3fbef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1cdbedc5516901d8c9139809a3fbef7">&#9670;&#160;</a></span>RingBuffer() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Helper::Sunset::Sunset </td>
+          <td class="memname"><a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::RingBuffer </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lat</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const RingBuffer&lt; T, T_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lon</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tz</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs the helper and sets the geographic position immediately. </p>
+<p>Copies the content and indices of <em class="arg">other</em>; must not race with <em class="arg">push()</em> or <em class="arg">pop()</em> on it. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lat</td><td>Geographic latitude in degrees, positive north. </td></tr>
-    <tr><td class="paramname">lon</td><td>Geographic longitude in degrees, positive east. </td></tr>
-    <tr><td class="paramname">tz</td><td>UTC offset of local time in hours, may be fractional. </td></tr>
+    <tr><td class="paramname">other</td><td>Ring buffer to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1d9fb75c4c8143ec1b6fe200253b8197" name="a1d9fb75c4c8143ec1b6fe200253b8197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d9fb75c4c8143ec1b6fe200253b8197">&#9670;&#160;</a></span>RingBuffer() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::RingBuffer </td>
+          <td>(</td>
+          <td class="paramtype">RingBuffer&lt; T, T_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves the content and copies the indices of <em class="arg">other</em>; must not race with <em class="arg">push()</em> or <em class="arg">pop()</em> on it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Ring buffer to move from; its elements are left moved-from, its indices unchanged. </td></tr>
   </table>
   </dd>
 </dl>
@@ -228,166 +328,21 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a34270fa1445d0c51cb686a4c51cd4c44" name="a34270fa1445d0c51cb686a4c51cd4c44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34270fa1445d0c51cb686a4c51cd4c44">&#9670;&#160;</a></span>calculateEquationOfTime()</h2>
+<a id="a18fc2b9e414d300e7fba07ffb189c7e2" name="a18fc2b9e414d300e7fba07ffb189c7e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18fc2b9e414d300e7fba07ffb189c7e2">&#9670;&#160;</a></span>advance()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::Helper::Sunset::calculateEquationOfTime </td>
+          <td class="memname">size_t <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::advance </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the equation of time, the difference between apparent and mean solar time. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>Julian centuries since J2000.0. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Equation of time in minutes. </dd></dl>
-
-</div>
-</div>
-<a id="a8b62813b9c952c41af6189fed8317650" name="a8b62813b9c952c41af6189fed8317650"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b62813b9c952c41af6189fed8317650">&#9670;&#160;</a></span>calculateSunDeclination()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::calculateSunDeclination </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the apparent declination of the sun. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>Julian centuries since J2000.0. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Solar declination in degrees. </dd></dl>
-
-</div>
-</div>
-<a id="ac1f5e5819f84b104cb7a80ac1bf582e0" name="ac1f5e5819f84b104cb7a80ac1bf582e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1f5e5819f84b104cb7a80ac1bf582e0">&#9670;&#160;</a></span>calculateSunTime()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::calculateSunTime </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isSunrise</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the time of a solar event in minutes since UTC midnight of the set date. </p>
-<p>A first pass at 0h UT estimates the event; a second pass re-evaluates the solar position at that estimate.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">angle</td><td>Zenith angle of the horizon definition in degrees. </td></tr>
-    <tr><td class="paramname">isSunrise</td><td><b>true</b> for the morning event, <b>false</b> for the evening event. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Event time in minutes since UTC midnight. </dd></dl>
-
-</div>
-</div>
-<a id="aef3e93cf3eecbb7ea862c973e2a27740" name="aef3e93cf3eecbb7ea862c973e2a27740"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef3e93cf3eecbb7ea862c973e2a27740">&#9670;&#160;</a></span>computeHourAngle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::computeHourAngle </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dec</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the hour angle of the sun at the given horizon angle for the stored latitude. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dec</td><td>Solar declination in degrees. </td></tr>
-    <tr><td class="paramname">angle</td><td>Zenith angle of the horizon definition in degrees. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Hour angle in radians in range [0,pi]; clamped during polar day or night. </dd></dl>
-
-</div>
-</div>
-<a id="a0598ea08f953291be6bd331b39254b2a" name="a0598ea08f953291be6bd331b39254b2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0598ea08f953291be6bd331b39254b2a">&#9670;&#160;</a></span>setCurrentDate() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Lib::Helper::Sunset::setCurrentDate </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/de0/a05711.html">::Lib::Helper::DateTime::Date</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>date</em></span></td><td>)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -398,119 +353,34 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the date used for calculations. </p>
+<p>Publishes elements already written into the span from <a class="el" href="#a7c67da9354083f337c51e4e0c60c3938" title="getLinearWriteBlock()">getLinearWriteBlock()</a> (producer side). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">date</td><td>Calendar date; must be valid. </td></tr>
+    <tr><td class="paramname">count</td><td>Number of elements to publish; clamped to the current free space. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Julian date of 0h UT of the set date. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements actually published. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/de1/a06245.html#a8">Lib::Helper::RingBuffer</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a29094e288d78ced6c06c9652828bb343" name="a29094e288d78ced6c06c9652828bb343"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29094e288d78ced6c06c9652828bb343">&#9670;&#160;</a></span>setCurrentDate() <span class="overload">[2/2]</span></h2>
+<a id="a8ab973e4fda57588b6a238c8d7537b60" name="a8ab973e4fda57588b6a238c8d7537b60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ab973e4fda57588b6a238c8d7537b60">&#9670;&#160;</a></span>available()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double Lib::Helper::Sunset::setCurrentDate </td>
+          <td class="memname">size_t <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::available </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the date used for calculations from its year, month and day. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">y</td><td>Calendar year. </td></tr>
-    <tr><td class="paramname">m</td><td>Month in range [1,12]. </td></tr>
-    <tr><td class="paramname">d</td><td>Day of month, valid for the given month and year. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Julian date of 0h UT of the set date. </dd></dl>
-
-</div>
-</div>
-<a id="afbc858a5944c47609616f459b657339b" name="afbc858a5944c47609616f459b657339b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbc858a5944c47609616f459b657339b">&#9670;&#160;</a></span>setPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Helper::Sunset::setPosition </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lat</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lon</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tz</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the geographic position and UTC offset used for calculations. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lat</td><td>Geographic latitude in degrees, positive north. </td></tr>
-    <tr><td class="paramname">lon</td><td>Geographic longitude in degrees, positive east. </td></tr>
-    <tr><td class="paramname">tz</td><td>UTC offset of local time in hours, may be fractional. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ac18d69149ba7a8ed86b70ce314aa7d0a" name="ac18d69149ba7a8ed86b70ce314aa7d0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac18d69149ba7a8ed86b70ce314aa7d0a">&#9670;&#160;</a></span>sunrise()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::sunrise </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a65e2891761a8080adda2e2a21a0375ad">OFFICIAL_ANGLE</a></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -521,30 +391,97 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the sunrise time for the set date and position. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">angle</td><td>Zenith angle of the horizon definition in degrees. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Sunrise time in minutes since local midnight. </dd></dl>
+<p>Returns the number of stored elements. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements available to pop, in [0, CAPACITY]; a snapshot across contexts. </dd></dl>
 
 </div>
 </div>
-<a id="a3bea9bb96761c55203633434195d87c4" name="a3bea9bb96761c55203633434195d87c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bea9bb96761c55203633434195d87c4">&#9670;&#160;</a></span>sunset()</h2>
+<a id="aecba3227be66614ad5db50f238e8970f" name="aecba3227be66614ad5db50f238e8970f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecba3227be66614ad5db50f238e8970f">&#9670;&#160;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::Helper::Sunset::sunset </td>
+          <td class="memname">void <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::clear </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a65e2891761a8080adda2e2a21a0375ad">OFFICIAL_ANGLE</a></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Discards all stored elements by resetting both indices. </p>
+<dl class="section pre"><dt>Precondition</dt><dd>No <em class="arg">push()</em> or <em class="arg">pop()</em> runs concurrently in another context. </dd></dl>
+
+</div>
+</div>
+<a id="a487f0704a4c18ab43bc1ca7b17207604" name="a487f0704a4c18ab43bc1ca7b17207604"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a487f0704a4c18ab43bc1ca7b17207604">&#9670;&#160;</a></span>find()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; size_t &gt; <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::find </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const T &gt;</td>          <td class="paramname"><span class="paramname"><em>pattern</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds the first occurrence of <em class="arg">pattern</em> among the stored elements (consumer side). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pattern</td><td>Sequence to search for; matched against stored elements in order, oldest first. </td></tr>
+    <tr><td class="paramname">startOffset</td><td>Number of oldest stored elements to skip before the search starts. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Offset of the match from the oldest stored element, or <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> if not found. </dd></dl>
+
+</div>
+</div>
+<a id="a6b6348d736c026af7bfe86e8f178c5dd" name="a6b6348d736c026af7bfe86e8f178c5dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b6348d736c026af7bfe86e8f178c5dd">&#9670;&#160;</a></span>front() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T &amp; <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::front </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -555,29 +492,611 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the sunset time for the set date and position. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">angle</td><td>Zenith angle of the horizon definition in degrees. </td></tr>
+<p>Accesses the oldest element without removing it (consumer side). </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer is not empty. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the oldest element. </dd></dl>
+
+</div>
+</div>
+<a id="abee3c56eacd254c643cb51f9cd4a7839" name="abee3c56eacd254c643cb51f9cd4a7839"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abee3c56eacd254c643cb51f9cd4a7839">&#9670;&#160;</a></span>front() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T &amp; <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::front </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Accesses the oldest element without removing it (consumer side). </p>
+<dl class="section pre"><dt>Precondition</dt><dd>The buffer is not empty. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the oldest element. </dd></dl>
+
+</div>
+</div>
+<a id="ad539c026bf02e5545168b2182f0a89f3" name="ad539c026bf02e5545168b2182f0a89f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad539c026bf02e5545168b2182f0a89f3">&#9670;&#160;</a></span>getLinearReadBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt; const T &gt; <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::getLinearReadBlock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the longest contiguous stored span starting at the read position (consumer side). </p>
+<p>The caller may read directly from the returned span (e.g. via DMA) and then release the consumed elements with <a class="el" href="#a5c9a29852441fa6ed23a28ce0ec0c8db" title="skip()">skip()</a>. The span may be shorter than <em class="arg">available()</em> when the stored data wraps past the end of the backing storage; call again after <a class="el" href="#a5c9a29852441fa6ed23a28ce0ec0c8db" title="skip()">skip()</a> to reach the remainder.</p>
+<dl class="section return"><dt>Returns</dt><dd>Readable span of stored elements; empty when the buffer is empty. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/de1/a06245.html#a9">Lib::Helper::RingBuffer</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a7c67da9354083f337c51e4e0c60c3938" name="a7c67da9354083f337c51e4e0c60c3938"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c67da9354083f337c51e4e0c60c3938">&#9670;&#160;</a></span>getLinearWriteBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt; T &gt; <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::getLinearWriteBlock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the longest contiguous free span starting at the write position (producer side). </p>
+<p>The caller may write directly into the returned span (e.g. via DMA) and then publish the written elements with <a class="el" href="#a18fc2b9e414d300e7fba07ffb189c7e2" title="advance()">advance()</a>. The span may be shorter than the total free space when the free space wraps past the end of the backing storage; call again after <a class="el" href="#a18fc2b9e414d300e7fba07ffb189c7e2" title="advance()">advance()</a> to reach the remainder.</p>
+<dl class="section return"><dt>Returns</dt><dd>Writable span of free slots; empty when the buffer is full. </dd></dl>
+
+</div>
+</div>
+<a id="ae898513d6e4fff77f261633e9d739da7" name="ae898513d6e4fff77f261633e9d739da7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae898513d6e4fff77f261633e9d739da7">&#9670;&#160;</a></span>isEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::isEmpty </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Queries whether the buffer holds no element. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the buffer is empty, otherwise <em class="arg">false</em>; a snapshot across contexts. </dd></dl>
+
+</div>
+</div>
+<a id="acbbdeea50582b8f5ecdae7259746e571" name="acbbdeea50582b8f5ecdae7259746e571"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbbdeea50582b8f5ecdae7259746e571">&#9670;&#160;</a></span>isFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::isFull </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Queries whether the buffer reached its capacity. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when <a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e" title="CAPACITY">CAPACITY</a> elements are stored, otherwise <em class="arg">false</em>; a snapshot across contexts. </dd></dl>
+
+</div>
+</div>
+<a id="ae57e9627fe4a5aba889a59c0a7d0ecdc" name="ae57e9627fe4a5aba889a59c0a7d0ecdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae57e9627fe4a5aba889a59c0a7d0ecdc">&#9670;&#160;</a></span>moveFrom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<div class="memtemplate">
+template&lt;size_t SOURCE_CAPACITY&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::moveFrom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a>&lt; T, SOURCE_CAPACITY &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves as many stored elements of <em class="arg">source</em> into this buffer as fit, without an intermediate copy. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">SOURCE_CAPACITY</td><td>Capacity of <em class="arg">source</em>; may differ from this buffer's <a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e" title="CAPACITY">CAPACITY</a>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Sunset time in minutes since local midnight. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>Buffer to move elements from; only its consumer-side API is used. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements moved. </dd></dl>
+
+</div>
+</div>
+<a id="ab2ab8845bd1a8a943917d668efa8ff90" name="ab2ab8845bd1a8a943917d668efa8ff90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2ab8845bd1a8a943917d668efa8ff90">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp; <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a>&lt; T, T_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies the content and indices of <em class="arg">other</em>; must not race with <em class="arg">push()</em> or <em class="arg">pop()</em> on either. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Ring buffer to copy from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a005ffd7b8657f70cb1ed18f0c1488e8e" name="a005ffd7b8657f70cb1ed18f0c1488e8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a005ffd7b8657f70cb1ed18f0c1488e8e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp; <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a>&lt; T, T_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moves the content and copies the indices of <em class="arg">other</em>; must not race with <em class="arg">push()</em> or <em class="arg">pop()</em> on either. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Ring buffer to move from; its elements are left moved-from, its indices unchanged. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="ab0835299e7ff3714143b1196743a174f" name="ab0835299e7ff3714143b1196743a174f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0835299e7ff3714143b1196743a174f">&#9670;&#160;</a></span>overwrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::overwrite </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const T &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies <em class="arg">data</em> in, discarding the oldest elements to make room if needed (producer side). </p>
+<dl class="section pre"><dt>Precondition</dt><dd>No <em class="arg">pop()</em> or consumer-side read runs concurrently with this call. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Elements to copy in; only its last <a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e" title="CAPACITY">CAPACITY</a> elements are kept if it exceeds <a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e" title="CAPACITY">CAPACITY</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements accepted from <em class="arg">data</em> (equals 'data.size()', or <a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e" title="CAPACITY">CAPACITY</a> if it was clipped). </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/de1/a06245.html#a10">Lib::Helper::RingBuffer</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ac8f19fd1bbb63ee4460be1de5658cdf3" name="ac8f19fd1bbb63ee4460be1de5658cdf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8f19fd1bbb63ee4460be1de5658cdf3">&#9670;&#160;</a></span>peek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::peek </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>skipCount</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies up to 'data.size()' stored elements without removing them (consumer side). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">skipCount</td><td>Number of oldest stored elements to skip before copying starts. </td></tr>
+    <tr><td class="paramname">data</td><td>Destination for the copied elements. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements copied; <b>0</b> when <em class="arg">skipCount</em> reaches or exceeds <em class="arg">available()</em>. </dd></dl>
+
+</div>
+</div>
+<a id="a8355cafc3456b4a8c5f5122ea38ca0d8" name="a8355cafc3456b4a8c5f5122ea38ca0d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8355cafc3456b4a8c5f5122ea38ca0d8">&#9670;&#160;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::pop </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the oldest element and moves it into <em class="arg">value</em> (consumer side). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Receives the removed element; left untouched when the buffer is empty. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if an element was removed, <em class="arg">false</em> if the buffer was empty. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/de1/a06245.html#a2">Lib::Helper::RingBuffer</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a15a0e34223bfa6bb69410c75ff946f0c" name="a15a0e34223bfa6bb69410c75ff946f0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15a0e34223bfa6bb69410c75ff946f0c">&#9670;&#160;</a></span>push() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::push </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Appends a copy of <em class="arg">value</em> if space is available (producer side). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Value to copy into the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the value was inserted, <em class="arg">false</em> if the buffer is full. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/de1/a06245.html#a1">Lib::Helper::RingBuffer</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a99986517429df0512c8d2ecb01411fc0" name="a99986517429df0512c8d2ecb01411fc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99986517429df0512c8d2ecb01411fc0">&#9670;&#160;</a></span>push() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::push </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Appends <em class="arg">value</em> by move if space is available (producer side). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Value to move into the buffer; left untouched when the buffer is full. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the value was inserted, <em class="arg">false</em> if the buffer is full. </dd></dl>
+
+</div>
+</div>
+<a id="a03a48e3cd8a1b0b70db7a640e62a3bd7" name="a03a48e3cd8a1b0b70db7a640e62a3bd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03a48e3cd8a1b0b70db7a640e62a3bd7">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa23cc1803af6341d29a2fd130530914c">TransferMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">TransferMode::PARTIAL</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies as many stored elements into <em class="arg">data</em> as fit, removing them from the buffer (consumer side). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Destination for the copied elements. </td></tr>
+    <tr><td class="paramname">mode</td><td><em class="arg">PARTIAL</em> copies as many as are available; <em class="arg">ALL</em> copies nothing unless <em class="arg">data</em> can be filled. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements copied; always <b>0</b> or 'data.size()' under <a class="el" href="#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d" title="TransferMode::ALL">TransferMode::ALL</a>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/de1/a06245.html#a6">Lib::Helper::RingBuffer</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a5c9a29852441fa6ed23a28ce0ec0c8db" name="a5c9a29852441fa6ed23a28ce0ec0c8db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c9a29852441fa6ed23a28ce0ec0c8db">&#9670;&#160;</a></span>skip()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::skip </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Releases elements already consumed from the span returned by <a class="el" href="#ad539c026bf02e5545168b2182f0a89f3" title="getLinearReadBlock()">getLinearReadBlock()</a> (consumer side). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">count</td><td>Number of elements to release; clamped to the current stored count. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements actually released. </dd></dl>
+
+</div>
+</div>
+<a id="a4eb0599938edcdc26882c4a3b9ba7d98" name="a4eb0599938edcdc26882c4a3b9ba7d98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eb0599938edcdc26882c4a3b9ba7d98">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::write </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const T &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa23cc1803af6341d29a2fd130530914c">TransferMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">TransferMode::PARTIAL</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies as many elements of <em class="arg">data</em> as fit into the buffer (producer side). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Elements to copy in. </td></tr>
+    <tr><td class="paramname">mode</td><td><em class="arg">PARTIAL</em> copies as many as fit; <em class="arg">ALL</em> copies nothing unless all of <em class="arg">data</em> fits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of elements copied; always <b>0</b> or 'data.size()' under <a class="el" href="#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d" title="TransferMode::ALL">TransferMode::ALL</a>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/de1/a06245.html#a4">Lib::Helper::RingBuffer</a>.</dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a28a29a705a78047330cbebb0be7d4189" name="a28a29a705a78047330cbebb0be7d4189"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28a29a705a78047330cbebb0be7d4189">&#9670;&#160;</a></span>ASTRONOMICAL_ANGLE</h2>
+<a id="ae0f1f8ce0127b345fb8300195fdab62e" name="ae0f1f8ce0127b345fb8300195fdab62e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f1f8ce0127b345fb8300195fdab62e">&#9670;&#160;</a></span>CAPACITY</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::Helper::Sunset::ASTRONOMICAL_ANGLE {108.0F}</td>
+          <td class="memname">size_t <a class="el" href="../../d9/dd4/a05755.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::CAPACITY = T_SIZE</td>
         </tr>
       </table>
   </td>
@@ -587,103 +1106,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Astronomical twilight zenith angle in degrees. </p>
-
-</div>
-</div>
-<a id="ab925b27b1ad112678ec1f7f76ad8f6ea" name="ab925b27b1ad112678ec1f7f76ad8f6ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab925b27b1ad112678ec1f7f76ad8f6ea">&#9670;&#160;</a></span>CIVIL_ANGLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::CIVIL_ANGLE {96.0F}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Civil twilight zenith angle in degrees. </p>
-
-</div>
-</div>
-<a id="a3265faa6de55d95a489cfc20db5ca87d" name="a3265faa6de55d95a489cfc20db5ca87d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3265faa6de55d95a489cfc20db5ca87d">&#9670;&#160;</a></span>NAUTICAL_ANGLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::NAUTICAL_ANGLE {102.0F}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Nautical twilight zenith angle in degrees. </p>
-
-</div>
-</div>
-<a id="a65e2891761a8080adda2e2a21a0375ad" name="a65e2891761a8080adda2e2a21a0375ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65e2891761a8080adda2e2a21a0375ad">&#9670;&#160;</a></span>OFFICIAL_ANGLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::OFFICIAL_ANGLE {90.833F}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Official sunrise/sunset zenith angle in degrees. </p>
-
-</div>
-</div>
-<a id="a7cff9440a46a7f27f318477280787fd6" name="a7cff9440a46a7f27f318477280787fd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cff9440a46a7f27f318477280787fd6">&#9670;&#160;</a></span>PI</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::PI {std::numbers::pi_v&lt;float&gt;}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pi constant. </p>
+<p>Usable capacity of the buffer, in elements. </p>
 
 </div>
 </div>

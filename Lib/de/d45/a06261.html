@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::QueueSet</title>
+<title>IAR EWARM Library: Lib::Math::Pid</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,106 +92,111 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::QueueSet</div></div>
+  <div class="headertitle"><div class="title">Lib::Math::Pid</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows waiting on a queue and a semaphore at the same time with an <a class="el" href="../../de/d45/a06261.html" title="RTOS::QueueSet">RTOS::QueueSet</a>.</p>
-<p>Shows waiting on a queue and a semaphore at the same time with an <a class="el" href="../../de/d45/a06261.html" title="RTOS::QueueSet">RTOS::QueueSet</a>. Covers a set that combines a command queue and a button semaphore, and a task that blocks on the set and dispatches whichever member became ready. Every member must be empty when it is added, and it can belong to only one set at a time. Requires <em class="arg">configUSE_QUEUE_SETS</em> set to <b>1</b>.</p>
-<dl class="section important"><dt>Important</dt><dd>The set length must be at least the sum of the member lengths: 4 for the command queue plus 1 for the binary semaphore, so 5 here.</dd></dl>
+<p>Controls a process variable such as a heater temperature with <a class="el" href="../../de/d45/a06261.html" title="Lib::Math::Pid">Lib::Math::Pid</a>.</p>
+<p>Controls a process variable such as a heater temperature with <a class="el" href="../../de/d45/a06261.html" title="Lib::Math::Pid">Lib::Math::Pid</a>. The controller keeps no timer of its own: call <a class="el" href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5" title="Lib::Math::Pid::compute()">Lib::Math::Pid::compute()</a> once per sample time from a single context, for example a periodic task, and apply the returned output to the actuator. The class is not thread-safe, so guard an instance shared between contexts with a mutex. The snippets use the single-precision alias <a class="el" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060" title="Lib::Math::PidF">Lib::Math::PidF</a>.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="queue_set_usage_declare"></a>
-Declaring the members and the set</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/QueueSet.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="pid_usage_auto"></a>
+Automatic mode and output limits</h3>
+<p>A new controller starts in manual mode, so call <a class="el" href="../../dd/d49/a05839.html#aebd5e41e575e74237648c428cdde731f" title="Lib::Math::Pid::setMode()">Lib::Math::Pid::setMode()</a> with <em class="arg">true</em> before the first <a class="el" href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5" title="Lib::Math::Pid::compute()">Lib::Math::Pid::compute()</a>. The output is clamped to <a class="el" href="../../d8/d08/a05843.html#a23515cb5c24f985549f55404aee2928a" title="Lib::Math::Pid::Parameters::outputMin">Lib::Math::Pid::Parameters::outputMin</a> and <a class="el" href="../../d8/d08/a05843.html#a413072c853e2fdf9a83cb1b601c736ab" title="Lib::Math::Pid::Parameters::outputMax">Lib::Math::Pid::Parameters::outputMax</a>, and the integral term is held back so that it cannot wind up beyond them.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/Math/Pid.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> heater(Lib::Math::PidF::Parameters{2.0F, 4.0F, 0.0F, 0.25F, 0.0F, 100.0F});</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint8_t, 4U&gt;</a> commands;</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../de/d4c/a05926.html">RTOS::Semaphore</a> buttonPressed;</div>
-<div class="line">    RTOS::QueueSet&lt;2U&gt; events;</div>
+<div class="line"><span class="comment">// Called every 0.25 seconds from a control task.</span></div>
+<div class="line"><span class="keywordtype">void</span> controlStep(<span class="keywordtype">float</span> setpoint, <span class="keywordtype">float</span> measuredTemperature) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> duty = heater.compute(setpoint, measuredTemperature);</div>
+<div class="line">    <span class="comment">// Apply duty (0 to 100 percent) to the heater PWM.</span></div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(duty);</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00905_html"><div class="ttname"><a href="../../da/d5b/a00905.html">Queue.hpp</a></div><div class="ttdoc">Type-safe RAII wrapper for FreeRTOS queues.</div></div>
-<div class="ttc" id="aa00908_html"><div class="ttname"><a href="../../d0/d85/a00908.html">QueueSet.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS queue sets.</div></div>
-<div class="ttc" id="aa00911_html"><div class="ttname"><a href="../../d7/d12/a00911.html">Semaphore.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS binary semaphores.</div></div>
-<div class="ttc" id="aa05922_html"><div class="ttname"><a href="../../df/dc9/a05922.html">RTOS::Queue</a></div><div class="ttdoc">Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type.</div><div class="ttdef"><b>Definition</b> Queue.hpp:55</div></div>
-<div class="ttc" id="aa05926_html"><div class="ttname"><a href="../../de/d4c/a05926.html">RTOS::Semaphore</a></div><div class="ttdoc">Binary semaphore resource manager for task and ISR synchronization.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:44</div></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> controlStart() noexcept {</div>
+<div class="line">    heater.<a id="a1" name="a1"></a><a class="code hl_function" href="../../dd/d49/a05839.html#aebd5e41e575e74237648c428cdde731f">setMode</a>(<span class="keyword">true</span>);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00887_html"><div class="ttname"><a href="../../d7/d92/a00887.html">Pid.hpp</a></div><div class="ttdoc">Generic, template-based PID controller with output limits, anti-windup and manual mode.</div></div>
+<div class="ttc" id="aa01038_html_a948fc056c1100dd929fbdca345047060"><div class="ttname"><a href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a></div><div class="ttdeci">Pid&lt; float &gt; PidF</div><div class="ttdoc">Type alias for a PID controller using single-precision floating-point arithmetic.</div><div class="ttdef"><b>Definition</b> Pid.hpp:350</div></div>
+<div class="ttc" id="aa05839_html_aebd5e41e575e74237648c428cdde731f"><div class="ttname"><a href="../../dd/d49/a05839.html#aebd5e41e575e74237648c428cdde731f">Lib::Math::Pid::setMode</a></div><div class="ttdeci">void setMode(bool automatic) noexcept</div><div class="ttdoc">Switches the controller between automatic and manual operation modes.</div><div class="ttdef"><b>Definition</b> Pid.hpp:250</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="queue_set_usage_open"></a>
-Opening the set</h3>
-<p>RTOS::QueueSet::open() with an initializer list creates the set and adds both members in one call. Each member handle comes from <a class="el" href="../../df/dc9/a05922.html#abd1cd42014765c2d80dc782dd6d5e25c" title="RTOS::Queue::getHandle()">RTOS::Queue::getHandle()</a> or <a class="el" href="../../d8/d5e/a05930.html#a9cd3c80279acde60a0701a674eecc148" title="RTOS::SemaphoreBase::getHandle()">RTOS::SemaphoreBase::getHandle()</a> of its own wrapper.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/QueueSet.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="pid_usage_manual"></a>
+Manual mode and bumpless transfer</h3>
+<p>In manual mode <a class="el" href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5" title="Lib::Math::Pid::compute()">Lib::Math::Pid::compute()</a> returns the last output without calculating. Set the output with <a class="el" href="../../dd/d49/a05839.html#a6c5209d65800c0490e2d728de766193c" title="Lib::Math::Pid::setManualOutput()">Lib::Math::Pid::setManualOutput()</a>, which clamps it to the output limits. Switching back to automatic mode seeds the integral term with the current output, so the output does not jump at the moment of the transfer.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/Math/Pid.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="keywordtype">void</span> manualOverride() noexcept {</div>
+<div class="line">    <a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> pid(2.0F, 0.5F, 0.0F, 0.1F);</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint8_t, 4U&gt;</a> commands;</div>
-<div class="line">    <a class="code hl_class" href="../../de/d4c/a05926.html">RTOS::Semaphore</a> buttonPressed;</div>
-<div class="line">    RTOS::QueueSet&lt;2U&gt; events;</div>
+<div class="line">    pid.<a class="code hl_function" href="../../dd/d49/a05839.html#aebd5e41e575e74237648c428cdde731f">setMode</a>(<span class="keyword">false</span>);</div>
+<div class="line">    pid.<a id="a2" name="a2"></a><a class="code hl_function" href="../../dd/d49/a05839.html#a6c5209d65800c0490e2d728de766193c">setManualOutput</a>(40.0F);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> held = pid.<a id="a3" name="a3"></a><a class="code hl_function" href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5">compute</a>(50.0F, 20.0F);</div>
+<div class="line"> </div>
+<div class="line">    pid.<a class="code hl_function" href="../../dd/d49/a05839.html#aebd5e41e575e74237648c428cdde731f">setMode</a>(<span class="keyword">true</span>);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> resumed = pid.<a class="code hl_function" href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5">compute</a>(50.0F, 50.0F);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(held);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(resumed);</div>
 <div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> openEvents() noexcept {</div>
-<div class="line">    <span class="keywordflow">if</span> (!commands.open() || !buttonPressed.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Creation failed: out of heap.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> events.<a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d4c/a05926.html#a4f3a14ce62c98f7ce5520ce3e91b2322">open</a>(5U, {commands.getHandle(), buttonPressed.getHandle()});</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05926_html_a4f3a14ce62c98f7ce5520ce3e91b2322"><div class="ttname"><a href="../../de/d4c/a05926.html#a4f3a14ce62c98f7ce5520ce3e91b2322">RTOS::Semaphore::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Allocates the native FreeRTOS binary semaphore handle, if not already open.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:117</div></div>
+<div class="ttc" id="aa05839_html_a6c5209d65800c0490e2d728de766193c"><div class="ttname"><a href="../../dd/d49/a05839.html#a6c5209d65800c0490e2d728de766193c">Lib::Math::Pid::setManualOutput</a></div><div class="ttdeci">void setManualOutput(T output) noexcept</div><div class="ttdoc">Sets the controller output value for manual mode operation.</div><div class="ttdef"><b>Definition</b> Pid.hpp:278</div></div>
+<div class="ttc" id="aa05839_html_accc19771dadaeca56f565357a30be1a5"><div class="ttname"><a href="../../dd/d49/a05839.html#accc19771dadaeca56f565357a30be1a5">Lib::Math::Pid::compute</a></div><div class="ttdeci">T compute(T setpoint, T input) noexcept</div><div class="ttdoc">Computes the controller output for the given setpoint and input.</div><div class="ttdef"><b>Definition</b> Pid.hpp:141</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="queue_set_usage_wait"></a>
-Waiting and dispatching</h3>
-<p>RTOS::QueueSet::select() returns the member that became ready, or <em class="arg">nullptr</em> on timeout. Read each ready member exactly once with a zero timeout, so the set reports only new events.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/QueueSet.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="pid_usage_reverse"></a>
+Reverse action</h3>
+<p>A cooling loop must raise its output when the measurement is above the setpoint. Call <a class="el" href="../../dd/d49/a05839.html#a08d3fcd293e6dae6b70325b02fad5440" title="Lib::Math::Pid::setDirection()">Lib::Math::Pid::setDirection()</a> with <em class="arg">true</em> to invert the sign of the error; the gains stay positive.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/Math/Pid.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> cooler(Lib::Math::PidF::Parameters{3.0F, 0.1F, 0.0F, 0.5F, 0.0F, 100.0F});</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint8_t, 4U&gt;</a> commands;</div>
-<div class="line">    <a class="code hl_class" href="../../de/d4c/a05926.html">RTOS::Semaphore</a> buttonPressed;</div>
-<div class="line">    RTOS::QueueSet&lt;2U&gt; events;</div>
+<div class="line"><span class="keywordtype">void</span> coolerInit() noexcept {</div>
+<div class="line">    cooler.<a id="a4" name="a4"></a><a class="code hl_function" href="../../dd/d49/a05839.html#a08d3fcd293e6dae6b70325b02fad5440">setDirection</a>(<span class="keyword">true</span>);</div>
+<div class="line">    cooler.setMode(<span class="keyword">true</span>);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> openEvents() noexcept {</div>
-<div class="line">    <span class="keywordflow">if</span> (!commands.open() || !buttonPressed.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Creation failed: out of heap.</span></div>
-<div class="line">    }</div>
+<div class="line"><span class="keywordtype">float</span> coolerStep(<span class="keywordtype">float</span> setpoint, <span class="keywordtype">float</span> temperature) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="comment">// A temperature above the setpoint gives a positive error and a rising fan speed.</span></div>
+<div class="line">    <span class="keywordflow">return</span> cooler.compute(setpoint, temperature);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05839_html_a08d3fcd293e6dae6b70325b02fad5440"><div class="ttname"><a href="../../dd/d49/a05839.html#a08d3fcd293e6dae6b70325b02fad5440">Lib::Math::Pid::setDirection</a></div><div class="ttdeci">void setDirection(bool reverse) noexcept</div><div class="ttdoc">Sets the control direction of the PID controller.</div><div class="ttdef"><b>Definition</b> Pid.hpp:266</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="pid_usage_tuning"></a>
+Changing gains, sample time and limits at run time</h3>
+<p>The gains, the sample time and the output limits can be changed while the controller runs. The sample time is already part of the integral and derivative terms, so after a change of the control period only <a class="el" href="../../dd/d49/a05839.html#a19ce3436614fa5177748195210f07673" title="Lib::Math::Pid::setSampleTime()">Lib::Math::Pid::setSampleTime()</a> is needed. <a class="el" href="../../dd/d49/a05839.html#a94c9810cbce5b0f500f8ef07214ab213" title="Lib::Math::Pid::setParameters()">Lib::Math::Pid::setParameters()</a> replaces every parameter at once.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/Math/Pid.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> events.<a class="code hl_function" href="../../de/d4c/a05926.html#a4f3a14ce62c98f7ce5520ce3e91b2322">open</a>(5U, {commands.getHandle(), buttonPressed.getHandle()});</div>
+<div class="line"><span class="keywordtype">void</span> retune(<a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> &amp; pid) <span class="keyword">noexcept</span> {</div>
+<div class="line">    pid.setGains(2.5F, 0.8F, 0.05F);</div>
+<div class="line">    pid.setSampleTime(0.05F);</div>
+<div class="line">    pid.setOutputLimits(10.0F, 90.0F);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> eventTask(<span class="keywordtype">void</span> * parameters) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!openEvents()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="keyword">const</span> RTOS::QueueSet&lt;2U&gt;::Member <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga528eb8f3b350394c0406d4d58ab7dbf4ab2fdab230a2c39f3595a947861863cb7">ready</a> = events.select(100ms);</div>
-<div class="line">        <span class="keywordflow">if</span> (ready == commands.getHandle()) {</div>
-<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint8_t&gt;</a> command = commands.receive(0U); command.has_value()) {</div>
-<div class="line">                <span class="comment">// Handle *command.</span></div>
-<div class="line">            }</div>
-<div class="line">        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ready == buttonPressed.getHandle()) {</div>
-<div class="line">            <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(buttonPressed.take(0U));</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
+<div class="line"><span class="keywordtype">void</span> loadProfile(<a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> &amp; pid) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">const</span> Lib::Math::PidF::Parameters profile{1.0F, 0.2F, 0.0F, 0.1F, 0.0F, 100.0F};</div>
+<div class="line">    pid.setParameters(profile);</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa01613_html_ga528eb8f3b350394c0406d4d58ab7dbf4ab2fdab230a2c39f3595a947861863cb7"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga528eb8f3b350394c0406d4d58ab7dbf4ab2fdab230a2c39f3595a947861863cb7">future_status::ready</a></div><div class="ttdeci">@ ready</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="pid_usage_reset"></a>
+Reset and status</h3>
+<p><a class="el" href="../../dd/d49/a05839.html#a56616b9fc06643e4f53dcc572fe0eb5f" title="Lib::Math::Pid::reset()">Lib::Math::Pid::reset()</a> clears the integral term, the stored input and the output; the parameters, the mode and the direction are kept. Call it when the process restarts, for example after the heater was off for a long time. The getters expose the controller status for logging.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/Math/Pid.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> restartProcess(<a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> &amp; pid) <span class="keyword">noexcept</span> {</div>
+<div class="line">    pid.reset();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> logStatus(<span class="keyword">const</span> <a class="code hl_typedef" href="../../d4/dbc/a01038.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> &amp; pid) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> output = pid.getOutput();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> integral = pid.getIntegralTerm();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> automatic = pid.isAutomatic();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01626.html#ga8e7ff99a606d89406c0a9f5ec215b041">reverse</a> = pid.isReverse();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> proportionalGain = pid.getParameters().kp;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(output);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(integral);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(automatic);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01626.html#ga8e7ff99a606d89406c0a9f5ec215b041">reverse</a>);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(proportionalGain);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01626_html_ga8e7ff99a606d89406c0a9f5ec215b041"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01626.html#ga8e7ff99a606d89406c0a9f5ec215b041">reverse</a></div><div class="ttdeci">constexpr void reverse(_BidirectionalIterator __first, _BidirectionalIterator __last)</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

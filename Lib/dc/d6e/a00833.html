@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: JaggedArray.hpp</title>
+<title>IAR EWARM Library: crc8.hpp</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -98,37 +98,27 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
-  <div class="headertitle"><div class="title">JaggedArray.hpp</div></div>
+<a href="#namespaces">Namespaces</a>  </div>
+  <div class="headertitle"><div class="title">crc8.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Lightweight non-owning container adapter for jagged data structures. </p>
-<p>Provides a collection of pointers to elements or rows with add, remove and indexed access. Designed for embedded use where ownership is managed externally; the pointer list itself lives in a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html" title="std::vector">std::vector</a> and therefore on the heap, which is the price of an unbounded row count.</p>
+<div class="textblock"><p>Calculate the Dallas/Maxim 8-bit CRC over a sequence of bytes, as used by 1-Wire devices such as the DS18B20. </p>
+<p>The helper provides a lightweight view-based interface that computes the CRC on demand when the instance is converted to <em class="arg">uint8_t</em>. The algorithm uses polynomial 0x31 reflected (0x8C), LSB-first bit order and a zero initial value, matching the Dallas/Maxim 1-Wire CRC specification (Maxim application note AN27). Unlike <a class="el" href="../../d3/d30/a05703.html" title="Lib::Helper::crc16">Lib::Helper::crc16</a>, this takes a std::span of bytes rather than a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html" title="std::string_view">std::string_view</a>, because the input is always raw sensor bytes, never text. The CRC is computed byte-wise from a 256-entry table generated at compile time and stored as constant data, and is usable in a constant expression.</p>
 <dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-09-24 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-09-23 </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AHelper_3A_3AJaggedArrayBase_3C_20T_5FELEMENT_20_3E" id="r_Lib_3A_3AHelper_3A_3AJaggedArrayBase_3C_20T_5FELEMENT_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d78/a05732.html">Lib::Helper::JaggedArrayBase&lt; T_ELEMENT &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning container that stores unique, non-null pointers to elements of type <em class="arg">T_ELEMENT</em>.  <a href="../../d8/d78/a05732.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AHelper_3A_3Acrc8" id="r_Lib_3A_3AHelper_3A_3Acrc8"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d39/a05707.html">Lib::Helper::crc8</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper type that computes the Dallas/Maxim 8-bit CRC for a provided byte view.  <a href="../../d3/d39/a05707.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d2/d4c/a00984.html">Lib</a></td></tr>
-<tr class="memdesc:d2/d4c/a00984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AHelper" id="r_Lib_3A_3AHelper"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d43/a01020.html">Lib::Helper</a></td></tr>
-<tr class="memdesc:d0/d43/a01020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility helpers shared by the library modules. <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:abb4a58cc33c78b1e079bef9fe69346d0" id="r_abb4a58cc33c78b1e079bef9fe69346d0"><td class="memTemplParams" colspan="2">template&lt;typename T_ELEMENT&gt; </td></tr>
-<tr class="memitem:abb4a58cc33c78b1e079bef9fe69346d0 template"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d0/d43/a01020.html#abb4a58cc33c78b1e079bef9fe69346d0">Lib::Helper::JaggedArrayRow</a> = <a class="el" href="../../d8/d78/a05732.html">JaggedArrayBase</a>&lt;T_ELEMENT&gt;</td></tr>
-<tr class="memdesc:abb4a58cc33c78b1e079bef9fe69346d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single row of a jagged array.  <br /></td></tr>
-<tr class="memitem:ad371b43a764bd5b625afa226a1fc12eb" id="r_ad371b43a764bd5b625afa226a1fc12eb"><td class="memTemplParams" colspan="2">template&lt;typename T_ELEMENT&gt; </td></tr>
-<tr class="memitem:ad371b43a764bd5b625afa226a1fc12eb template"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d0/d43/a01020.html#ad371b43a764bd5b625afa226a1fc12eb">Lib::Helper::JaggedArray</a> = <a class="el" href="../../d8/d78/a05732.html">JaggedArrayBase</a>&lt;<a class="el" href="../../d0/d43/a01020.html#abb4a58cc33c78b1e079bef9fe69346d0">JaggedArrayRow</a>&lt;T_ELEMENT&gt;&gt;</td></tr>
-<tr class="memdesc:ad371b43a764bd5b625afa226a1fc12eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jagged array composed of rows of elements.  <br /></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../de/de2/a00999.html">Lib</a></td></tr>
+<tr class="memdesc:de/de2/a00999"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
+<tr class="memitem:Lib_3A_3AHelper" id="r_Lib_3A_3AHelper"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../de/d26/a01035.html">Lib::Helper</a></td></tr>
+<tr class="memdesc:de/d26/a01035"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility helpers shared by the library modules. <br /></td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->

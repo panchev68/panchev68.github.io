@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::FlashInterface</title>
+<title>IAR EWARM Library: Lib::HAL::ADCPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,67 +92,158 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::FlashInterface</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::ADCPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Unlocks the flash controller, erases a sector and programs words with <a class="el" href="../../dd/d16/a06179.html" title="Lib::HAL::FlashInterface">Lib::HAL::FlashInterface</a>.</p>
-<p>Unlocks the flash controller, erases a sector and programs words with Lib::HAL::FlashInterface.The class is a thin facade over the HAL flash functions and holds no state. Erase and program operations need the controller unlocked, so call <a class="el" href="../../d0/d12/a05386.html#a0f5c36a802a9b6cf15aacf3d104cb445" title="Lib::HAL::FlashInterface::unlock()">Lib::HAL::FlashInterface::unlock()</a> first and <a class="el" href="../../d0/d12/a05386.html#a076081c699cb3dcf3a7f5890c6c4f568" title="Lib::HAL::FlashInterface::lock()">Lib::HAL::FlashInterface::lock()</a> afterwards. The HAL calls block until the operation ends, so keep them out of interrupt handlers. <a class="el" href="../../d0/d12/a05386.html#ae33402652ac23992b9eb28ed57ca35e8" title="Lib::HAL::FlashInterface::writeBuffer()">Lib::HAL::FlashInterface::writeBuffer()</a> programs in order and stops at the first failure; the words written before that failure stay programmed.</p>
-<p>The erase granularity and the programming width are chosen at compile time from the device macros: sectors where <em class="arg">FLASH_TYPEERASE_SECTORS</em> is defined, pages where <em class="arg">FLASH_TYPEERASE_PAGES</em> is defined, and word or doubleword programming where <em class="arg">FLASH_TYPEPROGRAM_WORD</em> or <em class="arg">FLASH_TYPEPROGRAM_DOUBLEWORD</em> is defined. On a device without the macro, the method returns <b>false</b>.</p>
-<dl class="section important"><dt>Important</dt><dd>The module guard is <em class="arg">HAL_FLASH_MODULE_ENABLED</em>, which the project's 'stm32f4xx_hal_conf.h' enables. On the STM32F407xx target the HAL headers define <em class="arg">FLASH_TYPEERASE_SECTORS</em> and <em class="arg">FLASH_TYPEPROGRAM_WORD</em>, so both methods are compiled in.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>An erase destroys the whole sector, including any code or constants stored in it. Never erase the sector that holds the running firmware, and keep the code that erases and programs in RAM, because the CPU cannot execute from flash while the operation runs. Writes can only clear bits, so a word must be erased before it is programmed to a value that sets bits.</dd></dl>
+<p>Reads the regular ADC group through <a class="el" href="../../dd/d16/a06179.html" title="Lib::HAL::ADCPort">Lib::HAL::ADCPort</a> in the three transfer modes: 'Lib::HAL::DriverMode::BLOCKING' polls the end-of-conversion flag, 'Lib::HAL::DriverMode::IT' waits for a HAL callback, and 'Lib::HAL::DriverMode::DMA' scans the channels into a caller-owned buffer.</p>
+<p>Reads the regular ADC group through <a class="el" href="../../dd/d16/a06179.html" title="Lib::HAL::ADCPort">Lib::HAL::ADCPort</a> in the three transfer modes: 'Lib::HAL::DriverMode::BLOCKING' polls the end-of-conversion flag, 'Lib::HAL::DriverMode::IT' waits for a HAL callback, and 'Lib::HAL::DriverMode::DMA' scans the channels into a caller-owned buffer. The port wraps an <b>ADC_HandleTypeDef</b> created by CubeMX and does not configure the channels itself: the regular sequence (channels, ranks, sample times) must already be set on the handle, and open() then runs <b>HAL_ADC_Init()</b> on it.</p>
+<p>The IT and DMA modes need <em class="arg">USE_HAL_ADC_REGISTER_CALLBACKS</em> set to 1 in the HAL configuration header, otherwise the header stops the build with a compile-time error. The IT mode's Lib::HAL::ADCPort::read() and Lib::HAL::ADCPort::waitForEvent(), and the DMA mode's Lib::HAL::ADCPort::waitForEvent(), block the calling task and must not run in an ISR.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="flash_usage_erase"></a>
-Erase a sector and program a block</h3>
-<p><a class="el" href="../../d0/d12/a05386.html#a31fec472e71d387e0e9a5ade75e5ae24" title="Lib::HAL::FlashInterface::eraseSector()">Lib::HAL::FlashInterface::eraseSector()</a> takes the sector index and the voltage range that matches the supply voltage; use the HAL constant <em class="arg">FLASH_VOLTAGE_RANGE_3</em> for 2.7 V to 3.6 V on the STM32F407xx. Program the data only after the erase returns <b>true</b>, and check each step.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dc0/a00611.html">Lib/HAL/Flash/FlashInterface.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="adc_usage_hw"></a>
+Hardware assumptions</h3>
+<ul>
+<li>The ADC handle is generated by CubeMX (for example <b>hadc1</b>, declared in 'adc.c'), and its IRQ handler forwards to <b>HAL_ADC_IRQHandler()</b>, so the HAL callbacks registered by the port are invoked.</li>
+<li>The DMA mode also needs the DMA stream of the ADC configured by CubeMX, with its interrupt forwarding to <b>HAL_DMA_IRQHandler()</b>.</li>
+<li>The sample time of each channel is set by CubeMX; the ports do not expose <b>HAL_ADC_ConfigChannel()</b>.</li>
+</ul>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="adc_usage_block"></a>
+Blocking single conversion</h3>
+<p>Lib::HAL::ADCPort::start() begins the regular group, Lib::HAL::ADCPort::poll() waits for the conversion and returns the raw value, and Lib::HAL::ADCPort::stop() ends the sequence. A timeout or failure returns 0 and trips an <em class="arg">assert</em> in debug builds, so size the timeout for the slowest sample time with margin.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d3e/a00566.html">Lib/HAL/ADC/ADCPort-Block.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> hadc1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> sampleBlocking() noexcept {</div>
+<div class="line">    Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; adc(&amp;hadc1);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!adc.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (adc.start()) {</div>
+<div class="line">        <span class="keyword">const</span> uint32_t raw = adc.poll(<a id="_a1" name="_a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(10));</div>
+<div class="line">        <span class="comment">// Use raw; its range depends on the resolution set in CubeMX.</span></div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(raw);</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(adc.stop());</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(adc.close());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00566_html"><div class="ttname"><a href="../../d0/d3e/a00566.html">ADCPort-Block.hpp</a></div><div class="ttdoc">Blocking specialization of the ADC port.</div></div>
+<div class="ttc" id="aa01400_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="adc_usage_it"></a>
+Interrupt-driven read from a task</h3>
+<p>Lib::HAL::ADCPort::read() starts the conversion, waits for Lib::HAL::ADCPort::Event::CONVERSION_COMPLETE or Lib::HAL::ADCPort::Event::ERROR, and returns the value, or 0 on failure or timeout. The timeout is in milliseconds. The port registers itself with the device manager in Lib::HAL::ADCPort::open(), so the ISR path needs no extra wiring.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d06/a00572.html">Lib/HAL/ADC/ADCPort-IT.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d95/a00989.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> hadc1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>AdcTask final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    AdcTask() noexcept :</div>
+<div class="line">        adc(&amp;hadc1),</div>
+<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d3/d67/a05971.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Adc&quot;</span>, 256, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d0/d5d/a05955.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::IT&gt; adc;</div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../dc/d21/a05951.html">RTOS::Task</a> task; <span class="comment">// Must stay the last member.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!adc.open()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;AdcTask: failed to open ADC&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keyword">const</span> uint32_t raw = adc.read(<a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(20));</div>
+<div class="line">            <span class="keywordflow">if</span> (raw != 0U) {</div>
+<div class="line">                <span class="comment">// Publish raw.</span></div>
+<div class="line">            }</div>
+<div class="line">            <a id="a5" name="a5"></a><a class="code hl_function" href="../../d1/d83/a01041.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
+<div class="ttc" id="aa00572_html"><div class="ttname"><a href="../../d6/d06/a00572.html">ADCPort-IT.hpp</a></div><div class="ttdoc">Interrupt-driven specialization of the ADC port.</div></div>
+<div class="ttc" id="aa00989_html"><div class="ttname"><a href="../../d4/d95/a00989.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01041_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d1/d83/a01041.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
+<div class="ttc" id="aa05951_html"><div class="ttname"><a href="../../dc/d21/a05951.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
+<div class="ttc" id="aa05955_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d0/d5d/a05955.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:87</div></div>
+<div class="ttc" id="aa05971_html"><div class="ttname"><a href="../../d3/d67/a05971.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="adc_usage_it_events"></a>
+Waiting for individual events</h3>
+<p>Use Lib::HAL::ADCPort::start() and Lib::HAL::ADCPort::waitForEvent() directly when the caller must tell a conversion-complete from an error. The timeout of Lib::HAL::ADCPort::waitForEvent() is in RTOS ticks, not milliseconds, so convert with <a class="el" href="../../d3/d1f/a05983.html#aa4d1e4d7efa2415ef43f6f577ad17c3a" title="RTOS::TickCounter::msToTicks()">RTOS::TickCounter::msToTicks()</a>.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d06/a00572.html">Lib/HAL/ADC/ADCPort-IT.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d95/a00989.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using </span>AdcIt = Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::IT&gt;;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> convertWithEvents(AdcIt &amp; adc) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (!adc.start()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">const</span> uint32_t events = adc.waitForEvent(AdcIt::Event::CONVERSION_COMPLETE | AdcIt::Event::ERROR, <a id="_a6" name="_a6"></a><a class="code hl_function" href="../../d3/d1f/a05983.html#aa4d1e4d7efa2415ef43f6f577ad17c3a">RTOS::TickCounter::msToTicks</a>(20));</div>
+<div class="line">    <span class="keywordflow">if</span> ((events &amp; AdcIt::Event::CONVERSION_COMPLETE) != 0U) {</div>
+<div class="line">        <span class="keyword">const</span> uint32_t raw = adc.getValue();</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(raw);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(adc.stop());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05983_html_aa4d1e4d7efa2415ef43f6f577ad17c3a"><div class="ttname"><a href="../../d3/d1f/a05983.html#aa4d1e4d7efa2415ef43f6f577ad17c3a">RTOS::TickCounter::msToTicks</a></div><div class="ttdeci">static constexpr TickType msToTicks(uint32_t milliseconds) noexcept</div><div class="ttdoc">Converts a millisecond count to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:184</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="adc_usage_dma"></a>
+Scan channels into a buffer</h3>
+<p>Lib::HAL::ADCPort::start() with a buffer hands it to DMA, which writes one sample per regular rank. The buffer must stay valid until Lib::HAL::ADCPort::stop() is called. The ISR signals Lib::HAL::ADCPort::Event::CONVERSION_COMPLETE once the whole scan has been written, and an empty destination is rejected.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d9e/a00569.html">Lib/HAL/ADC/ADCPort-DMA.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d95/a00989.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> storeSettings() noexcept {</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t SETTINGS_SECTOR = 11U;</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t SETTINGS_ADDRESS = 0x080E0000U;</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 4&gt;</a> SETTINGS{0x01U, 0x02U, 0x03U, 0x04U};</div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> hadc1;</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d0/d12/a05386.html">Lib::HAL::FlashInterface</a> flash;</div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d0/d12/a05386.html#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="keywordtype">void</span> scanChannels() noexcept {</div>
+<div class="line">    <span class="keyword">static</span> <a id="_a7" name="_a7"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 4&gt;</a> samples{};</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::DMA&gt; adc(&amp;hadc1);</div>
+<div class="line">    <span class="keywordflow">if</span> (!adc.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> isStored = flash.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d0/d12/a05386.html#a31fec472e71d387e0e9a5ade75e5ae24">eraseSector</a>(SETTINGS_SECTOR, <a id="_a4" name="_a4"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d5/d12/a00794.html#ga50950407a789684eec9216f49e0831a0">FLASH_VOLTAGE_RANGE_3</a>) &amp;&amp;</div>
-<div class="line">                    flash.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d0/d12/a05386.html#ae33402652ac23992b9eb28ed57ca35e8">writeBuffer</a>(SETTINGS_ADDRESS, SETTINGS.data(), <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(SETTINGS.size()));</div>
-<div class="line"> </div>
-<div class="line">    isStored = flash.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d0/d12/a05386.html#a076081c699cb3dcf3a7f5890c6c4f568">lock</a>() &amp;&amp; isStored;</div>
-<div class="line">    <span class="keywordflow">return</span> isStored;</div>
+<div class="line">    <span class="keywordflow">if</span> (adc.start(std::span&lt;uint32_t&gt;(samples))) {</div>
+<div class="line">        <span class="keyword">const</span> uint32_t events = adc.waitForEvent(Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::DMA&gt;::Event::CONVERSION_COMPLETE |</div>
+<div class="line">                                                 Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::DMA&gt;::Event::ERROR,</div>
+<div class="line">                                                 <a class="code hl_function" href="../../d3/d1f/a05983.html#aa4d1e4d7efa2415ef43f6f577ad17c3a">RTOS::TickCounter::msToTicks</a>(50));</div>
+<div class="line">        <span class="keywordflow">if</span> ((events &amp; Lib::HAL::ADCPort&lt;Lib::HAL::DriverMode::DMA&gt;::Event::CONVERSION_COMPLETE) != 0U) {</div>
+<div class="line">            <span class="comment">// Use samples[0] ... samples[3].</span></div>
+<div class="line">        }</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(adc.stop());</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(adc.close());</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00611_html"><div class="ttname"><a href="../../dd/dc0/a00611.html">FlashInterface.hpp</a></div><div class="ttdoc">Facade over the STM32 internal Flash controller: lock control, sector or page erase and word programm...</div></div>
-<div class="ttc" id="aa00794_html_ga50950407a789684eec9216f49e0831a0"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d5/d12/a00794.html#ga50950407a789684eec9216f49e0831a0">FLASH_VOLTAGE_RANGE_3</a></div><div class="ttdeci">#define FLASH_VOLTAGE_RANGE_3</div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa00569_html"><div class="ttname"><a href="../../d4/d9e/a00569.html">ADCPort-DMA.hpp</a></div><div class="ttdoc">DMA-driven specialization of the ADC port.</div></div>
 <div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa05386_html"><div class="ttname"><a href="../../d0/d12/a05386.html">Lib::HAL::FlashInterface</a></div><div class="ttdoc">Stateless facade over the internal Flash controller.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:33</div></div>
-<div class="ttc" id="aa05386_html_a076081c699cb3dcf3a7f5890c6c4f568"><div class="ttname"><a href="../../d0/d12/a05386.html#a076081c699cb3dcf3a7f5890c6c4f568">Lib::HAL::FlashInterface::lock</a></div><div class="ttdeci">bool lock() noexcept</div><div class="ttdoc">Locks the Flash control register against accidental erase and program operations.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:100</div></div>
-<div class="ttc" id="aa05386_html_a0f5c36a802a9b6cf15aacf3d104cb445"><div class="ttname"><a href="../../d0/d12/a05386.html#a0f5c36a802a9b6cf15aacf3d104cb445">Lib::HAL::FlashInterface::unlock</a></div><div class="ttdeci">bool unlock() noexcept</div><div class="ttdoc">Unlocks the Flash control register so that erase and program operations are accepted.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:91</div></div>
-<div class="ttc" id="aa05386_html_a31fec472e71d387e0e9a5ade75e5ae24"><div class="ttname"><a href="../../d0/d12/a05386.html#a31fec472e71d387e0e9a5ade75e5ae24">Lib::HAL::FlashInterface::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t sectorIndex, uint32_t voltageRange) noexcept</div><div class="ttdoc">Erases one sector (sector-based families) or one page (page-based families).</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:115</div></div>
-<div class="ttc" id="aa05386_html_ae33402652ac23992b9eb28ed57ca35e8"><div class="ttname"><a href="../../d0/d12/a05386.html#ae33402652ac23992b9eb28ed57ca35e8">Lib::HAL::FlashInterface::writeBuffer</a></div><div class="ttdeci">bool writeBuffer(uint32_t startAddress, const uint32_t *dataPointer, uint32_t wordLength) noexcept</div><div class="ttdoc">Programs a buffer of 32-bit words into consecutive flash addresses.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:181</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="flash_usage_word"></a>
-Program one word</h3>
-<p><a class="el" href="../../d0/d12/a05386.html#ad771befb1be3db0d319c46507a7896ca" title="Lib::HAL::FlashInterface::writeWord()">Lib::HAL::FlashInterface::writeWord()</a> asserts that the address is 4-byte aligned. On a doubleword device the hardware programs 8 bytes at once, so the class reads the neighbouring word and programs the pair; that neighbour must still be erased or hold the value it already has.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dc0/a00611.html">Lib/HAL/Flash/FlashInterface.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> writeOneWord(uint32_t address, uint32_t value) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <a class="code hl_class" href="../../d0/d12/a05386.html">Lib::HAL::FlashInterface</a> flash;</div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.<a class="code hl_function" href="../../d0/d12/a05386.html#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> isWritten = flash.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d0/d12/a05386.html#ad771befb1be3db0d319c46507a7896ca">writeWord</a>(address, value);</div>
-<div class="line">    <span class="keywordflow">return</span> flash.<a class="code hl_function" href="../../d0/d12/a05386.html#a076081c699cb3dcf3a7f5890c6c4f568">lock</a>() &amp;&amp; isWritten;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05386_html_ad771befb1be3db0d319c46507a7896ca"><div class="ttname"><a href="../../d0/d12/a05386.html#ad771befb1be3db0d319c46507a7896ca">Lib::HAL::FlashInterface::writeWord</a></div><div class="ttdeci">bool writeWord(uint32_t address, uint32_t data) noexcept</div><div class="ttdoc">Programs one 32-bit word.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:149</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

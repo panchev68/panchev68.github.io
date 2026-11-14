@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::PowerManager</title>
+<title>IAR EWARM Library: RTOS::Mutex</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,140 +91,145 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d0/daa/a01029.html">RTOS</a></li><li class="navelem"><a href="../../db/da7/a05911.html">PowerManager</a></li>  </ul>
+<li class="navelem"><a href="../../d1/d83/a01041.html">RTOS</a></li><li class="navelem"><a href="../../db/da7/a05911.html">Mutex</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="../../d0/d71/a05908.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">RTOS::PowerManager<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">RTOS::Mutex<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Manages low-power states and peripheral synchronization for the RTOS tickless idle mechanism.  
+<p>Priority-inheriting mutual exclusion lock, normal or recursive.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Manages low-power states and peripheral synchronization for the RTOS tickless idle mechanism. </p>
-<p>The kernel calls the hook from the idle task with the scheduler suspended. The manager masks interrupts, confirms that sleeping is still allowed, and then either stops the core in STOP1 until the LPTIM timeout (deep sleep) or waits in a plain <b>__WFI()</b> (light sleep). Pre-sleep and post-sleep callbacks run only around deep sleep and always with interrupts masked, so they must be short and must not call any blocking API.</p>
-<p>Stop mode needs a clock that keeps running while the core is stopped, so the manager drives an LPTIM through <a class="el" href="../../d9/dac/a06190.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a>. It targets the STM32U5 family, whose HAL provides both that driver's LPTIM interface and <b>HAL_PWREx_EnterSTOP1Mode()</b>. On a device without an LPTIM, such as the STM32F407, the component is compiled away and the application runs without tickless idle.</p>
-<p>The kernel reaches the manager through <a class="el" href="#a98ee80183ed645629084a482c158afd1" title="vPortSuppressTicksAndSleep()">vPortSuppressTicksAndSleep()</a>. Exactly one translation unit of the application must define <em class="arg">RTOS_POWER_MANAGER_IMPLEMENTATION</em> before including this header; that unit emits the hook as a strong symbol which replaces the weak default of the FreeRTOS port.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/PowerManager.hpp" target="_blank">Source</a> </dd>
-<dd>
-<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/doc/PowerManager.md" target="_blank">Detail Description</a> </dd></dl>
+<div class="textblock"><p>Priority-inheriting mutual exclusion lock, normal or recursive. </p>
+<p>Every <a class="el" href="#a2b2c30777cc3c44739df34e98fc05d0f" title="lock()">lock()</a> that returns <em class="arg">true</em> must be paired with exactly one <a class="el" href="#a55031b1cdaf584950893279ceac8ff93" title="unlock()">unlock()</a> by the same task; prefer <a class="el" href="../../dd/d51/a06275.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a> to get that pairing automatically. Mutexes have an owner task and priority inheritance, so they are task-context only and must never be locked or unlocked from an ISR.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/Mutex.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d6a/a06273.html#_a0">RTOS::Mutex</a>, <a class="el" href="../../dd/d51/a06275.html#_a0">RTOS::MutexGuard</a>, and <a class="el" href="../../d3/d83/a06287.html#_a8">RTOS::StreamBuffer</a>.</dd>
+</dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Statistics" id="r_Statistics"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d77/a05915.html">Statistics</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleep counters collected by the idle hook, for power profiling.  <a href="../../d1/d77/a05915.html#details">More...</a><br /></td></tr>
-<tr class="memitem:DeepSleepLock" id="r_DeepSleepLock"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../da/dc6/a05919.html">DeepSleepLock</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII guard that blocks deep sleep for its lifetime, e.g.  <a href="../../da/dc6/a05919.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ac633324a1cfed84b41ea13c58bf6fbfa" id="r_ac633324a1cfed84b41ea13c58bf6fbfa"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ac633324a1cfed84b41ea13c58bf6fbfa">PeripheralCallback</a> = <a class="el" href="../../d6/d34/a04823.html">FunctionRef</a>&lt;void()&gt;</td></tr>
-<tr class="memdesc:ac633324a1cfed84b41ea13c58bf6fbfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning callback run around deep sleep with interrupts masked.  <br /></td></tr>
+<tr class="memitem:a32944cdf5acfc817c79a3b60e03bbc38" id="r_a32944cdf5acfc817c79a3b60e03bbc38"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">NORMAL</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638">RECURSIVE</a> = 1
+<br />
+ }</td></tr>
+<tr class="memdesc:a32944cdf5acfc817c79a3b60e03bbc38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locking behavior of a mutex instance.  <a href="#a32944cdf5acfc817c79a3b60e03bbc38">More...</a><br /></td></tr>
+<tr class="memitem:adc2e1b449462bfc5e02a4ee323b012e5" id="r_adc2e1b449462bfc5e02a4ee323b012e5"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> = TickType_t</td></tr>
+<tr class="memdesc:adc2e1b449462bfc5e02a4ee323b012e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scheduler tick count type.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af37259063989766044b7fa592bd44085" id="r_af37259063989766044b7fa592bd44085"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> (const PowerManager &amp;)=delete</td></tr>
-<tr class="memdesc:af37259063989766044b7fa592bd44085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the manager is a singleton bound to the kernel idle hook.  <br /></td></tr>
-<tr class="memitem:ac049ef91e07bc905499cb228bbc97d39" id="r_ac049ef91e07bc905499cb228bbc97d39"><td class="memItemLeft"><a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac049ef91e07bc905499cb228bbc97d39">operator=</a> (const <a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;)=delete</td></tr>
-<tr class="memdesc:ac049ef91e07bc905499cb228bbc97d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the manager is a singleton bound to the kernel idle hook.  <br /></td></tr>
-<tr class="memitem:a580afc3532ffd30c47cab5a645b5bc7b" id="r_a580afc3532ffd30c47cab5a645b5bc7b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a580afc3532ffd30c47cab5a645b5bc7b">PowerManager</a> (PowerManager &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a580afc3532ffd30c47cab5a645b5bc7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the manager is a singleton bound to the kernel idle hook.  <br /></td></tr>
-<tr class="memitem:a7eaa1f8fd4c5fddd0d6d9aa4202913fe" id="r_a7eaa1f8fd4c5fddd0d6d9aa4202913fe"><td class="memItemLeft"><a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7eaa1f8fd4c5fddd0d6d9aa4202913fe">operator=</a> (<a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a7eaa1f8fd4c5fddd0d6d9aa4202913fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the manager is a singleton bound to the kernel idle hook.  <br /></td></tr>
-<tr class="memitem:a565502e655a008546ced2e18d0fc7b22" id="r_a565502e655a008546ced2e18d0fc7b22"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a565502e655a008546ced2e18d0fc7b22">setup</a> (<a class="el" href="../../d7/dbb/a05535.html">Lib::HAL::LPTimer</a> &amp;timer) noexcept</td></tr>
-<tr class="memdesc:a565502e655a008546ced2e18d0fc7b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the PowerManager with an LPTimer instance.  <br /></td></tr>
-<tr class="memitem:aab0d26e47777719ed4cbb5abfa3ff18c" id="r_aab0d26e47777719ed4cbb5abfa3ff18c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aab0d26e47777719ed4cbb5abfa3ff18c">isSetUp</a> () const noexcept</td></tr>
-<tr class="memdesc:aab0d26e47777719ed4cbb5abfa3ff18c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a> has succeeded.  <br /></td></tr>
-<tr class="memitem:a413f529cd450843d1925ae6e9672272a" id="r_a413f529cd450843d1925ae6e9672272a"><td class="memItemLeft"><a class="el" href="../../d7/dbb/a05535.html">Lib::HAL::LPTimer</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a413f529cd450843d1925ae6e9672272a">getTimer</a> () const noexcept</td></tr>
-<tr class="memdesc:a413f529cd450843d1925ae6e9672272a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the LPTimer that times deep sleep.  <br /></td></tr>
-<tr class="memitem:ab5e43097d2f7efc26d1ac3b6eecdd7b8" id="r_ab5e43097d2f7efc26d1ac3b6eecdd7b8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab5e43097d2f7efc26d1ac3b6eecdd7b8">registerPreSleepCallback</a> (<a class="el" href="#ac633324a1cfed84b41ea13c58bf6fbfa">PeripheralCallback</a> callback) noexcept</td></tr>
-<tr class="memdesc:ab5e43097d2f7efc26d1ac3b6eecdd7b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a callback to be executed before entering deep sleep, with interrupts masked.  <br /></td></tr>
-<tr class="memitem:a13f32f2b1abeed9410f521ffcfaf1e6e" id="r_a13f32f2b1abeed9410f521ffcfaf1e6e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a13f32f2b1abeed9410f521ffcfaf1e6e">registerPostSleepCallback</a> (<a class="el" href="#ac633324a1cfed84b41ea13c58bf6fbfa">PeripheralCallback</a> callback) noexcept</td></tr>
-<tr class="memdesc:a13f32f2b1abeed9410f521ffcfaf1e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a callback to be executed after exiting deep sleep, before interrupts are unmasked again.  <br /></td></tr>
-<tr class="memitem:a9faada79167d302ec78497a7a882e1b9" id="r_a9faada79167d302ec78497a7a882e1b9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9faada79167d302ec78497a7a882e1b9">unregisterPreSleepCallback</a> (<a class="el" href="#ac633324a1cfed84b41ea13c58bf6fbfa">PeripheralCallback</a> callback) noexcept</td></tr>
-<tr class="memdesc:a9faada79167d302ec78497a7a882e1b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a pre-sleep callback; the remaining callbacks keep their order.  <br /></td></tr>
-<tr class="memitem:a8c9e36018627ddcbae93c6f3279a54bc" id="r_a8c9e36018627ddcbae93c6f3279a54bc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8c9e36018627ddcbae93c6f3279a54bc">unregisterPostSleepCallback</a> (<a class="el" href="#ac633324a1cfed84b41ea13c58bf6fbfa">PeripheralCallback</a> callback) noexcept</td></tr>
-<tr class="memdesc:a8c9e36018627ddcbae93c6f3279a54bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a post-sleep callback; the remaining callbacks keep their order.  <br /></td></tr>
-<tr class="memitem:a88eb68fa07a4c301b92b1494aa38c658" id="r_a88eb68fa07a4c301b92b1494aa38c658"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a88eb68fa07a4c301b92b1494aa38c658">clearCallbacks</a> () noexcept</td></tr>
-<tr class="memdesc:a88eb68fa07a4c301b92b1494aa38c658"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes every pre-sleep and post-sleep callback.  <br /></td></tr>
-<tr class="memitem:a4e74d968320f127efe98419a466dae4b" id="r_a4e74d968320f127efe98419a466dae4b"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a4e74d968320f127efe98419a466dae4b">getPreSleepCallbackCount</a> () const noexcept</td></tr>
-<tr class="memdesc:a4e74d968320f127efe98419a466dae4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of registered pre-sleep callbacks.  <br /></td></tr>
-<tr class="memitem:a6fcb72ffb29a6bc5a81299278ef7acc0" id="r_a6fcb72ffb29a6bc5a81299278ef7acc0"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a6fcb72ffb29a6bc5a81299278ef7acc0">getPostSleepCallbackCount</a> () const noexcept</td></tr>
-<tr class="memdesc:a6fcb72ffb29a6bc5a81299278ef7acc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of registered post-sleep callbacks.  <br /></td></tr>
-<tr class="memitem:aeee3f51a408ab40cc51936aa0e0961c3" id="r_aeee3f51a408ab40cc51936aa0e0961c3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aeee3f51a408ab40cc51936aa0e0961c3">disableDeepSleep</a> () noexcept</td></tr>
-<tr class="memdesc:aeee3f51a408ab40cc51936aa0e0961c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prevents the system from entering deep sleep (Stop) mode.  <br /></td></tr>
-<tr class="memitem:a124c901bc289619cbe95244c4dc76065" id="r_a124c901bc289619cbe95244c4dc76065"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a124c901bc289619cbe95244c4dc76065">enableDeepSleep</a> () noexcept</td></tr>
-<tr class="memdesc:a124c901bc289619cbe95244c4dc76065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows the system to enter deep sleep (Stop) mode.  <br /></td></tr>
-<tr class="memitem:a1de32d80fc39ad10a50ba03c986f2bd2" id="r_a1de32d80fc39ad10a50ba03c986f2bd2"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1de32d80fc39ad10a50ba03c986f2bd2">canEnterDeepSleep</a> () const noexcept</td></tr>
-<tr class="memdesc:a1de32d80fc39ad10a50ba03c986f2bd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if deep sleep mode is currently permitted.  <br /></td></tr>
-<tr class="memitem:a0226d6db41a58b3363a92fc42b5bc696" id="r_a0226d6db41a58b3363a92fc42b5bc696"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0226d6db41a58b3363a92fc42b5bc696">isDeepSleepEnabled</a> () const noexcept</td></tr>
-<tr class="memdesc:a0226d6db41a58b3363a92fc42b5bc696"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the global deep sleep switch, ignoring any <a class="el" href="../../da/dc6/a05919.html" title="DeepSleepLock">DeepSleepLock</a>.  <br /></td></tr>
-<tr class="memitem:a6bdd9dff8463762161a8fa3636a21ff0" id="r_a6bdd9dff8463762161a8fa3636a21ff0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6bdd9dff8463762161a8fa3636a21ff0">acquireDeepSleepLock</a> () noexcept</td></tr>
-<tr class="memdesc:a6bdd9dff8463762161a8fa3636a21ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds one deep sleep lock.  <br /></td></tr>
-<tr class="memitem:a33d9c1c345d706331d8b150dfaf5f883" id="r_a33d9c1c345d706331d8b150dfaf5f883"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a33d9c1c345d706331d8b150dfaf5f883">releaseDeepSleepLock</a> () noexcept</td></tr>
-<tr class="memdesc:a33d9c1c345d706331d8b150dfaf5f883"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases one deep sleep lock taken with <a class="el" href="#a6bdd9dff8463762161a8fa3636a21ff0" title="acquireDeepSleepLock()">acquireDeepSleepLock()</a>.  <br /></td></tr>
-<tr class="memitem:a6064262d8555aa361dfb6ee449ae72d3" id="r_a6064262d8555aa361dfb6ee449ae72d3"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a6064262d8555aa361dfb6ee449ae72d3">getDeepSleepLockCount</a> () const noexcept</td></tr>
-<tr class="memdesc:a6064262d8555aa361dfb6ee449ae72d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of deep sleep locks currently held.  <br /></td></tr>
-<tr class="memitem:a0bae4d059d5136a3f1a01b190a524c37" id="r_a0bae4d059d5136a3f1a01b190a524c37"><td class="memItemLeft"><a class="el" href="../../d1/d77/a05915.html">Statistics</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0bae4d059d5136a3f1a01b190a524c37">getStatistics</a> () const noexcept</td></tr>
-<tr class="memdesc:a0bae4d059d5136a3f1a01b190a524c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the sleep counters as one consistent snapshot.  <br /></td></tr>
-<tr class="memitem:a36783c702ecbb0cfe158745ca64fcaec" id="r_a36783c702ecbb0cfe158745ca64fcaec"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a36783c702ecbb0cfe158745ca64fcaec">resetStatistics</a> () noexcept</td></tr>
-<tr class="memdesc:a36783c702ecbb0cfe158745ca64fcaec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets every sleep counter to zero.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af76fc6de7d330151f7765c0ff6149226" id="r_af76fc6de7d330151f7765c0ff6149226"><td class="memItemLeft">static <a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af76fc6de7d330151f7765c0ff6149226">instance</a> () noexcept</td></tr>
-<tr class="memdesc:af76fc6de7d330151f7765c0ff6149226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the singleton instance of the PowerManager.  <br /></td></tr>
-<tr class="memitem:ac35887bd479a4425729b40a4b3114f52" id="r_ac35887bd479a4425729b40a4b3114f52"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ac35887bd479a4425729b40a4b3114f52">isDebuggerAttached</a> () noexcept</td></tr>
-<tr class="memdesc:ac35887bd479a4425729b40a4b3114f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether a debugger is currently attached, through the Cortex-M <em class="arg">C_DEBUGEN</em> bit.  <br /></td></tr>
+<tr class="memitem:a85140f0dfb31c3d5a8a27ce01e98fdc6" id="r_a85140f0dfb31c3d5a8a27ce01e98fdc6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> (<a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a> mutexType=<a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">Type::NORMAL</a>) noexcept</td></tr>
+<tr class="memdesc:a85140f0dfb31c3d5a8a27ce01e98fdc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a mutex wrapper without allocating the underlying FreeRTOS handle.  <br /></td></tr>
+<tr class="memitem:a301698c6b87d5cd81fda2792e6f14b4c" id="r_a301698c6b87d5cd81fda2792e6f14b4c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a301698c6b87d5cd81fda2792e6f14b4c">Mutex</a> (Mutex &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a301698c6b87d5cd81fda2792e6f14b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfers ownership of the underlying handle from another mutex.  <br /></td></tr>
+<tr class="memitem:a032031894c38dfb5861f1be4a7e247dd" id="r_a032031894c38dfb5861f1be4a7e247dd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a032031894c38dfb5861f1be4a7e247dd">~Mutex</a> () noexcept</td></tr>
+<tr class="memdesc:a032031894c38dfb5861f1be4a7e247dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the mutex and releases the underlying FreeRTOS handle, if open.  <br /></td></tr>
+<tr class="memitem:acce47428aedbea4c3597ab4b07a0dc16" id="r_acce47428aedbea4c3597ab4b07a0dc16"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acce47428aedbea4c3597ab4b07a0dc16">Mutex</a> (const Mutex &amp;)=delete</td></tr>
+<tr class="memdesc:acce47428aedbea4c3597ab4b07a0dc16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
+<tr class="memitem:a1e606324a490dacaed78d56b0f2e463f" id="r_a1e606324a490dacaed78d56b0f2e463f"><td class="memItemLeft"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1e606324a490dacaed78d56b0f2e463f">operator=</a> (const <a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a1e606324a490dacaed78d56b0f2e463f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
+<tr class="memitem:aa0480ec896a8ce6959a8fe0069fc4a0f" id="r_aa0480ec896a8ce6959a8fe0069fc4a0f"><td class="memItemLeft"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa0480ec896a8ce6959a8fe0069fc4a0f">operator=</a> (<a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:aa0480ec896a8ce6959a8fe0069fc4a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes this mutex and takes ownership of another mutex's handle.  <br /></td></tr>
+<tr class="memitem:a9f2abf5c8b3442dd741bac7c15e5726a" id="r_a9f2abf5c8b3442dd741bac7c15e5726a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a">open</a> () noexcept</td></tr>
+<tr class="memdesc:a9f2abf5c8b3442dd741bac7c15e5726a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the underlying FreeRTOS mutex handle, if not already open.  <br /></td></tr>
+<tr class="memitem:a4a72a94370a00b530eb26b466ed373bc" id="r_a4a72a94370a00b530eb26b466ed373bc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4a72a94370a00b530eb26b466ed373bc">createStatic</a> (StaticSemaphore_t &amp;buffer) noexcept</td></tr>
+<tr class="memdesc:a4a72a94370a00b530eb26b466ed373bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the underlying FreeRTOS mutex in caller-provided static memory, if not already open.  <br /></td></tr>
+<tr class="memitem:acae6fb03115a857672d114638e6da0cb" id="r_acae6fb03115a857672d114638e6da0cb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acae6fb03115a857672d114638e6da0cb">close</a> () noexcept</td></tr>
+<tr class="memdesc:acae6fb03115a857672d114638e6da0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the underlying FreeRTOS handle and marks the mutex closed.  <br /></td></tr>
+<tr class="memitem:a2b2c30777cc3c44739df34e98fc05d0f" id="r_a2b2c30777cc3c44739df34e98fc05d0f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2b2c30777cc3c44739df34e98fc05d0f">lock</a> (<a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> timeout=<a class="el" href="#acb650bbb5d2ae6ae2bab2490d29712be">WAIT_FOREVER</a>) noexcept</td></tr>
+<tr class="memdesc:a2b2c30777cc3c44739df34e98fc05d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the mutex, blocking the calling task for up to the given number of ticks.  <br /></td></tr>
+<tr class="memitem:a9249f5e17ed3dc3621afb504a94f51c4" id="r_a9249f5e17ed3dc3621afb504a94f51c4"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a9249f5e17ed3dc3621afb504a94f51c4 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9249f5e17ed3dc3621afb504a94f51c4">lock</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a9249f5e17ed3dc3621afb504a94f51c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the mutex, blocking the calling task for up to the given duration.  <br /></td></tr>
+<tr class="memitem:a80b2989f05e4378994f3eb8e811d9a2b" id="r_a80b2989f05e4378994f3eb8e811d9a2b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a80b2989f05e4378994f3eb8e811d9a2b">lock</a> (const <a class="el" href="../../d4/df8/a05987.html">Timeout</a> &amp;timeout) noexcept</td></tr>
+<tr class="memdesc:a80b2989f05e4378994f3eb8e811d9a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the mutex, blocking for at most the time remaining on a shared <a class="el" href="../../d4/df8/a05987.html" title="Timeout">Timeout</a> budget.  <br /></td></tr>
+<tr class="memitem:a18a279e5ed19c174389ad7be7fb2264d" id="r_a18a279e5ed19c174389ad7be7fb2264d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a18a279e5ed19c174389ad7be7fb2264d">tryLock</a> () noexcept</td></tr>
+<tr class="memdesc:a18a279e5ed19c174389ad7be7fb2264d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to lock the mutex without blocking.  <br /></td></tr>
+<tr class="memitem:a55031b1cdaf584950893279ceac8ff93" id="r_a55031b1cdaf584950893279ceac8ff93"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a55031b1cdaf584950893279ceac8ff93">unlock</a> () noexcept</td></tr>
+<tr class="memdesc:a55031b1cdaf584950893279ceac8ff93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks a previously acquired mutex.  <br /></td></tr>
+<tr class="memitem:a616ca3c51747ccb7932dab4363b40ef5" id="r_a616ca3c51747ccb7932dab4363b40ef5"><td class="memItemLeft">TaskHandle_t&#160;</td><td class="memItemRight"><a class="el" href="#a616ca3c51747ccb7932dab4363b40ef5">getHolder</a> () const noexcept</td></tr>
+<tr class="memdesc:a616ca3c51747ccb7932dab4363b40ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the task that currently holds the lock.  <br /></td></tr>
+<tr class="memitem:a4442eb3b200cdfba2f9780f45b293ee4" id="r_a4442eb3b200cdfba2f9780f45b293ee4"><td class="memItemLeft">TaskHandle_t&#160;</td><td class="memItemRight"><a class="el" href="#a4442eb3b200cdfba2f9780f45b293ee4">getHolderFromISR</a> () const noexcept</td></tr>
+<tr class="memdesc:a4442eb3b200cdfba2f9780f45b293ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the task that currently holds the lock, from an ISR context.  <br /></td></tr>
+<tr class="memitem:a7797096bb17dedbd7f2dc83952a87ad0" id="r_a7797096bb17dedbd7f2dc83952a87ad0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7797096bb17dedbd7f2dc83952a87ad0">isLocked</a> () const noexcept</td></tr>
+<tr class="memdesc:a7797096bb17dedbd7f2dc83952a87ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether any task currently holds the lock.  <br /></td></tr>
+<tr class="memitem:a0fe980766d5bb3fb9f27336981430a6f" id="r_a0fe980766d5bb3fb9f27336981430a6f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0fe980766d5bb3fb9f27336981430a6f">isOwnedByCurrentTask</a> () const noexcept</td></tr>
+<tr class="memdesc:a0fe980766d5bb3fb9f27336981430a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the calling task currently holds the lock.  <br /></td></tr>
+<tr class="memitem:a2a35fb03473deda78f602d516fb9b09c" id="r_a2a35fb03473deda78f602d516fb9b09c"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a2a35fb03473deda78f602d516fb9b09c">isValid</a> () const noexcept</td></tr>
+<tr class="memdesc:a2a35fb03473deda78f602d516fb9b09c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the underlying FreeRTOS handle has been created.  <br /></td></tr>
+<tr class="memitem:a38014af85379eee8f59569c75f075995" id="r_a38014af85379eee8f59569c75f075995"><td class="memItemLeft">constexpr SemaphoreHandle_t&#160;</td><td class="memItemRight"><a class="el" href="#a38014af85379eee8f59569c75f075995">getNativeHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:a38014af85379eee8f59569c75f075995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the native FreeRTOS handle for interop with raw FreeRTOS APIs.  <br /></td></tr>
+<tr class="memitem:a4625bbff147fffc8861b3478c8430f94" id="r_a4625bbff147fffc8861b3478c8430f94"><td class="memItemLeft">constexpr <a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4625bbff147fffc8861b3478c8430f94">getType</a> () const noexcept</td></tr>
+<tr class="memdesc:a4625bbff147fffc8861b3478c8430f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the locking mode configured at construction.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a2162a3d1da000ffe6566c9801c8a310b" id="r_a2162a3d1da000ffe6566c9801c8a310b"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a2162a3d1da000ffe6566c9801c8a310b">MIN_TICKS_FOR_STOP_MODE</a> = 2000U</td></tr>
-<tr class="memdesc:a2162a3d1da000ffe6566c9801c8a310b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Idle ticks that must be exceeded to enter Stop mode.  <br /></td></tr>
-<tr class="memitem:a7f3bb7a09e113f2f2de968e99d518f42" id="r_a7f3bb7a09e113f2f2de968e99d518f42"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a7f3bb7a09e113f2f2de968e99d518f42">MIN_TICKS_FOR_SLEEP_MODE</a> = 2U</td></tr>
-<tr class="memdesc:a7f3bb7a09e113f2f2de968e99d518f42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum idle ticks for Sleep mode.  <br /></td></tr>
-<tr class="memitem:af82bcd9010f003fecb07b8882dca25d2" id="r_af82bcd9010f003fecb07b8882dca25d2"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#af82bcd9010f003fecb07b8882dca25d2">MAX_CALLBACKS</a> = 4U</td></tr>
-<tr class="memdesc:af82bcd9010f003fecb07b8882dca25d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum registered callbacks.  <br /></td></tr>
-<tr class="memitem:a451414a1080f8daa3f7ee7599de9f17a" id="r_a451414a1080f8daa3f7ee7599de9f17a"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a451414a1080f8daa3f7ee7599de9f17a">MILLISECONDS_PER_SECOND</a> = 1000U</td></tr>
-<tr class="memdesc:a451414a1080f8daa3f7ee7599de9f17a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Millisecond-to-second conversion factor.  <br /></td></tr>
-<tr class="memitem:ac6f933a61548228fb2559d57b57ba213" id="r_ac6f933a61548228fb2559d57b57ba213"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ac6f933a61548228fb2559d57b57ba213">MAX_IDLE_TIME_BEFORE_OVERFLOW</a> = UINT32_MAX / <a class="el" href="#a451414a1080f8daa3f7ee7599de9f17a">MILLISECONDS_PER_SECOND</a></td></tr>
-<tr class="memdesc:ac6f933a61548228fb2559d57b57ba213"><td class="mdescLeft">&#160;</td><td class="mdescRight">Max idle ticks converted per sleep.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a98ee80183ed645629084a482c158afd1" id="r_a98ee80183ed645629084a482c158afd1"><td class="memItemLeft">friend&#160;</td><td class="memItemRight"><a class="el" href="#a98ee80183ed645629084a482c158afd1">void::vPortSuppressTicksAndSleep</a> (TickType_t expectedIdleTime)</td></tr>
+<tr class="memitem:a0779d3c4040c3be238b715fcd6786a4f" id="r_a0779d3c4040c3be238b715fcd6786a4f"><td class="memItemLeft">static constexpr <a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0779d3c4040c3be238b715fcd6786a4f">NO_WAIT</a> = 0U</td></tr>
+<tr class="memdesc:a0779d3c4040c3be238b715fcd6786a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block time that makes a lock non-blocking.  <br /></td></tr>
+<tr class="memitem:acb650bbb5d2ae6ae2bab2490d29712be" id="r_acb650bbb5d2ae6ae2bab2490d29712be"><td class="memItemLeft">static constexpr <a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#acb650bbb5d2ae6ae2bab2490d29712be">WAIT_FOREVER</a> = portMAX_DELAY</td></tr>
+<tr class="memdesc:acb650bbb5d2ae6ae2bab2490d29712be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block time that waits indefinitely.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="ac633324a1cfed84b41ea13c58bf6fbfa" name="ac633324a1cfed84b41ea13c58bf6fbfa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac633324a1cfed84b41ea13c58bf6fbfa">&#9670;&#160;</a></span>PeripheralCallback</h2>
+<a id="adc2e1b449462bfc5e02a4ee323b012e5" name="adc2e1b449462bfc5e02a4ee323b012e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc2e1b449462bfc5e02a4ee323b012e5">&#9670;&#160;</a></span>TickType</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#ac633324a1cfed84b41ea13c58bf6fbfa">RTOS::PowerManager::PeripheralCallback</a> = <a class="el" href="../../d6/d34/a04823.html">FunctionRef</a>&lt;void()&gt;</td>
+          <td class="memname">using <a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">RTOS::Mutex::TickType</a> = TickType_t</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Non-owning callback run around deep sleep with interrupts masked. </p>
-<p>Binds a free function, a captureless lambda, a method via 'PeripheralCallback::fromMethod&lt;&amp;T::method&gt;(&amp;object)' or a lambda capturing one pointer (e.g. '[this]() {...}'). The bound object must outlive the registration. </p>
+<p>Scheduler tick count type. </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a32944cdf5acfc817c79a3b60e03bbc38" name="a32944cdf5acfc817c79a3b60e03bbc38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32944cdf5acfc817c79a3b60e03bbc38">&#9670;&#160;</a></span>Type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">RTOS::Mutex::Type</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Locking behavior of a mutex instance. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051" name="a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"></a>NORMAL&#160;</td><td class="fielddoc"><p>Standard non-recursive priority-inheritance mutex. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638" name="a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638"></a>RECURSIVE&#160;</td><td class="fielddoc"><p>Recursive mutex allowing nested lock acquisitions by the same task. </p>
+</td></tr>
+</table>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af37259063989766044b7fa592bd44085" name="af37259063989766044b7fa592bd44085"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af37259063989766044b7fa592bd44085">&#9670;&#160;</a></span>PowerManager() <span class="overload">[1/2]</span></h2>
+<a id="a85140f0dfb31c3d5a8a27ce01e98fdc6" name="a85140f0dfb31c3d5a8a27ce01e98fdc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">&#9670;&#160;</a></span>Mutex() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,9 +238,104 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::PowerManager::PowerManager </td>
+          <td class="memname">RTOS::Mutex::Mutex </td>
           <td>(</td>
-          <td class="paramtype">const PowerManager &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a></td>          <td class="paramname"><span class="paramname"><em>mutexType</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">Type::NORMAL</a></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a mutex wrapper without allocating the underlying FreeRTOS handle. </p>
+<p>Call <a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a" title="open()">open()</a> before the mutex can be locked.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mutexType</td><td>Locking mode to use once opened. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a301698c6b87d5cd81fda2792e6f14b4c" name="a301698c6b87d5cd81fda2792e6f14b4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a301698c6b87d5cd81fda2792e6f14b4c">&#9670;&#160;</a></span>Mutex() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Mutex::Mutex </td>
+          <td>(</td>
+          <td class="paramtype">Mutex &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transfers ownership of the underlying handle from another mutex. </p>
+<p>The source must not be locked or have waiting tasks, since they refer to the native handle, not the wrapper.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Mutex to move from; left closed afterward. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a032031894c38dfb5861f1be4a7e247dd" name="a032031894c38dfb5861f1be4a7e247dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a032031894c38dfb5861f1be4a7e247dd">&#9670;&#160;</a></span>~Mutex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Mutex::~Mutex </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Closes the mutex and releases the underlying FreeRTOS handle, if open. </p>
+
+</div>
+</div>
+<a id="acce47428aedbea4c3597ab4b07a0dc16" name="acce47428aedbea4c3597ab4b07a0dc16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acce47428aedbea4c3597ab4b07a0dc16">&#9670;&#160;</a></span>Mutex() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Mutex::Mutex </td>
+          <td>(</td>
+          <td class="paramtype">const Mutex &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -246,40 +346,13 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: the manager is a singleton bound to the kernel idle hook. </p>
-
-</div>
-</div>
-<a id="a580afc3532ffd30c47cab5a645b5bc7b" name="a580afc3532ffd30c47cab5a645b5bc7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a580afc3532ffd30c47cab5a645b5bc7b">&#9670;&#160;</a></span>PowerManager() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">RTOS::PowerManager::PowerManager </td>
-          <td>(</td>
-          <td class="paramtype">PowerManager &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: the manager is a singleton bound to the kernel idle hook. </p>
+<p>Non-copyable: owns a unique FreeRTOS handle. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a6bdd9dff8463762161a8fa3636a21ff0" name="a6bdd9dff8463762161a8fa3636a21ff0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bdd9dff8463762161a8fa3636a21ff0">&#9670;&#160;</a></span>acquireDeepSleepLock()</h2>
+<a id="acae6fb03115a857672d114638e6da0cb" name="acae6fb03115a857672d114638e6da0cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acae6fb03115a857672d114638e6da0cb">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -288,7 +361,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void RTOS::PowerManager::acquireDeepSleepLock </td>
+          <td class="memname">void RTOS::Mutex::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -301,237 +374,15 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Adds one deep sleep lock. </p>
-<p>Deep sleep stays blocked until every lock has been released. Safe from task and ISR context. Prefer the <a class="el" href="../../da/dc6/a05919.html" title="DeepSleepLock">DeepSleepLock</a> guard in task context. </p>
-
-</div>
-</div>
-<a id="a1de32d80fc39ad10a50ba03c986f2bd2" name="a1de32d80fc39ad10a50ba03c986f2bd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1de32d80fc39ad10a50ba03c986f2bd2">&#9670;&#160;</a></span>canEnterDeepSleep()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::PowerManager::canEnterDeepSleep </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if deep sleep mode is currently permitted. </p>
-<p>Also <b>false</b> whenever a debugger is attached (<a class="el" href="#ac35887bd479a4425729b40a4b3114f52" title="isDebuggerAttached()">isDebuggerAttached()</a>). STOP1 stops the core clock, and even with <b>HAL_DBGMCU_EnableDBGStopMode()</b> (see <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>) SWD can still misread or momentarily lose the connection across the transition, which a plain <b>__WFI()</b> light sleep never does, because the core clock never stops. The check runs in every build: it is a single register read and costs nothing when no debugger is attached.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if permitted, initialized, and no debugger is attached. </dd></dl>
-
-</div>
-</div>
-<a id="a88eb68fa07a4c301b92b1494aa38c658" name="a88eb68fa07a4c301b92b1494aa38c658"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88eb68fa07a4c301b92b1494aa38c658">&#9670;&#160;</a></span>clearCallbacks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::PowerManager::clearCallbacks </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes every pre-sleep and post-sleep callback. </p>
-
-</div>
-</div>
-<a id="aeee3f51a408ab40cc51936aa0e0961c3" name="aeee3f51a408ab40cc51936aa0e0961c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeee3f51a408ab40cc51936aa0e0961c3">&#9670;&#160;</a></span>disableDeepSleep()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::PowerManager::disableDeepSleep </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Prevents the system from entering deep sleep (Stop) mode. </p>
-
-</div>
-</div>
-<a id="a124c901bc289619cbe95244c4dc76065" name="a124c901bc289619cbe95244c4dc76065"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a124c901bc289619cbe95244c4dc76065">&#9670;&#160;</a></span>enableDeepSleep()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::PowerManager::enableDeepSleep </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Allows the system to enter deep sleep (Stop) mode. </p>
-
-</div>
-</div>
-<a id="a6064262d8555aa361dfb6ee449ae72d3" name="a6064262d8555aa361dfb6ee449ae72d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6064262d8555aa361dfb6ee449ae72d3">&#9670;&#160;</a></span>getDeepSleepLockCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t RTOS::PowerManager::getDeepSleepLockCount </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the number of deep sleep locks currently held. </p>
-<dl class="section return"><dt>Returns</dt><dd>Lock count; deep sleep is possible only at zero. </dd></dl>
-
-</div>
-</div>
-<a id="a6fcb72ffb29a6bc5a81299278ef7acc0" name="a6fcb72ffb29a6bc5a81299278ef7acc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fcb72ffb29a6bc5a81299278ef7acc0">&#9670;&#160;</a></span>getPostSleepCallbackCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t RTOS::PowerManager::getPostSleepCallbackCount </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the number of registered post-sleep callbacks. </p>
-<dl class="section return"><dt>Returns</dt><dd>Count in the range <b>0</b> to <a class="el" href="#af82bcd9010f003fecb07b8882dca25d2" title="MAX_CALLBACKS">MAX_CALLBACKS</a>. </dd></dl>
-
-</div>
-</div>
-<a id="a4e74d968320f127efe98419a466dae4b" name="a4e74d968320f127efe98419a466dae4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e74d968320f127efe98419a466dae4b">&#9670;&#160;</a></span>getPreSleepCallbackCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t RTOS::PowerManager::getPreSleepCallbackCount </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the number of registered pre-sleep callbacks. </p>
-<dl class="section return"><dt>Returns</dt><dd>Count in the range <b>0</b> to <a class="el" href="#af82bcd9010f003fecb07b8882dca25d2" title="MAX_CALLBACKS">MAX_CALLBACKS</a>. </dd></dl>
-
-</div>
-</div>
-<a id="a0bae4d059d5136a3f1a01b190a524c37" name="a0bae4d059d5136a3f1a01b190a524c37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bae4d059d5136a3f1a01b190a524c37">&#9670;&#160;</a></span>getStatistics()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d1/d77/a05915.html">Statistics</a> RTOS::PowerManager::getStatistics </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reads the sleep counters as one consistent snapshot. </p>
-<dl class="section return"><dt>Returns</dt><dd>Counters accumulated since start-up or the last <a class="el" href="#a36783c702ecbb0cfe158745ca64fcaec" title="resetStatistics()">resetStatistics()</a>. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/dd2/a06258.html#a5">RTOS::PowerManager</a>.</dd>
+<p>Deletes the underlying FreeRTOS handle and marks the mutex closed. </p>
+<p>Does nothing if already closed. The mutex must not be locked or have waiting tasks when it is closed. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d6a/a06273.html#a5">RTOS::Mutex</a>, and <a class="el" href="../../dd/d51/a06275.html#a5">RTOS::MutexGuard</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="a413f529cd450843d1925ae6e9672272a" name="a413f529cd450843d1925ae6e9672272a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a413f529cd450843d1925ae6e9672272a">&#9670;&#160;</a></span>getTimer()</h2>
+<a id="a4a72a94370a00b530eb26b466ed373bc" name="a4a72a94370a00b530eb26b466ed373bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a72a94370a00b530eb26b466ed373bc">&#9670;&#160;</a></span>createStatic()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -540,7 +391,41 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/dbb/a05535.html">Lib::HAL::LPTimer</a> * RTOS::PowerManager::getTimer </td>
+          <td class="memname">bool RTOS::Mutex::createStatic </td>
+          <td>(</td>
+          <td class="paramtype">StaticSemaphore_t &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the underlying FreeRTOS mutex in caller-provided static memory, if not already open. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>Static control structure; must outlive the mutex. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the mutex is open (newly created or already open), <em class="arg">false</em> if creation failed or the configured type is disabled by the FreeRTOS configuration. </dd></dl>
+
+</div>
+</div>
+<a id="a616ca3c51747ccb7932dab4363b40ef5" name="a616ca3c51747ccb7932dab4363b40ef5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a616ca3c51747ccb7932dab4363b40ef5">&#9670;&#160;</a></span>getHolder()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t RTOS::Mutex::getHolder </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -553,13 +438,15 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the LPTimer that times deep sleep. </p>
-<dl class="section return"><dt>Returns</dt><dd>Timer passed to <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>, or <em class="arg">nullptr</em> before a successful setup. </dd></dl>
+<p>Gets the task that currently holds the lock. </p>
+<p>Task context only.</p>
+<p>Requires <em class="arg">INCLUDE_xSemaphoreGetMutexHolder</em>. The answer can be stale by the time it is used, unless the caller is the holder itself, so use it for diagnostics or ownership checks only.</p>
+<dl class="section return"><dt>Returns</dt><dd>Handle of the holding task, or <em class="arg">nullptr</em> if the mutex is free or not open. </dd></dl>
 
 </div>
 </div>
-<a id="af76fc6de7d330151f7765c0ff6149226" name="af76fc6de7d330151f7765c0ff6149226"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af76fc6de7d330151f7765c0ff6149226">&#9670;&#160;</a></span>instance()</h2>
+<a id="a4442eb3b200cdfba2f9780f45b293ee4" name="a4442eb3b200cdfba2f9780f45b293ee4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4442eb3b200cdfba2f9780f45b293ee4">&#9670;&#160;</a></span>getHolderFromISR()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -568,29 +455,289 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp; RTOS::PowerManager::instance </td>
+          <td class="memname">TaskHandle_t RTOS::Mutex::getHolderFromISR </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the task that currently holds the lock, from an ISR context. </p>
+<p>Requires <em class="arg">INCLUDE_xSemaphoreGetMutexHolder</em>.</p>
+<dl class="section return"><dt>Returns</dt><dd>Handle of the holding task, or <em class="arg">nullptr</em> if the mutex is free or not open. </dd></dl>
+
+</div>
+</div>
+<a id="a38014af85379eee8f59569c75f075995" name="a38014af85379eee8f59569c75f075995"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38014af85379eee8f59569c75f075995">&#9670;&#160;</a></span>getNativeHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SemaphoreHandle_t RTOS::Mutex::getNativeHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the native FreeRTOS handle for interop with raw FreeRTOS APIs. </p>
+<dl class="section return"><dt>Returns</dt><dd>Native semaphore handle, or <em class="arg">nullptr</em> if not open. </dd></dl>
+
+</div>
+</div>
+<a id="a4625bbff147fffc8861b3478c8430f94" name="a4625bbff147fffc8861b3478c8430f94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4625bbff147fffc8861b3478c8430f94">&#9670;&#160;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a> RTOS::Mutex::getType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the locking mode configured at construction. </p>
+<dl class="section return"><dt>Returns</dt><dd>Configured locking mode. </dd></dl>
+
+</div>
+</div>
+<a id="a7797096bb17dedbd7f2dc83952a87ad0" name="a7797096bb17dedbd7f2dc83952a87ad0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7797096bb17dedbd7f2dc83952a87ad0">&#9670;&#160;</a></span>isLocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Mutex::isLocked </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether any task currently holds the lock. </p>
+<p>Task context only.</p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if open and held by some task. </dd></dl>
+
+</div>
+</div>
+<a id="a0fe980766d5bb3fb9f27336981430a6f" name="a0fe980766d5bb3fb9f27336981430a6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fe980766d5bb3fb9f27336981430a6f">&#9670;&#160;</a></span>isOwnedByCurrentTask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Mutex::isOwnedByCurrentTask </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the calling task currently holds the lock. </p>
+<p>Task context only.</p>
+<p>Requires <em class="arg">INCLUDE_xSemaphoreGetMutexHolder</em> and <em class="arg">INCLUDE_xTaskGetCurrentTaskHandle</em>.</p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if open and held by the calling task, <em class="arg">false</em> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a2a35fb03473deda78f602d516fb9b09c" name="a2a35fb03473deda78f602d516fb9b09c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a35fb03473deda78f602d516fb9b09c">&#9670;&#160;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Mutex::isValid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the underlying FreeRTOS handle has been created. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if <a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a" title="open()">open()</a> has succeeded and <a class="el" href="#acae6fb03115a857672d114638e6da0cb" title="close()">close()</a> has not since been called. </dd></dl>
+
+</div>
+</div>
+<a id="a80b2989f05e4378994f3eb8e811d9a2b" name="a80b2989f05e4378994f3eb8e811d9a2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80b2989f05e4378994f3eb8e811d9a2b">&#9670;&#160;</a></span>lock() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Mutex::lock </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d4/df8/a05987.html">Timeout</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieves the singleton instance of the PowerManager. </p>
-<p>The instance is constant-initialized, so the first call needs no guarded initialization; this matters because that first call may come from the idle hook while the scheduler is suspended.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the PowerManager instance. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/dd2/a06258.html#a1">RTOS::PowerManager</a>.</dd>
+<p>Locks the mutex, blocking for at most the time remaining on a shared <a class="el" href="../../d4/df8/a05987.html" title="Timeout">Timeout</a> budget. </p>
+<p>Task context only.</p>
+<p>An expired budget makes the call non-blocking and a disabled one waits indefinitely.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>The shared timeout budget. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the lock was acquired, <em class="arg">false</em> on timeout or if the mutex is not open. </dd></dl>
+
+</div>
+</div>
+<a id="a9249f5e17ed3dc3621afb504a94f51c4" name="a9249f5e17ed3dc3621afb504a94f51c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9249f5e17ed3dc3621afb504a94f51c4">&#9670;&#160;</a></span>lock() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Mutex::lock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Locks the mutex, blocking the calling task for up to the given duration. </p>
+<p>Task context only.</p>
+<p>The duration is rounded up to whole ticks, so the wait is never shorter than requested.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the duration. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait for the lock. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the lock was acquired, <em class="arg">false</em> on timeout or if the mutex is not open. </dd></dl>
+
+</div>
+</div>
+<a id="a2b2c30777cc3c44739df34e98fc05d0f" name="a2b2c30777cc3c44739df34e98fc05d0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b2c30777cc3c44739df34e98fc05d0f">&#9670;&#160;</a></span>lock() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Mutex::lock </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acb650bbb5d2ae6ae2bab2490d29712be">WAIT_FOREVER</a></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Locks the mutex, blocking the calling task for up to the given number of ticks. </p>
+<p>Task context only.</p>
+<p>The mutex must already be open via <a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a" title="open()">open()</a>; calling this while closed returns <em class="arg">false</em> without attempting to create the underlying handle, since lazily creating a synchronization primitive from within itself is not thread-safe. A recursive mutex may be locked again by its owner; every lock needs its own <a class="el" href="#a55031b1cdaf584950893279ceac8ff93" title="unlock()">unlock()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait for the lock, in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the lock was acquired, <em class="arg">false</em> on timeout or if the mutex is not open. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d6a/a06273.html#a3">RTOS::Mutex</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="ac35887bd479a4425729b40a4b3114f52" name="ac35887bd479a4425729b40a4b3114f52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac35887bd479a4425729b40a4b3114f52">&#9670;&#160;</a></span>isDebuggerAttached()</h2>
+<a id="a9f2abf5c8b3442dd741bac7c15e5726a" name="a9f2abf5c8b3442dd741bac7c15e5726a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f2abf5c8b3442dd741bac7c15e5726a">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -599,7 +746,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::PowerManager::isDebuggerAttached </td>
+          <td class="memname">bool RTOS::Mutex::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -607,46 +754,20 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reports whether a debugger is currently attached, through the Cortex-M <em class="arg">C_DEBUGEN</em> bit. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a debugger is attached. </dd></dl>
-
-</div>
-</div>
-<a id="a0226d6db41a58b3363a92fc42b5bc696" name="a0226d6db41a58b3363a92fc42b5bc696"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0226d6db41a58b3363a92fc42b5bc696">&#9670;&#160;</a></span>isDeepSleepEnabled()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::PowerManager::isDeepSleepEnabled </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks the global deep sleep switch, ignoring any <a class="el" href="../../da/dc6/a05919.html" title="DeepSleepLock">DeepSleepLock</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if deep sleep is enabled. </dd></dl>
+<p>Creates the underlying FreeRTOS mutex handle, if not already open. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the mutex is open (newly created or already open), <em class="arg">false</em> if creation failed or the configured type is disabled by the FreeRTOS configuration. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d6a/a06273.html#a2">RTOS::Mutex</a>, and <a class="el" href="../../dd/d51/a06275.html#a2">RTOS::MutexGuard</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="aab0d26e47777719ed4cbb5abfa3ff18c" name="aab0d26e47777719ed4cbb5abfa3ff18c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab0d26e47777719ed4cbb5abfa3ff18c">&#9670;&#160;</a></span>isSetUp()</h2>
+<a id="a1e606324a490dacaed78d56b0f2e463f" name="a1e606324a490dacaed78d56b0f2e463f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e606324a490dacaed78d56b0f2e463f">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -655,37 +776,9 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::PowerManager::isSetUp </td>
+          <td class="memname"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp; RTOS::Mutex::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a> has succeeded. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> once an LPTimer has been assigned. </dd></dl>
-
-</div>
-</div>
-<a id="ac049ef91e07bc905499cb228bbc97d39" name="ac049ef91e07bc905499cb228bbc97d39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac049ef91e07bc905499cb228bbc97d39">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp; RTOS::PowerManager::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -696,13 +789,13 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: the manager is a singleton bound to the kernel idle hook. </p>
+<p>Non-copyable: owns a unique FreeRTOS handle. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="a7eaa1f8fd4c5fddd0d6d9aa4202913fe" name="a7eaa1f8fd4c5fddd0d6d9aa4202913fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7eaa1f8fd4c5fddd0d6d9aa4202913fe">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="aa0480ec896a8ce6959a8fe0069fc4a0f" name="aa0480ec896a8ce6959a8fe0069fc4a0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0480ec896a8ce6959a8fe0069fc4a0f">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -711,26 +804,32 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp; RTOS::PowerManager::operator= </td>
+          <td class="memname"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp; RTOS::Mutex::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: the manager is a singleton bound to the kernel idle hook. </p>
+<p>Closes this mutex and takes ownership of another mutex's handle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Mutex to move from; left closed afterward. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="a13f32f2b1abeed9410f521ffcfaf1e6e" name="a13f32f2b1abeed9410f521ffcfaf1e6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13f32f2b1abeed9410f521ffcfaf1e6e">&#9670;&#160;</a></span>registerPostSleepCallback()</h2>
+<a id="a18a279e5ed19c174389ad7be7fb2264d" name="a18a279e5ed19c174389ad7be7fb2264d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18a279e5ed19c174389ad7be7fb2264d">&#9670;&#160;</a></span>tryLock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -739,9 +838,9 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::PowerManager::registerPostSleepCallback </td>
+          <td class="memname">bool RTOS::Mutex::tryLock </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ac633324a1cfed84b41ea13c58bf6fbfa">PeripheralCallback</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -752,19 +851,16 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Registers a callback to be executed after exiting deep sleep, before interrupts are unmasked again. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">callback</td><td>Bound callback to execute; its target must outlive the registration. </td></tr>
-  </table>
-  </dd>
+<p>Attempts to lock the mutex without blocking. </p>
+<p>Task context only.</p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the lock was acquired immediately, <em class="arg">false</em> if it is held by another task or the mutex is not open. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d6a/a06273.html#a7">RTOS::Mutex</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if registration succeeded, <b>false</b> if the registry is full. </dd></dl>
 
 </div>
 </div>
-<a id="ab5e43097d2f7efc26d1ac3b6eecdd7b8" name="ab5e43097d2f7efc26d1ac3b6eecdd7b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5e43097d2f7efc26d1ac3b6eecdd7b8">&#9670;&#160;</a></span>registerPreSleepCallback()</h2>
+<a id="a55031b1cdaf584950893279ceac8ff93" name="a55031b1cdaf584950893279ceac8ff93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55031b1cdaf584950893279ceac8ff93">&#9670;&#160;</a></span>unlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -773,41 +869,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::PowerManager::registerPreSleepCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ac633324a1cfed84b41ea13c58bf6fbfa">PeripheralCallback</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Registers a callback to be executed before entering deep sleep, with interrupts masked. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">callback</td><td>Bound callback to execute; its target must outlive the registration. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if registration succeeded, <b>false</b> if the registry is full. </dd></dl>
-
-</div>
-</div>
-<a id="a33d9c1c345d706331d8b150dfaf5f883" name="a33d9c1c345d706331d8b150dfaf5f883"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33d9c1c345d706331d8b150dfaf5f883">&#9670;&#160;</a></span>releaseDeepSleepLock()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::PowerManager::releaseDeepSleepLock </td>
+          <td class="memname">void RTOS::Mutex::unlock </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -820,169 +882,17 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Releases one deep sleep lock taken with <a class="el" href="#a6bdd9dff8463762161a8fa3636a21ff0" title="acquireDeepSleepLock()">acquireDeepSleepLock()</a>. </p>
-<p>Safe from task and ISR context. </p>
-
-</div>
-</div>
-<a id="a36783c702ecbb0cfe158745ca64fcaec" name="a36783c702ecbb0cfe158745ca64fcaec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36783c702ecbb0cfe158745ca64fcaec">&#9670;&#160;</a></span>resetStatistics()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::PowerManager::resetStatistics </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Resets every sleep counter to zero. </p>
-
-</div>
-</div>
-<a id="a565502e655a008546ced2e18d0fc7b22" name="a565502e655a008546ced2e18d0fc7b22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a565502e655a008546ced2e18d0fc7b22">&#9670;&#160;</a></span>setup()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::PowerManager::setup </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d7/dbb/a05535.html">Lib::HAL::LPTimer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>timer</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initializes the PowerManager with an LPTimer instance. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timer</td><td>LPTimer that has already been opened; must outlive the manager's use of it. </td></tr>
-  </table>
-  </dd>
+<p>Unlocks a previously acquired mutex. </p>
+<p>Task context only.</p>
+<p>Must be called by the task that holds the lock, once per successful <a class="el" href="#a2b2c30777cc3c44739df34e98fc05d0f" title="lock()">lock()</a>; anything else is a programming error that FreeRTOS answers with <b>configASSERT()</b> or a silent failure. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d6a/a06273.html#a4">RTOS::Mutex</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if setup succeeded, otherwise <b>false</b>. </dd></dl>
-
-</div>
-</div>
-<a id="a8c9e36018627ddcbae93c6f3279a54bc" name="a8c9e36018627ddcbae93c6f3279a54bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c9e36018627ddcbae93c6f3279a54bc">&#9670;&#160;</a></span>unregisterPostSleepCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::PowerManager::unregisterPostSleepCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ac633324a1cfed84b41ea13c58bf6fbfa">PeripheralCallback</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes a post-sleep callback; the remaining callbacks keep their order. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">callback</td><td>Callback bound to the same target as the registered one. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if it was registered and has been removed. </dd></dl>
-
-</div>
-</div>
-<a id="a9faada79167d302ec78497a7a882e1b9" name="a9faada79167d302ec78497a7a882e1b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9faada79167d302ec78497a7a882e1b9">&#9670;&#160;</a></span>unregisterPreSleepCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::PowerManager::unregisterPreSleepCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ac633324a1cfed84b41ea13c58bf6fbfa">PeripheralCallback</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes a pre-sleep callback; the remaining callbacks keep their order. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">callback</td><td>Callback bound to the same target as the registered one. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if it was registered and has been removed. </dd></dl>
-
-</div>
-</div>
-<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
-<a id="a98ee80183ed645629084a482c158afd1" name="a98ee80183ed645629084a482c158afd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98ee80183ed645629084a482c158afd1">&#9670;&#160;</a></span>void::vPortSuppressTicksAndSleep</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void::vPortSuppressTicksAndSleep </td>
-          <td>(</td>
-          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>expectedIdleTime</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="af82bcd9010f003fecb07b8882dca25d2" name="af82bcd9010f003fecb07b8882dca25d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af82bcd9010f003fecb07b8882dca25d2">&#9670;&#160;</a></span>MAX_CALLBACKS</h2>
+<a id="a0779d3c4040c3be238b715fcd6786a4f" name="a0779d3c4040c3be238b715fcd6786a4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0779d3c4040c3be238b715fcd6786a4f">&#9670;&#160;</a></span>NO_WAIT</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -991,7 +901,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t RTOS::PowerManager::MAX_CALLBACKS = 4U</td>
+          <td class="memname"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> RTOS::Mutex::NO_WAIT = 0U</td>
         </tr>
       </table>
   </td>
@@ -1001,12 +911,12 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Maximum registered callbacks. </p>
+<p>Block time that makes a lock non-blocking. </p>
 
 </div>
 </div>
-<a id="ac6f933a61548228fb2559d57b57ba213" name="ac6f933a61548228fb2559d57b57ba213"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6f933a61548228fb2559d57b57ba213">&#9670;&#160;</a></span>MAX_IDLE_TIME_BEFORE_OVERFLOW</h2>
+<a id="acb650bbb5d2ae6ae2bab2490d29712be" name="acb650bbb5d2ae6ae2bab2490d29712be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb650bbb5d2ae6ae2bab2490d29712be">&#9670;&#160;</a></span>WAIT_FOREVER</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1015,7 +925,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t RTOS::PowerManager::MAX_IDLE_TIME_BEFORE_OVERFLOW = UINT32_MAX / <a class="el" href="#a451414a1080f8daa3f7ee7599de9f17a">MILLISECONDS_PER_SECOND</a></td>
+          <td class="memname"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> RTOS::Mutex::WAIT_FOREVER = portMAX_DELAY</td>
         </tr>
       </table>
   </td>
@@ -1025,79 +935,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Max idle ticks converted per sleep. </p>
-
-</div>
-</div>
-<a id="a451414a1080f8daa3f7ee7599de9f17a" name="a451414a1080f8daa3f7ee7599de9f17a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a451414a1080f8daa3f7ee7599de9f17a">&#9670;&#160;</a></span>MILLISECONDS_PER_SECOND</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t RTOS::PowerManager::MILLISECONDS_PER_SECOND = 1000U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Millisecond-to-second conversion factor. </p>
-
-</div>
-</div>
-<a id="a7f3bb7a09e113f2f2de968e99d518f42" name="a7f3bb7a09e113f2f2de968e99d518f42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f3bb7a09e113f2f2de968e99d518f42">&#9670;&#160;</a></span>MIN_TICKS_FOR_SLEEP_MODE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t RTOS::PowerManager::MIN_TICKS_FOR_SLEEP_MODE = 2U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Minimum idle ticks for Sleep mode. </p>
-
-</div>
-</div>
-<a id="a2162a3d1da000ffe6566c9801c8a310b" name="a2162a3d1da000ffe6566c9801c8a310b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2162a3d1da000ffe6566c9801c8a310b">&#9670;&#160;</a></span>MIN_TICKS_FOR_STOP_MODE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t RTOS::PowerManager::MIN_TICKS_FOR_STOP_MODE = 2000U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Idle ticks that must be exceeded to enter Stop mode. </p>
+<p>Block time that waits indefinitely. </p>
 
 </div>
 </div>

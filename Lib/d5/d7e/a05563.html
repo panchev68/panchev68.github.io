@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Timer::TimPwmOutput</title>
+<title>IAR EWARM Library: Lib::HAL::Timer::TimOnePulse</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,54 +91,77 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../d1/dd8/a01022.html">Timer</a></li><li class="navelem"><a href="../../d5/d7e/a05563.html">TimPwmOutput</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../df/d89/a01032.html">HAL</a></li><li class="navelem"><a href="../../de/d91/a01034.html">Timer</a></li><li class="navelem"><a href="../../d5/d7e/a05563.html">TimOnePulse</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="../../d9/d3f/a05560.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimPwmOutput<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOnePulse<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Controls one hardware timer channel configured under a Pulse Width Modulation profile.  
+<p>Controls a hardware timer configured in One-Pulse Mode.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Controls one hardware timer channel configured under a Pulse Width Modulation profile. </p>
-<p>Provides direct control over the Capture/Compare Registers (CCR) and the Auto-Reload Register (ARR) to modify duty cycle and frequency at runtime. The register setters are single register writes, safe to call from task and ISR context alike. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/dae/a06212.html#_a0">Lib::HAL::Timer::TimPwmOutput</a>.</dd>
+<div class="textblock"><p>Controls a hardware timer configured in One-Pulse Mode. </p>
+<p>Maps the output channel's compare interrupt through the DeviceManager to a task notification, so a task blocked in <a class="el" href="#aeba87dc02428bea360275fd39706fa18" title="waitPulseStart()">waitPulseStart()</a> wakes when a pulse starts.</p>
+<p>In OPM, channels 1 and 2 are always used together: one is the output, the other the trigger input. After a trigger the counter runs from 0 to ARR once; with PWM mode 2 (or PWM mode 1 with inverted polarity) the output is inactive while the counter is below CCRx and active from CCRx up to ARR. The compare interrupt therefore fires when the pulse starts, not when it ends. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d44/a06217.html#_a4">Lib::HAL::Timer::TimOnePulse</a>.</dd>
 </dl>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ad8ef8d64da7b2fb93cca36bca48241bc" id="r_ad8ef8d64da7b2fb93cca36bca48241bc"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../dd/df2/a05555.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td></tr>
+<tr class="memdesc:ad8ef8d64da7b2fb93cca36bca48241bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scheduler tick count type.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a809eb7ca953a2674c82ca0684b8b55a9" id="r_a809eb7ca953a2674c82ca0684b8b55a9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a809eb7ca953a2674c82ca0684b8b55a9">TimPwmOutput</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *timHandle, uint32_t timChannel) noexcept</td></tr>
-<tr class="memdesc:a809eb7ca953a2674c82ca0684b8b55a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the PWM abstraction wrapper directly to a native configuration structure.  <br /></td></tr>
-<tr class="memitem:a5be8b189846279ae607f6ceaf0dc220d" id="r_a5be8b189846279ae607f6ceaf0dc220d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5be8b189846279ae607f6ceaf0dc220d">~TimPwmOutput</a> () noexcept=default</td></tr>
-<tr class="memdesc:a5be8b189846279ae607f6ceaf0dc220d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the TimPwmOutput object without stopping the waveform generation.  <br /></td></tr>
-<tr class="memitem:a422a9009ca77380721da2502794a00a0" id="r_a422a9009ca77380721da2502794a00a0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a422a9009ca77380721da2502794a00a0">TimPwmOutput</a> (const TimPwmOutput &amp;other)=delete</td></tr>
-<tr class="memdesc:a422a9009ca77380721da2502794a00a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance drives one physical timer channel.  <br /></td></tr>
-<tr class="memitem:a2412abefcbbf32d140d9b3e2e72ed511" id="r_a2412abefcbbf32d140d9b3e2e72ed511"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2412abefcbbf32d140d9b3e2e72ed511">TimPwmOutput</a> (TimPwmOutput &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a2412abefcbbf32d140d9b3e2e72ed511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance drives one physical timer channel.  <br /></td></tr>
-<tr class="memitem:acc1841d21da440c1c0cdb4a9d61e0ff9" id="r_acc1841d21da440c1c0cdb4a9d61e0ff9"><td class="memItemLeft"><a class="el" href="#a809eb7ca953a2674c82ca0684b8b55a9">TimPwmOutput</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#acc1841d21da440c1c0cdb4a9d61e0ff9">operator=</a> (const <a class="el" href="#a809eb7ca953a2674c82ca0684b8b55a9">TimPwmOutput</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:acc1841d21da440c1c0cdb4a9d61e0ff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance drives one physical timer channel.  <br /></td></tr>
-<tr class="memitem:a686c13d106e6d8d754e3020b7107d262" id="r_a686c13d106e6d8d754e3020b7107d262"><td class="memItemLeft"><a class="el" href="#a809eb7ca953a2674c82ca0684b8b55a9">TimPwmOutput</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a686c13d106e6d8d754e3020b7107d262">operator=</a> (<a class="el" href="#a809eb7ca953a2674c82ca0684b8b55a9">TimPwmOutput</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a686c13d106e6d8d754e3020b7107d262"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance drives one physical timer channel.  <br /></td></tr>
-<tr class="memitem:ab30ea02f742bdd63bde16c03b3f780da" id="r_ab30ea02f742bdd63bde16c03b3f780da"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab30ea02f742bdd63bde16c03b3f780da">open</a> () noexcept</td></tr>
-<tr class="memdesc:ab30ea02f742bdd63bde16c03b3f780da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the PWM waveform on the channel.  <br /></td></tr>
-<tr class="memitem:a3c2e8aa945f04a0c827147f62a2ccb5a" id="r_a3c2e8aa945f04a0c827147f62a2ccb5a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3c2e8aa945f04a0c827147f62a2ccb5a">close</a> () noexcept</td></tr>
-<tr class="memdesc:a3c2e8aa945f04a0c827147f62a2ccb5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the PWM waveform on the channel.  <br /></td></tr>
-<tr class="memitem:a4db830d0cdfdbd5ab01f959dd0653647" id="r_a4db830d0cdfdbd5ab01f959dd0653647"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4db830d0cdfdbd5ab01f959dd0653647">setPulse</a> (uint32_t pulseValue) noexcept</td></tr>
-<tr class="memdesc:a4db830d0cdfdbd5ab01f959dd0653647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the pulse duration in the channel's CCRx register.  <br /></td></tr>
-<tr class="memitem:a3361b7c050046b52d03fbc351fcac5a8" id="r_a3361b7c050046b52d03fbc351fcac5a8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3361b7c050046b52d03fbc351fcac5a8">setPeriod</a> (uint32_t periodValue) noexcept</td></tr>
-<tr class="memdesc:a3361b7c050046b52d03fbc351fcac5a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the timer period in the Auto-Reload Register (ARR); affects every channel of the timer.  <br /></td></tr>
-<tr class="memitem:a2f62b0d33341cf6109b01926e7c2c446" id="r_a2f62b0d33341cf6109b01926e7c2c446"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a2f62b0d33341cf6109b01926e7c2c446">getPeriod</a> () const noexcept</td></tr>
-<tr class="memdesc:a2f62b0d33341cf6109b01926e7c2c446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the timer period from the Auto-Reload Register (ARR).  <br /></td></tr>
+<tr class="memitem:ae287fccac43cfbccd505d62c3450d886" id="r_ae287fccac43cfbccd505d62c3450d886"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *timHandle, uint32_t outputChannel) noexcept</td></tr>
+<tr class="memdesc:ae287fccac43cfbccd505d62c3450d886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the One-Pulse wrapper directly to a native configuration structure.  <br /></td></tr>
+<tr class="memitem:a1e04591efe0469a8ca79694006f138e6" id="r_a1e04591efe0469a8ca79694006f138e6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1e04591efe0469a8ca79694006f138e6">~TimOnePulse</a> () noexcept</td></tr>
+<tr class="memdesc:a1e04591efe0469a8ca79694006f138e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer before the base leaves the DeviceManager registry.  <br /></td></tr>
+<tr class="memitem:a4dd784ca9da4b8c662101a2b232a1f61" id="r_a4dd784ca9da4b8c662101a2b232a1f61"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61">start</a> () noexcept</td></tr>
+<tr class="memdesc:a4dd784ca9da4b8c662101a2b232a1f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arms the timer for trigger events; the calling task becomes the one <a class="el" href="#aeba87dc02428bea360275fd39706fa18" title="waitPulseStart()">waitPulseStart()</a> serves.  <br /></td></tr>
+<tr class="memitem:a2ab7da84b6cafce46167eeca602289ac" id="r_a2ab7da84b6cafce46167eeca602289ac"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2ab7da84b6cafce46167eeca602289ac">stop</a> () noexcept</td></tr>
+<tr class="memdesc:a2ab7da84b6cafce46167eeca602289ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disarms the One-Pulse engine and its interrupts.  <br /></td></tr>
+<tr class="memitem:aeba87dc02428bea360275fd39706fa18" id="r_aeba87dc02428bea360275fd39706fa18"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aeba87dc02428bea360275fd39706fa18">waitPulseStart</a> (<a class="el" href="../../dd/df2/a05555.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout=portMAX_DELAY) const noexcept</td></tr>
+<tr class="memdesc:aeba87dc02428bea360275fd39706fa18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e.  <br /></td></tr>
+<tr class="memitem:a16dbc64b1db27612373f5d95fe8fe6ed" id="r_a16dbc64b1db27612373f5d95fe8fe6ed"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a16dbc64b1db27612373f5d95fe8fe6ed template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a16dbc64b1db27612373f5d95fe8fe6ed">waitPulseStart</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
+<tr class="memdesc:a16dbc64b1db27612373f5d95fe8fe6ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e.  <br /></td></tr>
+<tr class="memitem:adcd5d98b02d7d70c3dbcd75ab4f117b6" id="r_adcd5d98b02d7d70c3dbcd75ab4f117b6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adcd5d98b02d7d70c3dbcd75ab4f117b6">setTiming</a> (uint32_t delay, uint32_t pulseWidth) noexcept</td></tr>
+<tr class="memdesc:adcd5d98b02d7d70c3dbcd75ab4f117b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the trigger-to-pulse delay and the pulse width.  <br /></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../df/d06/a05371.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a0a4806d9f5ce4953eb151c8ec4f74cb5" id="r_a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../dd/df2/a05555.html#a0a4806d9f5ce4953eb151c8ec4f74cb5">Manager</a></td></tr>
+<tr class="memdesc:a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry routing HAL callbacks to instances.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ac7b1eac52b77847537b732a7e3cd0d2e" id="r_ac7b1eac52b77847537b732a7e3cd0d2e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../dd/df2/a05555.html#ac7b1eac52b77847537b732a7e3cd0d2e">bindWorker</a> () noexcept</td></tr>
+<tr class="memdesc:ac7b1eac52b77847537b732a7e3cd0d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the calling task the one woken by hardware events; call before enabling the interrupt.  <br /></td></tr>
+<tr class="memitem:a50fe83a38ed76cc7a5f8cea7dca98f4d" id="r_a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dd/df2/a05555.html#a50fe83a38ed76cc7a5f8cea7dca98f4d">waitEvent</a> (<a class="el" href="../../dd/df2/a05555.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout) const noexcept</td></tr>
+<tr class="memdesc:a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the next hardware event.  <br /></td></tr>
+<tr class="memitem:a96061f4587cc3508811475a8309ab3f0" id="r_a96061f4587cc3508811475a8309ab3f0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../dd/df2/a05555.html#a96061f4587cc3508811475a8309ab3f0">notifyWorkerFromISR</a> () noexcept</td></tr>
+<tr class="memdesc:a96061f4587cc3508811475a8309ab3f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the bound task from the HAL callback.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a5e91f9ca8a9abc6255b583f8225f7478" id="r_a5e91f9ca8a9abc6255b583f8225f7478"><td class="memItemLeft">friend&#160;</td><td class="memItemRight"><a class="el" href="#a5e91f9ca8a9abc6255b583f8225f7478">void::HAL_TIM_PWM_PulseFinishedCallback</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *htim)</td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a809eb7ca953a2674c82ca0684b8b55a9" name="a809eb7ca953a2674c82ca0684b8b55a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a809eb7ca953a2674c82ca0684b8b55a9">&#9670;&#160;</a></span>TimPwmOutput() <span class="overload">[1/3]</span></h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a0a4806d9f5ce4953eb151c8ec4f74cb5" name="a0a4806d9f5ce4953eb151c8ec4f74cb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4806d9f5ce4953eb151c8ec4f74cb5">&#9670;&#160;</a></span>Manager</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -147,14 +170,63 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::Timer::TimPwmOutput::TimPwmOutput </td>
+          <td class="memname">using <a class="el" href="../../dd/df2/a05555.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> &gt;::Manager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registry routing HAL callbacks to instances. </p>
+
+</div>
+</div>
+<a id="ad8ef8d64da7b2fb93cca36bca48241bc" name="ad8ef8d64da7b2fb93cca36bca48241bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8ef8d64da7b2fb93cca36bca48241bc">&#9670;&#160;</a></span>TickType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../dd/df2/a05555.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> &gt;::TickType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Scheduler tick count type. </p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae287fccac43cfbccd505d62c3450d886" name="ae287fccac43cfbccd505d62c3450d886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae287fccac43cfbccd505d62c3450d886">&#9670;&#160;</a></span>TimOnePulse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::Timer::TimOnePulse::TimOnePulse </td>
           <td>(</td>
           <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>timHandle</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timChannel</em></span>&#160;)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>outputChannel</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -164,19 +236,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the PWM abstraction wrapper directly to a native configuration structure. </p>
+<p>Binds the One-Pulse wrapper directly to a native configuration structure. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timHandle</td><td>Target native hardware TIM descriptor block (e.g., &amp;htim3). </td></tr>
-    <tr><td class="paramname">timChannel</td><td>Target hardware channel ('TIM_CHANNEL_1' .. 'TIM_CHANNEL_4'). </td></tr>
+    <tr><td class="paramname">timHandle</td><td>Target native hardware TIM descriptor block (e.g., &amp;htim5). </td></tr>
+    <tr><td class="paramname">outputChannel</td><td>Output channel, 'TIM_CHANNEL_1' or 'TIM_CHANNEL_2'; the other one is the trigger. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a5be8b189846279ae607f6ceaf0dc220d" name="a5be8b189846279ae607f6ceaf0dc220d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5be8b189846279ae607f6ceaf0dc220d">&#9670;&#160;</a></span>~TimPwmOutput()</h2>
+<a id="a1e04591efe0469a8ca79694006f138e6" name="a1e04591efe0469a8ca79694006f138e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e04591efe0469a8ca79694006f138e6">&#9670;&#160;</a></span>~TimOnePulse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,7 +257,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::Timer::TimPwmOutput::~TimPwmOutput </td>
+          <td class="memname">Lib::HAL::Timer::TimOnePulse::~TimOnePulse </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -193,84 +265,18 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the TimPwmOutput object without stopping the waveform generation. </p>
-
-</div>
-</div>
-<a id="a422a9009ca77380721da2502794a00a0" name="a422a9009ca77380721da2502794a00a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a422a9009ca77380721da2502794a00a0">&#9670;&#160;</a></span>TimPwmOutput() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::Timer::TimPwmOutput::TimPwmOutput </td>
-          <td>(</td>
-          <td class="paramtype">const TimPwmOutput &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copying is deleted: each instance drives one physical timer channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2412abefcbbf32d140d9b3e2e72ed511" name="a2412abefcbbf32d140d9b3e2e72ed511"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2412abefcbbf32d140d9b3e2e72ed511">&#9670;&#160;</a></span>TimPwmOutput() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::Timer::TimPwmOutput::TimPwmOutput </td>
-          <td>(</td>
-          <td class="paramtype">TimPwmOutput &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moving is deleted: each instance drives one physical timer channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Stops the timer before the base leaves the DeviceManager registry. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a3c2e8aa945f04a0c827147f62a2ccb5a" name="a3c2e8aa945f04a0c827147f62a2ccb5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c2e8aa945f04a0c827147f62a2ccb5a">&#9670;&#160;</a></span>close()</h2>
+<a id="ac7b1eac52b77847537b732a7e3cd0d2e" name="ac7b1eac52b77847537b732a7e3cd0d2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7b1eac52b77847537b732a7e3cd0d2e">&#9670;&#160;</a></span>bindWorker()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,7 +285,130 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimPwmOutput::close </td>
+          <td class="memname">void <a class="el" href="../../dd/df2/a05555.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> &gt;::bindWorker </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Makes the calling task the one woken by hardware events; call before enabling the interrupt. </p>
+
+</div>
+</div>
+<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * <a class="el" href="../../df/d06/a05371.html">Lib::HAL::Device</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a>, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> &gt;::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+
+</div>
+</div>
+<a id="a96061f4587cc3508811475a8309ab3f0" name="a96061f4587cc3508811475a8309ab3f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96061f4587cc3508811475a8309ab3f0">&#9670;&#160;</a></span>notifyWorkerFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dd/df2/a05555.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> &gt;::notifyWorkerFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wakes the bound task from the HAL callback. </p>
+
+</div>
+</div>
+<a id="adcd5d98b02d7d70c3dbcd75ab4f117b6" name="adcd5d98b02d7d70c3dbcd75ab4f117b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcd5d98b02d7d70c3dbcd75ab4f117b6">&#9670;&#160;</a></span>setTiming()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::HAL::Timer::TimOnePulse::setTiming </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>delay</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>pulseWidth</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the trigger-to-pulse delay and the pulse width. </p>
+<p>In OPM the delay is CCRx and the width is ARR - CCRx + 1, so both registers are written together.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">delay</td><td>Ticks from the trigger to the start of the pulse (CCRx). </td></tr>
+    <tr><td class="paramname">pulseWidth</td><td>Pulse length in ticks, at least 1; 'delay + pulseWidth - 1' must fit the counter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d44/a06217.html#a7">Lib::HAL::Timer::TimOnePulse</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a4dd784ca9da4b8c662101a2b232a1f61" name="a4dd784ca9da4b8c662101a2b232a1f61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dd784ca9da4b8c662101a2b232a1f61">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::Timer::TimOnePulse::start </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -292,13 +421,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the PWM waveform on the channel. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the shutdown sequence was fully committed. </dd></dl>
+<p>Arms the timer for trigger events; the calling task becomes the one <a class="el" href="#aeba87dc02428bea360275fd39706fa18" title="waitPulseStart()">waitPulseStart()</a> serves. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware channel activation sequence succeeded. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d44/a06217.html#a6">Lib::HAL::Timer::TimOnePulse</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a2f62b0d33341cf6109b01926e7c2c446" name="a2f62b0d33341cf6109b01926e7c2c446"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f62b0d33341cf6109b01926e7c2c446">&#9670;&#160;</a></span>getPeriod()</h2>
+<a id="a2ab7da84b6cafce46167eeca602289ac" name="a2ab7da84b6cafce46167eeca602289ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ab7da84b6cafce46167eeca602289ac">&#9670;&#160;</a></span>stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -307,9 +438,73 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::HAL::Timer::TimPwmOutput::getPeriod </td>
+          <td class="memname">bool Lib::HAL::Timer::TimOnePulse::stop </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disarms the One-Pulse engine and its interrupts. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware stopped safely. </dd></dl>
+
+</div>
+</div>
+<a id="a50fe83a38ed76cc7a5f8cea7dca98f4d" name="a50fe83a38ed76cc7a5f8cea7dca98f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50fe83a38ed76cc7a5f8cea7dca98f4d">&#9670;&#160;</a></span>waitEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/df2/a05555.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> &gt;::waitEvent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/df2/a05555.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Blocks the calling task until the next hardware event. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if an event arrived, <em class="arg">false</em> on timeout. </dd></dl>
+
+</div>
+</div>
+<a id="a16dbc64b1db27612373f5d95fe8fe6ed" name="a16dbc64b1db27612373f5d95fe8fe6ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16dbc64b1db27612373f5d95fe8fe6ed">&#9670;&#160;</a></span>waitPulseStart() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::Timer::TimOnePulse::waitPulseStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -320,13 +515,27 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the timer period from the Auto-Reload Register (ARR). </p>
-<dl class="section return"><dt>Returns</dt><dd>Auto-reload value in timer ticks, or 0 if the handle is uninitialized. </dd></dl>
+<p>Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e. </p>
+<p>the trigger delay has elapsed.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a pulse started, <em class="arg">false</em> on timeout. </dd></dl>
 
 </div>
 </div>
-<a id="ab30ea02f742bdd63bde16c03b3f780da" name="ab30ea02f742bdd63bde16c03b3f780da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab30ea02f742bdd63bde16c03b3f780da">&#9670;&#160;</a></span>open()</h2>
+<a id="aeba87dc02428bea360275fd39706fa18" name="aeba87dc02428bea360275fd39706fa18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeba87dc02428bea360275fd39706fa18">&#9670;&#160;</a></span>waitPulseStart() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -335,10 +544,10 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimPwmOutput::open </td>
+          <td class="memname">bool Lib::HAL::Timer::TimOnePulse::waitPulseStart </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="../../dd/df2/a05555.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -348,13 +557,24 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Starts the PWM waveform on the channel. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware channel activation sequence succeeded. </dd></dl>
+<p>Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e. </p>
+<p>the trigger delay has elapsed.</p>
+<p>The compare interrupt fires at the start of the pulse; the end of the pulse is the update event.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a pulse started, <em class="arg">false</em> on timeout. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d44/a06217.html#a8">Lib::HAL::Timer::TimOnePulse</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="acc1841d21da440c1c0cdb4a9d61e0ff9" name="acc1841d21da440c1c0cdb4a9d61e0ff9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc1841d21da440c1c0cdb4a9d61e0ff9">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a5e91f9ca8a9abc6255b583f8225f7478" name="a5e91f9ca8a9abc6255b583f8225f7478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e91f9ca8a9abc6255b583f8225f7478">&#9670;&#160;</a></span>void::HAL_TIM_PWM_PulseFinishedCallback</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -363,128 +583,18 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a809eb7ca953a2674c82ca0684b8b55a9">TimPwmOutput</a> &amp; Lib::HAL::Timer::TimPwmOutput::operator= </td>
+          <td class="memname">void::HAL_TIM_PWM_PulseFinishedCallback </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a809eb7ca953a2674c82ca0684b8b55a9">TimPwmOutput</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>htim</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Copy assignment is deleted: each instance drives one physical timer channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a686c13d106e6d8d754e3020b7107d262" name="a686c13d106e6d8d754e3020b7107d262"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a686c13d106e6d8d754e3020b7107d262">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a809eb7ca953a2674c82ca0684b8b55a9">TimPwmOutput</a> &amp; Lib::HAL::Timer::TimPwmOutput::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a809eb7ca953a2674c82ca0684b8b55a9">TimPwmOutput</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move assignment is deleted: each instance drives one physical timer channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a3361b7c050046b52d03fbc351fcac5a8" name="a3361b7c050046b52d03fbc351fcac5a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3361b7c050046b52d03fbc351fcac5a8">&#9670;&#160;</a></span>setPeriod()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::HAL::Timer::TimPwmOutput::setPeriod </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>periodValue</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Overrides the timer period in the Auto-Reload Register (ARR); affects every channel of the timer. </p>
-<p>Without ARR preload ('AutoReloadPreload'), a value below the running counter lets it overshoot to the counter maximum before wrapping, producing one long period.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">periodValue</td><td>New auto-reload value in timer ticks; the PWM period is 'periodValue' + 1 ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a4db830d0cdfdbd5ab01f959dd0653647" name="a4db830d0cdfdbd5ab01f959dd0653647"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4db830d0cdfdbd5ab01f959dd0653647">&#9670;&#160;</a></span>setPulse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::HAL::Timer::TimPwmOutput::setPulse </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>pulseValue</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the pulse duration in the channel's CCRx register. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pulseValue</td><td>Active phase length in timer ticks; <a class="el" href="#a2f62b0d33341cf6109b01926e7c2c446" title="getPeriod()">getPeriod()</a> + 1 or more means 100 %. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

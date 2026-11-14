@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::DACPortBase&lt; Derived &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::DACPort&lt; DriverMode::IT &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,68 +91,68 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../db/d18/a05383.html">DACPortBase</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../df/d89/a01032.html">HAL</a></li><li class="navelem"><a href="../../db/d18/a05383.html">DACPort&lt; DriverMode::IT &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../d2/d6f/a05380.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::DACPortBase&lt; Derived &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::DACPort&lt; DriverMode::IT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>CRTP foundation implementing the lifecycle and conversion policy shared by every transfer mode.  
+<p>Interrupt-driven (IT) specialization: enables the channel underrun interrupt.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
-class Lib::HAL::DACPortBase&lt; Derived &gt;</div><p>CRTP foundation implementing the lifecycle and conversion policy shared by every transfer mode. </p>
-<p>Owns no state of its own, not even the native handle or channel: it reaches both through 'derived()-&gt;getHandle()' and 'derived()-&gt;getChannel()'. Every mode implements <a class="el" href="#ae527315d8794d0bcdbd7b686839e4630" title="open()">open()</a> and <a class="el" href="#a2c3c1b081f9ff127e0f02cd3db61d4c4" title="close()">close()</a> identically and shares the same <a class="el" href="#a984f15fd9218a6fec1e7ac0d61e04e6d" title="setValue()">setValue()</a> conversion-register write, so that policy lives here once.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>High-level concrete driver class owning the native handle and channel. </td></tr>
-  </table>
-  </dd>
-</dl>
+<div class="textblock"><p>Interrupt-driven (IT) specialization: enables the channel underrun interrupt. </p>
+<p>Values are written through <a class="el" href="../../d2/dc7/a05391.html#a984f15fd9218a6fec1e7ac0d61e04e6d" title="setValue()">setValue()</a> as in the blocking variant. The DAC raises no interrupt when a value reaches the output; its only channel interrupt is the DMA underrun flag, set when a trigger arrives while DMA requests are enabled and the previous request was not served. This port reports it as <a class="el" href="../../db/de3/a05387.html#ac2b8715583f48fd05fb6668fcd90aed9" title="Event::UNDERRUN">Event::UNDERRUN</a>, observed through <a class="el" href="#aaf7fd403bcd529d8c30a8ef723bee287" title="waitForUnderrun()">waitForUnderrun()</a>. </p>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Event" id="r_Event"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../db/de3/a05387.html">Event</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event bitmasks used inside the internal RTOS event group.  <a href="../../db/de3/a05387.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a18b5de83aaec561a43dc24a80e15bd46" id="r_a18b5de83aaec561a43dc24a80e15bd46"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a> : uint32_t { <br />
-&#160;&#160;<a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327">RIGHT_12_BITS</a> = DAC_ALIGN_12B_R
-, <br />
-&#160;&#160;<a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41">LEFT_12_BITS</a> = DAC_ALIGN_12B_L
-, <br />
-&#160;&#160;<a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5">RIGHT_8_BITS</a> = DAC_ALIGN_8B_R
-<br />
- }</td></tr>
-<tr class="memdesc:a18b5de83aaec561a43dc24a80e15bd46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output data alignment options for DAC value conversion.  <a href="#a18b5de83aaec561a43dc24a80e15bd46">More...</a><br /></td></tr>
+<tr class="memitem:a18b5de83aaec561a43dc24a80e15bd46" id="r_a18b5de83aaec561a43dc24a80e15bd46"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="../../d2/dc7/a05391.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a> </td></tr>
+<tr class="memdesc:a18b5de83aaec561a43dc24a80e15bd46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output data alignment options for DAC value conversion.  <a href="../../d2/dc7/a05391.html#a18b5de83aaec561a43dc24a80e15bd46">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5c390a543d2fb2e71dab05cd46bba5fb" id="r_a5c390a543d2fb2e71dab05cd46bba5fb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> (const DACPortBase &amp;other)=delete</td></tr>
-<tr class="memdesc:a5c390a543d2fb2e71dab05cd46bba5fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
-<tr class="memitem:a98261674f7f24cbf6ddd0b0549e2a020" id="r_a98261674f7f24cbf6ddd0b0549e2a020"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a98261674f7f24cbf6ddd0b0549e2a020">DACPortBase</a> (DACPortBase &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a98261674f7f24cbf6ddd0b0549e2a020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
-<tr class="memitem:a0b6a9ee706cd32b3028ae123bafbc9d0" id="r_a0b6a9ee706cd32b3028ae123bafbc9d0"><td class="memItemLeft"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0b6a9ee706cd32b3028ae123bafbc9d0">operator=</a> (const <a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a0b6a9ee706cd32b3028ae123bafbc9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
-<tr class="memitem:abfba06342b098e48cbd2ecf0d159497c" id="r_abfba06342b098e48cbd2ecf0d159497c"><td class="memItemLeft"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abfba06342b098e48cbd2ecf0d159497c">operator=</a> (<a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:abfba06342b098e48cbd2ecf0d159497c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
-<tr class="memitem:ae527315d8794d0bcdbd7b686839e4630" id="r_ae527315d8794d0bcdbd7b686839e4630"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae527315d8794d0bcdbd7b686839e4630">open</a> () noexcept</td></tr>
-<tr class="memdesc:ae527315d8794d0bcdbd7b686839e4630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the DAC peripheral.  <br /></td></tr>
-<tr class="memitem:a2c3c1b081f9ff127e0f02cd3db61d4c4" id="r_a2c3c1b081f9ff127e0f02cd3db61d4c4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2c3c1b081f9ff127e0f02cd3db61d4c4">close</a> () noexcept</td></tr>
-<tr class="memdesc:a2c3c1b081f9ff127e0f02cd3db61d4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the DAC peripheral.  <br /></td></tr>
-<tr class="memitem:a984f15fd9218a6fec1e7ac0d61e04e6d" id="r_a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a984f15fd9218a6fec1e7ac0d61e04e6d">setValue</a> (uint32_t value, <a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a> alignment=<a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327">DataAlignment::RIGHT_12_BITS</a>) noexcept</td></tr>
+<tr class="memitem:ae36ab0485cc108ac7f0082068d118518" id="r_ae36ab0485cc108ac7f0082068d118518"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> (DAC_HandleTypeDef *handle, uint32_t channel) noexcept</td></tr>
+<tr class="memdesc:ae36ab0485cc108ac7f0082068d118518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block and hardware channel.  <br /></td></tr>
+<tr class="memitem:a38af62d642471553e5aa356e673ad171" id="r_a38af62d642471553e5aa356e673ad171"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a38af62d642471553e5aa356e673ad171">~DACPort</a> () noexcept</td></tr>
+<tr class="memdesc:a38af62d642471553e5aa356e673ad171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the channel and releases the event group and DeviceManager slot.  <br /></td></tr>
+<tr class="memitem:afe60fcad137acbac62467215f81e262a" id="r_afe60fcad137acbac62467215f81e262a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afe60fcad137acbac62467215f81e262a">DACPort</a> (const DACPort &amp;other)=delete</td></tr>
+<tr class="memdesc:afe60fcad137acbac62467215f81e262a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns its RTOS event group and DeviceManager slot.  <br /></td></tr>
+<tr class="memitem:a6befbf3fd6e387b958c474127b15a55e" id="r_a6befbf3fd6e387b958c474127b15a55e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6befbf3fd6e387b958c474127b15a55e">DACPort</a> (DACPort &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a6befbf3fd6e387b958c474127b15a55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns its RTOS event group and DeviceManager slot.  <br /></td></tr>
+<tr class="memitem:a8669eba366ce1c94494df43dfaccc690" id="r_a8669eba366ce1c94494df43dfaccc690"><td class="memItemLeft"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8669eba366ce1c94494df43dfaccc690">operator=</a> (const <a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a8669eba366ce1c94494df43dfaccc690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns its RTOS event group and DeviceManager slot.  <br /></td></tr>
+<tr class="memitem:ae0483104f828bd3464839de4f4880b4a" id="r_ae0483104f828bd3464839de4f4880b4a"><td class="memItemLeft"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae0483104f828bd3464839de4f4880b4a">operator=</a> (<a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:ae0483104f828bd3464839de4f4880b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns its RTOS event group and DeviceManager slot.  <br /></td></tr>
+<tr class="memitem:a6a948fd07814c8d346d20ad52d5e68d5" id="r_a6a948fd07814c8d346d20ad52d5e68d5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6a948fd07814c8d346d20ad52d5e68d5">open</a> () noexcept</td></tr>
+<tr class="memdesc:a6a948fd07814c8d346d20ad52d5e68d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the event group, initializes the peripheral, registers the underrun callback and this instance.  <br /></td></tr>
+<tr class="memitem:a2b221635f62446099dbe5e86e8065288" id="r_a2b221635f62446099dbe5e86e8065288"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2b221635f62446099dbe5e86e8065288">close</a> () noexcept</td></tr>
+<tr class="memdesc:a2b221635f62446099dbe5e86e8065288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the channel, unregisters this instance and its callback, deinitializes the peripheral and closes the event group.  <br /></td></tr>
+<tr class="memitem:a6c386654350eba5ab306e4764474af96" id="r_a6c386654350eba5ab306e4764474af96"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6c386654350eba5ab306e4764474af96">start</a> () noexcept</td></tr>
+<tr class="memdesc:a6c386654350eba5ab306e4764474af96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the channel output and its underrun interrupt.  <br /></td></tr>
+<tr class="memitem:a5b866d4c61c5c1dcc7b58063edd6e45d" id="r_a5b866d4c61c5c1dcc7b58063edd6e45d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5b866d4c61c5c1dcc7b58063edd6e45d">stop</a> () noexcept</td></tr>
+<tr class="memdesc:a5b866d4c61c5c1dcc7b58063edd6e45d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the channel underrun interrupt and the channel output.  <br /></td></tr>
+<tr class="memitem:aaf7fd403bcd529d8c30a8ef723bee287" id="r_aaf7fd403bcd529d8c30a8ef723bee287"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaf7fd403bcd529d8c30a8ef723bee287">waitForUnderrun</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:aaf7fd403bcd529d8c30a8ef723bee287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the channel reports an underrun.  <br /></td></tr>
+<tr class="memitem:abb9c3299abda744064d8d8e8d44f825b" id="r_abb9c3299abda744064d8d8e8d44f825b"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#abb9c3299abda744064d8d8e8d44f825b">getChannel</a> () const noexcept</td></tr>
+<tr class="memdesc:abb9c3299abda744064d8d8e8d44f825b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the hardware channel configured for this port instance.  <br /></td></tr>
+<tr class="memitem:a984f15fd9218a6fec1e7ac0d61e04e6d" id="r_a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d2/dc7/a05391.html#a984f15fd9218a6fec1e7ac0d61e04e6d">setValue</a> (uint32_t value, <a class="el" href="../../d2/dc7/a05391.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a> alignment=DataAlignment::RIGHT_12_BITS) noexcept</td></tr>
 <tr class="memdesc:a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the DAC output value on the bound channel.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a59881e4eed40d54771ce2e98b6dbda30" id="r_a59881e4eed40d54771ce2e98b6dbda30"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a59881e4eed40d54771ce2e98b6dbda30">DACPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a59881e4eed40d54771ce2e98b6dbda30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the CRTP foundation.  <br /></td></tr>
-<tr class="memitem:a3ae4ac657a106fd48d5b165820d747d2" id="r_a3ae4ac657a106fd48d5b165820d747d2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3ae4ac657a106fd48d5b165820d747d2">~DACPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a3ae4ac657a106fd48d5b165820d747d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; owns no state of its own, so there is nothing to release here.  <br /></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">DAC_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../df/d06/a05371.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
+<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const DAC_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../df/d06/a05371.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
 <a id="a18b5de83aaec561a43dc24a80e15bd46" name="a18b5de83aaec561a43dc24a80e15bd46"></a>
@@ -160,52 +160,105 @@ Protected Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46">Lib::HAL::DACPortBase::DataAlignment</a> : uint32_t</td>
+          <td class="memname">enum <a class="el" href="../../d2/dc7/a05391.html#a18b5de83aaec561a43dc24a80e15bd46">Lib::HAL::DACPortBase::DataAlignment</a> : uint32_t</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+<span class="mlabels"><span class="mlabel strong">strong</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Output data alignment options for DAC value conversion. </p>
 <p>Mirrors the alignment macros defined by the STM32 HAL DAC driver. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327" name="a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327"></a>RIGHT_12_BITS&#160;</td><td class="fielddoc"><p>12-bit data, right aligned </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41" name="a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41"></a>LEFT_12_BITS&#160;</td><td class="fielddoc"><p>12-bit data, left aligned </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5" name="a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5"></a>RIGHT_8_BITS&#160;</td><td class="fielddoc"><p>8-bit data, right aligned </p>
-</td></tr>
-</table>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5c390a543d2fb2e71dab05cd46bba5fb" name="a5c390a543d2fb2e71dab05cd46bba5fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c390a543d2fb2e71dab05cd46bba5fb">&#9670;&#160;</a></span>DACPortBase() <span class="overload">[1/3]</span></h2>
+<a id="ae36ab0485cc108ac7f0082068d118518" name="ae36ab0485cc108ac7f0082068d118518"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae36ab0485cc108ac7f0082068d118518">&#9670;&#160;</a></span>DACPort() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d18/a05383.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::DACPortBase </td>
+          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::DACPort </td>
           <td>(</td>
-          <td class="paramtype">const DACPortBase&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">DAC_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds the port to a native hardware descriptor block and hardware channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+    <tr><td class="paramname">channel</td><td>Target hardware channel ('DAC_CHANNEL_1' or 'DAC_CHANNEL_2'). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a38af62d642471553e5aa356e673ad171" name="a38af62d642471553e5aa356e673ad171"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38af62d642471553e5aa356e673ad171">&#9670;&#160;</a></span>~DACPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::~<a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the channel and releases the event group and DeviceManager slot. </p>
+
+</div>
+</div>
+<a id="afe60fcad137acbac62467215f81e262a" name="afe60fcad137acbac62467215f81e262a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe60fcad137acbac62467215f81e262a">&#9670;&#160;</a></span>DACPort() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::DACPort </td>
+          <td>(</td>
+          <td class="paramtype">const DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -216,7 +269,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
+<p>Copying is deleted: each instance owns its RTOS event group and DeviceManager slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -226,21 +279,19 @@ template&lt;typename Derived&gt; </div>
 
 </div>
 </div>
-<a id="a98261674f7f24cbf6ddd0b0549e2a020" name="a98261674f7f24cbf6ddd0b0549e2a020"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98261674f7f24cbf6ddd0b0549e2a020">&#9670;&#160;</a></span>DACPortBase() <span class="overload">[2/3]</span></h2>
+<a id="a6befbf3fd6e387b958c474127b15a55e" name="a6befbf3fd6e387b958c474127b15a55e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6befbf3fd6e387b958c474127b15a55e">&#9670;&#160;</a></span>DACPort() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d18/a05383.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::DACPortBase </td>
+          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::DACPort </td>
           <td>(</td>
-          <td class="paramtype">DACPortBase&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -251,91 +302,28 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
+<p>Moving is deleted: each instance owns its RTOS event group and DeviceManager slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a59881e4eed40d54771ce2e98b6dbda30" name="a59881e4eed40d54771ce2e98b6dbda30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59881e4eed40d54771ce2e98b6dbda30">&#9670;&#160;</a></span>DACPortBase() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d18/a05383.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::DACPortBase </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructs the CRTP foundation. </p>
-<p>Carries no state; the native handle and channel live on 'Derived'.</p>
-<p>Protected: the base only makes sense as part of a 'Derived' driver. </p>
-
-</div>
-</div>
-<a id="a3ae4ac657a106fd48d5b165820d747d2" name="a3ae4ac657a106fd48d5b165820d747d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ae4ac657a106fd48d5b165820d747d2">&#9670;&#160;</a></span>~DACPortBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d18/a05383.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::~<a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destroys the object; owns no state of its own, so there is nothing to release here. </p>
-<p>Protected and non-virtual: it is never destroyed through a base pointer. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a2c3c1b081f9ff127e0f02cd3db61d4c4" name="a2c3c1b081f9ff127e0f02cd3db61d4c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c3c1b081f9ff127e0f02cd3db61d4c4">&#9670;&#160;</a></span>close()</h2>
+<a id="a2b221635f62446099dbe5e86e8065288" name="a2b221635f62446099dbe5e86e8065288"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b221635f62446099dbe5e86e8065288">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../db/d18/a05383.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::close </td>
+          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -348,24 +336,106 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Deinitializes the DAC peripheral. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if deinitialization succeeded, <b>false</b> otherwise. </dd></dl>
+<p>Stops the channel, unregisters this instance and its callback, deinitializes the peripheral and closes the event group. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the port was closed or was not open. </dd></dl>
 
 </div>
 </div>
-<a id="ae527315d8794d0bcdbd7b686839e4630" name="ae527315d8794d0bcdbd7b686839e4630"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae527315d8794d0bcdbd7b686839e4630">&#9670;&#160;</a></span>open()</h2>
+<a id="abb9c3299abda744064d8d8e8d44f825b" name="abb9c3299abda744064d8d8e8d44f825b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb9c3299abda744064d8d8e8d44f825b">&#9670;&#160;</a></span>getChannel()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../db/d18/a05383.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::open </td>
+          <td class="memname">uint32_t Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::getChannel </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fetches the hardware channel configured for this port instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Hardware channel identifier ('DAC_CHANNEL_1' or 'DAC_CHANNEL_2'). </dd></dl>
+
+</div>
+</div>
+<a id="af92f93241be20a3c9a32286ed19dc4cf" name="af92f93241be20a3c9a32286ed19dc4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92f93241be20a3c9a32286ed19dc4cf">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const DAC_HandleTypeDef * <a class="el" href="../../df/d06/a05371.html">Lib::HAL::Device</a>&lt; <a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a>&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;, DAC_HandleTypeDef &gt;::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Const-qualified access to the native microcontroller hardware handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+
+</div>
+</div>
+<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">DAC_HandleTypeDef * <a class="el" href="../../df/d06/a05371.html">Lib::HAL::Device</a>&lt; <a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a>&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;, DAC_HandleTypeDef &gt;::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+
+</div>
+</div>
+<a id="a6a948fd07814c8d346d20ad52d5e68d5" name="a6a948fd07814c8d346d20ad52d5e68d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a948fd07814c8d346d20ad52d5e68d5">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -378,26 +448,25 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the DAC peripheral. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if initialization succeeded, <b>false</b> otherwise. </dd></dl>
+<p>Opens the event group, initializes the peripheral, registers the underrun callback and this instance. </p>
+<p>Any step that fails rolls back the ones already completed.</p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if every step of the open sequence succeeded or the port was already open. </dd></dl>
 
 </div>
 </div>
-<a id="a0b6a9ee706cd32b3028ae123bafbc9d0" name="a0b6a9ee706cd32b3028ae123bafbc9d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b6a9ee706cd32b3028ae123bafbc9d0">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a8669eba366ce1c94494df43dfaccc690" name="a8669eba366ce1c94494df43dfaccc690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8669eba366ce1c94494df43dfaccc690">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp; <a class="el" href="../../db/d18/a05383.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp; Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a>&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a>&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -408,7 +477,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
+<p>Copy assignment is deleted: each instance owns its RTOS event group and DeviceManager slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -419,21 +488,19 @@ template&lt;typename Derived&gt; </div>
 
 </div>
 </div>
-<a id="abfba06342b098e48cbd2ecf0d159497c" name="abfba06342b098e48cbd2ecf0d159497c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfba06342b098e48cbd2ecf0d159497c">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="ae0483104f828bd3464839de4f4880b4a" name="ae0483104f828bd3464839de4f4880b4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0483104f828bd3464839de4f4880b4a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp; <a class="el" href="../../db/d18/a05383.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp; Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a>&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a>&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -444,7 +511,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
+<p>Move assignment is deleted: each instance owns its RTOS event group and DeviceManager slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -460,26 +527,24 @@ template&lt;typename Derived&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../db/d18/a05383.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::setValue </td>
+          <td class="memname">bool <a class="el" href="../../d2/dc7/a05391.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a>&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::setValue </td>
           <td>(</td>
           <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a></td>          <td class="paramname"><span class="paramname"><em>alignment</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327">DataAlignment::RIGHT_12_BITS</a></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="../../d2/dc7/a05391.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a></td>          <td class="paramname"><span class="paramname"><em>alignment</em></span><span class="paramdefsep"> = </span><span class="paramdefval">DataAlignment::RIGHT_12_BITS</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -492,7 +557,99 @@ template&lt;typename Derived&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the write succeeded, <b>false</b> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the write succeeded, <em class="arg">false</em> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a6c386654350eba5ab306e4764474af96" name="a6c386654350eba5ab306e4764474af96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c386654350eba5ab306e4764474af96">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enables the channel output and its underrun interrupt. </p>
+<p>Stale underrun events from an earlier run are cleared first.</p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the channel was enabled. </dd></dl>
+
+</div>
+</div>
+<a id="a5b866d4c61c5c1dcc7b58063edd6e45d" name="a5b866d4c61c5c1dcc7b58063edd6e45d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b866d4c61c5c1dcc7b58063edd6e45d">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disables the channel underrun interrupt and the channel output. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the channel was disabled. </dd></dl>
+
+</div>
+</div>
+<a id="aaf7fd403bcd529d8c30a8ef723bee287" name="aaf7fd403bcd529d8c30a8ef723bee287"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf7fd403bcd529d8c30a8ef723bee287">&#9670;&#160;</a></span>waitForUnderrun()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::waitForUnderrun </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Blocks the calling task until the channel reports an underrun. </p>
+<p>Task context only.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum duration to wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if an underrun was reported before the timeout; the event is consumed. </dd></dl>
 
 </div>
 </div>

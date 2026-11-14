@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Crypto::WolfSSLDh</title>
+<title>IAR EWARM Library: Lib::Crypto::WolfSSLEcc</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,56 +91,93 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../dd/dac/a01008.html">Crypto</a></li><li class="navelem"><a href="../../d0/d0b/a04899.html">WolfSSLDh</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">Crypto</a></li><li class="navelem"><a href="../../d0/d0b/a04899.html">WolfSSLEcc</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d2/d1f/a04896.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSLDh<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSLEcc<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Finite-field Diffie-Hellman key agreement on wolfCrypt (CubeMX: DH (Diffie-Hellman) Support).  
+<p>ECDSA signatures and ECDHE key agreement on the SECP256R1 curve, on wolfCrypt (CubeMX: ECC Support).  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Finite-field Diffie-Hellman key agreement on wolfCrypt (CubeMX: DH (Diffie-Hellman) Support). </p>
-<p>The caller supplies the group through <a class="el" href="#ad8c4f4476d3d1e1746d3db4fe86cf82a" title="open()">open()</a>, normally a standard group such as an RFC 3526 or RFC 7919 one, since a safe group cannot be chosen on the application's behalf. The key pair lives in caller buffers, not in this instance.</p>
-<dl class="section important"><dt>Important</dt><dd>Not thread-safe: give each task its own instance, or guard a shared one with an <a class="el" href="../../d6/d3a/a06254.html" title="RTOS::Mutex">RTOS::Mutex</a>.</dd></dl>
+<div class="textblock"><p>ECDSA signatures and ECDHE key agreement on the SECP256R1 curve, on wolfCrypt (CubeMX: ECC Support). </p>
+<p>A key is created with <a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d" title="generateKey()">generateKey()</a>, which also attaches the generator to the key: wolfCrypt's timing resistant ECDHE needs it for <a class="el" href="#a6c37442161fbe64b4d931ffc6a6f8997" title="sharedSecret()">sharedSecret()</a>. Signatures are DER encoded and cover a caller-supplied digest.</p>
+<dl class="section important"><dt>Important</dt><dd>The <a class="el" href="../../de/d63/a04887.html" title="WolfSSLRandom">WolfSSLRandom</a> passed to generateKey() must outlive the key, or be replaced by a later generateKey() call.</dd>
+<dd>
+There is no import or export of public keys yet: <a class="el" href="#a22a3ef4290390aa55282ade89d4bd8e4" title="verify()">verify()</a> and <a class="el" href="#a6c37442161fbe64b4d931ffc6a6f8997" title="sharedSecret()">sharedSecret()</a> work only with keys generated in this program.</dd>
+<dd>
+Not thread-safe: give each task its own instance, or guard a shared one with an <a class="el" href="../../de/d6a/a06273.html" title="RTOS::Mutex">RTOS::Mutex</a>.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Crypto/WolfSSL.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d51/a06177.html#_a9">Lib::Crypto::WolfSSL</a>.</dd>
+</dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../df/d7b/a04903.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Group parameters of the exchange.  <a href="../../df/d7b/a04903.html#details">More...</a><br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a7fbb5355ccfc526d83b2d67eadb425c8" id="r_a7fbb5355ccfc526d83b2d67eadb425c8"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a7fbb5355ccfc526d83b2d67eadb425c8">SharedSecret</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a0f359df6288584ab5bdd4b23b8ee6d6d">SHARED_SECRET_SIZE</a>&gt;</td></tr>
+<tr class="memdesc:a7fbb5355ccfc526d83b2d67eadb425c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">ECDHE shared secret.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acaf8aa4b45471efcfd3e472780e7b31f" id="r_acaf8aa4b45471efcfd3e472780e7b31f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> () noexcept</td></tr>
-<tr class="memdesc:acaf8aa4b45471efcfd3e472780e7b31f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the DH context without group parameters.  <br /></td></tr>
-<tr class="memitem:a6d03ea454eff6ec49352184b945a04e2" id="r_a6d03ea454eff6ec49352184b945a04e2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6d03ea454eff6ec49352184b945a04e2">~WolfSSLDh</a> () noexcept</td></tr>
-<tr class="memdesc:a6d03ea454eff6ec49352184b945a04e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfCrypt DH context.  <br /></td></tr>
-<tr class="memitem:aabb6311ca11dc1faceab33055d97c824" id="r_aabb6311ca11dc1faceab33055d97c824"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aabb6311ca11dc1faceab33055d97c824">WolfSSLDh</a> (const WolfSSLDh &amp;)=delete</td></tr>
-<tr class="memdesc:aabb6311ca11dc1faceab33055d97c824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the group.  <br /></td></tr>
-<tr class="memitem:a2e951b9b4363af4a96e6e7426382c1d3" id="r_a2e951b9b4363af4a96e6e7426382c1d3"><td class="memItemLeft"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2e951b9b4363af4a96e6e7426382c1d3">operator=</a> (const <a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a2e951b9b4363af4a96e6e7426382c1d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the group.  <br /></td></tr>
-<tr class="memitem:a0d9f73abb840322aea3f49d8eac3f8ce" id="r_a0d9f73abb840322aea3f49d8eac3f8ce"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0d9f73abb840322aea3f49d8eac3f8ce">WolfSSLDh</a> (WolfSSLDh &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a0d9f73abb840322aea3f49d8eac3f8ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the group.  <br /></td></tr>
-<tr class="memitem:a050501c01119e2aa82565a060075ee61" id="r_a050501c01119e2aa82565a060075ee61"><td class="memItemLeft"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a050501c01119e2aa82565a060075ee61">operator=</a> (<a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a050501c01119e2aa82565a060075ee61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the group.  <br /></td></tr>
-<tr class="memitem:ad8c4f4476d3d1e1746d3db4fe86cf82a" id="r_ad8c4f4476d3d1e1746d3db4fe86cf82a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad8c4f4476d3d1e1746d3db4fe86cf82a">open</a> (const <a class="el" href="../../df/d7b/a04903.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:ad8c4f4476d3d1e1746d3db4fe86cf82a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the group parameters, replacing any this instance held.  <br /></td></tr>
-<tr class="memitem:ae0c35d84959cb6078b1d7ce38d4c2c02" id="r_ae0c35d84959cb6078b1d7ce38d4c2c02"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae0c35d84959cb6078b1d7ce38d4c2c02">generateKeyPair</a> (<a class="el" href="../../d1/d8e/a04879.html">WolfSSLRandom</a> &amp;rng, std::span&lt; uint8_t &gt; privateKey, size_t &amp;privateKeyLength, std::span&lt; uint8_t &gt; publicKey, size_t &amp;publicKeyLength) noexcept</td></tr>
-<tr class="memdesc:ae0c35d84959cb6078b1d7ce38d4c2c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a key pair for the group set with open().  <br /></td></tr>
-<tr class="memitem:a76b96df40bf320de9d7254054ad2ab18" id="r_a76b96df40bf320de9d7254054ad2ab18"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a76b96df40bf320de9d7254054ad2ab18">agree</a> (std::span&lt; const uint8_t &gt; privateKey, std::span&lt; const uint8_t &gt; peerPublicKey, std::span&lt; uint8_t &gt; sharedSecret, size_t &amp;sharedSecretLength) noexcept</td></tr>
-<tr class="memdesc:a76b96df40bf320de9d7254054ad2ab18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derives the shared secret from the own private key and the peer's public key.  <br /></td></tr>
+<tr class="memitem:a19debb4d33bed3fade556263320330f7" id="r_a19debb4d33bed3fade556263320330f7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> () noexcept</td></tr>
+<tr class="memdesc:a19debb4d33bed3fade556263320330f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the ECC context without a key.  <br /></td></tr>
+<tr class="memitem:ab882988b2ec1b1494dbe8f30062bd13e" id="r_ab882988b2ec1b1494dbe8f30062bd13e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab882988b2ec1b1494dbe8f30062bd13e">~WolfSSLEcc</a> () noexcept</td></tr>
+<tr class="memdesc:ab882988b2ec1b1494dbe8f30062bd13e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfCrypt ECC context.  <br /></td></tr>
+<tr class="memitem:acfed6fbd26a4fb663e7aec5f8408e3f4" id="r_acfed6fbd26a4fb663e7aec5f8408e3f4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acfed6fbd26a4fb663e7aec5f8408e3f4">WolfSSLEcc</a> (const WolfSSLEcc &amp;)=delete</td></tr>
+<tr class="memdesc:acfed6fbd26a4fb663e7aec5f8408e3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the key.  <br /></td></tr>
+<tr class="memitem:a3309d37d1e7115e7a81b80cee385c0f3" id="r_a3309d37d1e7115e7a81b80cee385c0f3"><td class="memItemLeft"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3309d37d1e7115e7a81b80cee385c0f3">operator=</a> (const <a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a3309d37d1e7115e7a81b80cee385c0f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the key.  <br /></td></tr>
+<tr class="memitem:ab7483aff9567983a99ff831e7bfcf284" id="r_ab7483aff9567983a99ff831e7bfcf284"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab7483aff9567983a99ff831e7bfcf284">WolfSSLEcc</a> (WolfSSLEcc &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:ab7483aff9567983a99ff831e7bfcf284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the key.  <br /></td></tr>
+<tr class="memitem:a251a0fe821d569d4e0f785056ced42d7" id="r_a251a0fe821d569d4e0f785056ced42d7"><td class="memItemLeft"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a251a0fe821d569d4e0f785056ced42d7">operator=</a> (<a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a251a0fe821d569d4e0f785056ced42d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the key.  <br /></td></tr>
+<tr class="memitem:a17edfaa1f02adf3fdd3a15dacc409b5d" id="r_a17edfaa1f02adf3fdd3a15dacc409b5d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d">generateKey</a> (<a class="el" href="../../de/d63/a04887.html">WolfSSLRandom</a> &amp;rng) noexcept</td></tr>
+<tr class="memdesc:a17edfaa1f02adf3fdd3a15dacc409b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new key pair, replacing any key this instance held, and attaches the generator to it.  <br /></td></tr>
+<tr class="memitem:ad2b17e604dc8ee9188ffc9a54dc87b46" id="r_ad2b17e604dc8ee9188ffc9a54dc87b46"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad2b17e604dc8ee9188ffc9a54dc87b46">sign</a> (std::span&lt; const uint8_t &gt; digest, <a class="el" href="../../de/d63/a04887.html">WolfSSLRandom</a> &amp;rng, std::span&lt; uint8_t &gt; signature, size_t &amp;signatureLength) noexcept</td></tr>
+<tr class="memdesc:ad2b17e604dc8ee9188ffc9a54dc87b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signs a message digest with the private key.  <br /></td></tr>
+<tr class="memitem:a22a3ef4290390aa55282ade89d4bd8e4" id="r_a22a3ef4290390aa55282ade89d4bd8e4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a22a3ef4290390aa55282ade89d4bd8e4">verify</a> (std::span&lt; const uint8_t &gt; signature, std::span&lt; const uint8_t &gt; digest, bool &amp;valid) noexcept</td></tr>
+<tr class="memdesc:a22a3ef4290390aa55282ade89d4bd8e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies a signature over a message digest with the public key.  <br /></td></tr>
+<tr class="memitem:a6c37442161fbe64b4d931ffc6a6f8997" id="r_a6c37442161fbe64b4d931ffc6a6f8997"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6c37442161fbe64b4d931ffc6a6f8997">sharedSecret</a> (<a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;peerPublicKey, <a class="el" href="#a7fbb5355ccfc526d83b2d67eadb425c8">SharedSecret</a> &amp;secret) noexcept</td></tr>
+<tr class="memdesc:a6c37442161fbe64b4d931ffc6a6f8997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derives the ECDHE shared secret from the private key and a peer's public key.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ae3da827199d0e9dbd72b6071bedc5eb5" id="r_ae3da827199d0e9dbd72b6071bedc5eb5"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae3da827199d0e9dbd72b6071bedc5eb5">KEY_SIZE</a> = 32U</td></tr>
+<tr class="memdesc:ae3da827199d0e9dbd72b6071bedc5eb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">SECP256R1 private key and coordinate size, in bytes.  <br /></td></tr>
+<tr class="memitem:a406a42f736a7a6910058c8d68f89c777" id="r_a406a42f736a7a6910058c8d68f89c777"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a406a42f736a7a6910058c8d68f89c777">MAX_SIGNATURE_SIZE</a> = ECC_MAX_SIG_SIZE</td></tr>
+<tr class="memdesc:a406a42f736a7a6910058c8d68f89c777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest DER-encoded signature, in bytes.  <br /></td></tr>
+<tr class="memitem:a0f359df6288584ab5bdd4b23b8ee6d6d" id="r_a0f359df6288584ab5bdd4b23b8ee6d6d"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a0f359df6288584ab5bdd4b23b8ee6d6d">SHARED_SECRET_SIZE</a> = <a class="el" href="#ae3da827199d0e9dbd72b6071bedc5eb5">KEY_SIZE</a></td></tr>
+<tr class="memdesc:a0f359df6288584ab5bdd4b23b8ee6d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ECDHE shared secret length, in bytes.  <br /></td></tr>
 </table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a7fbb5355ccfc526d83b2d67eadb425c8" name="a7fbb5355ccfc526d83b2d67eadb425c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fbb5355ccfc526d83b2d67eadb425c8">&#9670;&#160;</a></span>SharedSecret</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a7fbb5355ccfc526d83b2d67eadb425c8">Lib::Crypto::WolfSSLEcc::SharedSecret</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a0f359df6288584ab5bdd4b23b8ee6d6d">SHARED_SECRET_SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>ECDHE shared secret. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d51/a06177.html#_a11">Lib::Crypto::WolfSSL</a>.</dd>
+</dl>
+
+</div>
+</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acaf8aa4b45471efcfd3e472780e7b31f" name="acaf8aa4b45471efcfd3e472780e7b31f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acaf8aa4b45471efcfd3e472780e7b31f">&#9670;&#160;</a></span>WolfSSLDh() <span class="overload">[1/3]</span></h2>
+<a id="a19debb4d33bed3fade556263320330f7" name="a19debb4d33bed3fade556263320330f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19debb4d33bed3fade556263320330f7">&#9670;&#160;</a></span>WolfSSLEcc() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -149,7 +186,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLDh::WolfSSLDh </td>
+          <td class="memname">Lib::Crypto::WolfSSLEcc::WolfSSLEcc </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -162,13 +199,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Prepares the DH context without group parameters. </p>
-<p>Call <a class="el" href="#ad8c4f4476d3d1e1746d3db4fe86cf82a" title="open()">open()</a> before generating a key pair. </p>
+<p>Prepares the ECC context without a key. </p>
+<p>Call <a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d" title="generateKey()">generateKey()</a> before signing, verifying or deriving a shared secret. </p>
 
 </div>
 </div>
-<a id="a6d03ea454eff6ec49352184b945a04e2" name="a6d03ea454eff6ec49352184b945a04e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d03ea454eff6ec49352184b945a04e2">&#9670;&#160;</a></span>~WolfSSLDh()</h2>
+<a id="ab882988b2ec1b1494dbe8f30062bd13e" name="ab882988b2ec1b1494dbe8f30062bd13e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab882988b2ec1b1494dbe8f30062bd13e">&#9670;&#160;</a></span>~WolfSSLEcc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,7 +214,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLDh::~WolfSSLDh </td>
+          <td class="memname">Lib::Crypto::WolfSSLEcc::~WolfSSLEcc </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -190,12 +227,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Releases the wolfCrypt DH context. </p>
+<p>Releases the wolfCrypt ECC context. </p>
 
 </div>
 </div>
-<a id="aabb6311ca11dc1faceab33055d97c824" name="aabb6311ca11dc1faceab33055d97c824"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabb6311ca11dc1faceab33055d97c824">&#9670;&#160;</a></span>WolfSSLDh() <span class="overload">[2/3]</span></h2>
+<a id="acfed6fbd26a4fb663e7aec5f8408e3f4" name="acfed6fbd26a4fb663e7aec5f8408e3f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfed6fbd26a4fb663e7aec5f8408e3f4">&#9670;&#160;</a></span>WolfSSLEcc() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -204,9 +241,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLDh::WolfSSLDh </td>
+          <td class="memname">Lib::Crypto::WolfSSLEcc::WolfSSLEcc </td>
           <td>(</td>
-          <td class="paramtype">const WolfSSLDh &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const WolfSSLEcc &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -217,12 +254,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: owns a wolfCrypt context holding the group. </p>
+<p>Non-copyable: owns a wolfCrypt context holding the key. </p>
 
 </div>
 </div>
-<a id="a0d9f73abb840322aea3f49d8eac3f8ce" name="a0d9f73abb840322aea3f49d8eac3f8ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d9f73abb840322aea3f49d8eac3f8ce">&#9670;&#160;</a></span>WolfSSLDh() <span class="overload">[3/3]</span></h2>
+<a id="ab7483aff9567983a99ff831e7bfcf284" name="ab7483aff9567983a99ff831e7bfcf284"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7483aff9567983a99ff831e7bfcf284">&#9670;&#160;</a></span>WolfSSLEcc() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,9 +268,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLDh::WolfSSLDh </td>
+          <td class="memname">Lib::Crypto::WolfSSLEcc::WolfSSLEcc </td>
           <td>(</td>
-          <td class="paramtype">WolfSSLDh &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">WolfSSLEcc &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -244,13 +281,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: owns a wolfCrypt context holding the group. </p>
+<p>Non-movable: owns a wolfCrypt context holding the key. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a76b96df40bf320de9d7254054ad2ab18" name="a76b96df40bf320de9d7254054ad2ab18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76b96df40bf320de9d7254054ad2ab18">&#9670;&#160;</a></span>agree()</h2>
+<a id="a17edfaa1f02adf3fdd3a15dacc409b5d" name="a17edfaa1f02adf3fdd3a15dacc409b5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17edfaa1f02adf3fdd3a15dacc409b5d">&#9670;&#160;</a></span>generateKey()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,24 +296,10 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLDh::agree </td>
+          <td class="memname">bool Lib::Crypto::WolfSSLEcc::generateKey </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>privateKey</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="../../de/d63/a04887.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>peerPublicKey</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>sharedSecret</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>sharedSecretLength</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -286,23 +309,119 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Derives the shared secret from the own private key and the peer's public key. </p>
+<p>Generates a new key pair, replacing any key this instance held, and attaches the generator to it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rng</td><td>Seeded random generator; must outlive the key. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d51/a06177.html#a10">Lib::Crypto::WolfSSL</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a3309d37d1e7115e7a81b80cee385c0f3" name="a3309d37d1e7115e7a81b80cee385c0f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3309d37d1e7115e7a81b80cee385c0f3">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp; Lib::Crypto::WolfSSLEcc::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: owns a wolfCrypt context holding the key. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a251a0fe821d569d4e0f785056ced42d7" name="a251a0fe821d569d4e0f785056ced42d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a251a0fe821d569d4e0f785056ced42d7">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp; Lib::Crypto::WolfSSLEcc::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: owns a wolfCrypt context holding the key. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a6c37442161fbe64b4d931ffc6a6f8997" name="a6c37442161fbe64b4d931ffc6a6f8997"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c37442161fbe64b4d931ffc6a6f8997">&#9670;&#160;</a></span>sharedSecret()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Crypto::WolfSSLEcc::sharedSecret </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>peerPublicKey</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a7fbb5355ccfc526d83b2d67eadb425c8">SharedSecret</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>secret</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Derives the ECDHE shared secret from the private key and a peer's public key. </p>
 <p>Both sides get the same secret; hash it before using it as a symmetric key.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">privateKey</td><td>Private key from generateKeyPair(). </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">peerPublicKey</td><td>Public key received from the peer. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sharedSecret</td><td>Destination for the secret; the prime size is enough. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sharedSecretLength</td><td>Length of the secret written. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">peerPublicKey</td><td>Instance holding the peer's key; its private part is not used. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">secret</td><td>Derived shared secret. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize, the peer key is invalid, or wolfCrypt reported a failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> if either context failed to initialize, no key was generated, or wolfCrypt reported a failure. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d51/a06177.html#a12">Lib::Crypto::WolfSSL</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="ae0c35d84959cb6078b1d7ce38d4c2c02" name="ae0c35d84959cb6078b1d7ce38d4c2c02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0c35d84959cb6078b1d7ce38d4c2c02">&#9670;&#160;</a></span>generateKeyPair()</h2>
+<a id="ad2b17e604dc8ee9188ffc9a54dc87b46" name="ad2b17e604dc8ee9188ffc9a54dc87b46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2b17e604dc8ee9188ffc9a54dc87b46">&#9670;&#160;</a></span>sign()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -311,29 +430,24 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLDh::generateKeyPair </td>
+          <td class="memname">bool Lib::Crypto::WolfSSLEcc::sign </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d1/d8e/a04879.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>privateKey</em></span>, </td>
+          <td class="paramtype"><a class="el" href="../../de/d63/a04887.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>privateKeyLength</em></span>, </td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>publicKey</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>publicKeyLength</em></span>&#160;)</td>
+          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>signatureLength</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -343,24 +457,24 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generates a key pair for the group set with open(). </p>
-<p>Send the public key to the peer; keep the private key secret and pass it to <a class="el" href="#a76b96df40bf320de9d7254054ad2ab18" title="agree()">agree()</a>.</p>
+<p>Signs a message digest with the private key. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">digest</td><td>Digest to sign, such as a SHA-256 digest. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">rng</td><td>Seeded random generator. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">privateKey</td><td>Destination for the private key; the prime size is enough. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">privateKeyLength</td><td>Length of the private key written. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">publicKey</td><td>Destination for the public key; the prime size is enough. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">publicKeyLength</td><td>Length of the public key written. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">signature</td><td>Destination; should hold <a class="el" href="#a406a42f736a7a6910058c8d68f89c777" title="MAX_SIGNATURE_SIZE">MAX_SIGNATURE_SIZE</a> bytes. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">signatureLength</td><td>Length of the DER signature written. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d51/a06177.html#a13">Lib::Crypto::WolfSSL</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="ad8c4f4476d3d1e1746d3db4fe86cf82a" name="ad8c4f4476d3d1e1746d3db4fe86cf82a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8c4f4476d3d1e1746d3db4fe86cf82a">&#9670;&#160;</a></span>open()</h2>
+<a id="a22a3ef4290390aa55282ade89d4bd8e4" name="a22a3ef4290390aa55282ade89d4bd8e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22a3ef4290390aa55282ade89d4bd8e4">&#9670;&#160;</a></span>verify()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -369,10 +483,19 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLDh::open </td>
+          <td class="memname">bool Lib::Crypto::WolfSSLEcc::verify </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../df/d7b/a04903.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>valid</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -382,19 +505,25 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the group parameters, replacing any this instance held. </p>
+<p>Verifies a signature over a message digest with the public key. </p>
+<p>A wrong signature is not an error: the check runs and reports it through <em class="arg">valid</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Group prime and generator; copied, so the buffers may go away afterwards. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">signature</td><td>DER signature to verify. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">digest</td><td>Digest the signature should cover. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">valid</td><td><em class="arg">true</em> if the signature matches; meaningful only when this method returns <em class="arg">true</em>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the check ran, <em class="arg">false</em> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d51/a06177.html#a14">Lib::Crypto::WolfSSL</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a2e951b9b4363af4a96e6e7426382c1d3" name="a2e951b9b4363af4a96e6e7426382c1d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e951b9b4363af4a96e6e7426382c1d3">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ae3da827199d0e9dbd72b6071bedc5eb5" name="ae3da827199d0e9dbd72b6071bedc5eb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3da827199d0e9dbd72b6071bedc5eb5">&#9670;&#160;</a></span>KEY_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -403,26 +532,22 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp; Lib::Crypto::WolfSSLDh::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="memname">size_t Lib::Crypto::WolfSSLEcc::KEY_SIZE = 32U</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: owns a wolfCrypt context holding the group. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>SECP256R1 private key and coordinate size, in bytes. </p>
 
 </div>
 </div>
-<a id="a050501c01119e2aa82565a060075ee61" name="a050501c01119e2aa82565a060075ee61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a050501c01119e2aa82565a060075ee61">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a406a42f736a7a6910058c8d68f89c777" name="a406a42f736a7a6910058c8d68f89c777"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a406a42f736a7a6910058c8d68f89c777">&#9670;&#160;</a></span>MAX_SIGNATURE_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -431,21 +556,41 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp; Lib::Crypto::WolfSSLDh::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="memname">size_t Lib::Crypto::WolfSSLEcc::MAX_SIGNATURE_SIZE = ECC_MAX_SIG_SIZE</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: owns a wolfCrypt context holding the group. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Largest DER-encoded signature, in bytes. </p>
+
+</div>
+</div>
+<a id="a0f359df6288584ab5bdd4b23b8ee6d6d" name="a0f359df6288584ab5bdd4b23b8ee6d6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f359df6288584ab5bdd4b23b8ee6d6d">&#9670;&#160;</a></span>SHARED_SECRET_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::Crypto::WolfSSLEcc::SHARED_SECRET_SIZE = <a class="el" href="#ae3da827199d0e9dbd72b6071bedc5eb5">KEY_SIZE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ECDHE shared secret length, in bytes. </p>
 
 </div>
 </div>

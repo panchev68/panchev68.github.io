@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Timeout</title>
+<title>IAR EWARM Library: RTOS::MutexGuard</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,62 +92,60 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Timeout</div></div>
+  <div class="headertitle"><div class="title">RTOS::MutexGuard</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows tracking a deadline in a polling loop with <a class="el" href="../../dd/d51/a06275.html" title="RTOS::Timeout">RTOS::Timeout</a>.</p>
-<p>Shows tracking a deadline in a polling loop with RTOS::Timeout.Covers a timeout created from a duration, polled until it expires, restarted explicitly with <a class="el" href="../../d6/d4d/a05978.html#a4f719fdc728f4b1e2a6a3b33c747c32e" title="RTOS::Timeout::reset()">RTOS::Timeout::reset()</a>, and disabled when no limit is needed. The timeout measures elapsed time with the scheduler tick count and can be polled from task and ISR context.</p>
+<p>Shows scope-based locking with <a class="el" href="../../dd/d51/a06275.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope.</p>
+<p>Shows scope-based locking with <a class="el" href="../../dd/d51/a06275.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope. It covers an indefinite lock and a timed lock, and checks the guard state after construction.</p>
+<p>The example runs in a task context with the FreeRTOS scheduler running. A mutex must never be locked or unlocked from an ISR. The first guard blocks indefinitely, because it uses the default <a class="el" href="../../db/da7/a05911.html#acb650bbb5d2ae6ae2bab2490d29712be" title="RTOS::Mutex::WAIT_FOREVER">RTOS::Mutex::WAIT_FOREVER</a> timeout.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timeout_usage_poll"></a>
-Polling until a deadline</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_scope"></a>
+Scoped lock with an indefinite wait</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd1/a00914.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> lockedSection() {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/da7/a05911.html">RTOS::Mutex</a> mutex(<a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../db/da7/a05911.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (!mutex.<a id="a2" name="a2"></a><a class="code hl_function" href="../../db/da7/a05911.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d1/d77/a05915.html">RTOS::MutexGuard</a> guard(mutex); <span class="comment">// Locks on construction, waits forever.</span></div>
+<div class="line">        <span class="keywordflow">if</span> (guard.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d1/d77/a05915.html#a3f156fd8fcb57426c142acbd54ddb267">isLocked</a>()) {</div>
+<div class="line">            <span class="comment">// Critical section protected by &#39;mutex&#39;.</span></div>
+<div class="line">        }</div>
+<div class="line">    } <span class="comment">// Guard destroyed here; the mutex is unlocked only if it was locked.</span></div>
+<div class="line"> </div>
+<div class="line">    mutex.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/da7/a05911.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00911_html"><div class="ttname"><a href="../../d7/d12/a00911.html">Mutex.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS mutex and recursive mutex synchronization primitives.</div></div>
+<div class="ttc" id="aa00914_html"><div class="ttname"><a href="../../d3/dd1/a00914.html">MutexGuard.hpp</a></div><div class="ttdoc">RAII wrapper for safe, exception-free mutex acquisition and release.</div></div>
+<div class="ttc" id="aa05911_html"><div class="ttname"><a href="../../db/da7/a05911.html">RTOS::Mutex</a></div><div class="ttdoc">Priority-inheriting mutual exclusion lock, normal or recursive.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:49</div></div>
+<div class="ttc" id="aa05911_html_a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="../../db/da7/a05911.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Standard non-recursive priority-inheritance mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:61</div></div>
+<div class="ttc" id="aa05911_html_a9f2abf5c8b3442dd741bac7c15e5726a"><div class="ttname"><a href="../../db/da7/a05911.html#a9f2abf5c8b3442dd741bac7c15e5726a">RTOS::Mutex::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the underlying FreeRTOS mutex handle, if not already open.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:142</div></div>
+<div class="ttc" id="aa05911_html_acae6fb03115a857672d114638e6da0cb"><div class="ttname"><a href="../../db/da7/a05911.html#acae6fb03115a857672d114638e6da0cb">RTOS::Mutex::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the underlying FreeRTOS handle and marks the mutex closed.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:198</div></div>
+<div class="ttc" id="aa05915_html"><div class="ttname"><a href="../../d1/d77/a05915.html">RTOS::MutexGuard</a></div><div class="ttdoc">Scope-based lock guard for RTOS::Mutex, in the style of std::lock_guard.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:45</div></div>
+<div class="ttc" id="aa05915_html_a3f156fd8fcb57426c142acbd54ddb267"><div class="ttname"><a href="../../d1/d77/a05915.html#a3f156fd8fcb57426c142acbd54ddb267">RTOS::MutexGuard::isLocked</a></div><div class="ttdeci">bool isLocked() const noexcept</div><div class="ttdoc">Checks if the guard currently holds the lock.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:150</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_timed"></a>
+Timed lock</h3>
+<p>The guard converts the <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> to ticks. When the lock times out, the critical section is not protected and nothing is unlocked.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd1/a00914.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> isPeripheralReady() noexcept;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> waitForReady() noexcept {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/d4d/a05978.html">RTOS::Timeout</a> deadline(500ms);</div>
-<div class="line">    <span class="keywordflow">while</span> (!deadline.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/d4d/a05978.html#a4264c550073d457fa8f6ca89e591a0e6">isExpired</a>()) {</div>
-<div class="line">        <span class="keywordflow">if</span> (isPeripheralReady()) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(10ms);</div>
+<div class="line"><span class="keywordtype">void</span> timedSection(<a class="code hl_class" href="../../db/da7/a05911.html">RTOS::Mutex</a> &amp; mutex) {</div>
+<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_class" href="../../d1/d77/a05915.html">RTOS::MutexGuard</a> guard(mutex, 10ms); guard) {</div>
+<div class="line">        <span class="comment">// Lock acquired within 10 ms.</span></div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Timed out: the critical section is not protected.</span></div>
 <div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Not ready within 500 ms.</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00887_html"><div class="ttname"><a href="../../d7/d92/a00887.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
-<div class="ttc" id="aa00932_html"><div class="ttname"><a href="../../d8/dbb/a00932.html">Timeout.hpp</a></div><div class="ttdoc">FreeRTOS-compatible timeout management utility.</div></div>
-<div class="ttc" id="aa01029_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
-<div class="ttc" id="aa05978_html"><div class="ttname"><a href="../../d6/d4d/a05978.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:36</div></div>
-<div class="ttc" id="aa05978_html_a4264c550073d457fa8f6ca89e591a0e6"><div class="ttname"><a href="../../d6/d4d/a05978.html#a4264c550073d457fa8f6ca89e591a0e6">RTOS::Timeout::isExpired</a></div><div class="ttdeci">bool isExpired() const noexcept</div><div class="ttdoc">Checks if the timeout duration has elapsed.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:143</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timeout_usage_restart"></a>
-Restarting and disabling</h3>
-<p><a class="el" href="../../d6/d4d/a05978.html#a4f719fdc728f4b1e2a6a3b33c747c32e" title="RTOS::Timeout::reset()">RTOS::Timeout::reset()</a> restarts the window from the current tick, and <a class="el" href="../../d6/d4d/a05978.html#a9f4c1790b62b338de5ee47cad756a53e" title="RTOS::Timeout::disable()">RTOS::Timeout::disable()</a> makes the timeout never expire until <a class="el" href="../../d6/d4d/a05978.html#a859711fa5327754ac08a5a5f7b6175ba" title="RTOS::Timeout::set()">RTOS::Timeout::set()</a> is called again.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> restartWindows() noexcept {</div>
-<div class="line">    <a class="code hl_class" href="../../d6/d4d/a05978.html">RTOS::Timeout</a> unlimited(1s);</div>
-<div class="line">    unlimited.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d6/d4d/a05978.html#a9f4c1790b62b338de5ee47cad756a53e">disable</a>();</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="../../d6/d4d/a05978.html">RTOS::Timeout</a> retry(200ms);</div>
-<div class="line">    retry.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d6/d4d/a05978.html#a4f719fdc728f4b1e2a6a3b33c747c32e">reset</a>();</div>
-<div class="line">    <span class="keywordflow">if</span> (retry.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d6/d4d/a05978.html#a9960d8cda67ce72d1c02dcd7d3608066">getRemainingTicks</a>() &gt; 0U) {</div>
-<div class="line">        <span class="comment">// Still inside the window.</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05978_html_a4f719fdc728f4b1e2a6a3b33c747c32e"><div class="ttname"><a href="../../d6/d4d/a05978.html#a4f719fdc728f4b1e2a6a3b33c747c32e">RTOS::Timeout::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdoc">Restarts the clock at the current tick, keeping the configured duration; does nothing if disabled.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:128</div></div>
-<div class="ttc" id="aa05978_html_a9960d8cda67ce72d1c02dcd7d3608066"><div class="ttname"><a href="../../d6/d4d/a05978.html#a9960d8cda67ce72d1c02dcd7d3608066">RTOS::Timeout::getRemainingTicks</a></div><div class="ttdeci">TickType getRemainingTicks() const noexcept</div><div class="ttdoc">Retrieves the remaining ticks until expiration.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:155</div></div>
-<div class="ttc" id="aa05978_html_a9f4c1790b62b338de5ee47cad756a53e"><div class="ttname"><a href="../../d6/d4d/a05978.html#a9f4c1790b62b338de5ee47cad756a53e">RTOS::Timeout::disable</a></div><div class="ttdeci">void disable() noexcept</div><div class="ttdoc">Disables the timeout.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:99</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::PowerManager</title>
+<title>IAR EWARM Library: Lib::Math::HammingCode</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,80 +92,94 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::PowerManager</div></div>
+  <div class="headertitle"><div class="title">Lib::Math::HammingCode</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows enabling tickless low-power idle with <a class="el" href="../../d4/d62/a06257.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, registering peripheral callbacks around deep sleep and holding a deep-sleep lock while a peripheral is busy.</p>
-<p>Shows enabling tickless low-power idle with <a class="el" href="../../d4/d62/a06257.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, registering peripheral callbacks around deep sleep and holding a deep-sleep lock while a peripheral is busy.The manager puts the MCU into STOP1 deep sleep when the expected idle time is long enough, and into light sleep (plain <b>__WFI()</b>) otherwise. It needs a low-power timer to wake the scheduler, and it is a singleton, so <a class="el" href="../../d7/d6f/a05910.html#af76fc6de7d330151f7765c0ff6149226" title="RTOS::PowerManager::instance()">RTOS::PowerManager::instance()</a> is used everywhere.</p>
-<dl class="section important"><dt>Important</dt><dd>The class is compiled only when 'FREERTOS_LOW_POWER_SUPPORT', 'HAL_LPTIM_MODULE_ENABLED' and 'LPTIM1' are defined, 'main.h' and 'FreeRTOS.h' are on the include path, and 'USE_HAL_LPTIM_REGISTER_CALLBACKS' is 1. 'configUSE_TICKLESS_IDLE' must be 1 or 2 in 'FreeRTOSConfig.h'. On a target where these are absent the whole class compiles to nothing.</dd>
-<dd>
-Define 'RTOS_POWER_MANAGER_IMPLEMENTATION' in exactly one '.cpp' file before including the header. That file emits the kernel hook 'vPortSuppressTicksAndSleep()'; without it the port's own weak implementation runs.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Deep sleep is withheld while a debugger is attached. Stop mode can make SWD and Live Watch lose the connection, so the manager checks <a class="el" href="../../d7/d6f/a05910.html#ac35887bd479a4425729b40a4b3114f52" title="RTOS::PowerManager::isDebuggerAttached()">RTOS::PowerManager::isDebuggerAttached()</a> first.</dd></dl>
+<p>Protects 16-bit words with <a class="el" href="../../d4/d62/a06257.html" title="Lib::Math::HammingCode">Lib::Math::HammingCode</a>, a Hamming(21,16) code that corrects any single flipped bit.</p>
+<p>Protects 16-bit words with <a class="el" href="../../d4/d62/a06257.html" title="Lib::Math::HammingCode">Lib::Math::HammingCode</a>, a Hamming(21,16) code that corrects any single flipped bit. The class has only static constexpr functions, needs no instance and is safe to call from any context, including an interrupt handler. A codeword uses the low <b>21</b> bits of a 32-bit value.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="power_manager_usage_setup"></a>
-Setup and sleep callbacks</h3>
-<p><a class="el" href="../../d7/d6f/a05910.html#a565502e655a008546ced2e18d0fc7b22" title="RTOS::PowerManager::setup()">RTOS::PowerManager::setup()</a> binds the <a class="el" href="../../dd/da3/a06189.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> that wakes the scheduler; the timer must be opened first. The callbacks run only around each STOP1 entry, not around light sleep, so they should save and restore only the peripheral state that Stop mode loses.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/d56/a00707.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dd3/a00902.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hamming_usage_basic"></a>
+Encoding and decoding</h3>
+<p><a class="el" href="../../da/d30/a05811.html#ad9d4101cb404a5c8eaff5d9592047d0a" title="Lib::Math::HammingCode::encode()">Lib::Math::HammingCode::encode()</a> adds five parity bits to the 16 data bits and <a class="el" href="../../da/d30/a05811.html#a4191c3eb813016d80f65ff66f6f13b80" title="Lib::Math::HammingCode::decode()">Lib::Math::HammingCode::decode()</a> returns the data after correcting a single-bit error.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d69/a00878.html">Lib/Math/HammingCode.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// CubeMX-generated LPTIM handle, declared at global scope so it links to the definition in the CubeMX sources.</span></div>
-<div class="line"><span class="keyword">extern</span> LPTIM_HandleTypeDef hlptim1;</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"><span class="keywordtype">void</span> storeAndLoad() noexcept {</div>
+<div class="line">    <span class="keyword">const</span> uint32_t codeword = <a id="a0" name="a0"></a><a class="code hl_function" href="../../da/d30/a05811.html#ad9d4101cb404a5c8eaff5d9592047d0a">Lib::Math::HammingCode::encode</a>(0xA5C3U);</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dd/d66/a05534.html">Lib::HAL::LPTimer</a> lowPowerTimer(&amp;hlptim1, LPTIM_CHANNEL_1); <span class="comment">// The LPTIM channel the wrapper configures.</span></div>
+<div class="line">    <span class="comment">// The codeword travels over a noisy link or sits in memory; bit 6 gets flipped.</span></div>
+<div class="line">    <span class="keyword">const</span> uint32_t received = codeword ^ (1U &lt;&lt; 6U);</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> uartPreSleep() {</div>
-<div class="line">        <span class="comment">// Save the UART state and gate its clock.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> uartPostSleep() {</div>
-<div class="line">        <span class="comment">// Restore the UART clock and state.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> setupLowPower() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!lowPowerTimer.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">auto</span> &amp; manager = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d7/d6f/a05910.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a>();</div>
-<div class="line">    <span class="keywordflow">if</span> (!manager.setup(lowPowerTimer)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> manager.registerPreSleepCallback(&amp;uartPreSleep) &amp;&amp; manager.registerPostSleepCallback(&amp;uartPostSleep);</div>
+<div class="line">    <span class="keyword">const</span> uint16_t <a id="_a1" name="_a1"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a> = <a id="a2" name="a2"></a><a class="code hl_function" href="../../da/d30/a05811.html#a4191c3eb813016d80f65ff66f6f13b80">Lib::Math::HammingCode::decode</a>(received);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>);</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00707_html"><div class="ttname"><a href="../../d1/d56/a00707.html">LPTimer.hpp</a></div><div class="ttdoc">Low-power timer peripheral driver for STM32 architectures.</div></div>
-<div class="ttc" id="aa00902_html"><div class="ttname"><a href="../../d5/dd3/a00902.html">PowerManager.hpp</a></div><div class="ttdoc">Power management component providing low-power mode transitions for FreeRTOS tickless idle.</div></div>
-<div class="ttc" id="aa05534_html"><div class="ttname"><a href="../../dd/d66/a05534.html">Lib::HAL::LPTimer</a></div><div class="ttdoc">Manages LPTIM peripheral configuration and interrupt-driven timeout events.</div><div class="ttdef"><b>Definition</b> LPTimer.hpp:42</div></div>
-<div class="ttc" id="aa05910_html_af76fc6de7d330151f7765c0ff6149226"><div class="ttname"><a href="../../d7/d6f/a05910.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a></div><div class="ttdeci">static PowerManager &amp; instance() noexcept</div><div class="ttdoc">Retrieves the singleton instance of the PowerManager.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:195</div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00878_html"><div class="ttname"><a href="../../d5/d69/a00878.html">HammingCode.hpp</a></div><div class="ttdoc">Hamming(21,16) single-error-correcting code for 16-bit words.</div></div>
+<div class="ttc" id="aa01692_html_aba9b31054eec50310ef02c998663e27b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a></div><div class="ttdeci">constexpr auto data(_Container &amp;__cont) noexcept(noexcept(__cont.data())) -&gt; decltype(__cont.data())</div></div>
+<div class="ttc" id="aa05811_html_a4191c3eb813016d80f65ff66f6f13b80"><div class="ttname"><a href="../../da/d30/a05811.html#a4191c3eb813016d80f65ff66f6f13b80">Lib::Math::HammingCode::decode</a></div><div class="ttdeci">static constexpr uint16_t decode(uint32_t value) noexcept</div><div class="ttdoc">Decodes and corrects a Hamming(21,16) codeword.</div><div class="ttdef"><b>Definition</b> HammingCode.hpp:66</div></div>
+<div class="ttc" id="aa05811_html_ad9d4101cb404a5c8eaff5d9592047d0a"><div class="ttname"><a href="../../da/d30/a05811.html#ad9d4101cb404a5c8eaff5d9592047d0a">Lib::Math::HammingCode::encode</a></div><div class="ttdeci">static constexpr uint32_t encode(uint16_t value) noexcept</div><div class="ttdoc">Encodes a 16-bit value into a Hamming(21,16) codeword.</div><div class="ttdef"><b>Definition</b> HammingCode.hpp:47</div></div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">encode(0xA5C3) = 0x145C1D</div>
+<div class="line">decode(0x145C5D) = 0xA5C3</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="power_manager_usage_lock"></a>
-Deep-sleep lock</h3>
-<p>A <a class="el" href="../../d5/d90/a05918.html" title="RTOS::PowerManager::DeepSleepLock">RTOS::PowerManager::DeepSleepLock</a> blocks Stop mode for its lifetime. The guard is released at the end of the scope, so the peripheral must finish its transfer inside it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dd3/a00902.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hamming_usage_syndrome"></a>
+Clean, corrected and uncorrectable words</h3>
+<p><a class="el" href="../../da/d30/a05811.html#a4191c3eb813016d80f65ff66f6f13b80" title="Lib::Math::HammingCode::decode()">Lib::Math::HammingCode::decode()</a> corrects silently. To learn what happened, compute the syndrome first: <b>0</b> means a clean word, a value for which <a class="el" href="../../da/d30/a05811.html#a913e4f9bbfd5bbfe99493a28c8124527" title="Lib::Math::HammingCode::canCorrect()">Lib::Math::HammingCode::canCorrect()</a> returns <em class="arg">true</em> is the position of the flipped bit, and anything else is uncorrectable. Two flipped bits can also produce a correctable-looking syndrome, which this code cannot tell apart from a single-bit error, so add a checksum on top when that matters.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d69/a00878.html">Lib/Math/HammingCode.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> transferWithClock() {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d5/d90/a05918.html">RTOS::PowerManager::DeepSleepLock</a> <a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01641.html#ga82fa606b1427f731ac64bb8ac49221f3">lock</a>; <span class="comment">// Blocks Stop mode until the end of this scope.</span></div>
-<div class="line">    <span class="comment">// Run the transfer that needs the peripheral clock.</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">enum class</span> WordState {</div>
+<div class="line">    CLEAN,</div>
+<div class="line">    CORRECTED,</div>
+<div class="line">    UNCORRECTABLE,</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">WordState check(uint32_t codeword, uint16_t &amp; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">const</span> uint32_t syndrome = <a id="a3" name="a3"></a><a class="code hl_function" href="../../da/d30/a05811.html#a840a90d96caceeafec7fb6ebaf51b8e1">Lib::Math::HammingCode::syndrome</a>(codeword);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (syndrome == 0U) {</div>
+<div class="line">        <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a> = <a class="code hl_function" href="../../da/d30/a05811.html#a4191c3eb813016d80f65ff66f6f13b80">Lib::Math::HammingCode::decode</a>(codeword);</div>
+<div class="line">        <span class="keywordflow">return</span> WordState::CLEAN;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (<a id="_a4" name="_a4"></a><a class="code hl_function" href="../../da/d30/a05811.html#a913e4f9bbfd5bbfe99493a28c8124527">Lib::Math::HammingCode::canCorrect</a>(syndrome)) {</div>
+<div class="line">        <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a> = <a class="code hl_function" href="../../da/d30/a05811.html#a4191c3eb813016d80f65ff66f6f13b80">Lib::Math::HammingCode::decode</a>(codeword);</div>
+<div class="line">        <span class="keywordflow">return</span> WordState::CORRECTED;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> WordState::UNCORRECTABLE;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa01641_html_ga82fa606b1427f731ac64bb8ac49221f3"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01641.html#ga82fa606b1427f731ac64bb8ac49221f3">lock</a></div><div class="ttdeci">void lock(_L1 &amp;__l1, _L2 &amp;__l2, _L3 &amp;... __l3)</div></div>
-<div class="ttc" id="aa05918_html"><div class="ttname"><a href="../../d5/d90/a05918.html">RTOS::PowerManager::DeepSleepLock</a></div><div class="ttdoc">RAII guard that blocks deep sleep for its lifetime, e.g.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:130</div></div>
+<div class="ttc" id="aa05811_html_a840a90d96caceeafec7fb6ebaf51b8e1"><div class="ttname"><a href="../../da/d30/a05811.html#a840a90d96caceeafec7fb6ebaf51b8e1">Lib::Math::HammingCode::syndrome</a></div><div class="ttdeci">static constexpr uint32_t syndrome(uint32_t value) noexcept</div><div class="ttdoc">Computes the error syndrome of a codeword.</div><div class="ttdef"><b>Definition</b> HammingCode.hpp:85</div></div>
+<div class="ttc" id="aa05811_html_a913e4f9bbfd5bbfe99493a28c8124527"><div class="ttname"><a href="../../da/d30/a05811.html#a913e4f9bbfd5bbfe99493a28c8124527">Lib::Math::HammingCode::canCorrect</a></div><div class="ttdeci">static constexpr bool canCorrect(uint32_t syndrome) noexcept</div><div class="ttdoc">Checks whether a syndrome value indicates a correctable error position.</div><div class="ttdef"><b>Definition</b> HammingCode.hpp:102</div></div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">syndrome(0x145C1D) = 0</div>
+<div class="line">syndrome(0x145C5D) = 7</div>
+<div class="line">syndrome(0x145C1D with bits 1 and 19 flipped) = 22</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="power_manager_usage_stats"></a>
-Checking statistics</h3>
-<p><a class="el" href="../../d7/d6f/a05910.html#a0bae4d059d5136a3f1a01b190a524c37" title="RTOS::PowerManager::getStatistics()">RTOS::PowerManager::getStatistics()</a> returns a snapshot of how often each sleep mode was entered. A deep-sleep count that stays at zero usually means a debugger is attached or a lock is held.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dd3/a00902.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hamming_usage_table"></a>
+Compile-time lookup table</h3>
+<p>Every function is constexpr, so a table of codewords can be built at compile time and placed in flash. The following code builds the codewords of the values <b>0</b> to <b>15</b> and checks the table with <em class="arg">static_assert</em>.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d69/a00878.html">Lib/Math/HammingCode.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> deepSleepSeen() {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../de/dec/a05914.html">RTOS::PowerManager::Statistics</a> stats = <a class="code hl_function" href="../../d7/d6f/a05910.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a>().<a id="a5" name="a5"></a><a class="code hl_function" href="../../d7/d6f/a05910.html#a0bae4d059d5136a3f1a01b190a524c37">getStatistics</a>();</div>
-<div class="line">    <span class="keywordflow">return</span> stats.<a id="a6" name="a6"></a><a class="code hl_variable" href="../../de/dec/a05914.html#ae80981e088a11d9e03983df5989a0c57">deepSleepCount</a> &gt; 0U;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05910_html_a0bae4d059d5136a3f1a01b190a524c37"><div class="ttname"><a href="../../d7/d6f/a05910.html#a0bae4d059d5136a3f1a01b190a524c37">RTOS::PowerManager::getStatistics</a></div><div class="ttdeci">Statistics getStatistics() const noexcept</div><div class="ttdoc">Reads the sleep counters as one consistent snapshot.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:430</div></div>
-<div class="ttc" id="aa05914_html"><div class="ttname"><a href="../../de/dec/a05914.html">RTOS::PowerManager::Statistics</a></div><div class="ttdoc">Sleep counters collected by the idle hook, for power profiling.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:118</div></div>
-<div class="ttc" id="aa05914_html_ae80981e088a11d9e03983df5989a0c57"><div class="ttname"><a href="../../de/dec/a05914.html#ae80981e088a11d9e03983df5989a0c57">RTOS::PowerManager::Statistics::deepSleepCount</a></div><div class="ttdeci">uint32_t deepSleepCount</div><div class="ttdoc">Number of completed STOP1 entries.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:119</div></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">constexpr</span> <a id="_a5" name="_a5"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 16U&gt;</a> NIBBLE_CODEWORDS = [] {</div>
+<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 16U&gt;</a> table{};</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0U; i &lt; table.size(); ++i) {</div>
+<div class="line">        table[i] = <a class="code hl_function" href="../../da/d30/a05811.html#ad9d4101cb404a5c8eaff5d9592047d0a">Lib::Math::HammingCode::encode</a>(<span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(i));</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> table;</div>
+<div class="line">}();</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">static_assert</span>(NIBBLE_CODEWORDS[0] == 0x000000U);</div>
+<div class="line"><span class="keyword">static_assert</span>(NIBBLE_CODEWORDS[1] == 0x000007U);</div>
+<div class="line"><span class="keyword">static_assert</span>(NIBBLE_CODEWORDS[2] == 0x000019U);</div>
+<div class="line"><span class="keyword">static_assert</span>(<a class="code hl_function" href="../../da/d30/a05811.html#a4191c3eb813016d80f65ff66f6f13b80">Lib::Math::HammingCode::decode</a>(NIBBLE_CODEWORDS[11]) == 11U);</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Mutex</title>
+<title>IAR EWARM Library: Lib::Math::CubicInterpolation</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,77 +92,98 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Mutex</div></div>
+  <div class="headertitle"><div class="title">Lib::Math::CubicInterpolation</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows creating, locking and unlocking a priority-inheriting <a class="el" href="../../d0/d63/a06253.html" title="RTOS::Mutex">RTOS::Mutex</a>.</p>
-<p>Shows creating, locking and unlocking a priority-inheriting RTOS::Mutex.Covers a normal and a recursive mutex, a blocking lock with a timeout, a non-blocking try-lock, and the ownership query. The example runs in task context; a mutex must never be locked or unlocked from an ISR. For scope-based locking use the <a class="el" href="../../de/dac/a06255.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a> wrapper.</p>
-<dl class="section important"><dt>Important</dt><dd>Unlock only from the task that holds the lock. Unlocking from another task is a programming error; the wrapper asserts on it when <em class="arg">INCLUDE_xSemaphoreGetMutexHolder</em> and <em class="arg">INCLUDE_xTaskGetCurrentTaskHandle</em> are enabled.</dd></dl>
+<p>Fits a smooth curve through measured points with <a class="el" href="../../d0/d63/a06253.html" title="Lib::Math::CubicInterpolation">Lib::Math::CubicInterpolation</a>, a cubic spline stored in fixed-size arrays without heap allocation.</p>
+<p>Fits a smooth curve through measured points with <a class="el" href="../../d0/d63/a06253.html" title="Lib::Math::CubicInterpolation">Lib::Math::CubicInterpolation</a>, a cubic spline stored in fixed-size arrays without heap allocation. The spline is recomputed lazily before the first query after the points or the boundary conditions change. A query updates cached data, so the object is neither const nor thread-safe: use it from one context or guard it with a mutex. At least two points are needed, and their x coordinates must be strictly increasing once sorted.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="mutex_usage_normal"></a>
-Normal mutex with timeout</h3>
-<p><a class="el" href="../../d7/de6/a05902.html#a2b2c30777cc3c44739df34e98fc05d0f" title="RTOS::Mutex::lock()">RTOS::Mutex::lock()</a> with a duration returns <b>false</b> when the timeout expires, and the protected resource must not be touched then.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd6/a00896.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="cubic_usage_natural"></a>
+Natural spline</h3>
+<p>The default boundary condition is <a class="el" href="../../d0/d47/a05819.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f" title="Lib::Math::CubicInterpolation::BoundaryType::NATURAL">Lib::Math::CubicInterpolation::BoundaryType::NATURAL</a>, which makes the second derivative zero at both ends. Build the table from a <em class="arg">std::array</em> of points in any order; the constructor sorts it and computes the spline.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d41/a00881.html">Lib/Math/Interpolation/CubicInterpolation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><span class="keyword">using </span>Spline = <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d4/dbc/a01038.html#a95e75623bdeeebff3be6c024135bfea2">Lib::Math::CubicInterpolationF</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> useBus() noexcept {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/de6/a05902.html">RTOS::Mutex</a> bus(<a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../d7/de6/a05902.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a>);</div>
-<div class="line">    <span class="keywordflow">if</span> (!bus.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d7/de6/a05902.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap, or the type is disabled in the FreeRTOS config.</span></div>
-<div class="line">    }</div>
+<div class="line">Spline flowCurve(<a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;Spline::Point, 5U&gt;</a>{{</div>
+<div class="line">    {0.0F, 0.0F},</div>
+<div class="line">    {1.0F, 2.0F},</div>
+<div class="line">    {2.0F, 3.5F},</div>
+<div class="line">    {3.0F, 4.0F},</div>
+<div class="line">    {4.0F, 4.2F},</div>
+<div class="line">}});</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (bus.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d7/de6/a05902.html#a2b2c30777cc3c44739df34e98fc05d0f">lock</a>(50ms)) {</div>
-<div class="line">        <span class="comment">// Shared resource used exclusively.</span></div>
-<div class="line">        bus.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d7/de6/a05902.html#a55031b1cdaf584950893279ceac8ff93">unlock</a>();</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// Timed out after 50 ms; the resource was not touched.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    bus.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d7/de6/a05902.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
+<div class="line"><span class="keywordtype">float</span> flowAt(<span class="keywordtype">float</span> pressure) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> flowCurve.interpolate(pressure);</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00896_html"><div class="ttname"><a href="../../da/dd6/a00896.html">Mutex.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS mutex and recursive mutex synchronization primitives.</div></div>
-<div class="ttc" id="aa05902_html"><div class="ttname"><a href="../../d7/de6/a05902.html">RTOS::Mutex</a></div><div class="ttdoc">Priority-inheriting mutual exclusion lock, normal or recursive.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:49</div></div>
-<div class="ttc" id="aa05902_html_a2b2c30777cc3c44739df34e98fc05d0f"><div class="ttname"><a href="../../d7/de6/a05902.html#a2b2c30777cc3c44739df34e98fc05d0f">RTOS::Mutex::lock</a></div><div class="ttdeci">bool lock(TickType timeout=WAIT_FOREVER) noexcept</div><div class="ttdoc">Locks the mutex, blocking the calling task for up to the given number of ticks.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:219</div></div>
-<div class="ttc" id="aa05902_html_a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="../../d7/de6/a05902.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Standard non-recursive priority-inheritance mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:61</div></div>
-<div class="ttc" id="aa05902_html_a55031b1cdaf584950893279ceac8ff93"><div class="ttname"><a href="../../d7/de6/a05902.html#a55031b1cdaf584950893279ceac8ff93">RTOS::Mutex::unlock</a></div><div class="ttdeci">void unlock() noexcept</div><div class="ttdoc">Unlocks a previously acquired mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:280</div></div>
-<div class="ttc" id="aa05902_html_a9f2abf5c8b3442dd741bac7c15e5726a"><div class="ttname"><a href="../../d7/de6/a05902.html#a9f2abf5c8b3442dd741bac7c15e5726a">RTOS::Mutex::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the underlying FreeRTOS mutex handle, if not already open.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:142</div></div>
-<div class="ttc" id="aa05902_html_acae6fb03115a857672d114638e6da0cb"><div class="ttname"><a href="../../d7/de6/a05902.html#acae6fb03115a857672d114638e6da0cb">RTOS::Mutex::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the underlying FreeRTOS handle and marks the mutex closed.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:198</div></div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00881_html"><div class="ttname"><a href="../../df/d41/a00881.html">CubicInterpolation.hpp</a></div><div class="ttdoc">Fixed-capacity cubic spline interpolation for 1-D data sets, with natural or clamped boundary conditi...</div></div>
+<div class="ttc" id="aa01038_html_a95e75623bdeeebff3be6c024135bfea2"><div class="ttname"><a href="../../d4/dbc/a01038.html#a95e75623bdeeebff3be6c024135bfea2">Lib::Math::CubicInterpolationF</a></div><div class="ttdeci">CubicInterpolation&lt; float, float &gt; CubicInterpolationF</div><div class="ttdoc">Cubic spline using &#39;float&#39; for input and output.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:437</div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="mutex_usage_recursive"></a>
-Recursive mutex and try-lock</h3>
-<p>A recursive mutex can be locked again by the task that already holds it; each <a class="el" href="../../d7/de6/a05902.html#a2b2c30777cc3c44739df34e98fc05d0f" title="RTOS::Mutex::lock()">RTOS::Mutex::lock()</a> needs a matching <a class="el" href="../../d7/de6/a05902.html#a55031b1cdaf584950893279ceac8ff93" title="RTOS::Mutex::unlock()">RTOS::Mutex::unlock()</a>. <a class="el" href="../../d7/de6/a05902.html#a18a279e5ed19c174389ad7be7fb2264d" title="RTOS::Mutex::tryLock()">RTOS::Mutex::tryLock()</a> is the non-blocking form of <a class="el" href="../../d7/de6/a05902.html#a2b2c30777cc3c44739df34e98fc05d0f" title="RTOS::Mutex::lock()">RTOS::Mutex::lock()</a>, and for the owning task it succeeds at once.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd6/a00896.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="cubic_usage_clamped"></a>
+Clamped spline</h3>
+<p><a class="el" href="../../d0/d47/a05819.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad" title="Lib::Math::CubicInterpolation::BoundaryType::CLAMPED">Lib::Math::CubicInterpolation::BoundaryType::CLAMPED</a> fixes the slope at both ends. Pass the end slopes to the constructor or to <a class="el" href="../../d0/d47/a05819.html#aad89790e19eeff17d5af45f4201e9430" title="Lib::Math::CubicInterpolation::setBoundaryConditions()">Lib::Math::CubicInterpolation::setBoundaryConditions()</a>; the spline is recomputed on the next query.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d41/a00881.html">Lib/Math/Interpolation/CubicInterpolation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> nestedUse() noexcept {</div>
-<div class="line">    <a class="code hl_class" href="../../d7/de6/a05902.html">RTOS::Mutex</a> nested(<a id="_a6" name="_a6"></a><a class="code hl_enumvalue" href="../../d7/de6/a05902.html#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638">RTOS::Mutex::Type::RECURSIVE</a>);</div>
-<div class="line">    <span class="keywordflow">if</span> (!nested.<a class="code hl_function" href="../../d7/de6/a05902.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>() || !nested.<a class="code hl_function" href="../../d7/de6/a05902.html#a2b2c30777cc3c44739df34e98fc05d0f">lock</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// The owning task acquires the recursive mutex again without waiting.</span></div>
-<div class="line">    <span class="keywordflow">if</span> (nested.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d7/de6/a05902.html#a18a279e5ed19c174389ad7be7fb2264d">tryLock</a>()) {</div>
-<div class="line">        nested.<a class="code hl_function" href="../../d7/de6/a05902.html#a55031b1cdaf584950893279ceac8ff93">unlock</a>(); <span class="comment">// Balances the tryLock() above.</span></div>
-<div class="line">    }</div>
-<div class="line">    nested.<a class="code hl_function" href="../../d7/de6/a05902.html#a55031b1cdaf584950893279ceac8ff93">unlock</a>(); <span class="comment">// Balances the lock() above.</span></div>
-<div class="line">    nested.<a class="code hl_function" href="../../d7/de6/a05902.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
+<div class="line"><span class="keyword">using </span>Spline = <a class="code hl_typedef" href="../../d4/dbc/a01038.html#a95e75623bdeeebff3be6c024135bfea2">Lib::Math::CubicInterpolationF</a>;</div>
+<div class="line"> </div>
+<div class="line">Spline rampCurve(<a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;Spline::Point, 3U&gt;</a>{{</div>
+<div class="line">    {0.0F, 0.0F},</div>
+<div class="line">    {5.0F, 10.0F},</div>
+<div class="line">    {10.0F, 10.0F},</div>
+<div class="line">}}, Spline::BoundaryType::CLAMPED, 0.0F, 0.0F);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> changeEndSlopes() noexcept {</div>
+<div class="line">    rampCurve.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d0/d47/a05819.html#aad89790e19eeff17d5af45f4201e9430">setBoundaryConditions</a>(Spline::BoundaryType::CLAMPED, 1.0F, 0.0F);</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05902_html_a18a279e5ed19c174389ad7be7fb2264d"><div class="ttname"><a href="../../d7/de6/a05902.html#a18a279e5ed19c174389ad7be7fb2264d">RTOS::Mutex::tryLock</a></div><div class="ttdeci">bool tryLock() noexcept</div><div class="ttdoc">Attempts to lock the mutex without blocking.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:270</div></div>
-<div class="ttc" id="aa05902_html_a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638"><div class="ttname"><a href="../../d7/de6/a05902.html#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638">RTOS::Mutex::Type::RECURSIVE</a></div><div class="ttdeci">@ RECURSIVE</div><div class="ttdoc">Recursive mutex allowing nested lock acquisitions by the same task.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:62</div></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> useNaturalBoundary() noexcept {</div>
+<div class="line">    rampCurve.setBoundaryConditions(Spline::BoundaryType::NATURAL);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05819_html_aad89790e19eeff17d5af45f4201e9430"><div class="ttname"><a href="../../d0/d47/a05819.html#aad89790e19eeff17d5af45f4201e9430">Lib::Math::CubicInterpolation::setBoundaryConditions</a></div><div class="ttdeci">void setBoundaryConditions(BoundaryType boundary, T_VALUE leftDeriv=T_VALUE{}, T_VALUE rightDeriv=T_VALUE{}) noexcept</div><div class="ttdoc">Sets the boundary condition mode and endpoint derivatives, and marks the spline coefficients as needi...</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:206</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="mutex_usage_owner"></a>
-Ownership query</h3>
-<p><a class="el" href="../../d7/de6/a05902.html#a0fe980766d5bb3fb9f27336981430a6f" title="RTOS::Mutex::isOwnedByCurrentTask()">RTOS::Mutex::isOwnedByCurrentTask()</a> is task-context only and is useful before a shared helper unlocks a mutex it did not lock. It needs <em class="arg">INCLUDE_xSemaphoreGetMutexHolder</em> and <em class="arg">INCLUDE_xTaskGetCurrentTaskHandle</em> in the FreeRTOS config.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd6/a00896.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="cubic_usage_derivative"></a>
+Slope of the curve</h3>
+<p><a class="el" href="../../d0/d47/a05819.html#a8cbe3d4cea98501bacb9f4d5e69fedef" title="Lib::Math::CubicInterpolation::getDerivative()">Lib::Math::CubicInterpolation::getDerivative()</a> returns the first derivative of the spline, for example the sensitivity of a sensor at the current operating point.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d41/a00881.html">Lib/Math/Interpolation/CubicInterpolation.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> releaseIfHeld(<a class="code hl_class" href="../../d7/de6/a05902.html">RTOS::Mutex</a> &amp; bus) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (bus.isOwnedByCurrentTask()) {</div>
-<div class="line">        bus.unlock();</div>
-<div class="line">    }</div>
+<div class="line"><span class="keywordtype">float</span> relativeSlope(<a class="code hl_typedef" href="../../d4/dbc/a01038.html#a95e75623bdeeebff3be6c024135bfea2">Lib::Math::CubicInterpolationF</a> &amp; spline, <span class="keywordtype">float</span> x) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> value = spline.interpolate(x);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">float</span> slope = spline.getDerivative(x);</div>
+<div class="line">    <span class="keywordflow">return</span> (value != 0.0F) ? (slope / value) : slope;</div>
 <div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="cubic_usage_points"></a>
+Point limits and run-time changes</h3>
+<p>The table holds up to <a class="el" href="../../d0/d47/a05819.html#af3e9fcf2202a3c9d9d27544bfe6c69e7" title="Lib::Math::CubicInterpolation::MAX_POINTS">Lib::Math::CubicInterpolation::MAX_POINTS</a> points. <a class="el" href="../../d0/d47/a05819.html#ac25d98350678032e22250cfb3e5d6f6c" title="Lib::Math::CubicInterpolation::addPoint()">Lib::Math::CubicInterpolation::addPoint()</a> returns <em class="arg">false</em> when the table is full, so check the result. Points may be added in any order, and <a class="el" href="../../d0/d47/a05819.html#ae0955a5674c3c10f5eab1eb0fff390a5" title="Lib::Math::CubicInterpolation::clear()">Lib::Math::CubicInterpolation::clear()</a> empties the table.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d41/a00881.html">Lib/Math/Interpolation/CubicInterpolation.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a id="_a3" name="_a3"></a><a class="code hl_typedef" href="../../d4/dbc/a01038.html#ad4addb27687a1c6accb56c4e27269048">Lib::Math::CubicInterpolationD</a> profile;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> record(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> profile.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d0/d47/a05819.html#ac25d98350678032e22250cfb3e5d6f6c">addPoint</a>(x, y);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">double</span> evaluate(<span class="keywordtype">double</span> x) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (profile.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d0/d47/a05819.html#a85e1404919ead5d47edb147006232b3e">getPointCount</a>() &lt; 2U) {</div>
+<div class="line">        <span class="keywordflow">return</span> 0.0;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> profile.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d0/d47/a05819.html#a1e9efb980eff0b0bf4d45b23b118a437">interpolate</a>(x);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> startNewProfile() noexcept {</div>
+<div class="line">    profile.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d0/d47/a05819.html#ae0955a5674c3c10f5eab1eb0fff390a5">clear</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01038_html_ad4addb27687a1c6accb56c4e27269048"><div class="ttname"><a href="../../d4/dbc/a01038.html#ad4addb27687a1c6accb56c4e27269048">Lib::Math::CubicInterpolationD</a></div><div class="ttdeci">CubicInterpolation&lt; double, double &gt; CubicInterpolationD</div><div class="ttdoc">Cubic spline using &#39;double&#39; for input and output.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:438</div></div>
+<div class="ttc" id="aa05819_html_a1e9efb980eff0b0bf4d45b23b118a437"><div class="ttname"><a href="../../d0/d47/a05819.html#a1e9efb980eff0b0bf4d45b23b118a437">Lib::Math::CubicInterpolation::interpolate</a></div><div class="ttdeci">T_VALUE interpolate(T_INPUT x) noexcept</div><div class="ttdoc">Evaluates the spline at the specified x position.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:223</div></div>
+<div class="ttc" id="aa05819_html_a85e1404919ead5d47edb147006232b3e"><div class="ttname"><a href="../../d0/d47/a05819.html#a85e1404919ead5d47edb147006232b3e">Lib::Math::CubicInterpolation::getPointCount</a></div><div class="ttdeci">constexpr size_t getPointCount() const noexcept</div><div class="ttdoc">Retrieves the number of stored points.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:151</div></div>
+<div class="ttc" id="aa05819_html_ac25d98350678032e22250cfb3e5d6f6c"><div class="ttname"><a href="../../d0/d47/a05819.html#ac25d98350678032e22250cfb3e5d6f6c">Lib::Math::CubicInterpolation::addPoint</a></div><div class="ttdeci">bool addPoint(const Point &amp;point) noexcept</div><div class="ttdoc">Appends a point and marks the spline coefficients as needing recomputation.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:116</div></div>
+<div class="ttc" id="aa05819_html_ae0955a5674c3c10f5eab1eb0fff390a5"><div class="ttname"><a href="../../d0/d47/a05819.html#ae0955a5674c3c10f5eab1eb0fff390a5">Lib::Math::CubicInterpolation::clear</a></div><div class="ttdeci">void clear() noexcept</div><div class="ttdoc">Removes every point, returning the interpolator to its initial empty state.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:140</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

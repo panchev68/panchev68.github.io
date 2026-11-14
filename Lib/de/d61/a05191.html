@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Ethercat::SOES::CoEObject</title>
+<title>IAR EWARM Library: Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,75 +91,156 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../de/def/a01016.html">Ethercat</a></li><li class="navelem"><a href="../../d3/ded/a01017.html">SOES</a></li><li class="navelem"><a href="../../de/d61/a05191.html">CoEObject</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../de/d02/a01026.html">Errors</a></li><li class="navelem"><a href="../../de/d61/a05191.html">ObserverBase</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../d6/d8c/a05188.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::CoEObject</div></div>
+  <div class="headertitle"><div class="title">Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>One entry of an object dictionary: an object or one subindex of an object.  
+<p>CRTP foundation reading active errors from the <a class="el" href="../../de/d02/a01026.html#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher">Dispatcher</a>, optionally restricted to a single <a class="el" href="../../db/d48/a05187.html" title="Group">Group</a>.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>One entry of an object dictionary: an object or one subindex of an object. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived, ErrorKind T_ERROR = Error&gt;<br />
+class Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;</div><p>CRTP foundation reading active errors from the <a class="el" href="../../de/d02/a01026.html#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher">Dispatcher</a>, optionally restricted to a single <a class="el" href="../../db/d48/a05187.html" title="Group">Group</a>. </p>
+<p>The logic lives here, so a derived observer narrows the filter by providing its own <em class="arg">matches()</em> without a vtable; <a class="el" href="../../dc/d65/a05195.html" title="Observer">Observer</a> is the ready-made group-filtered variant.</p>
+<p>Constructing from an existing <a class="el" href="../../db/d48/a05187.html" title="Group">Group</a> filters by that external, caller-owned group. Constructing from a caption instead creates and owns a new <a class="el" href="../../db/d48/a05187.html" title="Group">Group</a> for the lifetime of this observer. With neither, every active error in the <a class="el" href="../../de/d02/a01026.html#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher">Dispatcher</a> is observed. A derived class replaces the filter by defining its own 'matches(const T_ERROR &amp;) const', which hides the default one; it can still call <a class="el" href="#abc1b7f5285e87adc24a4969a47113543" title="ObserverBase::matches()">ObserverBase::matches()</a> for the group filter.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Derived</td><td>Concrete observer class; its <em class="arg">matches()</em> decides which errors are observed. </td></tr>
+    <tr><td class="paramname">T_ERROR</td><td>Error type held by the observed <a class="el" href="../../dc/d07/a05175.html" title="BasicDispatcher">BasicDispatcher</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Errors/Observer.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7306fdc8fa82a6f3d142e23b25af606d" id="r_a7306fdc8fa82a6f3d142e23b25af606d"><td class="memItemLeft">constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a7306fdc8fa82a6f3d142e23b25af606d">size</a> () const noexcept</td></tr>
-<tr class="memdesc:a7306fdc8fa82a6f3d142e23b25af606d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the value.  <br /></td></tr>
+<tr class="memitem:a32d97a053bd59655ba3e484167b856f6" id="r_a32d97a053bd59655ba3e484167b856f6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> (const ObserverBase &amp;other)=delete</td></tr>
+<tr class="memdesc:a32d97a053bd59655ba3e484167b856f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: an owned group must not be shared between observers.  <br /></td></tr>
+<tr class="memitem:af0f8f28571cd95c78515fc20c696b688" id="r_af0f8f28571cd95c78515fc20c696b688"><td class="memItemLeft"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af0f8f28571cd95c78515fc20c696b688">operator=</a> (const <a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:af0f8f28571cd95c78515fc20c696b688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: an owned group must not be shared between observers.  <br /></td></tr>
+<tr class="memitem:a9eaaa64f41d017b0542fd19e23e4b4eb" id="r_a9eaaa64f41d017b0542fd19e23e4b4eb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9eaaa64f41d017b0542fd19e23e4b4eb">ObserverBase</a> (ObserverBase &amp;&amp;other) noexcept=default</td></tr>
+<tr class="memdesc:a9eaaa64f41d017b0542fd19e23e4b4eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-constructs an observer, transferring ownership of any owned group.  <br /></td></tr>
+<tr class="memitem:a5bef52360bbd4cdd83f4cd41fb610c4a" id="r_a5bef52360bbd4cdd83f4cd41fb610c4a"><td class="memItemLeft"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5bef52360bbd4cdd83f4cd41fb610c4a">operator=</a> (<a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp;&amp;other) noexcept=default</td></tr>
+<tr class="memdesc:a5bef52360bbd4cdd83f4cd41fb610c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move-assigns an observer, transferring ownership of any owned group.  <br /></td></tr>
+<tr class="memitem:ac245a085bf28b893f98cbc8943c50939" id="r_ac245a085bf28b893f98cbc8943c50939"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac245a085bf28b893f98cbc8943c50939">check</a> () const</td></tr>
+<tr class="memdesc:ac245a085bf28b893f98cbc8943c50939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether any active error currently matches this observer's filter.  <br /></td></tr>
+<tr class="memitem:ae9c2b90078fb4baacc77df620dd6affc" id="r_ae9c2b90078fb4baacc77df620dd6affc"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; const T_ERROR * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae9c2b90078fb4baacc77df620dd6affc">read</a> () const</td></tr>
+<tr class="memdesc:ae9c2b90078fb4baacc77df620dd6affc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collects every active error matching this observer's filter.  <br /></td></tr>
+<tr class="memitem:a6dcac43dde13eaf06dff704610eb7f8f" id="r_a6dcac43dde13eaf06dff704610eb7f8f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6dcac43dde13eaf06dff704610eb7f8f">forEach</a> (<a class="el" href="../../d2/d2e/a04831.html">FunctionRef</a>&lt; void(const T_ERROR &amp;)&gt; visit) const</td></tr>
+<tr class="memdesc:a6dcac43dde13eaf06dff704610eb7f8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls a function for every active error matching this observer's filter, without allocating.  <br /></td></tr>
+<tr class="memitem:a446e9c28defc96197acdcd260d4706f6" id="r_a446e9c28defc96197acdcd260d4706f6"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a446e9c28defc96197acdcd260d4706f6">number</a> () const</td></tr>
+<tr class="memdesc:a446e9c28defc96197acdcd260d4706f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counts the active errors matching this observer's filter, without allocating.  <br /></td></tr>
+<tr class="memitem:abc1b7f5285e87adc24a4969a47113543" id="r_abc1b7f5285e87adc24a4969a47113543"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abc1b7f5285e87adc24a4969a47113543">matches</a> (const T_ERROR &amp;error) const noexcept</td></tr>
+<tr class="memdesc:abc1b7f5285e87adc24a4969a47113543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default filter: the error is <a class="el" href="../../dc/daa/a05179.html#acba02689f37ee7af40ec736d996ed858a18ff74f43da410c5529f7d6fca84f115" title="ErrorBase::State::ACTIVE">ErrorBase::State::ACTIVE</a> and in the filtered group (or no group is filtered).  <br /></td></tr>
+<tr class="memitem:a2973edaf7f9a66d9900fe3adf841146c" id="r_a2973edaf7f9a66d9900fe3adf841146c"><td class="memItemLeft">const <a class="el" href="../../db/d48/a05187.html">Group</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a2973edaf7f9a66d9900fe3adf841146c">getGroup</a> () const noexcept</td></tr>
+<tr class="memdesc:a2973edaf7f9a66d9900fe3adf841146c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the group this observer filters by.  <br /></td></tr>
+<tr class="memitem:a68975b48ce0a7e2e846ed67f6851be04" id="r_a68975b48ce0a7e2e846ed67f6851be04"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a68975b48ce0a7e2e846ed67f6851be04">operator const Group *</a> () const noexcept</td></tr>
+<tr class="memdesc:a68975b48ce0a7e2e846ed67f6851be04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts this observer to its filtered group pointer.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad129e1c074a02a5734018f3ce36fe5b9" id="r_ad129e1c074a02a5734018f3ce36fe5b9"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:ad129e1c074a02a5734018f3ce36fe5b9 template"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ad129e1c074a02a5734018f3ce36fe5b9">dataTypeOf</a> () noexcept</td></tr>
-<tr class="memdesc:ad129e1c074a02a5734018f3ce36fe5b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Picks the data type of a C++ type: the fixed-size numbers by their type, a 'char' array as a visible string and anything else as an octet string.  <br /></td></tr>
-<tr class="memitem:afffb7dea9e840c81eb7d6cd9f81d5048" id="r_afffb7dea9e840c81eb7d6cd9f81d5048"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:afffb7dea9e840c81eb7d6cd9f81d5048 template"><td class="memItemLeft">static constexpr <a class="el" href="../../de/d61/a05191.html">CoEObject</a>&#160;</td><td class="memItemRight"><a class="el" href="#afffb7dea9e840c81eb7d6cd9f81d5048">readOnly</a> (uint16_t index, uint8_t subIndex, const T &amp;value, const char *name=&quot;&quot;) noexcept</td></tr>
-<tr class="memdesc:afffb7dea9e840c81eb7d6cd9f81d5048"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a read-only value.  <br /></td></tr>
-<tr class="memitem:aa97aaf6b6a35db4f94110fd14fa11980" id="r_aa97aaf6b6a35db4f94110fd14fa11980"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
-<tr class="memitem:aa97aaf6b6a35db4f94110fd14fa11980 template"><td class="memItemLeft">static constexpr <a class="el" href="../../de/d61/a05191.html">CoEObject</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa97aaf6b6a35db4f94110fd14fa11980">variable</a> (uint16_t index, uint8_t subIndex, T &amp;value, <a class="el" href="../../d3/ded/a01017.html#a0a85aabfc74e31864de76e3f26f1b197">ObjectAccess</a> access=<a class="el" href="../../d3/ded/a01017.html#a0a85aabfc74e31864de76e3f26f1b197aa7b843fb734e3b3fea8e5f902d3f4144">ObjectAccess::READ_WRITE</a>, const char *name=&quot;&quot;) noexcept</td></tr>
-<tr class="memdesc:aa97aaf6b6a35db4f94110fd14fa11980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Describes a value the master may read and write.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ab2f3134366cf4e85eb20119de70393e3" id="r_ab2f3134366cf4e85eb20119de70393e3"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ab2f3134366cf4e85eb20119de70393e3">index</a></td></tr>
-<tr class="memdesc:ab2f3134366cf4e85eb20119de70393e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Object index.  <br /></td></tr>
-<tr class="memitem:a5e7dc405b23d4a2c9c30824dbd1aa348" id="r_a5e7dc405b23d4a2c9c30824dbd1aa348"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a5e7dc405b23d4a2c9c30824dbd1aa348">subIndex</a></td></tr>
-<tr class="memdesc:a5e7dc405b23d4a2c9c30824dbd1aa348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subindex.  <br /></td></tr>
-<tr class="memitem:a689087c28b07b550c6eae081e7594f72" id="r_a689087c28b07b550c6eae081e7594f72"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a689087c28b07b550c6eae081e7594f72">access</a></td></tr>
-<tr class="memdesc:a689087c28b07b550c6eae081e7594f72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access rights and flags, a combination of <a class="el" href="../../d3/ded/a01017.html#a0a85aabfc74e31864de76e3f26f1b197" title="ObjectAccess">ObjectAccess</a> bits.  <br /></td></tr>
-<tr class="memitem:a0f18ed5e1c01a3298b9a235b433b363a" id="r_a0f18ed5e1c01a3298b9a235b433b363a"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a0f18ed5e1c01a3298b9a235b433b363a">dataType</a></td></tr>
-<tr class="memdesc:a0f18ed5e1c01a3298b9a235b433b363a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data type, a <a class="el" href="../../d3/ded/a01017.html#aa94d94e23996717a0fb95db4ee93bba5" title="CoEDataType">CoEDataType</a> value.  <br /></td></tr>
-<tr class="memitem:a9720d19e5c0b0e8f1be49ac104234370" id="r_a9720d19e5c0b0e8f1be49ac104234370"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a9720d19e5c0b0e8f1be49ac104234370">bitLength</a></td></tr>
-<tr class="memdesc:a9720d19e5c0b0e8f1be49ac104234370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the value in bits.  <br /></td></tr>
-<tr class="memitem:a2497e7c2ce49cc0f0fe4601dd78aba7b" id="r_a2497e7c2ce49cc0f0fe4601dd78aba7b"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a2497e7c2ce49cc0f0fe4601dd78aba7b">name</a></td></tr>
-<tr class="memdesc:a2497e7c2ce49cc0f0fe4601dd78aba7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the entry, shown by the SDO information service.  <br /></td></tr>
-<tr class="memitem:abb1278c8d325465c3e21817c2e559f7f" id="r_abb1278c8d325465c3e21817c2e559f7f"><td class="memItemLeft">const void *&#160;</td><td class="memItemRight"><a class="el" href="#abb1278c8d325465c3e21817c2e559f7f">readData</a></td></tr>
-<tr class="memdesc:abb1278c8d325465c3e21817c2e559f7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage the value is read from; 'nullptr' for a write-only entry.  <br /></td></tr>
-<tr class="memitem:ac54a16495fbb3e297360ce4281c1420f" id="r_ac54a16495fbb3e297360ce4281c1420f"><td class="memItemLeft">void *&#160;</td><td class="memItemRight"><a class="el" href="#ac54a16495fbb3e297360ce4281c1420f">writeData</a></td></tr>
-<tr class="memdesc:ac54a16495fbb3e297360ce4281c1420f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Storage the value is written to; 'nullptr' for a read-only entry.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a533552093d254aaf91e8aa506abe97eb" id="r_a533552093d254aaf91e8aa506abe97eb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a533552093d254aaf91e8aa506abe97eb">ObserverBase</a> ()=default</td></tr>
+<tr class="memdesc:a533552093d254aaf91e8aa506abe97eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an observer with no group filter, observing every active error.  <br /></td></tr>
+<tr class="memitem:a04d21933596b0c1dd78bfb671ef811cd" id="r_a04d21933596b0c1dd78bfb671ef811cd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a04d21933596b0c1dd78bfb671ef811cd">ObserverBase</a> (const <a class="el" href="../../db/d48/a05187.html">Group</a> &amp;group) noexcept</td></tr>
+<tr class="memdesc:a04d21933596b0c1dd78bfb671ef811cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an observer filtered to an existing, externally-owned group.  <br /></td></tr>
+<tr class="memitem:a48c400abfb1256b145f494a80a4602fd" id="r_a48c400abfb1256b145f494a80a4602fd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a48c400abfb1256b145f494a80a4602fd">ObserverBase</a> (const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> groupCaption)</td></tr>
+<tr class="memdesc:a48c400abfb1256b145f494a80a4602fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an observer with a new group, owned by this observer, created from the given caption.  <br /></td></tr>
+<tr class="memitem:a5335bb5ae20c789e034de9dbc451d7eb" id="r_a5335bb5ae20c789e034de9dbc451d7eb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5335bb5ae20c789e034de9dbc451d7eb">~ObserverBase</a> ()=default</td></tr>
+<tr class="memdesc:a5335bb5ae20c789e034de9dbc451d7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the observer, releasing its owned group, if any.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ad129e1c074a02a5734018f3ce36fe5b9" name="ad129e1c074a02a5734018f3ce36fe5b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad129e1c074a02a5734018f3ce36fe5b9">&#9670;&#160;</a></span>dataTypeOf()</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a32d97a053bd59655ba3e484167b856f6" name="a32d97a053bd59655ba3e484167b856f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32d97a053bd59655ba3e484167b856f6">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[1/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr uint16_t Lib::Ethercat::SOES::CoEObject::dataTypeOf </td>
+          <td class="memname"><a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
+          <td>(</td>
+          <td class="paramtype">const ObserverBase&lt; Derived, T_ERROR &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: an owned group must not be shared between observers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9eaaa64f41d017b0542fd19e23e4b4eb" name="a9eaaa64f41d017b0542fd19e23e4b4eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9eaaa64f41d017b0542fd19e23e4b4eb">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
+          <td>(</td>
+          <td class="paramtype">ObserverBase&lt; Derived, T_ERROR &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move-constructs an observer, transferring ownership of any owned group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a533552093d254aaf91e8aa506abe97eb" name="a533552093d254aaf91e8aa506abe97eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a533552093d254aaf91e8aa506abe97eb">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -167,92 +248,129 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Picks the data type of a C++ type: the fixed-size numbers by their type, a 'char' array as a visible string and anything else as an octet string. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Type of the value. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A <a class="el" href="../../d3/ded/a01017.html#aa94d94e23996717a0fb95db4ee93bba5" title="CoEDataType">CoEDataType</a> value. </dd></dl>
+<p>Constructs an observer with no group filter, observing every active error. </p>
 
 </div>
 </div>
-<a id="afffb7dea9e840c81eb7d6cd9f81d5048" name="afffb7dea9e840c81eb7d6cd9f81d5048"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afffb7dea9e840c81eb7d6cd9f81d5048">&#9670;&#160;</a></span>readOnly()</h2>
+<a id="a04d21933596b0c1dd78bfb671ef811cd" name="a04d21933596b0c1dd78bfb671ef811cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04d21933596b0c1dd78bfb671ef811cd">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="../../de/d61/a05191.html">CoEObject</a> Lib::Ethercat::SOES::CoEObject::readOnly </td>
+          <td class="memname"><a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
           <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="../../db/d48/a05187.html">Group</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>group</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>subIndex</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>name</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Describes a read-only value. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Trivially copyable type of the value. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructs an observer filtered to an existing, externally-owned group. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>Object index. </td></tr>
-    <tr><td class="paramname">subIndex</td><td>Subindex. </td></tr>
-    <tr><td class="paramname">value</td><td>The value; it must outlive the dictionary. </td></tr>
-    <tr><td class="paramname">name</td><td>Name of the entry. </td></tr>
+    <tr><td class="paramname">group</td><td>Group to filter by; must outlive this observer. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The entry, readable in every state. </dd></dl>
 
 </div>
 </div>
-<a id="a7306fdc8fa82a6f3d142e23b25af606d" name="a7306fdc8fa82a6f3d142e23b25af606d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7306fdc8fa82a6f3d142e23b25af606d">&#9670;&#160;</a></span>size()</h2>
+<a id="a48c400abfb1256b145f494a80a4602fd" name="a48c400abfb1256b145f494a80a4602fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48c400abfb1256b145f494a80a4602fd">&#9670;&#160;</a></span>ObserverBase() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::Ethercat::SOES::CoEObject::size </td>
+          <td class="memname"><a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::ObserverBase </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>groupCaption</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs an observer with a new group, owned by this observer, created from the given caption. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">groupCaption</td><td>Caption for the new, owned group. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5335bb5ae20c789e034de9dbc451d7eb" name="a5335bb5ae20c789e034de9dbc451d7eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5335bb5ae20c789e034de9dbc451d7eb">&#9670;&#160;</a></span>~ObserverBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::~<a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the observer, releasing its owned group, if any. </p>
+<p>Protected and non-virtual: it is never destroyed through a base pointer. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ac245a085bf28b893f98cbc8943c50939" name="ac245a085bf28b893f98cbc8943c50939"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac245a085bf28b893f98cbc8943c50939">&#9670;&#160;</a></span>check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::check </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -260,207 +378,276 @@ template&lt;typename T&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the size of the value. </p>
-<dl class="section return"><dt>Returns</dt><dd>Size in bytes, rounded up. </dd></dl>
+<p>Checks whether any active error currently matches this observer's filter. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if at least one matching active error exists. </dd></dl>
 
 </div>
 </div>
-<a id="aa97aaf6b6a35db4f94110fd14fa11980" name="aa97aaf6b6a35db4f94110fd14fa11980"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa97aaf6b6a35db4f94110fd14fa11980">&#9670;&#160;</a></span>variable()</h2>
+<a id="a6dcac43dde13eaf06dff704610eb7f8f" name="a6dcac43dde13eaf06dff704610eb7f8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dcac43dde13eaf06dff704610eb7f8f">&#9670;&#160;</a></span>forEach()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T&gt; </div>
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="../../de/d61/a05191.html">CoEObject</a> Lib::Ethercat::SOES::CoEObject::variable </td>
+          <td class="memname">void <a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::forEach </td>
           <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>subIndex</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d3/ded/a01017.html#a0a85aabfc74e31864de76e3f26f1b197">ObjectAccess</a></td>          <td class="paramname"><span class="paramname"><em>access</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d3/ded/a01017.html#a0a85aabfc74e31864de76e3f26f1b197aa7b843fb734e3b3fea8e5f902d3f4144">ObjectAccess::READ_WRITE</a></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>name</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="../../d2/d2e/a04831.html">FunctionRef</a>&lt; void(const T_ERROR &amp;)&gt;</td>          <td class="paramname"><span class="paramname"><em>visit</em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Describes a value the master may read and write. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Trivially copyable type of the value. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Calls a function for every active error matching this observer's filter, without allocating. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>Object index. </td></tr>
-    <tr><td class="paramname">subIndex</td><td>Subindex. </td></tr>
-    <tr><td class="paramname">value</td><td>The value; it must outlive the dictionary. </td></tr>
-    <tr><td class="paramname">access</td><td>Access rights, <a class="el" href="../../d3/ded/a01017.html#a0a85aabfc74e31864de76e3f26f1b197aa7b843fb734e3b3fea8e5f902d3f4144" title="ObjectAccess::READ_WRITE">ObjectAccess::READ_WRITE</a> by default. </td></tr>
-    <tr><td class="paramname">name</td><td>Name of the entry. </td></tr>
+    <tr><td class="paramname">visit</td><td>Function called with each matching error; it must not create errors. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The entry. </dd></dl>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a689087c28b07b550c6eae081e7594f72" name="a689087c28b07b550c6eae081e7594f72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a689087c28b07b550c6eae081e7594f72">&#9670;&#160;</a></span>access</h2>
+<a id="a2973edaf7f9a66d9900fe3adf841146c" name="a2973edaf7f9a66d9900fe3adf841146c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2973edaf7f9a66d9900fe3adf841146c">&#9670;&#160;</a></span>getGroup()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Lib::Ethercat::SOES::CoEObject::access</td>
+          <td class="memname">const <a class="el" href="../../db/d48/a05187.html">Group</a> * <a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::getGroup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Access rights and flags, a combination of <a class="el" href="../../d3/ded/a01017.html#a0a85aabfc74e31864de76e3f26f1b197" title="ObjectAccess">ObjectAccess</a> bits. </p>
+<p>Returns the group this observer filters by. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the filtered <a class="el" href="../../db/d48/a05187.html" title="Group">Group</a>, or <em class="arg">nullptr</em> if observing every error. </dd></dl>
 
 </div>
 </div>
-<a id="a9720d19e5c0b0e8f1be49ac104234370" name="a9720d19e5c0b0e8f1be49ac104234370"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9720d19e5c0b0e8f1be49ac104234370">&#9670;&#160;</a></span>bitLength</h2>
+<a id="abc1b7f5285e87adc24a4969a47113543" name="abc1b7f5285e87adc24a4969a47113543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1b7f5285e87adc24a4969a47113543">&#9670;&#160;</a></span>matches()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Lib::Ethercat::SOES::CoEObject::bitLength</td>
+          <td class="memname">bool <a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::matches </td>
+          <td>(</td>
+          <td class="paramtype">const T_ERROR &amp;</td>          <td class="paramname"><span class="paramname"><em>error</em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Size of the value in bits. </p>
+<p>Default filter: the error is <a class="el" href="../../dc/daa/a05179.html#acba02689f37ee7af40ec736d996ed858a18ff74f43da410c5529f7d6fca84f115" title="ErrorBase::State::ACTIVE">ErrorBase::State::ACTIVE</a> and in the filtered group (or no group is filtered). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>Error to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the error is observed. </dd></dl>
 
 </div>
 </div>
-<a id="a0f18ed5e1c01a3298b9a235b433b363a" name="a0f18ed5e1c01a3298b9a235b433b363a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f18ed5e1c01a3298b9a235b433b363a">&#9670;&#160;</a></span>dataType</h2>
+<a id="a446e9c28defc96197acdcd260d4706f6" name="a446e9c28defc96197acdcd260d4706f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a446e9c28defc96197acdcd260d4706f6">&#9670;&#160;</a></span>number()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Lib::Ethercat::SOES::CoEObject::dataType</td>
+          <td class="memname">size_t <a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::number </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Data type, a <a class="el" href="../../d3/ded/a01017.html#aa94d94e23996717a0fb95db4ee93bba5" title="CoEDataType">CoEDataType</a> value. </p>
+<p>Counts the active errors matching this observer's filter, without allocating. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of matching active errors. </dd></dl>
 
 </div>
 </div>
-<a id="ab2f3134366cf4e85eb20119de70393e3" name="ab2f3134366cf4e85eb20119de70393e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2f3134366cf4e85eb20119de70393e3">&#9670;&#160;</a></span>index</h2>
+<a id="a68975b48ce0a7e2e846ed67f6851be04" name="a68975b48ce0a7e2e846ed67f6851be04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68975b48ce0a7e2e846ed67f6851be04">&#9670;&#160;</a></span>operator const Group *()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint16_t Lib::Ethercat::SOES::CoEObject::index</td>
+          <td class="memname"><a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a> const <a class="el" href="../../db/d48/a05187.html">Group</a> * </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Object index. </p>
+<p>Converts this observer to its filtered group pointer. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the filtered <a class="el" href="../../db/d48/a05187.html" title="Group">Group</a>, or <em class="arg">nullptr</em> if observing every error. </dd></dl>
 
 </div>
 </div>
-<a id="a2497e7c2ce49cc0f0fe4601dd78aba7b" name="a2497e7c2ce49cc0f0fe4601dd78aba7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2497e7c2ce49cc0f0fe4601dd78aba7b">&#9670;&#160;</a></span>name</h2>
+<a id="af0f8f28571cd95c78515fc20c696b688" name="af0f8f28571cd95c78515fc20c696b688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0f8f28571cd95c78515fc20c696b688">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char* Lib::Ethercat::SOES::CoEObject::name</td>
+          <td class="memname"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp; <a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a>&lt; Derived, T_ERROR &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Name of the entry, shown by the SDO information service. </p>
+<p>Copy assignment is deleted: an owned group must not be shared between observers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this observer. </dd></dl>
 
 </div>
 </div>
-<a id="abb1278c8d325465c3e21817c2e559f7f" name="abb1278c8d325465c3e21817c2e559f7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb1278c8d325465c3e21817c2e559f7f">&#9670;&#160;</a></span>readData</h2>
+<a id="a5bef52360bbd4cdd83f4cd41fb610c4a" name="a5bef52360bbd4cdd83f4cd41fb610c4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bef52360bbd4cdd83f4cd41fb610c4a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const void* Lib::Ethercat::SOES::CoEObject::readData</td>
+          <td class="memname"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a> &amp; <a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a32d97a053bd59655ba3e484167b856f6">ObserverBase</a>&lt; Derived, T_ERROR &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Storage the value is read from; 'nullptr' for a write-only entry. </p>
+<p>Move-assigns an observer, transferring ownership of any owned group. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this observer. </dd></dl>
 
 </div>
 </div>
-<a id="a5e7dc405b23d4a2c9c30824dbd1aa348" name="a5e7dc405b23d4a2c9c30824dbd1aa348"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e7dc405b23d4a2c9c30824dbd1aa348">&#9670;&#160;</a></span>subIndex</h2>
+<a id="ae9c2b90078fb4baacc77df620dd6affc" name="ae9c2b90078fb4baacc77df620dd6affc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c2b90078fb4baacc77df620dd6affc">&#9670;&#160;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived, ErrorKind T_ERROR = Error&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t Lib::Ethercat::SOES::CoEObject::subIndex</td>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; const T_ERROR * &gt; <a class="el" href="../../de/d61/a05191.html">Lib::Errors::ObserverBase</a>&lt; Derived, T_ERROR &gt;::read </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Subindex. </p>
-
-</div>
-</div>
-<a id="ac54a16495fbb3e297360ce4281c1420f" name="ac54a16495fbb3e297360ce4281c1420f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac54a16495fbb3e297360ce4281c1420f">&#9670;&#160;</a></span>writeData</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void* Lib::Ethercat::SOES::CoEObject::writeData</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Storage the value is written to; 'nullptr' for a read-only entry. </p>
+<p>Collects every active error matching this observer's filter. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointers to all matching active errors, owned by the <a class="el" href="../../de/d02/a01026.html#a32937fedfac156d84189cbf2133bd0ab" title="Dispatcher">Dispatcher</a>. </dd></dl>
 
 </div>
 </div>

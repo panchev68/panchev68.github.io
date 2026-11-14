@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::Beep</title>
+<title>IAR EWARM Library: Lib::BSP::Backlight</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/d48/a00988.html">BSP</a></li><li class="navelem"><a href="../../da/d63/a04327.html">Beep</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d7/df2/a01000.html">BSP</a></li><li class="navelem"><a href="../../da/d63/a04327.html">Backlight</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -99,58 +99,38 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="../../d4/d85/a04324.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::Beep</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Backlight</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Buzzer driven by toggling a timer output-compare channel for a set duration and repeat count.  
+<p>Display backlight intensity driven by a PWM timer channel.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Buzzer driven by toggling a timer output-compare channel for a set duration and repeat count. </p>
-<p><a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5" title="play()">play()</a> only arms a sequence; a periodic tick plays it out in the RTOS timer service task as beep, pause, repeat, so the call never blocks. A <a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5" title="play()">play()</a> call made while a sequence is still running is ignored, also when several tasks call it at once.</p>
-<dl class="section important"><dt>Important</dt><dd>The timer is set up by CubeMX (prescaler and period give the tone); the driver only reconfigures the channel as output compare in toggle mode on every beep. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d0/d2a/a06142.html#_a1">Lib::BSP::Beep</a>.</dd>
-</dl>
+<div class="textblock"><p>Display backlight intensity driven by a PWM timer channel. </p>
+<p>The output fades one compare unit per fade step towards the target brightness and drops to the minimum after the configured period without user activity. Right after construction it fades up from dark to the maximum. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../de/d68/a04331.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware binding of the buzzer to its timer output-compare channel.  <a href="../../de/d68/a04331.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware binding and timing parameters of the backlight.  <a href="../../de/d68/a04331.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ab7fc52bc381f9496a1cf35f629d1a944" id="r_ab7fc52bc381f9496a1cf35f629d1a944"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> (const <a class="el" href="../../de/d68/a04331.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:ab7fc52bc381f9496a1cf35f629d1a944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the buzzer to its timer channel and starts the periodic state-machine tick.  <br /></td></tr>
-<tr class="memitem:af601628e760dd29541b317a1256b6bd1" id="r_af601628e760dd29541b317a1256b6bd1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af601628e760dd29541b317a1256b6bd1">~Beep</a> () noexcept</td></tr>
-<tr class="memdesc:af601628e760dd29541b317a1256b6bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the tick and silences the buzzer if a sequence is still playing.  <br /></td></tr>
-<tr class="memitem:a08c08dc451270c224dded9c366b9aa6a" id="r_a08c08dc451270c224dded9c366b9aa6a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a08c08dc451270c224dded9c366b9aa6a">Beep</a> (const Beep &amp;)=delete</td></tr>
-<tr class="memdesc:a08c08dc451270c224dded9c366b9aa6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the RTOS timer calls back into this instance.  <br /></td></tr>
-<tr class="memitem:ad2f515525962880586d857dd395e8983" id="r_ad2f515525962880586d857dd395e8983"><td class="memItemLeft"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad2f515525962880586d857dd395e8983">operator=</a> (const <a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;)=delete</td></tr>
-<tr class="memdesc:ad2f515525962880586d857dd395e8983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the RTOS timer calls back into this instance.  <br /></td></tr>
-<tr class="memitem:a3506da759c0ccebd28b87c0489cdb56e" id="r_a3506da759c0ccebd28b87c0489cdb56e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3506da759c0ccebd28b87c0489cdb56e">Beep</a> (Beep &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a3506da759c0ccebd28b87c0489cdb56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the RTOS timer calls back into this instance.  <br /></td></tr>
-<tr class="memitem:a3c5fdc21b4e87a407ca4fb0efaa588cc" id="r_a3c5fdc21b4e87a407ca4fb0efaa588cc"><td class="memItemLeft"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3c5fdc21b4e87a407ca4fb0efaa588cc">operator=</a> (<a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a3c5fdc21b4e87a407ca4fb0efaa588cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the RTOS timer calls back into this instance.  <br /></td></tr>
-<tr class="memitem:a4bc5b3cc66d266518992ce5dc14973c5" id="r_a4bc5b3cc66d266518992ce5dc14973c5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5">play</a> (uint32_t duration, uint32_t count=1U, uint32_t pause=0U) noexcept</td></tr>
-<tr class="memdesc:a4bc5b3cc66d266518992ce5dc14973c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a beep sequence, unless one is already playing.  <br /></td></tr>
-<tr class="memitem:ac6552c090b310890de41a06ba77a7e68" id="r_ac6552c090b310890de41a06ba77a7e68"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac6552c090b310890de41a06ba77a7e68">isPlaying</a> () const noexcept</td></tr>
-<tr class="memdesc:ac6552c090b310890de41a06ba77a7e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether a beep sequence is playing.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a9540c4c8740da0d59747a9373e03833a" id="r_a9540c4c8740da0d59747a9373e03833a"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/da/dc7/a01548.html">TIM_OC_InitTypeDef</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9540c4c8740da0d59747a9373e03833a">DEFAULT_OC_CONFIG</a></td></tr>
-<tr class="memdesc:a9540c4c8740da0d59747a9373e03833a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output-compare configuration applied to the buzzer channel on every beep.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a021b081c55c843fa9b7ba25effa04637" id="r_a021b081c55c843fa9b7ba25effa04637"><td class="memItemLeft">class&#160;</td><td class="memItemRight"><a class="el" href="#a021b081c55c843fa9b7ba25effa04637">RTOS::TickClient&lt; Beep &gt;</a></td></tr>
+<tr class="memitem:aa256a4d5fc394db1a9afed11974b96ef" id="r_aa256a4d5fc394db1a9afed11974b96ef"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa256a4d5fc394db1a9afed11974b96ef">Backlight</a> (const <a class="el" href="../../de/d68/a04331.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:aa256a4d5fc394db1a9afed11974b96ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the PWM output from dark and the dimmer with the maximum brightness as target.  <br /></td></tr>
+<tr class="memitem:a5516d16616d30b6214626e963873f08a" id="r_a5516d16616d30b6214626e963873f08a"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#a5516d16616d30b6214626e963873f08a">~Backlight</a> () noexcept</td></tr>
+<tr class="memdesc:a5516d16616d30b6214626e963873f08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the dimmer and the PWM output on the configured timer channel.  <br /></td></tr>
+<tr class="memitem:a50a810c2a297031558286c9c20bb51ea" id="r_a50a810c2a297031558286c9c20bb51ea"><td class="memItemLeft">virtual uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a50a810c2a297031558286c9c20bb51ea">get</a> () const</td></tr>
+<tr class="memdesc:a50a810c2a297031558286c9c20bb51ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the brightness the output is fading towards.  <br /></td></tr>
+<tr class="memitem:a666c0e0466ea2c644c087fc5a3eaa625" id="r_a666c0e0466ea2c644c087fc5a3eaa625"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a666c0e0466ea2c644c087fc5a3eaa625">set</a> (uint8_t newValue)</td></tr>
+<tr class="memdesc:a666c0e0466ea2c644c087fc5a3eaa625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the brightness to fade towards and counts it as user activity.  <br /></td></tr>
+<tr class="memitem:a6b38c863109edd503a2e5e78f170f0bd" id="r_a6b38c863109edd503a2e5e78f170f0bd"><td class="memItemLeft"><a class="el" href="#aa256a4d5fc394db1a9afed11974b96ef">Backlight</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6b38c863109edd503a2e5e78f170f0bd">operator=</a> (uint8_t newValue) noexcept</td></tr>
+<tr class="memdesc:a6b38c863109edd503a2e5e78f170f0bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Same as <a class="el" href="#a666c0e0466ea2c644c087fc5a3eaa625" title="set()">set()</a>.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ab7fc52bc381f9496a1cf35f629d1a944" name="ab7fc52bc381f9496a1cf35f629d1a944"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7fc52bc381f9496a1cf35f629d1a944">&#9670;&#160;</a></span>Beep() <span class="overload">[1/3]</span></h2>
+<a id="aa256a4d5fc394db1a9afed11974b96ef" name="aa256a4d5fc394db1a9afed11974b96ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa256a4d5fc394db1a9afed11974b96ef">&#9670;&#160;</a></span>Backlight()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -159,7 +139,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::Beep::Beep </td>
+          <td class="memname">Lib::BSP::Backlight::Backlight </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../de/d68/a04331.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
@@ -172,18 +152,18 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the buzzer to its timer channel and starts the periodic state-machine tick. </p>
+<p>Starts the PWM output from dark and the dimmer with the maximum brightness as target. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Hardware binding of the buzzer. </td></tr>
+    <tr><td class="paramname">config</td><td>Hardware binding and timing parameters. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="af601628e760dd29541b317a1256b6bd1" name="af601628e760dd29541b317a1256b6bd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af601628e760dd29541b317a1256b6bd1">&#9670;&#160;</a></span>~Beep()</h2>
+<a id="a5516d16616d30b6214626e963873f08a" name="a5516d16616d30b6214626e963873f08a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5516d16616d30b6214626e963873f08a">&#9670;&#160;</a></span>~Backlight()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,7 +172,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::Beep::~Beep </td>
+          <td class="memname">virtual Lib::BSP::Backlight::~Backlight </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -200,73 +180,18 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the tick and silences the buzzer if a sequence is still playing. </p>
-<p>Task context only. </p>
-
-</div>
-</div>
-<a id="a08c08dc451270c224dded9c366b9aa6a" name="a08c08dc451270c224dded9c366b9aa6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08c08dc451270c224dded9c366b9aa6a">&#9670;&#160;</a></span>Beep() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::BSP::Beep::Beep </td>
-          <td>(</td>
-          <td class="paramtype">const Beep &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: the RTOS timer calls back into this instance. </p>
-
-</div>
-</div>
-<a id="a3506da759c0ccebd28b87c0489cdb56e" name="a3506da759c0ccebd28b87c0489cdb56e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3506da759c0ccebd28b87c0489cdb56e">&#9670;&#160;</a></span>Beep() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::BSP::Beep::Beep </td>
-          <td>(</td>
-          <td class="paramtype">Beep &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: the RTOS timer calls back into this instance. </p>
+<p>Stops the dimmer and the PWM output on the configured timer channel. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ac6552c090b310890de41a06ba77a7e68" name="ac6552c090b310890de41a06ba77a7e68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6552c090b310890de41a06ba77a7e68">&#9670;&#160;</a></span>isPlaying()</h2>
+<a id="a50a810c2a297031558286c9c20bb51ea" name="a50a810c2a297031558286c9c20bb51ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50a810c2a297031558286c9c20bb51ea">&#9670;&#160;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,7 +200,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::Beep::isPlaying </td>
+          <td class="memname">virtual uint8_t Lib::BSP::Backlight::get </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -283,20 +208,18 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets whether a beep sequence is playing. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> from a successful <a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5" title="play()">play()</a> until the last beep has ended. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d0/d2a/a06142.html#a4">Lib::BSP::Beep</a>.</dd>
-</dl>
+<p>Gets the brightness the output is fading towards. </p>
+<dl class="section return"><dt>Returns</dt><dd>Target brightness, within the configured dimmer range. </dd></dl>
 
 </div>
 </div>
-<a id="a3c5fdc21b4e87a407ca4fb0efaa588cc" name="a3c5fdc21b4e87a407ca4fb0efaa588cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3c5fdc21b4e87a407ca4fb0efaa588cc">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a6b38c863109edd503a2e5e78f170f0bd" name="a6b38c863109edd503a2e5e78f170f0bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b38c863109edd503a2e5e78f170f0bd">&#9670;&#160;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,75 +228,10 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp; Lib::BSP::Beep::operator= </td>
+          <td class="memname"><a class="el" href="#aa256a4d5fc394db1a9afed11974b96ef">Backlight</a> &amp; Lib::BSP::Backlight::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>newValue</em></span></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: the RTOS timer calls back into this instance. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="ad2f515525962880586d857dd395e8983" name="ad2f515525962880586d857dd395e8983"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2f515525962880586d857dd395e8983">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp; Lib::BSP::Beep::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: the RTOS timer calls back into this instance. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a4bc5b3cc66d266518992ce5dc14973c5" name="a4bc5b3cc66d266518992ce5dc14973c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bc5b3cc66d266518992ce5dc14973c5">&#9670;&#160;</a></span>play()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::BSP::Beep::play </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1U</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>pause</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -383,83 +241,48 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Starts a beep sequence, unless one is already playing. </p>
-<p>Returns at once; the sequence plays in the background.</p>
+<p>Same as <a class="el" href="#a666c0e0466ea2c644c087fc5a3eaa625" title="set()">set()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">duration</td><td>Length of each beep, in milliseconds. </td></tr>
-    <tr><td class="paramname">count</td><td>Number of beeps; 0 plays nothing. </td></tr>
-    <tr><td class="paramname">pause</td><td>Silence between two beeps, in milliseconds. </td></tr>
+    <tr><td class="paramname">newValue</td><td>Requested brightness. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the sequence was started, <b>false</b> if one was already playing or 'count' is 0. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d0/d2a/a06142.html#a3">Lib::BSP::Beep</a>.</dd>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a666c0e0466ea2c644c087fc5a3eaa625" name="a666c0e0466ea2c644c087fc5a3eaa625"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a666c0e0466ea2c644c087fc5a3eaa625">&#9670;&#160;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::BSP::Backlight::set </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>newValue</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the brightness to fade towards and counts it as user activity. </p>
+<p>The value is clamped to the configured dimmer range and rearms the sleep timeout.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newValue</td><td>Requested brightness. </td></tr>
+  </table>
+  </dd>
 </dl>
-
-</div>
-</div>
-<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
-<a id="a021b081c55c843fa9b7ba25effa04637" name="a021b081c55c843fa9b7ba25effa04637"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a021b081c55c843fa9b7ba25effa04637">&#9670;&#160;</a></span>RTOS::TickClient&lt; Beep &gt;</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="../../dd/d3d/a05967.html">RTOS::TickClient</a>&lt; <a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a9540c4c8740da0d59747a9373e03833a" name="a9540c4c8740da0d59747a9373e03833a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9540c4c8740da0d59747a9373e03833a">&#9670;&#160;</a></span>DEFAULT_OC_CONFIG</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/da/dc7/a01548.html">TIM_OC_InitTypeDef</a> Lib::BSP::Beep::DEFAULT_OC_CONFIG</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                                                      = {</div>
-<div class="line">    .OCMode = <a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d9/d17/a01129.html#ga368f80fad76018e2bf76084522e47536">TIM_OCMODE_TOGGLE</a>,</div>
-<div class="line">    .Pulse = 100,</div>
-<div class="line">    .OCPolarity = <a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/dbc/a01099.html#ga1daff1574b0a2d17ccc9ae40a649ac37">TIM_OCPOLARITY_LOW</a>,</div>
-<div class="line">    .OCNPolarity = <a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/dbd/a01100.html#gadb44419c891a58e2cde11cc016f71a14">TIM_OCNPOLARITY_LOW</a>,</div>
-<div class="line">    .OCFastMode = <a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/dfa/a01097.html#ga71429b63f2a6604171ccfd3a91ccf43a">TIM_OCFAST_DISABLE</a>,</div>
-<div class="line">    .OCIdleState = <a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/de/d99/a01101.html#ga56505fe4142096454f1da97683ce8bc2">TIM_OCIDLESTATE_RESET</a>,</div>
-<div class="line">    .OCNIdleState = <a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d4/da7/a01102.html#ga7586655652e3c3f1cb4af1ed59d25901">TIM_OCNIDLESTATE_RESET</a>,</div>
-<div class="line">}</div>
-<div class="ttc" id="aa01097_html_ga71429b63f2a6604171ccfd3a91ccf43a"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d1/dfa/a01097.html#ga71429b63f2a6604171ccfd3a91ccf43a">TIM_OCFAST_DISABLE</a></div><div class="ttdeci">#define TIM_OCFAST_DISABLE</div></div>
-<div class="ttc" id="aa01099_html_ga1daff1574b0a2d17ccc9ae40a649ac37"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/dbc/a01099.html#ga1daff1574b0a2d17ccc9ae40a649ac37">TIM_OCPOLARITY_LOW</a></div><div class="ttdeci">#define TIM_OCPOLARITY_LOW</div></div>
-<div class="ttc" id="aa01100_html_gadb44419c891a58e2cde11cc016f71a14"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/dbd/a01100.html#gadb44419c891a58e2cde11cc016f71a14">TIM_OCNPOLARITY_LOW</a></div><div class="ttdeci">#define TIM_OCNPOLARITY_LOW</div></div>
-<div class="ttc" id="aa01101_html_ga56505fe4142096454f1da97683ce8bc2"><div class="ttname"><a href="https://panchev68.github.io/HALF4/de/d99/a01101.html#ga56505fe4142096454f1da97683ce8bc2">TIM_OCIDLESTATE_RESET</a></div><div class="ttdeci">#define TIM_OCIDLESTATE_RESET</div></div>
-<div class="ttc" id="aa01102_html_ga7586655652e3c3f1cb4af1ed59d25901"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d4/da7/a01102.html#ga7586655652e3c3f1cb4af1ed59d25901">TIM_OCNIDLESTATE_RESET</a></div><div class="ttdeci">#define TIM_OCNIDLESTATE_RESET</div></div>
-<div class="ttc" id="aa01129_html_ga368f80fad76018e2bf76084522e47536"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d9/d17/a01129.html#ga368f80fad76018e2bf76084522e47536">TIM_OCMODE_TOGGLE</a></div><div class="ttdeci">#define TIM_OCMODE_TOGGLE</div></div>
-</div><!-- fragment -->
-<p>Output-compare configuration applied to the buzzer channel on every beep. </p>
-<p>Toggle mode, active-low polarity on both the channel and its complementary output, both idle states reset. </p>
 
 </div>
 </div>

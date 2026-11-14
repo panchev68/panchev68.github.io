@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::Convert::HexHelper</title>
+<title>IAR EWARM Library: Lib::HAL::WindowWatchdog</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,72 +92,60 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Convert::HexHelper</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::WindowWatchdog</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows the lightweight conversion helpers of <a class="el" href="../../dc/df0/a06229.html" title="Lib::Helper::Convert::HexHelper">Lib::Helper::Convert::HexHelper</a>, which turn a nibble into its ASCII hex digit, a value from <b>0</b> to <b>99</b> packed into 8-bit BCD, a decimal value packed into 32-bit BCD, and an ASCII hex digit back to its numeric nibble.</p>
-<p>Shows the lightweight conversion helpers of <a class="el" href="../../dc/df0/a06229.html" title="Lib::Helper::Convert::HexHelper">Lib::Helper::Convert::HexHelper</a>, which turn a nibble into its ASCII hex digit, a value from <b>0</b> to <b>99</b> packed into 8-bit BCD, a decimal value packed into 32-bit BCD, and an ASCII hex digit back to its numeric nibble.The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs. <a class="el" href="../../db/d63/a05686.html#adc4e23573cc8d30952b34baa738a7829" title="Lib::Helper::Convert::HexHelper::toBcd()">Lib::Helper::Convert::HexHelper::toBcd()</a> and <a class="el" href="../../db/d63/a05686.html#a0ff1064b777a7e7bcc333deb8863d171" title="Lib::Helper::Convert::HexHelper::toBcd8()">Lib::Helper::Convert::HexHelper::toBcd8()</a> assert on a value above their capacity in debug builds. <a class="el" href="../../db/d63/a05686.html#ad25faac730a1cf9e48849a2e2c672b18" title="Lib::Helper::Convert::HexHelper::fromAscii()">Lib::Helper::Convert::HexHelper::fromAscii()</a> returns <a class="el" href="../../db/d63/a05686.html#a6bf7a4038d9764ca11bac42597dcc0a7" title="Lib::Helper::Convert::HexHelper::INVALID_NIBBLE">Lib::Helper::Convert::HexHelper::INVALID_NIBBLE</a> for a non-hex character, and asserts on it in debug builds.</p>
+<p>Starts the hardware Window Watchdog (WWDG) with <a class="el" href="../../dc/df0/a06229.html" title="Lib::HAL::WindowWatchdog">Lib::HAL::WindowWatchdog</a> and refreshes it from a periodic task.</p>
+<p>Starts the hardware Window Watchdog (WWDG) with <a class="el" href="../../dc/df0/a06229.html" title="Lib::HAL::WindowWatchdog">Lib::HAL::WindowWatchdog</a> and refreshes it from a periodic task.The wrapper does not own the CubeMX-generated handle; it stores the pointer passed to the constructor, which must stay valid for the lifetime of the instance. The counter, prescaler and window are read from the handle when <a class="el" href="../../d6/dda/a05667.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f" title="Lib::HAL::WindowWatchdog::open()">Lib::HAL::WindowWatchdog::open()</a> runs, so configure them in CubeMX before calling it.</p>
+<dl class="section important"><dt>Important</dt><dd>The class compiles only when <em class="arg">HAL_WWDG_MODULE_ENABLED</em> is defined. The project's HAL configuration header ('EWARM/Core/Inc/stm32f4xx_hal_conf.h') defines it, so the module is enabled for this target.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Once <a class="el" href="../../d6/dda/a05667.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f" title="Lib::HAL::WindowWatchdog::open()">Lib::HAL::WindowWatchdog::open()</a> succeeds the watchdog cannot be stopped until the next reset. A refresh issued before the window opens, or after the counter reaches zero, resets the MCU. <a class="el" href="../../d6/dda/a05667.html#a8391a6219cf7a6f1a8e9e1383b0e115b" title="Lib::HAL::WindowWatchdog::refresh()">Lib::HAL::WindowWatchdog::refresh()</a> reports only that the reload register accepted the refresh, so <em class="arg">true</em> does not by itself prove that the refresh fell inside the window.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_nibble"></a>
-Nibble to ASCII</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7e/a00809.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="windowwatchdog_usage_start"></a>
+Start and refresh</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d72/a00803.html">Lib/HAL/WWDG/WindowWatchdog.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d95/a00989.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printNibbleAsAscii() {</div>
-<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d63/a05686.html">Lib::Helper::Convert::HexHelper</a>;</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> c = HexHelper::toAscii(0xAU);</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Nibble 0xA -&gt; &quot;</span> &lt;&lt; c &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
-<div class="ttc" id="aa00809_html"><div class="ttname"><a href="../../dd/d7e/a00809.html">HexHelper.hpp</a></div><div class="ttdoc">Hexadecimal and BCD conversion helpers, forwarding the nibble and character mapping to Lib::Helper::C...</div></div>
-<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
-<div class="ttc" id="aa05686_html"><div class="ttname"><a href="../../db/d63/a05686.html">Lib::Helper::Convert::HexHelper</a></div><div class="ttdoc">Static constexpr conversion utilities between numeric values, ASCII hex characters and packed BCD.</div><div class="ttdef"><b>Definition</b> HexHelper.hpp:29</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">Nibble 0xA -&gt; A</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_bcd"></a>
-Packing decimal values into BCD</h3>
-<p><a class="el" href="../../db/d63/a05686.html#a0ff1064b777a7e7bcc333deb8863d171" title="Lib::Helper::Convert::HexHelper::toBcd8()">Lib::Helper::Convert::HexHelper::toBcd8()</a> packs <b>0</b> to <b>99</b> into one byte, and <a class="el" href="../../db/d63/a05686.html#adc4e23573cc8d30952b34baa738a7829" title="Lib::Helper::Convert::HexHelper::toBcd()">Lib::Helper::Convert::HexHelper::toBcd()</a> packs up to <b>8</b> decimal digits into 32 bits.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7e/a00809.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d5/d84/a01612.html">WWDG_HandleTypeDef</a> hwwdg; <span class="comment">// Generated by CubeMX.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
+<div class="line"><span class="keywordtype">void</span> windowWatchdogTask(<span class="keywordtype">void</span> *) {</div>
+<div class="line">    <span class="keyword">static</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d6/dda/a05667.html">Lib::HAL::WindowWatchdog</a> watchdog(&amp;hwwdg);</div>
+<div class="line">    <span class="keywordflow">if</span> (!watchdog.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d6/dda/a05667.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printPackedBcd() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../db/d63/a05686.html">Lib::Helper::Convert::HexHelper</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint8_t bcd8 = HexHelper::toBcd8(42U);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;BCD8(42) -&gt; 0x&quot;</span> &lt;&lt; <a id="a2" name="a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex &lt;&lt; static_cast&lt;int&gt;</a>(bcd8) &lt;&lt; <a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint32_t bcd32 = HexHelper::toBcd(1234U);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;BCD32(1234) -&gt; 0x&quot;</span> &lt;&lt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex</a> &lt;&lt; bcd32 &lt;&lt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa01692_html_a0fc906aec6c2cb724b0aad05ee44de0d"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex</a></div><div class="ttdeci">ios_base &amp; hex(ios_base &amp;__base)</div></div>
-<div class="ttc" id="aa01692_html_a8e1042ae25efda13674517f13a10c44c"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a></div><div class="ttdeci">ios_base &amp; dec(ios_base &amp;__base)</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">BCD8(42) -&gt; 0x42</div>
-<div class="line">BCD32(1234) -&gt; 0x1234</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_parse"></a>
-ASCII to nibble</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7e/a00809.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printAsciiAsNibble() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../db/d63/a05686.html">Lib::Helper::Convert::HexHelper</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint8_t nibble = HexHelper::fromAscii(<span class="charliteral">&#39;F&#39;</span>);</div>
-<div class="line">    <span class="keywordflow">if</span> (nibble != HexHelper::INVALID_NIBBLE) {</div>
-<div class="line">        <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;&#39;F&#39; -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(nibble) &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="comment">// The refresh must fall inside the window configured in CubeMX.</span></div>
+<div class="line">        <span class="keywordflow">if</span> (!watchdog.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d6/dda/a05667.html#a8391a6219cf7a6f1a8e9e1383b0e115b">refresh</a>()) {</div>
+<div class="line">            <span class="comment">// The HAL refused the refresh; a refresh outside the window resets the MCU.</span></div>
+<div class="line">        }</div>
+<div class="line">        <a id="a4" name="a4"></a><a class="code hl_function" href="../../d1/d83/a01041.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a id="_a5" name="_a5"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(20));</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line"><span class="charliteral">&#39;F&#39;</span> -&gt; 15</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00803_html"><div class="ttname"><a href="../../d5/d72/a00803.html">WindowWatchdog.hpp</a></div><div class="ttdoc">Window Watchdog (WWDG) interface.</div></div>
+<div class="ttc" id="aa00989_html"><div class="ttname"><a href="../../d4/d95/a00989.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01041_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d1/d83/a01041.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01612_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d5/d84/a01612.html">WWDG_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa05667_html"><div class="ttname"><a href="../../d6/dda/a05667.html">Lib::HAL::WindowWatchdog</a></div><div class="ttdoc">Controls the hardware Window Watchdog peripheral subsystem.</div><div class="ttdef"><b>Definition</b> WindowWatchdog.hpp:31</div></div>
+<div class="ttc" id="aa05667_html_a5f510a61dd04e4f7b6fd5bb5fa5bd81f"><div class="ttname"><a href="../../d6/dda/a05667.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f">Lib::HAL::WindowWatchdog::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes and starts the hardware window watchdog timer using preset configurations.</div><div class="ttdef"><b>Definition</b> WindowWatchdog.hpp:96</div></div>
+<div class="ttc" id="aa05667_html_a8391a6219cf7a6f1a8e9e1383b0e115b"><div class="ttname"><a href="../../d6/dda/a05667.html#a8391a6219cf7a6f1a8e9e1383b0e115b">Lib::HAL::WindowWatchdog::refresh</a></div><div class="ttdeci">bool refresh() noexcept</div><div class="ttdoc">Refreshes the internal hardware counter to prevent system resets, respecting window boundaries.</div><div class="ttdef"><b>Definition</b> WindowWatchdog.hpp:109</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="windowwatchdog_usage_window"></a>
+Narrow the refresh window at run time</h3>
+<p><a class="el" href="../../d6/dda/a05667.html#a874dc7d2f0c51055da55dc4f4622d62a" title="Lib::HAL::WindowWatchdog::setWindow()">Lib::HAL::WindowWatchdog::setWindow()</a> writes the window value into the handle and re-applies the configuration through <b>HAL_WWDG_Init()</b>. Call it before the refresh task starts, so that the first refresh falls inside the new window.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d72/a00803.html">Lib/HAL/WWDG/WindowWatchdog.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> configureWindow(<a class="code hl_class" href="../../d6/dda/a05667.html">Lib::HAL::WindowWatchdog</a> &amp; watchdog) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t WINDOW_VALUE = 0x50U; <span class="comment">// Window upper limit as a counter value.</span></div>
+<div class="line">    <span class="keywordflow">return</span> watchdog.setWindow(WINDOW_VALUE);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

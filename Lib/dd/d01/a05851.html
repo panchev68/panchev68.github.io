@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Pneumatics::RotationCylinder</title>
+<title>IAR EWARM Library: Lib::Pneumatics::Cylinder</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">Pneumatics</a></li><li class="navelem"><a href="../../dd/d01/a05851.html">RotationCylinder</a></li>  </ul>
+<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../db/d14/a01040.html">Pneumatics</a></li><li class="navelem"><a href="../../dd/d01/a05851.html">Cylinder</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -100,67 +100,96 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../d7/d68/a05848.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Pneumatics::RotationCylinder<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Pneumatics::Cylinder</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Drives a single-acting pneumatic rotation cylinder from a single output, with no position feedback.  
+<p>Drives a pneumatic cylinder output from off/on position sensor feedback.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Drives a single-acting pneumatic rotation cylinder from a single output, with no position feedback. </p>
-<p>The physical position is unknown at start-up, so the first update() treats the cylinder as returning to the off position and reports <a class="el" href="#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412" title="Status::IN_MOTION">Status::IN_MOTION</a> until 'Config::rotateTime' has elapsed. </p>
+<div class="textblock"><p>Drives a pneumatic cylinder output from off/on position sensor feedback. </p>
+<p>Either or both sensors may be physically absent, configured via <a class="el" href="../../d4/d27/a05855.html#a4905184e7b9c4dbf249f7fd18fe04294" title="Config::offSensor">Config::offSensor</a> / <a class="el" href="../../d4/d27/a05855.html#a2256dcad5353ffd21cba4b1d1ef02937" title="Config::onSensor">Config::onSensor</a>; an absent sensor's transitions are then confirmed by timeout instead, and its uncommanded-move detection is disabled. With both sensors absent, the cylinder behaves as a purely time-based actuator: <a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a696b031073e74bf2cb98e5ef201d4aa3" title="Status::UNKNOWN">Status::UNKNOWN</a> only clears once command() is called, and <a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a08d9808c0d90af039e7ccffc802e5232" title="Status::IS_ERROR">Status::IS_ERROR</a> can never be raised. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d27/a05855.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timing parameter and output binding.  <a href="../../d4/d27/a05855.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timing parameters and sensor wiring for debouncing and switch-time supervision.  <a href="../../d4/d27/a05855.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a0b7ad8b7773fc15de07047754f3794f9" id="r_a0b7ad8b7773fc15de07047754f3794f9"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a0b7ad8b7773fc15de07047754f3794f9">Command</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4">OFF</a>
+<tr class="memitem:ac6a1f18dc094880e53169a7e884cc0cf" id="r_ac6a1f18dc094880e53169a7e884cc0cf"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ac6a1f18dc094880e53169a7e884cc0cf">Command</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#ac6a1f18dc094880e53169a7e884cc0cfa88559a0cfd8250c9d65970cc145c92d4">OFF</a>
 , <br />
-&#160;&#160;<a class="el" href="#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c">ON</a>
+&#160;&#160;<a class="el" href="#ac6a1f18dc094880e53169a7e884cc0cfa90651ebea9a35ec4e018c8157492e17c">ON</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a0b7ad8b7773fc15de07047754f3794f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requested cylinder rotation direction.  <a href="#a0b7ad8b7773fc15de07047754f3794f9">More...</a><br /></td></tr>
-<tr class="memitem:a9f826713fcf7511db5c43ef6f27173af" id="r_a9f826713fcf7511db5c43ef6f27173af"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a9f826713fcf7511db5c43ef6f27173af">Status</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d">IS_OFF</a>
+<tr class="memdesc:ac6a1f18dc094880e53169a7e884cc0cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requested cylinder movement direction.  <a href="#ac6a1f18dc094880e53169a7e884cc0cf">More...</a><br /></td></tr>
+<tr class="memitem:a7273a3341799aff5527818d9cf88b2b3" id="r_a7273a3341799aff5527818d9cf88b2b3"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a7273a3341799aff5527818d9cf88b2b3">Status</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>
 , <br />
-&#160;&#160;<a class="el" href="#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b">IS_ON</a>
+&#160;&#160;<a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a5b47312014964c5843fdd0002c86e46d">IS_OFF</a>
 , <br />
-&#160;&#160;<a class="el" href="#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412">IN_MOTION</a>
+&#160;&#160;<a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a93829aa602d1d42d28fc6821d0e0083b">IS_ON</a>
+, <br />
+&#160;&#160;<a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a229051669055140f5d0bbafd5ea64412">IN_MOTION</a>
+, <br />
+&#160;&#160;<a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a08d9808c0d90af039e7ccffc802e5232">IS_ERROR</a>
 <br />
  }</td></tr>
-<tr class="memdesc:a9f826713fcf7511db5c43ef6f27173af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reported cylinder position status.  <a href="#a9f826713fcf7511db5c43ef6f27173af">More...</a><br /></td></tr>
+<tr class="memdesc:a7273a3341799aff5527818d9cf88b2b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reported cylinder position and health status.  <a href="#a7273a3341799aff5527818d9cf88b2b3">More...</a><br /></td></tr>
+<tr class="memitem:a9e4cc2264975fb90820378e04641c518" id="r_a9e4cc2264975fb90820378e04641c518"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a9e4cc2264975fb90820378e04641c518">Error</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a9e4cc2264975fb90820378e04641c518ab50339a10e1de285ac99d4c3990b8693">NONE</a>
+, <br />
+&#160;&#160;<a class="el" href="#a9e4cc2264975fb90820378e04641c518a5dbb3ccc1d669d4795a0132d6fed5d3a">TIMEOUT_ON</a>
+, <br />
+&#160;&#160;<a class="el" href="#a9e4cc2264975fb90820378e04641c518a81a5a7f809ca6aaefe5685dbf5503ef8">TIMEOUT_OFF</a>
+, <br />
+&#160;&#160;<a class="el" href="#a9e4cc2264975fb90820378e04641c518a91f2b697900d216110382c0902b17e25">UNCOMMANDED_ON</a>
+, <br />
+&#160;&#160;<a class="el" href="#a9e4cc2264975fb90820378e04641c518a3c05ea266a6f2e3d7ce10c09bc0db0ff">UNCOMMANDED_OFF</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a9e4cc2264975fb90820378e04641c518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Latched fault reason for the last raised error.  <a href="#a9e4cc2264975fb90820378e04641c518">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9e8bc0dbf9e33b3d355379fb51a67416" id="r_a9e8bc0dbf9e33b3d355379fb51a67416"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9e8bc0dbf9e33b3d355379fb51a67416">RotationCylinder</a> (const <a class="el" href="../../d4/d27/a05855.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a9e8bc0dbf9e33b3d355379fb51a67416"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the cylinder name and output, and configures the rotation timing.  <br /></td></tr>
-<tr class="memitem:a7c2b4110cef52e26a1699691fd9bd4fb" id="r_a7c2b4110cef52e26a1699691fd9bd4fb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7c2b4110cef52e26a1699691fd9bd4fb">RotationCylinder</a> (const RotationCylinder &amp;)=delete</td></tr>
-<tr class="memdesc:a7c2b4110cef52e26a1699691fd9bd4fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy construction is disabled; the cylinder is bound to a single output.  <br /></td></tr>
-<tr class="memitem:a44c71110f315e89203746b05fd4ab10a" id="r_a44c71110f315e89203746b05fd4ab10a"><td class="memItemLeft"><a class="el" href="#a9e8bc0dbf9e33b3d355379fb51a67416">RotationCylinder</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a44c71110f315e89203746b05fd4ab10a">operator=</a> (const <a class="el" href="#a9e8bc0dbf9e33b3d355379fb51a67416">RotationCylinder</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a44c71110f315e89203746b05fd4ab10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is disabled; the cylinder is bound to a single output.  <br /></td></tr>
-<tr class="memitem:a659c7989f745a79aeecb1c24004acba6" id="r_a659c7989f745a79aeecb1c24004acba6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a659c7989f745a79aeecb1c24004acba6">setup</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> rotateTime) noexcept</td></tr>
-<tr class="memdesc:a659c7989f745a79aeecb1c24004acba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconfigures the rotation time.  <br /></td></tr>
-<tr class="memitem:a8ca6acca72dbe8c542856371e956e058" id="r_a8ca6acca72dbe8c542856371e956e058"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8ca6acca72dbe8c542856371e956e058">command</a> (const <a class="el" href="#a0b7ad8b7773fc15de07047754f3794f9">Command</a> command) noexcept</td></tr>
-<tr class="memdesc:a8ca6acca72dbe8c542856371e956e058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the cylinder to rotate to the given position.  <br /></td></tr>
-<tr class="memitem:afcafcbf63c5703cb97f68a8496510b3b" id="r_afcafcbf63c5703cb97f68a8496510b3b"><td class="memItemLeft"><a class="el" href="#a9f826713fcf7511db5c43ef6f27173af">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#afcafcbf63c5703cb97f68a8496510b3b">update</a> () noexcept</td></tr>
-<tr class="memdesc:afcafcbf63c5703cb97f68a8496510b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the internal state machine from elapsed time and applies the resulting output level.  <br /></td></tr>
-<tr class="memitem:aba16d8727149fd2debf8b51fff5438bd" id="r_aba16d8727149fd2debf8b51fff5438bd"><td class="memItemLeft"><a class="el" href="#a9f826713fcf7511db5c43ef6f27173af">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aba16d8727149fd2debf8b51fff5438bd">getStatus</a> () const noexcept</td></tr>
-<tr class="memdesc:aba16d8727149fd2debf8b51fff5438bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the status derived by the last update() call.  <br /></td></tr>
-<tr class="memitem:a90f1e56010dee19b0f66350351127712" id="r_a90f1e56010dee19b0f66350351127712"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a90f1e56010dee19b0f66350351127712">isOff</a> () const noexcept</td></tr>
-<tr class="memdesc:a90f1e56010dee19b0f66350351127712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the cylinder is settled in the off position.  <br /></td></tr>
-<tr class="memitem:a3dfd5b2cf18acd7457732541b4271d1a" id="r_a3dfd5b2cf18acd7457732541b4271d1a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3dfd5b2cf18acd7457732541b4271d1a">isOn</a> () const noexcept</td></tr>
-<tr class="memdesc:a3dfd5b2cf18acd7457732541b4271d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the cylinder is settled in the on position.  <br /></td></tr>
-<tr class="memitem:a480be139cc8704be72afb69d2456281f" id="r_a480be139cc8704be72afb69d2456281f"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#a480be139cc8704be72afb69d2456281f">getName</a> () const noexcept</td></tr>
-<tr class="memdesc:a480be139cc8704be72afb69d2456281f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the configured name of the cylinder.  <br /></td></tr>
+<tr class="memitem:a4a14559353a95200e26e6fdd1b2c5373" id="r_a4a14559353a95200e26e6fdd1b2c5373"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4a14559353a95200e26e6fdd1b2c5373">Cylinder</a> (const <a class="el" href="../../d4/d27/a05855.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a4a14559353a95200e26e6fdd1b2c5373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the cylinder name, off/on position sensors, and output, and configures timing parameters.  <br /></td></tr>
+<tr class="memitem:a0cdf7a1264200218792c3ac743ebd3ee" id="r_a0cdf7a1264200218792c3ac743ebd3ee"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0cdf7a1264200218792c3ac743ebd3ee">Cylinder</a> (const Cylinder &amp;)=delete</td></tr>
+<tr class="memdesc:a0cdf7a1264200218792c3ac743ebd3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy construction is disabled; the cylinder is bound to a single output and a pair of sensor inputs.  <br /></td></tr>
+<tr class="memitem:a600ee7c6b32fb9f0609c9a4056d053c5" id="r_a600ee7c6b32fb9f0609c9a4056d053c5"><td class="memItemLeft"><a class="el" href="#a4a14559353a95200e26e6fdd1b2c5373">Cylinder</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a600ee7c6b32fb9f0609c9a4056d053c5">operator=</a> (const <a class="el" href="#a4a14559353a95200e26e6fdd1b2c5373">Cylinder</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a600ee7c6b32fb9f0609c9a4056d053c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is disabled; the cylinder is bound to a single output and a pair of sensor inputs.  <br /></td></tr>
+<tr class="memitem:a5f7bd85024efefa8864d447204703865" id="r_a5f7bd85024efefa8864d447204703865"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5f7bd85024efefa8864d447204703865">setup</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> sensorCalmingTime, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> switchTimeout) noexcept</td></tr>
+<tr class="memdesc:a5f7bd85024efefa8864d447204703865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconfigures the sensor debounce and switch-timeout durations.  <br /></td></tr>
+<tr class="memitem:adf02fbd43f1b7d0e8bbd5222bf46f8a7" id="r_adf02fbd43f1b7d0e8bbd5222bf46f8a7"><td class="memItemLeft"><a class="el" href="#a7273a3341799aff5527818d9cf88b2b3">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#adf02fbd43f1b7d0e8bbd5222bf46f8a7">update</a> () noexcept</td></tr>
+<tr class="memdesc:adf02fbd43f1b7d0e8bbd5222bf46f8a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the internal state machine from the current sensor readings and applies the resulting output level.  <br /></td></tr>
+<tr class="memitem:a4da495987bbb4e5916779c867b023761" id="r_a4da495987bbb4e5916779c867b023761"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4da495987bbb4e5916779c867b023761">command</a> (const <a class="el" href="#ac6a1f18dc094880e53169a7e884cc0cf">Command</a> command) noexcept</td></tr>
+<tr class="memdesc:a4da495987bbb4e5916779c867b023761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the cylinder to move to the given position.  <br /></td></tr>
+<tr class="memitem:aef222ad4de0b20041057d6cbb158da56" id="r_aef222ad4de0b20041057d6cbb158da56"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aef222ad4de0b20041057d6cbb158da56">clearError</a> () noexcept</td></tr>
+<tr class="memdesc:aef222ad4de0b20041057d6cbb158da56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears a latched error, returning to the unknown position so the next update() re-detects it from sensors.  <br /></td></tr>
+<tr class="memitem:aabb2b9b76a6bd30cd4d5131f9590d1ea" id="r_aabb2b9b76a6bd30cd4d5131f9590d1ea"><td class="memItemLeft"><a class="el" href="#a9e4cc2264975fb90820378e04641c518">Error</a>&#160;</td><td class="memItemRight"><a class="el" href="#aabb2b9b76a6bd30cd4d5131f9590d1ea">getError</a> () const noexcept</td></tr>
+<tr class="memdesc:aabb2b9b76a6bd30cd4d5131f9590d1ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the latched fault reason.  <br /></td></tr>
+<tr class="memitem:a3380b7e3e9cd1ad5d89182f78c7c2e10" id="r_a3380b7e3e9cd1ad5d89182f78c7c2e10"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3380b7e3e9cd1ad5d89182f78c7c2e10">canClearError</a> () const noexcept</td></tr>
+<tr class="memdesc:a3380b7e3e9cd1ad5d89182f78c7c2e10"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether clearError() would currently succeed.  <br /></td></tr>
+<tr class="memitem:ae77dd637f0aa88053b8603aef39a1cd5" id="r_ae77dd637f0aa88053b8603aef39a1cd5"><td class="memItemLeft"><a class="el" href="#a7273a3341799aff5527818d9cf88b2b3">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae77dd637f0aa88053b8603aef39a1cd5">getStatus</a> () const noexcept</td></tr>
+<tr class="memdesc:ae77dd637f0aa88053b8603aef39a1cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the status derived by the last update() call.  <br /></td></tr>
+<tr class="memitem:a4f802a332f1c0e7364f5b50359abe6c0" id="r_a4f802a332f1c0e7364f5b50359abe6c0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4f802a332f1c0e7364f5b50359abe6c0">isOff</a> () const noexcept</td></tr>
+<tr class="memdesc:a4f802a332f1c0e7364f5b50359abe6c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the cylinder is confirmed in the off position.  <br /></td></tr>
+<tr class="memitem:a022b42d80b8a6250e056669900b6f3c2" id="r_a022b42d80b8a6250e056669900b6f3c2"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a022b42d80b8a6250e056669900b6f3c2">isOn</a> () const noexcept</td></tr>
+<tr class="memdesc:a022b42d80b8a6250e056669900b6f3c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the cylinder is confirmed in the on position.  <br /></td></tr>
+<tr class="memitem:ac8f6f212de3f12f2462517ec4d946aff" id="r_ac8f6f212de3f12f2462517ec4d946aff"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac8f6f212de3f12f2462517ec4d946aff">getName</a> () const noexcept</td></tr>
+<tr class="memdesc:ac8f6f212de3f12f2462517ec4d946aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the configured name of the cylinder.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ac7f6d7a7759ce31dd9914dcb444cb0de" id="r_ac7f6d7a7759ce31dd9914dcb444cb0de"><td class="memItemLeft"><a class="el" href="../../d2/d2e/a04831.html">FunctionRef</a>&lt; void(<a class="el" href="#a9e4cc2264975fb90820378e04641c518">Error</a>)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac7f6d7a7759ce31dd9914dcb444cb0de">onError</a></td></tr>
+<tr class="memdesc:ac7f6d7a7759ce31dd9914dcb444cb0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked once from update() when a new error is latched, with the fault reason.  <br /></td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a0b7ad8b7773fc15de07047754f3794f9" name="a0b7ad8b7773fc15de07047754f3794f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b7ad8b7773fc15de07047754f3794f9">&#9670;&#160;</a></span>Command</h2>
+<a id="ac6a1f18dc094880e53169a7e884cc0cf" name="ac6a1f18dc094880e53169a7e884cc0cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6a1f18dc094880e53169a7e884cc0cf">&#9670;&#160;</a></span>Command</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -169,7 +198,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#a0b7ad8b7773fc15de07047754f3794f9">Lib::Pneumatics::RotationCylinder::Command</a> : uint8_t</td>
+          <td class="memname">enum class <a class="el" href="#ac6a1f18dc094880e53169a7e884cc0cf">Lib::Pneumatics::Cylinder::Command</a> : uint8_t</td>
         </tr>
       </table>
   </td>
@@ -179,18 +208,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Requested cylinder rotation direction. </p>
+<p>Requested cylinder movement direction. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4" name="a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4"></a>OFF&#160;</td><td class="fielddoc"><p>Requests the cylinder to rotate back to the off position. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac6a1f18dc094880e53169a7e884cc0cfa88559a0cfd8250c9d65970cc145c92d4" name="ac6a1f18dc094880e53169a7e884cc0cfa88559a0cfd8250c9d65970cc145c92d4"></a>OFF&#160;</td><td class="fielddoc"><p>Requests the cylinder to retract to the off position. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c" name="a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c"></a>ON&#160;</td><td class="fielddoc"><p>Requests the cylinder to rotate to the on position. </p>
+<tr><td class="fieldname"><a id="ac6a1f18dc094880e53169a7e884cc0cfa90651ebea9a35ec4e018c8157492e17c" name="ac6a1f18dc094880e53169a7e884cc0cfa90651ebea9a35ec4e018c8157492e17c"></a>ON&#160;</td><td class="fielddoc"><p>Requests the cylinder to extend to the on position. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
-<a id="a9f826713fcf7511db5c43ef6f27173af" name="a9f826713fcf7511db5c43ef6f27173af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f826713fcf7511db5c43ef6f27173af">&#9670;&#160;</a></span>Status</h2>
+<a id="a9e4cc2264975fb90820378e04641c518" name="a9e4cc2264975fb90820378e04641c518"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e4cc2264975fb90820378e04641c518">&#9670;&#160;</a></span>Error</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -199,7 +228,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#a9f826713fcf7511db5c43ef6f27173af">Lib::Pneumatics::RotationCylinder::Status</a> : uint8_t</td>
+          <td class="memname">enum class <a class="el" href="#a9e4cc2264975fb90820378e04641c518">Lib::Pneumatics::Cylinder::Error</a> : uint8_t</td>
         </tr>
       </table>
   </td>
@@ -209,21 +238,61 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reported cylinder position status. </p>
+<p>Latched fault reason for the last raised error. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d" name="a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d"></a>IS_OFF&#160;</td><td class="fielddoc"><p>Cylinder is settled in the off position. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a9e4cc2264975fb90820378e04641c518ab50339a10e1de285ac99d4c3990b8693" name="a9e4cc2264975fb90820378e04641c518ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p>No error latched. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b" name="a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b"></a>IS_ON&#160;</td><td class="fielddoc"><p>Cylinder is settled in the on position. </p>
+<tr><td class="fieldname"><a id="a9e4cc2264975fb90820378e04641c518a5dbb3ccc1d669d4795a0132d6fed5d3a" name="a9e4cc2264975fb90820378e04641c518a5dbb3ccc1d669d4795a0132d6fed5d3a"></a>TIMEOUT_ON&#160;</td><td class="fielddoc"><p>Switch timeout elapsed while transitioning to the on position. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412" name="a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412"></a>IN_MOTION&#160;</td><td class="fielddoc"><p>Cylinder is rotating between positions. </p>
+<tr><td class="fieldname"><a id="a9e4cc2264975fb90820378e04641c518a81a5a7f809ca6aaefe5685dbf5503ef8" name="a9e4cc2264975fb90820378e04641c518a81a5a7f809ca6aaefe5685dbf5503ef8"></a>TIMEOUT_OFF&#160;</td><td class="fielddoc"><p>Switch timeout elapsed while transitioning to the off position. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9e4cc2264975fb90820378e04641c518a91f2b697900d216110382c0902b17e25" name="a9e4cc2264975fb90820378e04641c518a91f2b697900d216110382c0902b17e25"></a>UNCOMMANDED_ON&#160;</td><td class="fielddoc"><p>Left the settled on position without a matching command() call. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a9e4cc2264975fb90820378e04641c518a3c05ea266a6f2e3d7ce10c09bc0db0ff" name="a9e4cc2264975fb90820378e04641c518a3c05ea266a6f2e3d7ce10c09bc0db0ff"></a>UNCOMMANDED_OFF&#160;</td><td class="fielddoc"><p>Left the settled off position without a matching command() call. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a7273a3341799aff5527818d9cf88b2b3" name="a7273a3341799aff5527818d9cf88b2b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7273a3341799aff5527818d9cf88b2b3">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a7273a3341799aff5527818d9cf88b2b3">Lib::Pneumatics::Cylinder::Status</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reported cylinder position and health status. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7273a3341799aff5527818d9cf88b2b3a696b031073e74bf2cb98e5ef201d4aa3" name="a7273a3341799aff5527818d9cf88b2b3a696b031073e74bf2cb98e5ef201d4aa3"></a>UNKNOWN&#160;</td><td class="fielddoc"><p>Initial position not yet determined from sensor feedback. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7273a3341799aff5527818d9cf88b2b3a5b47312014964c5843fdd0002c86e46d" name="a7273a3341799aff5527818d9cf88b2b3a5b47312014964c5843fdd0002c86e46d"></a>IS_OFF&#160;</td><td class="fielddoc"><p>Cylinder is confirmed in the off position. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7273a3341799aff5527818d9cf88b2b3a93829aa602d1d42d28fc6821d0e0083b" name="a7273a3341799aff5527818d9cf88b2b3a93829aa602d1d42d28fc6821d0e0083b"></a>IS_ON&#160;</td><td class="fielddoc"><p>Cylinder is confirmed in the on position. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7273a3341799aff5527818d9cf88b2b3a229051669055140f5d0bbafd5ea64412" name="a7273a3341799aff5527818d9cf88b2b3a229051669055140f5d0bbafd5ea64412"></a>IN_MOTION&#160;</td><td class="fielddoc"><p>Cylinder is transitioning between positions. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7273a3341799aff5527818d9cf88b2b3a08d9808c0d90af039e7ccffc802e5232" name="a7273a3341799aff5527818d9cf88b2b3a08d9808c0d90af039e7ccffc802e5232"></a>IS_ERROR&#160;</td><td class="fielddoc"><p>A switch-timeout or uncommanded-move error occurred; the position is not confirmed. </p>
 </td></tr>
 </table>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9e8bc0dbf9e33b3d355379fb51a67416" name="a9e8bc0dbf9e33b3d355379fb51a67416"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e8bc0dbf9e33b3d355379fb51a67416">&#9670;&#160;</a></span>RotationCylinder() <span class="overload">[1/2]</span></h2>
+<a id="a4a14559353a95200e26e6fdd1b2c5373" name="a4a14559353a95200e26e6fdd1b2c5373"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a14559353a95200e26e6fdd1b2c5373">&#9670;&#160;</a></span>Cylinder() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,7 +301,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Pneumatics::RotationCylinder::RotationCylinder </td>
+          <td class="memname">Lib::Pneumatics::Cylinder::Cylinder </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../d4/d27/a05855.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
@@ -245,18 +314,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the cylinder name and output, and configures the rotation timing. </p>
+<p>Binds the cylinder name, off/on position sensors, and output, and configures timing parameters. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Name, rotation time, and output binding. </td></tr>
+    <tr><td class="paramname">config</td><td>Name, sensor wiring, output binding, and timing parameters. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a7c2b4110cef52e26a1699691fd9bd4fb" name="a7c2b4110cef52e26a1699691fd9bd4fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c2b4110cef52e26a1699691fd9bd4fb">&#9670;&#160;</a></span>RotationCylinder() <span class="overload">[2/2]</span></h2>
+<a id="a0cdf7a1264200218792c3ac743ebd3ee" name="a0cdf7a1264200218792c3ac743ebd3ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cdf7a1264200218792c3ac743ebd3ee">&#9670;&#160;</a></span>Cylinder() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,9 +334,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Pneumatics::RotationCylinder::RotationCylinder </td>
+          <td class="memname">Lib::Pneumatics::Cylinder::Cylinder </td>
           <td>(</td>
-          <td class="paramtype">const RotationCylinder &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const Cylinder &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -278,13 +347,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy construction is disabled; the cylinder is bound to a single output. </p>
+<p>Copy construction is disabled; the cylinder is bound to a single output and a pair of sensor inputs. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a8ca6acca72dbe8c542856371e956e058" name="a8ca6acca72dbe8c542856371e956e058"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ca6acca72dbe8c542856371e956e058">&#9670;&#160;</a></span>command()</h2>
+<a id="a3380b7e3e9cd1ad5d89182f78c7c2e10" name="a3380b7e3e9cd1ad5d89182f78c7c2e10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3380b7e3e9cd1ad5d89182f78c7c2e10">&#9670;&#160;</a></span>canClearError()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -293,9 +362,66 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Pneumatics::RotationCylinder::command </td>
+          <td class="memname">bool Lib::Pneumatics::Cylinder::canClearError </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a0b7ad8b7773fc15de07047754f3794f9">Command</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Indicates whether clearError() would currently succeed. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if an error is latched and the sensors confirm a settled position again. </dd></dl>
+
+</div>
+</div>
+<a id="aef222ad4de0b20041057d6cbb158da56" name="aef222ad4de0b20041057d6cbb158da56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef222ad4de0b20041057d6cbb158da56">&#9670;&#160;</a></span>clearError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Pneumatics::Cylinder::clearError </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears a latched error, returning to the unknown position so the next update() re-detects it from sensors. </p>
+<p>Refuses to clear while the condition that raised the error is still present.</p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the latched error was cleared. </dd></dl>
+
+</div>
+</div>
+<a id="a4da495987bbb4e5916779c867b023761" name="a4da495987bbb4e5916779c867b023761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da495987bbb4e5916779c867b023761">&#9670;&#160;</a></span>command()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Pneumatics::Cylinder::command </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ac6a1f18dc094880e53169a7e884cc0cf">Command</a></td>          <td class="paramname"><span class="paramname"><em>command</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -306,20 +432,20 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Requests the cylinder to rotate to the given position. </p>
-<p>A request already matching or in progress towards the target is accepted without restarting it. The output follows on the next update() call.</p>
+<p>Requests the cylinder to move to the given position. </p>
+<p>A request already matching or in progress towards the target is accepted without restarting it. A request issued in the error state clears the latched error and arms a new transition. The output follows on the next update() call.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">command</td><td>Requested rotation direction. </td></tr>
+    <tr><td class="paramname">command</td><td>Requested movement direction. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the command was accepted; currently every command is accepted. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the command was accepted; currently every command is accepted. </dd></dl>
 
 </div>
 </div>
-<a id="a480be139cc8704be72afb69d2456281f" name="a480be139cc8704be72afb69d2456281f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a480be139cc8704be72afb69d2456281f">&#9670;&#160;</a></span>getName()</h2>
+<a id="aabb2b9b76a6bd30cd4d5131f9590d1ea" name="aabb2b9b76a6bd30cd4d5131f9590d1ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabb2b9b76a6bd30cd4d5131f9590d1ea">&#9670;&#160;</a></span>getError()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -328,7 +454,35 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Pneumatics::RotationCylinder::getName </td>
+          <td class="memname"><a class="el" href="#a9e4cc2264975fb90820378e04641c518">Error</a> Lib::Pneumatics::Cylinder::getError </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the latched fault reason. </p>
+<dl class="section return"><dt>Returns</dt><dd>Latched error, or <a class="el" href="#a9e4cc2264975fb90820378e04641c518ab50339a10e1de285ac99d4c3990b8693" title="Error::NONE">Error::NONE</a> when no error is latched. </dd></dl>
+
+</div>
+</div>
+<a id="ac8f6f212de3f12f2462517ec4d946aff" name="ac8f6f212de3f12f2462517ec4d946aff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8f6f212de3f12f2462517ec4d946aff">&#9670;&#160;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Pneumatics::Cylinder::getName </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -346,8 +500,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aba16d8727149fd2debf8b51fff5438bd" name="aba16d8727149fd2debf8b51fff5438bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba16d8727149fd2debf8b51fff5438bd">&#9670;&#160;</a></span>getStatus()</h2>
+<a id="ae77dd637f0aa88053b8603aef39a1cd5" name="ae77dd637f0aa88053b8603aef39a1cd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae77dd637f0aa88053b8603aef39a1cd5">&#9670;&#160;</a></span>getStatus()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -356,7 +510,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a9f826713fcf7511db5c43ef6f27173af">Status</a> Lib::Pneumatics::RotationCylinder::getStatus </td>
+          <td class="memname"><a class="el" href="#a7273a3341799aff5527818d9cf88b2b3">Status</a> Lib::Pneumatics::Cylinder::getStatus </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -370,12 +524,12 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves the status derived by the last update() call. </p>
-<dl class="section return"><dt>Returns</dt><dd>Last cylinder status; <a class="el" href="#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412" title="Status::IN_MOTION">Status::IN_MOTION</a> before the first update(). </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Last cylinder status. </dd></dl>
 
 </div>
 </div>
-<a id="a90f1e56010dee19b0f66350351127712" name="a90f1e56010dee19b0f66350351127712"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90f1e56010dee19b0f66350351127712">&#9670;&#160;</a></span>isOff()</h2>
+<a id="a4f802a332f1c0e7364f5b50359abe6c0" name="a4f802a332f1c0e7364f5b50359abe6c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f802a332f1c0e7364f5b50359abe6c0">&#9670;&#160;</a></span>isOff()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -384,7 +538,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Pneumatics::RotationCylinder::isOff </td>
+          <td class="memname">bool Lib::Pneumatics::Cylinder::isOff </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -397,13 +551,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Indicates whether the cylinder is settled in the off position. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the last status is <a class="el" href="#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d" title="Status::IS_OFF">Status::IS_OFF</a>. </dd></dl>
+<p>Indicates whether the cylinder is confirmed in the off position. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the last status is <a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a5b47312014964c5843fdd0002c86e46d" title="Status::IS_OFF">Status::IS_OFF</a>. </dd></dl>
 
 </div>
 </div>
-<a id="a3dfd5b2cf18acd7457732541b4271d1a" name="a3dfd5b2cf18acd7457732541b4271d1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3dfd5b2cf18acd7457732541b4271d1a">&#9670;&#160;</a></span>isOn()</h2>
+<a id="a022b42d80b8a6250e056669900b6f3c2" name="a022b42d80b8a6250e056669900b6f3c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a022b42d80b8a6250e056669900b6f3c2">&#9670;&#160;</a></span>isOn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -412,7 +566,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Pneumatics::RotationCylinder::isOn </td>
+          <td class="memname">bool Lib::Pneumatics::Cylinder::isOn </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -425,13 +579,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Indicates whether the cylinder is settled in the on position. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the last status is <a class="el" href="#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b" title="Status::IS_ON">Status::IS_ON</a>. </dd></dl>
+<p>Indicates whether the cylinder is confirmed in the on position. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the last status is <a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a93829aa602d1d42d28fc6821d0e0083b" title="Status::IS_ON">Status::IS_ON</a>. </dd></dl>
 
 </div>
 </div>
-<a id="a44c71110f315e89203746b05fd4ab10a" name="a44c71110f315e89203746b05fd4ab10a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44c71110f315e89203746b05fd4ab10a">&#9670;&#160;</a></span>operator=()</h2>
+<a id="a600ee7c6b32fb9f0609c9a4056d053c5" name="a600ee7c6b32fb9f0609c9a4056d053c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a600ee7c6b32fb9f0609c9a4056d053c5">&#9670;&#160;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -440,9 +594,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a9e8bc0dbf9e33b3d355379fb51a67416">RotationCylinder</a> &amp; Lib::Pneumatics::RotationCylinder::operator= </td>
+          <td class="memname"><a class="el" href="#a4a14559353a95200e26e6fdd1b2c5373">Cylinder</a> &amp; Lib::Pneumatics::Cylinder::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a9e8bc0dbf9e33b3d355379fb51a67416">RotationCylinder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a4a14559353a95200e26e6fdd1b2c5373">Cylinder</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -453,13 +607,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is disabled; the cylinder is bound to a single output. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Copy assignment is disabled; the cylinder is bound to a single output and a pair of sensor inputs. </p>
 
 </div>
 </div>
-<a id="a659c7989f745a79aeecb1c24004acba6" name="a659c7989f745a79aeecb1c24004acba6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a659c7989f745a79aeecb1c24004acba6">&#9670;&#160;</a></span>setup()</h2>
+<a id="a5f7bd85024efefa8864d447204703865" name="a5f7bd85024efefa8864d447204703865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f7bd85024efefa8864d447204703865">&#9670;&#160;</a></span>setup()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -468,10 +621,14 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Pneumatics::RotationCylinder::setup </td>
+          <td class="memname">void Lib::Pneumatics::Cylinder::setup </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>rotateTime</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>sensorCalmingTime</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>switchTimeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -481,19 +638,20 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reconfigures the rotation time. </p>
-<p>Does not reset the current position or in-progress transition; a changed 'rotateTime' only takes effect on the next transition armed by command().</p>
+<p>Reconfigures the sensor debounce and switch-timeout durations. </p>
+<p>Does not reset the current position, in-progress transition, or latched error; a changed 'switchTimeout' only takes effect on the next transition armed by command().</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rotateTime</td><td>Time to fully rotate between positions. </td></tr>
+    <tr><td class="paramname">sensorCalmingTime</td><td>Sensor debounce settling time after reaching a position. </td></tr>
+    <tr><td class="paramname">switchTimeout</td><td>Maximum allowed transition time between positions. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="afcafcbf63c5703cb97f68a8496510b3b" name="afcafcbf63c5703cb97f68a8496510b3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcafcbf63c5703cb97f68a8496510b3b">&#9670;&#160;</a></span>update()</h2>
+<a id="adf02fbd43f1b7d0e8bbd5222bf46f8a7" name="adf02fbd43f1b7d0e8bbd5222bf46f8a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf02fbd43f1b7d0e8bbd5222bf46f8a7">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -502,7 +660,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a9f826713fcf7511db5c43ef6f27173af">Status</a> Lib::Pneumatics::RotationCylinder::update </td>
+          <td class="memname"><a class="el" href="#a7273a3341799aff5527818d9cf88b2b3">Status</a> Lib::Pneumatics::Cylinder::update </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -515,9 +673,27 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Advances the internal state machine from elapsed time and applies the resulting output level. </p>
-<p>Must be polled periodically.</p>
+<p>Advances the internal state machine from the current sensor readings and applies the resulting output level. </p>
+<p>Must be polled periodically. Raises <a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a08d9808c0d90af039e7ccffc802e5232" title="Status::IS_ERROR">Status::IS_ERROR</a> on an uncommanded position loss or a switch-timeout; the output then holds its last level until command() or clearError() leaves the error state.</p>
 <dl class="section return"><dt>Returns</dt><dd>Current cylinder status. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ac7f6d7a7759ce31dd9914dcb444cb0de" name="ac7f6d7a7759ce31dd9914dcb444cb0de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7f6d7a7759ce31dd9914dcb444cb0de">&#9670;&#160;</a></span>onError</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/d2e/a04831.html">FunctionRef</a>&lt;void(<a class="el" href="#a9e4cc2264975fb90820378e04641c518">Error</a>)&gt; Lib::Pneumatics::Cylinder::onError</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Invoked once from update() when a new error is latched, with the fault reason. </p>
+<p>Non-owning: the bound callable must outlive the cylinder, so bind a named object, not a temporary lambda. </p>
 
 </div>
 </div>

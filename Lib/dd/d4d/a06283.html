@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::SemaphoreCounting</title>
+<title>IAR EWARM Library: RTOS::Semaphore</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -90,56 +92,66 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::SemaphoreCounting</div></div>
+  <div class="headertitle"><div class="title">RTOS::Semaphore</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows limiting concurrent access to a pool of resources with an <a class="el" href="../../dd/d4d/a06283.html" title="RTOS::SemaphoreCounting">RTOS::SemaphoreCounting</a>.</p>
-<p>Shows limiting concurrent access to a pool of resources with an RTOS::SemaphoreCounting.Covers a pool of three buffers guarded by a counting semaphore: a task takes a slot before using a buffer and gives it back afterwards. <a class="el" href="../../d1/de1/a05950.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> and <a class="el" href="../../d1/de1/a05950.html#a5682e0c5d8eb6b2076978634963b4020" title="RTOS::SemaphoreBase::give()">RTOS::SemaphoreBase::give()</a> are task-context only; FromISR variants exist for interrupt handlers.</p>
-<h1 class="doxsection"><a class="anchor" id="rtos_semaphorecounting_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="semaphore_counting_usage_pool"></a>
-Buffer pool</h2>
-<p>The constructor takes the maximum count and the initial count, so both are 3 here: all slots are free at start.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd1/a00914.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
+<p>Shows signalling between a task and an ISR with a binary <a class="el" href="../../dd/d4d/a06283.html" title="RTOS::Semaphore">RTOS::Semaphore</a>.</p>
+<p>Shows signalling between a task and an ISR with a binary <a class="el" href="../../dd/d4d/a06283.html" title="RTOS::Semaphore">RTOS::Semaphore</a>. Covers opening the semaphore, a task waiting for an event with a timeout, and an interrupt handler that gives the semaphore from ISR context. <a class="el" href="../../dd/d7b/a05939.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> and <a class="el" href="../../dd/d7b/a05939.html#a5682e0c5d8eb6b2076978634963b4020" title="RTOS::SemaphoreBase::give()">RTOS::SemaphoreBase::give()</a> assert when called from an ISR, so the handler uses the FromISR variant.</p>
+<dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="../../d3/d01/a05935.html#a4f3a14ce62c98f7ce5520ce3e91b2322" title="RTOS::Semaphore::open()">RTOS::Semaphore::open()</a> from task context before the interrupt is enabled.</dd></dl>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="semaphore_usage_open"></a>
+Creating the semaphore</h3>
+<p>The semaphore is created empty (taken), so the first <a class="el" href="../../dd/d7b/a05939.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> blocks until the ISR gives it.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d38/a00926.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/d23/a05954.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d3/d01/a05935.html">RTOS::Semaphore</a> dataReady;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> openPool() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> bufferPool.open();</div>
+<div class="line"><span class="keywordtype">bool</span> createDataReady() noexcept {</div>
+<div class="line">    <span class="keywordflow">return</span> dataReady.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d3/d01/a05935.html#a4f3a14ce62c98f7ce5520ce3e91b2322">open</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00914_html"><div class="ttname"><a href="../../d3/dd1/a00914.html">SemaphoreCounting.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS counting semaphores.</div></div>
-<div class="ttc" id="aa05954_html"><div class="ttname"><a href="../../d9/d23/a05954.html">RTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting semaphore resource manager for tracking multiple resource instances or queued events.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:38</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="semaphore_counting_usage_take"></a>
-Taking and returning a slot</h2>
-<p><a class="el" href="../../d1/de1/a05950.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> with an <a class="el" href="../../db/de0/a06293.html" title="RTOS::Timeout">RTOS::Timeout</a> returns <b>false</b> when every slot stays busy for the whole window.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd1/a00914.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="ttc" id="aa00926_html"><div class="ttname"><a href="../../d8/d38/a00926.html">Semaphore.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS binary semaphores.</div></div>
+<div class="ttc" id="aa05935_html"><div class="ttname"><a href="../../d3/d01/a05935.html">RTOS::Semaphore</a></div><div class="ttdoc">Binary semaphore resource manager for task and ISR synchronization.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:44</div></div>
+<div class="ttc" id="aa05935_html_a4f3a14ce62c98f7ce5520ce3e91b2322"><div class="ttname"><a href="../../d3/d01/a05935.html#a4f3a14ce62c98f7ce5520ce3e91b2322">RTOS::Semaphore::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Allocates the native FreeRTOS binary semaphore handle, if not already open.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:117</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="semaphore_usage_isr"></a>
+Signalling from the interrupt</h3>
+<p>The handler runs in ISR context, so it calls the <a class="el" href="../../dd/d7b/a05939.html#aa210564f44d72420fb519ca27f12d9a1" title="RTOS::SemaphoreBase::giveFromISR()">RTOS::SemaphoreBase::giveFromISR()</a> variant, which requests the context switch itself.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d38/a00926.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../d9/d23/a05954.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
+<div class="line">    <a class="code hl_class" href="../../d3/d01/a05935.html">RTOS::Semaphore</a> dataReady;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> workerTask(<span class="keywordtype">void</span> * parameters) {</div>
+<div class="line"><span class="keywordtype">void</span> EXTI_DataReady_Callback() noexcept {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dataReady.giveFromISR());</div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="semaphore_usage_task"></a>
+Waiting in a task</h3>
+<p><a class="el" href="../../d3/d01/a05935.html#a4a7b4e66593bcbcf465ddf9458cee540" title="RTOS::Semaphore::takeMs()">RTOS::Semaphore::takeMs()</a> returns <em class="arg">false</em> when no event arrives within the timeout.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d38/a00926.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a class="code hl_class" href="../../d3/d01/a05935.html">RTOS::Semaphore</a> dataReady;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> consumerTask(<span class="keywordtype">void</span> * parameters) {</div>
 <div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!bufferPool.open()) {</div>
+<div class="line">    <span class="keywordflow">if</span> (!dataReady.open()) {</div>
 <div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (bufferPool.take(<a id="_a1" name="_a1"></a><a class="code hl_class" href="../../dd/d5d/a05998.html">RTOS::Timeout</a>(20ms))) {</div>
-<div class="line">        <span class="comment">// One of the three buffers is reserved for this task.</span></div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(bufferPool.give());</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// All buffers were busy for 20 ms.</span></div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="keywordflow">if</span> (dataReady.takeMs(100U)) {</div>
+<div class="line">            <span class="comment">// New data available.</span></div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="comment">// No event within 100 ms.</span></div>
+<div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa05998_html"><div class="ttname"><a href="../../dd/d5d/a05998.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:33</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
