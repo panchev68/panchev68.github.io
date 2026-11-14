@@ -155,7 +155,6 @@ var searchData=
   ['system_20clock_20source_152',['System Clock Source',['https://panchev68.github.io/HALF4/df/dbc/a00931.html',1,'']]],
   ['system_20clock_20source_20status_153',['System Clock Source Status',['https://panchev68.github.io/HALF4/d8/dbb/a00932.html',1,'']]],
   ['system_20clock_20type_154',['System Clock Type',['https://panchev68.github.io/HALF4/d7/d16/a00930.html',1,'']]],
-  ['system_20layer_155',['System Layer',['https://panchev68.github.io/Lib/d4/d21/a00987.html',1,'']]],
-  ['systick_156',['SYSTICK',['https://panchev68.github.io/HALF4/d0/d5a/a01199.html',1,'']]],
-  ['systick_20clock_20source_157',['SYSTICK Clock Source',['https://panchev68.github.io/HALF4/d2/d22/a01196.html',1,'']]]
+  ['systick_155',['SYSTICK',['https://panchev68.github.io/HALF4/d0/d5a/a01199.html',1,'']]],
+  ['systick_20clock_20source_156',['SYSTICK Clock Source',['https://panchev68.github.io/HALF4/d2/d22/a01196.html',1,'']]]
 ];

@@ -103,12 +103,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">Lib::BSP::DeviceManager::DeviceBase</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Base class for a device managed by the <a class="el" href="../../df/d59/a04343.html" title="DeviceManager">DeviceManager</a>, dispatched through FunctionRef callbacks instead of virtual calls.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Base class for a device managed by the <a class="el" href="../../df/d59/a04343.html" title="DeviceManager">DeviceManager</a>, dispatched through FunctionRef callbacks instead of virtual calls. </p>
-<p>A derived device is added to the registry on construction and removed from it on destruction, so it never has to manage its own registration. Dispatch to the concrete device is resolved once, at construction, into two <a class="el" href="../../d6/d6f/a04819.html" title="FunctionRef">FunctionRef</a> callbacks bound to the derived type's own <a class="el" href="#af06fe39cba15bd187e05a7593e41d35a" title="setup()">setup()</a> and 'handleTickEvent()'; this keeps the registry's <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html" title="std::vector">std::vector</a> homogeneous without a vtable. The derived type must grant <a class="el" href="../../d2/d4f/a04347.html" title="DeviceBase">DeviceBase</a> friendship when either method is not public. </p>
+<div class="textblock"><p>Base class for a device managed by <a class="el" href="../../df/d59/a04343.html" title="DeviceManager">DeviceManager</a>, dispatched through FunctionRef callbacks instead of virtual calls. </p>
+<p>A derived device registers itself on construction and unregisters on destruction. Its own setup() and <em class="arg">handleTickEvent()</em> are bound once, at construction, into two <a class="el" href="../../d6/d6f/a04819.html" title="FunctionRef">FunctionRef</a> callbacks. This keeps the registry's <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html" title="std::vector">std::vector</a> homogeneous without a vtable. The derived type must grant <a class="el" href="../../d2/d4f/a04347.html" title="DeviceBase">DeviceBase</a> friendship when either method is not public. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -118,9 +115,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad118d56861bbb2fd093bb2ff40ca82a8" id="r_ad118d56861bbb2fd093bb2ff40ca82a8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad118d56861bbb2fd093bb2ff40ca82a8">~DeviceBase</a> () noexcept</td></tr>
 <tr class="memdesc:ad118d56861bbb2fd093bb2ff40ca82a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters this device from the <a class="el" href="../../df/d59/a04343.html" title="DeviceManager">DeviceManager</a> registry.  <br /></td></tr>
 <tr class="memitem:af06fe39cba15bd187e05a7593e41d35a" id="r_af06fe39cba15bd187e05a7593e41d35a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af06fe39cba15bd187e05a7593e41d35a">setup</a> () noexcept</td></tr>
-<tr class="memdesc:af06fe39cba15bd187e05a7593e41d35a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs device-specific initialization by forwarding to 'T_DERIVED::setup()'.  <br /></td></tr>
+<tr class="memdesc:af06fe39cba15bd187e05a7593e41d35a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs device-specific initialization by forwarding to the derived class's setup().  <br /></td></tr>
 <tr class="memitem:a3a024a69ffe1d880ec5fedbf8428726a" id="r_a3a024a69ffe1d880ec5fedbf8428726a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3a024a69ffe1d880ec5fedbf8428726a">handleTickEvent</a> () noexcept</td></tr>
-<tr class="memdesc:a3a024a69ffe1d880ec5fedbf8428726a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a periodic tick by forwarding to 'T_DERIVED::handleTickEvent()'.  <br /></td></tr>
+<tr class="memdesc:a3a024a69ffe1d880ec5fedbf8428726a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a periodic tick by forwarding to the derived class's <em class="arg">handleTickEvent()</em>.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -162,7 +159,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">self</td><td>Concrete device instance; always the object under construction, passed as 'this'. </td></tr>
+    <tr><td class="paramname">self</td><td>Concrete device instance; always the object under construction, passed as <em class="arg">this</em>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -220,7 +217,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Handles a periodic tick by forwarding to 'T_DERIVED::handleTickEvent()'. </p>
+<p>Handles a periodic tick by forwarding to the derived class's <em class="arg">handleTickEvent()</em>. </p>
 
 </div>
 </div>
@@ -275,7 +272,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Performs device-specific initialization by forwarding to 'T_DERIVED::setup()'. </p>
+<p>Performs device-specific initialization by forwarding to the derived class's setup(). </p>
 <p>Called once by <a class="el" href="../../df/d59/a04343.html#a38ac04455caa48c44920c4fea381147d" title="DeviceManager::setup()">DeviceManager::setup()</a>. </p>
 
 </div>

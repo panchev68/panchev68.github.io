@@ -104,12 +104,10 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">Lib::Canbus::ServiceBase<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Base class for CAN bus services.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Base class for CAN bus services. </p>
-<p>Provides initialization, message transmission/reception, diagnostics, and error handling for CAN services in embedded RTOS environments. Owns an interrupt-driven <a class="el" href="../../d4/de0/a06170.html" title="Lib::HAL::CANPort">Lib::HAL::CANPort</a> and a background task that pumps its RX FIFOs and error events into <a class="el" href="#abe37221a89d42b0ec836894d481128b4" title="messageReceivedCallback()">/@ref</a> errorCallback(), since the HAL port itself only exposes a wait-then-poll event interface, not a push callback. </p>
+<p>Owns an interrupt-driven <a class="el" href="../../d4/de0/a06170.html" title="Lib::HAL::CANPort">Lib::HAL::CANPort</a> and two RTOS tasks: the derived service's <a class="el" href="#a3f461c3e0f637c2be89463249c736b46" title="taskFn()">taskFn()</a> and an RX pump. The pump drains the RX FIFOs and error events into <a class="el" href="#abe37221a89d42b0ec836894d481128b4" title="messageReceivedCallback()">messageReceivedCallback()</a> and <a class="el" href="#aae6dd52724c824bca7f3a535ba9449d0" title="errorCallback()">errorCallback()</a>, because the HAL port only exposes a wait-then-poll event interface, not a push callback.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Canbus/ServiceBase.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -125,20 +123,21 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:acbfceb92cefef5281785b7d5db81df5d" id="r_acbfceb92cefef5281785b7d5db81df5d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acbfceb92cefef5281785b7d5db81df5d">ServiceBase</a> (CAN_HandleTypeDef *handle)</td></tr>
 <tr class="memdesc:acbfceb92cefef5281785b7d5db81df5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the service to a CAN hardware handle without opening the port yet.  <br /></td></tr>
 <tr class="memitem:a6594894f460fcebe7b8705a3ebca6938" id="r_a6594894f460fcebe7b8705a3ebca6938"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#a6594894f460fcebe7b8705a3ebca6938">~ServiceBase</a> ()=default</td></tr>
+<tr class="memdesc:a6594894f460fcebe7b8705a3ebca6938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the service; a derived class must call <a class="el" href="#a3d0252842f197249fff9649618458fee" title="stop()">stop()</a> first while its members are alive.  <br /></td></tr>
 <tr class="memitem:a8d6e7286a93e0c3ef9d72b187747aaf5" id="r_a8d6e7286a93e0c3ef9d72b187747aaf5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8d6e7286a93e0c3ef9d72b187747aaf5">start</a> (uint8_t nodeId)</td></tr>
-<tr class="memdesc:a8d6e7286a93e0c3ef9d72b187747aaf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the service.  <br /></td></tr>
+<tr class="memdesc:a8d6e7286a93e0c3ef9d72b187747aaf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the service.  <br /></td></tr>
 <tr class="memitem:a3d0252842f197249fff9649618458fee" id="r_a3d0252842f197249fff9649618458fee"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a3d0252842f197249fff9649618458fee">stop</a> ()</td></tr>
-<tr class="memdesc:a3d0252842f197249fff9649618458fee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the service.  <br /></td></tr>
+<tr class="memdesc:a3d0252842f197249fff9649618458fee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the service.  <br /></td></tr>
 <tr class="memitem:a24358bc730156fbe1517606352fbf513" id="r_a24358bc730156fbe1517606352fbf513"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a24358bc730156fbe1517606352fbf513">receive</a> (<a class="el" href="../../df/d9b/a04755.html">RxMessage</a> &amp;message, uint32_t timeout)</td></tr>
-<tr class="memdesc:a24358bc730156fbe1517606352fbf513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a CAN message.  <br /></td></tr>
+<tr class="memdesc:a24358bc730156fbe1517606352fbf513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a CAN message from the RX queue.  <br /></td></tr>
 <tr class="memitem:ae9698dff358c5494704ad558fcf82d22" id="r_ae9698dff358c5494704ad558fcf82d22"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae9698dff358c5494704ad558fcf82d22">send</a> (uint8_t destId, uint32_t timeout=<a class="el" href="#ab0f726297aa192065e4552a8878e523d">SEND_TIMEOUT</a>)</td></tr>
-<tr class="memdesc:ae9698dff358c5494704ad558fcf82d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an empty message.  <br /></td></tr>
+<tr class="memdesc:ae9698dff358c5494704ad558fcf82d22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an empty message.  <br /></td></tr>
 <tr class="memitem:a9e61e58322c0a574320d57ad9da13966" id="r_a9e61e58322c0a574320d57ad9da13966"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9e61e58322c0a574320d57ad9da13966">send</a> (uint8_t destId, const void *buffer, size_t length, uint32_t timeout=<a class="el" href="#ab0f726297aa192065e4552a8878e523d">SEND_TIMEOUT</a>)</td></tr>
-<tr class="memdesc:a9e61e58322c0a574320d57ad9da13966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message with data.  <br /></td></tr>
+<tr class="memdesc:a9e61e58322c0a574320d57ad9da13966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message with data.  <br /></td></tr>
 <tr class="memitem:a26cd3541d7c850c5151fe7281e917a94" id="r_a26cd3541d7c850c5151fe7281e917a94"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a26cd3541d7c850c5151fe7281e917a94">send</a> (uint8_t destId, uint64_t value, uint32_t timeout=<a class="el" href="#ab0f726297aa192065e4552a8878e523d">SEND_TIMEOUT</a>)</td></tr>
-<tr class="memdesc:a26cd3541d7c850c5151fe7281e917a94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a 64-bit value.  <br /></td></tr>
+<tr class="memdesc:a26cd3541d7c850c5151fe7281e917a94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a 64-bit value.  <br /></td></tr>
 <tr class="memitem:aa6e2069cd0ca82608d533788d367dddf" id="r_aa6e2069cd0ca82608d533788d367dddf"><td class="memItemLeft">virtual const <a class="el" href="../../de/d5f/a04763.html">Diagnostic</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa6e2069cd0ca82608d533788d367dddf">getDiagnostic</a> () const</td></tr>
-<tr class="memdesc:aa6e2069cd0ca82608d533788d367dddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get diagnostic information.  <br /></td></tr>
+<tr class="memdesc:aa6e2069cd0ca82608d533788d367dddf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the diagnostic information.  <br /></td></tr>
 <tr class="memitem:abe37221a89d42b0ec836894d481128b4" id="r_abe37221a89d42b0ec836894d481128b4"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#abe37221a89d42b0ec836894d481128b4">messageReceivedCallback</a> (const <a class="el" href="../../df/d9b/a04755.html">RxMessage</a> &amp;message)</td></tr>
 <tr class="memdesc:abe37221a89d42b0ec836894d481128b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback invoked when a message is received.  <br /></td></tr>
 <tr class="memitem:aae6dd52724c824bca7f3a535ba9449d0" id="r_aae6dd52724c824bca7f3a535ba9449d0"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aae6dd52724c824bca7f3a535ba9449d0">errorCallback</a> (uint32_t errorCode)</td></tr>
@@ -210,6 +209,8 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Destroys the service; a derived class must call <a class="el" href="#a3d0252842f197249fff9649618458fee" title="stop()">stop()</a> first while its members are alive. </p>
+
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
@@ -239,7 +240,7 @@ Static Protected Attributes</h2></td></tr>
 <p>Callback invoked when a CAN error occurs. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">errorCode</td><td>error code from the CAN peripheral. </td></tr>
+    <tr><td class="paramname">errorCode</td><td>Error code from the CAN peripheral. </td></tr>
   </table>
   </dd>
 </dl>
@@ -271,8 +272,8 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get diagnostic information. </p>
-<dl class="section return"><dt>Returns</dt><dd>reference to diagnostic data. </dd></dl>
+<p>Gets the diagnostic information. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the diagnostic data. </dd></dl>
 
 <p>Reimplemented in <a class="el" href="../../dd/d07/a04743.html#ac4f24cab5af43338c4feec4e384ec00b">Lib::Canbus::Service&lt; Mode::CLIENT &gt;</a>, and <a class="el" href="../../d7/d1c/a04747.html#a568458f9461115a1ea8f443f2dfde355">Lib::Canbus::Service&lt; Mode::SERVER &gt;</a>.</p>
 
@@ -340,11 +341,11 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Receive a CAN message. </p>
+<p>Receives a CAN message from the RX queue. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>reference to the received message. </td></tr>
-    <tr><td class="paramname">timeout</td><td>timeout in milliseconds. </td></tr>
+    <tr><td class="paramname">message</td><td>Receives the message on success. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout in milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
@@ -389,7 +390,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Send a message with data. </p>
+<p>Sends a message with data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">destId</td><td>destination node ID, used directly as the CAN arbitration identifier. </td></tr>
@@ -430,11 +431,11 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Send an empty message. </p>
+<p>Sends an empty message. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">destId</td><td>destination node ID. </td></tr>
-    <tr><td class="paramname">timeout</td><td>timeout in milliseconds. </td></tr>
+    <tr><td class="paramname">destId</td><td>Destination node ID. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout in milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
@@ -474,7 +475,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Send a 64-bit value. </p>
+<p>Sends a 64-bit value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">destId</td><td>destination node ID. </td></tr>
@@ -510,8 +511,8 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Start the service. </p>
-<p>Configures the hardware to accept every frame (this module addresses nodes by arbitration identifier in software, not by hardware filtering), opens the CAN port, and starts the RX pump and RTOS task.</p>
+<p>Starts the service. </p>
+<p>Configures the hardware to accept every frame (nodes are addressed by arbitration identifier in software, not by hardware filtering), opens the CAN port, and starts the RX pump and RTOS task.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nodeId</td><td>unique node ID in the CAN network. </td></tr>
@@ -545,7 +546,7 @@ Static Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stop the service. </p>
+<p>Stops the service. </p>
 <p>Stops the RTOS task and RX pump, then closes the CAN port.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful, <b>false</b> otherwise. </dd></dl>
 

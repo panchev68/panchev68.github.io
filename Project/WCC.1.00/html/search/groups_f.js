@@ -45,13 +45,12 @@ var searchData=
   ['mode_20selection_42',['TIM Master Mode Selection',['https://panchev68.github.io/HALF4/db/d1e/a01126.html',1,'']]],
   ['mode_20state_43',['mode state',['https://panchev68.github.io/HALF4/dd/de4/a01121.html',1,'TIM OSSI OffState Selection for Idle mode state'],['https://panchev68.github.io/HALF4/dc/d51/a01120.html',1,'TIM OSSR OffState Selection for Run mode state']]],
   ['mode_20structure_20definition_44',['HAL mode structure definition',['https://panchev68.github.io/HALF4/df/de8/a00839.html',1,'']]],
-  ['models_45',['Models',['https://panchev68.github.io/Lib/dd/d7a/a00990.html',1,'']]],
-  ['modes_46',['TIM Output Compare and PWM Modes',['https://panchev68.github.io/HALF4/d9/d17/a01129.html',1,'']]],
-  ['month_20date_20definitions_20in_20bcd_20format_47',['RTC Month Date Definitions (in BCD format)',['https://panchev68.github.io/HALF4/d6/d48/a00988.html',1,'']]],
-  ['msb_20lsb_20transmission_48',['SPI MSB LSB Transmission',['https://panchev68.github.io/HALF4/db/dba/a01078.html',1,'']]],
-  ['msp_49',['HAL MSP',['https://panchev68.github.io/HALF4/d3/d0b/a01253.html',1,'']]],
-  ['msp_20private_20functions_50',['HAL MSP Private Functions',['https://panchev68.github.io/HALF4/dc/d83/a01254.html',1,'']]],
-  ['multi_20mode_51',['ADC Direct Memory Access Mode For Multi Mode',['https://panchev68.github.io/HALF4/d1/d56/a00707.html',1,'']]],
-  ['mutating_52',['Mutating',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01626.html',1,'Mutating'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html',1,'Non-Mutating']]],
-  ['mutexes_53',['Mutexes',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01641.html',1,'']]]
+  ['modes_45',['TIM Output Compare and PWM Modes',['https://panchev68.github.io/HALF4/d9/d17/a01129.html',1,'']]],
+  ['month_20date_20definitions_20in_20bcd_20format_46',['RTC Month Date Definitions (in BCD format)',['https://panchev68.github.io/HALF4/d6/d48/a00988.html',1,'']]],
+  ['msb_20lsb_20transmission_47',['SPI MSB LSB Transmission',['https://panchev68.github.io/HALF4/db/dba/a01078.html',1,'']]],
+  ['msp_48',['HAL MSP',['https://panchev68.github.io/HALF4/d3/d0b/a01253.html',1,'']]],
+  ['msp_20private_20functions_49',['HAL MSP Private Functions',['https://panchev68.github.io/HALF4/dc/d83/a01254.html',1,'']]],
+  ['multi_20mode_50',['ADC Direct Memory Access Mode For Multi Mode',['https://panchev68.github.io/HALF4/d1/d56/a00707.html',1,'']]],
+  ['mutating_51',['Mutating',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01626.html',1,'Mutating'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html',1,'Non-Mutating']]],
+  ['mutexes_52',['Mutexes',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01641.html',1,'']]]
 ];

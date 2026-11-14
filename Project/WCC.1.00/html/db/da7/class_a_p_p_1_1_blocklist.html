@@ -115,17 +115,12 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Flash-backed card number blocklist singleton. </p>
-<p>The list is an append-only log of 8-byte slots in a reserved flash region, so adding and removing a number never needs an erase:</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Word  </th><th class="markdownTableHeadNone">Erased  </th><th class="markdownTableHeadNone">Active  </th><th class="markdownTableHeadNone">Removed  </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">0  </td><td class="markdownTableBodyNone">0xFFFFFFFF  </td><td class="markdownTableBodyNone">card number  </td><td class="markdownTableBodyNone">card number  </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">1  </td><td class="markdownTableBodyNone">0xFFFFFFFF  </td><td class="markdownTableBodyNone">0x5A5A5A5A  </td><td class="markdownTableBodyNone">0x00000000  </td></tr>
-</table>
+<p>The list is an append-only log of 8-byte slots in a reserved flash region, so adding and removing a number never needs an erase. Word 0 of a slot holds the card number; word 1 is the state: 0xFFFFFFFF when erased, 0x5A5A5A5A when the number is blocked and 0x00000000 when it was removed again.</p>
 <p>Removal only clears bits of word 1, which NOR flash allows without erasing. A slot interrupted by a power loss is neither erased nor active and is skipped. Only <a class="el" href="#aa0728beab8a6e8fa5db984b45aa21a7e" title="clear()">clear()</a> erases the region; a full region rejects further adds until then. <a class="el" href="#aa0728beab8a6e8fa5db984b45aa21a7e" title="clear()">clear()</a> itself can be interrupted (e.g. a brown-out mid-erase, up to several seconds): <a class="el" href="#a24514e9e781fcce6136b21ee067d94f6" title="open()">open()</a> does not assume the first erased slot marks the end of the log, so a later un-erased sector still reporting an active number is never silently dropped from the index; <a class="el" href="#aa0728beab8a6e8fa5db984b45aa21a7e" title="clear()">clear()</a> stays callable after a failed attempt so the caller can simply retry it to finish erasing.</p>
-<p><a class="el" href="#a24514e9e781fcce6136b21ee067d94f6" title="open()">open()</a> reads the region once into a sorted RAM index (number and slot), so <a class="el" href="#ab5bee847e25d9f4179f8ccb9c4c7954a" title="contains()">contains()</a> never touches the flash and <a class="el" href="#adf2afa3b063bf43ae5596641fe1eb799" title="add()">add()</a> / <a class="el" href="#ae247c763edcda6351a57ec9ea1e900d7" title="remove()">remove()</a> each program one slot. </p>
+<p><a class="el" href="#a24514e9e781fcce6136b21ee067d94f6" title="open()">open()</a> reads the region once into a sorted RAM index (number and slot), so <a class="el" href="#ab5bee847e25d9f4179f8ccb9c4c7954a" title="contains()">contains()</a> never touches the flash and <a class="el" href="#adf2afa3b063bf43ae5596641fe1eb799" title="add()">add()</a> / <a class="el" href="#ae247c763edcda6351a57ec9ea1e900d7" title="remove()">remove()</a> each program one slot.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/StorageManager/doc/Blocklist.md">Detail Description</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/StorageManager/Blocklist.cpp">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>

@@ -102,7 +102,7 @@ var searchData=
   ['apb2_20peripheral_20low_20power_20enable_20disable_99',['APB2 Peripheral Low Power Enable Disable',['https://panchev68.github.io/HALF4/d5/da3/a00953.html',1,'']]],
   ['api_20alias_100',['HASH API alias',['https://panchev68.github.io/HALF4/d5/de3/a00631.html',1,'']]],
   ['api_20aliases_101',['CRC API aliases',['https://panchev68.github.io/HALF4/d8/de9/a00595.html',1,'']]],
-  ['application_20layer_102',['Application Layer',['../d6/dc5/group___a_p_p.html',1,'Application Layer'],['https://panchev68.github.io/Lib/d3/d7b/a00986.html',1,'Data Application Layer']]],
+  ['application_20layer_102',['Application Layer',['../d6/dc5/group___a_p_p.html',1,'']]],
   ['application_20tests_103',['Application Tests',['../d8/d14/group___t_e_s_t.html',1,'']]],
   ['arithmetic_104',['Arithmetic',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01657.html',1,'Decimal Floating-Point Arithmetic'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01620.html',1,'Rational Arithmetic']]],
   ['arithmetic_20function_20object_20classes_105',['Arithmetic Function Object Classes',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01643.html',1,'']]],

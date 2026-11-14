@@ -114,15 +114,18 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Startup hardware check singleton. </p>
-<p>Checks flash, both INA219 power monitors, TMP102, DS18B20, ST25R100 and PGA460. A device that does not answer does not stop the boot; it is beeped once (see <a class="el" href="#ab5d75a7112346b4dd19c2cbdce8fd148" title="indicate()">indicate()</a>) and reported to the ESP32 as a bit of <a class="el" href="../../d6/dc5/group___a_p_p.html#gab7dddd440070a1dbdfec9cb40c01c43a" title="Commands::DeviceFault">Commands::DeviceFault</a> in 'STATUS_RESPONSE'.</p>
+<p>Checks flash, both INA219 power monitors, TMP102, DS18B20, ST25R100 and PGA460. A device that does not answer does not stop the boot; it is beeped once (see <a class="el" href="#ab5d75a7112346b4dd19c2cbdce8fd148" title="indicate()">indicate()</a>) and reported to the ESP32 as a bit of <a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#ab7dddd440070a1dbdfec9cb40c01c43a" title="Commands::DeviceFault">Commands::DeviceFault</a> in 'STATUS_RESPONSE'.</p>
 <p><a class="el" href="#a3ba0b420dcad65fef592b6bc8a6e06a0" title="startRuntimeDiagnostics()">startRuntimeDiagnostics()</a> re-checks every <b>Impl::RUNTIME_CHECK_PERIOD</b> (5 min) after that, without disturbing the modules that now own most of the hardware: the flash is re-probed directly (the only check that is mutex-serialized against concurrent callers), while the INA219/TMP102, the ST25R100 and the PGA460 instead mirror the already-published health of <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>, <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html" title="APP::RFID">APP::RFID</a> and <a class="el" href="../../d7/dc4/class_a_p_p_1_1_distance_meter.html" title="APP::DistanceMeter">APP::DistanceMeter</a> (and the DS18B20 that of <a class="el" href="../../d6/d63/class_a_p_p_1_1_external_thermometer.html" title="APP::ExternalThermometer">APP::ExternalThermometer</a>), so no second, independent transaction races the one already running on that bus. A device whose owning module is disabled (see 'APP::Application::ENABLE_*') simply keeps its last known status instead of being re-evaluated.</p>
 <p>The controller normally stays powered continuously, so the one-time <a class="el" href="#a7a5356423fdf2fbe9e447492babaee54" title="run()">run()</a> at start-up only happens again after an actual reset/power cycle; <a class="el" href="../../db/d62/class_a_p_p_1_1_application.html#ac8aaa5e820b063c819fb8a96a42dc064" title="APP::Application::ENABLE_RUNTIME_DIAGNOSTICS">APP::Application::ENABLE_RUNTIME_DIAGNOSTICS</a> (independent of <a class="el" href="../../db/d62/class_a_p_p_1_1_application.html#a2d207c42bb27130963db5abe468da539" title="APP::Application::ENABLE_STARTUP_DIAGNOSTICS">APP::Application::ENABLE_STARTUP_DIAGNOSTICS</a>) is what keeps <a class="el" href="#ac1f67f20b561e873a1956a9c2385b1b9" title="getFaultMask()">getFaultMask()</a> an up-to-date, ongoing signal in between.</p>
-<p>The state and the private checks live in an <b>Impl</b> defined in 'Diagnostics.cpp'. </p>
+<p>The state and the private checks live in an <b>Impl</b> defined in 'Diagnostics.cpp'.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/doc/Diagnostics.md">Detail Description</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/Diagnostics.cpp">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Report" id="r_Report"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html">Report</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outcome of one device check each; <a class="el" href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html#a890530176d6a46bd9131014625dfae1c" title="isAllOk()">isAllOk()</a> folds them into one flag.  <a href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outcome of each device check; <a class="el" href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html#a890530176d6a46bd9131014625dfae1c" title="isAllOk()">isAllOk()</a> folds them into one flag.  <a href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -167,7 +170,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the fault mask reported to the ESP32 in 'STATUS_RESPONSE'. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d6/dc5/group___a_p_p.html#gab7dddd440070a1dbdfec9cb40c01c43a" title="Commands::DeviceFault">Commands::DeviceFault</a> bits of every device that failed the last <a class="el" href="#a7a5356423fdf2fbe9e447492babaee54" title="run()">run()</a>; 0 if all passed or before the first run. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#ab7dddd440070a1dbdfec9cb40c01c43a" title="Commands::DeviceFault">Commands::DeviceFault</a> bits of every device that failed the last <a class="el" href="#a7a5356423fdf2fbe9e447492babaee54" title="run()">run()</a>; <b>0</b> if all passed or before the first run. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#ac1f67f20b561e873a1956a9c2385b1b9">getFaultMask()</a>.</p>
 

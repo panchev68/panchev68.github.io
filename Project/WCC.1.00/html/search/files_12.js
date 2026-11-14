@@ -57,7 +57,7 @@ var searchData=
   ['specfun_2eh_54',['specfun.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00701.html',1,'']]],
   ['spectrumanalyzer_2ehpp_55',['SpectrumAnalyzer.hpp',['https://panchev68.github.io/Lib/db/dbc/a00395.html',1,'']]],
   ['spi_2ehpp_56',['SPI.hpp',['https://panchev68.github.io/Lib/dd/d57/a00701.html',1,'']]],
-  ['spi_2fw25q128jvsiq_2ehpp_57',['SPI/W25Q128JVSIQ.hpp',['https://panchev68.github.io/Lib/dd/ddf/a08334.html',1,'']]],
+  ['spi_2fw25q128jvsiq_2ehpp_57',['SPI/W25Q128JVSIQ.hpp',['https://panchev68.github.io/Lib/dc/df3/a08325.html',1,'']]],
   ['spi3port_2ehpp_58',['SPI3Port.hpp',['../dd/dd6/_s_p_i3_port_8hpp.html',1,'']]],
   ['spiport_2dblock_2ehpp_59',['SPIPort-Block.hpp',['https://panchev68.github.io/Lib/df/d9e/a00686.html',1,'']]],
   ['spiport_2ddma_2ehpp_60',['SPIPort-DMA.hpp',['https://panchev68.github.io/Lib/d1/d87/a00689.html',1,'']]],
@@ -335,6 +335,6 @@ var searchData=
   ['syncstream_332',['syncstream',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00218.html',1,'']]],
   ['synth_5faccess_5ftraits_2ehpp_333',['synth_access_traits.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01517.html',1,'']]],
   ['system_2ehpp_334',['System.hpp',['https://panchev68.github.io/Lib/d3/de5/a00956.html',1,'']]],
-  ['system_2fparameters_2ehpp_335',['System/Parameters.hpp',['https://panchev68.github.io/Lib/d5/de5/a08379.html',1,'']]],
+  ['system_2fparameters_2ehpp_335',['System/Parameters.hpp',['https://panchev68.github.io/Lib/d5/d68/a08370.html',1,'']]],
   ['system_5ferror_336',['system_error',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00221.html',1,'']]]
 ];

@@ -98,7 +98,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
@@ -106,9 +105,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">RTOS::Timer<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>RAII wrapper for managing FreeRTOS software timer resources.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>RAII wrapper for managing FreeRTOS software timer resources. </p>
 <p>Provides one-shot and auto-reload timers with task and ISR command variants. The native timer stores the address of its owning instance as the timer ID, which the expiry trampoline uses to reach 'callback'; moving the instance re-targets that ID. Every command is queued to the timer daemon task, so a command issued from inside a timer callback never blocks, since blocking there could only deadlock the daemon on its own command queue. Destroy or move an instance only while no callback of it can be running concurrently, for example from a task whose priority does not exceed 'configTIMER_TASK_PRIORITY', or after <a class="el" href="#a798530d43191f94bd5cd6f8cfea846b3" title="stop()">stop()</a>. </p>
@@ -119,42 +115,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 Classes</h2></td></tr>
 <tr class="memitem:Config" id="r_Config"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d1f/a05983.html">Config</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration builder for Timer instances.  <a href="../../d3/d1f/a05983.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a19967bec636caee34f53f6eafd48bc74" id="r_a19967bec636caee34f53f6eafd48bc74"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a19967bec636caee34f53f6eafd48bc74">Status</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a> = 0
-, <br />
-&#160;&#160;<a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a">FAILURE</a> = 1
-, <br />
-&#160;&#160;<a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223">INVALID</a> = 2
-, <br />
-&#160;&#160;<a class="el" href="#a19967bec636caee34f53f6eafd48bc74a1b2fe1358d26a4a36841de06904bc0e3">NOT_ACTIVE</a> = 3
-<br />
- }</td></tr>
-<tr class="memdesc:a19967bec636caee34f53f6eafd48bc74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status codes for timer operations.  <a href="#a19967bec636caee34f53f6eafd48bc74">More...</a><br /></td></tr>
-<tr class="memitem:a944342cd0e4d5216ab51763e898f19c8" id="r_a944342cd0e4d5216ab51763e898f19c8"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">Mode</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d">ONE_SHOT</a> = 0
-, <br />
-&#160;&#160;<a class="el" href="#a944342cd0e4d5216ab51763e898f19c8a7e771282936f3f715e0fd875663d44cd">AUTO_RELOAD</a> = 1
-<br />
- }</td></tr>
-<tr class="memdesc:a944342cd0e4d5216ab51763e898f19c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer operational modes.  <a href="#a944342cd0e4d5216ab51763e898f19c8">More...</a><br /></td></tr>
-<tr class="memitem:a7e33043ae58a9ed5dbe25b9c755d5e6e" id="r_a7e33043ae58a9ed5dbe25b9c755d5e6e"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6e">State</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6ea6b273343c454f9c53dcfc9c4ccf171d2">INACTIVE</a> = 0
-, <br />
-&#160;&#160;<a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6ea18ff74f43da410c5529f7d6fca84f115">ACTIVE</a> = 1
-, <br />
-&#160;&#160;<a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6eaccc0377a8afbf50e7094f5c23a8af223">INVALID</a> = 2
-<br />
- }</td></tr>
-<tr class="memdesc:a7e33043ae58a9ed5dbe25b9c755d5e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">State of the timer.  <a href="#a7e33043ae58a9ed5dbe25b9c755d5e6e">More...</a><br /></td></tr>
-<tr class="memitem:a88e12a9654bf75a052ba3eab8aefe933" id="r_a88e12a9654bf75a052ba3eab8aefe933"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a88e12a9654bf75a052ba3eab8aefe933">Handle</a> = TimerHandle_t</td></tr>
-<tr class="memdesc:a88e12a9654bf75a052ba3eab8aefe933"><td class="mdescLeft">&#160;</td><td class="mdescRight">Native FreeRTOS timer handle type.  <br /></td></tr>
-<tr class="memitem:ad723310c96803c284ff978231bdcdb67" id="r_ad723310c96803c284ff978231bdcdb67"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ad723310c96803c284ff978231bdcdb67">TickType</a> = TickType_t</td></tr>
-<tr class="memdesc:ad723310c96803c284ff978231bdcdb67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scheduler tick count type.  <br /></td></tr>
-<tr class="memitem:a675e0bdc9e32a21be89ceb182c4adbde" id="r_a675e0bdc9e32a21be89ceb182c4adbde"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a675e0bdc9e32a21be89ceb182c4adbde">Callback</a> = <a class="el" href="../../d6/d6f/a04819.html">FunctionRef</a>&lt;void()&gt;</td></tr>
-<tr class="memdesc:a675e0bdc9e32a21be89ceb182c4adbde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning expiry callback; its target must outlive the timer.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>

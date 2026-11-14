@@ -8,7 +8,7 @@ var searchData=
   ['originalitysignature_2ehpp_5',['OriginalitySignature.hpp',['../d7/d71/_originality_signature_8hpp.html',1,'(Global Namespace)'],['https://panchev68.github.io/Lib/d6/d82/a00293.html',1,'(Global Namespace)']]],
   ['os_5fdefines_2eh_6',['os_defines.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00824.html',1,'']]],
   ['ospi_2ehpp_7',['OSPI.hpp',['https://panchev68.github.io/Lib/d8/d73/a00674.html',1,'']]],
-  ['ospi_2fw25q128jvsiq_2ehpp_8',['OSPI/W25Q128JVSIQ.hpp',['https://panchev68.github.io/Lib/d5/d2f/a08331.html',1,'']]],
+  ['ospi_2fw25q128jvsiq_2ehpp_8',['OSPI/W25Q128JVSIQ.hpp',['https://panchev68.github.io/Lib/d2/d6c/a08322.html',1,'']]],
   ['ospi1port_2ehpp_9',['OSPI1Port.hpp',['../dd/de9/_o_s_p_i1_port_8hpp.html',1,'']]],
   ['ospiport_2dblock_2ehpp_10',['OSPIPort-Block.hpp',['https://panchev68.github.io/Lib/dc/d91/a00659.html',1,'']]],
   ['ospiport_2ddma_2ehpp_11',['OSPIPort-DMA.hpp',['https://panchev68.github.io/Lib/dc/df1/a00662.html',1,'']]],

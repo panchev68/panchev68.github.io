@@ -97,47 +97,18 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../d1/d58/a04916.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::Digi::API::Connection::Quality<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Computes link quality from the packet delivery ratio (PDR) and the RSSI link margin.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Computes link quality from the packet delivery ratio (PDR) and the RSSI link margin. </p>
 <p>Every request/response cycle is one bit in a sliding window of the last "WINDOW_SIZE" cycles; the PDR over that window is the primary score. The filtered RSSI, mapped linearly from "RSSI_STRONG" (100 %) to "RSSI_SENSITIVITY" (0 %), scales the PDR score down by up to "RSSI_WEIGHT" percent, so a weakening signal lowers the result before packets get lost. The state follows the percent with hysteresis: down at once, up only after the better grade has held for "STATE_UPGRADE_DELAY".</p>
 <p>In scanner mode every reset starts a "SCANNER_SETTLE_TIME" period whose samples are ignored, and "onUpdate" fires once, when the window is filled with fresh samples.</p>
 <p>Thread safety: "onExchange()" and "update()" run in the application task, "onRssi()" in the receiver task; "clear()", the mode setters and the getters are safe from any task. Cross-task data goes only through atomics and is applied inside "update()". </p>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:af7ac77ba20da5be346e1d3948da5de72" id="r_af7ac77ba20da5be346e1d3948da5de72"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785">DISCONNECTED</a>
-, <br />
-&#160;&#160;<a class="el" href="#af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e">UNUSABLE</a>
-, <br />
-&#160;&#160;<a class="el" href="#af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4">NOT_GOOD</a>
-, <br />
-&#160;&#160;<a class="el" href="#af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734">OKAY</a>
-, <br />
-&#160;&#160;<a class="el" href="#af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347">VERY_GOOD</a>
-, <br />
-&#160;&#160;<a class="el" href="#af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9">AMAZING</a>
-<br />
- }</td></tr>
-<tr class="memdesc:af7ac77ba20da5be346e1d3948da5de72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Qualitative states ordered by increasing quality.  <a href="#af7ac77ba20da5be346e1d3948da5de72">More...</a><br /></td></tr>
-<tr class="memitem:a46b4913da28daeccef03e456b1d3a101" id="r_a46b4913da28daeccef03e456b1d3a101"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a46b4913da28daeccef03e456b1d3a101">Mode</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8">RUNTIME</a>
-, <br />
-&#160;&#160;<a class="el" href="#a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d">SCANNER</a>
-<br />
- }</td></tr>
-<tr class="memdesc:a46b4913da28daeccef03e456b1d3a101"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assessment mode.  <a href="#a46b4913da28daeccef03e456b1d3a101">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:addae8d177e3be6cf88efd4277f317ef7" id="r_addae8d177e3be6cf88efd4277f317ef7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> (<a class="el" href="../../d7/dda/a04911.html#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> *connection) noexcept</td></tr>

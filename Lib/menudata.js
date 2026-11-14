@@ -24,7 +24,9 @@
 */
 var menudata={children:[
 {text:"Main Page",url:"index.html"},
+{text:"Related Pages",url:"pages.html"},
 {text:"Namespaces",url:"namespaces.html"},
 {text:"Classes",url:"annotated.html"},
-{text:"Files",url:"files.html"},
+{text:"Files",url:"files.html",children:[
+{text:"File List",url:"files.html"}]},
 {text:"Examples",url:"examples.html"}]}

@@ -98,19 +98,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../d8/d4b/a04700.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::BSP::XPT2046<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Resistive touch screen controller driver for the XPT2046.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Resistive touch screen controller driver for the XPT2046. </p>
-<p>This class manages the communication, data acquisition, filtering, and coordinate transformation for an XPT2046 controller. It utilizes an internal RTOS task for asynchronous processing.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://files.waveshare.com/wiki/common/XPT2046_Datasheet.pdf" target="_blank">XPT2046 datasheet (Waveshare copy)</a>, third-party; the original is by Shenzhen XPTEK </dd></dl>
+<p>Interrupt-driven and thread-safe. A bound NIRQ interrupt wakes an internal RTOS task, which samples the controller over bit-banged SPI, filters the readings through integration and maps them to calibrated display coordinates. Readers get the latest position through <a class="el" href="#adbf7069f002f1074ffe599970a15c399" title="read()">read()</a>.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://files.waveshare.com/wiki/common/XPT2046_Datasheet.pdf" target="_blank">XPT2046 datasheet (Waveshare copy)</a>, third-party; the original is by Shenzhen XPTEK</dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/TouchScreen/XPT2046.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -119,26 +117,12 @@ Classes</h2></td></tr>
 <tr class="memitem:Parameters" id="r_Parameters"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d03/a04711.html">Parameters</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Touch screen calibration and operational parameters.  <a href="../../d4/d03/a04711.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:af8a3b5e266b12d8f829d1e5c4858f36f" id="r_af8a3b5e266b12d8f829d1e5c4858f36f"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#af8a3b5e266b12d8f829d1e5c4858f36f">Rotation</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#af8a3b5e266b12d8f829d1e5c4858f36fa5b39c8b553c821e7cddc6da64b5bd2ee">DEFAULT</a> = 0
-, <br />
-&#160;&#160;<a class="el" href="#af8a3b5e266b12d8f829d1e5c4858f36fac039a0e505a57a288c0de3334649f17b">FLIP_X</a> = 1
-, <br />
-&#160;&#160;<a class="el" href="#af8a3b5e266b12d8f829d1e5c4858f36fa6340c446a18eee835ff5ebf2ef438ca1">FLIP_XY</a> = 2
-, <br />
-&#160;&#160;<a class="el" href="#af8a3b5e266b12d8f829d1e5c4858f36fab9b8e06eeba4d9b150c39907b7261a34">FLIP_Y</a> = 3
-<br />
- }</td></tr>
-<tr class="memdesc:af8a3b5e266b12d8f829d1e5c4858f36f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Screen rotation configurations.  <a href="#af8a3b5e266b12d8f829d1e5c4858f36f">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0dda6dc35a85166d57bd689d629e6846" id="r_a0dda6dc35a85166d57bd689d629e6846"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> (const <a class="el" href="../../d6/d7d/a04707.html">Config</a> &amp;config, const <a class="el" href="../../d4/d03/a04711.html">Parameters</a> &amp;parameters) noexcept</td></tr>
-<tr class="memdesc:a0dda6dc35a85166d57bd689d629e6846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the hardware interface and calibration parameters, then start the monitoring task.  <br /></td></tr>
+<tr class="memdesc:a0dda6dc35a85166d57bd689d629e6846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the hardware interface and calibration parameters, then starts the sampling task.  <br /></td></tr>
 <tr class="memitem:a9edd1a086623e54cbb23781f0d989d53" id="r_a9edd1a086623e54cbb23781f0d989d53"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9edd1a086623e54cbb23781f0d989d53">~XPT2046</a> () noexcept</td></tr>
-<tr class="memdesc:a9edd1a086623e54cbb23781f0d989d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbind the interrupt callback and stop the sampling task before the object is destroyed.  <br /></td></tr>
+<tr class="memdesc:a9edd1a086623e54cbb23781f0d989d53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbinds the interrupt callback and stops the sampling task before the object is destroyed.  <br /></td></tr>
 <tr class="memitem:aa40395fe163fa53055c2381264eee169" id="r_aa40395fe163fa53055c2381264eee169"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa40395fe163fa53055c2381264eee169">XPT2046</a> (const XPT2046 &amp;other)=delete</td></tr>
 <tr class="memdesc:aa40395fe163fa53055c2381264eee169"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy construction is deleted: the driver owns a bound interrupt callback and a running RTOS task.  <br /></td></tr>
 <tr class="memitem:a0b37858e0ef9dc2bc3c8a2494e0d30d0" id="r_a0b37858e0ef9dc2bc3c8a2494e0d30d0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0b37858e0ef9dc2bc3c8a2494e0d30d0">XPT2046</a> (XPT2046 &amp;&amp;other)=delete</td></tr>
@@ -148,9 +132,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0a0bca74a5312b24895a6b947c35e11a" id="r_a0a0bca74a5312b24895a6b947c35e11a"><td class="memItemLeft"><a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0a0bca74a5312b24895a6b947c35e11a">operator=</a> (<a class="el" href="#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> &amp;&amp;other)=delete</td></tr>
 <tr class="memdesc:a0a0bca74a5312b24895a6b947c35e11a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the driver owns a bound interrupt callback and a running RTOS task.  <br /></td></tr>
 <tr class="memitem:adbf7069f002f1074ffe599970a15c399" id="r_adbf7069f002f1074ffe599970a15c399"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adbf7069f002f1074ffe599970a15c399">read</a> (int32_t &amp;x, int32_t &amp;y) const noexcept</td></tr>
-<tr class="memdesc:adbf7069f002f1074ffe599970a15c399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the current touch coordinates.  <br /></td></tr>
+<tr class="memdesc:adbf7069f002f1074ffe599970a15c399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the current touch coordinates.  <br /></td></tr>
 <tr class="memitem:ada371f317a4f0551dc84dcf51749ee60" id="r_ada371f317a4f0551dc84dcf51749ee60"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ada371f317a4f0551dc84dcf51749ee60">setRotation</a> (bool shouldFlip) noexcept</td></tr>
-<tr class="memdesc:ada371f317a4f0551dc84dcf51749ee60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the touch screen rotation.  <br /></td></tr>
+<tr class="memdesc:ada371f317a4f0551dc84dcf51749ee60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the touch screen rotation.  <br /></td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
 <a id="af8a3b5e266b12d8f829d1e5c4858f36f" name="af8a3b5e266b12d8f829d1e5c4858f36f"></a>
@@ -215,8 +199,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Configure the hardware interface and calibration parameters, then start the monitoring task. </p>
-<p>Starts the internal monitoring task only after every other member has been fully initialized, so the task never observes calibration data mid-construction.</p>
+<p>Binds the hardware interface and calibration parameters, then starts the sampling task. </p>
+<p>The task starts last, after every member is initialized, so it never observes calibration data mid-construction.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">config</td><td>Hardware pin definitions. </td></tr>
@@ -250,8 +234,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Unbind the interrupt callback and stop the sampling task before the object is destroyed. </p>
-<p>The task is stopped here, while every member it uses is still alive, so no task or ISR code runs during member teardown. </p>
+<p>Unbinds the interrupt callback and stops the sampling task before the object is destroyed. </p>
+<p>The task stops here, while every member it uses is still alive, so no task or ISR code runs during member teardown. </p>
 
 </div>
 </div>
@@ -417,7 +401,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Read the current touch coordinates. </p>
+<p>Reads the current touch coordinates. </p>
 <p>Both coordinates are set to -1 when the screen is not pressed.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -453,7 +437,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Set the touch screen rotation. </p>
+<p>Sets the touch screen rotation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">shouldFlip</td><td>If <b>true</b>, switches to the flipped rotation parameter. </td></tr>

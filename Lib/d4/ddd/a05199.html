@@ -97,34 +97,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../d9/dff/a05196.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::Ethercat::SOES::CoE<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave. </p>
 <p>Serves the object dictionary of the slave to the master over the mailbox. It handles the SDO upload (read) and download (write) of an object, expedited (up to 4 bytes), normal (the whole value in one mailbox message) and segmented (a value split over several messages), checks the access rights of the object against the AL state, lets the application validate and react to a transfer, and answers a failed request with an SDO abort. The SDO information service lists the objects (also over several fragments) and describes an object and its entries, from the names, data types and sizes in the dictionary.</p>
 <p>Not covered: complete access (answered with the abort for 'complete access not supported') and the object lists other than 'all objects'.</p>
 <p>The dictionary is a table given by the application, ordered by index and then subindex, with the entries of one object next to each other; this class owns no data. Use it from the mailbox handler of a 'Slave': pass every message to <a class="el" href="#afdb20681a34fcdfcb78cf75a78ce0347" title="handle()">handle()</a>, call <a class="el" href="#aaa57403f24de4e0bd9670919c80376ac" title="service()">service()</a> in the idle hook of the slave, and <a class="el" href="#ab2c195af5b9a058b13b9b6cca0f9159f" title="reset()">reset()</a> when the mailbox stops. </p>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a827cdba5edb655bcc4f5784b4a4e893d" id="r_a827cdba5edb655bcc4f5784b4a4e893d"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> = <a class="el" href="../../db/d48/a05187.html">CoEObject</a></td></tr>
-<tr class="memdesc:a827cdba5edb655bcc4f5784b4a4e893d"><td class="mdescLeft">&#160;</td><td class="mdescRight">An entry of the object dictionary.  <br /></td></tr>
-<tr class="memitem:a35b9281b5d29eae7fab95112ba1e5115" id="r_a35b9281b5d29eae7fab95112ba1e5115"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">ObjectInfo</a> = <a class="el" href="../../de/d61/a05191.html">CoEObjectInfo</a></td></tr>
-<tr class="memdesc:a35b9281b5d29eae7fab95112ba1e5115"><td class="mdescLeft">&#160;</td><td class="mdescRight">The description of an object.  <br /></td></tr>
-<tr class="memitem:a4dfbb7a5575c7ee9e62bfeab0e6aca45" id="r_a4dfbb7a5575c7ee9e62bfeab0e6aca45"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Handlers</a> = <a class="el" href="../../dc/d65/a05195.html">CoEHandlers</a></td></tr>
-<tr class="memdesc:a4dfbb7a5575c7ee9e62bfeab0e6aca45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Application hooks.  <br /></td></tr>
-<tr class="memitem:a19c1714c2af7e709205e93053af6fee9" id="r_a19c1714c2af7e709205e93053af6fee9"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a19c1714c2af7e709205e93053af6fee9">Access</a> = <a class="el" href="../../d0/d56/a01014.html#a0a85aabfc74e31864de76e3f26f1b197">ObjectAccess</a></td></tr>
-<tr class="memdesc:a19c1714c2af7e709205e93053af6fee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access rights of an object.  <br /></td></tr>
-<tr class="memitem:a34422d4477e1d28e96ff0a570ccb0832" id="r_a34422d4477e1d28e96ff0a570ccb0832"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a34422d4477e1d28e96ff0a570ccb0832">Abort</a> = <a class="el" href="../../d0/d56/a01014.html#ab9edefd3f6cea3cfc71c65cdd01019de">SdoAbort</a></td></tr>
-<tr class="memdesc:a34422d4477e1d28e96ff0a570ccb0832"><td class="mdescLeft">&#160;</td><td class="mdescRight">SDO abort codes.  <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aaf9d8025b89e7899d8cb2c83ae135e45" id="r_aaf9d8025b89e7899d8cb2c83ae135e45"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> (std::span&lt; const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> &gt; objects, std::span&lt; const <a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">ObjectInfo</a> &gt; descriptions={}) noexcept</td></tr>

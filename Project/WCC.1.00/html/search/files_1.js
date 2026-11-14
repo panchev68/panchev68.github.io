@@ -77,8 +77,8 @@ var searchData=
   ['boost_5fconcept_5fcheck_2eh_74',['boost_concept_check.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00350.html',1,'']]],
   ['branch_5fpolicy_2ehpp_75',['branch_policy.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01367.html',1,'']]],
   ['branch_5fpolicy_2ftraits_2ehpp_76',['branch_policy/traits.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a18047.html',1,'']]],
-  ['bsp_2fdevicemanager_2ehpp_77',['BSP/DeviceManager.hpp',['https://panchev68.github.io/Lib/dc/d63/a08283.html',1,'']]],
-  ['bsp_2fethercat_2fpdi_2flan9252_2fhelper_2ehpp_78',['BSP/Ethercat/PDI/LAN9252/Helper.hpp',['https://panchev68.github.io/Lib/da/d87/a08319.html',1,'']]],
+  ['bsp_2fdevicemanager_2ehpp_77',['BSP/DeviceManager.hpp',['https://panchev68.github.io/Lib/d8/d43/a08274.html',1,'']]],
+  ['bsp_2fethercat_2fpdi_2flan9252_2fhelper_2ehpp_78',['BSP/Ethercat/PDI/LAN9252/Helper.hpp',['https://panchev68.github.io/Lib/d6/da3/a08310.html',1,'']]],
   ['buttonleds_2ehpp_79',['ButtonLeds.hpp',['../de/d69/_button_leds_8hpp.html',1,'']]],
   ['buzzer_2ehpp_80',['Buzzer.hpp',['../d2/d15/_buzzer_8hpp.html',1,'']]]
 ];

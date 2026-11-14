@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['result_0',['Result',['../d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a66a7632d28ae40357ff6a0a580f7f547',1,'APP::DistanceMeterTest::Result'],['../d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#af1f47ec2dcef1f9ae1ead2660f65b786',1,'APP::DS18B20CommsTest::Result'],['../d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afa3d9788b340374a1c32a4a43c6ea1f8',1,'APP::PGA460CommsTest::Result'],['../de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#ade05f577cceb0dd19b53b3cc9bc40bb0',1,'APP::RFIDCommsTest::Result'],['../da/dff/class_a_p_p_1_1_storage_test.html#a0ece340e4a965f2a3e4901349f4ff785',1,'APP::StorageTest::Result']]]
+  ['perm_5foptions_0',['perm_options',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#ga7361a9de17a1b4b3271983f2394c1c1b',1,'std::filesystem::perm_options'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#ga7361a9de17a1b4b3271983f2394c1c1b',1,'std::filesystem::perm_options']]],
+  ['perms_1',['perms',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#ga6acbc7f8d98096bb9453b2f4b9850553',1,'std::filesystem::perms'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#ga6acbc7f8d98096bb9453b2f4b9850553',1,'std::filesystem::perms'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01658.html#ga0a1765c6b0d8d734be3d54d85be9f145',1,'std::experimental::filesystem::v1::perms']]],
+  ['phase_2',['Phase',['https://panchev68.github.io/Lib/d1/d64/a05739.html#a5567988b4297dec26d3237506884f6a5',1,'Lib::Helper::MoonPhase']]],
+  ['pointer_5fsafety_3',['pointer_safety',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01617.html#ga9fab6cf004cd3194f8b89580f6453106',1,'std::pointer_safety'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01617.html#ga9fab6cf004cd3194f8b89580f6453106',1,'std::pointer_safety']]],
+  ['polarity_4',['Polarity',['https://panchev68.github.io/Lib/de/d68/a04331.html#a12dbe47287cc8ea3e6057097e7679d5b',1,'Lib::BSP::INA219']]],
+  ['protocol_5',['Protocol',['https://panchev68.github.io/Lib/d9/dba/a05287.html#ae8736b16f707b5eab4e3b478d387e876',1,'Lib::Ethernet::Wiznet::Socket']]]
 ];

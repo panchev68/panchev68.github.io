@@ -1,9 +1,9 @@
 var searchData=
 [
   ['k_0',['k',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05578.html#af928f60c8659aada87d333e379afcd1d',1,'std::negative_binomial_distribution']]],
-  ['kalman_1',['Kalman',['https://panchev68.github.io/Lib/d0/d5d/a05800.html#a3e7cb33fc02e4a9f5cfd0b36a190e1cb',1,'Lib::Math::Filter::Kalman']]],
-  ['kbdhit_2',['kbdhit',['https://panchev68.github.io/Lib/d1/d13/a04444.html#a7173287d816b57b6541368dfbe743659',1,'Lib::BSP::EncoderPins']]],
-  ['kernel_3',['Kernel',['https://panchev68.github.io/Lib/db/d0d/a05876.html#abbc417c1dbe0eb579cf07e6568e6f922',1,'RTOS::Kernel']]],
+  ['kalman_1',['Kalman',['https://panchev68.github.io/Lib/d8/df0/a05791.html#a3e7cb33fc02e4a9f5cfd0b36a190e1cb',1,'Lib::Math::Filter::Kalman']]],
+  ['kbdhit_2',['kbdhit',['https://panchev68.github.io/Lib/da/d95/a04435.html#a7173287d816b57b6541368dfbe743659',1,'Lib::BSP::EncoderPins']]],
+  ['kernel_3',['Kernel',['https://panchev68.github.io/Lib/de/d29/a05867.html#abbc417c1dbe0eb579cf07e6568e6f922',1,'RTOS::Kernel']]],
   ['key_5fcomp_4',['key_comp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07262.html#a7d6c48d6dd1f9cce138b17ee06be13b0',1,'std::multimap::key_comp()'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07286.html#a9b148fa88cbd84df31e19b1d9e531724',1,'std::set::key_comp()'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07266.html#a59af09cf176afb26d8e2657581429d3f',1,'std::map::key_comp()'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07290.html#ac4b6516f21a29e3621488503744b2d11',1,'std::multiset::key_comp()']]],
   ['key_5feq_5',['key_eq',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07534.html#a32226343bc7c4b8b0b14914fd3d105cb',1,'std::unordered_multimap::key_eq()'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07538.html#aa956e7eb800e72fbab9b54f3ef006d8e',1,'std::unordered_map::key_eq()'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07550.html#a9dfa97d099b1d96e80a72a94058ecc68',1,'std::unordered_multiset::key_eq()'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07554.html#a91423e12bcd7c66a7b92c919af9e61a2',1,'std::unordered_set::key_eq()']]],
   ['kill_5fdependency_6',['kill_dependency',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01631.html#gac8b65b60a2e0cb41d573f174a4c3c423',1,'std::kill_dependency(_Tp __y) noexcept'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01631.html#gac8b65b60a2e0cb41d573f174a4c3c423',1,'std::kill_dependency(_Tp __y) noexcept']]]
