@@ -108,15 +108,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Blocking master specialization. </p>
-<p>Builds directly on <a class="el" href="../../da/d34/a05463.html" title="I2CPortBase">I2CPortBase</a> and stores the native handle itself, rather than through 'Device': that class brings an intrusive DeviceManager list link that only an interrupt-driven mode uses, and this mode never registers with the DeviceManager. A blocking transfer completes inside the HAL call itself, so it has no RTOS event group to wait on, no HAL callback to register and nothing to abort once the starting call has returned; that policy lives in <a class="el" href="../../d3/dd4/a05455.html" title="I2CPortAsync">I2CPortAsync</a>, shared by the 'IT' and 'DMA' specializations.</p>
-<p>Every timeout is rounded up to whole milliseconds and saturates at 'HAL_MAX_DELAY' (wait forever). </p>
+<p>Builds directly on <a class="el" href="../../da/d34/a05463.html" title="I2CPortBase">I2CPortBase</a> and stores the native handle itself, rather than through Device: that class brings an intrusive <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> list link that only an interrupt-driven mode uses, and this mode never registers with the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a>. A blocking transfer completes inside the HAL call itself, so it has no RTOS event group to wait on, no HAL callback to register and nothing to abort once the starting call has returned; that policy lives in <a class="el" href="../../d3/dd4/a05455.html" title="I2CPortAsync">I2CPortAsync</a>, shared by the <em class="arg">IT</em> and <em class="arg">DMA</em> specializations.</p>
+<p>Every timeout is rounded up to whole milliseconds and saturates at <em class="arg">HAL_MAX_DELAY</em> (wait forever). Not thread-safe: the caller serializes users of the same handle.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/I2C/I2CPort-Block.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a70dc562f520726340c2c942ee7753b17" id="r_a70dc562f520726340c2c942ee7753b17"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a70dc562f520726340c2c942ee7753b17">I2CPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> *handle) noexcept</td></tr>
-<tr class="memdesc:a70dc562f520726340c2c942ee7753b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the custom communication context to a native configuration structure.  <br /></td></tr>
+<tr class="memdesc:a70dc562f520726340c2c942ee7753b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block; does not touch the peripheral.  <br /></td></tr>
 <tr class="memitem:aabd63a3e7b5c5e7379cde321595e289a" id="r_aabd63a3e7b5c5e7379cde321595e289a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aabd63a3e7b5c5e7379cde321595e289a">~I2CPort</a> () noexcept=default</td></tr>
-<tr class="memdesc:aabd63a3e7b5c5e7379cde321595e289a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; a blocking transfer never outlives the call that started it.  <br /></td></tr>
+<tr class="memdesc:aabd63a3e7b5c5e7379cde321595e289a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the port; a blocking transfer never outlives the call that started it, and the native handle is not closed here.  <br /></td></tr>
 <tr class="memitem:a3a090c26f0644cce45bc5b99813c7f5b" id="r_a3a090c26f0644cce45bc5b99813c7f5b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3a090c26f0644cce45bc5b99813c7f5b">I2CPort</a> (const I2CPort &amp;other)=delete</td></tr>
 <tr class="memdesc:a3a090c26f0644cce45bc5b99813c7f5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to one native I2C handle.  <br /></td></tr>
 <tr class="memitem:a6c227decd7ea7b8ff23e032025761259" id="r_a6c227decd7ea7b8ff23e032025761259"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6c227decd7ea7b8ff23e032025761259">I2CPort</a> (I2CPort &amp;&amp;other)=delete</td></tr>
@@ -131,10 +133,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a57df6990634d2cba4b86d8cf193f4050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
 <tr class="memitem:a890fb1518f0e09f5f04f878dcdaeaf23" id="r_a890fb1518f0e09f5f04f878dcdaeaf23"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:a890fb1518f0e09f5f04f878dcdaeaf23 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a890fb1518f0e09f5f04f878dcdaeaf23">masterTransmit</a> (uint16_t devAddress, std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a890fb1518f0e09f5f04f878dcdaeaf23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a blocking master outbound transaction directly through the HAL.  <br /></td></tr>
+<tr class="memdesc:a890fb1518f0e09f5f04f878dcdaeaf23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits to a slave directly through the HAL, blocking until complete.  <br /></td></tr>
 <tr class="memitem:a165d3958b26f38d4c513160a447bcfaf" id="r_a165d3958b26f38d4c513160a447bcfaf"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:a165d3958b26f38d4c513160a447bcfaf template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a165d3958b26f38d4c513160a447bcfaf">masterReceive</a> (uint16_t devAddress, std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a165d3958b26f38d4c513160a447bcfaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a blocking master inbound transaction directly through the HAL.  <br /></td></tr>
+<tr class="memdesc:a165d3958b26f38d4c513160a447bcfaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives from a slave directly through the HAL, blocking until complete.  <br /></td></tr>
 <tr class="memitem:ae89e0f492119ac05671af0cdca2b90de" id="r_ae89e0f492119ac05671af0cdca2b90de"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:ae89e0f492119ac05671af0cdca2b90de template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae89e0f492119ac05671af0cdca2b90de">masterMemWrite</a> (uint16_t devAddress, uint16_t memAddress, uint16_t memAddSize, std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
 <tr class="memdesc:ae89e0f492119ac05671af0cdca2b90de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes to a device's internal memory address directly through the HAL, blocking until complete.  <br /></td></tr>
@@ -142,11 +144,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aff45c6ae44d78ac3f07f800383374359 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aff45c6ae44d78ac3f07f800383374359">masterMemRead</a> (uint16_t devAddress, uint16_t memAddress, uint16_t memAddSize, std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
 <tr class="memdesc:aff45c6ae44d78ac3f07f800383374359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from a device's internal memory address directly through the HAL, blocking until complete.  <br /></td></tr>
 <tr class="memitem:ae5b5ff9d68d55b14be794ede22903816" id="r_ae5b5ff9d68d55b14be794ede22903816"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../da/d34/a05463.html#ae5b5ff9d68d55b14be794ede22903816">open</a> () noexcept</td></tr>
-<tr class="memdesc:ae5b5ff9d68d55b14be794ede22903816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Powers up the hardware channel and configures initial peripheral parameters.  <br /></td></tr>
+<tr class="memdesc:ae5b5ff9d68d55b14be794ede22903816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the peripheral with the configuration already in the handle through <b>HAL_I2C_Init()</b>.  <br /></td></tr>
 <tr class="memitem:aae0ad19378c79d7c9d3f47f6255ad4e7" id="r_aae0ad19378c79d7c9d3f47f6255ad4e7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../da/d34/a05463.html#aae0ad19378c79d7c9d3f47f6255ad4e7">close</a> () noexcept</td></tr>
-<tr class="memdesc:aae0ad19378c79d7c9d3f47f6255ad4e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the physical peripheral bus and releases system resources safely.  <br /></td></tr>
+<tr class="memdesc:aae0ad19378c79d7c9d3f47f6255ad4e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the peripheral through <b>HAL_I2C_DeInit()</b>.  <br /></td></tr>
 <tr class="memitem:ac30aad5121ca16fa7c3b185ed73d4104" id="r_ac30aad5121ca16fa7c3b185ed73d4104"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../da/d34/a05463.html#ac30aad5121ca16fa7c3b185ed73d4104">isBusy</a> () const noexcept</td></tr>
-<tr class="memdesc:ac30aad5121ca16fa7c3b185ed73d4104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates whether the underlying peripheral is actively locked in a transfer loop.  <br /></td></tr>
+<tr class="memdesc:ac30aad5121ca16fa7c3b185ed73d4104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the peripheral is in any HAL state other than ready.  <br /></td></tr>
 <tr class="memitem:a14c943a270b82f4b76faffc2822e1408" id="r_a14c943a270b82f4b76faffc2822e1408"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../da/d34/a05463.html#a14c943a270b82f4b76faffc2822e1408">isReady</a> (uint16_t devAddress, uint32_t trials, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
 <tr class="memdesc:a14c943a270b82f4b76faffc2822e1408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Probes whether a slave device acknowledges its address on the bus.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -181,10 +183,10 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the custom communication context to a native configuration structure. </p>
+<p>Binds the port to a native hardware descriptor block; does not touch the peripheral. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block; must not be <em class="arg">nullptr</em> (checked by <em class="arg">assert</em>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -214,7 +216,7 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the object; a blocking transfer never outlives the call that started it. </p>
+<p>Destroys the port; a blocking transfer never outlives the call that started it, and the native handle is not closed here. </p>
 
 </div>
 </div>
@@ -308,8 +310,8 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Disables the physical peripheral bus and releases system resources safely. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the shutdown sequence was fully committed. </dd></dl>
+<p>Deinitializes the peripheral through <b>HAL_I2C_DeInit()</b>. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL deinitialized it, <b>false</b> otherwise or if the handle is <em class="arg">nullptr</em>. </dd></dl>
 
 </div>
 </div>
@@ -392,8 +394,9 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Evaluates whether the underlying peripheral is actively locked in a transfer loop. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the bus lines are currently transmitting or receiving data. </dd></dl>
+<p>Checks whether the peripheral is in any HAL state other than ready. </p>
+<p>Also reports <b>true</b> for a peripheral that is not initialized yet or is in an error state.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL state is not <em class="arg">HAL_I2C_STATE_READY</em>, <b>false</b> otherwise or if the handle is <em class="arg">nullptr</em>. </dd></dl>
 
 </div>
 </div>
@@ -430,7 +433,7 @@ Static Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Probes whether a slave device acknowledges its address on the bus. </p>
-<p><b>HAL_I2C_IsDeviceReady()</b> is always a blocking poll in the HAL, regardless of the transfer mode this port otherwise uses for 'masterTransmit()' and 'masterReceive()', so this lives once in the shared base.</p>
+<p><b>HAL_I2C_IsDeviceReady()</b> is always a blocking poll in the HAL, regardless of the transfer mode this port otherwise uses for <em class="arg">masterTransmit()</em> and <em class="arg">masterReceive()</em>, so this lives once in the shared base.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -440,13 +443,13 @@ Static Protected Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave device address to probe. </td></tr>
+    <tr><td class="paramname">devAddress</td><td>Target slave device address to probe, in the 8-bit form the HAL expects. </td></tr>
     <tr><td class="paramname">trials</td><td>Number of probe attempts before giving up. </td></tr>
     <tr><td class="paramname">timeout</td><td>Duration to wait for each probe attempt, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the device acknowledged within the given trials. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the device acknowledged within the given trials, <b>false</b> otherwise or if the handle is <em class="arg">nullptr</em>. </dd></dl>
 
 </div>
 </div>
@@ -480,7 +483,7 @@ Static Protected Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> for 'I2C_MEMADD_SIZE_8BIT' or 'I2C_MEMADD_SIZE_16BIT'. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> for <em class="arg">I2C_MEMADD_SIZE_8BIT</em> or <em class="arg">I2C_MEMADD_SIZE_16BIT</em>, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -514,7 +517,7 @@ Static Protected Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the size is usable. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the size is usable, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -574,13 +577,13 @@ template&lt;typename Rep, typename Period&gt; </div>
   <table class="params">
     <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
     <tr><td class="paramname">memAddress</td><td>Internal memory address to read from. </td></tr>
-    <tr><td class="paramname">memAddSize</td><td>Size of 'memAddress' ('I2C_MEMADD_SIZE_8BIT' or 'I2C_MEMADD_SIZE_16BIT'). </td></tr>
+    <tr><td class="paramname">memAddSize</td><td>Size of <em class="arg">memAddress</em> (<em class="arg">I2C_MEMADD_SIZE_8BIT</em> or <em class="arg">I2C_MEMADD_SIZE_16BIT</em>). </td></tr>
     <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -640,13 +643,13 @@ template&lt;typename Rep, typename Period&gt; </div>
   <table class="params">
     <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
     <tr><td class="paramname">memAddress</td><td>Internal memory address to write to. </td></tr>
-    <tr><td class="paramname">memAddSize</td><td>Size of 'memAddress' ('I2C_MEMADD_SIZE_8BIT' or 'I2C_MEMADD_SIZE_16BIT'). </td></tr>
+    <tr><td class="paramname">memAddSize</td><td>Size of <em class="arg">memAddress</em> (<em class="arg">I2C_MEMADD_SIZE_8BIT</em> or <em class="arg">I2C_MEMADD_SIZE_16BIT</em>). </td></tr>
     <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -684,7 +687,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Performs a blocking master inbound transaction directly through the HAL. </p>
+<p>Receives from a slave directly through the HAL, blocking until complete. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -696,11 +699,11 @@ template&lt;typename Rep, typename Period&gt; </div>
   <table class="params">
     <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
     <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -738,7 +741,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Performs a blocking master outbound transaction directly through the HAL. </p>
+<p>Transmits to a slave directly through the HAL, blocking until complete. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -750,11 +753,11 @@ template&lt;typename Rep, typename Period&gt; </div>
   <table class="params">
     <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
     <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -781,8 +784,8 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Powers up the hardware channel and configures initial peripheral parameters. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware open sequence succeeded. </dd></dl>
+<p>Initializes the peripheral with the configuration already in the handle through <b>HAL_I2C_Init()</b>. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the configuration, <b>false</b> otherwise or if the handle is <em class="arg">nullptr</em>. </dd></dl>
 
 </div>
 </div>

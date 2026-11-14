@@ -108,9 +108,13 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>UART port that receives continuously into a stream buffer and transmits by polling. </p>
-<p>'Lib::HAL::UARTPort' receives only into a buffer the caller hands over for one transfer, so bytes arriving between two calls are lost. Devices that send unsolicited data need a receiver that is always armed. This port keeps one byte armed with HAL_UART_Receive_IT() and pushes every received byte into an <a class="el" href="../../d3/d83/a06287.html" title="RTOS::StreamBuffer">RTOS::StreamBuffer</a> from the interrupt. One task reads it with <a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="read()">read()</a>.</p>
+<p>UARTPort receives only into a buffer the caller hands over for one transfer, so bytes arriving between two calls are lost. Devices that send unsolicited data need a receiver that is always armed. This port keeps one byte armed with <b>HAL_UART_Receive_IT()</b> and pushes every received byte into an <a class="el" href="../../d3/d83/a06287.html" title="RTOS::StreamBuffer">RTOS::StreamBuffer</a> from the interrupt. One task reads it with <a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="read()">read()</a>.</p>
 <p><a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e" title="close()">close()</a> de-initializes the UART, which returns its pins to the analog state, so a powered-down device is not back-fed through TX. <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a> brings it back.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Exactly one task may call <a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="read()">read()</a> and <a class="el" href="#ad313993195f0d6ea829d9c7b61df667f" title="discardInput()">discardInput()</a>; the stream buffer allows a single reader. </dd></dl>
+<p>At most <em class="arg">MAX_PORTS</em> ports can be open at the same time; <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a> fails beyond that.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Exactly one task may call <a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="read()">read()</a> and <a class="el" href="#ad313993195f0d6ea829d9c7b61df667f" title="discardInput()">discardInput()</a>; the stream buffer allows a single reader.</dd></dl>
+<dl class="section important"><dt>Important</dt><dd>The UART handle must have <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> enabled and its interrupt enabled in CubeMX.</dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/UART/StreamSerialPort.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/d61/a06163.html#_a4">Lib::BSP::GSM::A7670E</a>, and <a class="el" href="../../d3/dc0/a06211.html#_a3">Lib::HAL::StreamSerialPort</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -175,6 +179,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Binds the port to a CubeMX handle; nothing is touched until <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a>. </p>
+<p>The handle must not be <em class="arg">nullptr</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">config</td><td>Construction parameters, copied. </td></tr>
@@ -302,7 +307,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Stops reception and de-initializes the UART, leaving its pins analog. </p>
-<p>Task context only. </p>
+<p>Task context only.</p>
+<p>Does nothing if the port is not open. </p>
 
 </div>
 </div>
@@ -330,7 +336,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Drops every byte already received. </p>
-<p>The stream is drained rather than reset: a reset fails while the interrupt may be writing. </p>
+<p>Does nothing while the stream is not allocated.</p>
+<p>The stream is drained rather than reset: a reset fails while the interrupt may be writing. Single reader task only. </p>
 
 </div>
 </div>
@@ -386,7 +393,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Tells whether the port is open. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> between a successful <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a> and <a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e" title="close()">close()</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a> and <a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e" title="close()">close()</a>, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -415,7 +422,8 @@ Public Member Functions</h2></td></tr>
 
 <p>Initializes the UART if needed, empties the stream and starts continuous reception. </p>
 <p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the port is receiving. </dd></dl>
+<p>Does nothing if the port is already open. The receive stream stays allocated across <a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e" title="close()">close()</a> and <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the port is receiving, <b>false</b> if the UART, the stream, the callback registration or the reception could not be set up, or if <em class="arg">MAX_PORTS</em> ports are already open. </dd></dl>
 
 </div>
 </div>
@@ -515,6 +523,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Takes received bytes from the stream, waiting until at least one is there or the timeout expires. </p>
+<p>Task context only, and only from the single reader task.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; up to its size is copied. </td></tr>
@@ -522,7 +531,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes copied; 0 on timeout or while closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes copied; <b>0</b> on timeout or while closed. </dd></dl>
 
 </div>
 </div>
@@ -555,15 +564,15 @@ Public Member Functions</h2></td></tr>
 
 <p>Transmits bytes, polling the UART until they are sent. </p>
 <p>Task context only.</p>
-<p>The receive interrupt stays armed meanwhile.</p>
+<p>The receive interrupt stays armed meanwhile. An empty or oversized buffer, or a closed port, returns <b>false</b>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Bytes to send; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Longest time the transmission may take. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Longest time the transmission may take, in whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if every byte was sent. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every byte was sent, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -599,11 +608,11 @@ Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">text</td><td>Characters to send; 1 to 65535 characters. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Longest time the transmission may take. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Longest time the transmission may take, in whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if every character was sent. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every character was sent, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>

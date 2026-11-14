@@ -105,11 +105,13 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 
-<p>HASH port polling the peripheral until the digest is ready ('HAL_HASHEx_SHA256_Start()').  
+<p>HASH port polling the peripheral until the digest is ready (<b>HAL_HASHEx_SHA256_Start()</b>).  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>HASH port polling the peripheral until the digest is ready ('HAL_HASHEx_SHA256_Start()'). </p>
-<p>Not thread-safe: the caller serializes users of the same handle. </p>
+<div class="textblock"><p>HASH port polling the peripheral until the digest is ready (<b>HAL_HASHEx_SHA256_Start()</b>). </p>
+<p>Not thread-safe: the caller serializes users of the same handle. Needs neither an interrupt nor an RTOS object.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/HASH/HASHPort-Block.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -123,7 +125,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac83a5444340025355f8b0986799c34fc" id="r_ac83a5444340025355f8b0986799c34fc"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; <a class="el" href="../../d6/d39/a05439.html#add4d9f33ecf447251492399927b27da5">Sha256Digest</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac83a5444340025355f8b0986799c34fc">sha256</a> (std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
 <tr class="memdesc:ac83a5444340025355f8b0986799c34fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hashes a complete message with SHA-256.  <br /></td></tr>
 <tr class="memitem:ae9dc794f4ad8b52c9c6ecdd73468f030" id="r_ae9dc794f4ad8b52c9c6ecdd73468f030"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d39/a05439.html#ae9dc794f4ad8b52c9c6ecdd73468f030">open</a> () noexcept</td></tr>
-<tr class="memdesc:ae9dc794f4ad8b52c9c6ecdd73468f030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the peripheral with the configuration already in the handle; harmless after 'MX_HASH_Init()'.  <br /></td></tr>
+<tr class="memdesc:ae9dc794f4ad8b52c9c6ecdd73468f030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the peripheral with the configuration already in the handle; harmless after <b>MX_HASH_Init()</b>.  <br /></td></tr>
 <tr class="memitem:aea9707fb978271d6f7346e2eacd3d206" id="r_aea9707fb978271d6f7346e2eacd3d206"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d39/a05439.html#aea9707fb978271d6f7346e2eacd3d206">close</a> () noexcept</td></tr>
 <tr class="memdesc:aea9707fb978271d6f7346e2eacd3d206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the peripheral.  <br /></td></tr>
 <tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">HASH_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../df/d06/a05371.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
@@ -188,7 +190,7 @@ Static Public Attributes</h2></td></tr>
 <p>Binds the port to a native hardware descriptor block; does not touch the peripheral. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block (e.g. 'hhash'). </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block (e.g. <b>hhash</b>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -220,7 +222,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Deinitializes the peripheral. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the HAL deinitialized it. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL deinitialized it, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -248,7 +250,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -276,7 +278,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -303,8 +305,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the peripheral with the configuration already in the handle; harmless after 'MX_HASH_Init()'. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the HAL accepted the configuration. </dd></dl>
+<p>Initializes the peripheral with the configuration already in the handle; harmless after <b>MX_HASH_Init()</b>. </p>
+<p>Asserts a non-<em class="arg">nullptr</em> handle configured for <em class="arg">HASH_DATATYPE_8B</em>.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the configuration, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -343,7 +346,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Digest of 'data', or <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on a HAL error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Digest of <em class="arg">data</em>, or <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on a HAL error or timeout. </dd></dl>
 
 </div>
 </div>

@@ -109,9 +109,10 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Owner of a FreeRTOS message buffer handle. </p>
 <p>Passes discrete variable-length messages from exactly one writer to exactly one reader, either of which may be a task or an interrupt. Each message is received whole or not at all.</p>
-<p>Every message occupies its payload plus a 4-byte length header, so a buffer of N bytes carries messages of at most N minus 4 bytes. Like stream buffers, message buffers are lock-free only for a single writer and a single reader; several writers or readers must serialize their calls themselves, e.g. with a <a class="el" href="../../de/d6a/a06273.html" title="RTOS::Mutex">RTOS::Mutex</a>. A receive into a destination smaller than the next message returns 0 and leaves the message in the buffer; use <a class="el" href="#a37a7b059106d8091fea3b44f5bbe9804" title="getNextMessageLength()">getNextMessageLength()</a> to size the destination.</p>
-<p>Every task-context <a class="el" href="#a10110decaf3c897711e612ba455525cd" title="send()">send()</a> and <a class="el" href="#a8bc5b3b484124680e0b606c983ee095e" title="receive()">receive()</a> take its timeout explicitly, with no default: pass 0 to poll, <em class="arg">portMAX_DELAY</em> to wait indefinitely, or a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> duration. Interrupt variants never block.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/MessageBuffer.hpp" target="_blank">Source</a> </dd></dl>
+<p>Every message occupies its payload plus a 4-byte length header, so a buffer of N bytes carries messages of at most N minus 4 bytes. Like stream buffers, message buffers are lock-free only for a single writer and a single reader; several writers or readers must serialize their calls themselves, e.g. with a <a class="el" href="../../de/d6a/a06273.html" title="RTOS::Mutex">RTOS::Mutex</a>. A receive into a destination smaller than the next message returns <b>0</b> and leaves the message in the buffer; use <a class="el" href="#a37a7b059106d8091fea3b44f5bbe9804" title="getNextMessageLength()">getNextMessageLength()</a> to size the destination.</p>
+<p>Every task-context <a class="el" href="#a10110decaf3c897711e612ba455525cd" title="send()">send()</a> and <a class="el" href="#a8bc5b3b484124680e0b606c983ee095e" title="receive()">receive()</a> overload takes its timeout explicitly, with no default: pass <em class="arg">0</em> to poll, <em class="arg">portMAX_DELAY</em> to wait indefinitely, or a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> duration. Interrupt variants never block.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/MessageBuffer.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#_a0">RTOS::MessageBuffer</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -136,6 +137,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ac27cdba4bacb2cd0c9f5f35c0a29c9fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is disabled because the wrapper owns a unique FreeRTOS handle.  <br /></td></tr>
 <tr class="memitem:afd9059379c9888200c2c9e2c091a12c5" id="r_afd9059379c9888200c2c9e2c091a12c5"><td class="memItemLeft"><a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#afd9059379c9888200c2c9e2c091a12c5">operator=</a> (<a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="memdesc:afd9059379c9888200c2c9e2c091a12c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes this message buffer, then takes ownership of another message buffer's native handle.  <br /></td></tr>
+<tr class="memitem:ae76c68b3fa15940e00081d6362397a59" id="r_ae76c68b3fa15940e00081d6362397a59"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae76c68b3fa15940e00081d6362397a59">open</a> (size_t bufferSize) noexcept</td></tr>
+<tr class="memdesc:ae76c68b3fa15940e00081d6362397a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the native message buffer from the FreeRTOS heap, if not already open.  <br /></td></tr>
+<tr class="memitem:abccf1a9247218f8db310c0a54d9e56e4" id="r_abccf1a9247218f8db310c0a54d9e56e4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abccf1a9247218f8db310c0a54d9e56e4">createStatic</a> (uint8_t *storage, size_t size, StaticMessageBuffer_t &amp;buffer) noexcept</td></tr>
+<tr class="memdesc:abccf1a9247218f8db310c0a54d9e56e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the native message buffer in caller-provided static memory, if not already open.  <br /></td></tr>
+<tr class="memitem:a52eed2d9c411ece46d1cf80f7fa1f19d" id="r_a52eed2d9c411ece46d1cf80f7fa1f19d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a52eed2d9c411ece46d1cf80f7fa1f19d">createStatic</a> (std::span&lt; uint8_t &gt; storage, StaticMessageBuffer_t &amp;buffer) noexcept</td></tr>
+<tr class="memdesc:a52eed2d9c411ece46d1cf80f7fa1f19d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the native message buffer in a caller-provided static storage span, if not already open.  <br /></td></tr>
 <tr class="memitem:a34199efdeb4b4ffc33966e52cb123bd8" id="r_a34199efdeb4b4ffc33966e52cb123bd8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a34199efdeb4b4ffc33966e52cb123bd8">close</a> () noexcept</td></tr>
 <tr class="memdesc:a34199efdeb4b4ffc33966e52cb123bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the native message buffer; does nothing if already closed.  <br /></td></tr>
 <tr class="memitem:aa3b10347853e829732465409e3735500" id="r_aa3b10347853e829732465409e3735500"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa3b10347853e829732465409e3735500">reset</a> () noexcept</td></tr>
@@ -211,7 +218,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 <tr class="memitem:ae43c6ce5b75b7a41bece0b975947263f" id="r_ae43c6ce5b75b7a41bece0b975947263f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae43c6ce5b75b7a41bece0b975947263f">getSpacesAvailable</a> () const noexcept</td></tr>
 <tr class="memdesc:ae43c6ce5b75b7a41bece0b975947263f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the free space in the buffer, length headers included.  <br /></td></tr>
 <tr class="memitem:a7d4758d5952ecf329592eb6d077501e3" id="r_a7d4758d5952ecf329592eb6d077501e3"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a7d4758d5952ecf329592eb6d077501e3">getCapacity</a> () const noexcept</td></tr>
-<tr class="memdesc:a7d4758d5952ecf329592eb6d077501e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the buffer size configured at creation, length headers included.  <br /></td></tr>
+<tr class="memdesc:a7d4758d5952ecf329592eb6d077501e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the usable buffer size, length headers included.  <br /></td></tr>
 <tr class="memitem:ac0cdf8e25be1101c88e2a89f0a109ce5" id="r_ac0cdf8e25be1101c88e2a89f0a109ce5"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac0cdf8e25be1101c88e2a89f0a109ce5">getMaxMessageSize</a> () const noexcept</td></tr>
 <tr class="memdesc:ac0cdf8e25be1101c88e2a89f0a109ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the largest payload a single message may carry in this buffer.  <br /></td></tr>
 <tr class="memitem:ae2fe3ace374b7fec7e86b8183eaa1ff8" id="r_ae2fe3ace374b7fec7e86b8183eaa1ff8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae2fe3ace374b7fec7e86b8183eaa1ff8">isEmpty</a> () const noexcept</td></tr>
@@ -255,7 +262,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Scheduler tick count used for timeouts. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#_a2">RTOS::MessageBuffer</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#_a3">RTOS::MessageBuffer</a>.</dd>
 </dl>
 
 </div>
@@ -285,7 +292,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Initializes an empty, closed message buffer. </p>
-<p>Call open() or createStatic() before use. </p>
+<p>Call <a class="el" href="#ae76c68b3fa15940e00081d6362397a59" title="open()">open()</a> or <a class="el" href="#abccf1a9247218f8db310c0a54d9e56e4" title="createStatic()">createStatic()</a> before use. </p>
 
 </div>
 </div>
@@ -402,8 +409,93 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 
 <p>Deletes the native message buffer; does nothing if already closed. </p>
 <p>No task may be blocked on the buffer at this point. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a4">RTOS::MessageBuffer</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a5">RTOS::MessageBuffer</a>.</dd>
 </dl>
+
+</div>
+</div>
+<a id="a52eed2d9c411ece46d1cf80f7fa1f19d" name="a52eed2d9c411ece46d1cf80f7fa1f19d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52eed2d9c411ece46d1cf80f7fa1f19d">&#9670;&#160;</a></span>createStatic() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::MessageBuffer::createStatic </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">StaticMessageBuffer_t &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the native message buffer in a caller-provided static storage span, if not already open. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">storage</td><td>Static storage area; must exceed the 4-byte length header by at least two bytes and outlive the buffer. The buffer holds at most one byte less than the span, length headers included. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Static control structure; must outlive the message buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the buffer is open (newly created or already open), <b>false</b> if the parameters are invalid or creation failed. </dd></dl>
+
+</div>
+</div>
+<a id="abccf1a9247218f8db310c0a54d9e56e4" name="abccf1a9247218f8db310c0a54d9e56e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abccf1a9247218f8db310c0a54d9e56e4">&#9670;&#160;</a></span>createStatic() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::MessageBuffer::createStatic </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">StaticMessageBuffer_t &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the native message buffer in caller-provided static memory, if not already open. </p>
+<p>The kernel keeps one byte of a static storage area free to tell a full buffer from an empty one, so the buffer holds at most <em class="arg">size</em> minus one bytes, length headers included.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">storage</td><td>Static storage area; must be non-null, hold at least <em class="arg">size</em> bytes and outlive the buffer. </td></tr>
+    <tr><td class="paramname">size</td><td>Size of the storage area in bytes; must exceed the 4-byte length header by at least two bytes. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Static control structure; must outlive the message buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the buffer is open (newly created or already open), <b>false</b> if the parameters are invalid or creation failed. </dd></dl>
 
 </div>
 </div>
@@ -430,7 +522,8 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </table>
 </div><div class="memdoc">
 
-<p>Gets the buffer size configured at creation, length headers included. </p>
+<p>Gets the usable buffer size, length headers included. </p>
+<p>A buffer in static storage holds one byte less than the storage area.</p>
 <dl class="section return"><dt>Returns</dt><dd>Capacity in bytes, or <b>0</b> if closed. </dd></dl>
 
 </div>
@@ -459,7 +552,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Gets the native handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native message buffer handle, or <em class="arg">nullptr</em> if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Native message buffer handle, or <b>nullptr</b> if closed. </dd></dl>
 
 </div>
 </div>
@@ -572,7 +665,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Checks whether no message is buffered. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if empty or closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if empty or closed. </dd></dl>
 
 </div>
 </div>
@@ -600,7 +693,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Checks whether the buffer cannot take even a one-byte message. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if full, <em class="arg">false</em> if there is space or the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if full, <b>false</b> if there is space or the buffer is closed. </dd></dl>
 
 </div>
 </div>
@@ -628,7 +721,43 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Checks whether the native message buffer exists. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if open. </dd></dl>
+
+</div>
+</div>
+<a id="ae76c68b3fa15940e00081d6362397a59" name="ae76c68b3fa15940e00081d6362397a59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae76c68b3fa15940e00081d6362397a59">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::MessageBuffer::open </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>bufferSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the native message buffer from the FreeRTOS heap, if not already open. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bufferSize</td><td>Size of the buffer in bytes, length headers included; must exceed the 4-byte header. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the buffer is open (newly created or already open), <b>false</b> if <em class="arg">bufferSize</em> is too small or creation failed. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a1">RTOS::MessageBuffer</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -656,7 +785,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Converts implicitly to the native handle, for interop with raw FreeRTOS APIs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native message buffer handle, or <em class="arg">nullptr</em> if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Native message buffer handle, or <b>nullptr</b> if closed. </dd></dl>
 
 </div>
 </div>
@@ -817,7 +946,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must not be empty. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">blockTime</td><td>Maximum number of ticks to block; <em class="arg">0</em> polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
@@ -869,9 +998,9 @@ template&lt;typename Rep, typename Period&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
   </table>
   </dd>
 </dl>
@@ -914,14 +1043,14 @@ template&lt;typename Rep, typename Period&gt; </div>
 <p>Reads the oldest message, blocking up to a timeout for one to arrive. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">blockTime</td><td>Maximum number of ticks to block; <em class="arg">0</em> polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> on timeout, if <em class="arg">dest</em> is too small for the next message, or if the buffer is closed. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a3">RTOS::MessageBuffer</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a4">RTOS::MessageBuffer</a>.</dd>
 </dl>
 
 </div>
@@ -958,7 +1087,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a blocked writer was unblocked, <em class="arg">false</em> if none was waiting or the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a blocked writer was unblocked, <b>false</b> if none was waiting or the buffer is closed. </dd></dl>
 
 </div>
 </div>
@@ -1087,8 +1216,8 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 <p>Reads the oldest message from an interrupt, requesting a context switch if the writer was unblocked. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1131,7 +1260,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 <p>Reads the oldest message from an interrupt, leaving the context switch request to the caller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the writer was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
@@ -1166,7 +1295,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 
 <p>Discards every buffered message. </p>
 <p>FreeRTOS refuses the reset while a task is blocked sending to or receiving from the buffer.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the buffer was reset, <em class="arg">false</em> if it is closed or a task is blocked on it. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the buffer was reset, <b>false</b> if it is closed or a task is blocked on it. </dd></dl>
 
 </div>
 </div>
@@ -1264,7 +1393,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">range</td><td>Message payload; must not be empty. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; <em class="arg">0</em> polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1363,12 +1492,12 @@ template&lt;typename Rep, typename Period&gt; </div>
   <table class="params">
     <tr><td class="paramname">source</td><td>Message payload; must be non-null. </td></tr>
     <tr><td class="paramname">length</td><td>Payload size in bytes; must be in the range 1 to <a class="el" href="#ac0cdf8e25be1101c88e2a89f0a109ce5" title="getMaxMessageSize()">getMaxMessageSize()</a>. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; <em class="arg">0</em> polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><em class="arg">length</em> if the message was written, <b>0</b> on timeout, invalid parameters or a closed buffer. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a1">RTOS::MessageBuffer</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a2">RTOS::MessageBuffer</a>.</dd>
 </dl>
 
 </div>
@@ -1405,7 +1534,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a blocked reader was unblocked, <em class="arg">false</em> if none was waiting or the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a blocked reader was unblocked, <b>false</b> if none was waiting or the buffer is closed. </dd></dl>
 
 </div>
 </div>

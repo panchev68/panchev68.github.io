@@ -115,7 +115,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>The kernel calls the hook from the idle task with the scheduler suspended. The manager masks interrupts, confirms that sleeping is still allowed, and then either stops the core in STOP1 until the LPTIM timeout (deep sleep) or waits in a plain <b>__WFI()</b> (light sleep). Pre-sleep and post-sleep callbacks run only around deep sleep and always with interrupts masked, so they must be short and must not call any blocking API.</p>
 <p>Stop mode needs a clock that keeps running while the core is stopped, so the manager drives an LPTIM through <a class="el" href="../../d9/d57/a06199.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a>. It targets the STM32U5 family, whose HAL provides both that driver's LPTIM interface and <b>HAL_PWREx_EnterSTOP1Mode()</b>. On a device without an LPTIM, such as the STM32F407, the component is compiled away and the application runs without tickless idle.</p>
 <p>The kernel reaches the manager through <a class="el" href="#a98ee80183ed645629084a482c158afd1" title="vPortSuppressTicksAndSleep()">vPortSuppressTicksAndSleep()</a>. Exactly one translation unit of the application must define <em class="arg">RTOS_POWER_MANAGER_IMPLEMENTATION</em> before including this header; that unit emits the hook as a strong symbol which replaces the weak default of the FreeRTOS port.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/PowerManager.hpp" target="_blank">Source</a> </dd>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/PowerManager.hpp" target="_blank">Source</a> </dd>
 <dd>
 <a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/doc/PowerManager.md" target="_blank">Detail Description</a> </dd></dl>
 </div><table class="memberdecls">
@@ -142,7 +143,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7eaa1f8fd4c5fddd0d6d9aa4202913fe" id="r_a7eaa1f8fd4c5fddd0d6d9aa4202913fe"><td class="memItemLeft"><a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7eaa1f8fd4c5fddd0d6d9aa4202913fe">operator=</a> (<a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;&amp;)=delete</td></tr>
 <tr class="memdesc:a7eaa1f8fd4c5fddd0d6d9aa4202913fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the manager is a singleton bound to the kernel idle hook.  <br /></td></tr>
 <tr class="memitem:a565502e655a008546ced2e18d0fc7b22" id="r_a565502e655a008546ced2e18d0fc7b22"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a565502e655a008546ced2e18d0fc7b22">setup</a> (<a class="el" href="../../d1/d0f/a05543.html">Lib::HAL::LPTimer</a> &amp;timer) noexcept</td></tr>
-<tr class="memdesc:a565502e655a008546ced2e18d0fc7b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the PowerManager with an LPTimer instance.  <br /></td></tr>
+<tr class="memdesc:a565502e655a008546ced2e18d0fc7b22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns the LPTimer that times deep sleep and enables the manager.  <br /></td></tr>
 <tr class="memitem:aab0d26e47777719ed4cbb5abfa3ff18c" id="r_aab0d26e47777719ed4cbb5abfa3ff18c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aab0d26e47777719ed4cbb5abfa3ff18c">isSetUp</a> () const noexcept</td></tr>
 <tr class="memdesc:aab0d26e47777719ed4cbb5abfa3ff18c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a> has succeeded.  <br /></td></tr>
 <tr class="memitem:a413f529cd450843d1925ae6e9672272a" id="r_a413f529cd450843d1925ae6e9672272a"><td class="memItemLeft"><a class="el" href="../../d1/d0f/a05543.html">Lib::HAL::LPTimer</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a413f529cd450843d1925ae6e9672272a">getTimer</a> () const noexcept</td></tr>
@@ -183,7 +184,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af76fc6de7d330151f7765c0ff6149226" id="r_af76fc6de7d330151f7765c0ff6149226"><td class="memItemLeft">static <a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af76fc6de7d330151f7765c0ff6149226">instance</a> () noexcept</td></tr>
-<tr class="memdesc:af76fc6de7d330151f7765c0ff6149226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the singleton instance of the PowerManager.  <br /></td></tr>
+<tr class="memdesc:af76fc6de7d330151f7765c0ff6149226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the singleton manager.  <br /></td></tr>
 <tr class="memitem:ac35887bd479a4425729b40a4b3114f52" id="r_ac35887bd479a4425729b40a4b3114f52"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ac35887bd479a4425729b40a4b3114f52">isDebuggerAttached</a> () noexcept</td></tr>
 <tr class="memdesc:ac35887bd479a4425729b40a4b3114f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether a debugger is currently attached, through the Cortex-M <em class="arg">C_DEBUGEN</em> bit.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -331,7 +332,7 @@ Friends</h2></td></tr>
 
 <p>Checks if deep sleep mode is currently permitted. </p>
 <p>Also <em class="arg">false</em> whenever a debugger is attached (<a class="el" href="#ac35887bd479a4425729b40a4b3114f52" title="isDebuggerAttached()">isDebuggerAttached()</a>). STOP1 stops the core clock, and even with <b>HAL_DBGMCU_EnableDBGStopMode()</b> (see <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>) SWD can still misread or momentarily lose the connection across the transition, which a plain <b>__WFI()</b> light sleep never does, because the core clock never stops. The check runs in every build: it is a single register read and costs nothing when no debugger is attached.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if permitted, initialized, and no debugger is attached. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if permitted, initialized, and no debugger is attached. </dd></dl>
 
 </div>
 </div>
@@ -440,7 +441,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the number of deep sleep locks currently held. </p>
-<dl class="section return"><dt>Returns</dt><dd>Lock count; deep sleep is possible only at zero. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Lock count; deep sleep is possible only at <b>0</b>. </dd></dl>
 
 </div>
 </div>
@@ -554,7 +555,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the LPTimer that times deep sleep. </p>
-<dl class="section return"><dt>Returns</dt><dd>Timer passed to <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>, or <em class="arg">nullptr</em> before a successful setup. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Timer passed to <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>, or <b>nullptr</b> before a successful setup. </dd></dl>
 
 </div>
 </div>
@@ -581,9 +582,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieves the singleton instance of the PowerManager. </p>
+<p>Gets the singleton manager. </p>
 <p>The instance is constant-initialized, so the first call needs no guarded initialization; this matters because that first call may come from the idle hook while the scheduler is suspended.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the PowerManager instance. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the manager instance. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d78/a06277.html#a1">RTOS::PowerManager</a>.</dd>
 </dl>
 
@@ -613,7 +614,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports whether a debugger is currently attached, through the Cortex-M <em class="arg">C_DEBUGEN</em> bit. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a debugger is attached. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a debugger is attached. </dd></dl>
 
 </div>
 </div>
@@ -641,7 +642,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks the global deep sleep switch, ignoring any <a class="el" href="../../d3/d20/a05927.html" title="DeepSleepLock">DeepSleepLock</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if deep sleep is enabled. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if deep sleep is enabled. </dd></dl>
 
 </div>
 </div>
@@ -669,7 +670,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks whether <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a> has succeeded. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> once an LPTimer has been assigned. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> once an LPTimer has been assigned. </dd></dl>
 
 </div>
 </div>
@@ -759,7 +760,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if registration succeeded, <em class="arg">false</em> if the registry is full. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if registration succeeded, <b>false</b> if the registry is full. </dd></dl>
 
 </div>
 </div>
@@ -793,7 +794,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if registration succeeded, <em class="arg">false</em> if the registry is full. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if registration succeeded, <b>false</b> if the registry is full. </dd></dl>
 
 </div>
 </div>
@@ -875,14 +876,14 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the PowerManager with an LPTimer instance. </p>
+<p>Assigns the LPTimer that times deep sleep and enables the manager. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">timer</td><td>LPTimer that has already been opened; must outlive the manager's use of it. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if setup succeeded, otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if setup succeeded, otherwise <b>false</b>. </dd></dl>
 
 </div>
 </div>
@@ -916,7 +917,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if it was registered and has been removed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if it was registered and has been removed. </dd></dl>
 
 </div>
 </div>
@@ -950,7 +951,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if it was registered and has been removed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if it was registered and has been removed. </dd></dl>
 
 </div>
 </div>

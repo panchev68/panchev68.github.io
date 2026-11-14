@@ -107,12 +107,14 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 
-<p>Controls a hardware timer configured in One-Pulse Mode.  
+<p>Controls a hardware timer configured in one-pulse mode (OPM).  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Controls a hardware timer configured in One-Pulse Mode. </p>
-<p>Maps the output channel's compare interrupt through the DeviceManager to a task notification, so a task blocked in <a class="el" href="#aeba87dc02428bea360275fd39706fa18" title="waitPulseStart()">waitPulseStart()</a> wakes when a pulse starts.</p>
-<p>In OPM, channels 1 and 2 are always used together: one is the output, the other the trigger input. After a trigger the counter runs from 0 to ARR once; with PWM mode 2 (or PWM mode 1 with inverted polarity) the output is inactive while the counter is below CCRx and active from CCRx up to ARR. The compare interrupt therefore fires when the pulse starts, not when it ends. </p>
+<div class="textblock"><p>Controls a hardware timer configured in one-pulse mode (OPM). </p>
+<p>Maps the output channel's compare interrupt through the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> to a task notification, so a task blocked in <a class="el" href="#aeba87dc02428bea360275fd39706fa18" title="waitPulseStart()">waitPulseStart()</a> wakes when a pulse starts. Only one instance per timer is supported.</p>
+<p>In OPM, channels 1 and 2 are always used together: one is the output, the other the trigger input. After a trigger the counter runs from 0 to <em class="arg">ARR</em> once; with PWM mode 2 (or PWM mode 1 with inverted polarity) the output is inactive while the counter is below <em class="arg">CCRx</em> and active from <em class="arg">CCRx</em> up to <em class="arg">ARR</em>. The compare interrupt therefore fires when the pulse starts, not when it ends.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/TIM/TimOnePulse.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d44/a06217.html#_a4">Lib::HAL::Timer::TimOnePulse</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -124,13 +126,13 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae287fccac43cfbccd505d62c3450d886" id="r_ae287fccac43cfbccd505d62c3450d886"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *timHandle, uint32_t outputChannel) noexcept</td></tr>
-<tr class="memdesc:ae287fccac43cfbccd505d62c3450d886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the One-Pulse wrapper directly to a native configuration structure.  <br /></td></tr>
+<tr class="memdesc:ae287fccac43cfbccd505d62c3450d886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the wrapper to a native timer handle and output channel, and registers it with the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a>.  <br /></td></tr>
 <tr class="memitem:a1e04591efe0469a8ca79694006f138e6" id="r_a1e04591efe0469a8ca79694006f138e6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1e04591efe0469a8ca79694006f138e6">~TimOnePulse</a> () noexcept</td></tr>
-<tr class="memdesc:a1e04591efe0469a8ca79694006f138e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer before the base leaves the DeviceManager registry.  <br /></td></tr>
+<tr class="memdesc:a1e04591efe0469a8ca79694006f138e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer before the base leaves the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> registry.  <br /></td></tr>
 <tr class="memitem:a4dd784ca9da4b8c662101a2b232a1f61" id="r_a4dd784ca9da4b8c662101a2b232a1f61"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61">start</a> () noexcept</td></tr>
 <tr class="memdesc:a4dd784ca9da4b8c662101a2b232a1f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arms the timer for trigger events; the calling task becomes the one <a class="el" href="#aeba87dc02428bea360275fd39706fa18" title="waitPulseStart()">waitPulseStart()</a> serves.  <br /></td></tr>
 <tr class="memitem:a2ab7da84b6cafce46167eeca602289ac" id="r_a2ab7da84b6cafce46167eeca602289ac"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2ab7da84b6cafce46167eeca602289ac">stop</a> () noexcept</td></tr>
-<tr class="memdesc:a2ab7da84b6cafce46167eeca602289ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disarms the One-Pulse engine and its interrupts.  <br /></td></tr>
+<tr class="memdesc:a2ab7da84b6cafce46167eeca602289ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disarms the one-pulse engine and its interrupts.  <br /></td></tr>
 <tr class="memitem:aeba87dc02428bea360275fd39706fa18" id="r_aeba87dc02428bea360275fd39706fa18"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aeba87dc02428bea360275fd39706fa18">waitPulseStart</a> (<a class="el" href="../../dd/df2/a05555.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout=portMAX_DELAY) const noexcept</td></tr>
 <tr class="memdesc:aeba87dc02428bea360275fd39706fa18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e.  <br /></td></tr>
 <tr class="memitem:a16dbc64b1db27612373f5d95fe8fe6ed" id="r_a16dbc64b1db27612373f5d95fe8fe6ed"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
@@ -153,7 +155,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a50fe83a38ed76cc7a5f8cea7dca98f4d" id="r_a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dd/df2/a05555.html#a50fe83a38ed76cc7a5f8cea7dca98f4d">waitEvent</a> (<a class="el" href="../../dd/df2/a05555.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout) const noexcept</td></tr>
 <tr class="memdesc:a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the next hardware event.  <br /></td></tr>
 <tr class="memitem:a96061f4587cc3508811475a8309ab3f0" id="r_a96061f4587cc3508811475a8309ab3f0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../dd/df2/a05555.html#a96061f4587cc3508811475a8309ab3f0">notifyWorkerFromISR</a> () noexcept</td></tr>
-<tr class="memdesc:a96061f4587cc3508811475a8309ab3f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the bound task from the HAL callback.  <br /></td></tr>
+<tr class="memdesc:a96061f4587cc3508811475a8309ab3f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the bound task; called from the HAL callback in interrupt context.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -236,11 +238,12 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the One-Pulse wrapper directly to a native configuration structure. </p>
+<p>Binds the wrapper to a native timer handle and output channel, and registers it with the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a>. </p>
+<p>Asserts on a <em class="arg">nullptr</em> handle or an output channel other than channel 1 or 2.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timHandle</td><td>Target native hardware TIM descriptor block (e.g., &amp;htim5). </td></tr>
-    <tr><td class="paramname">outputChannel</td><td>Output channel, 'TIM_CHANNEL_1' or 'TIM_CHANNEL_2'; the other one is the trigger. </td></tr>
+    <tr><td class="paramname">timHandle</td><td>Target native hardware TIM descriptor block (for example <b>htim5</b>). </td></tr>
+    <tr><td class="paramname">outputChannel</td><td>Output channel, <em class="arg">TIM_CHANNEL_1</em> or <em class="arg">TIM_CHANNEL_2</em>; the other one is the trigger. </td></tr>
   </table>
   </dd>
 </dl>
@@ -270,7 +273,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the timer before the base leaves the DeviceManager registry. </p>
+<p>Stops the timer before the base leaves the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> registry. </p>
 
 </div>
 </div>
@@ -299,6 +302,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Makes the calling task the one woken by hardware events; call before enabling the interrupt. </p>
+<p>Task context only; asserts if called from an ISR. </p>
 
 </div>
 </div>
@@ -326,7 +330,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -353,7 +357,8 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Wakes the bound task from the HAL callback. </p>
+<p>Wakes the bound task; called from the HAL callback in interrupt context. </p>
+<p>Does nothing until a task has been bound with <a class="el" href="../../dd/df2/a05555.html#ac7b1eac52b77847537b732a7e3cd0d2e" title="bindWorker()">bindWorker()</a>. </p>
 
 </div>
 </div>
@@ -385,11 +390,11 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets the trigger-to-pulse delay and the pulse width. </p>
-<p>In OPM the delay is CCRx and the width is ARR - CCRx + 1, so both registers are written together.</p>
+<p>In OPM the delay is <em class="arg">CCRx</em> and the width is <em class="arg">ARR</em> - <em class="arg">CCRx</em> + 1, so both registers are written together. Asserts on an uninitialized native handle, a zero width or a delay and width that overflow 32 bits, in which case nothing is written.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delay</td><td>Ticks from the trigger to the start of the pulse (CCRx). </td></tr>
-    <tr><td class="paramname">pulseWidth</td><td>Pulse length in ticks, at least 1; 'delay + pulseWidth - 1' must fit the counter. </td></tr>
+    <tr><td class="paramname">delay</td><td>Ticks from the trigger to the start of the pulse (<em class="arg">CCRx</em>). </td></tr>
+    <tr><td class="paramname">pulseWidth</td><td>Pulse length in ticks, at least 1; <em class="arg">delay</em> + <em class="arg">pulseWidth</em> - 1 must fit the counter. </td></tr>
   </table>
   </dd>
 </dl>
@@ -422,7 +427,8 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Arms the timer for trigger events; the calling task becomes the one <a class="el" href="#aeba87dc02428bea360275fd39706fa18" title="waitPulseStart()">waitPulseStart()</a> serves. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware channel activation sequence succeeded. </dd></dl>
+<p>Task context only. Asserts on a <em class="arg">nullptr</em> native handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware channel activation sequence succeeded, <b>false</b> otherwise. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d44/a06217.html#a6">Lib::HAL::Timer::TimOnePulse</a>.</dd>
 </dl>
 
@@ -451,8 +457,9 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Disarms the One-Pulse engine and its interrupts. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware stopped safely. </dd></dl>
+<p>Disarms the one-pulse engine and its interrupts. </p>
+<p>Asserts on a <em class="arg">nullptr</em> native handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stopped safely, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -480,13 +487,14 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Blocks the calling task until the next hardware event. </p>
+<p>Task context only. Asserts unless the caller is the task that called <a class="el" href="../../dd/df2/a05555.html#ac7b1eac52b77847537b732a7e3cd0d2e" title="bindWorker()">bindWorker()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if an event arrived, <em class="arg">false</em> on timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if an event arrived, <b>false</b> on timeout. </dd></dl>
 
 </div>
 </div>
@@ -517,6 +525,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e. </p>
 <p>the trigger delay has elapsed.</p>
+<p>Task context only. Asserts if called from another task than the one that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -530,7 +539,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a pulse started, <em class="arg">false</em> on timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a pulse started, <b>false</b> on timeout. </dd></dl>
 
 </div>
 </div>
@@ -559,14 +568,14 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e. </p>
 <p>the trigger delay has elapsed.</p>
-<p>The compare interrupt fires at the start of the pulse; the end of the pulse is the update event.</p>
+<p>The compare interrupt fires at the start of the pulse; the end of the pulse is the update event. Task context only. Asserts if called from another task than the one that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait; the default <em class="arg">portMAX_DELAY</em> waits forever. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a pulse started, <em class="arg">false</em> on timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a pulse started, <b>false</b> on timeout. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d44/a06217.html#a8">Lib::HAL::Timer::TimOnePulse</a>.</dd>
 </dl>
 

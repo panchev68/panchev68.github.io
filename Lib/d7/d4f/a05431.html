@@ -110,14 +110,16 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>HASH port that waits for the SHA-256 digest on the HASH interrupt instead of polling. </p>
-<p><a class="el" href="#a331d3b9f3f4f47d04927bfe00ec600e6" title="sha256()">sha256()</a> starts 'HAL_HASHEx_SHA256_Start_IT()' and blocks the calling task until the digest-complete or error callback (registered with 'HAL_HASH_RegisterCallback()') reports from the HASH IRQ. When the project uses <a class="el" href="../../dd/d78/a06277.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, STOP mode is withheld while waiting, since the peripheral clock stops there.</p>
+<p><a class="el" href="#a331d3b9f3f4f47d04927bfe00ec600e6" title="sha256()">sha256()</a> starts <b>HAL_HASHEx_SHA256_Start_IT()</b> and blocks the calling task until the digest-complete or error callback (registered with <b>HAL_HASH_RegisterCallback()</b>) reports from the HASH IRQ. When the project uses <a class="el" href="../../dd/d78/a06277.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, STOP mode is withheld while waiting, since the peripheral clock stops there.</p>
 <p><b>Thread safety:</b> callers of one port are serialized by an internal mutex; task context only.</p>
-<dl class="section important"><dt>Important</dt><dd>The NVIC priority of the HASH IRQ must allow FreeRTOS 'FromISR' calls. </dd></dl>
+<dl class="section important"><dt>Important</dt><dd>The NVIC priority of the HASH IRQ must allow FreeRTOS <em class="arg">FromISR</em> calls.</dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/HASH/HASHPort-IT.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Event" id="r_Event"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d1/dd6/a05435.html">Event</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event bitmasks used inside the internal RTOS event group.  <a href="../../d1/dd6/a05435.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event bits raised from the HASH ISR on the internal <a class="el" href="../../d3/dfe/a06265.html" title="RTOS::EventGroup">RTOS::EventGroup</a>.  <a href="../../d1/dd6/a05435.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -129,9 +131,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6c119eb2a5f647e1754a57b0b850fe4f" id="r_a6c119eb2a5f647e1754a57b0b850fe4f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6c119eb2a5f647e1754a57b0b850fe4f">HASHPort</a> (HASH_HandleTypeDef *handle) noexcept</td></tr>
 <tr class="memdesc:a6c119eb2a5f647e1754a57b0b850fe4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block; does not touch the peripheral.  <br /></td></tr>
 <tr class="memitem:a4160e13f3eda86ab67d5e41e3d9f0fca" id="r_a4160e13f3eda86ab67d5e41e3d9f0fca"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4160e13f3eda86ab67d5e41e3d9f0fca">~HASHPort</a> () noexcept</td></tr>
-<tr class="memdesc:a4160e13f3eda86ab67d5e41e3d9f0fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the callbacks, the DeviceManager slot and the RTOS objects.  <br /></td></tr>
+<tr class="memdesc:a4160e13f3eda86ab67d5e41e3d9f0fca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the callbacks, the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot and the RTOS objects.  <br /></td></tr>
 <tr class="memitem:af6b9554592c3ad75d36bdd11041e7006" id="r_af6b9554592c3ad75d36bdd11041e7006"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af6b9554592c3ad75d36bdd11041e7006">HASHPort</a> (const HASHPort &amp;other)=delete</td></tr>
-<tr class="memdesc:af6b9554592c3ad75d36bdd11041e7006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns its RTOS objects and DeviceManager slot.  <br /></td></tr>
+<tr class="memdesc:af6b9554592c3ad75d36bdd11041e7006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns its RTOS objects and <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
 <tr class="memitem:a491caf024458b7906cce604bafe47e1c" id="r_a491caf024458b7906cce604bafe47e1c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a491caf024458b7906cce604bafe47e1c">HASHPort</a> (HASHPort &amp;&amp;other)=delete</td></tr>
 <tr class="memdesc:a491caf024458b7906cce604bafe47e1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns its RTOS objects and DeviceManager slot.  <br /></td></tr>
 <tr class="memitem:a4313f6e70d3c0be3f82ed001be995baf" id="r_a4313f6e70d3c0be3f82ed001be995baf"><td class="memItemLeft"><a class="el" href="#a6c119eb2a5f647e1754a57b0b850fe4f">HASHPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4313f6e70d3c0be3f82ed001be995baf">operator=</a> (const <a class="el" href="#a6c119eb2a5f647e1754a57b0b850fe4f">HASHPort</a> &amp;other)=delete</td></tr>
@@ -206,7 +208,7 @@ Static Public Attributes</h2></td></tr>
 <p>Binds the port to a native hardware descriptor block; does not touch the peripheral. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block (e.g. 'hhash'). </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block (e.g. <b>hhash</b>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -236,7 +238,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Releases the callbacks, the DeviceManager slot and the RTOS objects. </p>
+<p>Releases the callbacks, the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot and the RTOS objects. </p>
 
 </div>
 </div>
@@ -263,7 +265,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: each instance owns its RTOS objects and DeviceManager slot. </p>
+<p>Copying is deleted: each instance owns its RTOS objects and <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -331,7 +333,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Unregisters this instance and its callbacks, deinitializes the peripheral and closes the RTOS objects. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the port was closed cleanly or was not open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the port was closed cleanly or was not open, <b>false</b> if the HAL failed to deinitialize it. </dd></dl>
 
 </div>
 </div>
@@ -359,7 +361,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -387,7 +389,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -416,7 +418,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Opens the RTOS objects, initializes the peripheral, registers this instance and the HAL callbacks. </p>
 <p>Task context only. Any step that fails rolls back the ones already completed.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if every step succeeded or the port was already open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded or the port was already open, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -516,15 +518,15 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Hashes a complete message with SHA-256, blocking the calling task until the interrupt reports the digest. </p>
-<p>After a timeout the peripheral is reinitialized, so the next call starts from a known state.</p>
+<p>Task context only; asserts an open port. After a timeout the peripheral is reinitialized, so the next call starts from a known state.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Message bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Longest wait for the digest. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Longest wait for the digest; waiting for the internal mutex is not bounded by it. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Digest of 'data', or <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on a HAL error, a timeout or a closed port. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Digest of <em class="arg">data</em>, or <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on a HAL error, a timeout or a closed port. </dd></dl>
 
 </div>
 </div>

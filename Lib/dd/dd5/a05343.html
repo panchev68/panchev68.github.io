@@ -104,11 +104,12 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 
-<p>Blocking specialization: polls for mailbox or FIFO readiness instead of using the interrupt notification of <a class="el" href="#adc087231856d1ec6bde6f97494503899" title="CANPort">CANPort</a>.  
+<p>Blocking specialization: polls for mailbox or FIFO readiness instead of using the interrupt notification of <a class="el" href="#adc087231856d1ec6bde6f97494503899" title="CANPort">CANPort</a>, and does not depend on <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> or <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>, since no HAL callback is ever registered.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Blocking specialization: polls for mailbox or FIFO readiness instead of using the interrupt notification of <a class="el" href="#adc087231856d1ec6bde6f97494503899" title="CANPort">CANPort</a>. </p>
-<p>Does not depend on DeviceManager or Device, since no HAL callback is ever registered. </p>
+<div class="textblock"><p>Blocking specialization: polls for mailbox or FIFO readiness instead of using the interrupt notification of <a class="el" href="#adc087231856d1ec6bde6f97494503899" title="CANPort">CANPort</a>, and does not depend on <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> or <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>, since no HAL callback is ever registered. </p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/CAN/CANPort-Block.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -302,7 +303,8 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Halts the CAN peripheral's core state machine. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware stop sequence succeeded, <em class="arg">false</em> otherwise. </dd></dl>
+<p>Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stop sequence succeeded, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -330,7 +332,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports how many transmit mailboxes are currently free. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of free transmit mailboxes (0-3), or 0 if unbound. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of free transmit mailboxes (<b>0</b> to <b>3</b>), or <b>0</b> if unbound. </dd></dl>
 
 </div>
 </div>
@@ -416,11 +418,11 @@ Static Public Attributes</h2></td></tr>
 <p>Reports how many frames are currently latched in the given hardware FIFO. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer ('CAN_RX_FIFO0' or 'CAN_RX_FIFO1'). </td></tr>
+    <tr><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer (<em class="arg">CAN_RX_FIFO0</em> or <em class="arg">CAN_RX_FIFO1</em>). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of pending frames in the selected FIFO, or 0 if unbound. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of pending frames in the selected FIFO, or <b>0</b> if unbound. </dd></dl>
 
 </div>
 </div>
@@ -448,7 +450,8 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Starts the CAN peripheral's core state machine. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware start sequence succeeded, <em class="arg">false</em> otherwise. </dd></dl>
+<p>The peripheral must already be initialized and its acceptance filters configured, as <b>HAL_CAN_Start()</b> only leaves the initialization mode. Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware start sequence succeeded, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -548,14 +551,15 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reads whatever frame is currently latched in the given hardware FIFO. </p>
+<p>Does not wait: it fails when the FIFO is empty. Asserts on an unbound handle and on a <em class="arg">fifoIndex</em> other than the two hardware FIFOs.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer ('CAN_RX_FIFO0' or 'CAN_RX_FIFO1'). </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">frame</td><td>Output structure receiving the parsed message. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer (<em class="arg">CAN_RX_FIFO0</em> or <em class="arg">CAN_RX_FIFO1</em>). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">frame</td><td>Output structure receiving the parsed message; left unchanged on failure. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a valid frame was extracted from the selected hardware FIFO, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a valid frame was extracted from the selected hardware FIFO, <b>false</b> if it was empty. </dd></dl>
 
 </div>
 </div>
@@ -594,13 +598,13 @@ Static Public Attributes</h2></td></tr>
 <p>Reads a classic CAN frame, polling the given FIFO up to the given timeout. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer ('CAN_RX_FIFO0' or 'CAN_RX_FIFO1'). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer (<em class="arg">CAN_RX_FIFO0</em> or <em class="arg">CAN_RX_FIFO1</em>). </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">frame</td><td>Output structure receiving the parsed message. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Maximum duration to wait for a pending frame. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a frame arrived in time and was extracted, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a frame arrived in time and was extracted, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -632,15 +636,15 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Submits a classic CAN frame to the first free transmit mailbox. </p>
-<p>Returns as soon as the hardware accepts the frame into a mailbox. The bus transmission itself completes asynchronously and is observed through a mode-specific completion signal.</p>
+<p>Returns as soon as the hardware accepts the frame into a mailbox. The bus transmission itself completes asynchronously and is observed through a mode-specific completion signal. An identifier below <em class="arg">0x800</em> is sent in the standard 11-bit format, any other in the extended 29-bit format. Always a data frame, never a remote frame. Asserts on an unbound handle, a payload above <a class="el" href="../../d1/dab/a05359.html#a91a941265090b2ee4f3c05dbc2354fd9" title="MAX_CLASSIC_CAN_PAYLOAD">MAX_CLASSIC_CAN_PAYLOAD</a> and an identifier above 29 bits.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">identifier</td><td>Standard or Extended arbitration CAN frame ID. </td></tr>
-    <tr><td class="paramname">data</td><td>Payload bytes, at most 'MAX_CLASSIC_CAN_PAYLOAD' long. </td></tr>
+    <tr><td class="paramname">identifier</td><td>Arbitration identifier of the frame, at most 29 bits. </td></tr>
+    <tr><td class="paramname">data</td><td>Payload bytes, at most <a class="el" href="../../d1/dab/a05359.html#a91a941265090b2ee4f3c05dbc2354fd9" title="MAX_CLASSIC_CAN_PAYLOAD">MAX_CLASSIC_CAN_PAYLOAD</a> long. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware mailbox accepted the transmission, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware mailbox accepted the transmission, <b>false</b> if no mailbox is free or the payload is too long. </dd></dl>
 
 </div>
 </div>
@@ -680,12 +684,12 @@ Static Public Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">identifier</td><td>Standard or Extended arbitration CAN frame ID. </td></tr>
-    <tr><td class="paramname">data</td><td>Payload bytes, at most 'MAX_CLASSIC_CAN_PAYLOAD' long. </td></tr>
+    <tr><td class="paramname">data</td><td>Payload bytes, at most <em class="arg">MAX_CLASSIC_CAN_PAYLOAD</em> long. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum duration to wait for a free transmit mailbox. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a mailbox freed up in time and accepted the frame, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a mailbox freed up in time and accepted the frame, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>

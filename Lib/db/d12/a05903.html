@@ -111,7 +111,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div class="textblock"><p>Static utility class for managing heap memory in FreeRTOS. </p>
 <p>When <em class="arg">MEMORY_MANAGER_DIAG</em> is defined, each allocation carries a small header recording its size, which enables usage diagnostics. Without it, calls forward directly to the FreeRTOS heap with no per-allocation overhead.</p>
 <p>Every allocating and freeing method must be called from task context: the FreeRTOS heap suspends the scheduler and is not interrupt-safe.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/MemoryManager.hpp" target="_blank">Source</a> </dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/MemoryManager.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -332,7 +333,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Allocates a memory block from the heap. </p>
-<p>Must be called from task context.</p>
+<p>Task context only.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">size</td><td>Number of bytes to allocate; must be greater than zero. </td></tr>
@@ -340,7 +341,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the allocated memory, or <em class="arg">nullptr</em> on failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the allocated memory, or <b>nullptr</b> on failure. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../da/daf/a06269.html#a2">RTOS::MemoryManager</a>.</dd>
 </dl>
 
@@ -374,8 +375,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Frees a previously allocated memory block. </p>
-<p>Must be called from task context.</p>
-<p>Like <b>free()</b>, a <em class="arg">nullptr</em> is a successful no-op: it reports <a class="el" href="#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> and is not counted in the diagnostics.</p>
+<p>Task context only, except for a <em class="arg">nullptr</em>. Like <b>free()</b>, a <em class="arg">nullptr</em> is a successful no-op: it reports <a class="el" href="#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> and is not counted in the diagnostics.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">pointer</td><td>Pointer previously returned by <a class="el" href="#a22bb0dd4b2e20be87fa1cc27bc71f9de" title="allocate()">allocate()</a>, or <em class="arg">nullptr</em>. With <em class="arg">MEMORY_MANAGER_DIAG</em> any other pointer corrupts the heap, since its header is read back. </td></tr>
@@ -504,7 +504,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if size is valid, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <em class="arg">size</em> is valid, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>

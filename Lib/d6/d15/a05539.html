@@ -110,14 +110,16 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
 class Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;</div><p>CRTP foundation implementing the handle-lifecycle and transfer-dispatch policy shared by every SPI transfer mode. </p>
-<p>Owns no state beyond the begin/end-transaction hooks, not even the native handle: it reaches the handle through 'derived()-&gt;getHandle()' instead of inheriting <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>. <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a> brings an intrusive DeviceManager list link ('nextDevice') that only an interrupt-driven mode uses, and a blocking specialization never registers with the DeviceManager. Each mode therefore owns its own handle storage: 'IT' and 'DMA' get it from <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a> through <a class="el" href="../../d1/d01/a05531.html" title="SPIPortAsync">SPIPortAsync</a>, while the blocking specialization stores it directly. The begin/end-transaction hooks live here rather than per mode, since every mode's send, receive and sendReceive bracket the transfer the same way.</p>
-<p>A mode specialization provides 'sendHandler()', 'receiveHandler()' and 'sendReceiveHandler()', each taking the validated buffer(s) and a <a class="el" href="#a03b1d8751fc952fa93668bd1d0e48aca" title="Timeout">Timeout</a>, and returning only once the hardware no longer touches the buffers.</p>
+<p>Owns no state beyond the begin/end-transaction hooks, not even the native handle: it reaches the handle through <em class="arg">getHandle()</em> of <em class="arg">T_DERIVED</em> instead of inheriting <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>. <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a> brings an intrusive <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> list link (<em class="arg">nextDevice</em>) that only an interrupt-driven mode uses, and a blocking specialization never registers with the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a>. Each mode therefore owns its own handle storage: <em class="arg">IT</em> and <em class="arg">DMA</em> get it from <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a> through <a class="el" href="../../d1/d01/a05531.html" title="SPIPortAsync">SPIPortAsync</a>, while the blocking specialization stores it directly. The begin/end-transaction hooks live here rather than per mode, since every mode's send, receive and sendReceive bracket the transfer the same way.</p>
+<p>A mode specialization provides <em class="arg">sendHandler()</em>, <em class="arg">receiveHandler()</em> and <em class="arg">sendReceiveHandler()</em>, each taking the validated buffer(s) and a <a class="el" href="#a03b1d8751fc952fa93668bd1d0e48aca" title="Lib::HAL::SPIPortBase::Timeout">Lib::HAL::SPIPortBase::Timeout</a>, and returning only once the hardware no longer touches the buffers.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>High-level concrete driver class owning the native handle and the transfer mechanism. </td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>High-level concrete driver class owning the native handle and the transfer mechanism.</td></tr>
   </table>
   </dd>
 </dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/SPI/SPIPortBase.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -127,13 +129,13 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:af7d9dc0b540fee5b78bdf3853a203937" id="r_af7d9dc0b540fee5b78bdf3853a203937"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> (const SPIPortBase &amp;other)=delete</td></tr>
-<tr class="memdesc:af7d9dc0b540fee5b78bdf3853a203937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memdesc:af7d9dc0b540fee5b78bdf3853a203937"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique <em class="arg">T_DERIVED</em> driver instance.  <br /></td></tr>
 <tr class="memitem:a3d58a47067dbf8b77d78250373234f6d" id="r_a3d58a47067dbf8b77d78250373234f6d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3d58a47067dbf8b77d78250373234f6d">SPIPortBase</a> (SPIPortBase &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a3d58a47067dbf8b77d78250373234f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memdesc:a3d58a47067dbf8b77d78250373234f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique <em class="arg">T_DERIVED</em> driver instance.  <br /></td></tr>
 <tr class="memitem:a33e5060aa4a9e4755b6786700276a5bf" id="r_a33e5060aa4a9e4755b6786700276a5bf"><td class="memItemLeft"><a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a33e5060aa4a9e4755b6786700276a5bf">operator=</a> (const <a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a33e5060aa4a9e4755b6786700276a5bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memdesc:a33e5060aa4a9e4755b6786700276a5bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique <em class="arg">T_DERIVED</em> driver instance.  <br /></td></tr>
 <tr class="memitem:ae6957396d6689ed6ebcffc3b11177118" id="r_ae6957396d6689ed6ebcffc3b11177118"><td class="memItemLeft"><a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae6957396d6689ed6ebcffc3b11177118">operator=</a> (<a class="el" href="#af7d9dc0b540fee5b78bdf3853a203937">SPIPortBase</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ae6957396d6689ed6ebcffc3b11177118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memdesc:ae6957396d6689ed6ebcffc3b11177118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique <em class="arg">T_DERIVED</em> driver instance.  <br /></td></tr>
 <tr class="memitem:af039716c9cb01db958d77f8c581627cf" id="r_af039716c9cb01db958d77f8c581627cf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af039716c9cb01db958d77f8c581627cf">open</a> () noexcept</td></tr>
 <tr class="memdesc:af039716c9cb01db958d77f8c581627cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Powers up the hardware channel and configures initial peripheral parameters.  <br /></td></tr>
 <tr class="memitem:ab6529e241d0728159eb3f60c7621b666" id="r_ab6529e241d0728159eb3f60c7621b666"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab6529e241d0728159eb3f60c7621b666">close</a> () noexcept</td></tr>
@@ -157,7 +159,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:afa9b12cc40b3d5af68b16f594f5a92f7" id="r_afa9b12cc40b3d5af68b16f594f5a92f7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afa9b12cc40b3d5af68b16f594f5a92f7">SPIPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:afa9b12cc40b3d5af68b16f594f5a92f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the CRTP foundation.  <br /></td></tr>
+<tr class="memdesc:afa9b12cc40b3d5af68b16f594f5a92f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the CRTP foundation with no transaction hooks bound.  <br /></td></tr>
 <tr class="memitem:a88e5899dd8db4b887c6afbf89dcbed77" id="r_a88e5899dd8db4b887c6afbf89dcbed77"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a88e5899dd8db4b887c6afbf89dcbed77">~SPIPortBase</a> () noexcept=default</td></tr>
 <tr class="memdesc:a88e5899dd8db4b887c6afbf89dcbed77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; owns no resources of its own.  <br /></td></tr>
 </table>
@@ -206,7 +208,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: each instance is bound to a unique 'T_DERIVED' driver instance. </p>
+<p>Copying is deleted: each instance is bound to a unique <em class="arg">T_DERIVED</em> driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -241,7 +243,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is deleted: each instance is bound to a unique 'T_DERIVED' driver instance. </p>
+<p>Moving is deleted: each instance is bound to a unique <em class="arg">T_DERIVED</em> driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -276,8 +278,8 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs the CRTP foundation. </p>
-<p>Carries no state beyond the transaction hooks; the native handle lives on 'T_DERIVED'. </p>
+<p>Constructs the CRTP foundation with no transaction hooks bound. </p>
+<p>Carries no state beyond the transaction hooks; the native handle lives on <em class="arg">T_DERIVED</em>. </p>
 
 </div>
 </div>
@@ -338,6 +340,7 @@ template&lt;typename T_DERIVED&gt; </div>
 
 <p>Binds a callback invoked immediately before a new transaction begins (e.g. </p>
 <p>to assert an external chip select or acquire a shared-bus mutex).</p>
+<p>The callback is not owned, so the referenced callable must outlive every transfer.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callback</td><td>Non-owning reference to the function called at the start of a transaction. </td></tr>
@@ -374,6 +377,7 @@ template&lt;typename T_DERIVED&gt; </div>
 
 <p>Binds a callback invoked immediately after a transaction ends (e.g. </p>
 <p>to release an external chip select or a shared-bus mutex). It runs only once the hardware has stopped, including after a timeout.</p>
+<p>The callback is not owned, so the referenced callable must outlive every transfer.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callback</td><td>Non-owning reference to the function called at the end of a transaction. </td></tr>
@@ -409,7 +413,8 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Disables the physical peripheral bus and releases system resources safely. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the shutdown sequence was fully committed. </dd></dl>
+<p>Deinitializes the peripheral through <b>HAL_SPI_DeInit()</b>. Asserts on a <em class="arg">nullptr</em> native handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the shutdown sequence was fully committed, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -439,7 +444,8 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Evaluates whether a transfer or an abort is in flight. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the peripheral is transmitting, receiving or aborting. </dd></dl>
+<p>An uninitialized or failed peripheral is not busy.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral is transmitting, receiving or aborting, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -469,7 +475,8 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Powers up the hardware channel and configures initial peripheral parameters. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware open sequence succeeded. </dd></dl>
+<p>Initializes the peripheral through <b>HAL_SPI_Init()</b>. Asserts on a <em class="arg">nullptr</em> native handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware open sequence succeeded, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -498,7 +505,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: each instance is bound to a unique 'T_DERIVED' driver instance. </p>
+<p>Copy assignment is deleted: each instance is bound to a unique <em class="arg">T_DERIVED</em> driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -534,7 +541,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: each instance is bound to a unique 'T_DERIVED' driver instance. </p>
+<p>Move assignment is deleted: each instance is bound to a unique <em class="arg">T_DERIVED</em> driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -577,6 +584,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Receives data from SPI, waiting for the transfer to complete or fail. </p>
+<p>The transaction hooks bracket the transfer. An empty or oversized buffer asserts and returns <b>false</b>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -591,7 +599,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -627,6 +635,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Sends data over SPI, waiting for the transfer to complete or fail. </p>
+<p>The transaction hooks bracket the transfer. An empty or oversized buffer asserts and returns <b>false</b>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -641,7 +650,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -682,6 +691,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Performs a full-duplex transfer: transmits and receives simultaneously, waiting for completion or failure. </p>
+<p>The transaction hooks bracket the transfer. Buffers of different sizes, or an empty or oversized one, assert and return <b>false</b>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -691,13 +701,13 @@ template&lt;typename Rep, typename Period&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">txData</td><td>Bytes to transmit; same size as 'rxData'. </td></tr>
+    <tr><td class="paramname">txData</td><td>Bytes to transmit; same size as <em class="arg">rxData</em>. </td></tr>
     <tr><td class="paramname">rxData</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>

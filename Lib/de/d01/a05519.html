@@ -104,11 +104,13 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 
-<p>Blocking specialization.  
+<p>Blocking specialization: each transfer runs synchronously inside the HAL call.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Blocking specialization. </p>
-<p>Builds directly on <a class="el" href="../../d6/d15/a05539.html" title="SPIPortBase">SPIPortBase</a> and stores the native handle itself, rather than through 'Device': that class brings an intrusive DeviceManager list link that only an interrupt-driven mode uses, and this mode never registers with the DeviceManager. A blocking transfer completes inside the HAL call itself, so it has no RTOS event group to wait on, no HAL callback to register and nothing to abort once the starting call has returned; that policy lives in <a class="el" href="../../d1/d01/a05531.html" title="SPIPortAsync">SPIPortAsync</a>, shared by the 'IT' and 'DMA' specializations. </p>
+<div class="textblock"><p>Blocking specialization: each transfer runs synchronously inside the HAL call. </p>
+<p>Builds directly on <a class="el" href="../../d6/d15/a05539.html" title="SPIPortBase">SPIPortBase</a> and stores the native handle itself, rather than through <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>, which brings an intrusive <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> list link that only an interrupt-driven mode uses, and this mode never registers with the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a>. A blocking transfer completes inside the HAL call itself, so it has no RTOS event group to wait on, no HAL callback to register and nothing to abort once the starting call has returned; that policy lives in <a class="el" href="../../d1/d01/a05531.html" title="SPIPortAsync">SPIPortAsync</a>, shared by the <em class="arg">IT</em> and <em class="arg">DMA</em> specializations.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/SPI/SPIPort-Block.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -118,9 +120,9 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a903be3f889b13683ab1e357df5e48ddb" id="r_a903be3f889b13683ab1e357df5e48ddb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a903be3f889b13683ab1e357df5e48ddb">SPIPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> *handle) noexcept</td></tr>
-<tr class="memdesc:a903be3f889b13683ab1e357df5e48ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the custom communication context to a native configuration structure.  <br /></td></tr>
+<tr class="memdesc:a903be3f889b13683ab1e357df5e48ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native SPI handle.  <br /></td></tr>
 <tr class="memitem:a50952b4c6824c9ca9cb9f3fa6f07caca" id="r_a50952b4c6824c9ca9cb9f3fa6f07caca"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a50952b4c6824c9ca9cb9f3fa6f07caca">~SPIPort</a> () noexcept=default</td></tr>
-<tr class="memdesc:a50952b4c6824c9ca9cb9f3fa6f07caca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; a blocking transfer never outlives the call that started it.  <br /></td></tr>
+<tr class="memdesc:a50952b4c6824c9ca9cb9f3fa6f07caca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the port; a blocking transfer never outlives the call that started it, and the peripheral is not closed here.  <br /></td></tr>
 <tr class="memitem:a8335bc7cd53354957b5b059adfa4a702" id="r_a8335bc7cd53354957b5b059adfa4a702"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8335bc7cd53354957b5b059adfa4a702">SPIPort</a> (const SPIPort &amp;other)=delete</td></tr>
 <tr class="memdesc:a8335bc7cd53354957b5b059adfa4a702"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to one native SPI handle.  <br /></td></tr>
 <tr class="memitem:ab03e262f43c766b37a67b48c85bff815" id="r_ab03e262f43c766b37a67b48c85bff815"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab03e262f43c766b37a67b48c85bff815">SPIPort</a> (SPIPort &amp;&amp;other)=delete</td></tr>
@@ -199,7 +201,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the custom communication context to a native configuration structure. </p>
+<p>Binds the port to a native SPI handle. </p>
+<p>Asserts on a <em class="arg">nullptr</em> handle. The peripheral is initialized later by <a class="el" href="../../d6/d15/a05539.html#af039716c9cb01db958d77f8c581627cf" title="SPIPortBase::open()">SPIPortBase::open()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
@@ -232,7 +235,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the object; a blocking transfer never outlives the call that started it. </p>
+<p>Destroys the port; a blocking transfer never outlives the call that started it, and the peripheral is not closed here. </p>
 
 </div>
 </div>
@@ -328,6 +331,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Binds a callback invoked immediately before a new transaction begins (e.g. </p>
 <p>to assert an external chip select or acquire a shared-bus mutex).</p>
+<p>The callback is not owned, so the referenced callable must outlive every transfer.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callback</td><td>Non-owning reference to the function called at the start of a transaction. </td></tr>
@@ -362,6 +366,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Binds a callback invoked immediately after a transaction ends (e.g. </p>
 <p>to release an external chip select or a shared-bus mutex). It runs only once the hardware has stopped, including after a timeout.</p>
+<p>The callback is not owned, so the referenced callable must outlive every transfer.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">callback</td><td>Non-owning reference to the function called at the end of a transaction. </td></tr>
@@ -395,7 +400,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Disables the physical peripheral bus and releases system resources safely. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the shutdown sequence was fully committed. </dd></dl>
+<p>Deinitializes the peripheral through <b>HAL_SPI_DeInit()</b>. Asserts on a <em class="arg">nullptr</em> native handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the shutdown sequence was fully committed, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -479,7 +485,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Evaluates whether a transfer or an abort is in flight. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the peripheral is transmitting, receiving or aborting. </dd></dl>
+<p>An uninitialized or failed peripheral is not busy.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral is transmitting, receiving or aborting, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -507,7 +514,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Powers up the hardware channel and configures initial peripheral parameters. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware open sequence succeeded. </dd></dl>
+<p>Initializes the peripheral through <b>HAL_SPI_Init()</b>. Asserts on a <em class="arg">nullptr</em> native handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware open sequence succeeded, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -607,6 +615,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Receives data from SPI, waiting for the transfer to complete or fail. </p>
+<p>The transaction hooks bracket the transfer. An empty or oversized buffer asserts and returns <b>false</b>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -621,7 +630,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -653,6 +662,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sends data over SPI, waiting for the transfer to complete or fail. </p>
+<p>The transaction hooks bracket the transfer. An empty or oversized buffer asserts and returns <b>false</b>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -667,7 +677,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -704,6 +714,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Performs a full-duplex transfer: transmits and receives simultaneously, waiting for completion or failure. </p>
+<p>The transaction hooks bracket the transfer. Buffers of different sizes, or an empty or oversized one, assert and return <b>false</b>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -713,13 +724,13 @@ Public Member Functions</h2></td></tr>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">txData</td><td>Bytes to transmit; same size as 'rxData'. </td></tr>
+    <tr><td class="paramname">txData</td><td>Bytes to transmit; same size as <em class="arg">rxData</em>. </td></tr>
     <tr><td class="paramname">rxData</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>

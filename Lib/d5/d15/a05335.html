@@ -109,30 +109,32 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
 class Lib::HAL::ADCPortBase&lt; Derived &gt;</div><p>CRTP foundation for the lifecycle and single-conversion read policy shared by every ADC transfer mode. </p>
-<p>Owns no state of its own, not even the native handle: it reaches the handle through 'derived()-&gt;getHandle()'. Each mode owns its handle storage. <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a> adds an intrusive DeviceManager list link that only the interrupt-driven and DMA modes use, so the blocking specialization stores the handle directly.</p>
+<p>Owns no state of its own, not even the native handle: it reaches the handle through derived() and the <em class="arg">getHandle()</em> of <em class="arg">Derived</em>. The interrupt-driven and DMA modes keep the handle in <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>, which adds the intrusive <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> list link they need; the blocking specialization stores the handle directly.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>High-level concrete driver class owning the native handle. </td></tr>
+    <tr><td class="paramname">Derived</td><td>High-level concrete driver class owning the native handle.</td></tr>
   </table>
   </dd>
 </dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/ADC/ADCPortBase.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4434447d51727d630ac97c35686a4ec0" id="r_a4434447d51727d630ac97c35686a4ec0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> (const ADCPortBase &amp;other)=delete</td></tr>
-<tr class="memdesc:a4434447d51727d630ac97c35686a4ec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
+<tr class="memdesc:a4434447d51727d630ac97c35686a4ec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance.  <br /></td></tr>
 <tr class="memitem:a0ad5d61e73944a97373bfae0962076a5" id="r_a0ad5d61e73944a97373bfae0962076a5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0ad5d61e73944a97373bfae0962076a5">ADCPortBase</a> (ADCPortBase &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a0ad5d61e73944a97373bfae0962076a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
+<tr class="memdesc:a0ad5d61e73944a97373bfae0962076a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance.  <br /></td></tr>
 <tr class="memitem:a0fcfa429879f8263683b639ed5e74c96" id="r_a0fcfa429879f8263683b639ed5e74c96"><td class="memItemLeft"><a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0fcfa429879f8263683b639ed5e74c96">operator=</a> (const <a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a0fcfa429879f8263683b639ed5e74c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
+<tr class="memdesc:a0fcfa429879f8263683b639ed5e74c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance.  <br /></td></tr>
 <tr class="memitem:a283bca78dae75fbe3786f0ddfcb865f3" id="r_a283bca78dae75fbe3786f0ddfcb865f3"><td class="memItemLeft"><a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a283bca78dae75fbe3786f0ddfcb865f3">operator=</a> (<a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a283bca78dae75fbe3786f0ddfcb865f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
+<tr class="memdesc:a283bca78dae75fbe3786f0ddfcb865f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance.  <br /></td></tr>
 <tr class="memitem:aed764265c454323ee0b2d718d2f447cb" id="r_aed764265c454323ee0b2d718d2f447cb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aed764265c454323ee0b2d718d2f447cb">open</a> () noexcept</td></tr>
-<tr class="memdesc:aed764265c454323ee0b2d718d2f447cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Powers up the hardware channel and configures the initial peripheral parameters.  <br /></td></tr>
+<tr class="memdesc:aed764265c454323ee0b2d718d2f447cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ADC peripheral with the configuration stored in its native handle.  <br /></td></tr>
 <tr class="memitem:a9ea6813ddd5a710a237c3c7d6ddc93ba" id="r_a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9ea6813ddd5a710a237c3c7d6ddc93ba">close</a> () noexcept</td></tr>
-<tr class="memdesc:a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the peripheral block and releases its system resources.  <br /></td></tr>
+<tr class="memdesc:a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the ADC peripheral and releases its system resources.  <br /></td></tr>
 <tr class="memitem:a2e87465b382640a36ec07e5abd45f434" id="r_a2e87465b382640a36ec07e5abd45f434"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a2e87465b382640a36ec07e5abd45f434">getValue</a> () const noexcept</td></tr>
-<tr class="memdesc:a2e87465b382640a36ec07e5abd45f434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the raw digitized value register content from the latest regular group conversion.  <br /></td></tr>
+<tr class="memdesc:a2e87465b382640a36ec07e5abd45f434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the raw data register of the latest regular group conversion.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -167,7 +169,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
+<p>Copying is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -202,7 +204,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
+<p>Moving is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -238,8 +240,8 @@ template&lt;typename Derived&gt; </div>
 </div><div class="memdoc">
 
 <p>Constructs the CRTP foundation. </p>
-<p>Carries no state; the native handle lives on 'Derived'.</p>
-<p>Protected: the base only makes sense as part of a 'Derived' driver. </p>
+<p>Carries no state; the native handle lives on <em class="arg">Derived</em>.</p>
+<p>Protected: the base only makes sense as part of a <em class="arg">Derived</em> driver. </p>
 
 </div>
 </div>
@@ -299,8 +301,9 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Disables the peripheral block and releases its system resources. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the shutdown sequence was fully committed. </dd></dl>
+<p>Deinitializes the ADC peripheral and releases its system resources. </p>
+<p>Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL deinitialization succeeded, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -329,8 +332,9 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Extracts the raw digitized value register content from the latest regular group conversion. </p>
-<dl class="section return"><dt>Returns</dt><dd>Captured raw digital data bits from the peripheral data register, or 0 if unopened. </dd></dl>
+<p>Reads the raw data register of the latest regular group conversion. </p>
+<p>Does not start or wait for a conversion. Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd>Raw conversion result, or <b>0</b> if no handle is bound. </dd></dl>
 
 </div>
 </div>
@@ -359,8 +363,9 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Powers up the hardware channel and configures the initial peripheral parameters. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware open sequence succeeded. </dd></dl>
+<p>Initializes the ADC peripheral with the configuration stored in its native handle. </p>
+<p>Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL initialization succeeded, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -389,7 +394,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
+<p>Move assignment is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -425,7 +430,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
+<p>Copy assignment is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>

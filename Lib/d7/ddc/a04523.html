@@ -109,21 +109,22 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
 class Lib::BSP::FMEM::SPI::DriverBase&lt; T_DERIVED &gt;</div><p>CRTP base class for SPI flash drivers. </p>
-<p><em class="arg">T_DERIVED</em> must implement <b>readImpl()</b>, <b>writeImpl()</b>, <b>eraseChipImpl()</b> and <b>eraseSectorImpl()</b> with the same signatures as the forwarding methods below. <a class="el" href="../../d7/ddc/a04523.html" title="DriverBase">DriverBase</a> dispatches to them through a static cast instead of a vtable. The base class references an externally owned SPI port wrapper, shared by every device on the same bus, and owns the NSS pin handle, but does not manage device-specific protocol details.</p>
+<p><em class="arg">T_DERIVED</em> must implement <em class="arg">readImpl()</em>, <em class="arg">writeImpl()</em>, <em class="arg">eraseChipImpl()</em> and <em class="arg">eraseSectorImpl()</em> with the same signatures as the forwarding methods below. <a class="el" href="../../d7/ddc/a04523.html" title="Lib::BSP::FMEM::SPI::DriverBase">Lib::BSP::FMEM::SPI::DriverBase</a> dispatches to them through a static cast instead of a vtable. The base class references an externally owned SPI port wrapper, shared by every device on the same bus, and owns the NSS pin handle, but does not manage device-specific protocol details.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T_DERIVED</td><td>Concrete driver type implementing the device-specific operations.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/FlashMemory/SPI/DriverBase.hpp" target="_blank">Source</a> </dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/FlashMemory/SPI/DriverBase.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5eafa5f0d53866cb78471368f7297754" id="r_a5eafa5f0d53866cb78471368f7297754"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5eafa5f0d53866cb78471368f7297754">DriverBase</a> (const <a class="el" href="../../dc/da4/a04515.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a5eafa5f0d53866cb78471368f7297754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a driver with the provided runtime config.  <br /></td></tr>
+<tr class="memdesc:a5eafa5f0d53866cb78471368f7297754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to its SPI port and chip-select pin.  <br /></td></tr>
 <tr class="memitem:a5205dedf63ce60a8439a4fdd8ff7950b" id="r_a5205dedf63ce60a8439a4fdd8ff7950b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5205dedf63ce60a8439a4fdd8ff7950b">~DriverBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a5205dedf63ce60a8439a4fdd8ff7950b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defaulted destructor.  <br /></td></tr>
+<tr class="memdesc:a5205dedf63ce60a8439a4fdd8ff7950b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does nothing beyond the default member destruction.  <br /></td></tr>
 <tr class="memitem:a5d093e457b6ea6877ea0bfccc4007122" id="r_a5d093e457b6ea6877ea0bfccc4007122"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5d093e457b6ea6877ea0bfccc4007122">open</a> () noexcept</td></tr>
 <tr class="memdesc:a5d093e457b6ea6877ea0bfccc4007122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the underlying SPI port and ensures chip-select is inactive.  <br /></td></tr>
 <tr class="memitem:a71f952f5639e0a0d0d7c1af2c3f0dbc0" id="r_a71f952f5639e0a0d0d7c1af2c3f0dbc0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a71f952f5639e0a0d0d7c1af2c3f0dbc0">close</a> () noexcept</td></tr>
@@ -178,7 +179,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a driver with the provided runtime config. </p>
+<p>Binds the driver to its SPI port and chip-select pin. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">config</td><td>Runtime configuration referencing the SPI port and describing the CS pin. </td></tr>
@@ -213,7 +214,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Defaulted destructor. </p>
+<p>Does nothing beyond the default member destruction. </p>
 <p>Not virtual: <em class="arg">T_DERIVED</em> is never deleted through a base-class pointer (there is no vtable to begin with), so a virtual destructor would only add a per-instance pointer with no benefit. </p>
 
 </div>
@@ -245,7 +246,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Closes the underlying SPI port and ensures chip-select is inactive. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the underlying SPI port closed successfully. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when the underlying SPI port closed successfully. </dd></dl>
 
 </div>
 </div>
@@ -275,8 +276,8 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Erases the entire flash chip. </p>
-<p>Forwards to <b>eraseChipImpl()</b> of the derived class.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
+<p>Forwards to <em class="arg">eraseChipImpl()</em> of the derived class.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success; otherwise <b>false</b>. </dd></dl>
 
 </div>
 </div>
@@ -306,14 +307,14 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Erases the sector containing <em class="arg">addr</em>. </p>
-<p>Forwards to <b>eraseSectorImpl()</b> of the derived class.</p>
+<p>Forwards to <em class="arg">eraseSectorImpl()</em> of the derived class.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>Address located inside the sector to erase. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success; otherwise <b>false</b>. </dd></dl>
 
 </div>
 </div>
@@ -343,7 +344,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the device information populated by the driver. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the cached <a class="el" href="../../d4/d04/a04519.html" title="Info">Info</a> structure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the cached <a class="el" href="../../d4/d04/a04519.html" title="Lib::BSP::FMEM::SPI::Info">Lib::BSP::FMEM::SPI::Info</a> structure. </dd></dl>
 
 </div>
 </div>
@@ -373,7 +374,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the current driver status. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current <a class="el" href="../../d7/ded/a01009.html#a93a86005cbff0244fb1cfdaa80180a51" title="Status">Status</a> value. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Current <a class="el" href="../../d7/ded/a01009.html#a93a86005cbff0244fb1cfdaa80180a51" title="Lib::BSP::FMEM::SPI::Status">Lib::BSP::FMEM::SPI::Status</a> value. </dd></dl>
 
 </div>
 </div>
@@ -403,7 +404,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Opens the underlying SPI port and ensures chip-select is inactive. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the underlying SPI port opened successfully. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when the underlying SPI port opened successfully. </dd></dl>
 
 </div>
 </div>
@@ -442,7 +443,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Reads <em class="arg">size</em> bytes from the device starting at <em class="arg">addr</em> into <em class="arg">buffer</em>. </p>
-<p>Forwards to <b>readImpl()</b> of the derived class.</p>
+<p>Forwards to <em class="arg">readImpl()</em> of the derived class.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>Start address in device address space. </td></tr>
@@ -451,7 +452,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success; otherwise <b>false</b>. </dd></dl>
 
 </div>
 </div>
@@ -490,7 +491,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Writes <em class="arg">size</em> bytes from <em class="arg">data</em> into the device starting at <em class="arg">addr</em>. </p>
-<p>Forwards to <b>writeImpl()</b> of the derived class.</p>
+<p>Forwards to <em class="arg">writeImpl()</em> of the derived class.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">addr</td><td>Start address in device address space. </td></tr>
@@ -499,7 +500,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success; otherwise <b>false</b>. </dd></dl>
 
 </div>
 </div>

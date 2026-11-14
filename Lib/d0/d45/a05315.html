@@ -107,20 +107,16 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Blocking specialization for single conversions. </p>
-<p>A full blocking single-shot read is <a class="el" href="#a1b1e5f9a230b0baaaebe9e34bf3948f1" title="start()">start()</a>, then 'poll(timeout)', then <a class="el" href="#a9ada6411f9d589391a3f4a8396ba87fe" title="stop()">stop()</a>. This matches how a blocking regular-group conversion works on this hardware: <b>HAL_ADC_PollForConversion()</b> spins on the end-of-conversion flag itself rather than waiting on an interrupt. Does not depend on DeviceManager or Device, since a blocking conversion completes inside the poll call and raises no HAL callback to route.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">DriverMode</td><td>Must be <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="DriverMode::BLOCKING">DriverMode::BLOCKING</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>A full blocking single-shot read is <a class="el" href="#a1b1e5f9a230b0baaaebe9e34bf3948f1" title="start()">start()</a>, then <a class="el" href="#a7f4263cc22040a8ca759022ba6097646" title="poll()">poll()</a>, then <a class="el" href="#a9ada6411f9d589391a3f4a8396ba87fe" title="stop()">stop()</a>. This matches how a blocking regular-group conversion works on this hardware: <b>HAL_ADC_PollForConversion()</b> spins on the end-of-conversion flag itself rather than waiting on an interrupt. Does not depend on <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> or <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>, since a blocking conversion completes inside the poll call and raises no HAL callback to route.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/ADC/ADCPort-Block.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad3590b6cb223a01016ad98732fcce676" id="r_ad3590b6cb223a01016ad98732fcce676"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *handle) noexcept</td></tr>
 <tr class="memdesc:ad3590b6cb223a01016ad98732fcce676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block.  <br /></td></tr>
 <tr class="memitem:a75f470b6bc8c1c091c0bab98709a70d0" id="r_a75f470b6bc8c1c091c0bab98709a70d0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a75f470b6bc8c1c091c0bab98709a70d0">~ADCPort</a> () noexcept</td></tr>
-<tr class="memdesc:a75f470b6bc8c1c091c0bab98709a70d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the conversion before the object goes out of scope.  <br /></td></tr>
+<tr class="memdesc:a75f470b6bc8c1c091c0bab98709a70d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the conversion; the peripheral stays initialized until the caller runs <a class="el" href="../../d5/d15/a05335.html#a9ea6813ddd5a710a237c3c7d6ddc93ba" title="ADCPortBase::close()">ADCPortBase::close()</a>.  <br /></td></tr>
 <tr class="memitem:a9e044644fe3be9918072830d224a30df" id="r_a9e044644fe3be9918072830d224a30df"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9e044644fe3be9918072830d224a30df">ADCPort</a> (const ADCPort &amp;other)=delete</td></tr>
 <tr class="memdesc:a9e044644fe3be9918072830d224a30df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
 <tr class="memitem:aeaa518b84bd8f90fcef8791a36bf4d5f" id="r_aeaa518b84bd8f90fcef8791a36bf4d5f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aeaa518b84bd8f90fcef8791a36bf4d5f">ADCPort</a> (ADCPort &amp;&amp;other)=delete</td></tr>
@@ -140,11 +136,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7f4263cc22040a8ca759022ba6097646" id="r_a7f4263cc22040a8ca759022ba6097646"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a7f4263cc22040a8ca759022ba6097646">poll</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
 <tr class="memdesc:a7f4263cc22040a8ca759022ba6097646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until the current regular group conversion completes, then reads the converted value.  <br /></td></tr>
 <tr class="memitem:aed764265c454323ee0b2d718d2f447cb" id="r_aed764265c454323ee0b2d718d2f447cb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d15/a05335.html#aed764265c454323ee0b2d718d2f447cb">open</a> () noexcept</td></tr>
-<tr class="memdesc:aed764265c454323ee0b2d718d2f447cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Powers up the hardware channel and configures the initial peripheral parameters.  <br /></td></tr>
+<tr class="memdesc:aed764265c454323ee0b2d718d2f447cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ADC peripheral with the configuration stored in its native handle.  <br /></td></tr>
 <tr class="memitem:a9ea6813ddd5a710a237c3c7d6ddc93ba" id="r_a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d15/a05335.html#a9ea6813ddd5a710a237c3c7d6ddc93ba">close</a> () noexcept</td></tr>
-<tr class="memdesc:a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the peripheral block and releases its system resources.  <br /></td></tr>
+<tr class="memdesc:a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the ADC peripheral and releases its system resources.  <br /></td></tr>
 <tr class="memitem:a2e87465b382640a36ec07e5abd45f434" id="r_a2e87465b382640a36ec07e5abd45f434"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d15/a05335.html#a2e87465b382640a36ec07e5abd45f434">getValue</a> () const noexcept</td></tr>
-<tr class="memdesc:a2e87465b382640a36ec07e5abd45f434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the raw digitized value register content from the latest regular group conversion.  <br /></td></tr>
+<tr class="memdesc:a2e87465b382640a36ec07e5abd45f434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the raw data register of the latest regular group conversion.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad3590b6cb223a01016ad98732fcce676" name="ad3590b6cb223a01016ad98732fcce676"></a>
@@ -171,9 +167,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Binds the port to a native hardware descriptor block. </p>
+<p>Asserts on a null handle.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block; must be non-null. </td></tr>
   </table>
   </dd>
 </dl>
@@ -203,7 +200,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the conversion before the object goes out of scope. </p>
+<p>Stops the conversion; the peripheral stays initialized until the caller runs <a class="el" href="../../d5/d15/a05335.html#a9ea6813ddd5a710a237c3c7d6ddc93ba" title="ADCPortBase::close()">ADCPortBase::close()</a>. </p>
 
 </div>
 </div>
@@ -297,8 +294,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Disables the peripheral block and releases its system resources. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the shutdown sequence was fully committed. </dd></dl>
+<p>Deinitializes the ADC peripheral and releases its system resources. </p>
+<p>Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL deinitialization succeeded, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -326,7 +324,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or 'nullptr' if unbound. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if unbound. </dd></dl>
 
 </div>
 </div>
@@ -354,7 +352,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or 'nullptr' if unbound. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if unbound. </dd></dl>
 
 </div>
 </div>
@@ -381,8 +379,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Extracts the raw digitized value register content from the latest regular group conversion. </p>
-<dl class="section return"><dt>Returns</dt><dd>Captured raw digital data bits from the peripheral data register, or 0 if unopened. </dd></dl>
+<p>Reads the raw data register of the latest regular group conversion. </p>
+<p>Does not start or wait for a conversion. Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd>Raw conversion result, or <b>0</b> if no handle is bound. </dd></dl>
 
 </div>
 </div>
@@ -409,8 +408,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Powers up the hardware channel and configures the initial peripheral parameters. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware open sequence succeeded. </dd></dl>
+<p>Initializes the ADC peripheral with the configuration stored in its native handle. </p>
+<p>Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL initialization succeeded, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -506,13 +506,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Blocks until the current regular group conversion completes, then reads the converted value. </p>
+<p>The conversion must have been started with <a class="el" href="#a1b1e5f9a230b0baaaebe9e34bf3948f1" title="start()">start()</a>. A timeout or failure asserts in debug builds.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">timeout</td><td>Maximum duration to wait for the conversion to complete. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Captured raw digital data bits, or 0 if the poll failed or timed out. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Raw conversion result, or <b>0</b> if the poll failed or timed out. </dd></dl>
 
 </div>
 </div>
@@ -540,7 +541,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Starts the regular group conversion sequence. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the conversion sequence was started successfully. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the conversion sequence was started, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -568,7 +569,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Stops the regular group conversion sequence. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the conversion sequence was stopped successfully. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the conversion sequence was stopped, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>

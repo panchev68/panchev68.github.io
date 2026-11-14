@@ -111,8 +111,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>RAII wrapper for managing FreeRTOS software timer resources. </p>
-<p>Provides one-shot and auto-reload timers with task and ISR command variants. The native timer stores the address of its owning instance as the timer ID, which the expiry trampoline uses to reach <em class="arg">callback</em>; moving the instance re-targets that ID. Every command is queued to the timer daemon task, so a command issued from inside a timer callback never blocks, since blocking there could only deadlock the daemon on its own command queue. Destroy or move an instance only while no callback of it can be running concurrently, for example from a task whose priority does not exceed <em class="arg">configTIMER_TASK_PRIORITY</em>, or after <a class="el" href="#a798530d43191f94bd5cd6f8cfea846b3" title="stop()">stop()</a>.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/Timer.hpp" target="_blank">Source</a> </dd></dl>
+<p>Provides one-shot and auto-reload timers with task and ISR command variants. The native timer stores the address of its owning instance as the timer ID, which the expiry trampoline uses to reach callback; moving the instance re-targets that ID. Every command is queued to the timer daemon task, so a command issued from inside a timer callback never blocks, since blocking there could only deadlock the daemon on its own command queue. Destroy or move an instance only while no callback of it can be running concurrently, for example from a task whose priority does not exceed <em class="arg">configTIMER_TASK_PRIORITY</em>, or after <a class="el" href="#a798530d43191f94bd5cd6f8cfea846b3" title="stop()">stop()</a>.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/Timer.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/de8/a06297.html#_a6">RTOS::Timer</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -475,6 +476,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates a timer instance from the given configuration. </p>
+<p>Task context only; asserts if the native timer cannot be created, so check <a class="el" href="#acfaed917db7676053ed5e358dc35f179" title="isValid()">isValid()</a> otherwise.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">config</td><td>Timer configuration. </td></tr>
@@ -967,7 +969,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Checks if this instance is active. </p>
 <p>Must be called from task context.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if active. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if active. </dd></dl>
 
 </div>
 </div>
@@ -1002,7 +1004,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if active. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if active. </dd></dl>
 
 </div>
 </div>
@@ -1031,7 +1033,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Checks if auto-reload mode is active. </p>
 <p>Must be called from task context.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if auto-reload. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if auto-reload. </dd></dl>
 
 </div>
 </div>
@@ -1060,7 +1062,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Checks if one-shot mode is active. </p>
 <p>Must be called from task context.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if one-shot. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if one-shot. </dd></dl>
 
 </div>
 </div>
@@ -1088,7 +1090,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if the timer handle is valid. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if initialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if initialized. </dd></dl>
 
 </div>
 </div>
@@ -1152,7 +1154,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Converts to the validity status. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if initialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if initialized. </dd></dl>
 
 </div>
 </div>

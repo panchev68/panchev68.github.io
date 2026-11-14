@@ -108,14 +108,16 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>DMA master specialization. </p>
-<p>Handle lifecycle and <a class="el" href="../../da/d34/a05463.html#a14c943a270b82f4b76faffc2822e1408" title="isReady()">isReady()</a> come from <a class="el" href="../../da/d34/a05463.html" title="I2CPortBase">I2CPortBase</a>; the event group, start-then-wait master transfers, abort(), HAL callback registration and DeviceManager wiring come from <a class="el" href="../../d3/dd4/a05455.html" title="I2CPortAsync">I2CPortAsync</a>, shared with the IT mode. This specialization only supplies the four HAL calls that start a DMA master transfer. </p>
+<p>Handle lifecycle and <a class="el" href="../../da/d34/a05463.html#a14c943a270b82f4b76faffc2822e1408" title="isReady()">isReady()</a> come from <a class="el" href="../../da/d34/a05463.html" title="I2CPortBase">I2CPortBase</a>; the event group, start-then-wait master transfers, <a class="el" href="../../d3/dd4/a05455.html#aa0017dbe171dc6568f888a4d30997ccc" title="I2CPortAsync::abort()">I2CPortAsync::abort()</a>, HAL callback registration and <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> wiring come from <a class="el" href="../../d3/dd4/a05455.html" title="I2CPortAsync">I2CPortAsync</a>, shared with the IT mode. This specialization only supplies the four HAL calls that start a DMA master transfer. Transfer buffers must be reachable by the DMA controller, so not in CCM RAM (checked by <em class="arg">assert</em>).</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/I2C/I2CPort-DMA.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4aef0fb120033c1ad56351cdd9aaa579" id="r_a4aef0fb120033c1ad56351cdd9aaa579"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4aef0fb120033c1ad56351cdd9aaa579">I2CPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> *handle) noexcept</td></tr>
-<tr class="memdesc:a4aef0fb120033c1ad56351cdd9aaa579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the custom communication context to a native configuration structure.  <br /></td></tr>
+<tr class="memdesc:a4aef0fb120033c1ad56351cdd9aaa579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block; does not touch the peripheral.  <br /></td></tr>
 <tr class="memitem:aa13047282a809658f54818a9b352d7bf" id="r_aa13047282a809658f54818a9b352d7bf"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa13047282a809658f54818a9b352d7bf">~I2CPort</a> () noexcept</td></tr>
-<tr class="memdesc:aa13047282a809658f54818a9b352d7bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if still open, so no dangling instance stays in the DeviceManager registry and no HAL callback points at the destroyed port.  <br /></td></tr>
+<tr class="memdesc:aa13047282a809658f54818a9b352d7bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> registry and no HAL callback points at the destroyed port.  <br /></td></tr>
 <tr class="memitem:a3369110fdc9a75b4446d17f5c5bbb7d8" id="r_a3369110fdc9a75b4446d17f5c5bbb7d8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dd4/a05455.html#a3369110fdc9a75b4446d17f5c5bbb7d8">masterTransmit</a> (uint16_t devAddress, std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
 <tr class="memdesc:a3369110fdc9a75b4446d17f5c5bbb7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a master transmission and waits for it.  <br /></td></tr>
 <tr class="memitem:a0f282a9b1fe1a24111ecf8a421fe50e7" id="r_a0f282a9b1fe1a24111ecf8a421fe50e7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dd4/a05455.html#a0f282a9b1fe1a24111ecf8a421fe50e7">masterReceive</a> (uint16_t devAddress, std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
@@ -127,7 +129,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa0017dbe171dc6568f888a4d30997ccc" id="r_aa0017dbe171dc6568f888a4d30997ccc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dd4/a05455.html#aa0017dbe171dc6568f888a4d30997ccc">abort</a> (uint16_t devAddress) noexcept</td></tr>
 <tr class="memdesc:aa0017dbe171dc6568f888a4d30997ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests an abort of the ongoing master transfer.  <br /></td></tr>
 <tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
-<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order.  <br /></td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order.  <br /></td></tr>
 <tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
 <tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
 <tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
@@ -168,7 +170,7 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the custom communication context to a native configuration structure. </p>
+<p>Binds the port to a native hardware descriptor block; does not touch the peripheral. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
@@ -201,7 +203,7 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the port if still open, so no dangling instance stays in the DeviceManager registry and no HAL callback points at the destroyed port. </p>
+<p>Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> registry and no HAL callback points at the destroyed port. </p>
 
 </div>
 </div>
@@ -237,7 +239,7 @@ Static Protected Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the HAL accepted the abort request. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the abort request. </dd></dl>
 
 </div>
 </div>
@@ -267,8 +269,8 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 </div><div class="memdoc">
 
 <p>Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
+<p>Task context only; asserts when called from an interrupt.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
 
 </div>
 </div>
@@ -304,7 +306,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The port, or 'nullptr' if no open port uses the handle. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The port, or <b>nullptr</b> if no open port uses the handle. </dd></dl>
 
 </div>
 </div>
@@ -332,7 +334,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 </div><div class="memdoc">
 
 <p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -360,7 +362,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 </div><div class="memdoc">
 
 <p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -390,7 +392,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 </div><div class="memdoc">
 
 <p>Checks whether the port is open. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> between a successful <a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
 
 </div>
 </div>
@@ -449,13 +451,13 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <table class="params">
     <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
     <tr><td class="paramname">memAddress</td><td>Internal memory address to read from. </td></tr>
-    <tr><td class="paramname">memAddSize</td><td>Size of 'memAddress' ('I2C_MEMADD_SIZE_8BIT' or 'I2C_MEMADD_SIZE_16BIT'). </td></tr>
+    <tr><td class="paramname">memAddSize</td><td>Size of <em class="arg">memAddress</em> (<em class="arg">I2C_MEMADD_SIZE_8BIT</em> or <em class="arg">I2C_MEMADD_SIZE_16BIT</em>). </td></tr>
     <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> on initiation failure, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
 
 </div>
 </div>
@@ -514,13 +516,13 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <table class="params">
     <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
     <tr><td class="paramname">memAddress</td><td>Internal memory address to write to. </td></tr>
-    <tr><td class="paramname">memAddSize</td><td>Size of 'memAddress' ('I2C_MEMADD_SIZE_8BIT' or 'I2C_MEMADD_SIZE_16BIT'). </td></tr>
+    <tr><td class="paramname">memAddSize</td><td>Size of <em class="arg">memAddress</em> (<em class="arg">I2C_MEMADD_SIZE_8BIT</em> or <em class="arg">I2C_MEMADD_SIZE_16BIT</em>). </td></tr>
     <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> on initiation failure, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
 
 </div>
 </div>
@@ -573,7 +575,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> on initiation failure, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
 
 </div>
 </div>
@@ -626,7 +628,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> on initiation failure, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
 
 </div>
 </div>
@@ -655,9 +657,9 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 </table>
 </div><div class="memdoc">
 
-<p>Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order. </p>
-<p>Task context only. A failure undoes the earlier steps, so the port stays closed.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if every step succeeded, or if the port was already open. </dd></dl>
+<p>Opens the port: event group, peripheral, <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order. </p>
+<p>Task context only; asserts when called from an interrupt and on an unbound handle. A failure undoes the earlier steps, so the port stays closed.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
 
 </div>
 </div>
@@ -691,6 +693,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 </div><div class="memdoc">
 
 <p>Sets event bits on the port owning a HAL handle; called from interrupt context. </p>
+<p>Does nothing when no open port uses the handle.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>

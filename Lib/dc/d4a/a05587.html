@@ -104,19 +104,21 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 
-<p>Blocking specialization.  
+<p>Blocking specialization: each transfer runs synchronously inside the HAL call.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Blocking specialization. </p>
-<p>Builds directly on <a class="el" href="../../db/de6/a05607.html" title="UARTPortBase">UARTPortBase</a> and stores the native handle itself, rather than through <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>, which brings an intrusive DeviceManager list link that only an interrupt-driven mode uses. A blocking transfer completes inside the HAL call itself, so it needs no RTOS event group, HAL callback registration, DeviceManager entry or abort; all of that is owned by <a class="el" href="../../d8/d26/a05599.html" title="UARTPortAsync">UARTPortAsync</a>, shared by the 'IT' and 'DMA' specializations.</p>
-<p>Also carries a <a class="el" href="../../df/d89/a01032.html#a82754326f2fd3bd32ea447c756ec2825" title="DriverDataDirection">DriverDataDirection</a> tag ('RX' or 'TX'), purely as a label for a caller that drives the two halves of a link through separate <a class="el" href="#a066a22aae400d51f9a8552f6b1757c30" title="UARTPort">UARTPort</a> instances, one per native handle. </p>
+<div class="textblock"><p>Blocking specialization: each transfer runs synchronously inside the HAL call. </p>
+<p>Builds directly on <a class="el" href="../../db/de6/a05607.html" title="UARTPortBase">UARTPortBase</a> and stores the native handle itself, rather than through <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>, which brings an intrusive <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> list link that only an interrupt-driven mode uses. A blocking transfer completes inside the HAL call itself, so it needs no RTOS event group, HAL callback registration, <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> entry or abort; all of that is owned by <a class="el" href="../../d8/d26/a05599.html" title="UARTPortAsync">UARTPortAsync</a>, shared by the <em class="arg">IT</em> and <em class="arg">DMA</em> specializations.</p>
+<p>Also carries a <a class="el" href="../../df/d89/a01032.html#a82754326f2fd3bd32ea447c756ec2825" title="DriverDataDirection">DriverDataDirection</a> tag (<em class="arg">RX</em> or <em class="arg">TX</em>), purely as a label for a caller that drives the two halves of a link through separate <a class="el" href="#a066a22aae400d51f9a8552f6b1757c30" title="UARTPort">UARTPort</a> instances, one per native handle.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/UART/UARTPort-Block.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a066a22aae400d51f9a8552f6b1757c30" id="r_a066a22aae400d51f9a8552f6b1757c30"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a066a22aae400d51f9a8552f6b1757c30">UARTPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *handle, <a class="el" href="../../df/d89/a01032.html#a82754326f2fd3bd32ea447c756ec2825">DriverDataDirection</a> direction) noexcept</td></tr>
 <tr class="memdesc:a066a22aae400d51f9a8552f6b1757c30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native UART handle and the duplex-link half it drives.  <br /></td></tr>
 <tr class="memitem:ae57a4a21992efbdd20a759373b79c5de" id="r_ae57a4a21992efbdd20a759373b79c5de"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae57a4a21992efbdd20a759373b79c5de">~UARTPort</a> () noexcept=default</td></tr>
-<tr class="memdesc:ae57a4a21992efbdd20a759373b79c5de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; a blocking transfer never outlives the call that started it.  <br /></td></tr>
+<tr class="memdesc:ae57a4a21992efbdd20a759373b79c5de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the port; a blocking transfer never outlives the call that started it, and the peripheral is not closed here.  <br /></td></tr>
 <tr class="memitem:a727c4f59d0a03dd2884faf4f6a36928f" id="r_a727c4f59d0a03dd2884faf4f6a36928f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a727c4f59d0a03dd2884faf4f6a36928f">UARTPort</a> (const UARTPort &amp;other)=delete</td></tr>
 <tr class="memdesc:a727c4f59d0a03dd2884faf4f6a36928f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
 <tr class="memitem:a3356806008458666dc1ede53fc85db70" id="r_a3356806008458666dc1ede53fc85db70"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3356806008458666dc1ede53fc85db70">UARTPort</a> (UARTPort &amp;&amp;other)=delete</td></tr>
@@ -180,6 +182,7 @@ Static Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Binds the port to a native UART handle and the duplex-link half it drives. </p>
+<p>Asserts on a <em class="arg">nullptr</em> handle. The peripheral is initialized later by <a class="el" href="../../db/de6/a05607.html#a55dca0e7725a4f8e8697ba94ce8c1ef7" title="UARTPortBase::open()">UARTPortBase::open()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
@@ -213,7 +216,7 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the object; a blocking transfer never outlives the call that started it. </p>
+<p>Destroys the port; a blocking transfer never outlives the call that started it, and the peripheral is not closed here. </p>
 
 </div>
 </div>
@@ -308,7 +311,8 @@ Static Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Disables the physical peripheral bus and releases system resources safely. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the shutdown sequence was fully committed. </dd></dl>
+<p>Deinitializes the peripheral through <b>HAL_UART_DeInit()</b>. Asserts on a <em class="arg">nullptr</em> native handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the shutdown sequence was fully committed, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -336,7 +340,7 @@ Static Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Fetches the duplex-link half this instance was constructed to drive. </p>
-<dl class="section return"><dt>Returns</dt><dd>'RX' or 'TX', as bound at construction. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">RX</em> or <em class="arg">TX</em>, as bound at construction. </dd></dl>
 
 </div>
 </div>
@@ -420,7 +424,7 @@ Static Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Evaluates whether a transfer is in flight in either direction. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the peripheral is transmitting, receiving, or both. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral is transmitting, receiving, or both, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -454,7 +458,7 @@ Static Protected Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the size is usable. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the size is usable, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -482,7 +486,8 @@ Static Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Powers up the hardware channel and configures initial peripheral parameters. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware open sequence succeeded. </dd></dl>
+<p>Initializes the peripheral through <b>HAL_UART_Init()</b>. Asserts on a <em class="arg">nullptr</em> native handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware open sequence succeeded, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -584,6 +589,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Performs a blocking inbound transaction directly through the HAL. </p>
+<p>An empty or oversized buffer asserts and returns <b>false</b>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -594,11 +600,11 @@ template&lt;typename Rep, typename Period&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds; saturates at 'HAL_MAX_DELAY' (wait forever). </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds; saturates at <em class="arg">HAL_MAX_DELAY</em>, which waits forever. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -632,6 +638,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Performs a blocking outbound transaction directly through the HAL. </p>
+<p>An empty or oversized buffer asserts and returns <b>false</b>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -642,11 +649,11 @@ template&lt;typename Rep, typename Period&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds; saturates at 'HAL_MAX_DELAY' (wait forever). </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds; saturates at <em class="arg">HAL_MAX_DELAY</em>, which waits forever. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -674,14 +681,14 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Reconfigures the baud rate at runtime. </p>
-<p>The HAL exposes no dedicated runtime setter, so the handle's init structure is updated and re-applied through <b>HAL_UART_Init()</b>. Registered HAL callbacks survive the re-initialization. Available in every transfer mode.</p>
+<p>The HAL exposes no dedicated runtime setter, so the handle's init structure is updated and re-applied through <b>HAL_UART_Init()</b>. Registered HAL callbacks survive the re-initialization. Available in every transfer mode. Asserts on a <em class="arg">nullptr</em> native handle.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">baudRate</td><td>New baud rate to apply, in bits per second. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the reconfiguration succeeded; <em class="arg">false</em> while a transfer is in flight. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the reconfiguration succeeded, <b>false</b> while a transfer is in flight or if the HAL rejected it. </dd></dl>
 
 </div>
 </div>

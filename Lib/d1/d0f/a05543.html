@@ -109,14 +109,20 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Manages LPTIM peripheral configuration and interrupt-driven timeout events. </p>
-<p>Targets the STM32U5 family and every other part whose HAL ships the modern LPTIM interface, which it relies on for 'LPTIM_OC_ConfigTypeDef', <b>HAL_LPTIM_OC_ConfigChannel()</b> and the per-channel state array. Parts without an LPTIM peripheral, STM32F407 among them, compile this header away, so including it unconditionally is safe. </p>
+<p>Targets the STM32U5 family and every other part whose HAL ships the modern LPTIM interface, which it relies on for <em class="arg">LPTIM_OC_ConfigTypeDef</em>, <b>HAL_LPTIM_OC_ConfigChannel()</b> and the per-channel state array. Parts without an LPTIM peripheral, STM32F407 among them, compile this header away, so including it unconditionally is safe.</p>
+<p>At most <em class="arg">MAX_LPTIM_PORTS</em> instances can exist at the same time. The timeout is armed in one-shot mode and signals through the HAL autoreload match callback, which runs in interrupt context and only sets an event bit.</p>
+<dl class="section important"><dt>Important</dt><dd>Requires <em class="arg">USE_HAL_LPTIM_REGISTER_CALLBACKS</em> set to 1 in the HAL configuration; the header fails to compile otherwise.</dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/TIM/LPTimer.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d57/a06199.html#_a0">Lib::HAL::LPTimer</a>, and <a class="el" href="../../dd/d78/a06277.html#_a0">RTOS::PowerManager</a>.</dd>
 </dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:ac948323fb2eef4212aaa06df202dfbdc" id="r_ac948323fb2eef4212aaa06df202dfbdc"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Handle</a> = LPTIM_HandleTypeDef</td></tr>
+<tr class="memdesc:ac948323fb2eef4212aaa06df202dfbdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Native HAL LPTIM handle type.  <br /></td></tr>
 <tr class="memitem:ab366d4fa77363e661ad71c424eb4faaf" id="r_ab366d4fa77363e661ad71c424eb4faaf"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">CallbackID</a> = HAL_LPTIM_CallbackIDTypeDef</td></tr>
+<tr class="memdesc:ab366d4fa77363e661ad71c424eb4faaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">HAL callback identifier, also used as the event identifier.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -139,7 +145,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af87c45b091cb7b10192ce86953eba07a" id="r_af87c45b091cb7b10192ce86953eba07a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af87c45b091cb7b10192ce86953eba07a">startTimeoutInterrupt</a> (uint32_t timeoutMs) noexcept</td></tr>
 <tr class="memdesc:af87c45b091cb7b10192ce86953eba07a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures and starts an interrupt-driven timeout.  <br /></td></tr>
 <tr class="memitem:a524f65747a660c2243dfe55d318bb083" id="r_a524f65747a660c2243dfe55d318bb083"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a524f65747a660c2243dfe55d318bb083">stopInterrupt</a> () noexcept</td></tr>
-<tr class="memdesc:a524f65747a660c2243dfe55d318bb083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timeout interrupt.  <br /></td></tr>
+<tr class="memdesc:a524f65747a660c2243dfe55d318bb083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timeout interrupt and clears its flags.  <br /></td></tr>
 <tr class="memitem:a8f6329f1b312d263381f3738aacd64b8" id="r_a8f6329f1b312d263381f3738aacd64b8"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a8f6329f1b312d263381f3738aacd64b8">waitForEvent</a> (<a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">CallbackID</a> eventId, uint32_t timeout) noexcept</td></tr>
 <tr class="memdesc:a8f6329f1b312d263381f3738aacd64b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until a specific timer event is received.  <br /></td></tr>
 <tr class="memitem:abaedcebf007dff3863b7fd1eec8fd303" id="r_abaedcebf007dff3863b7fd1eec8fd303"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abaedcebf007dff3863b7fd1eec8fd303">hasExpired</a> () const noexcept</td></tr>
@@ -167,6 +173,8 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>HAL callback identifier, also used as the event identifier. </p>
+
 </div>
 </div>
 <a id="ac948323fb2eef4212aaa06df202dfbdc" name="ac948323fb2eef4212aaa06df202dfbdc"></a>
@@ -180,6 +188,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Native HAL LPTIM handle type. </p>
 
 </div>
 </div>
@@ -212,6 +222,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructs an LPTimer instance and claims a slot in the handle registry. </p>
+<p>Asserts on a <em class="arg">nullptr</em> handle or when no registry slot is free, in which case the instance stays unbound and <a class="el" href="#a1a9d936e6ff40316674eb1bb6293d5eb" title="open()">open()</a> fails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>Pointer to the HAL LPTIM handle. </td></tr>
@@ -340,6 +351,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Maps a HAL callback identifier to a bitmask for event synchronization. </p>
+<p>Asserts if the identifier does not fit the usable width of the event group.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">id</td><td>The HAL callback ID. </td></tr>
@@ -375,7 +387,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Deinitializes the LPTIM peripheral and clears event groups. </p>
 <p>The peripheral is stopped first, so no interrupt can reach the event group while it is being closed.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if successful, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the instance is closed, including when it was not open, <b>false</b> if the HAL failed to deinitialize the peripheral. </dd></dl>
 
 </div>
 </div>
@@ -403,13 +415,14 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Calculates elapsed RTOS ticks since the timeout was armed. </p>
+<p>An expired timeout reports the whole armed duration; a running one is derived from the hardware counter.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">armedTimeoutMs</td><td>The timeout duration originally set. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Elapsed ticks. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Elapsed ticks, <b>0</b> without a native handle or before a timeout was armed. </dd></dl>
 
 </div>
 </div>
@@ -437,7 +450,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the native HAL handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the HAL handle. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the HAL handle, <b>nullptr</b> if the instance is unbound. </dd></dl>
 
 </div>
 </div>
@@ -465,7 +478,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if the timeout event has occurred. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if expired, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the autoreload match flag is set, <b>false</b> otherwise or without a native handle. </dd></dl>
 
 </div>
 </div>
@@ -493,7 +506,8 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the LPTIM peripheral and associated event groups. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if successful, <em class="arg">false</em> otherwise. </dd></dl>
+<p>Registers the autoreload match callback. Task context only; asserts on an unbound instance or when the HAL rejects the configuration.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the instance is open, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -589,14 +603,15 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Configures and starts an interrupt-driven timeout. </p>
-<p>The slowest prescaler that still fits the timeout into the 16-bit counter is used; a longer timeout is clamped to the longest one the hardware can count.</p>
+<p>The slowest prescaler that still fits the timeout into the 16-bit counter is used; a longer timeout is clamped to the longest one the hardware can count. The peripheral is re-initialized with the new period, so any previous timeout is replaced.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>The instance is open; asserts and returns <b>false</b> otherwise.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">timeoutMs</td><td>The desired timeout duration in milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if successfully armed, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successfully armed, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -623,7 +638,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the timeout interrupt. </p>
+<p>Stops the timeout interrupt and clears its flags. </p>
+<p>Asserts if the instance is not open; does nothing without a native handle. </p>
 
 </div>
 </div>
@@ -655,6 +671,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Blocks until a specific timer event is received. </p>
+<p>The event bit is cleared on return. Task context only.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">eventId</td><td>The event identifier to wait for. </td></tr>
@@ -662,7 +679,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Bitmask of received events. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Bitmask of received events, <b>0</b> if none arrived before the timeout. </dd></dl>
 
 </div>
 </div>

@@ -109,7 +109,10 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Handles hardware external line interrupts with centralized notification-driven dispatching. </p>
-<p>A single shared worker task services every registered pin instance; the interrupt path only ORs a bitmask task notification, keeping ISR execution time minimal. The private nested <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> maps each pin number to its instance through a direct index lookup, so dispatch never sweeps the full registry inside the interrupt path. </p>
+<p>A single shared worker task services every registered pin instance; the interrupt path only ORs a bitmask task notification, keeping ISR execution time minimal. The private nested <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> maps each pin number to its instance through a direct index lookup, so dispatch never sweeps the full registry inside the interrupt path.</p>
+<p>Each pin may be wrapped by one instance only; the worker task is created when the first instance is constructed.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/GPIO/ExtInterrupt.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d67/a06191.html#_a4">Lib::HAL::GPIO::Output</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -130,7 +133,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a716641ce172d66ad1226056de77e00f3" id="r_a716641ce172d66ad1226056de77e00f3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a716641ce172d66ad1226056de77e00f3">bindCallback</a> (<a class="el" href="../../d2/d2e/a04831.html">FunctionRef</a>&lt; void()&gt; callback) noexcept</td></tr>
 <tr class="memdesc:a716641ce172d66ad1226056de77e00f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the callback invoked from the shared worker task when this pin's interrupt fires.  <br /></td></tr>
 <tr class="memitem:a436fbfef93e09cd205ebb36284da5374" id="r_a436fbfef93e09cd205ebb36284da5374"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a436fbfef93e09cd205ebb36284da5374">unbindCallback</a> () noexcept</td></tr>
-<tr class="memdesc:a436fbfef93e09cd205ebb36284da5374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the currently bound callback so a subsequent interrupt is silently ignored.  <br /></td></tr>
+<tr class="memdesc:a436fbfef93e09cd205ebb36284da5374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the bound callback, so a subsequent interrupt is silently ignored.  <br /></td></tr>
 <tr class="memitem:acf9a806f75242814c40947cdc229ed24" id="r_acf9a806f75242814c40947cdc229ed24"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d8/ddb/a05415.html#acf9a806f75242814c40947cdc229ed24">read</a> () const noexcept</td></tr>
 <tr class="memdesc:acf9a806f75242814c40947cdc229ed24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the instantaneous logical state of the physical input line.  <br /></td></tr>
 <tr class="memitem:ac4819ceaa799d09422b2441ab37d1bf3" id="r_ac4819ceaa799d09422b2441ab37d1bf3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d8/ddb/a05415.html#ac4819ceaa799d09422b2441ab37d1bf3">isHigh</a> () const noexcept</td></tr>
@@ -143,7 +146,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:abdaf238c7d26a6f26b8e73aae6c1ebff" id="r_abdaf238c7d26a6f26b8e73aae6c1ebff"><td class="memItemLeft"><a class="el" href="../../d8/d4f/a05411.html">Handle</a>&#160;</td><td class="memItemRight"><a class="el" href="../../d8/ddb/a05415.html#abdaf238c7d26a6f26b8e73aae6c1ebff">handle</a></td></tr>
-<tr class="memdesc:abdaf238c7d26a6f26b8e73aae6c1ebff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encapsulates the hardware port and pin mapping for this input.  <br /></td></tr>
+<tr class="memdesc:abdaf238c7d26a6f26b8e73aae6c1ebff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware port and pin mapping of this input.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -303,10 +306,10 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Binds the callback invoked from the shared worker task when this pin's interrupt fires. </p>
-<p>Replaces any previously bound callback. The callback runs in the worker task, never in the ISR. It is only referenced, not copied: a capturing lambda must be an lvalue that outlives the binding, while a capture-less lambda or a function pointer may be passed directly.</p>
+<p>Replaces any previously bound callback. The callback runs in the worker task, never in the ISR. It is only referenced, not copied: a capturing lambda must be an lvalue that outlives the binding, while a capture-less lambda or a function pointer may be passed directly. The binding is not synchronized with the worker task, so bind before the interrupt line is enabled.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">callback</td><td>Callable invoked with no arguments on each interrupt; must be bound. </td></tr>
+    <tr><td class="paramname">callback</td><td>Callable invoked with no arguments on each interrupt; must be bound (checked by <em class="arg">assert</em>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -337,7 +340,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if the input line is logically high. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the input is HIGH, otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the input is HIGH, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -365,7 +368,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if the input line is logically low. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the input is LOW, otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the input is LOW or the port is <b>nullptr</b>, <b>false</b> if it is HIGH. </dd></dl>
 
 </div>
 </div>
@@ -393,7 +396,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Explicit boolean conversion that reflects the current input state. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the input line is HIGH, otherwise <em class="arg">false</em>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the input line is HIGH, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -489,8 +492,8 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reads the instantaneous logical state of the physical input line. </p>
-<p>The constructor already asserts a valid port; the runtime check only protects a release build (where 'assert' is compiled out) from dereferencing a null port.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the input is logical HIGH, <em class="arg">false</em> if logical LOW or the underlying port handle is invalid. </dd></dl>
+<p>The constructor already asserts a valid port; the runtime check only protects a release build (where <em class="arg">assert</em> is compiled out) from dereferencing a <em class="arg">nullptr</em> port.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the input is logical HIGH, <b>false</b> if it is logical LOW or the port is <b>nullptr</b>. </dd></dl>
 
 </div>
 </div>
@@ -517,7 +520,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes the currently bound callback so a subsequent interrupt is silently ignored. </p>
+<p>Removes the bound callback, so a subsequent interrupt is silently ignored. </p>
 
 </div>
 </div>
@@ -618,7 +621,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Encapsulates the hardware port and pin mapping for this input. </p>
+<p>Hardware port and pin mapping of this input. </p>
 
 </div>
 </div>

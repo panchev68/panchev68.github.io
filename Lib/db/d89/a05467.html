@@ -107,7 +107,11 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Controls the hardware Independent Watchdog; once started it cannot be stopped until the next reset. </p>
-<p>Wraps the HAL watchdog start and counter reload to protect the firmware against lockups and unhandled faults. Keeps no state of its own beyond a reference to the native handle. </p>
+<p>Wraps the HAL watchdog start and counter reload to protect the firmware against lockups and unhandled faults. Keeps no state of its own beyond a reference to the native handle.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/IWDG/IndependentWatchdog.hpp" target="_blank">Source</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/.doxygen/HAL/md/Watchdog-IWDG.md" target="_blank">Detail Description</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/d3c/a06197.html#_a1">Lib::HAL::IndependentWatchdog</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -126,7 +130,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aefbbf9853d59e4b287ed0df49e5f7cdd" id="r_aefbbf9853d59e4b287ed0df49e5f7cdd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aefbbf9853d59e4b287ed0df49e5f7cdd">open</a> () noexcept</td></tr>
 <tr class="memdesc:aefbbf9853d59e4b287ed0df49e5f7cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and starts the hardware watchdog timer using the configuration held in the native handle.  <br /></td></tr>
 <tr class="memitem:ae9f164f43789bd02baa1587a44c30e61" id="r_ae9f164f43789bd02baa1587a44c30e61"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae9f164f43789bd02baa1587a44c30e61">refresh</a> () noexcept</td></tr>
-<tr class="memdesc:ae9f164f43789bd02baa1587a44c30e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads the independent hardware counter to prevent a system reset.  <br /></td></tr>
+<tr class="memdesc:ae9f164f43789bd02baa1587a44c30e61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reloads the watchdog counter to prevent a reset; has no effect before <a class="el" href="#aefbbf9853d59e4b287ed0df49e5f7cdd" title="open()">open()</a>.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3b655cc20d9d358105e3fe2c9e4e5401" name="a3b655cc20d9d358105e3fe2c9e4e5401"></a>
@@ -153,7 +157,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Binds the watchdog to its native handle. </p>
-<p>Takes a reference instead of a pointer, so a null handle is rejected at compile time and no method needs a runtime null check.</p>
+<p>Takes a reference instead of a pointer, so a <em class="arg">nullptr</em> handle is rejected at compile time and no method needs a runtime null check. The peripheral is not touched until <a class="el" href="#aefbbf9853d59e4b287ed0df49e5f7cdd" title="open()">open()</a> is called.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">iwdgHandle</td><td>Target native hardware descriptor block; must outlive this instance. </td></tr>
@@ -255,7 +259,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Initializes and starts the hardware watchdog timer using the configuration held in the native handle. </p>
 <p>Once started, the watchdog cannot be stopped until the next reset.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware initialization and lock activation sequence succeeded. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <b>HAL_IWDG_Init()</b> succeeded, <b>false</b> otherwise. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/d3c/a06197.html#a2">Lib::HAL::IndependentWatchdog</a>.</dd>
 </dl>
 
@@ -352,8 +356,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reloads the independent hardware counter to prevent a system reset. </p>
-<p>A single key-register write, so it is safe to call from task and ISR context alike. Returns no status: <b>HAL_IWDG_Refresh()</b> always reports 'HAL_OK', so a status flag would carry no information. </p>
+<p>Reloads the watchdog counter to prevent a reset; has no effect before <a class="el" href="#aefbbf9853d59e4b287ed0df49e5f7cdd" title="open()">open()</a>. </p>
+<p>A single key-register write (<b>__HAL_IWDG_RELOAD_COUNTER()</b>), so it is safe to call from task and ISR context alike. Returns no status: <b>HAL_IWDG_Refresh()</b> always reports <em class="arg">HAL_OK</em>, so a status flag would carry no information. </p>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/d3c/a06197.html#a3">Lib::HAL::IndependentWatchdog</a>.</dd>
 </dl>
 

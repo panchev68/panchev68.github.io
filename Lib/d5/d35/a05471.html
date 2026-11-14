@@ -107,15 +107,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Blocking specialization. </p>
-<p>Stores the native handle itself rather than going through <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>, since that class brings an intrusive DeviceManager list link that only the interrupt- and DMA-driven modes use. A blocking transfer completes inside the HAL call itself, so there is no event group to wait on, no HAL callback to register and nothing to abort afterwards.</p>
-<p>Every timeout is rounded up to whole milliseconds and saturates at 'HAL_MAX_DELAY' (wait forever). </p>
+<p>Stores the native handle itself rather than going through <a class="el" href="../../df/d06/a05371.html" title="Device">Device</a>, since that class brings an intrusive <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> list link that only the interrupt- and DMA-driven modes use. A blocking transfer completes inside the HAL call itself, so there is no event group to wait on, no HAL callback to register and nothing to abort afterwards.</p>
+<p>Every timeout is rounded up to whole milliseconds and saturates at <em class="arg">HAL_MAX_DELAY</em> (wait forever). Not thread-safe: the caller serializes users of the same handle.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/OSPI/OSPIPort-Block.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aceebf1ac821b6ccc92b99c1fe0ca7c19" id="r_aceebf1ac821b6ccc92b99c1fe0ca7c19"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a> (OSPI_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:aceebf1ac821b6ccc92b99c1fe0ca7c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the custom communication context to a native configuration structure.  <br /></td></tr>
+<tr class="memdesc:aceebf1ac821b6ccc92b99c1fe0ca7c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block; does not touch the peripheral.  <br /></td></tr>
 <tr class="memitem:a08e56728c9a64f13a22b89d6b482b132" id="r_a08e56728c9a64f13a22b89d6b482b132"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a08e56728c9a64f13a22b89d6b482b132">~OSPIPort</a> () noexcept=default</td></tr>
-<tr class="memdesc:a08e56728c9a64f13a22b89d6b482b132"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; a blocking transfer never outlives the call that started it.  <br /></td></tr>
+<tr class="memdesc:a08e56728c9a64f13a22b89d6b482b132"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the port; a blocking transfer never outlives the call that started it, and the native handle is not closed here.  <br /></td></tr>
 <tr class="memitem:a7763cecbfc9f952858e94c3dd31b6ae8" id="r_a7763cecbfc9f952858e94c3dd31b6ae8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7763cecbfc9f952858e94c3dd31b6ae8">OSPIPort</a> (const OSPIPort &amp;)=delete</td></tr>
 <tr class="memdesc:a7763cecbfc9f952858e94c3dd31b6ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: each instance owns a unique native handle binding.  <br /></td></tr>
 <tr class="memitem:a50425950532682614be81eb8bb5216b7" id="r_a50425950532682614be81eb8bb5216b7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a50425950532682614be81eb8bb5216b7">OSPIPort</a> (OSPIPort &amp;&amp;)=delete</td></tr>
@@ -168,10 +170,10 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the custom communication context to a native configuration structure. </p>
+<p>Binds the port to a native hardware descriptor block; does not touch the peripheral. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block; must not be <em class="arg">nullptr</em> (checked by <em class="arg">assert</em>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -201,7 +203,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the object; a blocking transfer never outlives the call that started it. </p>
+<p>Destroys the port; a blocking transfer never outlives the call that started it, and the native handle is not closed here. </p>
 
 </div>
 </div>
@@ -284,7 +286,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Deinitializes the OCTOSPI peripheral and releases its pins and DMA channel. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if <b>HAL_OSPI_DeInit()</b> succeeded. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <b>HAL_OSPI_DeInit()</b> succeeded, <b>false</b> otherwise or if the handle is <em class="arg">nullptr</em>. </dd></dl>
 
 </div>
 </div>
@@ -318,7 +320,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Configures and issues a regular command, blocking until complete or timed out. </p>
-<p>A command with a data phase ('cmd.DataMode' not 'HAL_OSPI_DATA_NONE') must be followed by one matching <a class="el" href="#a10d2dc1da9553992110c3752aa39e058" title="transmit()">transmit()</a> or <a class="el" href="#aef7cf93602718e2d14816e122f15f3be" title="receive()">receive()</a> of exactly 'cmd.NbData' bytes.</p>
+<p>A command with a data phase (<em class="arg">cmd.DataMode</em> not <em class="arg">HAL_OSPI_DATA_NONE</em>) must be followed by one matching <a class="el" href="#a10d2dc1da9553992110c3752aa39e058" title="transmit()">transmit()</a> or <a class="el" href="#aef7cf93602718e2d14816e122f15f3be" title="receive()">receive()</a> of exactly <em class="arg">cmd.NbData</em> bytes.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -329,11 +331,11 @@ template&lt;typename Rep, typename Period&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cmd</td><td>Fully populated command descriptor. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> on error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on error or timeout. </dd></dl>
 
 </div>
 </div>
@@ -417,8 +419,8 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Checks whether the peripheral is outside its idle state. </p>
-<p>Any state other than 'HAL_OSPI_STATE_READY' counts, including a configured command still waiting for its data phase.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> unless the HAL reports 'HAL_OSPI_STATE_READY'. </dd></dl>
+<p>Any state other than <em class="arg">HAL_OSPI_STATE_READY</em> counts, including a configured command still waiting for its data phase.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> unless the HAL reports <em class="arg">HAL_OSPI_STATE_READY</em>; <b>false</b> also if the handle is <em class="arg">nullptr</em>. </dd></dl>
 
 </div>
 </div>
@@ -446,7 +448,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Initializes the OCTOSPI peripheral from the configuration held in the native handle. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if <b>HAL_OSPI_Init()</b> succeeded. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <b>HAL_OSPI_Init()</b> succeeded, <b>false</b> otherwise or if the handle is <em class="arg">nullptr</em>. </dd></dl>
 
 </div>
 </div>
@@ -545,12 +547,12 @@ template&lt;typename Rep, typename Period&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>Destination buffer; exactly the 'NbData' passed to <a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47" title="command()">command()</a>. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+    <tr><td class="paramname">data</td><td>Destination buffer; exactly the <em class="arg">NbData</em> passed to <a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47" title="command()">command()</a>. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> on a size mismatch, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a size mismatch, error or timeout. </dd></dl>
 
 </div>
 </div>
@@ -593,12 +595,12 @@ template&lt;typename Rep, typename Period&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>Source bytes; exactly the 'NbData' passed to <a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47" title="command()">command()</a>. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+    <tr><td class="paramname">data</td><td>Source bytes; exactly the <em class="arg">NbData</em> passed to <a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47" title="command()">command()</a>. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> on a size mismatch, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a size mismatch, error or timeout. </dd></dl>
 
 </div>
 </div>

@@ -107,7 +107,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Controls the hardware Window Watchdog peripheral subsystem. </p>
-<p>Encapsulates the native STM32 HAL watchdog initialization and counter refresh sequences to protect the firmware against execution deviations by enforcing strict window-bound refresh timings. </p>
+<p>Encapsulates the native STM32 HAL watchdog initialization and counter refresh sequences to protect the firmware against execution deviations by enforcing strict window-bound refresh timings. The timing parameters are taken from the <b>Init</b> member of the native handle, as configured by CubeMX.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/WWDG/WindowWatchdog.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/df0/a06229.html#_a1">Lib::HAL::WindowWatchdog</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -126,11 +128,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af34267bbc73ff09fc3c70a41b6d79420" id="r_af34267bbc73ff09fc3c70a41b6d79420"><td class="memItemLeft"><a class="el" href="#aedbc081389ab6197c5a334fcff249dc9">WindowWatchdog</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af34267bbc73ff09fc3c70a41b6d79420">operator=</a> (<a class="el" href="#aedbc081389ab6197c5a334fcff249dc9">WindowWatchdog</a> &amp;&amp;other)=delete</td></tr>
 <tr class="memdesc:af34267bbc73ff09fc3c70a41b6d79420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the instance guards one process-wide hardware watchdog.  <br /></td></tr>
 <tr class="memitem:a5f510a61dd04e4f7b6fd5bb5fa5bd81f" id="r_a5f510a61dd04e4f7b6fd5bb5fa5bd81f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5f510a61dd04e4f7b6fd5bb5fa5bd81f">open</a> () noexcept</td></tr>
-<tr class="memdesc:a5f510a61dd04e4f7b6fd5bb5fa5bd81f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and starts the hardware window watchdog timer using preset configurations.  <br /></td></tr>
+<tr class="memdesc:a5f510a61dd04e4f7b6fd5bb5fa5bd81f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and starts the hardware window watchdog timer using the configuration stored in the native handle.  <br /></td></tr>
 <tr class="memitem:a8391a6219cf7a6f1a8e9e1383b0e115b" id="r_a8391a6219cf7a6f1a8e9e1383b0e115b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8391a6219cf7a6f1a8e9e1383b0e115b">refresh</a> () noexcept</td></tr>
 <tr class="memdesc:a8391a6219cf7a6f1a8e9e1383b0e115b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refreshes the internal hardware counter to prevent system resets, respecting window boundaries.  <br /></td></tr>
 <tr class="memitem:a874dc7d2f0c51055da55dc4f4622d62a" id="r_a874dc7d2f0c51055da55dc4f4622d62a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a874dc7d2f0c51055da55dc4f4622d62a">setWindow</a> (uint32_t windowValue) noexcept</td></tr>
-<tr class="memdesc:a874dc7d2f0c51055da55dc4f4622d62a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the refresh window threshold and re-applies the configuration through the HAL.  <br /></td></tr>
+<tr class="memdesc:a874dc7d2f0c51055da55dc4f4622d62a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the refresh window threshold and re-applies the configuration through <b>HAL_WWDG_Init()</b>.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aedbc081389ab6197c5a334fcff249dc9" name="aedbc081389ab6197c5a334fcff249dc9"></a>
@@ -159,7 +161,7 @@ Public Member Functions</h2></td></tr>
 <p>Binds the watchdog abstraction wrapper directly to a native configuration structure. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block (e.g., '&amp;hwwdg'). </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block (e.g. <b>hwwdg</b>), must not be <em class="arg">nullptr</em>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -283,9 +285,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes and starts the hardware window watchdog timer using preset configurations. </p>
+<p>Initializes and starts the hardware window watchdog timer using the configuration stored in the native handle. </p>
 <p>Once started, the watchdog cannot be stopped until the next reset.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware initialization and lock activation sequence succeeded. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <b>HAL_WWDG_Init()</b> succeeded, <b>false</b> otherwise. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/df0/a06229.html#a2">Lib::HAL::WindowWatchdog</a>.</dd>
 </dl>
 
@@ -383,7 +385,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Refreshes the internal hardware counter to prevent system resets, respecting window boundaries. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the native reload register accepted the refresh sequence. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <b>HAL_WWDG_Refresh()</b> succeeded, <b>false</b> otherwise. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/df0/a06229.html#a3">Lib::HAL::WindowWatchdog</a>.</dd>
 </dl>
 
@@ -412,14 +414,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Updates the refresh window threshold and re-applies the configuration through the HAL. </p>
+<p>Updates the refresh window threshold and re-applies the configuration through <b>HAL_WWDG_Init()</b>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">windowValue</td><td>Target upper limit register value defining when a refresh becomes legal. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the peripheral accepted the re-initialization with the new window. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral accepted the re-initialization with the new window, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>

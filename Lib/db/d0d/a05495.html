@@ -109,7 +109,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Accessor for the one-time-programmable (OTP) area of the internal flash. </p>
-<p>The region is memory mapped, so reads are plain loads; writes go through the flash controller and must be bracketed by unlock() and lock(). The region is written once per bit: a programmed bit can be cleared from one to zero but never restored, and there is no erase operation. The write() method therefore refuses a value that would require setting a bit back to one, instead of silently corrupting the word. </p>
+<p>The region is memory mapped, so reads are plain loads; writes go through the flash controller and must be bracketed by <a class="el" href="#a220a07c58647557d8a81402260eacfb5" title="Lib::HAL::OTP::unlock()">Lib::HAL::OTP::unlock()</a> and <a class="el" href="#ab4c2e78575458526b83be6e259aa1f93" title="Lib::HAL::OTP::lock()">Lib::HAL::OTP::lock()</a>. The region is written once per bit: a programmed bit can be cleared from one to zero but never restored, and there is no erase operation. <a class="el" href="#a778b8e7ce12a4c0bdeed759cb2a79493" title="Lib::HAL::OTP::write()">Lib::HAL::OTP::write()</a> therefore refuses a value that would require setting a bit back to one, instead of silently corrupting the word.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/OTP/OTP.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d7a/a06203.html#_a2">Lib::HAL::OTP</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -137,7 +139,7 @@ requires std::is_trivially_copyable_v&lt;T&gt;</td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a9286ffbdc5e9bf8a3a2f4e9fe958ae02" id="r_a9286ffbdc5e9bf8a3a2f4e9fe958ae02"><td class="memItemLeft">static <a class="el" href="#aaff496f8bf89080e84c1fbda6b0904c3">OTP</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a9286ffbdc5e9bf8a3a2f4e9fe958ae02">instance</a> () noexcept</td></tr>
-<tr class="memdesc:a9286ffbdc5e9bf8a3a2f4e9fe958ae02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the singleton instance.  <br /></td></tr>
+<tr class="memdesc:a9286ffbdc5e9bf8a3a2f4e9fe958ae02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the singleton instance, created on first use.  <br /></td></tr>
 <tr class="memitem:a3b0d64dbe26fbc6a398b5d0eb6a92cc6" id="r_a3b0d64dbe26fbc6a398b5d0eb6a92cc6"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a3b0d64dbe26fbc6a398b5d0eb6a92cc6">beginAddr</a> () noexcept</td></tr>
 <tr class="memdesc:a3b0d64dbe26fbc6a398b5d0eb6a92cc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">First address of the OTP region.  <br /></td></tr>
 <tr class="memitem:ab335d43837026d9047c6052becdba98b" id="r_ab335d43837026d9047c6052becdba98b"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ab335d43837026d9047c6052becdba98b">endAddr</a> () noexcept</td></tr>
@@ -283,7 +285,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the whole access lies inside the region. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when the whole access lies inside the region, <b>false</b> otherwise. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d7a/a06203.html#a6">Lib::HAL::OTP</a>.</dd>
 </dl>
 
@@ -340,7 +342,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieves the singleton instance. </p>
+<p>Retrieves the singleton instance, created on first use. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the OTP accessor. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d7a/a06203.html#a0">Lib::HAL::OTP</a>.</dd>
 </dl>
@@ -371,7 +373,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Locks the flash controller again. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the controller was locked. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when the controller was locked, <b>false</b> otherwise. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d7a/a06203.html#a5">Lib::HAL::OTP</a>.</dd>
 </dl>
 
@@ -472,7 +474,7 @@ requires std::is_trivially_copyable_v&lt;T&gt;</div>
 </div><div class="memdoc">
 
 <p>Reads a trivially copyable value from the OTP region. </p>
-<p>The region is memory mapped, so this is a plain load; an out-of-range address yields a zero-initialized value rather than reading past the region.</p>
+<p>The region is memory mapped, so this is a plain load; an out-of-range address yields a zero-initialized value rather than reading past the region (and trips an assert in debug builds).</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Type to read; must be trivially copyable. </td></tr>
@@ -485,7 +487,7 @@ requires std::is_trivially_copyable_v&lt;T&gt;</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Value stored at 'address', or a zero-initialized value when the access is out of range. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Value stored at <em class="arg">address</em>, or a zero-initialized value when the access is out of range. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d7a/a06203.html#a1">Lib::HAL::OTP</a>.</dd>
 </dl>
 
@@ -543,7 +545,7 @@ requires std::is_trivially_copyable_v&lt;T&gt;</div>
 </div><div class="memdoc">
 
 <p>Unlocks the flash controller so the region can be programmed. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the controller accepted the unlock sequence. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when the controller accepted the unlock sequence, <b>false</b> otherwise. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d7a/a06203.html#a3">Lib::HAL::OTP</a>.</dd>
 </dl>
 
@@ -577,7 +579,7 @@ requires std::is_trivially_copyable_v&lt;T&gt;</div>
 </div><div class="memdoc">
 
 <p>Programs a single word. </p>
-<p>The word must be word-aligned and inside the region. Because the area cannot be erased, the new value may only clear bits that are currently set; a value that would need a zero bit to return to one is rejected.</p>
+<p>The word must be word-aligned and inside the region. Because the area cannot be erased, the new value may only clear bits that are currently set; a value that would need a zero bit to return to one is rejected. A value equal to the stored one succeeds without touching the flash controller. Violating a precondition asserts in debug builds. The flash must be unlocked first, see <a class="el" href="#a220a07c58647557d8a81402260eacfb5" title="Lib::HAL::OTP::unlock()">Lib::HAL::OTP::unlock()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">address</td><td>Absolute, word-aligned address to program. </td></tr>
@@ -585,7 +587,7 @@ requires std::is_trivially_copyable_v&lt;T&gt;</div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the word was programmed successfully. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when the word was programmed or already held the value, <b>false</b> otherwise. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d7a/a06203.html#a4">Lib::HAL::OTP</a>.</dd>
 </dl>
 

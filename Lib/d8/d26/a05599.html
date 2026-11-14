@@ -110,13 +110,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
 class Lib::HAL::UARTPortAsync&lt; T_DERIVED &gt;</div><p>CRTP foundation for the interrupt-driven UART modes. </p>
-<p>Owns the logic both modes would otherwise duplicate: the start-then-wait transfer sequence, abort() and the HAL callbacks. The open/close sequence comes from <a class="el" href="../../d3/dea/a05363.html" title="AsyncPortCore">AsyncPortCore</a>. A mode specialization only supplies the two HAL calls that start a transfer ('startTransmit()' / 'startReceive()'). Transmit and receive use separate event bits, so one task may send while another receives on the same port.</p>
+<p>Owns the logic both modes would otherwise duplicate: the start-then-wait transfer sequence, <a class="el" href="#ac0f3ec8c2a5d8ad83c45e752232f2005" title="abort()">abort()</a> and the HAL callbacks. The open/close sequence comes from <a class="el" href="../../d3/dea/a05363.html" title="AsyncPortCore">AsyncPortCore</a>. A mode specialization only supplies the two HAL calls that start a transfer (<em class="arg">startTransmit()</em> and <em class="arg">startReceive()</em>). Transmit and receive use separate event bits, so one task may send while another receives on the same port.</p>
+<p>Transfers, <a class="el" href="#ac0f3ec8c2a5d8ad83c45e752232f2005" title="abort()">abort()</a> and the lifecycle calls are task context only; the HAL callbacks that complete a transfer run in interrupt context and only set event bits.</p>
+<dl class="section important"><dt>Important</dt><dd>Requires <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> set to 1 in the HAL configuration; the header fails to compile otherwise.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing 'startTransmit(std::span&lt;const uint8_t&gt;)' and 'startReceive(std::span&lt;uint8_t&gt;)', both returning <em class="arg">true</em> once the HAL accepted the transfer. </td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing <em class="arg">startTransmit()</em> taking a std::span of const bytes and <em class="arg">startReceive()</em> taking a std::span of bytes, both returning <em class="arg">true</em> once the HAL accepted the transfer.</td></tr>
   </table>
   </dd>
 </dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/UART/UARTPortAsync.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -125,11 +129,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa6f2b7746c93553e8ba0a2fda3c494bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits a buffer and waits for completion.  <br /></td></tr>
 <tr class="memitem:a3c10830f8d93936773f64d95201bc7da" id="r_a3c10830f8d93936773f64d95201bc7da"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:a3c10830f8d93936773f64d95201bc7da template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3c10830f8d93936773f64d95201bc7da">receive</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a3c10830f8d93936773f64d95201bc7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives exactly 'data.size()' bytes and waits for completion.  <br /></td></tr>
+<tr class="memdesc:a3c10830f8d93936773f64d95201bc7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives exactly the size of the buffer in bytes and waits for completion.  <br /></td></tr>
 <tr class="memitem:ac0f3ec8c2a5d8ad83c45e752232f2005" id="r_ac0f3ec8c2a5d8ad83c45e752232f2005"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac0f3ec8c2a5d8ad83c45e752232f2005">abort</a> () noexcept</td></tr>
 <tr class="memdesc:ac0f3ec8c2a5d8ad83c45e752232f2005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts any ongoing transmission and reception immediately.  <br /></td></tr>
 <tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
-<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order.  <br /></td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order.  <br /></td></tr>
 <tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
 <tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
 <tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
@@ -146,7 +150,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:ae3dfd1d49bf2eb3ae572e5482852a106" id="r_ae3dfd1d49bf2eb3ae572e5482852a106"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *handle) noexcept</td></tr>
-<tr class="memdesc:ae3dfd1d49bf2eb3ae572e5482852a106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle.  <br /></td></tr>
+<tr class="memdesc:ae3dfd1d49bf2eb3ae572e5482852a106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle; the port starts closed.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
@@ -181,7 +185,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the port to its native handle. </p>
+<p>Binds the port to its native handle; the port starts closed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
@@ -218,8 +222,8 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Aborts any ongoing transmission and reception immediately. </p>
-<p>Wakes a task blocked in <a class="el" href="#aa6f2b7746c93553e8ba0a2fda3c494bc" title="send()">send()</a> or <a class="el" href="#a3c10830f8d93936773f64d95201bc7da" title="receive()">receive()</a>. Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware stopped processing safely. </dd></dl>
+<p>Wakes a task blocked in <a class="el" href="#aa6f2b7746c93553e8ba0a2fda3c494bc" title="send()">send()</a> or <a class="el" href="#a3c10830f8d93936773f64d95201bc7da" title="receive()">receive()</a>, which then reports failure. Task context only. Asserts if called from an ISR or on a closed port.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stopped processing safely, <b>false</b> otherwise or if the port is closed. </dd></dl>
 
 </div>
 </div>
@@ -247,8 +251,8 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
+<p>Task context only; asserts when called from an interrupt.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
 
 </div>
 </div>
@@ -282,7 +286,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The port, or 'nullptr' if no open port uses the handle. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The port, or <b>nullptr</b> if no open port uses the handle. </dd></dl>
 
 </div>
 </div>
@@ -310,7 +314,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -338,7 +342,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -368,7 +372,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Evaluates whether a transfer is in flight in either direction. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the peripheral is transmitting, receiving, or both. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral is transmitting, receiving, or both, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -396,7 +400,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Checks whether the port is open. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> between a successful <a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
 
 </div>
 </div>
@@ -432,7 +436,7 @@ template&lt;typename T_DERIVED&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the size is usable. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the size is usable, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -459,9 +463,9 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order. </p>
-<p>Task context only. A failure undoes the earlier steps, so the port stays closed.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if every step succeeded, or if the port was already open. </dd></dl>
+<p>Opens the port: event group, peripheral, <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order. </p>
+<p>Task context only; asserts when called from an interrupt and on an unbound handle. A failure undoes the earlier steps, so the port stays closed.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
 
 </div>
 </div>
@@ -496,9 +500,9 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Receives exactly 'data.size()' bytes and waits for completion. </p>
+<p>Receives exactly the size of the buffer in bytes and waits for completion. </p>
 <p>Task context only.</p>
-<p>On timeout or error the reception is aborted, so the HAL never writes 'data' after this returns.</p>
+<p>On timeout or error the reception is aborted, so the HAL never writes <em class="arg">data</em> after this returns.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -513,7 +517,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> on initiation failure, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
 
 </div>
 </div>
@@ -550,7 +554,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Transmits a buffer and waits for completion. </p>
 <p>Task context only.</p>
-<p>On timeout or error the transmission is aborted, so the HAL never reads 'data' after this returns.</p>
+<p>On timeout or error the transmission is aborted, so the HAL never reads <em class="arg">data</em> after this returns.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -565,7 +569,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the transfer completed successfully, <em class="arg">false</em> on initiation failure, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
 
 </div>
 </div>
@@ -595,14 +599,14 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Reconfigures the baud rate at runtime. </p>
-<p>The HAL exposes no dedicated runtime setter, so the handle's init structure is updated and re-applied through <b>HAL_UART_Init()</b>. Registered HAL callbacks survive the re-initialization. Available in every transfer mode.</p>
+<p>The HAL exposes no dedicated runtime setter, so the handle's init structure is updated and re-applied through <b>HAL_UART_Init()</b>. Registered HAL callbacks survive the re-initialization. Available in every transfer mode. Asserts on a <em class="arg">nullptr</em> native handle.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">baudRate</td><td>New baud rate to apply, in bits per second. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the reconfiguration succeeded; <em class="arg">false</em> while a transfer is in flight. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the reconfiguration succeeded, <b>false</b> while a transfer is in flight or if the HAL rejected it. </dd></dl>
 
 </div>
 </div>

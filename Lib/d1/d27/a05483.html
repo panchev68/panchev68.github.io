@@ -110,14 +110,16 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
 class Lib::HAL::OSPIPortAsync&lt; T_DERIVED &gt;</div><p>CRTP foundation for the interrupt-driven OCTOSPI modes. </p>
-<p>Owns everything the two modes share: the RTOS event group, the command phase, the start-then-wait data phases, abort(), HAL callback registration and DeviceManager wiring. A mode specialization only supplies the two HAL calls that start a data phase ('startTransmit() / startReceive()').</p>
-<p>A transaction is a <a class="el" href="#ab13d30c818279bf38505328181fa1409" title="command()">command()</a> followed, when the command has a data phase, by one <a class="el" href="#a2f58a3412364e7819ba973859d2389a7" title="transmit()">transmit()</a> or <a class="el" href="#a95258a0fd430fb23d0ac55441a6ef9ca" title="receive()">receive()</a> of exactly 'cmd.NbData' bytes.</p>
+<p>Owns everything the two modes share: the RTOS event group, the command phase, the start-then-wait data phases, <a class="el" href="#a12a734c939e90c6c90510ba2c323dec0" title="abort()">abort()</a>, HAL callback registration and <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> wiring. A mode specialization only supplies the two HAL calls that start a data phase (<em class="arg">startTransmit()</em> and <em class="arg">startReceive()</em>).</p>
+<p>A transaction is a <a class="el" href="#ab13d30c818279bf38505328181fa1409" title="command()">command()</a> followed, when the command has a data phase, by one <a class="el" href="#a2f58a3412364e7819ba973859d2389a7" title="transmit()">transmit()</a> or <a class="el" href="#a95258a0fd430fb23d0ac55441a6ef9ca" title="receive()">receive()</a> of exactly <em class="arg">cmd.NbData</em> bytes.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing 'startTransmit(std::span&lt;const uint8_t&gt;)' and 'startReceive(std::span&lt;uint8_t&gt;)', both returning <em class="arg">true</em> once the HAL accepted the data phase. </td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing <em class="arg">startTransmit(std::span&lt;const uint8_t&gt;)</em> and <em class="arg">startReceive(std::span&lt;uint8_t&gt;)</em>, both returning <em class="arg">true</em> once the HAL accepted the data phase.</td></tr>
   </table>
   </dd>
 </dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/OSPI/OSPIPortAsync.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -133,7 +135,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a12a734c939e90c6c90510ba2c323dec0" id="r_a12a734c939e90c6c90510ba2c323dec0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a12a734c939e90c6c90510ba2c323dec0">abort</a> () noexcept</td></tr>
 <tr class="memdesc:a12a734c939e90c6c90510ba2c323dec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts any ongoing command or data phase, waking a task blocked in it.  <br /></td></tr>
 <tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
-<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order.  <br /></td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order.  <br /></td></tr>
 <tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
 <tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
 <tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
@@ -219,7 +221,7 @@ template&lt;typename T_DERIVED&gt; </div>
 
 <p>Aborts any ongoing command or data phase, waking a task blocked in it. </p>
 <p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the hardware stopped processing safely. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stopped processing safely, <b>false</b> otherwise or if the port is not open. </dd></dl>
 
 </div>
 </div>
@@ -247,8 +249,8 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
+<p>Task context only; asserts when called from an interrupt.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
 
 </div>
 </div>
@@ -284,8 +286,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Configures and issues a regular command. </p>
-<p>Task context only.</p>
-<p>A command without a data phase runs over interrupt and is waited for here. A command with a data phase is only configured synchronously, since the HAL raises no interrupt for it; the transfer starts with the following <a class="el" href="#a2f58a3412364e7819ba973859d2389a7" title="transmit()">transmit()</a> or <a class="el" href="#a95258a0fd430fb23d0ac55441a6ef9ca" title="receive()">receive()</a>.</p>
+<p>Task context only. A command without a data phase runs over interrupt and is waited for here. A command with a data phase is only configured synchronously, since the HAL raises no interrupt for it; the transfer starts with the following <a class="el" href="#a2f58a3412364e7819ba973859d2389a7" title="transmit()">transmit()</a> or <a class="el" href="#a95258a0fd430fb23d0ac55441a6ef9ca" title="receive()">receive()</a>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -295,12 +296,12 @@ template&lt;typename Rep, typename Period&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cmd</td><td>Fully populated command descriptor; 'cmd.NbData' is the byte count of the following data phase. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+    <tr><td class="paramname">cmd</td><td>Fully populated command descriptor; <em class="arg">NbData</em> is the byte count of the following data phase. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks for a command without a data phase and to whole milliseconds for one with a data phase. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> on error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on error or timeout. </dd></dl>
 
 </div>
 </div>
@@ -334,7 +335,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The port, or 'nullptr' if no open port uses the handle. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The port, or <b>nullptr</b> if no open port uses the handle. </dd></dl>
 
 </div>
 </div>
@@ -362,7 +363,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -390,7 +391,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
@@ -420,8 +421,8 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Checks whether the peripheral is outside its idle state. </p>
-<p>Any state other than 'HAL_OSPI_STATE_READY' counts, including a configured command still waiting for its data phase.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> unless the HAL reports 'HAL_OSPI_STATE_READY'. </dd></dl>
+<p>Any state other than <em class="arg">HAL_OSPI_STATE_READY</em> counts, including a configured command still waiting for its data phase.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> unless the HAL reports <em class="arg">HAL_OSPI_STATE_READY</em>; <b>false</b> also if the handle is <em class="arg">nullptr</em>. </dd></dl>
 
 </div>
 </div>
@@ -449,7 +450,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Checks whether the port is open. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> between a successful <a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
 
 </div>
 </div>
@@ -476,9 +477,9 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order. </p>
-<p>Task context only. A failure undoes the earlier steps, so the port stays closed.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if every step succeeded, or if the port was already open. </dd></dl>
+<p>Opens the port: event group, peripheral, <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order. </p>
+<p>Task context only; asserts when called from an interrupt and on an unbound handle. A failure undoes the earlier steps, so the port stays closed.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
 
 </div>
 </div>
@@ -514,7 +515,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Receives the data phase configured by the preceding <a class="el" href="#ab13d30c818279bf38505328181fa1409" title="command()">command()</a> and waits for it. </p>
-<p>Task context only.</p>
+<p>Task context only. A timed-out phase is aborted before this returns.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -524,12 +525,12 @@ template&lt;typename Rep, typename Period&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>Destination buffer; exactly the 'NbData' passed to <a class="el" href="#ab13d30c818279bf38505328181fa1409" title="command()">command()</a>. </td></tr>
+    <tr><td class="paramname">data</td><td>Destination buffer; exactly the <em class="arg">NbData</em> passed to <a class="el" href="#ab13d30c818279bf38505328181fa1409" title="command()">command()</a>. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> on a size mismatch, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a size mismatch, error or timeout. </dd></dl>
 
 </div>
 </div>
@@ -565,7 +566,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Transmits the data phase configured by the preceding <a class="el" href="#ab13d30c818279bf38505328181fa1409" title="command()">command()</a> and waits for it. </p>
-<p>Task context only.</p>
+<p>Task context only. A timed-out phase is aborted before this returns.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -575,12 +576,12 @@ template&lt;typename Rep, typename Period&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>Source bytes; exactly the 'NbData' passed to <a class="el" href="#ab13d30c818279bf38505328181fa1409" title="command()">command()</a>. </td></tr>
+    <tr><td class="paramname">data</td><td>Source bytes; exactly the <em class="arg">NbData</em> passed to <a class="el" href="#ab13d30c818279bf38505328181fa1409" title="command()">command()</a>. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> on a size mismatch, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a size mismatch, error or timeout. </dd></dl>
 
 </div>
 </div>

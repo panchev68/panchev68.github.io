@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Rotary encoder with a push button, reporting rotation and button changes as queued events. </p>
-<p>The GPIO interrupt callback forwards every pin change to <a class="el" href="#ad2f27a5e62e8b4d2e7c8a2c9439374d7" title="handlePinChangedEvent()">handlePinChangedEvent()</a>; a task then takes the events with <a class="el" href="#a7173287d816b57b6541368dfbe743659" title="kbdhit()">kbdhit()</a>. Rotation steps are divided by the pulse divider before an event is queued, and the button is <b>active low</b>. The button hold time of the last press is kept for <a class="el" href="#a09d0b1187e255228fc21b499d1ee668a" title="getButtonHoldPeriod()">getButtonHoldPeriod()</a>.</p>
+<p>The GPIO interrupt callback forwards every pin change to <a class="el" href="#ad2f27a5e62e8b4d2e7c8a2c9439374d7" title="Lib::BSP::EncoderPins::handlePinChangedEvent()">Lib::BSP::EncoderPins::handlePinChangedEvent()</a>; a task then takes the events with <a class="el" href="#a7173287d816b57b6541368dfbe743659" title="Lib::BSP::EncoderPins::kbdhit()">Lib::BSP::EncoderPins::kbdhit()</a>. Rotation steps are divided by the pulse divider before an event is queued, and the button is <b>active low</b>. The button hold time of the last press is kept for <a class="el" href="#a09d0b1187e255228fc21b499d1ee668a" title="Lib::BSP::EncoderPins::getButtonHoldPeriod()">Lib::BSP::EncoderPins::getButtonHoldPeriod()</a>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot be combined in one program with <a class="el" href="../../d9/d40/a06159.html" title="Lib::BSP::EncoderTimer">Lib::BSP::EncoderTimer</a> or Lib::HAL::GPIO::ExtInterrupt: the application defines <b>HAL_GPIO_EXTI_Callback()</b> for this class, and <a class="el" href="../../dc/daf/a05399.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> defines it too.</dd></dl>
 <hr  />
  <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/Encoder/EncoderPins.hpp" target="_blank">Source</a> </dd></dl>
@@ -197,7 +197,7 @@ Public Member Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a04b234ac50c12b687cfe292d1aaae8e9aec99b17e69f307181424c4145f5f6490" name="a04b234ac50c12b687cfe292d1aaae8e9aec99b17e69f307181424c4145f5f6490"></a>BUT_PUSH&#160;</td><td class="fielddoc"><p>Button pressed. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4" name="a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4"></a>BUT_PULL&#160;</td><td class="fielddoc"><p>Button released; the hold time is now in <a class="el" href="#a09d0b1187e255228fc21b499d1ee668a" title="getButtonHoldPeriod()">getButtonHoldPeriod()</a>. </p>
+<tr><td class="fieldname"><a id="a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4" name="a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4"></a>BUT_PULL&#160;</td><td class="fielddoc"><p>Button released; the hold time is now in <a class="el" href="#a09d0b1187e255228fc21b499d1ee668a" title="Lib::BSP::EncoderPins::getButtonHoldPeriod()">Lib::BSP::EncoderPins::getButtonHoldPeriod()</a>. </p>
 </td></tr>
 </table>
 
@@ -384,7 +384,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Gets how long the button was held during the last completed press. </p>
 <p>Read under a critical section, since the interrupt updates the 64-bit value non-atomically.</p>
-<dl class="section return"><dt>Returns</dt><dd>Hold time of the last press, updated on every <a class="el" href="#a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4" title="EventState::BUT_PULL">EventState::BUT_PULL</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Hold time of the last press, updated on every <a class="el" href="#a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4" title="Lib::BSP::EncoderPins::EventState::BUT_PULL">Lib::BSP::EncoderPins::EventState::BUT_PULL</a>. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d8a/a06157.html#a9">Lib::BSP::EncoderPins</a>.</dd>
 </dl>
 
@@ -417,11 +417,11 @@ Public Member Functions</h2></td></tr>
 <p>Task context only: sleeps 1 ms between samples. The scan stops after four times <em class="arg">stableSamples</em> attempts, so a bouncing or floating line cannot block the caller forever; the last sampled level is returned then.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stableSamples</td><td>Identical consecutive samples required; <b>0</b> reads the pin once without debouncing. </td></tr>
+    <tr><td class="paramname">stableSamples</td><td>Identical consecutive samples required; <em class="arg">0</em> reads the pin once without debouncing. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the button is pressed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the button is pressed. </dd></dl>
 
 </div>
 </div>
@@ -456,7 +456,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the pin belongs to this encoder. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the pin belongs to this encoder. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d8a/a06157.html#a3">Lib::BSP::EncoderPins</a>.</dd>
 </dl>
 
@@ -493,7 +493,7 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Next event, or <a class="el" href="#a04b234ac50c12b687cfe292d1aaae8e9ab50339a10e1de285ac99d4c3990b8693" title="EventState::NONE">EventState::NONE</a> on timeout or while the queue is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Next event, or <a class="el" href="#a04b234ac50c12b687cfe292d1aaae8e9ab50339a10e1de285ac99d4c3990b8693" title="Lib::BSP::EncoderPins::EventState::NONE">Lib::BSP::EncoderPins::EventState::NONE</a> on timeout or while the queue is closed. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d8a/a06157.html#a5">Lib::BSP::EncoderPins</a>.</dd>
 </dl>
 
@@ -524,7 +524,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Opens the event queue; events are dropped until it is open. </p>
 <p>Does nothing if already open.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the queue is open afterwards. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the queue is open afterwards. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d8a/a06157.html#a4">Lib::BSP::EncoderPins</a>.</dd>
 </dl>
 

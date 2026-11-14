@@ -111,7 +111,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Static utility class providing kernel-level control and diagnostics. </p>
 <p>Covers critical sections, scheduler locking, system time delays, and kernel diagnostic information.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/Kernel.hpp" target="_blank">Source</a> </dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/Kernel.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -161,7 +162,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a4b6fcf3aac5f49123ae6f31506c23d23" id="r_a4b6fcf3aac5f49123ae6f31506c23d23"><td class="memItemLeft">static <a class="el" href="../../d8/d88/a05899.html">MemoryInfo</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4b6fcf3aac5f49123ae6f31506c23d23">getMemoryInfo</a> () noexcept</td></tr>
 <tr class="memdesc:a4b6fcf3aac5f49123ae6f31506c23d23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves memory heap diagnostics.  <br /></td></tr>
 <tr class="memitem:afe908121c5db2fa04df8bea014732a22" id="r_afe908121c5db2fa04df8bea014732a22"><td class="memItemLeft">static size_t&#160;</td><td class="memItemRight"><a class="el" href="#afe908121c5db2fa04df8bea014732a22">getSystemState</a> (std::span&lt; TaskStatus_t &gt; tasks, uint32_t *totalRunTime=nullptr) noexcept</td></tr>
-<tr class="memdesc:afe908121c5db2fa04df8bea014732a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills a snapshot of every task in the system; requires <em class="arg">configUSE_TRACE_FACILITY</em>.  <br /></td></tr>
+<tr class="memdesc:afe908121c5db2fa04df8bea014732a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fills a snapshot of every task in the system.  <br /></td></tr>
 <tr class="memitem:a0202a83dc9757e6a7336c2d844450409" id="r_a0202a83dc9757e6a7336c2d844450409"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a0202a83dc9757e6a7336c2d844450409">calculatePercentage</a> (uint64_t usage, uint64_t total) noexcept</td></tr>
 <tr class="memdesc:a0202a83dc9757e6a7336c2d844450409"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates percentage value from raw usage counts.  <br /></td></tr>
 </table>
@@ -351,15 +352,14 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Credits ticks missed while the tick interrupt was off. </p>
-<p>Task context only.</p>
-<p>Intended for use after a long critical section, when the tick interrupt was masked.</p>
+<p>Task context only. Intended for use after a long critical section, when the tick interrupt was masked.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">ticksToCatchUp</td><td>Number of missed ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a context switch has been performed as a result. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a context switch has been performed as a result. </dd></dl>
 
 </div>
 </div>
@@ -443,7 +443,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Retrieves memory heap diagnostics. </p>
 <p>When <a class="el" href="../../d5/dd3/a00902.html#aea3f5304a2ee9e9c830027b6035472ae" title="RTOS_HEAP_HAS_STATS">RTOS_HEAP_HAS_STATS</a> is <b>1</b> (heap_4 or heap_5) the whole snapshot comes from one <b>vPortGetHeapStats()</b> call; otherwise only the sizes are filled in and the allocation counters stay <b>0</b>.</p>
-<dl class="section return"><dt>Returns</dt><dd>MemoryInfo structure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Heap snapshot as <a class="el" href="../../d8/d88/a05899.html" title="Kernel::MemoryInfo">Kernel::MemoryInfo</a>. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d72/a06267.html#a5">RTOS::Kernel</a>.</dd>
 </dl>
 
@@ -504,9 +504,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Fills a snapshot of every task in the system; requires <em class="arg">configUSE_TRACE_FACILITY</em>. </p>
-<p>Task context only.</p>
-<p>Runs with the scheduler suspended and walks every task list, so it is meant for debugging, not for normal operation. Size <em class="arg">tasks</em> with <a class="el" href="#ae36cfa1931eee8e5cf1ce5b640c162d2" title="getNumberOfTasks()">getNumberOfTasks()</a>, plus some margin for tasks created meanwhile.</p>
+<p>Fills a snapshot of every task in the system. </p>
+<p>Requires <em class="arg">configUSE_TRACE_FACILITY</em>. Task context only. Runs with the scheduler suspended and walks every task list, so it is meant for debugging, not for normal operation. Size <em class="arg">tasks</em> with <a class="el" href="#ae36cfa1931eee8e5cf1ce5b640c162d2" title="getNumberOfTasks()">getNumberOfTasks()</a>, plus some margin for tasks created meanwhile.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">tasks</td><td>Destination for one entry per task. </td></tr>
@@ -542,7 +541,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if the processor is currently in an ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if in ISR. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if in ISR. </dd></dl>
 
 </div>
 </div>
