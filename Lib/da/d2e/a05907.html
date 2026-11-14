@@ -330,7 +330,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if deep sleep mode is currently permitted. </p>
-<p>Also <b>false</b> whenever a debugger is attached (<a class="el" href="#ac35887bd479a4425729b40a4b3114f52" title="isDebuggerAttached()">isDebuggerAttached()</a>): STOP1 stops the core clock, and even with <b>HAL_DBGMCU_EnableDBGStopMode()</b> (see <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>) SWD can still misread or momentarily lose the connection across the transition, which a plain <b>__WFI()</b> light sleep never does, since the core clock never stops. Unconditional in every build: the check itself is a single free register read, costing nothing when no debugger is attached, so there is no release-build reason to skip it.</p>
+<p>Also <b>false</b> whenever a debugger is attached (<a class="el" href="#ac35887bd479a4425729b40a4b3114f52" title="isDebuggerAttached()">isDebuggerAttached()</a>). STOP1 stops the core clock, and even with <b>HAL_DBGMCU_EnableDBGStopMode()</b> (see <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>) SWD can still misread or momentarily lose the connection across the transition, which a plain <b>__WFI()</b> light sleep never does, because the core clock never stops. The check runs in every build: it is a single register read and costs nothing when no debugger is attached.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if permitted, initialized, and no debugger is attached. </dd></dl>
 
 </div>
