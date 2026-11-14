@@ -21,8 +21,7 @@ var searchData=
   ['boot_20counter_20and_20calibration_18',['Boot counter and calibration',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EEPROM_Internal_FlashEmulation.dox#flashemu_usage_values',1,'']]],
   ['buffer_19',['Scan channels into a buffer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_dma',1,'']]],
   ['buffer_20pool_20',['Buffer pool',['../X:/Lib/IAR/Project/Examples/RTOS_SemaphoreCounting.dox#semaphore_counting_usage_pool',1,'']]],
-  ['build_20requirements_21',['Build requirements',['../index.html#mainpage_build',1,'']]],
-  ['bulk_20transfer_20with_20a_20transfer_20mode_22',['Bulk transfer with a transfer mode',['../X:/Lib/IAR/Project/Examples/Lib_Helper_RingBuffer.dox#ringbuffer_usage_bulk',1,'']]],
-  ['bus_23',['New chip driver and storage on a shared bus',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EEPROM_I2C_Driver.dox#eeprom_usage_bus',1,'']]],
-  ['button_20events_24',['Menu position from timer and button events',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EncoderTimer.dox#enctimer_usage_menu',1,'']]]
+  ['bulk_20transfer_20with_20a_20transfer_20mode_21',['Bulk transfer with a transfer mode',['../X:/Lib/IAR/Project/Examples/Lib_Helper_RingBuffer.dox#ringbuffer_usage_bulk',1,'']]],
+  ['bus_22',['New chip driver and storage on a shared bus',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EEPROM_I2C_Driver.dox#eeprom_usage_bus',1,'']]],
+  ['button_20events_23',['Menu position from timer and button events',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EncoderTimer.dox#enctimer_usage_menu',1,'']]]
 ];
