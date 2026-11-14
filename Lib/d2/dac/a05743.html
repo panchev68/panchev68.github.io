@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::MoonPhase</title>
+<title>IAR EWARM Library: Lib::HAL::UARTPort&lt; DriverMode::IT &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,104 +91,57 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/dcd/a01023.html">Helper</a></li><li class="navelem"><a href="../../d2/dac/a05743.html">MoonPhase</a></li>  </ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../da/d93/a01084.html">HAL</a></li><li class="navelem"><a href="../../d2/dac/a05743.html">UARTPort&lt; DriverMode::IT &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="../../d2/db8/a05740.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Helper::MoonPhase<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::UARTPort&lt; DriverMode::IT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Computes the moon phase of a calendar date and keeps the last result.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Computes the moon phase of a calendar date and keeps the last result. </p>
-<p>The phase of a date can also be computed without an object through the static <a class="el" href="#aa66e0eb6f0f64d9891ea6a5f2bb5da61" title="calculatePhase()">calculatePhase()</a>.</p>
+<div class="textblock"><p>Interrupt-driven specialization: transfers are started through the HAL interrupt calls and completed from callbacks. </p>
+<p>The event group, start-then-wait transfers, <a class="el" href="../../d6/df4/a05747.html#ac0f3ec8c2a5d8ad83c45e752232f2005" title="UARTPortAsync::abort()">UARTPortAsync::abort()</a>, HAL callbacks and <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> wiring come from <a class="el" href="../../d6/df4/a05747.html" title="UARTPortAsync">UARTPortAsync</a>, shared with the <em class="arg">DMA</em> mode. This class supplies only the two HAL calls that start a transfer.</p>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/MoonPhase.hpp" target="_blank">Source</a> </dd></dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/UART/UARTPort-IT.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a5567988b4297dec26d3237506884f6a5" id="r_a5567988b4297dec26d3237506884f6a5"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a5567988b4297dec26d3237506884f6a5">Phase</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446">NEW_MOON</a> = 0U
-, <br />
-&#160;&#160;<a class="el" href="#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd">WAXING_CRESCENT</a> = 1U
-, <br />
-&#160;&#160;<a class="el" href="#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404">FIRST_QUARTER</a> = 2U
-, <br />
-&#160;&#160;<a class="el" href="#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651">WAXING_GIBBOUS</a> = 3U
-, <br />
-&#160;&#160;<a class="el" href="#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1">FULL_MOON</a> = 4U
-, <br />
-&#160;&#160;<a class="el" href="#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6">WANING_GIBBOUS</a> = 5U
-, <br />
-&#160;&#160;<a class="el" href="#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18">LAST_QUARTER</a> = 6U
-, <br />
-&#160;&#160;<a class="el" href="#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39">WANING_CRESCENT</a> = 7U
-<br />
- }</td></tr>
-<tr class="memdesc:a5567988b4297dec26d3237506884f6a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">One of the eight principal and intermediate lunar phases, in order of the lunation.  <a href="#a5567988b4297dec26d3237506884f6a5">More...</a><br /></td></tr>
-<tr class="memitem:afc5fc84f3a6e3838bf46d2ebb7b2c4dd" id="r_afc5fc84f3a6e3838bf46d2ebb7b2c4dd"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#afc5fc84f3a6e3838bf46d2ebb7b2c4dd">Date</a> = <a class="el" href="../../dd/de0/a05711.html">DateTime::Date</a></td></tr>
-<tr class="memdesc:afc5fc84f3a6e3838bf46d2ebb7b2c4dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calendar date type.  <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac58c9ddf6d8f37e3f317e4f702ac00a5" id="r_ac58c9ddf6d8f37e3f317e4f702ac00a5"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#ac58c9ddf6d8f37e3f317e4f702ac00a5">MoonPhase</a> ()=default</td></tr>
-<tr class="memdesc:ac58c9ddf6d8f37e3f317e4f702ac00a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the initial state representing New Moon (index 0).  <br /></td></tr>
-<tr class="memitem:acd603bf923907f139f3479a3fe0c6723" id="r_acd603bf923907f139f3479a3fe0c6723"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#acd603bf923907f139f3479a3fe0c6723">MoonPhase</a> (const <a class="el" href="#afc5fc84f3a6e3838bf46d2ebb7b2c4dd">Date</a> &amp;date) noexcept</td></tr>
-<tr class="memdesc:acd603bf923907f139f3479a3fe0c6723"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the object and computes the phase of the provided date immediately.  <br /></td></tr>
-<tr class="memitem:a47ac4868563998363835de249a5814a9" id="r_a47ac4868563998363835de249a5814a9"><td class="memItemLeft">constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a47ac4868563998363835de249a5814a9">calculate</a> (const <a class="el" href="#afc5fc84f3a6e3838bf46d2ebb7b2c4dd">Date</a> &amp;date) noexcept</td></tr>
-<tr class="memdesc:a47ac4868563998363835de249a5814a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the moon phase of the given date and stores it as the current result.  <br /></td></tr>
-<tr class="memitem:aa813fe60ba073a14b7e7f8fc97ac0ba7" id="r_aa813fe60ba073a14b7e7f8fc97ac0ba7"><td class="memItemLeft">constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aa813fe60ba073a14b7e7f8fc97ac0ba7">index</a> () const noexcept</td></tr>
-<tr class="memdesc:aa813fe60ba073a14b7e7f8fc97ac0ba7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last computed phase index.  <br /></td></tr>
-<tr class="memitem:a6ddb8be8e68814a16313e0824662b5c9" id="r_a6ddb8be8e68814a16313e0824662b5c9"><td class="memItemLeft">constexpr <a class="el" href="#a5567988b4297dec26d3237506884f6a5">Phase</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6ddb8be8e68814a16313e0824662b5c9">phase</a> () const noexcept</td></tr>
-<tr class="memdesc:a6ddb8be8e68814a16313e0824662b5c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last computed phase as an enumerator.  <br /></td></tr>
-<tr class="memitem:adc9f9d9a3930766fcb4e46c172d398c1" id="r_adc9f9d9a3930766fcb4e46c172d398c1"><td class="memItemLeft">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#adc9f9d9a3930766fcb4e46c172d398c1">name</a> () const noexcept</td></tr>
-<tr class="memdesc:adc9f9d9a3930766fcb4e46c172d398c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last computed human-readable phase name.  <br /></td></tr>
-<tr class="memitem:a64022e97a09da5fcaa242d39634aafbf" id="r_a64022e97a09da5fcaa242d39634aafbf"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a64022e97a09da5fcaa242d39634aafbf">operator uint32_t</a> () const noexcept</td></tr>
-<tr class="memdesc:a64022e97a09da5fcaa242d39634aafbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last computed phase index.  <br /></td></tr>
-<tr class="memitem:a1163c4cf76a0dfe6e089e3dd35da9021" id="r_a1163c4cf76a0dfe6e089e3dd35da9021"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a1163c4cf76a0dfe6e089e3dd35da9021">operator std::string_view</a> () const noexcept</td></tr>
-<tr class="memdesc:a1163c4cf76a0dfe6e089e3dd35da9021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last computed human-readable phase name.  <br /></td></tr>
+<tr class="memitem:a074ec6b19b1073304ca2513d11d43247" id="r_a074ec6b19b1073304ca2513d11d43247"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a074ec6b19b1073304ca2513d11d43247">UARTPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *handle) noexcept</td></tr>
+<tr class="memdesc:a074ec6b19b1073304ca2513d11d43247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native UART handle; the port starts closed.  <br /></td></tr>
+<tr class="memitem:a864254902b1d7b3afa27a66ccd465c69" id="r_a864254902b1d7b3afa27a66ccd465c69"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a864254902b1d7b3afa27a66ccd465c69">~UARTPort</a> () noexcept</td></tr>
+<tr class="memdesc:a864254902b1d7b3afa27a66ccd465c69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> registry and no HAL callback points at the destroyed port.  <br /></td></tr>
+<tr class="memitem:aa6f2b7746c93553e8ba0a2fda3c494bc" id="r_aa6f2b7746c93553e8ba0a2fda3c494bc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d6/df4/a05747.html#aa6f2b7746c93553e8ba0a2fda3c494bc">send</a> (std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:aa6f2b7746c93553e8ba0a2fda3c494bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits a buffer and waits for completion.  <br /></td></tr>
+<tr class="memitem:a3c10830f8d93936773f64d95201bc7da" id="r_a3c10830f8d93936773f64d95201bc7da"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d6/df4/a05747.html#a3c10830f8d93936773f64d95201bc7da">receive</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a3c10830f8d93936773f64d95201bc7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives exactly the size of the buffer in bytes and waits for completion.  <br /></td></tr>
+<tr class="memitem:ac0f3ec8c2a5d8ad83c45e752232f2005" id="r_ac0f3ec8c2a5d8ad83c45e752232f2005"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d6/df4/a05747.html#ac0f3ec8c2a5d8ad83c45e752232f2005">abort</a> () noexcept</td></tr>
+<tr class="memdesc:ac0f3ec8c2a5d8ad83c45e752232f2005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts any ongoing transmission and reception immediately.  <br /></td></tr>
+<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/da8/a05511.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order.  <br /></td></tr>
+<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/da8/a05511.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
+<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
+<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/da8/a05511.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
+<tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../de/d01/a05519.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
+<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../de/d01/a05519.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:aa66e0eb6f0f64d9891ea6a5f2bb5da61" id="r_aa66e0eb6f0f64d9891ea6a5f2bb5da61"><td class="memItemLeft">static constexpr <a class="el" href="#a5567988b4297dec26d3237506884f6a5">Phase</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa66e0eb6f0f64d9891ea6a5f2bb5da61">calculatePhase</a> (const <a class="el" href="#afc5fc84f3a6e3838bf46d2ebb7b2c4dd">Date</a> &amp;date) noexcept</td></tr>
-<tr class="memdesc:aa66e0eb6f0f64d9891ea6a5f2bb5da61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the moon phase of a date without storing it.  <br /></td></tr>
-<tr class="memitem:a5793b05a76a8a88eb3d0da5f4d796a7d" id="r_a5793b05a76a8a88eb3d0da5f4d796a7d"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5793b05a76a8a88eb3d0da5f4d796a7d">toName</a> (<a class="el" href="#a5567988b4297dec26d3237506884f6a5">Phase</a> value) noexcept</td></tr>
-<tr class="memdesc:a5793b05a76a8a88eb3d0da5f4d796a7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the human-readable name of a phase.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a46232086e5631ddceb35f8ef65b3f742" id="r_a46232086e5631ddceb35f8ef65b3f742"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a46232086e5631ddceb35f8ef65b3f742">PHASE_COUNT</a> = 8U</td></tr>
-<tr class="memdesc:a46232086e5631ddceb35f8ef65b3f742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of distinguished phases.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:ac1e436d02537a9e4b651277ba21762f9" id="r_ac1e436d02537a9e4b651277ba21762f9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="../../d4/da8/a05511.html#ac1e436d02537a9e4b651277ba21762f9">signalFromISR</a> (T_HANDLE *handle, uint32_t bits) noexcept</td></tr>
+<tr class="memdesc:ac1e436d02537a9e4b651277ba21762f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits on the port owning a HAL handle; called from interrupt context.  <br /></td></tr>
+<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/da8/a05511.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (T_HANDLE *handle) noexcept</td></tr>
+<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a HAL handle.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="afc5fc84f3a6e3838bf46d2ebb7b2c4dd" name="afc5fc84f3a6e3838bf46d2ebb7b2c4dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc5fc84f3a6e3838bf46d2ebb7b2c4dd">&#9670;&#160;</a></span>Date</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#afc5fc84f3a6e3838bf46d2ebb7b2c4dd">Lib::Helper::MoonPhase::Date</a> = <a class="el" href="../../dd/de0/a05711.html">DateTime::Date</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Calendar date type. </p>
-
-</div>
-</div>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a5567988b4297dec26d3237506884f6a5" name="a5567988b4297dec26d3237506884f6a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5567988b4297dec26d3237506884f6a5">&#9670;&#160;</a></span>Phase</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a074ec6b19b1073304ca2513d11d43247" name="a074ec6b19b1073304ca2513d11d43247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a074ec6b19b1073304ca2513d11d43247">&#9670;&#160;</a></span>UARTPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,41 +150,31 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#a5567988b4297dec26d3237506884f6a5">Lib::Helper::MoonPhase::Phase</a> : uint8_t</td>
+          <td class="memname">Lib::HAL::UARTPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::UARTPort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>One of the eight principal and intermediate lunar phases, in order of the lunation. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446" name="a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446"></a>NEW_MOON&#160;</td><td class="fielddoc"><p>Moon between Earth and Sun, not illuminated. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd" name="a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd"></a>WAXING_CRESCENT&#160;</td><td class="fielddoc"><p>Less than half illuminated, growing. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404" name="a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404"></a>FIRST_QUARTER&#160;</td><td class="fielddoc"><p>Half illuminated, growing. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651" name="a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651"></a>WAXING_GIBBOUS&#160;</td><td class="fielddoc"><p>More than half illuminated, growing. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1" name="a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1"></a>FULL_MOON&#160;</td><td class="fielddoc"><p>Fully illuminated. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6" name="a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6"></a>WANING_GIBBOUS&#160;</td><td class="fielddoc"><p>More than half illuminated, shrinking. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18" name="a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18"></a>LAST_QUARTER&#160;</td><td class="fielddoc"><p>Half illuminated, shrinking. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39" name="a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39"></a>WANING_CRESCENT&#160;</td><td class="fielddoc"><p>Less than half illuminated, shrinking. </p>
-</td></tr>
-</table>
+<p>Binds the port to a native UART handle; the port starts closed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac58c9ddf6d8f37e3f317e4f702ac00a5" name="ac58c9ddf6d8f37e3f317e4f702ac00a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac58c9ddf6d8f37e3f317e4f702ac00a5">&#9670;&#160;</a></span>MoonPhase() <span class="overload">[1/2]</span></h2>
+<a id="a864254902b1d7b3afa27a66ccd465c69" name="a864254902b1d7b3afa27a66ccd465c69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a864254902b1d7b3afa27a66ccd465c69">&#9670;&#160;</a></span>~UARTPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -240,7 +183,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Helper::MoonPhase::MoonPhase </td>
+          <td class="memname">Lib::HAL::UARTPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::~<a class="el" href="#a074ec6b19b1073304ca2513d11d43247">UARTPort</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -248,51 +191,18 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs the initial state representing New Moon (index 0). </p>
-
-</div>
-</div>
-<a id="acd603bf923907f139f3479a3fe0c6723" name="acd603bf923907f139f3479a3fe0c6723"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd603bf923907f139f3479a3fe0c6723">&#9670;&#160;</a></span>MoonPhase() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Helper::MoonPhase::MoonPhase </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#afc5fc84f3a6e3838bf46d2ebb7b2c4dd">Date</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>date</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructs the object and computes the phase of the provided date immediately. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">date</td><td>Calendar date to evaluate; must be valid. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> registry and no HAL callback points at the destroyed port. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a47ac4868563998363835de249a5814a9" name="a47ac4868563998363835de249a5814a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47ac4868563998363835de249a5814a9">&#9670;&#160;</a></span>calculate()</h2>
+<a id="ac0f3ec8c2a5d8ad83c45e752232f2005" name="ac0f3ec8c2a5d8ad83c45e752232f2005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f3ec8c2a5d8ad83c45e752232f2005">&#9670;&#160;</a></span>abort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -301,241 +211,94 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::Helper::MoonPhase::calculate </td>
+          <td class="memname">bool <a class="el" href="../../d6/df4/a05747.html">Lib::HAL::UARTPortAsync</a>&lt; <a class="el" href="#a074ec6b19b1073304ca2513d11d43247">UARTPort</a>&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::abort </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#afc5fc84f3a6e3838bf46d2ebb7b2c4dd">Date</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>date</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the moon phase of the given date and stores it as the current result. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">date</td><td>Calendar date to evaluate; must be valid (see <a class="el" href="../../dd/de0/a05711.html#a66cc8b6924524dbb160bff50af6b9bbe" title="DateTime::Date::isValid()">DateTime::Date::isValid()</a>). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Phase index in range [0,7], see <a class="el" href="#a5567988b4297dec26d3237506884f6a5" title="Phase">Phase</a>. </dd></dl>
+<p>Aborts any ongoing transmission and reception immediately. </p>
+<p>Wakes a task blocked in <a class="el" href="../../d6/df4/a05747.html#aa6f2b7746c93553e8ba0a2fda3c494bc" title="send()">send()</a> or <a class="el" href="../../d6/df4/a05747.html#a3c10830f8d93936773f64d95201bc7da" title="receive()">receive()</a>, which then reports failure. Task context only. Asserts if called from an ISR or on a closed port.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stopped processing safely, <b>false</b> otherwise or if the port is closed. </dd></dl>
 
 </div>
 </div>
-<a id="aa66e0eb6f0f64d9891ea6a5f2bb5da61" name="aa66e0eb6f0f64d9891ea6a5f2bb5da61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa66e0eb6f0f64d9891ea6a5f2bb5da61">&#9670;&#160;</a></span>calculatePhase()</h2>
+<a id="a03c62c024b148a264f9a6a0077198302" name="a03c62c024b148a264f9a6a0077198302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c62c024b148a264f9a6a0077198302">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="#a5567988b4297dec26d3237506884f6a5">Phase</a> Lib::Helper::MoonPhase::calculatePhase </td>
+          <td class="memname">bool <a class="el" href="../../d4/da8/a05511.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d4/da8/a05511.html#a03c62c024b148a264f9a6a0077198302">::close</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#afc5fc84f3a6e3838bf46d2ebb7b2c4dd">Date</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>date</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the moon phase of a date without storing it. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">date</td><td>Calendar date to evaluate; must be valid (see <a class="el" href="../../dd/de0/a05711.html#a66cc8b6924524dbb160bff50af6b9bbe" title="DateTime::Date::isValid()">DateTime::Date::isValid()</a>). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Phase at noon UTC of <em class="arg">date</em>. </dd></dl>
+<p>Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group. </p>
+<p>Task context only; asserts when called from an interrupt.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
 
 </div>
 </div>
-<a id="aa813fe60ba073a14b7e7f8fc97ac0ba7" name="aa813fe60ba073a14b7e7f8fc97ac0ba7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa813fe60ba073a14b7e7f8fc97ac0ba7">&#9670;&#160;</a></span>index()</h2>
+<a id="a66f47e9670feddc6fb679436b07a1680" name="a66f47e9670feddc6fb679436b07a1680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66f47e9670feddc6fb679436b07a1680">&#9670;&#160;</a></span>findPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::Helper::MoonPhase::index </td>
+          <td class="memname">T_DERIVED * <a class="el" href="../../d4/da8/a05511.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d4/da8/a05511.html#a66f47e9670feddc6fb679436b07a1680">::findPort</a> </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the last computed phase index. </p>
-<dl class="section return"><dt>Returns</dt><dd>Phase index in range [0,7]. </dd></dl>
-
-</div>
-</div>
-<a id="adc9f9d9a3930766fcb4e46c172d398c1" name="adc9f9d9a3930766fcb4e46c172d398c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc9f9d9a3930766fcb4e46c172d398c1">&#9670;&#160;</a></span>name()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Helper::MoonPhase::name </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the last computed human-readable phase name. </p>
-<dl class="section return"><dt>Returns</dt><dd>Read-only view of the phase name. </dd></dl>
-
-</div>
-</div>
-<a id="a1163c4cf76a0dfe6e089e3dd35da9021" name="a1163c4cf76a0dfe6e089e3dd35da9021"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1163c4cf76a0dfe6e089e3dd35da9021">&#9670;&#160;</a></span>operator std::string_view()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Helper::MoonPhase::operator <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the last computed human-readable phase name. </p>
-<dl class="section return"><dt>Returns</dt><dd>Read-only view of the phase name. </dd></dl>
-
-</div>
-</div>
-<a id="a64022e97a09da5fcaa242d39634aafbf" name="a64022e97a09da5fcaa242d39634aafbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64022e97a09da5fcaa242d39634aafbf">&#9670;&#160;</a></span>operator uint32_t()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Helper::MoonPhase::operator uint32_t </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the last computed phase index. </p>
-<dl class="section return"><dt>Returns</dt><dd>Phase index in range [0,7]. </dd></dl>
-
-</div>
-</div>
-<a id="a6ddb8be8e68814a16313e0824662b5c9" name="a6ddb8be8e68814a16313e0824662b5c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ddb8be8e68814a16313e0824662b5c9">&#9670;&#160;</a></span>phase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a5567988b4297dec26d3237506884f6a5">Phase</a> Lib::Helper::MoonPhase::phase </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the last computed phase as an enumerator. </p>
-<dl class="section return"><dt>Returns</dt><dd>Last computed phase. </dd></dl>
-
-</div>
-</div>
-<a id="a5793b05a76a8a88eb3d0da5f4d796a7d" name="a5793b05a76a8a88eb3d0da5f4d796a7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5793b05a76a8a88eb3d0da5f4d796a7d">&#9670;&#160;</a></span>toName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Helper::MoonPhase::toName </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a5567988b4297dec26d3237506884f6a5">Phase</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td class="paramtype">T_HANDLE *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the human-readable name of a phase. </p>
+<p>Finds the port that owns a HAL handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Phase to name. </td></tr>
+    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Read-only view of a static string. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The port, or <b>nullptr</b> if no open port uses the handle. </dd></dl>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a46232086e5631ddceb35f8ef65b3f742" name="a46232086e5631ddceb35f8ef65b3f742"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46232086e5631ddceb35f8ef65b3f742">&#9670;&#160;</a></span>PHASE_COUNT</h2>
+<a id="af92f93241be20a3c9a32286ed19dc4cf" name="af92f93241be20a3c9a32286ed19dc4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92f93241be20a3c9a32286ed19dc4cf">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -544,17 +307,247 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::Helper::MoonPhase::PHASE_COUNT = 8U</td>
+          <td class="memname">const T_HANDLE * <a class="el" href="../../de/d01/a05519.html">Lib::HAL::Device</a>&lt; T_DERIVED, T_HANDLE &gt;<a class="el" href="../../de/d01/a05519.html#ac39b97fd324efde09c82d0ccfe7fe4e8">::getHandle</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Number of distinguished phases. </p>
+<p>Const-qualified access to the native microcontroller hardware handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
+
+</div>
+</div>
+<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_HANDLE * <a class="el" href="../../de/d01/a05519.html">Lib::HAL::Device</a>&lt; T_DERIVED, T_HANDLE &gt;<a class="el" href="../../de/d01/a05519.html#ac39b97fd324efde09c82d0ccfe7fe4e8">::getHandle</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
+
+</div>
+</div>
+<a id="a8be2d6d39175f6e71f25e4a64e0e2f1b" name="a8be2d6d39175f6e71f25e4a64e0e2f1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be2d6d39175f6e71f25e4a64e0e2f1b">&#9670;&#160;</a></span>isOpened()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/da8/a05511.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d4/da8/a05511.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">::isOpened</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the port is open. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="../../d4/da8/a05511.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d4/da8/a05511.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a3822bc9b87b9e299982b230e2c029f35" name="a3822bc9b87b9e299982b230e2c029f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3822bc9b87b9e299982b230e2c029f35">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/da8/a05511.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d4/da8/a05511.html#a3822bc9b87b9e299982b230e2c029f35">::open</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opens the port: event group, peripheral, <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order. </p>
+<p>Task context only; asserts when called from an interrupt and on an unbound handle. A failure undoes the earlier steps, so the port stays closed.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
+
+</div>
+</div>
+<a id="a3c10830f8d93936773f64d95201bc7da" name="a3c10830f8d93936773f64d95201bc7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c10830f8d93936773f64d95201bc7da">&#9670;&#160;</a></span>receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/df4/a05747.html">Lib::HAL::UARTPortAsync</a>&lt; <a class="el" href="#a074ec6b19b1073304ca2513d11d43247">UARTPort</a>&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::receive </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Receives exactly the size of the buffer in bytes and waits for completion. </p>
+<p>Task context only.</p>
+<p>On timeout or error the reception is aborted, so the HAL never writes <em class="arg">data</em> after this returns.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
+
+</div>
+</div>
+<a id="aa6f2b7746c93553e8ba0a2fda3c494bc" name="aa6f2b7746c93553e8ba0a2fda3c494bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f2b7746c93553e8ba0a2fda3c494bc">&#9670;&#160;</a></span>send()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/df4/a05747.html">Lib::HAL::UARTPortAsync</a>&lt; <a class="el" href="#a074ec6b19b1073304ca2513d11d43247">UARTPort</a>&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::send </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transmits a buffer and waits for completion. </p>
+<p>Task context only.</p>
+<p>On timeout or error the transmission is aborted, so the HAL never reads <em class="arg">data</em> after this returns.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
+
+</div>
+</div>
+<a id="ac1e436d02537a9e4b651277ba21762f9" name="ac1e436d02537a9e4b651277ba21762f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e436d02537a9e4b651277ba21762f9">&#9670;&#160;</a></span>signalFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d4/da8/a05511.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::signalFromISR </td>
+          <td>(</td>
+          <td class="paramtype">T_HANDLE *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>bits</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets event bits on the port owning a HAL handle; called from interrupt context. </p>
+<p>Does nothing when no open port uses the handle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
+    <tr><td class="paramname">bits</td><td>Event bits to set. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

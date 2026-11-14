@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Digi::API::Service::NetworkDiscovery</title>
+<title>IAR EWARM Library: Lib::Digi::API::Connection::Quality</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,68 +91,55 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d5/dfb/a01021.html">Digi</a></li><li class="navelem"><a href="../../d1/dd8/a01022.html">API</a></li><li class="navelem"><a href="../../d6/dcd/a01023.html">Service</a></li><li class="navelem"><a href="../../d1/da2/a04991.html">NetworkDiscovery</a></li>  </ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../d6/d6a/a01072.html">Digi</a></li><li class="navelem"><a href="../../d9/d7c/a01073.html">API</a></li><li class="navelem"><a href="../../da/de7/a04983.html">Connection</a></li><li class="navelem"><a href="../../d1/da2/a04991.html">Quality</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../d5/d6e/a04988.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Digi::API::Service::NetworkDiscovery<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Digi::API::Connection::Quality<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Reads the discovery time "NT" on "open()" and collects the "ND" responses on "start()".  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Reads the discovery time "NT" on "open()" and collects the "ND" responses on "start()". </p>
-<p>The service holds the local AT command channel from "open()" to "close()", so no other user of that channel may run meanwhile. </p>
+<div class="textblock"><p>Computes link quality from the packet delivery ratio (PDR) and the RSSI link margin. </p>
+<p>Every request/response cycle is one bit in a sliding window of the last "WINDOW_SIZE" cycles; the PDR over that window is the primary score. The filtered RSSI, mapped linearly from "RSSI_STRONG" (100 %) to "RSSI_SENSITIVITY" (0 %), scales the PDR score down by up to "RSSI_WEIGHT" percent, so a weakening signal lowers the result before packets get lost. The state follows the percent with hysteresis: down at once, up only after the better grade has held for "STATE_UPGRADE_DELAY".</p>
+<p>In scanner mode every reset starts a "SCANNER_SETTLE_TIME" period whose samples are ignored, and "onUpdate" fires once, when the window is filled with fresh samples.</p>
+<p>Thread safety: "onExchange()" and "update()" run in the application task, "onRssi()" in the receiver task; "clear()", the mode setters and the getters are safe from any task. Cross-task data goes only through atomics and is applied inside "update()". </p>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Node" id="r_Node"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d54/a04995.html">Node</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Module that answered the node discovery.  <a href="../../d6/d54/a04995.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acd0e3f3866a3ca66b7f3e542776da665" id="r_acd0e3f3866a3ca66b7f3e542776da665"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acd0e3f3866a3ca66b7f3e542776da665">NetworkDiscovery</a> (<a class="el" href="../../d2/d78/a05087.html">Core::LocalAtCommand</a> *localAtCommand) noexcept</td></tr>
-<tr class="memdesc:acd0e3f3866a3ca66b7f3e542776da665"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the service to the local AT command channel.  <br /></td></tr>
-<tr class="memitem:ab9ffde2714e24e2870cdc93c23495f03" id="r_ab9ffde2714e24e2870cdc93c23495f03"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab9ffde2714e24e2870cdc93c23495f03">NetworkDiscovery</a> (const NetworkDiscovery &amp;)=delete</td></tr>
-<tr class="memdesc:ab9ffde2714e24e2870cdc93c23495f03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the service holds the local AT command channel while open.  <br /></td></tr>
-<tr class="memitem:a56fe4df6f329a5e18e8f8132ec5f5c7b" id="r_a56fe4df6f329a5e18e8f8132ec5f5c7b"><td class="memItemLeft"><a class="el" href="#acd0e3f3866a3ca66b7f3e542776da665">NetworkDiscovery</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a56fe4df6f329a5e18e8f8132ec5f5c7b">operator=</a> (const <a class="el" href="#acd0e3f3866a3ca66b7f3e542776da665">NetworkDiscovery</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a56fe4df6f329a5e18e8f8132ec5f5c7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the service holds the local AT command channel while open.  <br /></td></tr>
-<tr class="memitem:a1a3ede33b94a0d0f532e9e6d3b599dce" id="r_a1a3ede33b94a0d0f532e9e6d3b599dce"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1a3ede33b94a0d0f532e9e6d3b599dce">open</a> () noexcept</td></tr>
-<tr class="memdesc:a1a3ede33b94a0d0f532e9e6d3b599dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the local AT command channel and reads the discovery time, blocking the calling task.  <br /></td></tr>
-<tr class="memitem:a1315fb9cad5a91c5e451bf64e521ea96" id="r_a1315fb9cad5a91c5e451bf64e521ea96"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1315fb9cad5a91c5e451bf64e521ea96">close</a> () noexcept</td></tr>
-<tr class="memdesc:a1315fb9cad5a91c5e451bf64e521ea96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the service to stop and releases the local AT command channel.  <br /></td></tr>
-<tr class="memitem:a959b5480dd22f8a82c83f45f689a5f47" id="r_a959b5480dd22f8a82c83f45f689a5f47"><td class="memItemLeft">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; <a class="el" href="../../d6/d54/a04995.html">Node</a> &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a959b5480dd22f8a82c83f45f689a5f47">start</a> () noexcept</td></tr>
-<tr class="memdesc:a959b5480dd22f8a82c83f45f689a5f47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs a node discovery, blocking the calling task until the discovery time has passed.  <br /></td></tr>
-<tr class="memitem:a1bb3ae3971de79ceadc4598cb0e980fb" id="r_a1bb3ae3971de79ceadc4598cb0e980fb"><td class="memItemLeft">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; <a class="el" href="../../d6/d54/a04995.html">Node</a> &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1bb3ae3971de79ceadc4598cb0e980fb">getNodes</a> () const noexcept</td></tr>
-<tr class="memdesc:a1bb3ae3971de79ceadc4598cb0e980fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the nodes found by the last discovery.  <br /></td></tr>
-<tr class="memitem:a5ff67a6679624bd114c6dcf093a2e5ca" id="r_a5ff67a6679624bd114c6dcf093a2e5ca"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5ff67a6679624bd114c6dcf093a2e5ca">getNodeCount</a> () const noexcept</td></tr>
-<tr class="memdesc:a5ff67a6679624bd114c6dcf093a2e5ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of nodes found by the last discovery.  <br /></td></tr>
-<tr class="memitem:aff5f6c6f0f6bea3102ddff447677796f" id="r_aff5f6c6f0f6bea3102ddff447677796f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aff5f6c6f0f6bea3102ddff447677796f">hasNodes</a> () const noexcept</td></tr>
-<tr class="memdesc:aff5f6c6f0f6bea3102ddff447677796f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the last discovery found any node.  <br /></td></tr>
-<tr class="memitem:a8cd40b87b5dbd173792b15fc800ebe85" id="r_a8cd40b87b5dbd173792b15fc800ebe85"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d82/a05027.html#a8cd40b87b5dbd173792b15fc800ebe85">update</a> () noexcept</td></tr>
-<tr class="memdesc:a8cd40b87b5dbd173792b15fc800ebe85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advances the lifecycle by one step and runs the matching hook; called from the application task.  <br /></td></tr>
-<tr class="memitem:aaf770fe60bcc30fb468c4148a6a37cef" id="r_aaf770fe60bcc30fb468c4148a6a37cef"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d82/a05027.html#aaf770fe60bcc30fb468c4148a6a37cef">isRunning</a> () const noexcept</td></tr>
-<tr class="memdesc:aaf770fe60bcc30fb468c4148a6a37cef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the service is started or still stopping.  <br /></td></tr>
+<tr class="memitem:addae8d177e3be6cf88efd4277f317ef7" id="r_addae8d177e3be6cf88efd4277f317ef7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> (<a class="el" href="../../da/de7/a04983.html#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> *connection) noexcept</td></tr>
+<tr class="memdesc:addae8d177e3be6cf88efd4277f317ef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the evaluator in runtime mode with a pending statistics reset.  <br /></td></tr>
+<tr class="memitem:ad5e27604826fa9613e36ac6186b344bb" id="r_ad5e27604826fa9613e36ac6186b344bb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad5e27604826fa9613e36ac6186b344bb">start</a> () noexcept</td></tr>
+<tr class="memdesc:ad5e27604826fa9613e36ac6186b344bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches to runtime mode and resets the statistics; same as "setRuntimeMode()".  <br /></td></tr>
+<tr class="memitem:a609bf11d7132e415fcbb42bdb189c438" id="r_a609bf11d7132e415fcbb42bdb189c438"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a609bf11d7132e415fcbb42bdb189c438">clear</a> () noexcept</td></tr>
+<tr class="memdesc:a609bf11d7132e415fcbb42bdb189c438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests a reset of the collected statistics, applied by the next "update()".  <br /></td></tr>
+<tr class="memitem:a55bae7d188caa41cd85b5960bc80b4c9" id="r_a55bae7d188caa41cd85b5960bc80b4c9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a55bae7d188caa41cd85b5960bc80b4c9">setRuntimeMode</a> () noexcept</td></tr>
+<tr class="memdesc:a55bae7d188caa41cd85b5960bc80b4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets runtime mode (continuous assessment) and resets the statistics.  <br /></td></tr>
+<tr class="memitem:a94bf3ed338180ddd04fe888b204907c7" id="r_a94bf3ed338180ddd04fe888b204907c7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a94bf3ed338180ddd04fe888b204907c7">setScannerMode</a> () noexcept</td></tr>
+<tr class="memdesc:a94bf3ed338180ddd04fe888b204907c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets scanner mode (settle, then one result per full window) and resets the statistics.  <br /></td></tr>
+<tr class="memitem:a58d1f865ff5385df9120089b3b9be020" id="r_a58d1f865ff5385df9120089b3b9be020"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a58d1f865ff5385df9120089b3b9be020">getPercent</a> () const noexcept</td></tr>
+<tr class="memdesc:a58d1f865ff5385df9120089b3b9be020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last computed quality.  <br /></td></tr>
+<tr class="memitem:acc0dd49fae439b6a503f21d2c2296569" id="r_acc0dd49fae439b6a503f21d2c2296569"><td class="memItemLeft"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#acc0dd49fae439b6a503f21d2c2296569">getState</a> () const noexcept</td></tr>
+<tr class="memdesc:acc0dd49fae439b6a503f21d2c2296569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last published qualitative state.  <br /></td></tr>
+<tr class="memitem:a889bc1271f7b0cf758338c7ee2514554" id="r_a889bc1271f7b0cf758338c7ee2514554"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a889bc1271f7b0cf758338c7ee2514554">onExchange</a> (bool isSuccessful) noexcept</td></tr>
+<tr class="memdesc:a889bc1271f7b0cf758338c7ee2514554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records the outcome of one request/response cycle.  <br /></td></tr>
+<tr class="memitem:acd7a4f8340c849e6247997e1fff9b177" id="r_acd7a4f8340c849e6247997e1fff9b177"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acd7a4f8340c849e6247997e1fff9b177">onRssi</a> (uint8_t rssi) noexcept</td></tr>
+<tr class="memdesc:acd7a4f8340c849e6247997e1fff9b177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a raw RSSI sample, filtered by the next "update()".  <br /></td></tr>
+<tr class="memitem:a74c56a3babe14b32b8d4362d4e3ace1f" id="r_a74c56a3babe14b32b8d4362d4e3ace1f"><td class="memItemLeft"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f">update</a> () noexcept</td></tr>
+<tr class="memdesc:a74c56a3babe14b32b8d4362d4e3ace1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies pending requests and samples, then recomputes percent and state.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a6329c58c641c134db59a8f37a9637dea" id="r_a6329c58c641c134db59a8f37a9637dea"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d82/a05027.html#a6329c58c641c134db59a8f37a9637dea">initialize</a> () noexcept</td></tr>
-<tr class="memdesc:a6329c58c641c134db59a8f37a9637dea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default start hook; does nothing.  <br /></td></tr>
-<tr class="memitem:a0747f885e5a9feba10647c760353f395" id="r_a0747f885e5a9feba10647c760353f395"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d82/a05027.html#a0747f885e5a9feba10647c760353f395">process</a> () noexcept</td></tr>
-<tr class="memdesc:a0747f885e5a9feba10647c760353f395"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default processing hook; does nothing.  <br /></td></tr>
-<tr class="memitem:a433b1176b2ec86cafe98bb73425d401b" id="r_a433b1176b2ec86cafe98bb73425d401b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d82/a05027.html#a433b1176b2ec86cafe98bb73425d401b">tearDown</a> () noexcept</td></tr>
-<tr class="memdesc:a433b1176b2ec86cafe98bb73425d401b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default stop hook; does nothing.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a6f2e37a3261d7339927cb06d1b32fa02" id="r_a6f2e37a3261d7339927cb06d1b32fa02"><td class="memItemLeft"><a class="el" href="../../d3/d3a/a04891.html">FunctionRef</a>&lt; void(<a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> *)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6f2e37a3261d7339927cb06d1b32fa02">onUpdate</a></td></tr>
+<tr class="memdesc:a6f2e37a3261d7339927cb06d1b32fa02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scanner-mode result callback, fired from "update()" in the application task.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acd0e3f3866a3ca66b7f3e542776da665" name="acd0e3f3866a3ca66b7f3e542776da665"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd0e3f3866a3ca66b7f3e542776da665">&#9670;&#160;</a></span>NetworkDiscovery() <span class="overload">[1/2]</span></h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a46b4913da28daeccef03e456b1d3a101" name="a46b4913da28daeccef03e456b1d3a101"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46b4913da28daeccef03e456b1d3a101">&#9670;&#160;</a></span>Mode</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,9 +148,70 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Digi::API::Service::NetworkDiscovery::NetworkDiscovery </td>
+          <td class="memname">enum class <a class="el" href="#a46b4913da28daeccef03e456b1d3a101">Lib::Digi::API::Connection::Quality::Mode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assessment mode. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8" name="a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8"></a>RUNTIME&#160;</td><td class="fielddoc"><p>Continuous assessment. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d" name="a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d"></a>SCANNER&#160;</td><td class="fielddoc"><p>Settle, then one result per full window. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="af7ac77ba20da5be346e1d3948da5de72" name="af7ac77ba20da5be346e1d3948da5de72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ac77ba20da5be346e1d3948da5de72">&#9670;&#160;</a></span>State</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">Lib::Digi::API::Connection::Quality::State</a> : uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Qualitative states ordered by increasing quality. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785" name="af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785"></a>DISCONNECTED&#160;</td><td class="fielddoc"><p>Link down. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e" name="af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e"></a>UNUSABLE&#160;</td><td class="fielddoc"><p>Up to 30 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4" name="af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4"></a>NOT_GOOD&#160;</td><td class="fielddoc"><p>Above 30 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734" name="af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734"></a>OKAY&#160;</td><td class="fielddoc"><p>Above 50 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347" name="af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347"></a>VERY_GOOD&#160;</td><td class="fielddoc"><p>Above 75 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9" name="af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9"></a>AMAZING&#160;</td><td class="fielddoc"><p>Above 90 %. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="addae8d177e3be6cf88efd4277f317ef7" name="addae8d177e3be6cf88efd4277f317ef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addae8d177e3be6cf88efd4277f317ef7">&#9670;&#160;</a></span>Quality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Digi::API::Connection::Quality::Quality </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/d78/a05087.html">Core::LocalAtCommand</a> *</td>          <td class="paramname"><span class="paramname"><em>localAtCommand</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../da/de7/a04983.html#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> *</td>          <td class="paramname"><span class="paramname"><em>connection</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -174,46 +222,19 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the service to the local AT command channel. </p>
+<p>Creates the evaluator in runtime mode with a pending statistics reset. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">localAtCommand</td><td>Local AT command handler; must outlive the service. </td></tr>
+    <tr><td class="paramname">connection</td><td>Owning connection; must not be "nullptr". </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="ab9ffde2714e24e2870cdc93c23495f03" name="ab9ffde2714e24e2870cdc93c23495f03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9ffde2714e24e2870cdc93c23495f03">&#9670;&#160;</a></span>NetworkDiscovery() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Digi::API::Service::NetworkDiscovery::NetworkDiscovery </td>
-          <td>(</td>
-          <td class="paramtype">const NetworkDiscovery &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: the service holds the local AT command channel while open. </p>
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a1315fb9cad5a91c5e451bf64e521ea96" name="a1315fb9cad5a91c5e451bf64e521ea96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1315fb9cad5a91c5e451bf64e521ea96">&#9670;&#160;</a></span>close()</h2>
+<a id="a609bf11d7132e415fcbb42bdb189c438" name="a609bf11d7132e415fcbb42bdb189c438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a609bf11d7132e415fcbb42bdb189c438">&#9670;&#160;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,7 +243,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Digi::API::Service::NetworkDiscovery::close </td>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::clear </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -235,12 +256,13 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Requests the service to stop and releases the local AT command channel. </p>
+<p>Requests a reset of the collected statistics, applied by the next "update()". </p>
+<p>Safe from any task. </p>
 
 </div>
 </div>
-<a id="a5ff67a6679624bd114c6dcf093a2e5ca" name="a5ff67a6679624bd114c6dcf093a2e5ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ff67a6679624bd114c6dcf093a2e5ca">&#9670;&#160;</a></span>getNodeCount()</h2>
+<a id="a58d1f865ff5385df9120089b3b9be020" name="a58d1f865ff5385df9120089b3b9be020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d1f865ff5385df9120089b3b9be020">&#9670;&#160;</a></span>getPercent()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -249,7 +271,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::Digi::API::Service::NetworkDiscovery::getNodeCount </td>
+          <td class="memname">uint8_t Lib::Digi::API::Connection::Quality::getPercent </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -262,13 +284,13 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of nodes found by the last discovery. </p>
-<dl class="section return"><dt>Returns</dt><dd>Node count. </dd></dl>
+<p>Returns the last computed quality. </p>
+<dl class="section return"><dt>Returns</dt><dd>Quality in percent (0-100). </dd></dl>
 
 </div>
 </div>
-<a id="a1bb3ae3971de79ceadc4598cb0e980fb" name="a1bb3ae3971de79ceadc4598cb0e980fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bb3ae3971de79ceadc4598cb0e980fb">&#9670;&#160;</a></span>getNodes()</h2>
+<a id="acc0dd49fae439b6a503f21d2c2296569" name="acc0dd49fae439b6a503f21d2c2296569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0dd49fae439b6a503f21d2c2296569">&#9670;&#160;</a></span>getState()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,7 +299,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; <a class="el" href="../../d6/d54/a04995.html">Node</a> &gt; &amp; Lib::Digi::API::Service::NetworkDiscovery::getNodes </td>
+          <td class="memname"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a> Lib::Digi::API::Connection::Quality::getState </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -290,13 +312,13 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the nodes found by the last discovery. </p>
-<dl class="section return"><dt>Returns</dt><dd>Discovered nodes. </dd></dl>
+<p>Returns the last published qualitative state. </p>
+<dl class="section return"><dt>Returns</dt><dd>Qualitative state. </dd></dl>
 
 </div>
 </div>
-<a id="aff5f6c6f0f6bea3102ddff447677796f" name="aff5f6c6f0f6bea3102ddff447677796f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff5f6c6f0f6bea3102ddff447677796f">&#9670;&#160;</a></span>hasNodes()</h2>
+<a id="a889bc1271f7b0cf758338c7ee2514554" name="a889bc1271f7b0cf758338c7ee2514554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a889bc1271f7b0cf758338c7ee2514554">&#9670;&#160;</a></span>onExchange()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,53 +327,32 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Digi::API::Service::NetworkDiscovery::hasNodes </td>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::onExchange </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the last discovery found any node. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if at least one node answered. </dd></dl>
-
-</div>
-</div>
-<a id="a6329c58c641c134db59a8f37a9637dea" name="a6329c58c641c134db59a8f37a9637dea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6329c58c641c134db59a8f37a9637dea">&#9670;&#160;</a></span>initialize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d1/d82/a05027.html">Lib::Digi::API::Service::ServiceBase</a>&lt; <a class="el" href="#acd0e3f3866a3ca66b7f3e542776da665">NetworkDiscovery</a> &gt;::initialize </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isSuccessful</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default start hook; does nothing. </p>
+<p>Records the outcome of one request/response cycle. </p>
+<p>Application task only.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">isSuccessful</td><td>"true" if the response arrived in time and was accepted, "false" if it was lost. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="aaf770fe60bcc30fb468c4148a6a37cef" name="aaf770fe60bcc30fb468c4148a6a37cef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf770fe60bcc30fb468c4148a6a37cef">&#9670;&#160;</a></span>isRunning()</h2>
+<a id="acd7a4f8340c849e6247997e1fff9b177" name="acd7a4f8340c849e6247997e1fff9b177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd7a4f8340c849e6247997e1fff9b177">&#9670;&#160;</a></span>onRssi()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -360,26 +361,32 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d1/d82/a05027.html">Lib::Digi::API::Service::ServiceBase</a>&lt; <a class="el" href="#acd0e3f3866a3ca66b7f3e542776da665">NetworkDiscovery</a> &gt;::isRunning </td>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::onRssi </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>rssi</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks whether the service is started or still stopping. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" unless the service is idle. </dd></dl>
+<p>Stores a raw RSSI sample, filtered by the next "update()". </p>
+<p>Safe from the receiver task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rssi</td><td>RSSI magnitude as reported by the module (-dBm, larger means weaker). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a1a3ede33b94a0d0f532e9e6d3b599dce" name="a1a3ede33b94a0d0f532e9e6d3b599dce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a3ede33b94a0d0f532e9e6d3b599dce">&#9670;&#160;</a></span>open()</h2>
+<a id="a55bae7d188caa41cd85b5960bc80b4c9" name="a55bae7d188caa41cd85b5960bc80b4c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55bae7d188caa41cd85b5960bc80b4c9">&#9670;&#160;</a></span>setRuntimeMode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -388,7 +395,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Digi::API::Service::NetworkDiscovery::open </td>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::setRuntimeMode </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -401,13 +408,13 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Takes the local AT command channel and reads the discovery time, blocking the calling task. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the discovery time was read and the service started. </dd></dl>
+<p>Sets runtime mode (continuous assessment) and resets the statistics. </p>
+<p>Safe from any task. </p>
 
 </div>
 </div>
-<a id="a56fe4df6f329a5e18e8f8132ec5f5c7b" name="a56fe4df6f329a5e18e8f8132ec5f5c7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56fe4df6f329a5e18e8f8132ec5f5c7b">&#9670;&#160;</a></span>operator=()</h2>
+<a id="a94bf3ed338180ddd04fe888b204907c7" name="a94bf3ed338180ddd04fe888b204907c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94bf3ed338180ddd04fe888b204907c7">&#9670;&#160;</a></span>setScannerMode()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -416,62 +423,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#acd0e3f3866a3ca66b7f3e542776da665">NetworkDiscovery</a> &amp; Lib::Digi::API::Service::NetworkDiscovery::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#acd0e3f3866a3ca66b7f3e542776da665">NetworkDiscovery</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: the service holds the local AT command channel while open. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a0747f885e5a9feba10647c760353f395" name="a0747f885e5a9feba10647c760353f395"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0747f885e5a9feba10647c760353f395">&#9670;&#160;</a></span>process()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d1/d82/a05027.html">Lib::Digi::API::Service::ServiceBase</a>&lt; <a class="el" href="#acd0e3f3866a3ca66b7f3e542776da665">NetworkDiscovery</a> &gt;::process </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default processing hook; does nothing. </p>
-
-</div>
-</div>
-<a id="a959b5480dd22f8a82c83f45f689a5f47" name="a959b5480dd22f8a82c83f45f689a5f47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a959b5480dd22f8a82c83f45f689a5f47">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; <a class="el" href="../../d6/d54/a04995.html">Node</a> &gt; &amp; Lib::Digi::API::Service::NetworkDiscovery::start </td>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::setScannerMode </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -484,14 +436,13 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Runs a node discovery, blocking the calling task until the discovery time has passed. </p>
-<p>Blocks for the remaining time and ends early on the empty response that closes the discovery.</p>
-<dl class="section return"><dt>Returns</dt><dd>Discovered nodes; empty if the service is not open or the request could not be sent. </dd></dl>
+<p>Sets scanner mode (settle, then one result per full window) and resets the statistics. </p>
+<p>Safe from any task. </p>
 
 </div>
 </div>
-<a id="a433b1176b2ec86cafe98bb73425d401b" name="a433b1176b2ec86cafe98bb73425d401b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a433b1176b2ec86cafe98bb73425d401b">&#9670;&#160;</a></span>tearDown()</h2>
+<a id="ad5e27604826fa9613e36ac6186b344bb" name="ad5e27604826fa9613e36ac6186b344bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5e27604826fa9613e36ac6186b344bb">&#9670;&#160;</a></span>start()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -500,7 +451,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d1/d82/a05027.html">Lib::Digi::API::Service::ServiceBase</a>&lt; <a class="el" href="#acd0e3f3866a3ca66b7f3e542776da665">NetworkDiscovery</a> &gt;::tearDown </td>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::start </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -508,17 +459,17 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default stop hook; does nothing. </p>
+<p>Switches to runtime mode and resets the statistics; same as "setRuntimeMode()". </p>
 
 </div>
 </div>
-<a id="a8cd40b87b5dbd173792b15fc800ebe85" name="a8cd40b87b5dbd173792b15fc800ebe85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cd40b87b5dbd173792b15fc800ebe85">&#9670;&#160;</a></span>update()</h2>
+<a id="a74c56a3babe14b32b8d4362d4e3ace1f" name="a74c56a3babe14b32b8d4362d4e3ace1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74c56a3babe14b32b8d4362d4e3ace1f">&#9670;&#160;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -527,7 +478,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d1/d82/a05027.html">Lib::Digi::API::Service::ServiceBase</a>&lt; <a class="el" href="#acd0e3f3866a3ca66b7f3e542776da665">NetworkDiscovery</a> &gt;::update </td>
+          <td class="memname"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a> Lib::Digi::API::Connection::Quality::update </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -535,12 +486,32 @@ Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Advances the lifecycle by one step and runs the matching hook; called from the application task. </p>
+<p>Applies pending requests and samples, then recomputes percent and state. </p>
+<p>Application task only.</p>
+<dl class="section return"><dt>Returns</dt><dd>New qualitative state. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a6f2e37a3261d7339927cb06d1b32fa02" name="a6f2e37a3261d7339927cb06d1b32fa02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f2e37a3261d7339927cb06d1b32fa02">&#9670;&#160;</a></span>onUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d3a/a04891.html">FunctionRef</a>&lt;void(<a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> *)&gt; Lib::Digi::API::Connection::Quality::onUpdate</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scanner-mode result callback, fired from "update()" in the application task. </p>
+<p>Non-owning: bound and cleared by the owning scanner in its "open()"/"close()". </p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::BackupRamDomain</title>
+<title>IAR EWARM Library: Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,60 +92,81 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::BackupRamDomain</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Keeps small values in the backup data registers, which survive a system reset, with <a class="el" href="../../d1/dbe/a06310.html" title="Lib::HAL::BackupRamDomain">Lib::HAL::BackupRamDomain</a>.</p>
-<p>Keeps small values in the backup data registers, which survive a system reset, with Lib::HAL::BackupRamDomain. Lib::HAL::BackupRamDomain::open() opens the write gate of the backup domain, enables the PWR clock and, where the device has one, the backup SRAM clock; <a class="el" href="../../d8/d42/a05465.html#a0e38a00a0e42d1e9718b0e5ab46c9223" title="Lib::HAL::BackupRamDomain::close()">Lib::HAL::BackupRamDomain::close()</a> reverses them. Reads are always allowed, but writes take effect only between open() and close(), so open the gate before calling <a class="el" href="../../d8/d42/a05465.html#acc5002942f221da40872cb7be92706a9" title="Lib::HAL::BackupRamDomain::writeRegister()">Lib::HAL::BackupRamDomain::writeRegister()</a>. The registers keep their content across low-power modes and, with a backup supply, across a power loss.</p>
-<dl class="section important"><dt>Important</dt><dd>The module guard is <em class="arg">HAL_PWR_MODULE_ENABLED</em>, which the project's 'stm32f4xx_hal_conf.h' enables. On the STM32F407xx target the HAL headers define neither <em class="arg">RTC_BKP_NUMBER</em> nor <em class="arg">TAMP_BASE</em>, so the register count is not known here and the index is not range-checked at all. The registers are read from the RTC block, because the device has no TAMP block.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The index is checked only by an assert in debug builds, and on this target there is no check at all. An index beyond the backup registers of the device accesses memory outside the register block, so pass only the indices defined for the target (the STM32F4 has 20 backup registers, 0 to 19, per its reference manual).</dd></dl>
+<p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.</p>
+<p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.The driver takes a shared Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; by reference and does not own it. Addresses are byte addresses within the 16 MB chip, and <a class="el" href="../../db/d82/a04567.html#aff869cb6bde4f4f94493097c4c7e2da6" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()</a> works on 4 KB sectors, so a write must be preceded by an erase of the sector it touches.</p>
+<dl class="section important"><dt>Important</dt><dd>Target: a part with OCTOSPI, such as STM32U5. The class is compiled only when <em class="arg">HAL_OSPI_MODULE_ENABLED</em> is defined; on STM32F407 the whole class compiles to nothing.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Erasing and writing block the calling task while the chip is busy, which can take milliseconds. Do not call them from an ISR.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="backup_usage_store"></a>
-Store a value across a reset</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/BackupRamDomain/BackupRamDomain.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_open"></a>
+Open and identify</h3>
+<p><a class="el" href="../../db/d82/a04567.html#acc5fbed9faca7400c7d70130fbb74131" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()</a> powers the chip up, resets it and reads the JEDEC ID; the driver is present only for the 16 MB part. <a class="el" href="../../db/d82/a04567.html#a40a9ef783ecafece7202ae4ec39d4939" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()</a> reports the cached result without touching the bus.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/df9/a08518.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d0a/a00743.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="comment">// OCTOSPI port configured in the application (CubeMX) and shared with other consumers; defined outside this file.</span></div>
+<div class="line"><span class="keyword">extern</span> Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; ospiPort;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t BOOT_COUNT_REGISTER = 0U;</div>
-<div class="line">}</div>
 <div class="line"> </div>
-<div class="line">uint32_t incrementBootCount() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d8/d42/a05465.html">Lib::HAL::BackupRamDomain</a> backup;</div>
-<div class="line">    <span class="keywordflow">if</span> (!backup.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d8/d42/a05465.html#a75eda4bb9a1e9d88118cacebbb8992a3">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span> 0U;</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d82/a04567.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> flash({.ospi = ospiPort});</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> openFlash() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Chip did not answer or the JEDEC ID is unexpected.</span></div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint32_t <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a> = backup.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d8/d42/a05465.html#a90b19ee3b4f06e4874a36f9f25b22ce6">readRegister</a>(BOOT_COUNT_REGISTER) + 1U;</div>
-<div class="line">    backup.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d8/d42/a05465.html#acc5002942f221da40872cb7be92706a9">writeRegister</a>(BOOT_COUNT_REGISTER, <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(backup.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d8/d42/a05465.html#a0e38a00a0e42d1e9718b0e5ab46c9223">close</a>());</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>;</div>
+<div class="line">    <span class="keywordflow">return</span> flash.<a id="a1" name="a1"></a><a class="code hl_function" href="../../db/d82/a04567.html#a40a9ef783ecafece7202ae4ec39d4939">isPresent</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00623_html"><div class="ttname"><a href="../../df/d6f/a00623.html">BackupRamDomain.hpp</a></div><div class="ttdoc">Interface to the STM32 backup domain: write-protection gate, Backup SRAM clock and backup data regist...</div></div>
-<div class="ttc" id="aa01627_html_ga5a30c8541e506f4962cb5103a18f1fd1"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a></div><div class="ttdeci">constexpr iterator_traits&lt; _InputIterator &gt;::difference_type count(_InputIterator __first, _InputIterator __last, const _Tp &amp;__value)</div></div>
-<div class="ttc" id="aa05465_html"><div class="ttname"><a href="../../d8/d42/a05465.html">Lib::HAL::BackupRamDomain</a></div><div class="ttdoc">Stateless facade over the backup domain write gate and the backup data registers.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:36</div></div>
-<div class="ttc" id="aa05465_html_a0e38a00a0e42d1e9718b0e5ab46c9223"><div class="ttname"><a href="../../d8/d42/a05465.html#a0e38a00a0e42d1e9718b0e5ab46c9223">Lib::HAL::BackupRamDomain::close</a></div><div class="ttdeci">bool close()</div><div class="ttdoc">Disables the Backup SRAM clock, where the device has one, and closes the write gate to the backup dom...</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:125</div></div>
-<div class="ttc" id="aa05465_html_a75eda4bb9a1e9d88118cacebbb8992a3"><div class="ttname"><a href="../../d8/d42/a05465.html#a75eda4bb9a1e9d88118cacebbb8992a3">Lib::HAL::BackupRamDomain::open</a></div><div class="ttdeci">bool open()</div><div class="ttdoc">Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one...</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:96</div></div>
-<div class="ttc" id="aa05465_html_a90b19ee3b4f06e4874a36f9f25b22ce6"><div class="ttname"><a href="../../d8/d42/a05465.html#a90b19ee3b4f06e4874a36f9f25b22ce6">Lib::HAL::BackupRamDomain::readRegister</a></div><div class="ttdeci">uint32_t readRegister(uint32_t backupRegisterIndex) const</div><div class="ttdoc">Reads a backup data register.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:152</div></div>
-<div class="ttc" id="aa05465_html_acc5002942f221da40872cb7be92706a9"><div class="ttname"><a href="../../d8/d42/a05465.html#acc5002942f221da40872cb7be92706a9">Lib::HAL::BackupRamDomain::writeRegister</a></div><div class="ttdeci">void writeRegister(uint32_t backupRegisterIndex, uint32_t value)</div><div class="ttdoc">Writes a backup data register.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:166</div></div>
+<div class="ttc" id="aa00743_html"><div class="ttname"><a href="../../d0/d0a/a00743.html">OSPI.hpp</a></div><div class="ttdoc">Public umbrella include for the OCTOSPI subsystem.</div></div>
+<div class="ttc" id="aa04567_html"><div class="ttname"><a href="../../db/d82/a04567.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a></div><div class="ttdoc">Quad-SPI (OCTOSPI) device driver for the Winbond W25Q128JVSIQ.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:83</div></div>
+<div class="ttc" id="aa04567_html_a40a9ef783ecafece7202ae4ec39d4939"><div class="ttname"><a href="../../db/d82/a04567.html#a40a9ef783ecafece7202ae4ec39d4939">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent</a></div><div class="ttdeci">bool isPresent() const noexcept</div><div class="ttdoc">Checks whether the device is present and initialized.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:237</div></div>
+<div class="ttc" id="aa08518_html"><div class="ttname"><a href="../../db/df9/a08518.html">W25Q128JVSIQ.hpp</a></div><div class="ttdoc">Quad-SPI (OCTOSPI) driver for the Winbond W25Q128JVSIQ 128 Mbit device.</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="backup_usage_scope"></a>
-Keep the access window short</h3>
-<p>Backup-domain write access stays open between open() and close(), so a stray write from another task or an ISR during that window goes through. Open it, do the accesses, and close it in one task.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/BackupRamDomain/BackupRamDomain.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_rw"></a>
+Read and write</h3>
+<p><a class="el" href="../../db/d82/a04567.html#a48fee6a63474b5ad43a51157fcd0129a" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()</a> programs pages of <b>256</b> bytes. The sector must be erased first, because programming can only clear bits.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/df9/a08518.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> saveFaultCode(uint32_t faultCode) {</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t FAULT_REGISTER = 1U;</div>
+<div class="line"><span class="keywordtype">bool</span> storeRecord(<a class="code hl_class" href="../../db/d82/a04567.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> &amp; flash) {</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t RECORD_ADDRESS = 0x000000U;</div>
+<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> record{0x12U, 0x34U, 0x56U, 0x78U};</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="../../d8/d42/a05465.html">Lib::HAL::BackupRamDomain</a> backup;</div>
-<div class="line">    <span class="keywordflow">if</span> (backup.<a class="code hl_function" href="../../d8/d42/a05465.html#a75eda4bb9a1e9d88118cacebbb8992a3">open</a>()) {</div>
-<div class="line">        backup.<a class="code hl_function" href="../../d8/d42/a05465.html#acc5002942f221da40872cb7be92706a9">writeRegister</a>(FAULT_REGISTER, faultCode);</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(backup.<a class="code hl_function" href="../../d8/d42/a05465.html#a0e38a00a0e42d1e9718b0e5ab46c9223">close</a>());</div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a3" name="a3"></a><a class="code hl_function" href="../../db/d82/a04567.html#aff869cb6bde4f4f94493097c4c7e2da6">eraseSector</a>(RECORD_ADDRESS)) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a4" name="a4"></a><a class="code hl_function" href="../../db/d82/a04567.html#a48fee6a63474b5ad43a51157fcd0129a">write</a>(RECORD_ADDRESS, record.data(), record.size())) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> readBack{};</div>
+<div class="line">    <span class="keywordflow">return</span> flash.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/d82/a04567.html#abb4813e3ca50641c3bc3d1a367927ab8">read</a>(RECORD_ADDRESS, readBack.data(), readBack.size()) &amp;&amp; readBack == record;</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="ttc" id="aa04567_html_a48fee6a63474b5ad43a51157fcd0129a"><div class="ttname"><a href="../../db/d82/a04567.html#a48fee6a63474b5ad43a51157fcd0129a">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write</a></div><div class="ttdeci">bool write(uint32_t addr, const void *data, size_t size) noexcept</div><div class="ttdoc">Writes size bytes from data to the device starting at addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:288</div></div>
+<div class="ttc" id="aa04567_html_abb4813e3ca50641c3bc3d1a367927ab8"><div class="ttname"><a href="../../db/d82/a04567.html#abb4813e3ca50641c3bc3d1a367927ab8">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::read</a></div><div class="ttdeci">bool read(uint32_t addr, void *buffer, size_t size) noexcept</div><div class="ttdoc">Reads size bytes from the device starting at addr into buffer.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:253</div></div>
+<div class="ttc" id="aa04567_html_aff869cb6bde4f4f94493097c4c7e2da6"><div class="ttname"><a href="../../db/d82/a04567.html#aff869cb6bde4f4f94493097c4c7e2da6">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t addr) noexcept</div><div class="ttdoc">Erases the 4 KB sector that contains addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:331</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_power"></a>
+Power down</h3>
+<p><a class="el" href="../../db/d82/a04567.html#a8a0d94550896c7062f6594cd0e532007" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()</a> lowers the standby current between accesses. Call <a class="el" href="../../db/d82/a04567.html#a686c0c59ab4f223b15aefeeab43ca2bd" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()</a> before the next access.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/df9/a08518.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> idleFlash(<a class="code hl_class" href="../../db/d82/a04567.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> &amp; flash) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(flash.<a id="a6" name="a6"></a><a class="code hl_function" href="../../db/d82/a04567.html#a8a0d94550896c7062f6594cd0e532007">enterPowerDown</a>());</div>
+<div class="line">    <span class="comment">// ... long idle period ...</span></div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(flash.<a id="a7" name="a7"></a><a class="code hl_function" href="../../db/d82/a04567.html#a686c0c59ab4f223b15aefeeab43ca2bd">releasePowerDown</a>());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa04567_html_a686c0c59ab4f223b15aefeeab43ca2bd"><div class="ttname"><a href="../../db/d82/a04567.html#a686c0c59ab4f223b15aefeeab43ca2bd">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown</a></div><div class="ttdeci">bool releasePowerDown() noexcept</div><div class="ttdoc">Wakes the device from deep power-down; call before any access after enterPowerDown().</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:215</div></div>
+<div class="ttc" id="aa04567_html_a8a0d94550896c7062f6594cd0e532007"><div class="ttname"><a href="../../db/d82/a04567.html#a8a0d94550896c7062f6594cd0e532007">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown</a></div><div class="ttdeci">bool enterPowerDown() noexcept</div><div class="ttdoc">Puts an opened device into deep power-down between accesses; the port stays open.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:206</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

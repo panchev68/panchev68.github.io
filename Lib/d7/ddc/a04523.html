@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::FMEM::SPI::DriverBase&lt; T_DERIVED &gt;</title>
+<title>IAR EWARM Library: Lib::BSP::EncoderTimer</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,84 +91,115 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d7/df2/a01000.html">BSP</a></li><li class="navelem"><a href="../../d6/d8d/a01007.html">FMEM</a></li><li class="navelem"><a href="../../d7/ded/a01009.html">SPI</a></li><li class="navelem"><a href="../../d7/ddc/a04523.html">DriverBase</a></li>  </ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../d3/d42/a01051.html">BSP</a></li><li class="navelem"><a href="../../d7/ddc/a04523.html">EncoderTimer</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d3/d83/a04520.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::FMEM::SPI::DriverBase&lt; T_DERIVED &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::EncoderTimer<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>CRTP base class for SPI flash drivers.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
-class Lib::BSP::FMEM::SPI::DriverBase&lt; T_DERIVED &gt;</div><p>CRTP base class for SPI flash drivers. </p>
-<p><em class="arg">T_DERIVED</em> must implement <em class="arg">readImpl()</em>, <em class="arg">writeImpl()</em>, <em class="arg">eraseChipImpl()</em> and <em class="arg">eraseSectorImpl()</em> with the same signatures as the forwarding methods below. <a class="el" href="../../d7/ddc/a04523.html" title="Lib::BSP::FMEM::SPI::DriverBase">Lib::BSP::FMEM::SPI::DriverBase</a> dispatches to them through a static cast instead of a vtable. The base class references an externally owned SPI port wrapper, shared by every device on the same bus, and owns the NSS pin handle, but does not manage device-specific protocol details.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Concrete driver type implementing the device-specific operations.</td></tr>
-  </table>
-  </dd>
-</dl>
+<div class="textblock"><p>Rotary encoder on a timer in encoder mode, with a push button, polled for events from one task. </p>
+<p>Rotation, button changes and the hold time are evaluated only inside <a class="el" href="#afa10c44ad4eee7779caf46410cac1255" title="read()">read()</a>, so call it periodically. The direction comes from the timer's direction bit, so it stays correct when the counter wraps. The button is <b>active low</b>, served through <a class="el" href="../../da/dfb/a05547.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> in its worker task.</p>
+<dl class="section important"><dt>Important</dt><dd>Several steps between two <a class="el" href="#afa10c44ad4eee7779caf46410cac1255" title="read()">read()</a> calls make one event: poll faster than one detent can be turned.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Cannot be combined in one program with <a class="el" href="../../dd/d71/a06306.html" title="Lib::BSP::EncoderPins">Lib::BSP::EncoderPins</a>, which needs its own <b>HAL_GPIO_EXTI_Callback()</b>.</dd></dl>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/FlashMemory/SPI/DriverBase.hpp" target="_blank">Source</a> </dd></dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/Encoder/EncoderTimer.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d9f/a06308.html#_a1">Lib::BSP::EncoderTimer</a>.</dd>
+</dl>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../df/dd3/a04527.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer and button binding of the encoder.  <a href="../../df/dd3/a04527.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5eafa5f0d53866cb78471368f7297754" id="r_a5eafa5f0d53866cb78471368f7297754"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5eafa5f0d53866cb78471368f7297754">DriverBase</a> (const <a class="el" href="../../dc/da4/a04515.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a5eafa5f0d53866cb78471368f7297754"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to its SPI port and chip-select pin.  <br /></td></tr>
-<tr class="memitem:a5205dedf63ce60a8439a4fdd8ff7950b" id="r_a5205dedf63ce60a8439a4fdd8ff7950b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5205dedf63ce60a8439a4fdd8ff7950b">~DriverBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a5205dedf63ce60a8439a4fdd8ff7950b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does nothing beyond the default member destruction.  <br /></td></tr>
-<tr class="memitem:a5d093e457b6ea6877ea0bfccc4007122" id="r_a5d093e457b6ea6877ea0bfccc4007122"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5d093e457b6ea6877ea0bfccc4007122">open</a> () noexcept</td></tr>
-<tr class="memdesc:a5d093e457b6ea6877ea0bfccc4007122"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the underlying SPI port and ensures chip-select is inactive.  <br /></td></tr>
-<tr class="memitem:a71f952f5639e0a0d0d7c1af2c3f0dbc0" id="r_a71f952f5639e0a0d0d7c1af2c3f0dbc0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a71f952f5639e0a0d0d7c1af2c3f0dbc0">close</a> () noexcept</td></tr>
-<tr class="memdesc:a71f952f5639e0a0d0d7c1af2c3f0dbc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the underlying SPI port and ensures chip-select is inactive.  <br /></td></tr>
-<tr class="memitem:ab46504813bc3145ab27ffa8ed43a9769" id="r_ab46504813bc3145ab27ffa8ed43a9769"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab46504813bc3145ab27ffa8ed43a9769">read</a> (uint32_t addr, void *buffer, size_t size) noexcept</td></tr>
-<tr class="memdesc:ab46504813bc3145ab27ffa8ed43a9769"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads <em class="arg">size</em> bytes from the device starting at <em class="arg">addr</em> into <em class="arg">buffer</em>.  <br /></td></tr>
-<tr class="memitem:a8d3cac8d48fd998c3972c32e311af9a8" id="r_a8d3cac8d48fd998c3972c32e311af9a8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8d3cac8d48fd998c3972c32e311af9a8">write</a> (uint32_t addr, const void *data, size_t size) noexcept</td></tr>
-<tr class="memdesc:a8d3cac8d48fd998c3972c32e311af9a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <em class="arg">size</em> bytes from <em class="arg">data</em> into the device starting at <em class="arg">addr</em>.  <br /></td></tr>
-<tr class="memitem:a32148377b4274abf28db1beb3d12ea11" id="r_a32148377b4274abf28db1beb3d12ea11"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a32148377b4274abf28db1beb3d12ea11">eraseChip</a> () noexcept</td></tr>
-<tr class="memdesc:a32148377b4274abf28db1beb3d12ea11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases the entire flash chip.  <br /></td></tr>
-<tr class="memitem:a23c3062b24d15e58237ddb109c474b74" id="r_a23c3062b24d15e58237ddb109c474b74"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a23c3062b24d15e58237ddb109c474b74">eraseSector</a> (uint32_t addr) noexcept</td></tr>
-<tr class="memdesc:a23c3062b24d15e58237ddb109c474b74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases the sector containing <em class="arg">addr</em>.  <br /></td></tr>
-<tr class="memitem:ad6c747b02c7f3e3781d0bb8d4da5a8c2" id="r_ad6c747b02c7f3e3781d0bb8d4da5a8c2"><td class="memItemLeft">const <a class="el" href="../../d4/d04/a04519.html">Info</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad6c747b02c7f3e3781d0bb8d4da5a8c2">getInfo</a> () const noexcept</td></tr>
-<tr class="memdesc:ad6c747b02c7f3e3781d0bb8d4da5a8c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the device information populated by the driver.  <br /></td></tr>
-<tr class="memitem:aaf6ca0fb5d3b8ff2f228fdc610ba93a5" id="r_aaf6ca0fb5d3b8ff2f228fdc610ba93a5"><td class="memItemLeft"><a class="el" href="../../d7/ded/a01009.html#a93a86005cbff0244fb1cfdaa80180a51">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aaf6ca0fb5d3b8ff2f228fdc610ba93a5">getStatus</a> () const noexcept</td></tr>
-<tr class="memdesc:aaf6ca0fb5d3b8ff2f228fdc610ba93a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current driver status.  <br /></td></tr>
+<tr class="memitem:aaf07b62dc5be29307f86fc985c41c7ab" id="r_aaf07b62dc5be29307f86fc985c41c7ab"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> (const <a class="el" href="../../df/dd3/a04527.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:aaf07b62dc5be29307f86fc985c41c7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to its timer and button without touching the hardware.  <br /></td></tr>
+<tr class="memitem:a449279e87494b389cfa1adba8e7f6b37" id="r_a449279e87494b389cfa1adba8e7f6b37"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a449279e87494b389cfa1adba8e7f6b37">~EncoderTimer</a> () noexcept</td></tr>
+<tr class="memdesc:a449279e87494b389cfa1adba8e7f6b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the driver if still open, so no button callback is left pointing at a destroyed object.  <br /></td></tr>
+<tr class="memitem:a99753bd300ae9ecf9544bf7ba709e3f5" id="r_a99753bd300ae9ecf9544bf7ba709e3f5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a99753bd300ae9ecf9544bf7ba709e3f5">EncoderTimer</a> (const EncoderTimer &amp;other)=delete</td></tr>
+<tr class="memdesc:a99753bd300ae9ecf9544bf7ba709e3f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns the timer and the button interrupt registration.  <br /></td></tr>
+<tr class="memitem:a7d21c22284a66c9cbf8d4260a84aef01" id="r_a7d21c22284a66c9cbf8d4260a84aef01"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7d21c22284a66c9cbf8d4260a84aef01">EncoderTimer</a> (EncoderTimer &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a7d21c22284a66c9cbf8d4260a84aef01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the bound button callback captures <em class="arg">this</em>.  <br /></td></tr>
+<tr class="memitem:a6e4f9be3709b642fa4507cda01d85fc1" id="r_a6e4f9be3709b642fa4507cda01d85fc1"><td class="memItemLeft"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6e4f9be3709b642fa4507cda01d85fc1">operator=</a> (const <a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a6e4f9be3709b642fa4507cda01d85fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns the timer and the button interrupt registration.  <br /></td></tr>
+<tr class="memitem:a8f9bc205f553a774c7a25beff08602ac" id="r_a8f9bc205f553a774c7a25beff08602ac"><td class="memItemLeft"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8f9bc205f553a774c7a25beff08602ac">operator=</a> (<a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a8f9bc205f553a774c7a25beff08602ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the bound button callback captures <em class="arg">this</em>.  <br /></td></tr>
+<tr class="memitem:a332145ce828a12688d8de9aea070c328" id="r_a332145ce828a12688d8de9aea070c328"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a332145ce828a12688d8de9aea070c328">open</a> () noexcept</td></tr>
+<tr class="memdesc:a332145ce828a12688d8de9aea070c328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer, opens the button queue and binds the button callback.  <br /></td></tr>
+<tr class="memitem:a9e37bcbed278df67dad753953c0e0505" id="r_a9e37bcbed278df67dad753953c0e0505"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9e37bcbed278df67dad753953c0e0505">close</a> () noexcept</td></tr>
+<tr class="memdesc:a9e37bcbed278df67dad753953c0e0505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbinds the button callback, closes the queue and stops the timer.  <br /></td></tr>
+<tr class="memitem:afa10c44ad4eee7779caf46410cac1255" id="r_afa10c44ad4eee7779caf46410cac1255"><td class="memItemLeft"><a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7">EventCode</a>&#160;</td><td class="memItemRight"><a class="el" href="#afa10c44ad4eee7779caf46410cac1255">read</a> () noexcept</td></tr>
+<tr class="memdesc:afa10c44ad4eee7779caf46410cac1255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next pending event without blocking.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a64ba7a1c1b53b4fff28f7d00664e1171" id="r_a64ba7a1c1b53b4fff28f7d00664e1171"><td class="memItemLeft">Lib::HAL::SPIPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">Lib::HAL::DriverMode::IT</a> &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a64ba7a1c1b53b4fff28f7d00664e1171">spiPort</a></td></tr>
-<tr class="memdesc:a64ba7a1c1b53b4fff28f7d00664e1171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Externally owned SPI port wrapper.  <br /></td></tr>
-<tr class="memitem:a6cad70d123e273b88f244598cc93a22b" id="r_a6cad70d123e273b88f244598cc93a22b"><td class="memItemLeft"><a class="el" href="../../db/d3a/a00641.html#a5f9adc83bde8d23ea2a3a1b7d37630c9">PinOutput</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6cad70d123e273b88f244598cc93a22b">nss</a></td></tr>
-<tr class="memdesc:a6cad70d123e273b88f244598cc93a22b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Chip-select output pin.  <br /></td></tr>
-<tr class="memitem:aca8a7487175e31060363fe99270e69a3" id="r_aca8a7487175e31060363fe99270e69a3"><td class="memItemLeft"><a class="el" href="../../d4/d04/a04519.html">Info</a>&#160;</td><td class="memItemRight"><a class="el" href="#aca8a7487175e31060363fe99270e69a3">info</a></td></tr>
-<tr class="memdesc:aca8a7487175e31060363fe99270e69a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device information.  <br /></td></tr>
-<tr class="memitem:af95471bb260264403e3df2dc07b80419" id="r_af95471bb260264403e3df2dc07b80419"><td class="memItemLeft"><a class="el" href="../../d7/ded/a01009.html#a93a86005cbff0244fb1cfdaa80180a51">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#af95471bb260264403e3df2dc07b80419">status</a> = <a class="el" href="../../d7/ded/a01009.html#a93a86005cbff0244fb1cfdaa80180a51a72144f138e8a9f73854d58b59deca26d">Status::NO_INIT</a></td></tr>
-<tr class="memdesc:af95471bb260264403e3df2dc07b80419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver status.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:aa64ce59f0c59f795c337dcad2b2a104e" id="r_aa64ce59f0c59f795c337dcad2b2a104e"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa64ce59f0c59f795c337dcad2b2a104e">BUTTON_HOLD_TIME</a> {2000}</td></tr>
+<tr class="memdesc:aa64ce59f0c59f795c337dcad2b2a104e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time the button must stay down to count as held.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5eafa5f0d53866cb78471368f7297754" name="a5eafa5f0d53866cb78471368f7297754"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5eafa5f0d53866cb78471368f7297754">&#9670;&#160;</a></span>DriverBase()</h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a79bb5179e93b8bb7fb1dca034f1572f7" name="a79bb5179e93b8bb7fb1dca034f1572f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79bb5179e93b8bb7fb1dca034f1572f7">&#9670;&#160;</a></span>EventCode</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::DriverBase </td>
+          <td class="memname">enum class <a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7">Lib::BSP::EncoderTimer::EventCode</a> : int8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Event returned by read(). </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c" name="a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c"></a>BUTTON_PUSH&#160;</td><td class="fielddoc"><p>Button pressed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972" name="a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972"></a>BUTTON_PULL&#160;</td><td class="fielddoc"><p>Button released, also after a hold. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e" name="a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e"></a>BUTTON_HOLD&#160;</td><td class="fielddoc"><p>Button still down <a class="el" href="#aa64ce59f0c59f795c337dcad2b2a104e" title="BUTTON_HOLD_TIME">BUTTON_HOLD_TIME</a> after the push; reported once per press. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404" name="a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404"></a>ENCODER_CW&#160;</td><td class="fielddoc"><p>Encoder rotated clockwise. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b" name="a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b"></a>ENCODER_CCW&#160;</td><td class="fielddoc"><p>Encoder rotated counter-clockwise. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693" name="a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p>No event pending. </p>
+</td></tr>
+</table>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d9f/a06308.html#_a4">Lib::BSP::EncoderTimer</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aaf07b62dc5be29307f86fc985c41c7ab" name="aaf07b62dc5be29307f86fc985c41c7ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf07b62dc5be29307f86fc985c41c7ab">&#9670;&#160;</a></span>EncoderTimer() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EncoderTimer::EncoderTimer </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/da4/a04515.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../df/dd3/a04527.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -179,29 +210,28 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the driver to its SPI port and chip-select pin. </p>
+<p>Binds the driver to its timer and button without touching the hardware. </p>
+<p>Call <a class="el" href="#a332145ce828a12688d8de9aea070c328" title="open()">open()</a> to start it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Runtime configuration referencing the SPI port and describing the CS pin. </td></tr>
+    <tr><td class="paramname">config</td><td>Timer and button binding. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a5205dedf63ce60a8439a4fdd8ff7950b" name="a5205dedf63ce60a8439a4fdd8ff7950b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5205dedf63ce60a8439a4fdd8ff7950b">&#9670;&#160;</a></span>~DriverBase()</h2>
+<a id="a449279e87494b389cfa1adba8e7f6b37" name="a449279e87494b389cfa1adba8e7f6b37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a449279e87494b389cfa1adba8e7f6b37">&#9670;&#160;</a></span>~EncoderTimer()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a5eafa5f0d53866cb78471368f7297754">DriverBase</a> </td>
+          <td class="memname">Lib::BSP::EncoderTimer::~EncoderTimer </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -209,30 +239,93 @@ template&lt;typename T_DERIVED&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Does nothing beyond the default member destruction. </p>
-<p>Not virtual: <em class="arg">T_DERIVED</em> is never deleted through a base-class pointer (there is no vtable to begin with), so a virtual destructor would only add a per-instance pointer with no benefit. </p>
+<p>Closes the driver if still open, so no button callback is left pointing at a destroyed object. </p>
+
+</div>
+</div>
+<a id="a99753bd300ae9ecf9544bf7ba709e3f5" name="a99753bd300ae9ecf9544bf7ba709e3f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99753bd300ae9ecf9544bf7ba709e3f5">&#9670;&#160;</a></span>EncoderTimer() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EncoderTimer::EncoderTimer </td>
+          <td>(</td>
+          <td class="paramtype">const EncoderTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: owns the timer and the button interrupt registration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7d21c22284a66c9cbf8d4260a84aef01" name="a7d21c22284a66c9cbf8d4260a84aef01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d21c22284a66c9cbf8d4260a84aef01">&#9670;&#160;</a></span>EncoderTimer() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EncoderTimer::EncoderTimer </td>
+          <td>(</td>
+          <td class="paramtype">EncoderTimer &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the bound button callback captures <em class="arg">this</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a71f952f5639e0a0d0d7c1af2c3f0dbc0" name="a71f952f5639e0a0d0d7c1af2c3f0dbc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71f952f5639e0a0d0d7c1af2c3f0dbc0">&#9670;&#160;</a></span>close()</h2>
+<a id="a9e37bcbed278df67dad753953c0e0505" name="a9e37bcbed278df67dad753953c0e0505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e37bcbed278df67dad753953c0e0505">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::close </td>
+          <td class="memname">bool Lib::BSP::EncoderTimer::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -245,24 +338,22 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the underlying SPI port and ensures chip-select is inactive. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> when the underlying SPI port closed successfully. </dd></dl>
+<p>Unbinds the button callback, closes the queue and stops the timer. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the timer stopped cleanly. </dd></dl>
 
 </div>
 </div>
-<a id="a32148377b4274abf28db1beb3d12ea11" name="a32148377b4274abf28db1beb3d12ea11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32148377b4274abf28db1beb3d12ea11">&#9670;&#160;</a></span>eraseChip()</h2>
+<a id="a332145ce828a12688d8de9aea070c328" name="a332145ce828a12688d8de9aea070c328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a332145ce828a12688d8de9aea070c328">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::eraseChip </td>
+          <td class="memname">bool Lib::BSP::EncoderTimer::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -275,212 +366,96 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Erases the entire flash chip. </p>
-<p>Forwards to <em class="arg">eraseChipImpl()</em> of the derived class.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success; otherwise <b>false</b>. </dd></dl>
+<p>Starts the timer, opens the button queue and binds the button callback. </p>
+<p>Latches the current counter, so the first <a class="el" href="#afa10c44ad4eee7779caf46410cac1255" title="read()">read()</a> reports no spurious rotation. A failed step rolls back the ones before it. Does nothing if already open.</p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the driver is open afterwards. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d9f/a06308.html#a3">Lib::BSP::EncoderTimer</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a23c3062b24d15e58237ddb109c474b74" name="a23c3062b24d15e58237ddb109c474b74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23c3062b24d15e58237ddb109c474b74">&#9670;&#160;</a></span>eraseSector()</h2>
+<a id="a6e4f9be3709b642fa4507cda01d85fc1" name="a6e4f9be3709b642fa4507cda01d85fc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e4f9be3709b642fa4507cda01d85fc1">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::eraseSector </td>
+          <td class="memname"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp; Lib::BSP::EncoderTimer::operator= </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Erases the sector containing <em class="arg">addr</em>. </p>
-<p>Forwards to <em class="arg">eraseSectorImpl()</em> of the derived class.</p>
+<p>Non-copyable: owns the timer and the button interrupt registration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>Address located inside the sector to erase. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success; otherwise <b>false</b>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this driver. </dd></dl>
 
 </div>
 </div>
-<a id="ad6c747b02c7f3e3781d0bb8d4da5a8c2" name="ad6c747b02c7f3e3781d0bb8d4da5a8c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6c747b02c7f3e3781d0bb8d4da5a8c2">&#9670;&#160;</a></span>getInfo()</h2>
+<a id="a8f9bc205f553a774c7a25beff08602ac" name="a8f9bc205f553a774c7a25beff08602ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f9bc205f553a774c7a25beff08602ac">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="../../d4/d04/a04519.html">Info</a> &amp; <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::getInfo </td>
+          <td class="memname"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp; Lib::BSP::EncoderTimer::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the device information populated by the driver. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the cached <a class="el" href="../../d4/d04/a04519.html" title="Lib::BSP::FMEM::SPI::Info">Lib::BSP::FMEM::SPI::Info</a> structure. </dd></dl>
-
-</div>
-</div>
-<a id="aaf6ca0fb5d3b8ff2f228fdc610ba93a5" name="aaf6ca0fb5d3b8ff2f228fdc610ba93a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf6ca0fb5d3b8ff2f228fdc610ba93a5">&#9670;&#160;</a></span>getStatus()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/ded/a01009.html#a93a86005cbff0244fb1cfdaa80180a51">Status</a> <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::getStatus </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the current driver status. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current <a class="el" href="../../d7/ded/a01009.html#a93a86005cbff0244fb1cfdaa80180a51" title="Lib::BSP::FMEM::SPI::Status">Lib::BSP::FMEM::SPI::Status</a> value. </dd></dl>
-
-</div>
-</div>
-<a id="a5d093e457b6ea6877ea0bfccc4007122" name="a5d093e457b6ea6877ea0bfccc4007122"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d093e457b6ea6877ea0bfccc4007122">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::open </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Opens the underlying SPI port and ensures chip-select is inactive. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> when the underlying SPI port opened successfully. </dd></dl>
-
-</div>
-</div>
-<a id="ab46504813bc3145ab27ffa8ed43a9769" name="ab46504813bc3145ab27ffa8ed43a9769"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab46504813bc3145ab27ffa8ed43a9769">&#9670;&#160;</a></span>read()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::read </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reads <em class="arg">size</em> bytes from the device starting at <em class="arg">addr</em> into <em class="arg">buffer</em>. </p>
-<p>Forwards to <em class="arg">readImpl()</em> of the derived class.</p>
+<p>Non-movable: the bound button callback captures <em class="arg">this</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>Start address in device address space. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Destination buffer. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success; otherwise <b>false</b>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this driver. </dd></dl>
 
 </div>
 </div>
-<a id="a8d3cac8d48fd998c3972c32e311af9a8" name="a8d3cac8d48fd998c3972c32e311af9a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d3cac8d48fd998c3972c32e311af9a8">&#9670;&#160;</a></span>write()</h2>
+<a id="afa10c44ad4eee7779caf46410cac1255" name="afa10c44ad4eee7779caf46410cac1255"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa10c44ad4eee7779caf46410cac1255">&#9670;&#160;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::write </td>
+          <td class="memname"><a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7">EventCode</a> Lib::BSP::EncoderTimer::read </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -490,122 +465,36 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Writes <em class="arg">size</em> bytes from <em class="arg">data</em> into the device starting at <em class="arg">addr</em>. </p>
-<p>Forwards to <em class="arg">writeImpl()</em> of the derived class.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addr</td><td>Start address in device address space. </td></tr>
-    <tr><td class="paramname">data</td><td>Source data buffer. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
-  </table>
-  </dd>
+<p>Returns the next pending event without blocking. </p>
+<p>Checks in priority order: a button change, then rotation, then an expired hold time, and returns at most one event per call. Bounce repeating the same level is filtered out, so every push gets exactly one release.</p>
+<dl class="section return"><dt>Returns</dt><dd>Detected event, or <a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693" title="EventCode::NONE">EventCode::NONE</a> if nothing happened or the driver is not open. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d9f/a06308.html#a5">Lib::BSP::EncoderTimer</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success; otherwise <b>false</b>. </dd></dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="aca8a7487175e31060363fe99270e69a3" name="aca8a7487175e31060363fe99270e69a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca8a7487175e31060363fe99270e69a3">&#9670;&#160;</a></span>info</h2>
+<a id="aa64ce59f0c59f795c337dcad2b2a104e" name="aa64ce59f0c59f795c337dcad2b2a104e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa64ce59f0c59f795c337dcad2b2a104e">&#9670;&#160;</a></span>BUTTON_HOLD_TIME</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d04/a04519.html">Info</a> <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::info</td>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> Lib::BSP::EncoderTimer::BUTTON_HOLD_TIME {2000}</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Device information. </p>
-
-</div>
-</div>
-<a id="a6cad70d123e273b88f244598cc93a22b" name="a6cad70d123e273b88f244598cc93a22b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6cad70d123e273b88f244598cc93a22b">&#9670;&#160;</a></span>nss</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d3a/a00641.html#a5f9adc83bde8d23ea2a3a1b7d37630c9">PinOutput</a> <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::nss</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Chip-select output pin. </p>
-
-</div>
-</div>
-<a id="a64ba7a1c1b53b4fff28f7d00664e1171" name="a64ba7a1c1b53b4fff28f7d00664e1171"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64ba7a1c1b53b4fff28f7d00664e1171">&#9670;&#160;</a></span>spiPort</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::SPIPort&lt;<a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">Lib::HAL::DriverMode::IT</a>&gt;&amp; <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::spiPort</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Externally owned SPI port wrapper. </p>
-
-</div>
-</div>
-<a id="af95471bb260264403e3df2dc07b80419" name="af95471bb260264403e3df2dc07b80419"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af95471bb260264403e3df2dc07b80419">&#9670;&#160;</a></span>status</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d7/ded/a01009.html#a93a86005cbff0244fb1cfdaa80180a51">Status</a> <a class="el" href="../../d7/ddc/a04523.html">Lib::BSP::FMEM::SPI::DriverBase</a>&lt; T_DERIVED &gt;::status = <a class="el" href="../../d7/ded/a01009.html#a93a86005cbff0244fb1cfdaa80180a51a72144f138e8a9f73854d58b59deca26d">Status::NO_INIT</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Driver status. </p>
+<p>Time the button must stay down to count as held. </p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::GPIO::Output</title>
+<title>IAR EWARM Library: Lib::System::ProduceDate</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -91,118 +89,262 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../de/d6d/a01095.html">System</a></li><li class="navelem"><a href="../../d8/d67/a06191.html">ProduceDate</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::GPIO::Output</div></div>
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="../../d2/d1b/a06188.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::System::ProduceDate<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-<p>Drives and reads single pins with <a class="el" href="../../d8/d67/a06191.html" title="Lib::HAL::GPIO::Output">Lib::HAL::GPIO::Output</a>, <a class="el" href="../../d8/ddb/a05415.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and <a class="el" href="../../dc/daf/a05399.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a>.</p>
-<p>Drives and reads single pins with <a class="el" href="../../d8/d67/a06191.html" title="Lib::HAL::GPIO::Output">Lib::HAL::GPIO::Output</a>, <a class="el" href="../../d8/ddb/a05415.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and <a class="el" href="../../dc/daf/a05399.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a>. Each wrapper is bound to one <a class="el" href="../../d8/d4f/a05411.html" title="Lib::HAL::GPIO::Handle">Lib::HAL::GPIO::Handle</a>, built from a CubeMX-generated pin pair through the 'PIN()' macro. None of these classes takes a transfer mode, so there is no <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0" title="Lib::HAL::DriverMode">Lib::HAL::DriverMode</a> parameter.</p>
-<p>The wrappers do not configure the pin: the mode, speed and pull are set by the CubeMX-generated <b>MX_GPIO_Init()</b>, which must run before any wrapper is used. Output and input calls are plain register accesses and are safe from an ISR. <a class="el" href="../../dc/daf/a05399.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> is the exception, see its own subsection.</p>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_handle"></a>
-Handle and the PIN() macro</h3>
-<p>'PIN(LED)' expands to a <a class="el" href="../../dc/d06/a05407.html" title="Lib::HAL::GPIO::PinConfig">Lib::HAL::GPIO::PinConfig</a> built from <em class="arg">LED_GPIO_Port</em> and <em class="arg">LED_Pin</em>, the symbols CubeMX emits in 'main.h'. <a class="el" href="../../d8/d4f/a05411.html" title="Lib::HAL::GPIO::Handle">Lib::HAL::GPIO::Handle</a> converts implicitly from that value and must outlive every wrapper that refers to it. A default-constructed handle has no port, and the wrapper constructors assert on it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d3a/a00641.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Handle</a> LED_HANDLE = <a id="_a1" name="_a1"></a><a class="code hl_define" href="../../d4/d2a/a00632.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(LED);</div>
-<div class="line"><span class="keyword">constexpr</span> <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Handle</a> BUTTON_HANDLE = <a class="code hl_define" href="../../d4/d2a/a00632.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(BUTTON);</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="ttc" id="aa00632_html_a45dbeff58bd7e046067745552ea8044c"><div class="ttname"><a href="../../d4/d2a/a00632.html#a45dbeff58bd7e046067745552ea8044c">PIN</a></div><div class="ttdeci">#define PIN(p)</div><div class="ttdef"><b>Definition</b> Handle.hpp:25</div></div>
-<div class="ttc" id="aa00641_html"><div class="ttname"><a href="../../db/d3a/a00641.html">GPIO.hpp</a></div><div class="ttdoc">Public convenience aliases for the GPIO subsystem.</div></div>
-<div class="ttc" id="aa05411_html"><div class="ttname"><a href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Handle</a></div><div class="ttdoc">Lightweight wrapper for GPIO pin configuration providing typed access.</div><div class="ttdef"><b>Definition</b> Handle.hpp:52</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_output"></a>
-Driving an output</h3>
-<p><a class="el" href="../../d5/dc5/a05419.html#a52416b95040bffe9915b005b33bc3600" title="Lib::HAL::GPIO::Output::write()">Lib::HAL::GPIO::Output::write()</a> takes the logic level, <a class="el" href="../../d5/dc5/a05419.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11" title="Lib::HAL::GPIO::Output::setHigh()">Lib::HAL::GPIO::Output::setHigh()</a> and <a class="el" href="../../d5/dc5/a05419.html#a0fc44f31312833d252e8aef8a1c4e361" title="Lib::HAL::GPIO::Output::setLow()">Lib::HAL::GPIO::Output::setLow()</a> are shorthands, and <a class="el" href="../../d5/dc5/a05419.html#ad11ab03ddf964b154331b7ffc708e4c2" title="Lib::HAL::GPIO::Output::toggle()">Lib::HAL::GPIO::Output::toggle()</a> inverts the current level. The class is non-copyable and non-movable, so keep it as a long-lived object.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d3a/a00641.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line"><a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d5/dc5/a05419.html">Lib::HAL::GPIO::Output</a> led(LED_HANDLE);</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> blinkOnce() noexcept {</div>
-<div class="line">    led.setHigh();</div>
-<div class="line">    led.toggle();    <span class="comment">// Now low.</span></div>
-<div class="line">    led.write(<span class="keyword">true</span>); <span class="comment">// Now high again.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa05419_html"><div class="ttname"><a href="../../d5/dc5/a05419.html">Lib::HAL::GPIO::Output</a></div><div class="ttdoc">Represents a discrete hardware output pin capable of state driving and active reading.</div><div class="ttdef"><b>Definition</b> Output.hpp:37</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_input"></a>
-Reading an input</h3>
-<p><a class="el" href="../../d8/ddb/a05415.html#acf9a806f75242814c40947cdc229ed24" title="Lib::HAL::GPIO::Input::read()">Lib::HAL::GPIO::Input::read()</a> returns <em class="arg">true</em> when the pin is high, and <a class="el" href="../../d8/ddb/a05415.html#ac4819ceaa799d09422b2441ab37d1bf3" title="Lib::HAL::GPIO::Input::isHigh()">Lib::HAL::GPIO::Input::isHigh()</a> and <a class="el" href="../../d8/ddb/a05415.html#aac45963cf0777027622bcfbd5773ad89" title="Lib::HAL::GPIO::Input::isLow()">Lib::HAL::GPIO::Input::isLow()</a> are named forms of the same read. The explicit conversion to a boolean also reads the pin.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d3a/a00641.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line"><a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d8/ddb/a05415.html">Lib::HAL::GPIO::Input</a> button(BUTTON_HANDLE);</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> isButtonPressed() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> button.isLow(); <span class="comment">// Active-low button with a pull-up configured by CubeMX.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa05415_html"><div class="ttname"><a href="../../d8/ddb/a05415.html">Lib::HAL::GPIO::Input</a></div><div class="ttdoc">Represents a discrete hardware input pin mapped to a specific microcontroller port.</div><div class="ttdef"><b>Definition</b> Input.hpp:35</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_exti"></a>
-Interrupt on an input pin</h3>
-<p><a class="el" href="../../dc/daf/a05399.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> derives from <a class="el" href="../../d8/ddb/a05415.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and registers its pin with a shared dispatcher in its constructor, which asserts if the pin is already registered. The EXTI line and its edge are set by CubeMX, and the header provides the <b>HAL_GPIO_EXTI_Callback()</b> family, so do not define those in user code.</p>
-<p>The bound callback is not run in the interrupt. The HAL callback only signals a shared worker task, which invokes the callback in task context, so the callback may use RTOS calls that are illegal from an ISR. A capturing lambda must be an lvalue that outlives the binding; a capture-less lambda or a function pointer can be passed directly.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Each EXTI line can be claimed by one <a class="el" href="../../dc/daf/a05399.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> at a time; a second one on the same pin asserts in its constructor.</dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d3a/a00641.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> onButtonEdge() <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="comment">// Runs in the EXTI worker task, not in the ISR.</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><a id="_a4" name="_a4"></a><a class="code hl_class" href="../../dc/daf/a05399.html">Lib::HAL::GPIO::ExtInterrupt</a> button(BUTTON_HANDLE);</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setupButtonInterrupt() noexcept {</div>
-<div class="line">    button.bindCallback(onButtonEdge);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> teardownButtonInterrupt() noexcept {</div>
-<div class="line">    button.unbindCallback();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05399_html"><div class="ttname"><a href="../../dc/daf/a05399.html">Lib::HAL::GPIO::ExtInterrupt</a></div><div class="ttdoc">Handles hardware external line interrupts with centralized notification-driven dispatching.</div><div class="ttdef"><b>Definition</b> ExtInterrupt.hpp:54</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_port"></a>
-Whole-port access</h3>
-<p><a class="el" href="../../df/d5a/a05423.html" title="Lib::HAL::GPIO::Port">Lib::HAL::GPIO::Port</a> wraps one register block (for example <em class="arg">GPIOD</em>) rather than a single pin. <a class="el" href="../../df/d5a/a05423.html#a5cbf2a8c7874db91ada4dfec7e22aff1" title="Lib::HAL::GPIO::Port::setup()">Lib::HAL::GPIO::Port::setup()</a> passes a native <em class="arg">GPIO_InitTypeDef</em> to <b>HAL_GPIO_Init()</b>, and <a class="el" href="../../df/d5a/a05423.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0" title="Lib::HAL::GPIO::Port::write()">Lib::HAL::GPIO::Port::write()</a> and <a class="el" href="../../df/d5a/a05423.html#adce8df0019ea415a350cf833ac481fc2" title="Lib::HAL::GPIO::Port::read()">Lib::HAL::GPIO::Port::read()</a> access the output and input data registers as one word. Use it only when several pins must change in one bus write; the pin wrappers above are the default.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d3a/a00641.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> initPortDLow4() noexcept {</div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../df/d5a/a05423.html">Lib::HAL::GPIO::Port</a> port(GPIOD);</div>
-<div class="line"> </div>
-<div class="line">    port.<a id="a6" name="a6"></a><a class="code hl_function" href="../../df/d5a/a05423.html#a5cbf2a8c7874db91ada4dfec7e22aff1">setup</a>({</div>
-<div class="line">        .Pin = <a id="_a7" name="_a7"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga176efbf43a259b7bb0a85a47401505be">GPIO_PIN_0</a> | <a id="_a8" name="_a8"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6c35af4e75c3cb57bb650feaa7a136b5">GPIO_PIN_1</a> | <a id="_a9" name="_a9"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6eee38b797a7268f04357dfa2759efd2">GPIO_PIN_2</a> | <a id="_a10" name="_a10"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#gadcaf899c018a0dde572b5af783565c62">GPIO_PIN_3</a>,</div>
-<div class="line">        .Mode = <a id="_a11" name="_a11"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d7/d4f/a00819.html#ga1013838a64cec2f8c88f079c449d1982">GPIO_MODE_OUTPUT_PP</a>,</div>
-<div class="line">        .Pull = <a id="_a12" name="_a12"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d8b/a00821.html#ga5c2862579882c1cc64e36d38fbd07a4c">GPIO_NOPULL</a>,</div>
-<div class="line">        .Speed = <a id="_a13" name="_a13"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d00/a00820.html#gab7916c4265bfa1b26a5205ea9c1caa4e">GPIO_SPEED_FREQ_LOW</a>,</div>
-<div class="line">        .Alternate = 0,</div>
-<div class="line">    });</div>
-<div class="line"> </div>
-<div class="line">    port.<a id="a14" name="a14"></a><a class="code hl_function" href="../../df/d5a/a05423.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0">write</a>(0x0AU); <span class="comment">// Drives PD1 and PD3 high, PD0 and PD2 low.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa00818_html_ga176efbf43a259b7bb0a85a47401505be"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga176efbf43a259b7bb0a85a47401505be">GPIO_PIN_0</a></div><div class="ttdeci">#define GPIO_PIN_0</div></div>
-<div class="ttc" id="aa00818_html_ga6c35af4e75c3cb57bb650feaa7a136b5"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6c35af4e75c3cb57bb650feaa7a136b5">GPIO_PIN_1</a></div><div class="ttdeci">#define GPIO_PIN_1</div></div>
-<div class="ttc" id="aa00818_html_ga6eee38b797a7268f04357dfa2759efd2"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6eee38b797a7268f04357dfa2759efd2">GPIO_PIN_2</a></div><div class="ttdeci">#define GPIO_PIN_2</div></div>
-<div class="ttc" id="aa00818_html_gadcaf899c018a0dde572b5af783565c62"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#gadcaf899c018a0dde572b5af783565c62">GPIO_PIN_3</a></div><div class="ttdeci">#define GPIO_PIN_3</div></div>
-<div class="ttc" id="aa00819_html_ga1013838a64cec2f8c88f079c449d1982"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d7/d4f/a00819.html#ga1013838a64cec2f8c88f079c449d1982">GPIO_MODE_OUTPUT_PP</a></div><div class="ttdeci">#define GPIO_MODE_OUTPUT_PP</div></div>
-<div class="ttc" id="aa00820_html_gab7916c4265bfa1b26a5205ea9c1caa4e"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dc/d00/a00820.html#gab7916c4265bfa1b26a5205ea9c1caa4e">GPIO_SPEED_FREQ_LOW</a></div><div class="ttdeci">#define GPIO_SPEED_FREQ_LOW</div></div>
-<div class="ttc" id="aa00821_html_ga5c2862579882c1cc64e36d38fbd07a4c"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d8b/a00821.html#ga5c2862579882c1cc64e36d38fbd07a4c">GPIO_NOPULL</a></div><div class="ttdeci">#define GPIO_NOPULL</div></div>
-<div class="ttc" id="aa05423_html"><div class="ttname"><a href="../../df/d5a/a05423.html">Lib::HAL::GPIO::Port</a></div><div class="ttdoc">Discrete hardware port controller wrapping peripheral register blocks.</div><div class="ttdef"><b>Definition</b> HAL/GPIO/Port.hpp:34</div></div>
-<div class="ttc" id="aa05423_html_a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0"><div class="ttname"><a href="../../df/d5a/a05423.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0">Lib::HAL::GPIO::Port::write</a></div><div class="ttdeci">void write(uint32_t value) noexcept</div><div class="ttdoc">Writes a bitmask to all output lines of the port in a single store.</div><div class="ttdef"><b>Definition</b> HAL/GPIO/Port.hpp:116</div></div>
-<div class="ttc" id="aa05423_html_a5cbf2a8c7874db91ada4dfec7e22aff1"><div class="ttname"><a href="../../df/d5a/a05423.html#a5cbf2a8c7874db91ada4dfec7e22aff1">Lib::HAL::GPIO::Port::setup</a></div><div class="ttdeci">void setup(Config config) noexcept</div><div class="ttdoc">Initializes the selected pins of the port from a HAL descriptor through HAL_GPIO_Init().</div><div class="ttdef"><b>Definition</b> HAL/GPIO/Port.hpp:147</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Write-once date stored in one OTP word. </p>
+<p>Each instance owns one word of the OTP area, such as the production or the sale date. The word starts erased, packs the date through <a class="el" href="../../d7/d4b/a05859.html" title="Lib::Helper::DateTime">Lib::Helper::DateTime</a> into a single word, and receives it once through <a class="el" href="#a64c5c6d83cf80a34ec3561d61f1f93f9" title="write()">write()</a>; <a class="el" href="#aad534282cedf19b97f1bd45ca1a84da8" title="read()">read()</a> decodes and validates it. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a35243148dd7247b4f7926b4aed02485a" id="r_a35243148dd7247b4f7926b4aed02485a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a35243148dd7247b4f7926b4aed02485a">ProduceDate</a> (uint32_t offset) noexcept</td></tr>
+<tr class="memdesc:a35243148dd7247b4f7926b4aed02485a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the date to a word inside the OTP area.  <br /></td></tr>
+<tr class="memitem:aad534282cedf19b97f1bd45ca1a84da8" id="r_aad534282cedf19b97f1bd45ca1a84da8"><td class="memItemLeft"><a class="el" href="#ac1982c11ab6f79a7929a9d6d3a81784a">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aad534282cedf19b97f1bd45ca1a84da8">read</a> (<a class="el" href="#af06cc8ba2f87935c0445acf20bda3349">Date</a> &amp;result) const noexcept</td></tr>
+<tr class="memdesc:aad534282cedf19b97f1bd45ca1a84da8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads and validates the stored date.  <br /></td></tr>
+<tr class="memitem:a64c5c6d83cf80a34ec3561d61f1f93f9" id="r_a64c5c6d83cf80a34ec3561d61f1f93f9"><td class="memItemLeft"><a class="el" href="#ac1982c11ab6f79a7929a9d6d3a81784a">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a64c5c6d83cf80a34ec3561d61f1f93f9">write</a> (const <a class="el" href="#af06cc8ba2f87935c0445acf20bda3349">Date</a> &amp;value) noexcept</td></tr>
+<tr class="memdesc:a64c5c6d83cf80a34ec3561d61f1f93f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Programs the date once.  <br /></td></tr>
+<tr class="memitem:a3a766915dafa66af64cd53f1c59eab9f" id="r_a3a766915dafa66af64cd53f1c59eab9f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3a766915dafa66af64cd53f1c59eab9f">isEmpty</a> () const noexcept</td></tr>
+<tr class="memdesc:a3a766915dafa66af64cd53f1c59eab9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the date word has never been programmed.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ad008b4a0184f7be103f794baf96892fe" id="r_ad008b4a0184f7be103f794baf96892fe"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ad008b4a0184f7be103f794baf96892fe">EMPTY_VALUE</a> = 0xFFFFFFFFU</td></tr>
+<tr class="memdesc:ad008b4a0184f7be103f794baf96892fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value of an erased, never programmed word.  <br /></td></tr>
+</table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="af06cc8ba2f87935c0445acf20bda3349" name="af06cc8ba2f87935c0445acf20bda3349"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af06cc8ba2f87935c0445acf20bda3349">&#9670;&#160;</a></span>Date</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#af06cc8ba2f87935c0445acf20bda3349">Lib::System::ProduceDate::Date</a> = <a class="el" href="../../de/d29/a05867.html">Lib::Helper::DateTime::Date</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calendar date type. </p>
+
+</div>
+</div>
+<a id="a0ce46a41b58672615f57aadbcd88fe18" name="a0ce46a41b58672615f57aadbcd88fe18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ce46a41b58672615f57aadbcd88fe18">&#9670;&#160;</a></span>DateTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a0ce46a41b58672615f57aadbcd88fe18">Lib::System::ProduceDate::DateTime</a> = <a class="el" href="../../d7/d4b/a05859.html">Lib::Helper::DateTime</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Date-time helper used for packing. </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="ac1982c11ab6f79a7929a9d6d3a81784a" name="ac1982c11ab6f79a7929a9d6d3a81784a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1982c11ab6f79a7929a9d6d3a81784a">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ac1982c11ab6f79a7929a9d6d3a81784a">Lib::System::ProduceDate::Status</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Operation status codes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564" name="ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5" name="ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"><p>Operation failed. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a35243148dd7247b4f7926b4aed02485a" name="a35243148dd7247b4f7926b4aed02485a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35243148dd7247b4f7926b4aed02485a">&#9670;&#160;</a></span>ProduceDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::System::ProduceDate::ProduceDate </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>offset</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds the date to a word inside the OTP area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">offset</td><td>Byte offset from the OTP begin address; must be word-aligned and leave room for one word. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a3a766915dafa66af64cd53f1c59eab9f" name="a3a766915dafa66af64cd53f1c59eab9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a766915dafa66af64cd53f1c59eab9f">&#9670;&#160;</a></span>isEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::System::ProduceDate::isEmpty </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the date word has never been programmed. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the word still holds <a class="el" href="#ad008b4a0184f7be103f794baf96892fe" title="EMPTY_VALUE">EMPTY_VALUE</a>, otherwise <em class="arg">false</em>. </dd></dl>
+
+</div>
+</div>
+<a id="aad534282cedf19b97f1bd45ca1a84da8" name="aad534282cedf19b97f1bd45ca1a84da8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad534282cedf19b97f1bd45ca1a84da8">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ac1982c11ab6f79a7929a9d6d3a81784a">Status</a> Lib::System::ProduceDate::read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af06cc8ba2f87935c0445acf20bda3349">Date</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads and validates the stored date. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">result</td><td>Receives the stored date on success; left unchanged otherwise. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564" title="Status::OK">Status::OK</a> on success, <a class="el" href="#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5" title="Status::ERROR">Status::ERROR</a> if the word is erased or does not hold a valid date. </dd></dl>
+
+</div>
+</div>
+<a id="a64c5c6d83cf80a34ec3561d61f1f93f9" name="a64c5c6d83cf80a34ec3561d61f1f93f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64c5c6d83cf80a34ec3561d61f1f93f9">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ac1982c11ab6f79a7929a9d6d3a81784a">Status</a> Lib::System::ProduceDate::write </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#af06cc8ba2f87935c0445acf20bda3349">Date</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Programs the date once. </p>
+<p>Fails if the word is already programmed, the date is invalid or its year lies outside the range the packed format can hold. The programming is retried once on failure.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Date to store. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564" title="Status::OK">Status::OK</a> on success, <a class="el" href="#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5" title="Status::ERROR">Status::ERROR</a> otherwise. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ad008b4a0184f7be103f794baf96892fe" name="ad008b4a0184f7be103f794baf96892fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad008b4a0184f7be103f794baf96892fe">&#9670;&#160;</a></span>EMPTY_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::System::ProduceDate::EMPTY_VALUE = 0xFFFFFFFFU</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Value of an erased, never programmed word. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

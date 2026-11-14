@@ -7,7 +7,7 @@ var searchData=
   ['underrun_20monitoring_4',['Underrun monitoring',['../X:/Lib/IAR/Project/Examples/Lib_HAL_DAC.dox#dac_usage_it',1,'']]],
   ['until_20a_20deadline_5',['Polling until a deadline',['../X:/Lib/IAR/Project/Examples/RTOS_Timeout.dox#timeout_usage_poll',1,'']]],
   ['up_20click_20and_20alarm_6',['Start-up click and alarm',['../X:/Lib/IAR/Project/Examples/Lib_BSP_Beep.dox#beep_usage_alarm',1,'']]],
-  ['up_20the_20display_7',['Setting up the display',['../X:/Lib/IAR/Project/Examples/Lib_GUI_Display.dox#gui_usage_setup',1,'']]],
+  ['up_20the_20display_7',['Setting up the display',['../X:/Lib/IAR/Project/Examples/Lib_GUI_Context.dox#gui_usage_setup',1,'']]],
   ['up_20the_20owner_20inside_20a_20hal_20callback_8',['Look up the owner inside a HAL callback',['../X:/Lib/IAR/Project/Examples/Lib_HAL_DeviceManager.dox#devicemanager_usage_isr',1,'']]],
   ['usage_9',['Checking heap usage',['../X:/Lib/IAR/Project/Examples/RTOS_MemoryManager.dox#memory_manager_usage_usage',1,'']]],
   ['use_10',['use',['../X:/Lib/IAR/Project/Examples/Lib_HAL_OTP.dox#otp_usage_bounds',1,'Check the region before use'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_I2C.dox#i2c_usage_probe',1,'Probing a device before use']]],

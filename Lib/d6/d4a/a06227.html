@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::USBDevicePort</title>
+<title>IAR EWARM Library: Lib::System::VersionBase&lt; Derived &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -91,167 +89,523 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../de/d6d/a01095.html">System</a></li><li class="navelem"><a href="../../d6/d4a/a06227.html">VersionBase</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::USBDevicePort</div></div>
+  <div class="summary">
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="#pro-static-attribs">Static Protected Attributes</a> &#124;
+<a href="../../d0/d64/a06224.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::System::VersionBase&lt; Derived &gt;</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Drives the USB controller through the port layer: <a class="el" href="../../d6/d4a/a06227.html" title="Lib::HAL::USBDevicePort">Lib::HAL::USBDevicePort</a> for the device role, Lib::HAL::USBHostPort for the host role, and <a class="el" href="../../d7/d33/a05659.html" title="Lib::HAL::USBOtgPort">Lib::HAL::USBOtgPort</a>, which switches one controller between the two.</p>
-<p>Drives the USB controller through the port layer: <a class="el" href="../../d6/d4a/a06227.html" title="Lib::HAL::USBDevicePort">Lib::HAL::USBDevicePort</a> for the device role, Lib::HAL::USBHostPort for the host role, and <a class="el" href="../../d7/d33/a05659.html" title="Lib::HAL::USBOtgPort">Lib::HAL::USBOtgPort</a>, which switches one controller between the two.The ports wrap the CubeMX <b>PCD_HandleTypeDef</b> (device) and <b>HCD_HandleTypeDef</b> (host) and report bus and transfer events; they do not implement a USB class. For the CDC class built on this layer see 'Lib_USB_CDCDevice.dox'.</p>
-<p>Only the <em class="arg">IT</em> and <em class="arg">DMA</em> specializations exist. There is no <em class="arg">BLOCKING</em> mode, because the controller completes an endpoint transfer in a later interrupt, and the device port's send() and receive() block the calling task until that interrupt arrives. The blocking calls (waitForEvent(), send(), receive() and transfer()) assert on task context. submitSend() and submitReceive() are interrupt-safe, and they are the calls the event handler makes, because the handler runs in interrupt context. The CubeMX <b>OTG_FS_IRQHandler()</b> must call <b>HAL_PCD_IRQHandler()</b> for a device role and <b>HAL_HCD_IRQHandler()</b> for a host role.</p>
-<dl class="section important"><dt>Important</dt><dd>The device port compiles only when <em class="arg">HAL_PCD_MODULE_ENABLED</em> is defined, and the host and OTG ports only when <em class="arg">HAL_HCD_MODULE_ENABLED</em> is defined as well. In the project's HAL configuration header ('EWARM/Core/Inc/stm32f4xx_hal_conf.h') <em class="arg">HAL_PCD_MODULE_ENABLED</em> is defined and <em class="arg">HAL_HCD_MODULE_ENABLED</em> is commented out, so the host and OTG examples below compile to nothing until the HCD module is enabled.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Both device and host ports require <em class="arg">USE_HAL_PCD_REGISTER_CALLBACKS</em> and <em class="arg">USE_HAL_HCD_REGISTER_CALLBACKS</em> set to <b>1</b> in the HAL configuration header; otherwise the build stops with a compile-time error.</dd></dl>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="usbdeviceport_usage_device"></a>
-Device role</h3>
-<p>Set the event handler before <a class="el" href="../../dc/d03/a05631.html#a1f538f3e7aec739023c189ee6fe3550b" title="Lib::HAL::USBDevicePortBase::start()">Lib::HAL::USBDevicePortBase::start()</a>. The handler receives a <em class="arg">context</em> pointer, a <a class="el" href="../../df/d89/a01032.html#a5d499d7d2a344d0473d62dcf724d9a12" title="Lib::HAL::USBDeviceEvent">Lib::HAL::USBDeviceEvent</a> and, for <em class="arg">IN_COMPLETE</em> and <em class="arg">OUT_COMPLETE</em>, an endpoint number. For a <em class="arg">SETUP</em> event the handler reads the request with <a class="el" href="../../dc/d03/a05631.html#a1d83533b43ad863b76211ee532686a9b" title="Lib::HAL::USBDevicePortBase::getSetupPacket()">Lib::HAL::USBDevicePortBase::getSetupPacket()</a>. Inside the handler use only <a class="el" href="../../de/dba/a05619.html#adef4f58b97bcabf7e0d7ae9317e6fb39" title="Lib::HAL::USBDevicePortAsync::submitSend()">Lib::HAL::USBDevicePortAsync::submitSend()</a> and <a class="el" href="../../de/dba/a05619.html#a9fce4aa5997956a9b232bb7f32df0a5f" title="Lib::HAL::USBDevicePortAsync::submitReceive()">Lib::HAL::USBDevicePortAsync::submitReceive()</a>; the buffers they reference must stay valid until the matching event arrives.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> PCD_HandleTypeDef <a id="_a0" name="_a0"></a><a class="code hl_variable" href="../../d3/d7b/a00986.html#a3ec0d70a6cb9406d997fb3d006cc940d">hpcd_USB_OTG_FS</a>;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> uint8_t BULK_IN = 0x81U;   <span class="comment">// Endpoint 1, IN direction.</span></div>
-<div class="line"><span class="keyword">constexpr</span> uint8_t BULK_OUT = 0x01U;  <span class="comment">// Endpoint 1, OUT direction.</span></div>
-<div class="line"><span class="keyword">constexpr</span> uint16_t RX_FIFO_WORDS = 128U;</div>
-<div class="line"> </div>
-<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> txBuffer{};</div>
-<div class="line"><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> rxBuffer{};</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Runs in interrupt context: only the interrupt-safe submit calls are used here.</span></div>
-<div class="line"><span class="keywordtype">void</span> onDeviceEvent(<span class="keywordtype">void</span> * context, <a id="_a2" name="_a2"></a><a class="code hl_enumeration" href="../../df/d89/a01032.html#a5d499d7d2a344d0473d62dcf724d9a12">Lib::HAL::USBDeviceEvent</a> event, uint8_t endpoint) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">auto</span> * device = <span class="keyword">static_cast&lt;</span>Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::IT&gt; *<span class="keyword">&gt;</span>(context);</div>
-<div class="line">    <span class="keywordflow">if</span> ((event == <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../df/d89/a01032.html#a5d499d7d2a344d0473d62dcf724d9a12a9a2941dc70612c1552391bbafaedc788">Lib::HAL::USBDeviceEvent::OUT_COMPLETE</a>) &amp;&amp; (endpoint == 1U)) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(device-&gt;submitReceive(BULK_OUT, rxBuffer));</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> startDevice(Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::IT&gt; &amp; device) <span class="keyword">noexcept</span> {</div>
-<div class="line">    device.setEventHandler(&amp;onDeviceEvent, &amp;device);</div>
-<div class="line">    <span class="keywordflow">if</span> (!device.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(device.setRxFifo(RX_FIFO_WORDS));</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(device.setTxFifo(1U, 32U));</div>
-<div class="line">    <span class="keywordflow">if</span> (!device.openEndpoint(BULK_IN, 64U, <a id="_a4" name="_a4"></a><a class="code hl_enumvalue" href="../../df/d89/a01032.html#ae1783f3c88baf78f222c313659cf4a98a6d5b457ed4205e7f1144ef21b944e552">Lib::HAL::USBEndpointType::BULK</a>) ||</div>
-<div class="line">        !device.openEndpoint(BULK_OUT, 64U, <a class="code hl_enumvalue" href="../../df/d89/a01032.html#ae1783f3c88baf78f222c313659cf4a98a6d5b457ed4205e7f1144ef21b944e552">Lib::HAL::USBEndpointType::BULK</a>) ||</div>
-<div class="line">        !device.submitReceive(BULK_OUT, rxBuffer)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> device.start() &amp;&amp; device.connect();</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Task context: waits for the host to configure the bus, then sends a block.</span></div>
-<div class="line"><span class="keywordtype">bool</span> sendReport(Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::IT&gt; &amp; device) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (!device.waitForEvent(<a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../df/d89/a01032.html#a5d499d7d2a344d0473d62dcf724d9a12ab5859d8721cfdc0312b2838b9c985bc1">Lib::HAL::USBDeviceEvent::RESET</a>, <a id="_a6" name="_a6"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(5))) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> device.send(BULK_IN, std::span&lt;const uint8_t&gt;(txBuffer).first(16U), <a id="_a7" name="_a7"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00800_html"><div class="ttname"><a href="../../df/d0e/a00800.html">USB.hpp</a></div><div class="ttdoc">Public umbrella include for the USB subsystem, pulling in the Lib::HAL::USBDevicePort,...</div></div>
-<div class="ttc" id="aa00986_html_a3ec0d70a6cb9406d997fb3d006cc940d"><div class="ttname"><a href="../../d3/d7b/a00986.html#a3ec0d70a6cb9406d997fb3d006cc940d">hpcd_USB_OTG_FS</a></div><div class="ttdeci">PCD_HandleTypeDef hpcd_USB_OTG_FS</div></div>
-<div class="ttc" id="aa01032_html_a5d499d7d2a344d0473d62dcf724d9a12"><div class="ttname"><a href="../../df/d89/a01032.html#a5d499d7d2a344d0473d62dcf724d9a12">Lib::HAL::USBDeviceEvent</a></div><div class="ttdeci">USBDeviceEvent</div><div class="ttdoc">Bus and transfer events a device port reports to its event handler.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:77</div></div>
-<div class="ttc" id="aa01032_html_a5d499d7d2a344d0473d62dcf724d9a12a9a2941dc70612c1552391bbafaedc788"><div class="ttname"><a href="../../df/d89/a01032.html#a5d499d7d2a344d0473d62dcf724d9a12a9a2941dc70612c1552391bbafaedc788">Lib::HAL::USBDeviceEvent::OUT_COMPLETE</a></div><div class="ttdeci">@ OUT_COMPLETE</div><div class="ttdoc">An OUT transfer finished; the endpoint number is passed to the handler.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:85</div></div>
-<div class="ttc" id="aa01032_html_a5d499d7d2a344d0473d62dcf724d9a12ab5859d8721cfdc0312b2838b9c985bc1"><div class="ttname"><a href="../../df/d89/a01032.html#a5d499d7d2a344d0473d62dcf724d9a12ab5859d8721cfdc0312b2838b9c985bc1">Lib::HAL::USBDeviceEvent::RESET</a></div><div class="ttdeci">@ RESET</div><div class="ttdoc">The host reset the bus; endpoints must be reopened.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:78</div></div>
-<div class="ttc" id="aa01032_html_ae1783f3c88baf78f222c313659cf4a98a6d5b457ed4205e7f1144ef21b944e552"><div class="ttname"><a href="../../df/d89/a01032.html#ae1783f3c88baf78f222c313659cf4a98a6d5b457ed4205e7f1144ef21b944e552">Lib::HAL::USBEndpointType::BULK</a></div><div class="ttdeci">@ BULK</div><div class="ttdoc">Bulk transfers.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:29</div></div>
-<div class="ttc" id="aa01610_html_ga2872cfa04b6162d31b737f1e21fefb3b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a></div><div class="ttdeci">duration&lt; int64_t &gt; seconds</div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="usbdeviceport_usage_dma"></a>
-Device role with DMA</h3>
-<p>The <em class="arg">DMA</em> specialization has the same public API as the <em class="arg">IT</em> one. The handle must be created with <em class="arg">Init.dma_enable</em> set to <b>1</b>, which the constructor asserts, and every buffer passed to the port must be 4-byte aligned, which each transfer asserts.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">alignas</span>(4) <span class="keyword">static</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> dmaTx{};</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> sendDma(Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; device) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> device.send(0x81U, std::span&lt;const uint8_t&gt;(dmaTx), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
-<div class="line">}</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="usbdeviceport_usage_host"></a>
-Host role</h3>
-<p>The host port opens the controller, starts it, waits for a device to attach, and resets the port. A channel is opened with <a class="el" href="../../dc/d03/a05655.html#aa013c6f71e1233cd4ef77f9d22d951f1" title="Lib::HAL::USBHostPortBase::openChannel()">Lib::HAL::USBHostPortBase::openChannel()</a> for each endpoint that is used; after that <a class="el" href="../../d7/d3b/a05643.html#a3bcff372802df7955ce5761f4e32e420" title="Lib::HAL::USBHostPortAsync::transfer()">Lib::HAL::USBHostPortAsync::transfer()</a> moves data on it and returns a <a class="el" href="../../df/d89/a01032.html#a62152c846403f6b93d0f2e9ff14adafe" title="Lib::HAL::USBHostTransferResult">Lib::HAL::USBHostTransferResult</a>. The result <em class="arg">NOT_READY</em> asks the caller to submit the same transfer again.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> readDeviceDescriptor(Lib::HAL::USBHostPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; host) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (!host.open() || !host.start()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">if</span> (!host.waitForEvent(<a id="_a8" name="_a8"></a><a class="code hl_enumvalue" href="../../df/d89/a01032.html#a53f17b15be5eab9c94b2c21a10f050fdab57e2519e26151feacdbe52076bc39ec">Lib::HAL::USBHostEvent::CONNECT</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(5))) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">if</span> (!host.resetPort() || !host.waitForEvent(<a id="_a9" name="_a9"></a><a class="code hl_enumvalue" href="../../df/d89/a01032.html#a53f17b15be5eab9c94b2c21a10f050fda5bcb737b3b015475d3595f95b82f6604">Lib::HAL::USBHostEvent::PORT_ENABLED</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(1))) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <a id="_a10" name="_a10"></a><a class="code hl_enumeration" href="../../df/d89/a01032.html#a8cde9e5e92df1421df294fcb1a50b4e7">Lib::HAL::USBSpeed</a> speed = host.getSpeed();</div>
-<div class="line">    <span class="comment">// Channel 0 talks to address 0 (the default address) on endpoint 0, the control pipe.</span></div>
-<div class="line">    <span class="keywordflow">if</span> (!host.openChannel(0U, 0U, 0U, speed, <a id="_a11" name="_a11"></a><a class="code hl_enumvalue" href="../../df/d89/a01032.html#ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130">Lib::HAL::USBEndpointType::CONTROL</a>, 8U)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// The setup packet is a standard GET_DESCRIPTOR request, 8 bytes.</span></div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 8&gt;</a> setup{0x80U, 0x06U, 0x00U, 0x01U, 0x00U, 0x00U, 0x12U, 0x00U};</div>
-<div class="line">    <span class="keywordflow">if</span> (host.transfer(0U, <a id="_a12" name="_a12"></a><a class="code hl_enumvalue" href="../../df/d89/a01032.html#a0feace7a2249d65bd2313f48bf07ba0baef373774188a51f80463f37b6bd9e83a">Lib::HAL::USBDirection::OUT</a>, <a class="code hl_enumvalue" href="../../df/d89/a01032.html#ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130">Lib::HAL::USBEndpointType::CONTROL</a>, <span class="keyword">true</span>, setup, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100)) !=</div>
-<div class="line">        <a id="_a13" name="_a13"></a><a class="code hl_enumvalue" href="../../df/d89/a01032.html#a62152c846403f6b93d0f2e9ff14adafea2ba22e58ca17bb728d522bba36cf8350">Lib::HAL::USBHostTransferResult::DONE</a>) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 18&gt;</a> descriptor{};</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a14" name="_a14"></a><a class="code hl_enumeration" href="../../df/d89/a01032.html#a62152c846403f6b93d0f2e9ff14adafe">Lib::HAL::USBHostTransferResult</a> result =</div>
-<div class="line">        host.transfer(0U, <a id="_a15" name="_a15"></a><a class="code hl_enumvalue" href="../../df/d89/a01032.html#a0feace7a2249d65bd2313f48bf07ba0bac86ee0d9d7ed3e7b4fdbf486fa6c0ebb">Lib::HAL::USBDirection::IN</a>, <a class="code hl_enumvalue" href="../../df/d89/a01032.html#ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130">Lib::HAL::USBEndpointType::CONTROL</a>, <span class="keyword">false</span>, descriptor, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
-<div class="line">    <span class="keywordflow">return</span> (result == <a class="code hl_enumvalue" href="../../df/d89/a01032.html#a62152c846403f6b93d0f2e9ff14adafea2ba22e58ca17bb728d522bba36cf8350">Lib::HAL::USBHostTransferResult::DONE</a>) &amp;&amp; (host.getTransferCount(0U) == descriptor.size());</div>
-<div class="line">}</div>
-<div class="ttc" id="aa01032_html_a0feace7a2249d65bd2313f48bf07ba0bac86ee0d9d7ed3e7b4fdbf486fa6c0ebb"><div class="ttname"><a href="../../df/d89/a01032.html#a0feace7a2249d65bd2313f48bf07ba0bac86ee0d9d7ed3e7b4fdbf486fa6c0ebb">Lib::HAL::USBDirection::IN</a></div><div class="ttdeci">@ IN</div><div class="ttdoc">Device to host.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:42</div></div>
-<div class="ttc" id="aa01032_html_a0feace7a2249d65bd2313f48bf07ba0baef373774188a51f80463f37b6bd9e83a"><div class="ttname"><a href="../../df/d89/a01032.html#a0feace7a2249d65bd2313f48bf07ba0baef373774188a51f80463f37b6bd9e83a">Lib::HAL::USBDirection::OUT</a></div><div class="ttdeci">@ OUT</div><div class="ttdoc">Host to device.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:41</div></div>
-<div class="ttc" id="aa01032_html_a53f17b15be5eab9c94b2c21a10f050fda5bcb737b3b015475d3595f95b82f6604"><div class="ttname"><a href="../../df/d89/a01032.html#a53f17b15be5eab9c94b2c21a10f050fda5bcb737b3b015475d3595f95b82f6604">Lib::HAL::USBHostEvent::PORT_ENABLED</a></div><div class="ttdeci">@ PORT_ENABLED</div><div class="ttdoc">The port was enabled after a bus reset.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:98</div></div>
-<div class="ttc" id="aa01032_html_a53f17b15be5eab9c94b2c21a10f050fdab57e2519e26151feacdbe52076bc39ec"><div class="ttname"><a href="../../df/d89/a01032.html#a53f17b15be5eab9c94b2c21a10f050fdab57e2519e26151feacdbe52076bc39ec">Lib::HAL::USBHostEvent::CONNECT</a></div><div class="ttdeci">@ CONNECT</div><div class="ttdoc">A device was attached.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:96</div></div>
-<div class="ttc" id="aa01032_html_a62152c846403f6b93d0f2e9ff14adafe"><div class="ttname"><a href="../../df/d89/a01032.html#a62152c846403f6b93d0f2e9ff14adafe">Lib::HAL::USBHostTransferResult</a></div><div class="ttdeci">USBHostTransferResult</div><div class="ttdoc">Result of a host channel transfer.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:110</div></div>
-<div class="ttc" id="aa01032_html_a62152c846403f6b93d0f2e9ff14adafea2ba22e58ca17bb728d522bba36cf8350"><div class="ttname"><a href="../../df/d89/a01032.html#a62152c846403f6b93d0f2e9ff14adafea2ba22e58ca17bb728d522bba36cf8350">Lib::HAL::USBHostTransferResult::DONE</a></div><div class="ttdeci">@ DONE</div><div class="ttdoc">The transfer completed.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:111</div></div>
-<div class="ttc" id="aa01032_html_a8cde9e5e92df1421df294fcb1a50b4e7"><div class="ttname"><a href="../../df/d89/a01032.html#a8cde9e5e92df1421df294fcb1a50b4e7">Lib::HAL::USBSpeed</a></div><div class="ttdeci">USBSpeed</div><div class="ttdoc">Bus speed of a host channel, as the HAL HCD_SPEED_* macros encode it.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:52</div></div>
-<div class="ttc" id="aa01032_html_ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130"><div class="ttname"><a href="../../df/d89/a01032.html#ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130">Lib::HAL::USBEndpointType::CONTROL</a></div><div class="ttdeci">@ CONTROL</div><div class="ttdoc">Control transfers (endpoint 0).</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:27</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="usbdeviceport_usage_otg"></a>
-Dual-role OTG controller</h3>
-<p><a class="el" href="../../d7/d33/a05659.html" title="Lib::HAL::USBOtgPort">Lib::HAL::USBOtgPort</a> owns one device port and one host port over the same controller. Only one role is initialized at a time: <a class="el" href="../../d7/d33/a05659.html#aec9af265280bdd162bad2fc3ab471564" title="Lib::HAL::USBOtgPort::setRole()">Lib::HAL::USBOtgPort::setRole()</a> releases the active role before it opens the new one. The role is taken from the ID pin read by the caller, passed through <a class="el" href="../../d7/d33/a05659.html#abc564dd159948064f407b82bb9f122bb" title="Lib::HAL::USBOtgPort::roleFromIdPin()">Lib::HAL::USBOtgPort::roleFromIdPin()</a>. The ports returned by <a class="el" href="../../d7/d33/a05659.html#a023ac50c5d201c51c5b288f17fc86ec9" title="Lib::HAL::USBOtgPort::getDevice()">Lib::HAL::USBOtgPort::getDevice()</a> and <a class="el" href="../../d7/d33/a05659.html#a5e5a4a2c6e79efb76f4ef3bbd18fbdfa" title="Lib::HAL::USBOtgPort::getHost()">Lib::HAL::USBOtgPort::getHost()</a> are the <em class="arg">IT</em> specializations.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> useRoleFromIdPin(<a id="_a16" name="_a16"></a><a class="code hl_class" href="../../d7/d33/a05659.html">Lib::HAL::USBOtgPort</a> &amp; otg, <span class="keywordtype">bool</span> isIdPinLow) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a17" name="_a17"></a><a class="code hl_enumeration" href="../../df/d89/a01032.html#ada24ea1dfe0720a6a56871f1392f9955">Lib::HAL::USBRole</a> role = <a id="a18" name="a18"></a><a class="code hl_function" href="../../d7/d33/a05659.html#abc564dd159948064f407b82bb9f122bb">Lib::HAL::USBOtgPort::roleFromIdPin</a>(isIdPinLow);</div>
-<div class="line">    <span class="keywordflow">if</span> (!otg.setRole(role)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">if</span> (role == <a id="_a19" name="_a19"></a><a class="code hl_enumvalue" href="../../df/d89/a01032.html#ada24ea1dfe0720a6a56871f1392f9955ae10b6ab6a278644ce40631f62f360b6d">Lib::HAL::USBRole::DEVICE</a>) {</div>
-<div class="line">        <span class="keywordflow">return</span> otg.getDevice().start();</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> otg.getHost().start();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa01032_html_ada24ea1dfe0720a6a56871f1392f9955"><div class="ttname"><a href="../../df/d89/a01032.html#ada24ea1dfe0720a6a56871f1392f9955">Lib::HAL::USBRole</a></div><div class="ttdeci">USBRole</div><div class="ttdoc">Role of an OTG port.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:65</div></div>
-<div class="ttc" id="aa01032_html_ada24ea1dfe0720a6a56871f1392f9955ae10b6ab6a278644ce40631f62f360b6d"><div class="ttname"><a href="../../df/d89/a01032.html#ada24ea1dfe0720a6a56871f1392f9955ae10b6ab6a278644ce40631f62f360b6d">Lib::HAL::USBRole::DEVICE</a></div><div class="ttdeci">@ DEVICE</div><div class="ttdoc">The controller acts as a USB device.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:66</div></div>
-<div class="ttc" id="aa05659_html"><div class="ttname"><a href="../../d7/d33/a05659.html">Lib::HAL::USBOtgPort</a></div><div class="ttdoc">USB OTG port with a run-time role.</div><div class="ttdef"><b>Definition</b> USBOtgPort.hpp:46</div></div>
-<div class="ttc" id="aa05659_html_abc564dd159948064f407b82bb9f122bb"><div class="ttname"><a href="../../d7/d33/a05659.html#abc564dd159948064f407b82bb9f122bb">Lib::HAL::USBOtgPort::roleFromIdPin</a></div><div class="ttdeci">static constexpr USBRole roleFromIdPin(bool isIdLow) noexcept</div><div class="ttdoc">Chooses the role from the ID pin of a micro-AB or USB-C connector.</div><div class="ttdef"><b>Definition</b> USBOtgPort.hpp:163</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
+class Lib::System::VersionBase&lt; Derived &gt;</div><p>Base class providing common version parsing, formatting, and conversion functionality. </p>
+<p>Parses 'X.Y' version strings, stores major and minor separately and formats the result as 'X.YY.ZZ', where ZZ is an optional sub-version. The customization points getValue(), getSubVersion() and toString() are resolved through CRTP instead of virtual dispatch: a derived class hides the base members with identically named ones.</p>
+<p>Everything is constexpr and allocation-free, so a version can be parsed and formatted at compile time. No destructor is declared: IAR EWARM treats an explicitly defaulted one as making the class non-literal, which would forbid a 'constexpr' version object.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Derived</td><td>Concrete version class deriving from this base (CRTP). </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a86d520da943edfbb98a592e47cd30177" id="r_a86d520da943edfbb98a592e47cd30177"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;char, <a class="el" href="#a8857bb6b5507b0e3c3f3a1579feb0168">MAX_VERSION_LENGTH</a> + 1U&gt;</td></tr>
+<tr class="memdesc:a86d520da943edfbb98a592e47cd30177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed, NUL-terminated buffer holding a formatted version string.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a32eb651df51eadc6dc6cca08bcd82ee5" id="r_a32eb651df51eadc6dc6cca08bcd82ee5"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a32eb651df51eadc6dc6cca08bcd82ee5">VersionBase</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> versionString, uint32_t subVersion=0U) noexcept</td></tr>
+<tr class="memdesc:a32eb651df51eadc6dc6cca08bcd82ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing version from version string and optional sub-version.  <br /></td></tr>
+<tr class="memitem:ae1d6a7f355d536c916fe355c09825a3e" id="r_ae1d6a7f355d536c916fe355c09825a3e"><td class="memItemLeft">constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae1d6a7f355d536c916fe355c09825a3e">getValue</a> () const noexcept</td></tr>
+<tr class="memdesc:ae1d6a7f355d536c916fe355c09825a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the packed major and minor version.  <br /></td></tr>
+<tr class="memitem:ae5c57f2bce8b985f8190894328141480" id="r_ae5c57f2bce8b985f8190894328141480"><td class="memItemLeft">constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae5c57f2bce8b985f8190894328141480">getSubVersion</a> () const noexcept</td></tr>
+<tr class="memdesc:ae5c57f2bce8b985f8190894328141480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the sub-version, appended to the formatted string.  <br /></td></tr>
+<tr class="memitem:a1288aa2ce9764268fe7751f879f27a00" id="r_a1288aa2ce9764268fe7751f879f27a00"><td class="memItemLeft">constexpr <a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1288aa2ce9764268fe7751f879f27a00">toString</a> () const noexcept</td></tr>
+<tr class="memdesc:a1288aa2ce9764268fe7751f879f27a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the version as a string in 'X.YY.ZZ' format.  <br /></td></tr>
+<tr class="memitem:afca34523d727d800376b4959573f80bf" id="r_afca34523d727d800376b4959573f80bf"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#afca34523d727d800376b4959573f80bf">operator uint32_t</a> () const noexcept</td></tr>
+<tr class="memdesc:afca34523d727d800376b4959573f80bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type conversion operator to uint32_t.  <br /></td></tr>
+<tr class="memitem:a3e56152954887db7681501c597507ae4" id="r_a3e56152954887db7681501c597507ae4"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a3e56152954887db7681501c597507ae4">operator VersionString</a> () const noexcept</td></tr>
+<tr class="memdesc:a3e56152954887db7681501c597507ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type conversion operator to a version string buffer.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:aa2038f86376506bdea4bbb41dc8dc61e" id="r_aa2038f86376506bdea4bbb41dc8dc61e"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint32_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa2038f86376506bdea4bbb41dc8dc61e">stringToU32</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> versionString) noexcept</td></tr>
+<tr class="memdesc:aa2038f86376506bdea4bbb41dc8dc61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses version string in 'X.Y' format into 32-bit numeric representation.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-attribs" class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:a58b66b7d52679884443e0ebaa85c01bd" id="r_a58b66b7d52679884443e0ebaa85c01bd"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> = 3U</td></tr>
+<tr class="memdesc:a58b66b7d52679884443e0ebaa85c01bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fields in a formatted version: major, minor and sub.  <br /></td></tr>
+<tr class="memitem:a70c824756c3e86f77c02e06122f0ad46" id="r_a70c824756c3e86f77c02e06122f0ad46"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a70c824756c3e86f77c02e06122f0ad46">MAX_FIELD_DIGITS</a> = 3U</td></tr>
+<tr class="memdesc:a70c824756c3e86f77c02e06122f0ad46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digits needed for the largest byte-sized field (255).  <br /></td></tr>
+<tr class="memitem:ac0ebb37eac0806342054eaaaa603d157" id="r_ac0ebb37eac0806342054eaaaa603d157"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac0ebb37eac0806342054eaaaa603d157">MIN_FIELD_DIGITS</a> = 2U</td></tr>
+<tr class="memdesc:ac0ebb37eac0806342054eaaaa603d157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Width the minor and sub-version fields are padded to.  <br /></td></tr>
+<tr class="memitem:af062b487d10986a6d626e6701d5427af" id="r_af062b487d10986a6d626e6701d5427af"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#af062b487d10986a6d626e6701d5427af">MAX_FIELD_VALUE</a> = 255U</td></tr>
+<tr class="memdesc:af062b487d10986a6d626e6701d5427af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest value a single version field may hold.  <br /></td></tr>
+<tr class="memitem:a1b67aa8fc20f4a1e70af10991699e8e7" id="r_a1b67aa8fc20f4a1e70af10991699e8e7"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a1b67aa8fc20f4a1e70af10991699e8e7">FIELD_SHIFT</a> = 8U</td></tr>
+<tr class="memdesc:a1b67aa8fc20f4a1e70af10991699e8e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit distance between two packed version fields.  <br /></td></tr>
+<tr class="memitem:a9ee763a5c6623f11ce070d70c29f8856" id="r_a9ee763a5c6623f11ce070d70c29f8856"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a9ee763a5c6623f11ce070d70c29f8856">FIELD_MASK</a> = 0xFFU</td></tr>
+<tr class="memdesc:a9ee763a5c6623f11ce070d70c29f8856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask isolating one packed version field.  <br /></td></tr>
+<tr class="memitem:a8857bb6b5507b0e3c3f3a1579feb0168" id="r_a8857bb6b5507b0e3c3f3a1579feb0168"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8857bb6b5507b0e3c3f3a1579feb0168">MAX_VERSION_LENGTH</a> = (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> * <a class="el" href="#a70c824756c3e86f77c02e06122f0ad46">MAX_FIELD_DIGITS</a>) + (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> - 1U)</td></tr>
+<tr class="memdesc:a8857bb6b5507b0e3c3f3a1579feb0168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest formatted version, '255.255.255', without the terminator.  <br /></td></tr>
+</table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a86d520da943edfbb98a592e47cd30177" name="a86d520da943edfbb98a592e47cd30177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86d520da943edfbb98a592e47cd30177">&#9670;&#160;</a></span>VersionString</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::VersionString = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;char, <a class="el" href="#a8857bb6b5507b0e3c3f3a1579feb0168">MAX_VERSION_LENGTH</a> + 1U&gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fixed, NUL-terminated buffer holding a formatted version string. </p>
+<p>Use 'data()' where a C string is expected. </p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a32eb651df51eadc6dc6cca08bcd82ee5" name="a32eb651df51eadc6dc6cca08bcd82ee5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32eb651df51eadc6dc6cca08bcd82ee5">&#9670;&#160;</a></span>VersionBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::VersionBase </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>versionString</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>subVersion</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor initializing version from version string and optional sub-version. </p>
+<p>A version string that does not parse leaves the numeric version at zero; use stringToU32() beforehand when the caller needs to tell a malformed string from a genuine '0.0'.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">versionString</td><td>Version string in 'X.Y' format (e.g., '1.23'). </td></tr>
+    <tr><td class="paramname">subVersion</td><td>Optional sub-version number appended to formatted output; must not exceed 255. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ae5c57f2bce8b985f8190894328141480" name="ae5c57f2bce8b985f8190894328141480"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5c57f2bce8b985f8190894328141480">&#9670;&#160;</a></span>getSubVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::getSubVersion </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the sub-version, appended to the formatted string. </p>
+<p>Derived classes may customize it.</p>
+<dl class="section return"><dt>Returns</dt><dd>Sub-version number. </dd></dl>
+
+</div>
+</div>
+<a id="ae1d6a7f355d536c916fe355c09825a3e" name="ae1d6a7f355d536c916fe355c09825a3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1d6a7f355d536c916fe355c09825a3e">&#9670;&#160;</a></span>getValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::getValue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the packed major and minor version. </p>
+<p>The sub-version is not included.</p>
+<dl class="section return"><dt>Returns</dt><dd>Packed version value: major in bits 15..8, minor in bits 7..0. </dd></dl>
+
+</div>
+</div>
+<a id="afca34523d727d800376b4959573f80bf" name="afca34523d727d800376b4959573f80bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca34523d727d800376b4959573f80bf">&#9670;&#160;</a></span>operator uint32_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a> uint32_t </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Type conversion operator to uint32_t. </p>
+<p>Uses the derived class's getValue() and getSubVersion() through CRTP.</p>
+<dl class="section return"><dt>Returns</dt><dd>Packed value: major in bits 23..16, minor in bits 15..8, sub-version in bits 7..0. </dd></dl>
+
+</div>
+</div>
+<a id="a3e56152954887db7681501c597507ae4" name="a3e56152954887db7681501c597507ae4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e56152954887db7681501c597507ae4">&#9670;&#160;</a></span>operator VersionString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a> <a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Type conversion operator to a version string buffer. </p>
+<p>Dispatches to the derived class's toString() via CRTP.</p>
+<dl class="section return"><dt>Returns</dt><dd>Formatted version string. </dd></dl>
+
+</div>
+</div>
+<a id="aa2038f86376506bdea4bbb41dc8dc61e" name="aa2038f86376506bdea4bbb41dc8dc61e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2038f86376506bdea4bbb41dc8dc61e">&#9670;&#160;</a></span>stringToU32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint32_t &gt; <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::stringToU32 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>versionString</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Parses version string in 'X.Y' format into 32-bit numeric representation. </p>
+<p>Returns an empty optional rather than a zero on failure, so a malformed string is distinguishable from the perfectly valid version '0.0'. A field is rejected when it holds a non-digit or exceeds 255.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">versionString</td><td>Version string to parse (e.g., '1.23'). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Packed version value, or an empty optional when the string is not a valid 'X.Y' pair. </dd></dl>
+
+</div>
+</div>
+<a id="a1288aa2ce9764268fe7751f879f27a00" name="a1288aa2ce9764268fe7751f879f27a00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1288aa2ce9764268fe7751f879f27a00">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a> <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::toString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Formats the version as a string in 'X.YY.ZZ' format. </p>
+<p>The major field is unpadded; minor and sub-version are zero-padded to two digits. Digits are built by hand instead of through printf, which would pull in formatting code the target does not need.</p>
+<dl class="section return"><dt>Returns</dt><dd>Formatted version string. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a58b66b7d52679884443e0ebaa85c01bd" name="a58b66b7d52679884443e0ebaa85c01bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58b66b7d52679884443e0ebaa85c01bd">&#9670;&#160;</a></span>FIELD_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::FIELD_COUNT = 3U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Fields in a formatted version: major, minor and sub. </p>
+
+</div>
+</div>
+<a id="a9ee763a5c6623f11ce070d70c29f8856" name="a9ee763a5c6623f11ce070d70c29f8856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ee763a5c6623f11ce070d70c29f8856">&#9670;&#160;</a></span>FIELD_MASK</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::FIELD_MASK = 0xFFU</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mask isolating one packed version field. </p>
+
+</div>
+</div>
+<a id="a1b67aa8fc20f4a1e70af10991699e8e7" name="a1b67aa8fc20f4a1e70af10991699e8e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b67aa8fc20f4a1e70af10991699e8e7">&#9670;&#160;</a></span>FIELD_SHIFT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::FIELD_SHIFT = 8U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bit distance between two packed version fields. </p>
+
+</div>
+</div>
+<a id="a70c824756c3e86f77c02e06122f0ad46" name="a70c824756c3e86f77c02e06122f0ad46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70c824756c3e86f77c02e06122f0ad46">&#9670;&#160;</a></span>MAX_FIELD_DIGITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MAX_FIELD_DIGITS = 3U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Digits needed for the largest byte-sized field (255). </p>
+
+</div>
+</div>
+<a id="af062b487d10986a6d626e6701d5427af" name="af062b487d10986a6d626e6701d5427af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af062b487d10986a6d626e6701d5427af">&#9670;&#160;</a></span>MAX_FIELD_VALUE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MAX_FIELD_VALUE = 255U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Largest value a single version field may hold. </p>
+
+</div>
+</div>
+<a id="a8857bb6b5507b0e3c3f3a1579feb0168" name="a8857bb6b5507b0e3c3f3a1579feb0168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8857bb6b5507b0e3c3f3a1579feb0168">&#9670;&#160;</a></span>MAX_VERSION_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MAX_VERSION_LENGTH = (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> * <a class="el" href="#a70c824756c3e86f77c02e06122f0ad46">MAX_FIELD_DIGITS</a>) + (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> - 1U)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Longest formatted version, '255.255.255', without the terminator. </p>
+
+</div>
+</div>
+<a id="ac0ebb37eac0806342054eaaaa603d157" name="ac0ebb37eac0806342054eaaaa603d157"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0ebb37eac0806342054eaaaa603d157">&#9670;&#160;</a></span>MIN_FIELD_DIGITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d6/d4a/a06227.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MIN_FIELD_DIGITS = 2U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Width the minor and sub-version fields are padded to. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

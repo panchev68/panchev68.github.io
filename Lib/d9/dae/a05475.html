@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::OSPIPort&lt; DriverMode::DMA &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::ADCPort&lt; DriverMode::IT &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,62 +91,66 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../df/d89/a01032.html">HAL</a></li><li class="navelem"><a href="../../d9/dae/a05475.html">OSPIPort&lt; DriverMode::DMA &gt;</a></li>  </ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../da/d93/a01084.html">HAL</a></li><li class="navelem"><a href="../../d9/dae/a05475.html">ADCPort&lt; DriverMode::IT &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="../../da/d7f/a05472.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::OSPIPort&lt; DriverMode::DMA &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::ADCPort&lt; DriverMode::IT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>DMA specialization: only the bulk data phase (<a class="el" href="../../d1/d27/a05483.html#a2f58a3412364e7819ba973859d2389a7" title="transmit()">transmit()</a> and <a class="el" href="../../d1/d27/a05483.html#a95258a0fd430fb23d0ac55441a6ef9ca" title="receive()">receive()</a>) moves through DMA, since the HAL has no DMA-driven command primitive.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>DMA specialization: only the bulk data phase (<a class="el" href="../../d1/d27/a05483.html#a2f58a3412364e7819ba973859d2389a7" title="transmit()">transmit()</a> and <a class="el" href="../../d1/d27/a05483.html#a95258a0fd430fb23d0ac55441a6ef9ca" title="receive()">receive()</a>) moves through DMA, since the HAL has no DMA-driven command primitive. </p>
-<p>Lifecycle, command phase, <a class="el" href="../../d1/d27/a05483.html#a12a734c939e90c6c90510ba2c323dec0" title="OSPIPortAsync::abort()">OSPIPortAsync::abort()</a> and callback wiring come from <a class="el" href="../../d1/d27/a05483.html" title="OSPIPortAsync">OSPIPortAsync</a>, shared with the IT mode. Transfer buffers must be reachable by the DMA controller, so not in CCM RAM (checked by <em class="arg">assert</em>).</p>
+<div class="textblock"><p>Interrupt-driven (IT) specialization for single regular-group conversions. </p>
+<p>Holds the RTOS event group, the wait wrapper, the HAL callback registration and the <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> wiring, none of which a blocking conversion needs. <a class="el" href="#ada05318e458485bb7ae8564156216202" title="read()">read()</a> is the one-call way to get a value; <a class="el" href="#a3c4fd72e66de571a8737caade4f7f75c" title="start()">start()</a> and <a class="el" href="#a780888659faa909e3e3228c427e5969e" title="waitForEvent()">waitForEvent()</a> split it for callers that do other work in between.</p>
+<dl class="section important"><dt>Important</dt><dd>Requires <em class="arg">USE_HAL_ADC_REGISTER_CALLBACKS</em> set to <em class="arg">1</em> in the HAL configuration; the header fails to compile otherwise.</dd></dl>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/OSPI/OSPIPort-DMA.hpp" target="_blank">Source</a> </dd></dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/ADC/ADCPort-IT.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Event" id="r_Event"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d94/a05479.html">Event</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event bitmasks utilized inside the internal RTOS EventGroup context.  <a href="../../d6/d94/a05479.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8c1f23febaf9293e008f91a9d6ad5b17" id="r_a8c1f23febaf9293e008f91a9d6ad5b17"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8c1f23febaf9293e008f91a9d6ad5b17">OSPIPort</a> (OSPI_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:a8c1f23febaf9293e008f91a9d6ad5b17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block; does not touch the peripheral.  <br /></td></tr>
-<tr class="memitem:a88592dfaa7cbb4efa05747483c911d6f" id="r_a88592dfaa7cbb4efa05747483c911d6f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a88592dfaa7cbb4efa05747483c911d6f">~OSPIPort</a> () noexcept</td></tr>
-<tr class="memdesc:a88592dfaa7cbb4efa05747483c911d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if still open, so the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> drops it and no live HAL callback points at a destroyed object.  <br /></td></tr>
-<tr class="memitem:ab13d30c818279bf38505328181fa1409" id="r_ab13d30c818279bf38505328181fa1409"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d27/a05483.html#ab13d30c818279bf38505328181fa1409">command</a> (OSPI_RegularCmdTypeDef &amp;cmd, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:ab13d30c818279bf38505328181fa1409"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures and issues a regular command.  <br /></td></tr>
-<tr class="memitem:a2f58a3412364e7819ba973859d2389a7" id="r_a2f58a3412364e7819ba973859d2389a7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d27/a05483.html#a2f58a3412364e7819ba973859d2389a7">transmit</a> (std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a2f58a3412364e7819ba973859d2389a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits the data phase configured by the preceding <a class="el" href="../../d1/d27/a05483.html#ab13d30c818279bf38505328181fa1409" title="command()">command()</a> and waits for it.  <br /></td></tr>
-<tr class="memitem:a95258a0fd430fb23d0ac55441a6ef9ca" id="r_a95258a0fd430fb23d0ac55441a6ef9ca"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d27/a05483.html#a95258a0fd430fb23d0ac55441a6ef9ca">receive</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a95258a0fd430fb23d0ac55441a6ef9ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives the data phase configured by the preceding <a class="el" href="../../d1/d27/a05483.html#ab13d30c818279bf38505328181fa1409" title="command()">command()</a> and waits for it.  <br /></td></tr>
-<tr class="memitem:a12a734c939e90c6c90510ba2c323dec0" id="r_a12a734c939e90c6c90510ba2c323dec0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d27/a05483.html#a12a734c939e90c6c90510ba2c323dec0">abort</a> () noexcept</td></tr>
-<tr class="memdesc:a12a734c939e90c6c90510ba2c323dec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts any ongoing command or data phase, waking a task blocked in it.  <br /></td></tr>
-<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
-<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order.  <br /></td></tr>
-<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
-<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
-<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
-<tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
-<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../df/d06/a05371.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memitem:a4367ca9803f69b785980f81032d2b4e5" id="r_a4367ca9803f69b785980f81032d2b4e5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *handle) noexcept</td></tr>
+<tr class="memdesc:a4367ca9803f69b785980f81032d2b4e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block.  <br /></td></tr>
+<tr class="memitem:aef75242b0f88129467c7f469f87adbdd" id="r_aef75242b0f88129467c7f469f87adbdd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aef75242b0f88129467c7f469f87adbdd">~ADCPort</a> () noexcept</td></tr>
+<tr class="memdesc:aef75242b0f88129467c7f469f87adbdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> registry and no HAL callback points at the destroyed port.  <br /></td></tr>
+<tr class="memitem:a0c76f40278dd8828f6c5d929122ab108" id="r_a0c76f40278dd8828f6c5d929122ab108"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0c76f40278dd8828f6c5d929122ab108">ADCPort</a> (const ADCPort &amp;other)=delete</td></tr>
+<tr class="memdesc:a0c76f40278dd8828f6c5d929122ab108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns its RTOS event group and <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
+<tr class="memitem:a3defd155b3695109fe259c5ab8b702ba" id="r_a3defd155b3695109fe259c5ab8b702ba"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3defd155b3695109fe259c5ab8b702ba">ADCPort</a> (ADCPort &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a3defd155b3695109fe259c5ab8b702ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns its RTOS event group and <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
+<tr class="memitem:abebb56cf09bf035f43b898c284835ccd" id="r_abebb56cf09bf035f43b898c284835ccd"><td class="memItemLeft"><a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abebb56cf09bf035f43b898c284835ccd">operator=</a> (const <a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:abebb56cf09bf035f43b898c284835ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns its RTOS event group and <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
+<tr class="memitem:a3a51d3196eaa9489df8eda029877ee83" id="r_a3a51d3196eaa9489df8eda029877ee83"><td class="memItemLeft"><a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3a51d3196eaa9489df8eda029877ee83">operator=</a> (<a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a3a51d3196eaa9489df8eda029877ee83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns its RTOS event group and <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
+<tr class="memitem:af68c05c71d21b3e9ecd13d66665672d3" id="r_af68c05c71d21b3e9ecd13d66665672d3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af68c05c71d21b3e9ecd13d66665672d3">open</a> () noexcept</td></tr>
+<tr class="memdesc:af68c05c71d21b3e9ecd13d66665672d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the event group, initializes the peripheral, registers the HAL callbacks and this instance.  <br /></td></tr>
+<tr class="memitem:a5701c9da4db47e937bec19f3d29c9855" id="r_a5701c9da4db47e937bec19f3d29c9855"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5701c9da4db47e937bec19f3d29c9855">close</a> () noexcept</td></tr>
+<tr class="memdesc:a5701c9da4db47e937bec19f3d29c9855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops a running conversion, unregisters this instance and its HAL callbacks, then deinitializes the peripheral.  <br /></td></tr>
+<tr class="memitem:a3c4fd72e66de571a8737caade4f7f75c" id="r_a3c4fd72e66de571a8737caade4f7f75c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3c4fd72e66de571a8737caade4f7f75c">start</a> () noexcept</td></tr>
+<tr class="memdesc:a3c4fd72e66de571a8737caade4f7f75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the regular group conversion sequence using interrupts.  <br /></td></tr>
+<tr class="memitem:ada6d672a5e8535e0d9603ba17c8926c0" id="r_ada6d672a5e8535e0d9603ba17c8926c0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ada6d672a5e8535e0d9603ba17c8926c0">stop</a> () noexcept</td></tr>
+<tr class="memdesc:ada6d672a5e8535e0d9603ba17c8926c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the running interrupt-driven conversion.  <br /></td></tr>
+<tr class="memitem:a780888659faa909e3e3228c427e5969e" id="r_a780888659faa909e3e3228c427e5969e"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a780888659faa909e3e3228c427e5969e">waitForEvent</a> (uint32_t eventMask, uint32_t timeout) noexcept</td></tr>
+<tr class="memdesc:a780888659faa909e3e3228c427e5969e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until any of the given event bits is set, or the timeout elapses.  <br /></td></tr>
+<tr class="memitem:ada05318e458485bb7ae8564156216202" id="r_ada05318e458485bb7ae8564156216202"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ada05318e458485bb7ae8564156216202">read</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:ada05318e458485bb7ae8564156216202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a regular group conversion and waits for it to complete, then reads the converted value.  <br /></td></tr>
+<tr class="memitem:a2e87465b382640a36ec07e5abd45f434" id="r_a2e87465b382640a36ec07e5abd45f434"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d27/a05483.html#a2e87465b382640a36ec07e5abd45f434">getValue</a> () const noexcept</td></tr>
+<tr class="memdesc:a2e87465b382640a36ec07e5abd45f434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the raw data register of the latest regular group conversion.  <br /></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../de/d01/a05519.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
 <tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../df/d06/a05371.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
+<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../de/d01/a05519.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
 <tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:ac1e436d02537a9e4b651277ba21762f9" id="r_ac1e436d02537a9e4b651277ba21762f9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#ac1e436d02537a9e4b651277ba21762f9">signalFromISR</a> (T_HANDLE *handle, uint32_t bits) noexcept</td></tr>
-<tr class="memdesc:ac1e436d02537a9e4b651277ba21762f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits on the port owning a HAL handle; called from interrupt context.  <br /></td></tr>
-<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dea/a05363.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (T_HANDLE *handle) noexcept</td></tr>
-<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a HAL handle.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8c1f23febaf9293e008f91a9d6ad5b17" name="a8c1f23febaf9293e008f91a9d6ad5b17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c1f23febaf9293e008f91a9d6ad5b17">&#9670;&#160;</a></span>OSPIPort()</h2>
+<a id="a4367ca9803f69b785980f81032d2b4e5" name="a4367ca9803f69b785980f81032d2b4e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4367ca9803f69b785980f81032d2b4e5">&#9670;&#160;</a></span>ADCPort() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -155,9 +159,9 @@ Static Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::OSPIPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt;::OSPIPort </td>
+          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::ADCPort </td>
           <td>(</td>
-          <td class="paramtype">OSPI_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -168,18 +172,18 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the port to a native hardware descriptor block; does not touch the peripheral. </p>
+<p>Binds the port to a native hardware descriptor block. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block; its DMA channel must already be linked (CubeMX). </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a88592dfaa7cbb4efa05747483c911d6f" name="a88592dfaa7cbb4efa05747483c911d6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88592dfaa7cbb4efa05747483c911d6f">&#9670;&#160;</a></span>~OSPIPort()</h2>
+<a id="aef75242b0f88129467c7f469f87adbdd" name="aef75242b0f88129467c7f469f87adbdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef75242b0f88129467c7f469f87adbdd">&#9670;&#160;</a></span>~ADCPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -188,7 +192,7 @@ Static Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::OSPIPort&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt;::~<a class="el" href="#a8c1f23febaf9293e008f91a9d6ad5b17">OSPIPort</a> </td>
+          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::~<a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -201,13 +205,79 @@ Static Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the port if still open, so the <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> drops it and no live HAL callback points at a destroyed object. </p>
+<p>Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> registry and no HAL callback points at the destroyed port. </p>
+
+</div>
+</div>
+<a id="a0c76f40278dd8828f6c5d929122ab108" name="a0c76f40278dd8828f6c5d929122ab108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c76f40278dd8828f6c5d929122ab108">&#9670;&#160;</a></span>ADCPort() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::ADCPort </td>
+          <td>(</td>
+          <td class="paramtype">const ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: each instance owns its RTOS event group and <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3defd155b3695109fe259c5ab8b702ba" name="a3defd155b3695109fe259c5ab8b702ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3defd155b3695109fe259c5ab8b702ba">&#9670;&#160;</a></span>ADCPort() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::ADCPort </td>
+          <td>(</td>
+          <td class="paramtype">ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: each instance owns its RTOS event group and <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a12a734c939e90c6c90510ba2c323dec0" name="a12a734c939e90c6c90510ba2c323dec0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12a734c939e90c6c90510ba2c323dec0">&#9670;&#160;</a></span>abort()</h2>
+<a id="a5701c9da4db47e937bec19f3d29c9855" name="a5701c9da4db47e937bec19f3d29c9855"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5701c9da4db47e937bec19f3d29c9855">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,7 +286,7 @@ Static Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d1/d27/a05483.html">Lib::HAL::OSPIPortAsync</a>&lt; <a class="el" href="#a8c1f23febaf9293e008f91a9d6ad5b17">OSPIPort</a>&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt; &gt;::abort </td>
+          <td class="memname">bool Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -224,128 +294,14 @@ Static Protected Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Aborts any ongoing command or data phase, waking a task blocked in it. </p>
+<p>Stops a running conversion, unregisters this instance and its HAL callbacks, then deinitializes the peripheral. </p>
 <p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stopped processing safely, <b>false</b> otherwise or if the port is not open. </dd></dl>
-
-</div>
-</div>
-<a id="a03c62c024b148a264f9a6a0077198302" name="a03c62c024b148a264f9a6a0077198302"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03c62c024b148a264f9a6a0077198302">&#9670;&#160;</a></span>close()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d3/dea/a05363.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302">::close</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group. </p>
-<p>Task context only; asserts when called from an interrupt.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
-
-</div>
-</div>
-<a id="ab13d30c818279bf38505328181fa1409" name="ab13d30c818279bf38505328181fa1409"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab13d30c818279bf38505328181fa1409">&#9670;&#160;</a></span>command()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d1/d27/a05483.html">Lib::HAL::OSPIPortAsync</a>&lt; <a class="el" href="#a8c1f23febaf9293e008f91a9d6ad5b17">OSPIPort</a>&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt; &gt;::command </td>
-          <td>(</td>
-          <td class="paramtype">OSPI_RegularCmdTypeDef &amp;</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Configures and issues a regular command. </p>
-<p>Task context only. A command without a data phase runs over interrupt and is waited for here. A command with a data phase is only configured synchronously, since the HAL raises no interrupt for it; the transfer starts with the following <a class="el" href="../../d1/d27/a05483.html#a2f58a3412364e7819ba973859d2389a7" title="transmit()">transmit()</a> or <a class="el" href="../../d1/d27/a05483.html#a95258a0fd430fb23d0ac55441a6ef9ca" title="receive()">receive()</a>.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cmd</td><td>Fully populated command descriptor; <em class="arg">NbData</em> is the byte count of the following data phase. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks for a command without a data phase and to whole milliseconds for one with a data phase. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on error or timeout. </dd></dl>
-
-</div>
-</div>
-<a id="a66f47e9670feddc6fb679436b07a1680" name="a66f47e9670feddc6fb679436b07a1680"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66f47e9670feddc6fb679436b07a1680">&#9670;&#160;</a></span>findPort()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T_DERIVED * <a class="el" href="../../d3/dea/a05363.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d3/dea/a05363.html#a66f47e9670feddc6fb679436b07a1680">::findPort</a> </td>
-          <td>(</td>
-          <td class="paramtype">T_HANDLE *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Finds the port that owns a HAL handle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The port, or <b>nullptr</b> if no open port uses the handle. </dd></dl>
 
 </div>
 </div>
@@ -359,7 +315,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T_HANDLE * <a class="el" href="../../df/d06/a05371.html">Lib::HAL::Device</a>&lt; T_DERIVED, T_HANDLE &gt;<a class="el" href="../../df/d06/a05371.html#ac39b97fd324efde09c82d0ccfe7fe4e8">::getHandle</a> </td>
+          <td class="memname">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> * <a class="el" href="../../de/d01/a05519.html">Lib::HAL::Device</a>&lt; <a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a>&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -387,7 +343,7 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T_HANDLE * <a class="el" href="../../df/d06/a05371.html">Lib::HAL::Device</a>&lt; T_DERIVED, T_HANDLE &gt;<a class="el" href="../../df/d06/a05371.html#ac39b97fd324efde09c82d0ccfe7fe4e8">::getHandle</a> </td>
+          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> * <a class="el" href="../../de/d01/a05519.html">Lib::HAL::Device</a>&lt; <a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a>&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -405,19 +361,17 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 
 </div>
 </div>
-<a id="a8be2d6d39175f6e71f25e4a64e0e2f1b" name="a8be2d6d39175f6e71f25e4a64e0e2f1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8be2d6d39175f6e71f25e4a64e0e2f1b">&#9670;&#160;</a></span>isOpened()</h2>
+<a id="a2e87465b382640a36ec07e5abd45f434" name="a2e87465b382640a36ec07e5abd45f434"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e87465b382640a36ec07e5abd45f434">&#9670;&#160;</a></span>getValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/dea/a05363.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d3/dea/a05363.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">::isOpened</a> </td>
+          <td class="memname">uint32_t <a class="el" href="../../d1/d27/a05483.html">Lib::HAL::ADCPortBase</a>&lt; <a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a>&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::getValue </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -430,24 +384,23 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
 </table>
 </div><div class="memdoc">
 
-<p>Checks whether the port is open. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d3/dea/a05363.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
+<p>Reads the raw data register of the latest regular group conversion. </p>
+<p>Does not start or wait for a conversion. Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd>Raw conversion result, or <b>0</b> if no handle is bound. </dd></dl>
 
 </div>
 </div>
-<a id="a3822bc9b87b9e299982b230e2c029f35" name="a3822bc9b87b9e299982b230e2c029f35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3822bc9b87b9e299982b230e2c029f35">&#9670;&#160;</a></span>open()</h2>
+<a id="af68c05c71d21b3e9ecd13d66665672d3" name="af68c05c71d21b3e9ecd13d66665672d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af68c05c71d21b3e9ecd13d66665672d3">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/dea/a05363.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d3/dea/a05363.html#a3822bc9b87b9e299982b230e2c029f35">::open</a> </td>
+          <td class="memname">bool Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -455,19 +408,19 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Opens the port: event group, peripheral, <a class="el" href="../../db/da4/a05367.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order. </p>
-<p>Task context only; asserts when called from an interrupt and on an unbound handle. A failure undoes the earlier steps, so the port stays closed.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
+<p>Opens the event group, initializes the peripheral, registers the HAL callbacks and this instance. </p>
+<p>Task context only. A failed step undoes the earlier ones, so the port is left closed.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step of the open sequence succeeded, or if the port was already open. </dd></dl>
 
 </div>
 </div>
-<a id="a95258a0fd430fb23d0ac55441a6ef9ca" name="a95258a0fd430fb23d0ac55441a6ef9ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a95258a0fd430fb23d0ac55441a6ef9ca">&#9670;&#160;</a></span>receive()</h2>
+<a id="a3a51d3196eaa9489df8eda029877ee83" name="a3a51d3196eaa9489df8eda029877ee83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a51d3196eaa9489df8eda029877ee83">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -476,86 +429,32 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d1/d27/a05483.html">Lib::HAL::OSPIPortAsync</a>&lt; <a class="el" href="#a8c1f23febaf9293e008f91a9d6ad5b17">OSPIPort</a>&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt; &gt;::receive </td>
+          <td class="memname"><a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a> &amp; Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a>&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Receives the data phase configured by the preceding <a class="el" href="../../d1/d27/a05483.html#ab13d30c818279bf38505328181fa1409" title="command()">command()</a> and waits for it. </p>
-<p>Task context only. A timed-out phase is aborted before this returns.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Move assignment is deleted: each instance owns its RTOS event group and <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>Destination buffer; exactly the <em class="arg">NbData</em> passed to <a class="el" href="../../d1/d27/a05483.html#ab13d30c818279bf38505328181fa1409" title="command()">command()</a>. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a size mismatch, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="ac1e436d02537a9e4b651277ba21762f9" name="ac1e436d02537a9e4b651277ba21762f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1e436d02537a9e4b651277ba21762f9">&#9670;&#160;</a></span>signalFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d3/dea/a05363.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::signalFromISR </td>
-          <td>(</td>
-          <td class="paramtype">T_HANDLE *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>bits</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets event bits on the port owning a HAL handle; called from interrupt context. </p>
-<p>Does nothing when no open port uses the handle.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
-    <tr><td class="paramname">bits</td><td>Event bits to set. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2f58a3412364e7819ba973859d2389a7" name="a2f58a3412364e7819ba973859d2389a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f58a3412364e7819ba973859d2389a7">&#9670;&#160;</a></span>transmit()</h2>
+<a id="abebb56cf09bf035f43b898c284835ccd" name="abebb56cf09bf035f43b898c284835ccd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abebb56cf09bf035f43b898c284835ccd">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -564,40 +463,160 @@ template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_P
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d1/d27/a05483.html">Lib::HAL::OSPIPortAsync</a>&lt; <a class="el" href="#a8c1f23febaf9293e008f91a9d6ad5b17">OSPIPort</a>&lt; <a class="el" href="../../df/d89/a01032.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt; &gt;::transmit </td>
+          <td class="memname"><a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a> &amp; Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="#a4367ca9803f69b785980f81032d2b4e5">ADCPort</a>&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Transmits the data phase configured by the preceding <a class="el" href="../../d1/d27/a05483.html#ab13d30c818279bf38505328181fa1409" title="command()">command()</a> and waits for it. </p>
-<p>Task context only. A timed-out phase is aborted before this returns.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Copy assignment is deleted: each instance owns its RTOS event group and <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>Source bytes; exactly the <em class="arg">NbData</em> passed to <a class="el" href="../../d1/d27/a05483.html#ab13d30c818279bf38505328181fa1409" title="command()">command()</a>. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a size mismatch, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="ada05318e458485bb7ae8564156216202" name="ada05318e458485bb7ae8564156216202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada05318e458485bb7ae8564156216202">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts a regular group conversion and waits for it to complete, then reads the converted value. </p>
+<p>Task context only.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum duration to wait for completion. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Raw conversion result, or <b>0</b> on start failure, hardware error or timeout. </dd></dl>
+
+</div>
+</div>
+<a id="a3c4fd72e66de571a8737caade4f7f75c" name="a3c4fd72e66de571a8737caade4f7f75c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c4fd72e66de571a8737caade4f7f75c">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the regular group conversion sequence using interrupts. </p>
+<p>Clears the pending <a class="el" href="../../d6/d94/a05479.html" title="Event">Event</a> bits first, so a stale result is never mistaken for the new one. Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the conversion start, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ada6d672a5e8535e0d9603ba17c8926c0" name="ada6d672a5e8535e0d9603ba17c8926c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada6d672a5e8535e0d9603ba17c8926c0">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the running interrupt-driven conversion. </p>
+<p>Asserts on an unbound handle.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the conversion stopped, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a780888659faa909e3e3228c427e5969e" name="a780888659faa909e3e3228c427e5969e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a780888659faa909e3e3228c427e5969e">&#9670;&#160;</a></span>waitForEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::HAL::ADCPort&lt; <a class="el" href="../../da/d93/a01084.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::waitForEvent </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>eventMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Blocks the calling task until any of the given event bits is set, or the timeout elapses. </p>
+<p>The awaited bits are cleared on return. Task context only.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventMask</td><td>Event bits to wait for (e.g. <a class="el" href="../../d6/d94/a05479.html#a0847c0e23e57f8ea0a63174fb7f5a175" title="Event::CONVERSION_COMPLETE">Event::CONVERSION_COMPLETE</a>). </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum wait, in RTOS ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Event bits that were set when the wait ended, or <b>0</b> if the timeout elapsed with none set. </dd></dl>
 
 </div>
 </div>

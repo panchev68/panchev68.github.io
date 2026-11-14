@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::UARTPort</title>
+<title>IAR EWARM Library: Lib::HAL::OTP</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,128 +92,64 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::UARTPort</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::OTP</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Sends and receives bytes with <a class="el" href="../../dc/df9/a06354.html" title="Lib::HAL::UARTPort">Lib::HAL::UARTPort</a> in its three transfer modes, selected by the template argument 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' or 'Lib::HAL::DriverMode::DMA'.</p>
-<p>Sends and receives bytes with <a class="el" href="../../dc/df9/a06354.html" title="Lib::HAL::UARTPort">Lib::HAL::UARTPort</a> in its three transfer modes, selected by the template argument 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' or 'Lib::HAL::DriverMode::DMA'. The port wraps a CubeMX <em class="arg">UART_HandleTypeDef</em> and does not create or configure the pins, clock or NVIC; the CubeMX-generated init code does that.</p>
-<p>The blocking mode polls the HAL until the transfer completes or the timeout expires; it has no RTOS wait. The IT and DMA modes start the transfer and wait on an <a class="el" href="../../d8/d59/a06394.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, so their <a class="el" href="../../d6/d3f/a05725.html#aa6f2b7746c93553e8ba0a2fda3c494bc" title="Lib::HAL::UARTPortAsync::send()">Lib::HAL::UARTPortAsync::send()</a> and <a class="el" href="../../d6/d3f/a05725.html#a3c10830f8d93936773f64d95201bc7da" title="Lib::HAL::UARTPortAsync::receive()">Lib::HAL::UARTPortAsync::receive()</a> are task-only and assert when called from an ISR. The HAL callbacks that report completion run in interrupt context, and the USART interrupt handler (CubeMX <b>USART2_IRQHandler()</b>) must call <b>HAL_UART_IRQHandler()</b> for the handle.</p>
-<dl class="section warning"><dt>Warning</dt><dd>The IT and DMA ports register their own HAL callbacks in <a class="el" href="../../dd/dbd/a05489.html#a3822bc9b87b9e299982b230e2c029f35" title="Lib::HAL::AsyncPortCore::open()">Lib::HAL::AsyncPortCore::open()</a>, so the HAL configuration header must set <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> to <b>1</b>; otherwise the build stops with a compile-time error.</dd></dl>
+<p>Reads and programs the one-time-programmable area of the flash with the singleton <a class="el" href="../../d7/d3b/a05643.html#a9286ffbdc5e9bf8a3a2f4e9fe958ae02" title="Lib::HAL::OTP::instance()">Lib::HAL::OTP::instance()</a>.</p>
+<p>Reads and programs the one-time-programmable area of the flash with the singleton <a class="el" href="../../d7/d3b/a05643.html#a9286ffbdc5e9bf8a3a2f4e9fe958ae02" title="Lib::HAL::OTP::instance()">.The</a> region is reached through <a class="el" href="../../d7/d3b/a05643.html#acff397156950347f6f452dec2c94af43" title="Lib::HAL::OTP::read()">Lib::HAL::OTP::read()</a> and <a class="el" href="../../d7/d3b/a05643.html#a778b8e7ce12a4c0bdeed759cb2a79493" title="Lib::HAL::OTP::write()">Lib::HAL::OTP::write()</a>. <a class="el" href="../../d7/d3b/a05643.html#a778b8e7ce12a4c0bdeed759cb2a79493" title="Lib::HAL::OTP::write()">Lib::HAL::OTP::write()</a> is word-aligned, <a class="el" href="../../d7/d3b/a05643.html#a9bfc926572971cb1d61d71d98c1be86f" title="Lib::HAL::OTP::WORD_SIZE">Lib::HAL::OTP::WORD_SIZE</a> bytes at a time, and it can only clear bits: a bit programmed to zero cannot be set back, so the write is rejected when it would require that. Writing the value already stored returns <em class="arg">true</em> without touching the flash. Programming must be bracketed by <a class="el" href="../../d7/d3b/a05643.html#a220a07c58647557d8a81402260eacfb5" title="Lib::HAL::OTP::unlock()">Lib::HAL::OTP::unlock()</a> and <a class="el" href="../../d7/d3b/a05643.html#ab4c2e78575458526b83be6e259aa1f93" title="Lib::HAL::OTP::lock()">Lib::HAL::OTP::lock()</a>, because the flash controller must be unlocked before it accepts a program operation.</p>
+<dl class="section important"><dt>Important</dt><dd>The OTP exists only on the STM32F4xx families that define <em class="arg">FLASH_OTP_BASE</em>. On the STM32F407xx target the area is 528 bytes from <em class="arg">FLASH_OTP_BASE</em> (0x1FFF7800) to <em class="arg">FLASH_OTP_END</em> (0x1FFF7A0F). The module guard is <em class="arg">HAL_FLASH_MODULE_ENABLED</em> together with <em class="arg">FLASH_OTP_BASE</em>; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so the HAL guard is unverified here, although the STM32Cube template enables it.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Programmed bits cannot be erased, and the OTP is never erased, not even by a mass erase. Every write is permanent. The last 16 bytes of the area hold the lock bytes; programming them locks the corresponding blocks against further writes permanently, so do not write there unless that is the intent.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="uart_usage_setup"></a>
-Setup and lifecycle</h3>
-<p>The CubeMX init code creates the handle (<b>huart2</b> in the examples below) and the interrupt. The port does not own the handle, so the handle must outlive the port. For the IT and DMA modes, <a class="el" href="../../d1/dc7/a05733.html#a55dca0e7725a4f8e8697ba94ce8c1ef7" title="Lib::HAL::UARTPortAsync::open()">Lib::HAL::UARTPortAsync::open()</a> creates the event group, runs <b>HAL_UART_Init()</b>, registers the port with the DeviceManager and registers the HAL callbacks; it returns <em class="arg">false</em> on failure and leaves the port closed. <a class="el" href="../../dd/dbd/a05489.html#a03c62c024b148a264f9a6a0077198302" title="Lib::HAL::AsyncPortCore::close()">Lib::HAL::AsyncPortCore::close()</a> reverses this and must be called from task context. The destructor of the IT and DMA modes closes an open port.</p>
-<p>The BLOCKING specialization is different: its constructor takes a <a class="el" href="../../db/dba/a01078.html#a82754326f2fd3bd32ea447c756ec2825" title="Lib::HAL::DriverDataDirection">Lib::HAL::DriverDataDirection</a> tag (<em class="arg">RX</em> or <em class="arg">TX</em>) that only labels the half of a duplex link the instance drives. It has no event group, so it needs no open() before use.</p>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="uart_usage_blocking"></a>
-Blocking transfers</h3>
-<p>The send() and receive() calls of the 'Lib::HAL::DriverMode::BLOCKING' port take a std::span and a timeout in any <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>. The buffer size must be between 1 and 65535 bytes. Both return <em class="arg">false</em> on error or timeout.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/db7/a00812.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="otp_usage_read"></a>
+Read a stored value</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/dfa/a00746.html">Lib/HAL/OTP/OTP.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
+<div class="line">uint32_t readSerialWord() noexcept {</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t SERIAL_ADDRESS = 0x1FFF7800U;</div>
+<div class="line">    <span class="keywordflow">return</span> <a id="a0" name="a0"></a><a class="code hl_function" href="../../d7/d3b/a05643.html#a9286ffbdc5e9bf8a3a2f4e9fe958ae02">Lib::HAL::OTP::instance</a>().<a id="a1" name="a1"></a><a class="code hl_function" href="../../d7/d3b/a05643.html#acff397156950347f6f452dec2c94af43">read</a>&lt;uint32_t&gt;(SERIAL_ADDRESS);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00746_html"><div class="ttname"><a href="../../d4/dfa/a00746.html">OTP.hpp</a></div><div class="ttdoc">One-time-programmable storage area of the internal flash.</div></div>
+<div class="ttc" id="aa05643_html_a9286ffbdc5e9bf8a3a2f4e9fe958ae02"><div class="ttname"><a href="../../d7/d3b/a05643.html#a9286ffbdc5e9bf8a3a2f4e9fe958ae02">Lib::HAL::OTP::instance</a></div><div class="ttdeci">static OTP &amp; instance() noexcept</div><div class="ttdoc">Retrieves the singleton instance, created on first use.</div><div class="ttdef"><b>Definition</b> OTP.hpp:53</div></div>
+<div class="ttc" id="aa05643_html_acff397156950347f6f452dec2c94af43"><div class="ttname"><a href="../../d7/d3b/a05643.html#acff397156950347f6f452dec2c94af43">Lib::HAL::OTP::read</a></div><div class="ttdeci">T read(uint32_t address) const noexcept</div><div class="ttdoc">Reads a trivially copyable value from the OTP region.</div><div class="ttdef"><b>Definition</b> OTP.hpp:148</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="otp_usage_write"></a>
+Program a word once</h3>
+<p>The write sequence is unlock, program, lock. <a class="el" href="../../d7/d3b/a05643.html#a778b8e7ce12a4c0bdeed759cb2a79493" title="Lib::HAL::OTP::write()">Lib::HAL::OTP::write()</a> returns <em class="arg">false</em> when the address is outside the area or unaligned, when the new value needs a bit set to one that is already programmed to zero, or when the flash controller refuses the program. The first two cases assert in a debug build. In every failure case the flash is left as it was, except for an interrupted program operation, which the hardware may have partly applied.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/dfa/a00746.html">Lib/HAL/OTP/OTP.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> exchangeBlocking() noexcept {</div>
-<div class="line">    Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; txPort(&amp;huart2, <a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../db/dba/a01078.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49">Lib::HAL::DriverDataDirection::TX</a>);</div>
-<div class="line">    Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; rxPort(&amp;huart2, <a id="_a2" name="_a2"></a><a class="code hl_enumvalue" href="../../db/dba/a01078.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046">Lib::HAL::DriverDataDirection::RX</a>);</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4&gt;</a> request{0x01U, 0x02U, 0x03U, 0x04U};</div>
-<div class="line">    <span class="keywordflow">if</span> (!txPort.send(request, <a id="_a4" name="_a4"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
+<div class="line"><span class="keywordtype">bool</span> programBoardRevision(uint32_t revision) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t REVISION_ADDRESS = 0x1FFF7800U;</div>
+<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d7/d3b/a05643.html">Lib::HAL::OTP</a> &amp; otp = <a class="code hl_function" href="../../d7/d3b/a05643.html#a9286ffbdc5e9bf8a3a2f4e9fe958ae02">Lib::HAL::OTP::instance</a>();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!otp.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d7/d3b/a05643.html#a220a07c58647557d8a81402260eacfb5">unlock</a>()) {</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 8&gt;</a> response{};</div>
-<div class="line">    <span class="keywordflow">return</span> rxPort.receive(response, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(200));</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> isWritten = otp.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d7/d3b/a05643.html#a778b8e7ce12a4c0bdeed759cb2a79493">write</a>(REVISION_ADDRESS, revision);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> isLocked = otp.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d7/d3b/a05643.html#ab4c2e78575458526b83be6e259aa1f93">lock</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> isWritten &amp;&amp; isLocked;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00812_html"><div class="ttname"><a href="../../d8/db7/a00812.html">UART.hpp</a></div><div class="ttdoc">Public umbrella include for the UART subsystem, pulling in every Lib::HAL::UARTPort component.</div></div>
-<div class="ttc" id="aa01078_html_a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49"><div class="ttname"><a href="../../db/dba/a01078.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49">Lib::HAL::DriverDataDirection::TX</a></div><div class="ttdeci">@ TX</div><div class="ttdoc">Port used for transmission.</div><div class="ttdef"><b>Definition</b> DriverDataDirection.hpp:24</div></div>
-<div class="ttc" id="aa01078_html_a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046"><div class="ttname"><a href="../../db/dba/a01078.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046">Lib::HAL::DriverDataDirection::RX</a></div><div class="ttdeci">@ RX</div><div class="ttdoc">Port used for reception.</div><div class="ttdef"><b>Definition</b> DriverDataDirection.hpp:23</div></div>
-<div class="ttc" id="aa01149_html_ga5de4a49eb132735325e706f406c69d6e"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a></div><div class="ttdeci">struct __UART_HandleTypeDef UART_HandleTypeDef</div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="ttc" id="aa05643_html"><div class="ttname"><a href="../../d7/d3b/a05643.html">Lib::HAL::OTP</a></div><div class="ttdoc">Accessor for the one-time-programmable (OTP) area of the internal flash.</div><div class="ttdef"><b>Definition</b> OTP.hpp:43</div></div>
+<div class="ttc" id="aa05643_html_a220a07c58647557d8a81402260eacfb5"><div class="ttname"><a href="../../d7/d3b/a05643.html#a220a07c58647557d8a81402260eacfb5">Lib::HAL::OTP::unlock</a></div><div class="ttdeci">bool unlock() noexcept</div><div class="ttdoc">Unlocks the flash controller so the region can be programmed.</div><div class="ttdef"><b>Definition</b> OTP.hpp:166</div></div>
+<div class="ttc" id="aa05643_html_a778b8e7ce12a4c0bdeed759cb2a79493"><div class="ttname"><a href="../../d7/d3b/a05643.html#a778b8e7ce12a4c0bdeed759cb2a79493">Lib::HAL::OTP::write</a></div><div class="ttdeci">bool write(uint32_t address, uint32_t value) noexcept</div><div class="ttdoc">Programs a single word.</div><div class="ttdef"><b>Definition</b> OTP.hpp:193</div></div>
+<div class="ttc" id="aa05643_html_ab4c2e78575458526b83be6e259aa1f93"><div class="ttname"><a href="../../d7/d3b/a05643.html#ab4c2e78575458526b83be6e259aa1f93">Lib::HAL::OTP::lock</a></div><div class="ttdeci">bool lock() noexcept</div><div class="ttdoc">Locks the flash controller again.</div><div class="ttdef"><b>Definition</b> OTP.hpp:175</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="uart_usage_it"></a>
-Interrupt-driven transfers</h3>
-<p>Open the port once from a task. The CubeMX <b>USART2_IRQHandler()</b> is the only hook needed: it calls <b>HAL_UART_IRQHandler()</b> with the handle, which in turn fires the callbacks that <a class="el" href="../../dd/dbd/a05489.html#a3822bc9b87b9e299982b230e2c029f35" title="Lib::HAL::AsyncPortCore::open()">Lib::HAL::AsyncPortCore::open()</a> registered. Transmit and receive use separate event bits, so one task may send while another receives on the same port.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/db7/a00812.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>SerialLink final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    SerialLink() noexcept :</div>
-<div class="line">        port(&amp;huart2) {</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Call from a task; opens the port and runs HAL_UART_Init().</span></div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> port.open();</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Call from a task only.</span></div>
-<div class="line">    <span class="keywordtype">bool</span> query() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 2&gt;</a> command{0xAAU, 0x55U};</div>
-<div class="line">        <span class="keywordflow">if</span> (!port.send(command, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50))) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> port.receive(reply, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; port;</div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4&gt;</a> reply{};</div>
-<div class="line">};</div>
-<div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="uart_usage_error"></a>
-Error path and abort</h3>
-<p>When a transfer times out or the HAL reports an error, <a class="el" href="../../d6/d3f/a05725.html#aa6f2b7746c93553e8ba0a2fda3c494bc" title="Lib::HAL::UARTPortAsync::send()">Lib::HAL::UARTPortAsync::send()</a> and <a class="el" href="../../d6/d3f/a05725.html#a3c10830f8d93936773f64d95201bc7da" title="Lib::HAL::UARTPortAsync::receive()">Lib::HAL::UARTPortAsync::receive()</a> abort that direction before they return <em class="arg">false</em>, so the HAL never touches the caller's buffer afterwards. A task blocked in one of them can be released from another task by <a class="el" href="../../d6/d3f/a05725.html#ac0f3ec8c2a5d8ad83c45e752232f2005" title="Lib::HAL::UARTPortAsync::abort()">Lib::HAL::UARTPortAsync::abort()</a>, which returns <em class="arg">false</em> if the hardware did not stop cleanly. <a class="el" href="../../d1/dc7/a05733.html#aa69f87ceff32286dc0ce857ef84e314c" title="Lib::HAL::UARTPortBase::setBaudRate()">Lib::HAL::UARTPortBase::setBaudRate()</a> returns <em class="arg">false</em> while a transfer is in flight, so abort or wait for the transfer first.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/db7/a00812.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="otp_usage_bounds"></a>
+Check the region before use</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/dfa/a00746.html">Lib/HAL/OTP/OTP.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> recoverAndRetune(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; port) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (!port.setBaudRate(115200U)) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.abort());</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.setBaudRate(115200U));</div>
-<div class="line">    }</div>
+<div class="line"><span class="keywordtype">bool</span> isInsideOtp(uint32_t address) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> <a id="a6" name="a6"></a><a class="code hl_function" href="../../d7/d3b/a05643.html#aedf065c2a5b90a530f7dcc7be627c3e3">Lib::HAL::OTP::contains</a>(address, <a id="_a7" name="_a7"></a><a class="code hl_variable" href="../../d7/d3b/a05643.html#a9bfc926572971cb1d61d71d98c1be86f">Lib::HAL::OTP::WORD_SIZE</a>);</div>
 <div class="line">}</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="uart_usage_dma"></a>
-DMA transfers</h3>
-<p>The DMA mode has the same API as the IT mode. The CubeMX code must link the UART handle to its DMA handles and enable the DMA interrupts; this header does not check that. The buffer must stay valid until the transfer completes, and it must be reachable by the DMA controller (not CCM RAM): each DMA start asserts on it in a debug build.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/db7/a00812.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Static storage in normal RAM, so the DMA controller can reach it.</span></div>
-<div class="line"><span class="keyword">static</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> dmaTxBuffer{};</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> sendDma(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; port, <span class="keywordtype">size_t</span> length) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> port.send(std::span&lt;const uint8_t&gt;(dmaTxBuffer).first(length), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
+<div class="ttc" id="aa05643_html_a9bfc926572971cb1d61d71d98c1be86f"><div class="ttname"><a href="../../d7/d3b/a05643.html#a9bfc926572971cb1d61d71d98c1be86f">Lib::HAL::OTP::WORD_SIZE</a></div><div class="ttdeci">static constexpr uint32_t WORD_SIZE</div><div class="ttdoc">Size of a single programmable word, in bytes.</div><div class="ttdef"><b>Definition</b> OTP.hpp:46</div></div>
+<div class="ttc" id="aa05643_html_aedf065c2a5b90a530f7dcc7be627c3e3"><div class="ttname"><a href="../../d7/d3b/a05643.html#aedf065c2a5b90a530f7dcc7be627c3e3">Lib::HAL::OTP::contains</a></div><div class="ttdeci">static constexpr bool contains(uint32_t address, size_t length) noexcept</div><div class="ttdoc">Checks whether a value of the given size fits inside the region at the given address.</div><div class="ttdef"><b>Definition</b> OTP.hpp:132</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

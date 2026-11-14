@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::MessageBuffer</title>
+<title>IAR EWARM Library: Lib::Helper::StringHelper</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,301 +91,93 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d1/d83/a01041.html">RTOS</a></li><li class="navelem"><a href="../../da/d2e/a05907.html">MessageBuffer</a></li>  </ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../d0/d1f/a01087.html">Helper</a></li><li class="navelem"><a href="../../da/d2e/a05907.html">StringHelper</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../dd/d2a/a05904.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">RTOS::MessageBuffer<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::StringHelper<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Owner of a FreeRTOS message buffer handle.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Owner of a FreeRTOS message buffer handle. </p>
-<p>Passes discrete variable-length messages from exactly one writer to exactly one reader, either of which may be a task or an interrupt. Each message is received whole or not at all.</p>
-<p>Every message occupies its payload plus a 4-byte length header, so a buffer of N bytes carries messages of at most N minus 4 bytes. Like stream buffers, message buffers are lock-free only for a single writer and a single reader; several writers or readers must serialize their calls themselves, e.g. with a <a class="el" href="../../de/d6a/a06273.html" title="RTOS::Mutex">RTOS::Mutex</a>. A receive into a destination smaller than the next message returns <b>0</b> and leaves the message in the buffer; use <a class="el" href="#a37a7b059106d8091fea3b44f5bbe9804" title="getNextMessageLength()">getNextMessageLength()</a> to size the destination.</p>
-<p>Every task-context <a class="el" href="#a10110decaf3c897711e612ba455525cd" title="send()">send()</a> and <a class="el" href="#a8bc5b3b484124680e0b606c983ee095e" title="receive()">receive()</a> overload takes its timeout explicitly, with no default: pass <em class="arg">0</em> to poll, <em class="arg">portMAX_DELAY</em> to wait indefinitely, or a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> duration. Interrupt variants never block.</p>
+<div class="textblock"><p>Collection of lightweight string utility helpers. </p>
+<p>Covers classification, case conversion, trimming, searching, splitting, integer parsing and hex encoding. Every helper writes into a caller-supplied buffer instead of returning a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01653.html#ga32db3d9898c44d3b3a578b560f7758cc" title="std::string">std::string</a>, so nothing here allocates and every function is usable in a constant expression. Classification and case folding are also written out by hand rather than forwarded to <em class="arg">cctype:</em> those functions are locale-dependent, are not constexpr, and are undefined for negative <em class="arg">char</em> values, which a signed <em class="arg">char</em> produces for every byte above 127. All APIs are static, non-allocating and non-throwing, and operate on <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html" title="std::string_view">std::string_view</a> and std::span so they bind to literals, arrays and strings alike.</p>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/MessageBuffer.hpp" target="_blank">Source</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#_a0">RTOS::MessageBuffer</a>.</dd>
-</dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/StringHelper.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ac7c17b15a9ccb6e449bd39651983763a" id="r_ac7c17b15a9ccb6e449bd39651983763a"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ac7c17b15a9ccb6e449bd39651983763a">Handle</a> = MessageBufferHandle_t</td></tr>
-<tr class="memdesc:ac7c17b15a9ccb6e449bd39651983763a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Native FreeRTOS message buffer handle.  <br /></td></tr>
-<tr class="memitem:a74349e8aa0172b4a9f4763e24b7c10a6" id="r_a74349e8aa0172b4a9f4763e24b7c10a6"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a74349e8aa0172b4a9f4763e24b7c10a6">TickType</a> = TickType_t</td></tr>
-<tr class="memdesc:a74349e8aa0172b4a9f4763e24b7c10a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scheduler tick count used for timeouts.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a31c1d2ce59c3d3d5cae4eb564de28e71" id="r_a31c1d2ce59c3d3d5cae4eb564de28e71"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a31c1d2ce59c3d3d5cae4eb564de28e71">isDigit</a> (char character) noexcept</td></tr>
+<tr class="memdesc:a31c1d2ce59c3d3d5cae4eb564de28e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether <em class="arg">character</em> is an ASCII decimal digit.  <br /></td></tr>
+<tr class="memitem:adc2363864a22d143b3c52dd6d85c39e2" id="r_adc2363864a22d143b3c52dd6d85c39e2"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#adc2363864a22d143b3c52dd6d85c39e2">isHexDigit</a> (char character) noexcept</td></tr>
+<tr class="memdesc:adc2363864a22d143b3c52dd6d85c39e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether <em class="arg">character</em> is an ASCII hexadecimal digit.  <br /></td></tr>
+<tr class="memitem:a6e572eea9d5827b40949830ef8b4f3f8" id="r_a6e572eea9d5827b40949830ef8b4f3f8"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a6e572eea9d5827b40949830ef8b4f3f8">isAlpha</a> (char character) noexcept</td></tr>
+<tr class="memdesc:a6e572eea9d5827b40949830ef8b4f3f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether <em class="arg">character</em> is an ASCII letter.  <br /></td></tr>
+<tr class="memitem:a9237a20526744e303840fc0f0ae682eb" id="r_a9237a20526744e303840fc0f0ae682eb"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a9237a20526744e303840fc0f0ae682eb">isAlphaNumeric</a> (char character) noexcept</td></tr>
+<tr class="memdesc:a9237a20526744e303840fc0f0ae682eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether <em class="arg">character</em> is an ASCII letter or decimal digit.  <br /></td></tr>
+<tr class="memitem:a2a95a6dfb9c197c18dde158f12290aa7" id="r_a2a95a6dfb9c197c18dde158f12290aa7"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a2a95a6dfb9c197c18dde158f12290aa7">isWhitespace</a> (char character) noexcept</td></tr>
+<tr class="memdesc:a2a95a6dfb9c197c18dde158f12290aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether <em class="arg">character</em> is ASCII whitespace.  <br /></td></tr>
+<tr class="memitem:ab5d55fab639019b032452d2aed84765c" id="r_ab5d55fab639019b032452d2aed84765c"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#ab5d55fab639019b032452d2aed84765c">isPrintable</a> (char character) noexcept</td></tr>
+<tr class="memdesc:ab5d55fab639019b032452d2aed84765c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether <em class="arg">character</em> is printable ASCII.  <br /></td></tr>
+<tr class="memitem:af0552b4dd5288a0feaa8e6dc5dc92764" id="r_af0552b4dd5288a0feaa8e6dc5dc92764"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#af0552b4dd5288a0feaa8e6dc5dc92764">toUpperCase</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, std::span&lt; char &gt; output) noexcept</td></tr>
+<tr class="memdesc:af0552b4dd5288a0feaa8e6dc5dc92764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert <em class="arg">input</em> to its upper-case representation.  <br /></td></tr>
+<tr class="memitem:a1019248640c9b2d3f8b01487c240b135" id="r_a1019248640c9b2d3f8b01487c240b135"><td class="memItemLeft">static constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a1019248640c9b2d3f8b01487c240b135">toUpperCaseInPlace</a> (std::span&lt; char &gt; buffer) noexcept</td></tr>
+<tr class="memdesc:a1019248640c9b2d3f8b01487c240b135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert <em class="arg">buffer</em> to upper case in place.  <br /></td></tr>
+<tr class="memitem:a0ca94c3562d49e908992178c0e94254c" id="r_a0ca94c3562d49e908992178c0e94254c"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0ca94c3562d49e908992178c0e94254c">toLowerCase</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, std::span&lt; char &gt; output) noexcept</td></tr>
+<tr class="memdesc:a0ca94c3562d49e908992178c0e94254c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert <em class="arg">input</em> to its lower-case representation.  <br /></td></tr>
+<tr class="memitem:aa489df5b828be650c52d25ff4cb6c66b" id="r_aa489df5b828be650c52d25ff4cb6c66b"><td class="memItemLeft">static constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#aa489df5b828be650c52d25ff4cb6c66b">toLowerCaseInPlace</a> (std::span&lt; char &gt; buffer) noexcept</td></tr>
+<tr class="memdesc:aa489df5b828be650c52d25ff4cb6c66b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert <em class="arg">buffer</em> to lower case in place.  <br /></td></tr>
+<tr class="memitem:ac641d00fe40401733c00642547895f68" id="r_ac641d00fe40401733c00642547895f68"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#ac641d00fe40401733c00642547895f68">equalsIgnoreCase</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> left, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> right) noexcept</td></tr>
+<tr class="memdesc:ac641d00fe40401733c00642547895f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two strings ignoring ASCII letter case.  <br /></td></tr>
+<tr class="memitem:a29631573c86b1e1d6ba1a5819a1cff86" id="r_a29631573c86b1e1d6ba1a5819a1cff86"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a29631573c86b1e1d6ba1a5819a1cff86">startsWithIgnoreCase</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> prefix) noexcept</td></tr>
+<tr class="memdesc:a29631573c86b1e1d6ba1a5819a1cff86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether <em class="arg">input</em> begins with <em class="arg">prefix</em>, ignoring ASCII letter case.  <br /></td></tr>
+<tr class="memitem:a21eff6d52304772a34f2bc2d716a9d24" id="r_a21eff6d52304772a34f2bc2d716a9d24"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a21eff6d52304772a34f2bc2d716a9d24">endsWithIgnoreCase</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> suffix) noexcept</td></tr>
+<tr class="memdesc:a21eff6d52304772a34f2bc2d716a9d24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether <em class="arg">input</em> ends with <em class="arg">suffix</em>, ignoring ASCII letter case.  <br /></td></tr>
+<tr class="memitem:aea358f48a1889dd86758b74f73595281" id="r_aea358f48a1889dd86758b74f73595281"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#aea358f48a1889dd86758b74f73595281">trimLeft</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input) noexcept</td></tr>
+<tr class="memdesc:aea358f48a1889dd86758b74f73595281"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim leading ASCII whitespace from <em class="arg">input</em>.  <br /></td></tr>
+<tr class="memitem:ab10075b04e08bef0a431f89a173b9741" id="r_ab10075b04e08bef0a431f89a173b9741"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab10075b04e08bef0a431f89a173b9741">trimRight</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input) noexcept</td></tr>
+<tr class="memdesc:ab10075b04e08bef0a431f89a173b9741"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim trailing ASCII whitespace from <em class="arg">input</em>.  <br /></td></tr>
+<tr class="memitem:accde21de05cd8a8a240196d0c9bb5166" id="r_accde21de05cd8a8a240196d0c9bb5166"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#accde21de05cd8a8a240196d0c9bb5166">trim</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input) noexcept</td></tr>
+<tr class="memdesc:accde21de05cd8a8a240196d0c9bb5166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim leading and trailing ASCII whitespace from <em class="arg">input</em>.  <br /></td></tr>
+<tr class="memitem:aaf493b54b2fc3c74c60da99ef274b7ed" id="r_aaf493b54b2fc3c74c60da99ef274b7ed"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aaf493b54b2fc3c74c60da99ef274b7ed">contains</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, char character) noexcept</td></tr>
+<tr class="memdesc:aaf493b54b2fc3c74c60da99ef274b7ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether <em class="arg">input</em> contains the character <em class="arg">character</em>.  <br /></td></tr>
+<tr class="memitem:a8cad02f05f4b973933166bd5a431f984" id="r_a8cad02f05f4b973933166bd5a431f984"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a8cad02f05f4b973933166bd5a431f984">contains</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> pattern) noexcept</td></tr>
+<tr class="memdesc:a8cad02f05f4b973933166bd5a431f984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether <em class="arg">input</em> contains the substring <em class="arg">pattern</em>.  <br /></td></tr>
+<tr class="memitem:a091f2b2e3a2cd0db38465256325d0299" id="r_a091f2b2e3a2cd0db38465256325d0299"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a091f2b2e3a2cd0db38465256325d0299">count</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, char character) noexcept</td></tr>
+<tr class="memdesc:a091f2b2e3a2cd0db38465256325d0299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the occurrences of <em class="arg">character</em> in <em class="arg">input</em>.  <br /></td></tr>
+<tr class="memitem:aa7ad4131c34e89def6b673fa2c7ca98f" id="r_aa7ad4131c34e89def6b673fa2c7ca98f"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aa7ad4131c34e89def6b673fa2c7ca98f">replaceInPlace</a> (std::span&lt; char &gt; buffer, char from, char to) noexcept</td></tr>
+<tr class="memdesc:aa7ad4131c34e89def6b673fa2c7ca98f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace every occurrence of <em class="arg">from</em> with <em class="arg">to</em> in <em class="arg">buffer</em>.  <br /></td></tr>
+<tr class="memitem:a5045388a989b2e8bb8d103561ad56ba2" id="r_a5045388a989b2e8bb8d103561ad56ba2"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a5045388a989b2e8bb8d103561ad56ba2">copyTo</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, std::span&lt; char &gt; output) noexcept</td></tr>
+<tr class="memdesc:a5045388a989b2e8bb8d103561ad56ba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy <em class="arg">input</em> into <em class="arg">output</em> and append a null terminator.  <br /></td></tr>
+<tr class="memitem:ae51395d9b15ab5f66b471c8ce9650bf8" id="r_ae51395d9b15ab5f66b471c8ce9650bf8"><td class="memItemLeft">static constexpr int32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae51395d9b15ab5f66b471c8ce9650bf8">findInArray</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> select, const char *const *array) noexcept</td></tr>
+<tr class="memdesc:ae51395d9b15ab5f66b471c8ce9650bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find <em class="arg">select</em> in a null-terminated array of C strings.  <br /></td></tr>
+<tr class="memitem:a56b87223e35dbc0754e09942c94c7d85" id="r_a56b87223e35dbc0754e09942c94c7d85"><td class="memTemplParams" colspan="2">template&lt;typename F&gt; <br />
+requires std::invocable&lt;F &amp;, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&gt;</td></tr>
+<tr class="memitem:a56b87223e35dbc0754e09942c94c7d85 template"><td class="memItemLeft">static constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a56b87223e35dbc0754e09942c94c7d85">split</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, char delimiter, F &amp;&amp;callback) noexcept</td></tr>
+<tr class="memdesc:a56b87223e35dbc0754e09942c94c7d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split <em class="arg">input</em> by <em class="arg">delimiter</em> and invoke <em class="arg">callback</em> once for each token.  <br /></td></tr>
+<tr class="memitem:a07f671da48f9d7c420853de5a5cc769b" id="r_a07f671da48f9d7c420853de5a5cc769b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a07f671da48f9d7c420853de5a5cc769b">splitTo</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, char delimiter, std::span&lt; <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> &gt; tokens) noexcept</td></tr>
+<tr class="memdesc:a07f671da48f9d7c420853de5a5cc769b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split <em class="arg">input</em> by <em class="arg">delimiter</em> into the caller-supplied <em class="arg">tokens</em> array.  <br /></td></tr>
+<tr class="memitem:a22f2dd59b7c79dc4cc59071d50ff7aab" id="r_a22f2dd59b7c79dc4cc59071d50ff7aab"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; <br />
+requires (!std::same_as&lt;T, bool&gt;)</td></tr>
+<tr class="memitem:a22f2dd59b7c79dc4cc59071d50ff7aab template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a22f2dd59b7c79dc4cc59071d50ff7aab">parseInteger</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, T &amp;value, uint32_t base=10U) noexcept</td></tr>
+<tr class="memdesc:a22f2dd59b7c79dc4cc59071d50ff7aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse <em class="arg">input</em> as an integer in the given <em class="arg">base</em>.  <br /></td></tr>
+<tr class="memitem:ad92ab1e3ab5301dea791138d956fb09e" id="r_ad92ab1e3ab5301dea791138d956fb09e"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad92ab1e3ab5301dea791138d956fb09e">toHex</a> (std::span&lt; const uint8_t &gt; input, std::span&lt; char &gt; output, bool upperCase=true) noexcept</td></tr>
+<tr class="memdesc:ad92ab1e3ab5301dea791138d956fb09e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode <em class="arg">input</em> as hexadecimal text, two characters per byte, most significant nibble first.  <br /></td></tr>
+<tr class="memitem:adce7129f8a4a374627f19e75be5d33fe" id="r_adce7129f8a4a374627f19e75be5d33fe"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#adce7129f8a4a374627f19e75be5d33fe">fromHex</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> input, std::span&lt; uint8_t &gt; output) noexcept</td></tr>
+<tr class="memdesc:adce7129f8a4a374627f19e75be5d33fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode hexadecimal text in <em class="arg">input</em> into bytes.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:aac5693009b971ce083d8600974c8908b" id="r_aac5693009b971ce083d8600974c8908b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> () noexcept=default</td></tr>
-<tr class="memdesc:aac5693009b971ce083d8600974c8908b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an empty, closed message buffer.  <br /></td></tr>
-<tr class="memitem:afecda8b97b8496340dedefc1ce728821" id="r_afecda8b97b8496340dedefc1ce728821"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afecda8b97b8496340dedefc1ce728821">MessageBuffer</a> (MessageBuffer &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:afecda8b97b8496340dedefc1ce728821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes ownership of another message buffer's native handle.  <br /></td></tr>
-<tr class="memitem:ae36b10fc8abbb5198f64ecf91ba2054e" id="r_ae36b10fc8abbb5198f64ecf91ba2054e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae36b10fc8abbb5198f64ecf91ba2054e">~MessageBuffer</a> () noexcept</td></tr>
-<tr class="memdesc:ae36b10fc8abbb5198f64ecf91ba2054e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the native message buffer, if open.  <br /></td></tr>
-<tr class="memitem:ab4a988933c84644d5c972a0494c15e99" id="r_ab4a988933c84644d5c972a0494c15e99"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab4a988933c84644d5c972a0494c15e99">MessageBuffer</a> (const MessageBuffer &amp;)=delete</td></tr>
-<tr class="memdesc:ab4a988933c84644d5c972a0494c15e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy construction is disabled because the wrapper owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:ac27cdba4bacb2cd0c9f5f35c0a29c9fe" id="r_ac27cdba4bacb2cd0c9f5f35c0a29c9fe"><td class="memItemLeft"><a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac27cdba4bacb2cd0c9f5f35c0a29c9fe">operator=</a> (const <a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> &amp;)=delete</td></tr>
-<tr class="memdesc:ac27cdba4bacb2cd0c9f5f35c0a29c9fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is disabled because the wrapper owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:afd9059379c9888200c2c9e2c091a12c5" id="r_afd9059379c9888200c2c9e2c091a12c5"><td class="memItemLeft"><a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#afd9059379c9888200c2c9e2c091a12c5">operator=</a> (<a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:afd9059379c9888200c2c9e2c091a12c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes this message buffer, then takes ownership of another message buffer's native handle.  <br /></td></tr>
-<tr class="memitem:ae76c68b3fa15940e00081d6362397a59" id="r_ae76c68b3fa15940e00081d6362397a59"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae76c68b3fa15940e00081d6362397a59">open</a> (size_t bufferSize) noexcept</td></tr>
-<tr class="memdesc:ae76c68b3fa15940e00081d6362397a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the native message buffer from the FreeRTOS heap, if not already open.  <br /></td></tr>
-<tr class="memitem:abccf1a9247218f8db310c0a54d9e56e4" id="r_abccf1a9247218f8db310c0a54d9e56e4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abccf1a9247218f8db310c0a54d9e56e4">createStatic</a> (uint8_t *storage, size_t size, StaticMessageBuffer_t &amp;buffer) noexcept</td></tr>
-<tr class="memdesc:abccf1a9247218f8db310c0a54d9e56e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the native message buffer in caller-provided static memory, if not already open.  <br /></td></tr>
-<tr class="memitem:a52eed2d9c411ece46d1cf80f7fa1f19d" id="r_a52eed2d9c411ece46d1cf80f7fa1f19d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a52eed2d9c411ece46d1cf80f7fa1f19d">createStatic</a> (std::span&lt; uint8_t &gt; storage, StaticMessageBuffer_t &amp;buffer) noexcept</td></tr>
-<tr class="memdesc:a52eed2d9c411ece46d1cf80f7fa1f19d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the native message buffer in a caller-provided static storage span, if not already open.  <br /></td></tr>
-<tr class="memitem:a34199efdeb4b4ffc33966e52cb123bd8" id="r_a34199efdeb4b4ffc33966e52cb123bd8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a34199efdeb4b4ffc33966e52cb123bd8">close</a> () noexcept</td></tr>
-<tr class="memdesc:a34199efdeb4b4ffc33966e52cb123bd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the native message buffer; does nothing if already closed.  <br /></td></tr>
-<tr class="memitem:aa3b10347853e829732465409e3735500" id="r_aa3b10347853e829732465409e3735500"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa3b10347853e829732465409e3735500">reset</a> () noexcept</td></tr>
-<tr class="memdesc:aa3b10347853e829732465409e3735500"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards every buffered message.  <br /></td></tr>
-<tr class="memitem:a10110decaf3c897711e612ba455525cd" id="r_a10110decaf3c897711e612ba455525cd"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a10110decaf3c897711e612ba455525cd">send</a> (const void *source, size_t length, <a class="el" href="#a74349e8aa0172b4a9f4763e24b7c10a6">TickType</a> blockTime) noexcept</td></tr>
-<tr class="memdesc:a10110decaf3c897711e612ba455525cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one message, blocking up to a timeout until it fits as a whole.  <br /></td></tr>
-<tr class="memitem:a1712e848853501aa71fc5c2964e1f69b" id="r_a1712e848853501aa71fc5c2964e1f69b"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a1712e848853501aa71fc5c2964e1f69b template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a1712e848853501aa71fc5c2964e1f69b">send</a> (const void *source, size_t length, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a1712e848853501aa71fc5c2964e1f69b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout until it fits as a whole.  <br /></td></tr>
-<tr class="memitem:ad16d5ca2a80de79ba48343d0bfccee65" id="r_ad16d5ca2a80de79ba48343d0bfccee65"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:ad16d5ca2a80de79ba48343d0bfccee65 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ad16d5ca2a80de79ba48343d0bfccee65">send</a> (const T_RANGE &amp;range, <a class="el" href="#a74349e8aa0172b4a9f4763e24b7c10a6">TickType</a> blockTime) noexcept</td></tr>
-<tr class="memdesc:ad16d5ca2a80de79ba48343d0bfccee65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the bytes of a contiguous container (e.g.  <br /></td></tr>
-<tr class="memitem:a3b439ce9bde0121286ae234701343bf7" id="r_a3b439ce9bde0121286ae234701343bf7"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE, typename Rep, typename Period&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:a3b439ce9bde0121286ae234701343bf7 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a3b439ce9bde0121286ae234701343bf7">send</a> (const T_RANGE &amp;range, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a3b439ce9bde0121286ae234701343bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the bytes of a contiguous container as one message, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout.  <br /></td></tr>
-<tr class="memitem:a895f6a523a73fe0a86afc445c60cad95" id="r_a895f6a523a73fe0a86afc445c60cad95"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a895f6a523a73fe0a86afc445c60cad95">sendFromISR</a> (const void *source, size_t length) noexcept</td></tr>
-<tr class="memdesc:a895f6a523a73fe0a86afc445c60cad95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one message from an interrupt and requests a context switch itself if the reader was unblocked.  <br /></td></tr>
-<tr class="memitem:a0b7914e52386e01c6613b3d9486aa91d" id="r_a0b7914e52386e01c6613b3d9486aa91d"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a0b7914e52386e01c6613b3d9486aa91d">sendFromISR</a> (const void *source, size_t length, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:a0b7914e52386e01c6613b3d9486aa91d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one message from an interrupt, leaving the context switch request to the caller.  <br /></td></tr>
-<tr class="memitem:ac2348e2ae7121c4ad8c163c4f5d26d52" id="r_ac2348e2ae7121c4ad8c163c4f5d26d52"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:ac2348e2ae7121c4ad8c163c4f5d26d52 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac2348e2ae7121c4ad8c163c4f5d26d52">sendFromISR</a> (const T_RANGE &amp;range, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:ac2348e2ae7121c4ad8c163c4f5d26d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a contiguous container as one message from an interrupt, leaving the switch to the caller.  <br /></td></tr>
-<tr class="memitem:a2501fe0571b8f54168f0fd0c4eb69a79" id="r_a2501fe0571b8f54168f0fd0c4eb69a79"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:a2501fe0571b8f54168f0fd0c4eb69a79 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a2501fe0571b8f54168f0fd0c4eb69a79">sendFromISR</a> (const T_RANGE &amp;range) noexcept</td></tr>
-<tr class="memdesc:a2501fe0571b8f54168f0fd0c4eb69a79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a contiguous container as one message from an interrupt and requests its own context switch.  <br /></td></tr>
-<tr class="memitem:a8bc5b3b484124680e0b606c983ee095e" id="r_a8bc5b3b484124680e0b606c983ee095e"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8bc5b3b484124680e0b606c983ee095e">receive</a> (void *dest, size_t length, <a class="el" href="#a74349e8aa0172b4a9f4763e24b7c10a6">TickType</a> blockTime) noexcept</td></tr>
-<tr class="memdesc:a8bc5b3b484124680e0b606c983ee095e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message, blocking up to a timeout for one to arrive.  <br /></td></tr>
-<tr class="memitem:a8d2c0700e62b2af3dde3e9e6bf271e65" id="r_a8d2c0700e62b2af3dde3e9e6bf271e65"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a8d2c0700e62b2af3dde3e9e6bf271e65 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8d2c0700e62b2af3dde3e9e6bf271e65">receive</a> (void *dest, size_t length, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a8d2c0700e62b2af3dde3e9e6bf271e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for one to arrive.  <br /></td></tr>
-<tr class="memitem:ac11eec5d444a52705627fa96d446acc1" id="r_ac11eec5d444a52705627fa96d446acc1"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:ac11eec5d444a52705627fa96d446acc1 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac11eec5d444a52705627fa96d446acc1">receive</a> (T_RANGE &amp;&amp;dest, <a class="el" href="#a74349e8aa0172b4a9f4763e24b7c10a6">TickType</a> blockTime) noexcept</td></tr>
-<tr class="memdesc:ac11eec5d444a52705627fa96d446acc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message into a writable contiguous container, blocking up to a timeout.  <br /></td></tr>
-<tr class="memitem:aef2317c952c81b10cd9eb6d18abe3d88" id="r_aef2317c952c81b10cd9eb6d18abe3d88"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE, typename Rep, typename Period&gt; <br />
-requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:aef2317c952c81b10cd9eb6d18abe3d88 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aef2317c952c81b10cd9eb6d18abe3d88">receive</a> (T_RANGE &amp;&amp;dest, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:aef2317c952c81b10cd9eb6d18abe3d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message into a writable contiguous container, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout.  <br /></td></tr>
-<tr class="memitem:aa2cbd475f54d4d04bd40a1470fb8d0ea" id="r_aa2cbd475f54d4d04bd40a1470fb8d0ea"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aa2cbd475f54d4d04bd40a1470fb8d0ea">receiveFromISR</a> (void *dest, size_t length) noexcept</td></tr>
-<tr class="memdesc:aa2cbd475f54d4d04bd40a1470fb8d0ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message from an interrupt, requesting a context switch if the writer was unblocked.  <br /></td></tr>
-<tr class="memitem:a628659ce57bfd336fc92c684a7df4f3e" id="r_a628659ce57bfd336fc92c684a7df4f3e"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a628659ce57bfd336fc92c684a7df4f3e">receiveFromISR</a> (void *dest, size_t length, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:a628659ce57bfd336fc92c684a7df4f3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message from an interrupt, leaving the context switch request to the caller.  <br /></td></tr>
-<tr class="memitem:ac4671af9bbe8fac248190e5cce8a61fe" id="r_ac4671af9bbe8fac248190e5cce8a61fe"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:ac4671af9bbe8fac248190e5cce8a61fe template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac4671af9bbe8fac248190e5cce8a61fe">receiveFromISR</a> (T_RANGE &amp;&amp;dest, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:ac4671af9bbe8fac248190e5cce8a61fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message into a writable contiguous container from an interrupt.  <br /></td></tr>
-<tr class="memitem:a1cb267a18e8222cc2c72e289fa128855" id="r_a1cb267a18e8222cc2c72e289fa128855"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:a1cb267a18e8222cc2c72e289fa128855 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a1cb267a18e8222cc2c72e289fa128855">receiveFromISR</a> (T_RANGE &amp;&amp;dest) noexcept</td></tr>
-<tr class="memdesc:a1cb267a18e8222cc2c72e289fa128855"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message from an interrupt into a contiguous container, requesting its own context switch.  <br /></td></tr>
-<tr class="memitem:aa6c5824abebf04b7bbc5c02475326dde" id="r_aa6c5824abebf04b7bbc5c02475326dde"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa6c5824abebf04b7bbc5c02475326dde">sendCompletedFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:aa6c5824abebf04b7bbc5c02475326dde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unblocks a task waiting to receive, for a writer that filled the buffer by other means, e.g.  <br /></td></tr>
-<tr class="memitem:a3618292dbba64ae4bbecc38d7be8c615" id="r_a3618292dbba64ae4bbecc38d7be8c615"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3618292dbba64ae4bbecc38d7be8c615">receiveCompletedFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:a3618292dbba64ae4bbecc38d7be8c615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unblocks a task waiting to send, for a reader that drained the buffer by other means, e.g.  <br /></td></tr>
-<tr class="memitem:a37a7b059106d8091fea3b44f5bbe9804" id="r_a37a7b059106d8091fea3b44f5bbe9804"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a37a7b059106d8091fea3b44f5bbe9804">getNextMessageLength</a> () const noexcept</td></tr>
-<tr class="memdesc:a37a7b059106d8091fea3b44f5bbe9804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the payload size of the oldest buffered message without reading it.  <br /></td></tr>
-<tr class="memitem:ae43c6ce5b75b7a41bece0b975947263f" id="r_ae43c6ce5b75b7a41bece0b975947263f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae43c6ce5b75b7a41bece0b975947263f">getSpacesAvailable</a> () const noexcept</td></tr>
-<tr class="memdesc:ae43c6ce5b75b7a41bece0b975947263f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the free space in the buffer, length headers included.  <br /></td></tr>
-<tr class="memitem:a7d4758d5952ecf329592eb6d077501e3" id="r_a7d4758d5952ecf329592eb6d077501e3"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a7d4758d5952ecf329592eb6d077501e3">getCapacity</a> () const noexcept</td></tr>
-<tr class="memdesc:a7d4758d5952ecf329592eb6d077501e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the usable buffer size, length headers included.  <br /></td></tr>
-<tr class="memitem:ac0cdf8e25be1101c88e2a89f0a109ce5" id="r_ac0cdf8e25be1101c88e2a89f0a109ce5"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac0cdf8e25be1101c88e2a89f0a109ce5">getMaxMessageSize</a> () const noexcept</td></tr>
-<tr class="memdesc:ac0cdf8e25be1101c88e2a89f0a109ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the largest payload a single message may carry in this buffer.  <br /></td></tr>
-<tr class="memitem:ae2fe3ace374b7fec7e86b8183eaa1ff8" id="r_ae2fe3ace374b7fec7e86b8183eaa1ff8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae2fe3ace374b7fec7e86b8183eaa1ff8">isEmpty</a> () const noexcept</td></tr>
-<tr class="memdesc:ae2fe3ace374b7fec7e86b8183eaa1ff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether no message is buffered.  <br /></td></tr>
-<tr class="memitem:a08505a61e4786be6ceb339cc92a90ef0" id="r_a08505a61e4786be6ceb339cc92a90ef0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a08505a61e4786be6ceb339cc92a90ef0">isFull</a> () const noexcept</td></tr>
-<tr class="memdesc:a08505a61e4786be6ceb339cc92a90ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the buffer cannot take even a one-byte message.  <br /></td></tr>
-<tr class="memitem:a0f5b82df6b3d86f401191d1b11202f96" id="r_a0f5b82df6b3d86f401191d1b11202f96"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a0f5b82df6b3d86f401191d1b11202f96">isOpen</a> () const noexcept</td></tr>
-<tr class="memdesc:a0f5b82df6b3d86f401191d1b11202f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the native message buffer exists.  <br /></td></tr>
-<tr class="memitem:a0ffd8fac7bceea277e9428076c982ad3" id="r_a0ffd8fac7bceea277e9428076c982ad3"><td class="memItemLeft">constexpr <a class="el" href="#ac7c17b15a9ccb6e449bd39651983763a">Handle</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0ffd8fac7bceea277e9428076c982ad3">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:a0ffd8fac7bceea277e9428076c982ad3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the native handle.  <br /></td></tr>
-<tr class="memitem:a8291b8075a8b9759aad6a6eb85d760c4" id="r_a8291b8075a8b9759aad6a6eb85d760c4"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a8291b8075a8b9759aad6a6eb85d760c4">operator Handle</a> () const noexcept</td></tr>
-<tr class="memdesc:a8291b8075a8b9759aad6a6eb85d760c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts implicitly to the native handle, for interop with raw FreeRTOS APIs.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a5bf99845ae67ccdd4a93374ca8ba346d" id="r_a5bf99845ae67ccdd4a93374ca8ba346d"><td class="memItemLeft">static constexpr int32_t&#160;</td><td class="memItemRight"><a class="el" href="#a5bf99845ae67ccdd4a93374ca8ba346d">NOT_FOUND</a> = -1</td></tr>
+<tr class="memdesc:a5bf99845ae67ccdd4a93374ca8ba346d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel returned by <a class="el" href="#ae51395d9b15ab5f66b471c8ce9650bf8" title="findInArray()">findInArray()</a> when no match is found.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="ac7c17b15a9ccb6e449bd39651983763a" name="ac7c17b15a9ccb6e449bd39651983763a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7c17b15a9ccb6e449bd39651983763a">&#9670;&#160;</a></span>Handle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#ac7c17b15a9ccb6e449bd39651983763a">RTOS::MessageBuffer::Handle</a> = MessageBufferHandle_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Native FreeRTOS message buffer handle. </p>
-
-</div>
-</div>
-<a id="a74349e8aa0172b4a9f4763e24b7c10a6" name="a74349e8aa0172b4a9f4763e24b7c10a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74349e8aa0172b4a9f4763e24b7c10a6">&#9670;&#160;</a></span>TickType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a74349e8aa0172b4a9f4763e24b7c10a6">RTOS::MessageBuffer::TickType</a> = TickType_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Scheduler tick count used for timeouts. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#_a3">RTOS::MessageBuffer</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aac5693009b971ce083d8600974c8908b" name="aac5693009b971ce083d8600974c8908b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac5693009b971ce083d8600974c8908b">&#9670;&#160;</a></span>MessageBuffer() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">RTOS::MessageBuffer::MessageBuffer </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initializes an empty, closed message buffer. </p>
-<p>Call <a class="el" href="#ae76c68b3fa15940e00081d6362397a59" title="open()">open()</a> or <a class="el" href="#abccf1a9247218f8db310c0a54d9e56e4" title="createStatic()">createStatic()</a> before use. </p>
-
-</div>
-</div>
-<a id="afecda8b97b8496340dedefc1ce728821" name="afecda8b97b8496340dedefc1ce728821"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afecda8b97b8496340dedefc1ce728821">&#9670;&#160;</a></span>MessageBuffer() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">RTOS::MessageBuffer::MessageBuffer </td>
-          <td>(</td>
-          <td class="paramtype">MessageBuffer &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Takes ownership of another message buffer's native handle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Instance to move from; left closed afterward. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ae36b10fc8abbb5198f64ecf91ba2054e" name="ae36b10fc8abbb5198f64ecf91ba2054e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae36b10fc8abbb5198f64ecf91ba2054e">&#9670;&#160;</a></span>~MessageBuffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">RTOS::MessageBuffer::~MessageBuffer </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Deletes the native message buffer, if open. </p>
-
-</div>
-</div>
-<a id="ab4a988933c84644d5c972a0494c15e99" name="ab4a988933c84644d5c972a0494c15e99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4a988933c84644d5c972a0494c15e99">&#9670;&#160;</a></span>MessageBuffer() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">RTOS::MessageBuffer::MessageBuffer </td>
-          <td>(</td>
-          <td class="paramtype">const MessageBuffer &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy construction is disabled because the wrapper owns a unique FreeRTOS handle. </p>
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a34199efdeb4b4ffc33966e52cb123bd8" name="a34199efdeb4b4ffc33966e52cb123bd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34199efdeb4b4ffc33966e52cb123bd8">&#9670;&#160;</a></span>close()</h2>
+<a id="aaf493b54b2fc3c74c60da99ef274b7ed" name="aaf493b54b2fc3c74c60da99ef274b7ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf493b54b2fc3c74c60da99ef274b7ed">&#9670;&#160;</a></span>contains() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -394,67 +186,37 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void RTOS::MessageBuffer::close </td>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::contains </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Deletes the native message buffer; does nothing if already closed. </p>
-<p>No task may be blocked on the buffer at this point. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a5">RTOS::MessageBuffer</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a52eed2d9c411ece46d1cf80f7fa1f19d" name="a52eed2d9c411ece46d1cf80f7fa1f19d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52eed2d9c411ece46d1cf80f7fa1f19d">&#9670;&#160;</a></span>createStatic() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::MessageBuffer::createStatic </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">StaticMessageBuffer_t &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>&#160;)</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the native message buffer in a caller-provided static storage span, if not already open. </p>
+<p>Check whether <em class="arg">input</em> contains the character <em class="arg">character</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">storage</td><td>Static storage area; must exceed the 4-byte length header by at least two bytes and outlive the buffer. The buffer holds at most one byte less than the span, length headers included. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Static control structure; must outlive the message buffer. </td></tr>
+    <tr><td class="paramname">input</td><td>String to search. </td></tr>
+    <tr><td class="paramname">character</td><td>Character to look for. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the buffer is open (newly created or already open), <b>false</b> if the parameters are invalid or creation failed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when at least one occurrence exists. </dd></dl>
 
 </div>
 </div>
-<a id="abccf1a9247218f8db310c0a54d9e56e4" name="abccf1a9247218f8db310c0a54d9e56e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abccf1a9247218f8db310c0a54d9e56e4">&#9670;&#160;</a></span>createStatic() <span class="overload">[2/2]</span></h2>
+<a id="a8cad02f05f4b973933166bd5a431f984" name="a8cad02f05f4b973933166bd5a431f984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cad02f05f4b973933166bd5a431f984">&#9670;&#160;</a></span>contains() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -463,44 +225,77 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::MessageBuffer::createStatic </td>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::contains </td>
           <td>(</td>
-          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>pattern</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check whether <em class="arg">input</em> contains the substring <em class="arg">pattern</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>String to search. </td></tr>
+    <tr><td class="paramname">pattern</td><td>Substring to look for; an empty <em class="arg">pattern</em> is always found. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when at least one occurrence exists. </dd></dl>
+
+</div>
+</div>
+<a id="a5045388a989b2e8bb8d103561ad56ba2" name="a5045388a989b2e8bb8d103561ad56ba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5045388a989b2e8bb8d103561ad56ba2">&#9670;&#160;</a></span>copyTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::copyTo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">StaticMessageBuffer_t &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>&#160;)</td>
+          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the native message buffer in caller-provided static memory, if not already open. </p>
-<p>The kernel keeps one byte of a static storage area free to tell a full buffer from an empty one, so the buffer holds at most <em class="arg">size</em> minus one bytes, length headers included.</p>
+<p>Copy <em class="arg">input</em> into <em class="arg">output</em> and append a null terminator. </p>
+<p>Nothing is written when the text and its terminator do not fit, so a truncated string is never produced.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">storage</td><td>Static storage area; must be non-null, hold at least <em class="arg">size</em> bytes and outlive the buffer. </td></tr>
-    <tr><td class="paramname">size</td><td>Size of the storage area in bytes; must exceed the 4-byte length header by at least two bytes. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Static control structure; must outlive the message buffer. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Source string. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; must hold at least 'input.size()' + 1 characters. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the buffer is open (newly created or already open), <b>false</b> if the parameters are invalid or creation failed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> when <em class="arg">output</em> is too small. </dd></dl>
 
 </div>
 </div>
-<a id="a7d4758d5952ecf329592eb6d077501e3" name="a7d4758d5952ecf329592eb6d077501e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d4758d5952ecf329592eb6d077501e3">&#9670;&#160;</a></span>getCapacity()</h2>
+<a id="a091f2b2e3a2cd0db38465256325d0299" name="a091f2b2e3a2cd0db38465256325d0299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a091f2b2e3a2cd0db38465256325d0299">&#9670;&#160;</a></span>count()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -509,27 +304,37 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::getCapacity </td>
+          <td class="memname">constexpr size_t Lib::Helper::StringHelper::count </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the usable buffer size, length headers included. </p>
-<p>A buffer in static storage holds one byte less than the storage area.</p>
-<dl class="section return"><dt>Returns</dt><dd>Capacity in bytes, or <b>0</b> if closed. </dd></dl>
+<p>Count the occurrences of <em class="arg">character</em> in <em class="arg">input</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>String to search. </td></tr>
+    <tr><td class="paramname">character</td><td>Character to count. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of occurrences. </dd></dl>
 
 </div>
 </div>
-<a id="a0ffd8fac7bceea277e9428076c982ad3" name="a0ffd8fac7bceea277e9428076c982ad3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ffd8fac7bceea277e9428076c982ad3">&#9670;&#160;</a></span>getHandle()</h2>
+<a id="a21eff6d52304772a34f2bc2d716a9d24" name="a21eff6d52304772a34f2bc2d716a9d24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21eff6d52304772a34f2bc2d716a9d24">&#9670;&#160;</a></span>endsWithIgnoreCase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -538,26 +343,37 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ac7c17b15a9ccb6e449bd39651983763a">Handle</a> RTOS::MessageBuffer::getHandle </td>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::endsWithIgnoreCase </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>suffix</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the native handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native message buffer handle, or <b>nullptr</b> if closed. </dd></dl>
+<p>Check whether <em class="arg">input</em> ends with <em class="arg">suffix</em>, ignoring ASCII letter case. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>String to test. </td></tr>
+    <tr><td class="paramname">suffix</td><td>Expected suffix. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when <em class="arg">input</em> ends with <em class="arg">suffix</em>; always <b>true</b> for an empty <em class="arg">suffix</em>. </dd></dl>
 
 </div>
 </div>
-<a id="ac0cdf8e25be1101c88e2a89f0a109ce5" name="ac0cdf8e25be1101c88e2a89f0a109ce5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0cdf8e25be1101c88e2a89f0a109ce5">&#9670;&#160;</a></span>getMaxMessageSize()</h2>
+<a id="ac641d00fe40401733c00642547895f68" name="ac641d00fe40401733c00642547895f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac641d00fe40401733c00642547895f68">&#9670;&#160;</a></span>equalsIgnoreCase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -566,26 +382,37 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::getMaxMessageSize </td>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::equalsIgnoreCase </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the largest payload a single message may carry in this buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Capacity minus the 4-byte length header, or <b>0</b> if closed. </dd></dl>
+<p>Compare two strings ignoring ASCII letter case. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">left</td><td>First string. </td></tr>
+    <tr><td class="paramname">right</td><td>Second string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when both strings have the same length and match character by character after case folding. </dd></dl>
 
 </div>
 </div>
-<a id="a37a7b059106d8091fea3b44f5bbe9804" name="a37a7b059106d8091fea3b44f5bbe9804"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a37a7b059106d8091fea3b44f5bbe9804">&#9670;&#160;</a></span>getNextMessageLength()</h2>
+<a id="ae51395d9b15ab5f66b471c8ce9650bf8" name="ae51395d9b15ab5f66b471c8ce9650bf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae51395d9b15ab5f66b471c8ce9650bf8">&#9670;&#160;</a></span>findInArray()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -594,26 +421,37 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::getNextMessageLength </td>
+          <td class="memname">constexpr int32_t Lib::Helper::StringHelper::findInArray </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>select</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *const *</td>          <td class="paramname"><span class="paramname"><em>array</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the payload size of the oldest buffered message without reading it. </p>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> if the buffer is empty or closed. </dd></dl>
+<p>Find <em class="arg">select</em> in a null-terminated array of C strings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">select</td><td>String view to search for. </td></tr>
+    <tr><td class="paramname">array</td><td>Array of C strings terminated by a <em class="arg">nullptr</em> entry; a null <em class="arg">array</em> finds nothing. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Index of the matching array entry, or <a class="el" href="#a5bf99845ae67ccdd4a93374ca8ba346d" title="NOT_FOUND">NOT_FOUND</a> if there is none. </dd></dl>
 
 </div>
 </div>
-<a id="ae43c6ce5b75b7a41bece0b975947263f" name="ae43c6ce5b75b7a41bece0b975947263f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae43c6ce5b75b7a41bece0b975947263f">&#9670;&#160;</a></span>getSpacesAvailable()</h2>
+<a id="adce7129f8a4a374627f19e75be5d33fe" name="adce7129f8a4a374627f19e75be5d33fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adce7129f8a4a374627f19e75be5d33fe">&#9670;&#160;</a></span>fromHex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -622,27 +460,38 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::getSpacesAvailable </td>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::fromHex </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the free space in the buffer, length headers included. </p>
-<p>A message fits only if its payload plus the 4-byte header is not larger than this value.</p>
-<dl class="section return"><dt>Returns</dt><dd>Free bytes, or <b>0</b> if closed. </dd></dl>
+<p>Decode hexadecimal text in <em class="arg">input</em> into bytes. </p>
+<p>Digits are accepted in either case; separators and prefixes are rejected. On success exactly 'input.size()' / 2 bytes are written; on failure the content of <em class="arg">output</em> is unspecified.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Hexadecimal text; its length must be even. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; must hold at least 'input.size()' / 2 bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on odd length, a non-hex character or a too-small <em class="arg">output</em>. </dd></dl>
 
 </div>
 </div>
-<a id="ae2fe3ace374b7fec7e86b8183eaa1ff8" name="ae2fe3ace374b7fec7e86b8183eaa1ff8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2fe3ace374b7fec7e86b8183eaa1ff8">&#9670;&#160;</a></span>isEmpty()</h2>
+<a id="a6e572eea9d5827b40949830ef8b4f3f8" name="a6e572eea9d5827b40949830ef8b4f3f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e572eea9d5827b40949830ef8b4f3f8">&#9670;&#160;</a></span>isAlpha()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -651,118 +500,32 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::MessageBuffer::isEmpty </td>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::isAlpha </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether no message is buffered. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if empty or closed. </dd></dl>
-
-</div>
-</div>
-<a id="a08505a61e4786be6ceb339cc92a90ef0" name="a08505a61e4786be6ceb339cc92a90ef0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08505a61e4786be6ceb339cc92a90ef0">&#9670;&#160;</a></span>isFull()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::MessageBuffer::isFull </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the buffer cannot take even a one-byte message. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if full, <b>false</b> if there is space or the buffer is closed. </dd></dl>
-
-</div>
-</div>
-<a id="a0f5b82df6b3d86f401191d1b11202f96" name="a0f5b82df6b3d86f401191d1b11202f96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f5b82df6b3d86f401191d1b11202f96">&#9670;&#160;</a></span>isOpen()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::MessageBuffer::isOpen </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the native message buffer exists. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if open. </dd></dl>
-
-</div>
-</div>
-<a id="ae76c68b3fa15940e00081d6362397a59" name="ae76c68b3fa15940e00081d6362397a59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae76c68b3fa15940e00081d6362397a59">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::MessageBuffer::open </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>bufferSize</em></span></td><td>)</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the native message buffer from the FreeRTOS heap, if not already open. </p>
+<p>Check whether <em class="arg">character</em> is an ASCII letter. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bufferSize</td><td>Size of the buffer in bytes, length headers included; must exceed the 4-byte header. </td></tr>
+    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the buffer is open (newly created or already open), <b>false</b> if <em class="arg">bufferSize</em> is too small or creation failed. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a1">RTOS::MessageBuffer</a>.</dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> for <em class="arg">a</em> to <em class="arg">z</em> and <em class="arg">A</em> to <em class="arg">Z</em>. </dd></dl>
 
 </div>
 </div>
-<a id="a8291b8075a8b9759aad6a6eb85d760c4" name="a8291b8075a8b9759aad6a6eb85d760c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8291b8075a8b9759aad6a6eb85d760c4">&#9670;&#160;</a></span>operator Handle()</h2>
+<a id="a9237a20526744e303840fc0f0ae682eb" name="a9237a20526744e303840fc0f0ae682eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9237a20526744e303840fc0f0ae682eb">&#9670;&#160;</a></span>isAlphaNumeric()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -771,54 +534,32 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::MessageBuffer::operator <a class="el" href="#ac7c17b15a9ccb6e449bd39651983763a">Handle</a> </td>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::isAlphaNumeric </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts implicitly to the native handle, for interop with raw FreeRTOS APIs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native message buffer handle, or <b>nullptr</b> if closed. </dd></dl>
-
-</div>
-</div>
-<a id="ac27cdba4bacb2cd0c9f5f35c0a29c9fe" name="ac27cdba4bacb2cd0c9f5f35c0a29c9fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac27cdba4bacb2cd0c9f5f35c0a29c9fe">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> &amp; RTOS::MessageBuffer::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is disabled because the wrapper owns a unique FreeRTOS handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Check whether <em class="arg">character</em> is an ASCII letter or decimal digit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when <a class="el" href="#a6e572eea9d5827b40949830ef8b4f3f8" title="isAlpha()">isAlpha()</a> or <a class="el" href="#a31c1d2ce59c3d3d5cae4eb564de28e71" title="isDigit()">isDigit()</a> holds. </dd></dl>
 
 </div>
 </div>
-<a id="afd9059379c9888200c2c9e2c091a12c5" name="afd9059379c9888200c2c9e2c091a12c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afd9059379c9888200c2c9e2c091a12c5">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a31c1d2ce59c3d3d5cae4eb564de28e71" name="a31c1d2ce59c3d3d5cae4eb564de28e71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31c1d2ce59c3d3d5cae4eb564de28e71">&#9670;&#160;</a></span>isDigit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -827,189 +568,288 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> &amp; RTOS::MessageBuffer::operator= </td>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::isDigit </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#aac5693009b971ce083d8600974c8908b">MessageBuffer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes this message buffer, then takes ownership of another message buffer's native handle. </p>
+<p>Check whether <em class="arg">character</em> is an ASCII decimal digit. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Instance to move from; left closed afterward. </td></tr>
+    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> for <em class="arg">0</em> to <em class="arg">9</em>. </dd></dl>
 
 </div>
 </div>
-<a id="aef2317c952c81b10cd9eb6d18abe3d88" name="aef2317c952c81b10cd9eb6d18abe3d88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef2317c952c81b10cd9eb6d18abe3d88">&#9670;&#160;</a></span>receive() <span class="overload">[1/4]</span></h2>
+<a id="adc2363864a22d143b3c52dd6d85c39e2" name="adc2363864a22d143b3c52dd6d85c39e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc2363864a22d143b3c52dd6d85c39e2">&#9670;&#160;</a></span>isHexDigit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::isHexDigit </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check whether <em class="arg">character</em> is an ASCII hexadecimal digit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> for <em class="arg">0</em> to <em class="arg">9</em>, <em class="arg">a</em> to <em class="arg">f</em> and <em class="arg">A</em> to <em class="arg">F</em>. </dd></dl>
+
+</div>
+</div>
+<a id="ab5d55fab639019b032452d2aed84765c" name="ab5d55fab639019b032452d2aed84765c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5d55fab639019b032452d2aed84765c">&#9670;&#160;</a></span>isPrintable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::isPrintable </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check whether <em class="arg">character</em> is printable ASCII. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> for the range from space to tilde. </dd></dl>
+
+</div>
+</div>
+<a id="a2a95a6dfb9c197c18dde158f12290aa7" name="a2a95a6dfb9c197c18dde158f12290aa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a95a6dfb9c197c18dde158f12290aa7">&#9670;&#160;</a></span>isWhitespace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::isWhitespace </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check whether <em class="arg">character</em> is ASCII whitespace. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> for space, tab, line feed, carriage return, form feed and vertical tab. </dd></dl>
+
+</div>
+</div>
+<a id="a22f2dd59b7c79dc4cc59071d50ff7aab" name="a22f2dd59b7c79dc4cc59071d50ff7aab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22f2dd59b7c79dc4cc59071d50ff7aab">&#9670;&#160;</a></span>parseInteger()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_RANGE, typename Rep, typename Period&gt; <br />
-requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;T_RANGE&gt;&gt;)</div>
+template&lt;std::integral T&gt; <br />
+requires (!std::same_as&lt;T, bool&gt;)</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::receive </td>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::parseInteger </td>
           <td>(</td>
-          <td class="paramtype">T_RANGE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>base</em></span><span class="paramdefsep"> = </span><span class="paramdefval">10U</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the oldest message into a writable contiguous container, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout. </p>
+<p>Parse <em class="arg">input</em> as an integer in the given <em class="arg">base</em>. </p>
+<p>Accepts an optional leading '+' sign, or '-' for signed <em class="arg">T</em>, followed by at least one digit. Surrounding whitespace, radix prefixes such as <em class="arg">0x</em> and any trailing characters are rejected; call <a class="el" href="#accde21de05cd8a8a240196d0c9bb5166" title="trim()">trim()</a> first if needed. <em class="arg">value</em> is left untouched on failure.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Writable, contiguous, sized range of trivially copyable elements; an lvalue or a view such as std::span. </td></tr>
-    <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
-    <tr><td class="paramname">Period</td><td>Tick period of the duration. </td></tr>
+    <tr><td class="paramname">T</td><td>Integral destination type other than <em class="arg">bool</em>. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must not be empty. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Text to parse. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Parsed result, written only on success. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">base</td><td>Numeric base from 2 to 36; digits above 9 are letters in either case. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of <em class="arg">dest</em>, or <b>0</b> as for the pointer overload. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a malformed number, overflow or invalid <em class="arg">base</em>. </dd></dl>
 
 </div>
 </div>
-<a id="ac11eec5d444a52705627fa96d446acc1" name="ac11eec5d444a52705627fa96d446acc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac11eec5d444a52705627fa96d446acc1">&#9670;&#160;</a></span>receive() <span class="overload">[2/4]</span></h2>
+<a id="aa7ad4131c34e89def6b673fa2c7ca98f" name="aa7ad4131c34e89def6b673fa2c7ca98f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7ad4131c34e89def6b673fa2c7ca98f">&#9670;&#160;</a></span>replaceInPlace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr size_t Lib::Helper::StringHelper::replaceInPlace </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>from</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>to</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Replace every occurrence of <em class="arg">from</em> with <em class="arg">to</em> in <em class="arg">buffer</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">buffer</td><td>Characters to edit; modified in place. </td></tr>
+    <tr><td class="paramname">from</td><td>Character to replace. </td></tr>
+    <tr><td class="paramname">to</td><td>Replacement character. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of replaced characters. </dd></dl>
+
+</div>
+</div>
+<a id="a56b87223e35dbc0754e09942c94c7d85" name="a56b87223e35dbc0754e09942c94c7d85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56b87223e35dbc0754e09942c94c7d85">&#9670;&#160;</a></span>split()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;T_RANGE&gt;&gt;)</div>
+template&lt;typename F&gt; <br />
+requires std::invocable&lt;F &amp;, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&gt;</div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::receive </td>
+          <td class="memname">constexpr void Lib::Helper::StringHelper::split </td>
           <td>(</td>
-          <td class="paramtype">T_RANGE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a74349e8aa0172b4a9f4763e24b7c10a6">TickType</a></td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span>&#160;)</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>delimiter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">F &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the oldest message into a writable contiguous container, blocking up to a timeout. </p>
-<p>A temporary owning container is rejected at compile time, since the payload would be lost with it.</p>
+<p>Split <em class="arg">input</em> by <em class="arg">delimiter</em> and invoke <em class="arg">callback</em> once for each token. </p>
+<p>Every token, including empty ones between adjacent delimiters and the one after the last delimiter, is passed as a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html" title="std::string_view">std::string_view</a> referencing the original input.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Writable, contiguous, sized range of trivially copyable elements; an lvalue or a view such as std::span. </td></tr>
+    <tr><td class="paramname">F</td><td>Callable type invocable with a single <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html" title="std::string_view">std::string_view</a> argument. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must not be empty. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">blockTime</td><td>Maximum number of ticks to block; <em class="arg">0</em> polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
+    <tr><td class="paramname">input</td><td>String to split. </td></tr>
+    <tr><td class="paramname">delimiter</td><td>Character used as token separator. </td></tr>
+    <tr><td class="paramname">callback</td><td>Function to call for each token. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of <em class="arg">dest</em>, or <b>0</b> as for the pointer overload; not necessarily a whole multiple of the element size. </dd></dl>
 
 </div>
 </div>
-<a id="a8d2c0700e62b2af3dde3e9e6bf271e65" name="a8d2c0700e62b2af3dde3e9e6bf271e65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d2c0700e62b2af3dde3e9e6bf271e65">&#9670;&#160;</a></span>receive() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::receive </td>
-          <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reads the oldest message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for one to arrive. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
-    <tr><td class="paramname">Period</td><td>Tick period of the duration. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> on timeout, if <em class="arg">dest</em> is too small for the next message, or if the buffer is closed. </dd></dl>
-
-</div>
-</div>
-<a id="a8bc5b3b484124680e0b606c983ee095e" name="a8bc5b3b484124680e0b606c983ee095e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bc5b3b484124680e0b606c983ee095e">&#9670;&#160;</a></span>receive() <span class="overload">[4/4]</span></h2>
+<a id="a07f671da48f9d7c420853de5a5cc769b" name="a07f671da48f9d7c420853de5a5cc769b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f671da48f9d7c420853de5a5cc769b">&#9670;&#160;</a></span>splitTo()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1018,45 +858,44 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::receive </td>
+          <td class="memname">constexpr size_t Lib::Helper::StringHelper::splitTo </td>
           <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>delimiter</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a74349e8aa0172b4a9f4763e24b7c10a6">TickType</a></td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span>&#160;)</td>
+          <td class="paramtype">std::span&lt; <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the oldest message, blocking up to a timeout for one to arrive. </p>
+<p>Split <em class="arg">input</em> by <em class="arg">delimiter</em> into the caller-supplied <em class="arg">tokens</em> array. </p>
+<p>Tokenization follows the same rules as <a class="el" href="#a56b87223e35dbc0754e09942c94c7d85" title="split()">split()</a>. When <em class="arg">input</em> holds more tokens than <em class="arg">tokens</em> can store, the last stored token holds the unsplit remainder of the input, so no text is ever lost.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">blockTime</td><td>Maximum number of ticks to block; <em class="arg">0</em> polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">input</td><td>String to split. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">delimiter</td><td>Character used as token separator. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tokens</td><td>Destination array of views referencing <em class="arg">input</em>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> on timeout, if <em class="arg">dest</em> is too small for the next message, or if the buffer is closed. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a4">RTOS::MessageBuffer</a>.</dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of tokens stored; <b>0</b> only when <em class="arg">tokens</em> is empty. </dd></dl>
 
 </div>
 </div>
-<a id="a3618292dbba64ae4bbecc38d7be8c615" name="a3618292dbba64ae4bbecc38d7be8c615"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3618292dbba64ae4bbecc38d7be8c615">&#9670;&#160;</a></span>receiveCompletedFromISR()</h2>
+<a id="a29631573c86b1e1d6ba1a5819a1cff86" name="a29631573c86b1e1d6ba1a5819a1cff86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29631573c86b1e1d6ba1a5819a1cff86">&#9670;&#160;</a></span>startsWithIgnoreCase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1065,129 +904,37 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::MessageBuffer::receiveCompletedFromISR </td>
+          <td class="memname">constexpr bool Lib::Helper::StringHelper::startsWithIgnoreCase </td>
           <td>(</td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Unblocks a task waiting to send, for a reader that drained the buffer by other means, e.g. </p>
-<p>by DMA.</p>
-<p>Only needed when the kernel's own <b>sbRECEIVE_COMPLETED()</b> hook is replaced; a regular <a class="el" href="#a8bc5b3b484124680e0b606c983ee095e" title="receive()">receive()</a> already does this.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the writer was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a blocked writer was unblocked, <b>false</b> if none was waiting or the buffer is closed. </dd></dl>
-
-</div>
-</div>
-<a id="a1cb267a18e8222cc2c72e289fa128855" name="a1cb267a18e8222cc2c72e289fa128855"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cb267a18e8222cc2c72e289fa128855">&#9670;&#160;</a></span>receiveFromISR() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;T_RANGE&gt;&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::receiveFromISR </td>
-          <td>(</td>
-          <td class="paramtype">T_RANGE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>dest</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reads the oldest message from an interrupt into a contiguous container, requesting its own context switch. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Writable, contiguous, sized range of trivially copyable elements; an lvalue or a view such as std::span. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must not be empty. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of <em class="arg">dest</em>, or <b>0</b> as for the pointer overload. </dd></dl>
-
-</div>
-</div>
-<a id="ac4671af9bbe8fac248190e5cce8a61fe" name="ac4671af9bbe8fac248190e5cce8a61fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4671af9bbe8fac248190e5cce8a61fe">&#9670;&#160;</a></span>receiveFromISR() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;T_RANGE&gt;&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::receiveFromISR </td>
-          <td>(</td>
-          <td class="paramtype">T_RANGE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>prefix</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the oldest message into a writable contiguous container from an interrupt. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Writable, contiguous, sized range of trivially copyable elements; an lvalue or a view such as std::span. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Check whether <em class="arg">input</em> begins with <em class="arg">prefix</em>, ignoring ASCII letter case. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must not be empty. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the writer was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
+    <tr><td class="paramname">input</td><td>String to test. </td></tr>
+    <tr><td class="paramname">prefix</td><td>Expected prefix. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of <em class="arg">dest</em>, or <b>0</b> as for the pointer overload. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when <em class="arg">input</em> starts with <em class="arg">prefix</em>; always <b>true</b> for an empty <em class="arg">prefix</em>. </dd></dl>
 
 </div>
 </div>
-<a id="aa2cbd475f54d4d04bd40a1470fb8d0ea" name="aa2cbd475f54d4d04bd40a1470fb8d0ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2cbd475f54d4d04bd40a1470fb8d0ea">&#9670;&#160;</a></span>receiveFromISR() <span class="overload">[3/4]</span></h2>
+<a id="ad92ab1e3ab5301dea791138d956fb09e" name="ad92ab1e3ab5301dea791138d956fb09e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad92ab1e3ab5301dea791138d956fb09e">&#9670;&#160;</a></span>toHex()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1196,37 +943,43 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::receiveFromISR </td>
+          <td class="memname">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Helper::StringHelper::toHex </td>
           <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>upperCase</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the oldest message from an interrupt, requesting a context switch if the writer was unblocked. </p>
+<p>Encode <em class="arg">input</em> as hexadecimal text, two characters per byte, most significant nibble first. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Bytes to encode. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; must hold at least 2 * 'input.size()' characters. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">upperCase</td><td><em class="arg">true</em> for <em class="arg">A</em> to <em class="arg">F</em>, <em class="arg">false</em> for <em class="arg">a</em> to <em class="arg">f</em>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> if no message fits, the buffer is empty or closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>View of the encoded text inside <em class="arg">output</em>, or an empty view when <em class="arg">output</em> is too small. </dd></dl>
 
 </div>
 </div>
-<a id="a628659ce57bfd336fc92c684a7df4f3e" name="a628659ce57bfd336fc92c684a7df4f3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a628659ce57bfd336fc92c684a7df4f3e">&#9670;&#160;</a></span>receiveFromISR() <span class="overload">[4/4]</span></h2>
+<a id="a0ca94c3562d49e908992178c0e94254c" name="a0ca94c3562d49e908992178c0e94254c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ca94c3562d49e908992178c0e94254c">&#9670;&#160;</a></span>toLowerCase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1235,43 +988,37 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::receiveFromISR </td>
+          <td class="memname">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Helper::StringHelper::toLowerCase </td>
           <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
+          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the oldest message from an interrupt, leaving the context switch request to the caller. </p>
+<p>Convert <em class="arg">input</em> to its lower-case representation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the writer was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Source string view to convert. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; must hold at least 'input.size()' characters. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> if no message fits, the buffer is empty or closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>View of the converted characters inside <em class="arg">output</em>, or an empty view when <em class="arg">output</em> is too small. </dd></dl>
 
 </div>
 </div>
-<a id="aa3b10347853e829732465409e3735500" name="aa3b10347853e829732465409e3735500"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3b10347853e829732465409e3735500">&#9670;&#160;</a></span>reset()</h2>
+<a id="aa489df5b828be650c52d25ff4cb6c66b" name="aa489df5b828be650c52d25ff4cb6c66b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa489df5b828be650c52d25ff4cb6c66b">&#9670;&#160;</a></span>toLowerCaseInPlace()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1280,183 +1027,31 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::MessageBuffer::reset </td>
+          <td class="memname">constexpr void Lib::Helper::StringHelper::toLowerCaseInPlace </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Discards every buffered message. </p>
-<p>FreeRTOS refuses the reset while a task is blocked sending to or receiving from the buffer.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the buffer was reset, <b>false</b> if it is closed or a task is blocked on it. </dd></dl>
-
-</div>
-</div>
-<a id="a3b439ce9bde0121286ae234701343bf7" name="a3b439ce9bde0121286ae234701343bf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b439ce9bde0121286ae234701343bf7">&#9670;&#160;</a></span>send() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_RANGE, typename Rep, typename Period&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::send </td>
-          <td>(</td>
-          <td class="paramtype">const T_RANGE &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes the bytes of a contiguous container as one message, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout. </p>
-<p>Any contiguous, sized range, such as <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html" title="std::array">std::array</a> or std::span, is accepted.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Contiguous, sized range of trivially copyable elements. </td></tr>
-    <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
-    <tr><td class="paramname">Period</td><td>Tick period of the duration. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Convert <em class="arg">buffer</em> to lower case in place. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">range</td><td>Message payload; must not be empty. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Characters to convert; modified in place. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, <b>0</b> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="ad16d5ca2a80de79ba48343d0bfccee65" name="ad16d5ca2a80de79ba48343d0bfccee65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad16d5ca2a80de79ba48343d0bfccee65">&#9670;&#160;</a></span>send() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::send </td>
-          <td>(</td>
-          <td class="paramtype">const T_RANGE &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#a74349e8aa0172b4a9f4763e24b7c10a6">TickType</a></td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes the bytes of a contiguous container (e.g. </p>
-<p><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html" title="std::array">std::array</a>, std::span) as one message.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Contiguous, sized range of trivially copyable elements. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">range</td><td>Message payload; must not be empty. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; <em class="arg">0</em> polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, <b>0</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a1712e848853501aa71fc5c2964e1f69b" name="a1712e848853501aa71fc5c2964e1f69b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1712e848853501aa71fc5c2964e1f69b">&#9670;&#160;</a></span>send() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::send </td>
-          <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes one message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout until it fits as a whole. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
-    <tr><td class="paramname">Period</td><td>Tick period of the duration. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>Message payload; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Payload size in bytes; must be in the range 1 to <a class="el" href="#ac0cdf8e25be1101c88e2a89f0a109ce5" title="getMaxMessageSize()">getMaxMessageSize()</a>. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">length</em> if the message was written, <b>0</b> on timeout, invalid parameters or a closed buffer. </dd></dl>
-
-</div>
-</div>
-<a id="a10110decaf3c897711e612ba455525cd" name="a10110decaf3c897711e612ba455525cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10110decaf3c897711e612ba455525cd">&#9670;&#160;</a></span>send() <span class="overload">[4/4]</span></h2>
+<a id="af0552b4dd5288a0feaa8e6dc5dc92764" name="af0552b4dd5288a0feaa8e6dc5dc92764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0552b4dd5288a0feaa8e6dc5dc92764">&#9670;&#160;</a></span>toUpperCase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1465,45 +1060,37 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::send </td>
+          <td class="memname">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Helper::StringHelper::toUpperCase </td>
           <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#a74349e8aa0172b4a9f4763e24b7c10a6">TickType</a></td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span>&#160;)</td>
+          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes one message, blocking up to a timeout until it fits as a whole. </p>
+<p>Convert <em class="arg">input</em> to its upper-case representation. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">source</td><td>Message payload; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Payload size in bytes; must be in the range 1 to <a class="el" href="#ac0cdf8e25be1101c88e2a89f0a109ce5" title="getMaxMessageSize()">getMaxMessageSize()</a>. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; <em class="arg">0</em> polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Source string view to convert. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; must hold at least 'input.size()' characters. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">length</em> if the message was written, <b>0</b> on timeout, invalid parameters or a closed buffer. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d2/def/a06271.html#a2">RTOS::MessageBuffer</a>.</dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>View of the converted characters inside <em class="arg">output</em>, or an empty view when <em class="arg">output</em> is too small. </dd></dl>
 
 </div>
 </div>
-<a id="aa6c5824abebf04b7bbc5c02475326dde" name="aa6c5824abebf04b7bbc5c02475326dde"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6c5824abebf04b7bbc5c02475326dde">&#9670;&#160;</a></span>sendCompletedFromISR()</h2>
+<a id="a1019248640c9b2d3f8b01487c240b135" name="a1019248640c9b2d3f8b01487c240b135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1019248640c9b2d3f8b01487c240b135">&#9670;&#160;</a></span>toUpperCaseInPlace()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1512,127 +1099,31 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::MessageBuffer::sendCompletedFromISR </td>
+          <td class="memname">constexpr void Lib::Helper::StringHelper::toUpperCaseInPlace </td>
           <td>(</td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Unblocks a task waiting to receive, for a writer that filled the buffer by other means, e.g. </p>
-<p>by DMA.</p>
-<p>Only needed when the kernel's own <b>sbSEND_COMPLETED()</b> hook is replaced; a regular <a class="el" href="#a10110decaf3c897711e612ba455525cd" title="send()">send()</a> already does this.</p>
+<p>Convert <em class="arg">buffer</em> to upper case in place. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the reader was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Characters to convert; modified in place. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a blocked reader was unblocked, <b>false</b> if none was waiting or the buffer is closed. </dd></dl>
 
 </div>
 </div>
-<a id="a2501fe0571b8f54168f0fd0c4eb69a79" name="a2501fe0571b8f54168f0fd0c4eb69a79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2501fe0571b8f54168f0fd0c4eb69a79">&#9670;&#160;</a></span>sendFromISR() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::sendFromISR </td>
-          <td>(</td>
-          <td class="paramtype">const T_RANGE &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes a contiguous container as one message from an interrupt and requests its own context switch. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Contiguous, sized range of trivially copyable elements. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">range</td><td>Message payload; must not be empty. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, <b>0</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="ac2348e2ae7121c4ad8c163c4f5d26d52" name="ac2348e2ae7121c4ad8c163c4f5d26d52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2348e2ae7121c4ad8c163c4f5d26d52">&#9670;&#160;</a></span>sendFromISR() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
-&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::sendFromISR </td>
-          <td>(</td>
-          <td class="paramtype">const T_RANGE &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes a contiguous container as one message from an interrupt, leaving the switch to the caller. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Contiguous, sized range of trivially copyable elements. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">range</td><td>Message payload; must not be empty. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the reader was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, <b>0</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a895f6a523a73fe0a86afc445c60cad95" name="a895f6a523a73fe0a86afc445c60cad95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a895f6a523a73fe0a86afc445c60cad95">&#9670;&#160;</a></span>sendFromISR() <span class="overload">[3/4]</span></h2>
+<a id="accde21de05cd8a8a240196d0c9bb5166" name="accde21de05cd8a8a240196d0c9bb5166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#accde21de05cd8a8a240196d0c9bb5166">&#9670;&#160;</a></span>trim()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1641,37 +1132,32 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::sendFromISR </td>
+          <td class="memname">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Helper::StringHelper::trim </td>
           <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes one message from an interrupt and requests a context switch itself if the reader was unblocked. </p>
+<p>Trim leading and trailing ASCII whitespace from <em class="arg">input</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">source</td><td>Message payload; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Payload size in bytes; must be in the range 1 to <a class="el" href="#ac0cdf8e25be1101c88e2a89f0a109ce5" title="getMaxMessageSize()">getMaxMessageSize()</a>. </td></tr>
+    <tr><td class="paramname">input</td><td>String view to trim. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">length</em> if the message was written, <b>0</b> if it did not fit, the parameters are invalid or the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Substring view referencing the trimmed range; an empty view when the input contains only whitespace. </dd></dl>
 
 </div>
 </div>
-<a id="a0b7914e52386e01c6613b3d9486aa91d" name="a0b7914e52386e01c6613b3d9486aa91d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b7914e52386e01c6613b3d9486aa91d">&#9670;&#160;</a></span>sendFromISR() <span class="overload">[4/4]</span></h2>
+<a id="aea358f48a1889dd86758b74f73595281" name="aea358f48a1889dd86758b74f73595281"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea358f48a1889dd86758b74f73595281">&#9670;&#160;</a></span>trimLeft()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1680,38 +1166,86 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::MessageBuffer::sendFromISR </td>
+          <td class="memname">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Helper::StringHelper::trimLeft </td>
           <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes one message from an interrupt, leaving the context switch request to the caller. </p>
+<p>Trim leading ASCII whitespace from <em class="arg">input</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">source</td><td>Message payload; must be non-null. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Payload size in bytes; must be in the range 1 to <a class="el" href="#ac0cdf8e25be1101c88e2a89f0a109ce5" title="getMaxMessageSize()">getMaxMessageSize()</a>. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the reader was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
+    <tr><td class="paramname">input</td><td>String view to trim. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">length</em> if the message was written, <b>0</b> if it did not fit, the parameters are invalid or the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Substring view referencing the trimmed range; an empty view when the input contains only whitespace. </dd></dl>
+
+</div>
+</div>
+<a id="ab10075b04e08bef0a431f89a173b9741" name="ab10075b04e08bef0a431f89a173b9741"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab10075b04e08bef0a431f89a173b9741">&#9670;&#160;</a></span>trimRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Helper::StringHelper::trimRight </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Trim trailing ASCII whitespace from <em class="arg">input</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>String view to trim. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Substring view referencing the trimmed range; an empty view when the input contains only whitespace. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a5bf99845ae67ccdd4a93374ca8ba346d" name="a5bf99845ae67ccdd4a93374ca8ba346d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bf99845ae67ccdd4a93374ca8ba346d">&#9670;&#160;</a></span>NOT_FOUND</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t Lib::Helper::StringHelper::NOT_FOUND = -1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sentinel returned by <a class="el" href="#ae51395d9b15ab5f66b471c8ce9650bf8" title="findInArray()">findInArray()</a> when no match is found. </p>
 
 </div>
 </div>

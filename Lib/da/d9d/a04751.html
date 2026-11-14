@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::Voltmeter&lt; T_DERIVED &gt;</title>
+<title>IAR EWARM Library: Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d7/df2/a01000.html">BSP</a></li><li class="navelem"><a href="../../da/d9d/a04751.html">Voltmeter</a></li>  </ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../d3/d42/a01051.html">BSP</a></li><li class="navelem"><a href="../../d9/db3/a01064.html">Thermometer</a></li><li class="navelem"><a href="../../d0/dc9/a01065.html">DTH</a></li><li class="navelem"><a href="../../da/d9d/a04751.html">Driver&lt; Type::DTH22 &gt;</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -99,76 +99,116 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="../../dc/d42/a04748.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::Voltmeter&lt; T_DERIVED &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Voltmeter for ADC voltage measurement with integration, interpolation and change notification.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED = void&gt;<br />
-class Lib::BSP::Voltmeter&lt; T_DERIVED &gt;</div><p>Voltmeter for ADC voltage measurement with integration, interpolation and change notification. </p>
-<p>Reads raw ADC values periodically from one regular ADC channel through a single-slot DMA scan. Each value is averaged over a fixed window of five samples, converted to voltage by linear interpolation, and reported through <a class="el" href="#a0867be0757674c033a721efb796a8e39" title="handleValueChanged()">handleValueChanged()</a> when the voltage changes.</p>
-<p>Registered with <a class="el" href="../../d2/d5e/a04363.html" title="DeviceManager::DeviceBase">DeviceManager::DeviceBase</a>, which drives <a class="el" href="../../d2/d5e/a04363.html#a3a024a69ffe1d880ec5fedbf8428726a" title="handleTickEvent()">handleTickEvent()</a> from the shared tick timer. A derived class passes itself as <em class="arg">T_DERIVED</em> and overrides <a class="el" href="#a0867be0757674c033a721efb796a8e39" title="handleValueChanged()">handleValueChanged()</a>; the CRTP static_cast in <a class="el" href="../../d2/d5e/a04363.html#a3a024a69ffe1d880ec5fedbf8428726a" title="handleTickEvent()">handleTickEvent()</a> selects that override, so there is no virtual call.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Concrete voltmeter overriding <a class="el" href="#a0867be0757674c033a721efb796a8e39" title="handleValueChanged()">handleValueChanged()</a>, or <em class="arg">void</em> to use <a class="el" href="../../da/d9d/a04751.html" title="Voltmeter">Voltmeter</a> directly.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/Voltmeter/Voltmeter.hpp" target="_blank">Source</a> </dd></dl>
+<div class="textblock"><p>Concrete driver implementation for the DHT22 sensor. </p>
+<p>Specializes the Base template for DHT22, implementing the one-wire protocol timing and data frame processing specific to DHT22 sensors. Provides temperature and humidity readings with diagnostic counters for monitoring data reception and validation health. Dispatched through CRTP instead of virtual calls. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../df/d9b/a04755.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware binding and timing parameters of the voltmeter.  <a href="../../df/d9b/a04755.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Diagnostic" id="r_Diagnostic"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../df/d9b/a04755.html">Diagnostic</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Exported configuration type from the base class.  <a href="../../df/d9b/a04755.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0f038c75a30b2d6cd8382c776fddd2bb" id="r_a0f038c75a30b2d6cd8382c776fddd2bb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0f038c75a30b2d6cd8382c776fddd2bb">Voltmeter</a> (const <a class="el" href="../../df/d9b/a04755.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a0f038c75a30b2d6cd8382c776fddd2bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the voltmeter to the supplied ADC handle and channel and stores the update period.  <br /></td></tr>
-<tr class="memitem:aef6d6cecbcd23016ebff9b46c2cf3ce0" id="r_aef6d6cecbcd23016ebff9b46c2cf3ce0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aef6d6cecbcd23016ebff9b46c2cf3ce0">setup</a> () noexcept</td></tr>
-<tr class="memdesc:aef6d6cecbcd23016ebff9b46c2cf3ce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the voltmeter and starts the ADC DMA measurement cycle.  <br /></td></tr>
-<tr class="memitem:ac23395cb420c81ab42a23e604cf05f18" id="r_ac23395cb420c81ab42a23e604cf05f18"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ac23395cb420c81ab42a23e604cf05f18">getVoltage</a> () const noexcept</td></tr>
-<tr class="memdesc:ac23395cb420c81ab42a23e604cf05f18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the last measured voltage value.  <br /></td></tr>
-<tr class="memitem:a0867be0757674c033a721efb796a8e39" id="r_a0867be0757674c033a721efb796a8e39"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0867be0757674c033a721efb796a8e39">handleValueChanged</a> (float value) noexcept</td></tr>
-<tr class="memdesc:a0867be0757674c033a721efb796a8e39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a change of the measured voltage.  <br /></td></tr>
+<tr class="memitem:ab07845254f409b109812886c271c23fd" id="r_ab07845254f409b109812886c271c23fd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab07845254f409b109812886c271c23fd">Driver</a> (const Config &amp;config) noexcept</td></tr>
+<tr class="memdesc:ab07845254f409b109812886c271c23fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the DHT22 driver with the given hardware configuration.  <br /></td></tr>
+<tr class="memitem:a0d29d1fa0f72b7e7ee12c096389e8711" id="r_a0d29d1fa0f72b7e7ee12c096389e8711"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0d29d1fa0f72b7e7ee12c096389e8711">~Driver</a> () noexcept=default</td></tr>
+<tr class="memdesc:a0d29d1fa0f72b7e7ee12c096389e8711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-virtual: an instance is never destroyed through a base pointer, so the class stays free of a vtable.  <br /></td></tr>
+<tr class="memitem:a7bb2909673708c9ad956bc98034da91d" id="r_a7bb2909673708c9ad956bc98034da91d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7bb2909673708c9ad956bc98034da91d">start</a> () noexcept</td></tr>
+<tr class="memdesc:a7bb2909673708c9ad956bc98034da91d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the DHT22 sensor driver and polling task.  <br /></td></tr>
+<tr class="memitem:ae20843f3a9105a0d355f64cdb1096f9c" id="r_ae20843f3a9105a0d355f64cdb1096f9c"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ae20843f3a9105a0d355f64cdb1096f9c">getTemperature</a> () const noexcept</td></tr>
+<tr class="memdesc:ae20843f3a9105a0d355f64cdb1096f9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the last measured temperature value.  <br /></td></tr>
+<tr class="memitem:af1b0389aae714142b8a606106d0a4a56" id="r_af1b0389aae714142b8a606106d0a4a56"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#af1b0389aae714142b8a606106d0a4a56">getHumidity</a> () const noexcept</td></tr>
+<tr class="memdesc:af1b0389aae714142b8a606106d0a4a56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the last measured humidity value.  <br /></td></tr>
+<tr class="memitem:ab776af450b94ccff9151de29e820c940" id="r_ab776af450b94ccff9151de29e820c940"><td class="memItemLeft">int16_t&#160;</td><td class="memItemRight"><a class="el" href="#ab776af450b94ccff9151de29e820c940">getRawTemperature</a> () const noexcept</td></tr>
+<tr class="memdesc:ab776af450b94ccff9151de29e820c940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the last measured raw temperature value.  <br /></td></tr>
+<tr class="memitem:a3e8dacb5fd8d85536ca9a3c31f6feffd" id="r_a3e8dacb5fd8d85536ca9a3c31f6feffd"><td class="memItemLeft">int16_t&#160;</td><td class="memItemRight"><a class="el" href="#a3e8dacb5fd8d85536ca9a3c31f6feffd">getRawHumidity</a> () const noexcept</td></tr>
+<tr class="memdesc:a3e8dacb5fd8d85536ca9a3c31f6feffd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the last measured raw humidity value.  <br /></td></tr>
+<tr class="memitem:a1bc076c8cc5e10883a332ef5f6a090ee" id="r_a1bc076c8cc5e10883a332ef5f6a090ee"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1bc076c8cc5e10883a332ef5f6a090ee">hasNewData</a> () noexcept</td></tr>
+<tr class="memdesc:a1bc076c8cc5e10883a332ef5f6a090ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether new sensor data has been received since the last query.  <br /></td></tr>
+<tr class="memitem:a76b28ab92569b5bf36888ef2cb155f63" id="r_a76b28ab92569b5bf36888ef2cb155f63"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a76b28ab92569b5bf36888ef2cb155f63">isValidData</a> () const noexcept</td></tr>
+<tr class="memdesc:a76b28ab92569b5bf36888ef2cb155f63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the last received data is valid and within acceptable ranges.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a641741551ee87f815b7ca238c2fce09c" id="r_a641741551ee87f815b7ca238c2fce09c"><td class="memItemLeft"><a class="el" href="../../df/d9b/a04755.html">Diagnostic</a>&#160;</td><td class="memItemRight"><a class="el" href="#a641741551ee87f815b7ca238c2fce09c">diagnostic</a></td></tr>
+<tr class="memdesc:a641741551ee87f815b7ca238c2fce09c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diagnostic counters instance.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a9c9b1adf3f4cdaad9fee54301cb21f1f" id="r_a9c9b1adf3f4cdaad9fee54301cb21f1f"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d13/a04739.html#a9c9b1adf3f4cdaad9fee54301cb21f1f">PinHandle</a></td></tr>
+<tr class="memdesc:a9c9b1adf3f4cdaad9fee54301cb21f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO pin handle type.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a299662c9e9bdb346771579418056dccf" id="r_a299662c9e9bdb346771579418056dccf"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d2/d5e/a04363.html#a299662c9e9bdb346771579418056dccf">registerDevice</a> () noexcept</td></tr>
-<tr class="memdesc:a299662c9e9bdb346771579418056dccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds this device to the <a class="el" href="../../dd/d20/a04359.html" title="DeviceManager">DeviceManager</a> registry.  <br /></td></tr>
+<tr class="memitem:a049430e063b46db8f7e7401c0af75df7" id="r_a049430e063b46db8f7e7401c0af75df7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d13/a04739.html#a049430e063b46db8f7e7401c0af75df7">writePinState</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d7/d60/a00816.html#ga5b3ef0486b179415581eb342e0ea6b43">GPIO_PinState</a> state) noexcept</td></tr>
+<tr class="memdesc:a049430e063b46db8f7e7401c0af75df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a GPIO pin state for sensor communication.  <br /></td></tr>
+<tr class="memitem:ab0b91e6ca971b92cc9b60de925eeceae" id="r_ab0b91e6ca971b92cc9b60de925eeceae"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d13/a04739.html#ab0b91e6ca971b92cc9b60de925eeceae">startupImpulse</a> (uint32_t impulseDuration) noexcept</td></tr>
+<tr class="memdesc:ab0b91e6ca971b92cc9b60de925eeceae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the startup impulse to the DHT sensor.  <br /></td></tr>
+<tr class="memitem:a63785a9b88d7556f54e1e71118a760d4" id="r_a63785a9b88d7556f54e1e71118a760d4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d13/a04739.html#a63785a9b88d7556f54e1e71118a760d4">endReceivedData</a> () noexcept</td></tr>
+<tr class="memdesc:a63785a9b88d7556f54e1e71118a760d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Completes data reception and releases the sensor line.  <br /></td></tr>
+<tr class="memitem:a9e2aee6a61daef81b7ccc8c2b3a73031" id="r_a9e2aee6a61daef81b7ccc8c2b3a73031"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d13/a04739.html#a9e2aee6a61daef81b7ccc8c2b3a73031">beginReceiveData</a> (uint32_t *data, size_t length) noexcept</td></tr>
+<tr class="memdesc:a9e2aee6a61daef81b7ccc8c2b3a73031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initiates DMA-based input capture for sensor data reception.  <br /></td></tr>
+<tr class="memitem:a9b5b96a6106c15c974463750529471d0" id="r_a9b5b96a6106c15c974463750529471d0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d13/a04739.html#a9b5b96a6106c15c974463750529471d0">waitForComplete</a> (uint32_t timeout) noexcept</td></tr>
+<tr class="memdesc:a9b5b96a6106c15c974463750529471d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for data reception completion.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a5cabeda795635eeccd12383109ddf96c" id="r_a5cabeda795635eeccd12383109ddf96c"><td class="memItemLeft"><a class="el" href="../../d7/df2/a01000.html#a2cacda540ff04115fe891c00364a43a6">Interpolator</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5cabeda795635eeccd12383109ddf96c">interpolator</a></td></tr>
-<tr class="memdesc:a5cabeda795635eeccd12383109ddf96c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linear interpolator for converting ADC values to voltage.  <br /></td></tr>
+<tr class="memitem:a3b31347dab82ede045f6e076046e5762" id="r_a3b31347dab82ede045f6e076046e5762"><td class="memItemLeft">Config&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d13/a04739.html#a3b31347dab82ede045f6e076046e5762">config</a></td></tr>
+<tr class="memdesc:a3b31347dab82ede045f6e076046e5762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensor driver configuration.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:af5908117d248071190096967e686c5a3" id="r_af5908117d248071190096967e686c5a3"><td class="memItemLeft">class&#160;</td><td class="memItemRight"><a class="el" href="#af5908117d248071190096967e686c5a3">DeviceManager::DeviceBase</a></td></tr>
-<tr class="memdesc:af5908117d248071190096967e686c5a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lets DeviceBase's CRTP constructor bind the private handleTickEvent().  <br /></td></tr>
+<tr class="memitem:a563861f233361c18a30fd9049d7abd7a" id="r_a563861f233361c18a30fd9049d7abd7a"><td class="memItemLeft">class&#160;</td><td class="memItemRight"><a class="el" href="#a563861f233361c18a30fd9049d7abd7a">Base&lt; Driver&lt; Type::DTH22 &gt; &gt;</a></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0f038c75a30b2d6cd8382c776fddd2bb" name="a0f038c75a30b2d6cd8382c776fddd2bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f038c75a30b2d6cd8382c776fddd2bb">&#9670;&#160;</a></span>Voltmeter()</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a9c9b1adf3f4cdaad9fee54301cb21f1f" name="a9c9b1adf3f4cdaad9fee54301cb21f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c9b1adf3f4cdaad9fee54301cb21f1f">&#9670;&#160;</a></span>PinHandle</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../da/d9d/a04751.html">Lib::BSP::Voltmeter</a>&lt; T_DERIVED &gt;::Voltmeter </td>
+          <td class="memname">using <a class="el" href="../../d5/d13/a04739.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; <a class="el" href="#ab07845254f409b109812886c271c23fd">Driver</a>&lt; Type::DTH22 &gt; &gt;<a class="el" href="../../db/d77/a00683.html#acd389cc92a6a175118816d170af42e10">::PinHandle</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>GPIO pin handle type. </p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab07845254f409b109812886c271c23fd" name="ab07845254f409b109812886c271c23fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab07845254f409b109812886c271c23fd">&#9670;&#160;</a></span>Driver()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::Driver </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../df/d9b/a04755.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramtype">const Config &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -179,90 +219,46 @@ template&lt;typename T_DERIVED = void&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the voltmeter to the supplied ADC handle and channel and stores the update period. </p>
-<p>Does not start the measurement cycle; <a class="el" href="#aef6d6cecbcd23016ebff9b46c2cf3ce0" title="setup()">setup()</a> does that.</p>
+<p>Constructs the DHT22 driver with the given hardware configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Hardware binding and timing parameters.</td></tr>
+    <tr><td class="paramname">config</td><td>Hardware configuration including timer and GPIO handles. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd>config.adc != nullptr </dd>
-<dd>
-config.periodMs &gt; 0 </dd></dl>
 
 </div>
 </div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ac23395cb420c81ab42a23e604cf05f18" name="ac23395cb420c81ab42a23e604cf05f18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac23395cb420c81ab42a23e604cf05f18">&#9670;&#160;</a></span>getVoltage()</h2>
+<a id="a0d29d1fa0f72b7e7ee12c096389e8711" name="a0d29d1fa0f72b7e7ee12c096389e8711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d29d1fa0f72b7e7ee12c096389e8711">&#9670;&#160;</a></span>~Driver()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float <a class="el" href="../../da/d9d/a04751.html">Lib::BSP::Voltmeter</a>&lt; T_DERIVED &gt;::getVoltage </td>
+          <td class="memname">Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::~<a class="el" href="#ab07845254f409b109812886c271c23fd">Driver</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the last measured voltage value. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current voltage in volts. </dd></dl>
-
-</div>
-</div>
-<a id="a0867be0757674c033a721efb796a8e39" name="a0867be0757674c033a721efb796a8e39"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0867be0757674c033a721efb796a8e39">&#9670;&#160;</a></span>handleValueChanged()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED = void&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../da/d9d/a04751.html">Lib::BSP::Voltmeter</a>&lt; T_DERIVED &gt;::handleValueChanged </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Handles a change of the measured voltage. </p>
-<p>Called from <a class="el" href="../../d2/d5e/a04363.html#a3a024a69ffe1d880ec5fedbf8428726a" title="handleTickEvent()">handleTickEvent()</a> when the interpolated voltage differs from the previous measurement.</p>
-<p>The default does nothing; <em class="arg">T_DERIVED</em> overrides it, for example to update a display or log the change. Not meant to be called directly.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>New voltage, in volts. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Non-virtual: an instance is never destroyed through a base pointer, so the class stays free of a vtable. </p>
 
 </div>
 </div>
-<a id="a299662c9e9bdb346771579418056dccf" name="a299662c9e9bdb346771579418056dccf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a299662c9e9bdb346771579418056dccf">&#9670;&#160;</a></span>registerDevice()</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a9e2aee6a61daef81b7ccc8c2b3a73031" name="a9e2aee6a61daef81b7ccc8c2b3a73031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e2aee6a61daef81b7ccc8c2b3a73031">&#9670;&#160;</a></span>beginReceiveData()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,7 +267,46 @@ template&lt;typename T_DERIVED = void&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::BSP::DeviceManager::DeviceBase::registerDevice </td>
+          <td class="memname">bool <a class="el" href="../../d5/d13/a04739.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; <a class="el" href="#ab07845254f409b109812886c271c23fd">Driver</a>&lt; Type::DTH22 &gt; &gt;::beginReceiveData </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initiates DMA-based input capture for sensor data reception. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Buffer for storing timer capture values. </td></tr>
+    <tr><td class="paramname">length</td><td>Number of capture values to collect. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the capture was started successfully, <em class="arg">false</em> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a63785a9b88d7556f54e1e71118a760d4" name="a63785a9b88d7556f54e1e71118a760d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63785a9b88d7556f54e1e71118a760d4">&#9670;&#160;</a></span>endReceivedData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d5/d13/a04739.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; <a class="el" href="#ab07845254f409b109812886c271c23fd">Driver</a>&lt; Type::DTH22 &gt; &gt;::endReceivedData </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -284,24 +319,134 @@ template&lt;typename T_DERIVED = void&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Adds this device to the <a class="el" href="../../dd/d20/a04359.html" title="DeviceManager">DeviceManager</a> registry. </p>
-<p>Derived devices call it last in their constructor, once their own members are built, so the shared tick cannot reach a partly constructed object. </p>
+<p>Completes data reception and releases the sensor line. </p>
+<p>Reconfigures the GPIO pin back to output mode and sets it high. </p>
 
 </div>
 </div>
-<a id="aef6d6cecbcd23016ebff9b46c2cf3ce0" name="aef6d6cecbcd23016ebff9b46c2cf3ce0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef6d6cecbcd23016ebff9b46c2cf3ce0">&#9670;&#160;</a></span>setup()</h2>
+<a id="af1b0389aae714142b8a606106d0a4a56" name="af1b0389aae714142b8a606106d0a4a56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1b0389aae714142b8a606106d0a4a56">&#9670;&#160;</a></span>getHumidity()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../da/d9d/a04751.html">Lib::BSP::Voltmeter</a>&lt; T_DERIVED &gt;::setup </td>
+          <td class="memname">float Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::getHumidity </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the last measured humidity value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Humidity as a percentage (0-100). </dd></dl>
+
+</div>
+</div>
+<a id="a3e8dacb5fd8d85536ca9a3c31f6feffd" name="a3e8dacb5fd8d85536ca9a3c31f6feffd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e8dacb5fd8d85536ca9a3c31f6feffd">&#9670;&#160;</a></span>getRawHumidity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::getRawHumidity </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the last measured raw humidity value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Raw humidity in tenths of percent. </dd></dl>
+
+</div>
+</div>
+<a id="ab776af450b94ccff9151de29e820c940" name="ab776af450b94ccff9151de29e820c940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab776af450b94ccff9151de29e820c940">&#9670;&#160;</a></span>getRawTemperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::getRawTemperature </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the last measured raw temperature value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Raw temperature in tenths of degrees Celsius. </dd></dl>
+
+</div>
+</div>
+<a id="ae20843f3a9105a0d355f64cdb1096f9c" name="ae20843f3a9105a0d355f64cdb1096f9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae20843f3a9105a0d355f64cdb1096f9c">&#9670;&#160;</a></span>getTemperature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::getTemperature </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the last measured temperature value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Temperature in degrees Celsius. </dd></dl>
+
+</div>
+</div>
+<a id="a1bc076c8cc5e10883a332ef5f6a090ee" name="a1bc076c8cc5e10883a332ef5f6a090ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bc076c8cc5e10883a332ef5f6a090ee">&#9670;&#160;</a></span>hasNewData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::hasNewData </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -309,30 +454,187 @@ template&lt;typename T_DERIVED = void&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the voltmeter and starts the ADC DMA measurement cycle. </p>
-<p>Configures the bound channel as rank 1, opens the DMA ADC port and starts the first conversion. Measurements and change notifications then run from <a class="el" href="../../d2/d5e/a04363.html#a3a024a69ffe1d880ec5fedbf8428726a" title="handleTickEvent()">handleTickEvent()</a>. </p>
+<p>Checks whether new sensor data has been received since the last query. </p>
+<p>Queries and clears the new-data flag in one operation.</p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if new valid data is available, <em class="arg">false</em> otherwise. </dd></dl>
 
 </div>
 </div>
-<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
-<a id="af5908117d248071190096967e686c5a3" name="af5908117d248071190096967e686c5a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5908117d248071190096967e686c5a3">&#9670;&#160;</a></span>DeviceManager::DeviceBase</h2>
+<a id="a76b28ab92569b5bf36888ef2cb155f63" name="a76b28ab92569b5bf36888ef2cb155f63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76b28ab92569b5bf36888ef2cb155f63">&#9670;&#160;</a></span>isValidData()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">friend class <a class="el" href="../../d2/d5e/a04363.html">DeviceManager::DeviceBase</a></td>
+          <td class="memname">bool Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::isValidData </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the last received data is valid and within acceptable ranges. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the last received data passed all validation checks, <em class="arg">false</em> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a7bb2909673708c9ad956bc98034da91d" name="a7bb2909673708c9ad956bc98034da91d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bb2909673708c9ad956bc98034da91d">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the DHT22 sensor driver and polling task. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the driver started successfully, <em class="arg">false</em> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ab0b91e6ca971b92cc9b60de925eeceae" name="ab0b91e6ca971b92cc9b60de925eeceae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0b91e6ca971b92cc9b60de925eeceae">&#9670;&#160;</a></span>startupImpulse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d5/d13/a04739.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; <a class="el" href="#ab07845254f409b109812886c271c23fd">Driver</a>&lt; Type::DTH22 &gt; &gt;::startupImpulse </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>impulseDuration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends the startup impulse to the DHT sensor. </p>
+<p>Pulls the signal line low for the given duration, releases it high, then reconfigures the pin for input capture mode.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">impulseDuration</td><td>Duration of the low pulse in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9b5b96a6106c15c974463750529471d0" name="a9b5b96a6106c15c974463750529471d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b5b96a6106c15c974463750529471d0">&#9670;&#160;</a></span>waitForComplete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/d13/a04739.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; <a class="el" href="#ab07845254f409b109812886c271c23fd">Driver</a>&lt; Type::DTH22 &gt; &gt;::waitForComplete </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for data reception completion. </p>
+<p>Must be called from 'T_DERIVED::taskEntry()', since the underlying task notification targets this instance's own task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the notification was received, <em class="arg">false</em> if the timeout occurred. </dd></dl>
+
+</div>
+</div>
+<a id="a049430e063b46db8f7e7401c0af75df7" name="a049430e063b46db8f7e7401c0af75df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a049430e063b46db8f7e7401c0af75df7">&#9670;&#160;</a></span>writePinState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d5/d13/a04739.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; <a class="el" href="#ab07845254f409b109812886c271c23fd">Driver</a>&lt; Type::DTH22 &gt; &gt;::writePinState </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d7/d60/a00816.html#ga5b3ef0486b179415581eb342e0ea6b43">GPIO_PinState</a></td>          <td class="paramname"><span class="paramname"><em>state</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes a GPIO pin state for sensor communication. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>Pin state to write ('GPIO_PIN_RESET' or 'GPIO_PIN_SET'). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a563861f233361c18a30fd9049d7abd7a" name="a563861f233361c18a30fd9049d7abd7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a563861f233361c18a30fd9049d7abd7a">&#9670;&#160;</a></span>Base&lt; Driver&lt; Type::DTH22 &gt; &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d5/d13/a04739.html#af14f0b64c88d8857e32beeba9d6c6493">Base</a>&lt; <a class="el" href="#ab07845254f409b109812886c271c23fd">Driver</a>&lt; Type::DTH22 &gt; &gt;</td>
         </tr>
       </table>
   </td>
@@ -342,34 +644,46 @@ template&lt;typename T_DERIVED = void&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Lets DeviceBase's CRTP constructor bind the private handleTickEvent(). </p>
-
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a5cabeda795635eeccd12383109ddf96c" name="a5cabeda795635eeccd12383109ddf96c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cabeda795635eeccd12383109ddf96c">&#9670;&#160;</a></span>interpolator</h2>
+<a id="a3b31347dab82ede045f6e076046e5762" name="a3b31347dab82ede045f6e076046e5762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b31347dab82ede045f6e076046e5762">&#9670;&#160;</a></span>config</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/df2/a01000.html#a2cacda540ff04115fe891c00364a43a6">Interpolator</a> <a class="el" href="../../da/d9d/a04751.html">Lib::BSP::Voltmeter</a>&lt; T_DERIVED &gt;::interpolator</td>
+          <td class="memname">Config <a class="el" href="../../d5/d13/a04739.html">Lib::BSP::Thermometer::DTH::Base</a>&lt; <a class="el" href="#ab07845254f409b109812886c271c23fd">Driver</a>&lt; Type::DTH22 &gt; &gt;::config</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Linear interpolator for converting ADC values to voltage. </p>
+<p>Sensor driver configuration. </p>
+
+</div>
+</div>
+<a id="a641741551ee87f815b7ca238c2fce09c" name="a641741551ee87f815b7ca238c2fce09c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a641741551ee87f815b7ca238c2fce09c">&#9670;&#160;</a></span>diagnostic</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d9b/a04755.html">Diagnostic</a> Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::diagnostic</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Diagnostic counters instance. </p>
 
 </div>
 </div>

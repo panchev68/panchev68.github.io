@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::DeviceManager</title>
+<title>IAR EWARM Library: Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -91,69 +89,278 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../de/d6d/a01095.html">System</a></li><li class="navelem"><a href="../../d0/d79/a06187.html">Parameters</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::DeviceManager</div></div>
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="../../d9/d07/a06184.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Maps a native HAL handle, as seen inside an 'extern "C"' HAL callback, back to the owning C++ object with <a class="el" href="../../d0/d79/a06187.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a>.</p>
-<p>Maps a native HAL handle, as seen inside an 'extern "C"' HAL callback, back to the owning C++ object with <a class="el" href="../../d0/d79/a06187.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a>. The objects derive from <a class="el" href="../../df/d06/a05371.html" title="Lib::HAL::Device">Lib::HAL::Device</a>, which stores the handle and an intrusive list link.</p>
-<p>This is the HAL-side ISR lookup. It is a different class from <a class="el" href="../../dd/d20/a04359.html" title="Lib::BSP::DeviceManager">Lib::BSP::DeviceManager</a>, which holds a periodic timer and a list of BSP drivers; the two share a name but nothing else. The HAL manager is a per-(device type, handle type) singleton, so the template arguments select the instance. <a class="el" href="../../db/da4/a05367.html#a20731f8c338ecda6068a2f416c8e9e97" title="Lib::HAL::DeviceManager::registerDevice()">Lib::HAL::DeviceManager::registerDevice()</a> and <a class="el" href="../../db/da4/a05367.html#aa1c87169c3e9040cd552e10c08e0eee4" title="Lib::HAL::DeviceManager::unregisterDevice()">Lib::HAL::DeviceManager::unregisterDevice()</a> take an RTOS critical section. <a class="el" href="../../db/da4/a05367.html#a44399c0b88c31ab172615c8522506511" title="Lib::HAL::DeviceManager::getDevice()">Lib::HAL::DeviceManager::getDevice()</a> does not, which is what lets an ISR call it. The list is searched linearly, so keep the number of instances per type small.</p>
-<p>The device registers itself in its constructor and must not be destroyed while an ISR may still look it up: unregister it before it goes away. The example below uses a static instance, so that condition holds.</p>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="devicemanager_usage_device"></a>
-Derive a device from the base</h3>
-<p>Derive publicly from <a class="el" href="../../df/d06/a05371.html" title="Lib::HAL::Device">Lib::HAL::Device</a>, pass the native handle to its constructor, and register the object with the manager. <a class="el" href="../../df/d06/a05371.html#ac39b97fd324efde09c82d0ccfe7fe4e8" title="Lib::HAL::Device::getHandle()">Lib::HAL::Device::getHandle()</a> returns the handle that the lookup compares against.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="codeRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d45/a00011.html">stm32f4xx_hal.h</a>&quot;</span> <span class="comment">// Declares SPI_HandleTypeDef and the HAL driver.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d25/a00596.html">Lib/HAL/core/Device.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/da3/a08310.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> hspi1; <span class="comment">// Generated by CubeMX.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>SpiBridge final : <span class="keyword">public</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../df/d06/a05371.html">Lib::HAL::Device</a>&lt;SpiBridge, SPI_HandleTypeDef&gt; {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keyword">explicit</span> SpiBridge(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * spiHandle) noexcept :</div>
-<div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../df/d06/a05371.html#acdeffbad9eb409804cbc72fa86794a97">Device</a>(spiHandle) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="a3" name="a3"></a><a class="code hl_function" href="../../db/da4/a05367.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a4" name="a4"></a><a class="code hl_function" href="../../db/da4/a05367.html#a20731f8c338ecda6068a2f416c8e9e97">registerDevice</a>(<span class="keyword">this</span>));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onTransmitComplete() <span class="keyword">noexcept</span> {</div>
-<div class="line">        transmitCount = transmitCount + 1U;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    <span class="keyword">volatile</span> uint32_t transmitCount = 0U;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">static</span> SpiBridge spiBridge(&amp;hspi1);</div>
-<div class="ttc" id="aa00011_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d45/a00011.html">stm32f4xx_hal.h</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00596_html"><div class="ttname"><a href="../../dc/d25/a00596.html">Device.hpp</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its link in the DeviceManager registry.</div></div>
-<div class="ttc" id="aa01068_html_gab633e49dd034de2f3a1fe79853d78d18"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a></div><div class="ttdeci">struct __SPI_HandleTypeDef SPI_HandleTypeDef</div></div>
-<div class="ttc" id="aa05367_html_a20731f8c338ecda6068a2f416c8e9e97"><div class="ttname"><a href="../../db/da4/a05367.html#a20731f8c338ecda6068a2f416c8e9e97">Lib::HAL::DeviceManager::registerDevice</a></div><div class="ttdeci">bool registerDevice(T_DEVICE *device)</div><div class="ttdoc">Adds a concrete driver to the lookup list.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:58</div></div>
-<div class="ttc" id="aa05367_html_a2832654a46fcf40b5673a27a282e278b"><div class="ttname"><a href="../../db/da4/a05367.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager::instance</a></div><div class="ttdeci">static DeviceManager &amp; instance() noexcept</div><div class="ttdoc">Returns the process-wide registry instance.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:42</div></div>
-<div class="ttc" id="aa05371_html"><div class="ttname"><a href="../../df/d06/a05371.html">Lib::HAL::Device</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its DeviceManager list link.</div><div class="ttdef"><b>Definition</b> Device.hpp:38</div></div>
-<div class="ttc" id="aa05371_html_acdeffbad9eb409804cbc72fa86794a97"><div class="ttname"><a href="../../df/d06/a05371.html#acdeffbad9eb409804cbc72fa86794a97">Lib::HAL::Device::Device</a></div><div class="ttdeci">Device(T_HANDLE *handle) noexcept</div><div class="ttdoc">Constructs a Device block bound to a native microcontroller peripheral handle.</div><div class="ttdef"><b>Definition</b> Device.hpp:79</div></div>
-<div class="ttc" id="aa08310_html"><div class="ttname"><a href="../../d6/da3/a08310.html">DeviceManager.hpp</a></div><div class="ttdoc">Registry that routes native HAL handles to the open concrete peripheral drivers.</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="devicemanager_usage_isr"></a>
-Look up the owner inside a HAL callback</h3>
-<p>The callback is defined once, by the application, and only forwards to the device. Defining it replaces the weak HAL definition of the same name, so it must appear only once in the project. A null result means no instance owns that handle, so the callback must simply return. The class from the previous example is assumed to be in 'SpiBridge.hpp'.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/da3/a08310.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;SpiBridge.hpp&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a>(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * hspi) {</div>
-<div class="line">    SpiBridge * <span class="keyword">const</span> bridge = <a class="code hl_function" href="../../db/da4/a05367.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a6" name="a6"></a><a class="code hl_function" href="../../db/da4/a05367.html#a44399c0b88c31ab172615c8522506511">getDevice</a>(hspi);</div>
-<div class="line">    <span class="keywordflow">if</span> (bridge != <span class="keyword">nullptr</span>) {</div>
-<div class="line">        bridge-&gt;onTransmitComplete();</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa01345_html_ga0a99ab4f6aa6ee7dc2abca5483910dde"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a></div><div class="ttdeci">void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)</div></div>
-<div class="ttc" id="aa05367_html_a44399c0b88c31ab172615c8522506511"><div class="ttname"><a href="../../db/da4/a05367.html#a44399c0b88c31ab172615c8522506511">Lib::HAL::DeviceManager::getDevice</a></div><div class="ttdeci">T_DEVICE * getDevice(const T_HANDLE *handle) const</div><div class="ttdoc">Finds the registered device that owns a native handle by a linear search.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:115</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt;<br />
+requires std::is_trivially_copyable_v&lt;T_DATA&gt;<br />
+class Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;</div><p>CRTP base class managing a parameter structure in persistent storage with CRC16 integrity validation. </p>
+<p>The storage image is the raw bytes of 'T_DATA' immediately followed by their CRC16, without padding, and lives inside the object instead of on the heap. The derived class implements 'restoreByDefault()', which fills the bound data structure with default values; it is called when the stored image fails validation. Declare it public, or befriend this base, so the base can reach it.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete parameter class inheriting from this base. </td></tr>
+    <tr><td class="paramname">T_DATA</td><td>Parameter structure; must be trivially copyable, because it is stored byte-wise. </td></tr>
+    <tr><td class="paramname">T_STORAGE</td><td>Concrete storage backend type, derived from 'Storage&lt;T_STORAGE&gt;'. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a6c93bc540f4ca328949b18b8364730fc" id="r_a6c93bc540f4ca328949b18b8364730fc"><td class="memItemLeft"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6c93bc540f4ca328949b18b8364730fc">setup</a> () noexcept</td></tr>
+<tr class="memdesc:a6c93bc540f4ca328949b18b8364730fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the stored parameters, restoring and persisting defaults if the image is invalid.  <br /></td></tr>
+<tr class="memitem:ab2a15849ffa63fb1b31e58a50f802faa" id="r_ab2a15849ffa63fb1b31e58a50f802faa"><td class="memItemLeft"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab2a15849ffa63fb1b31e58a50f802faa">write</a> () noexcept</td></tr>
+<tr class="memdesc:ab2a15849ffa63fb1b31e58a50f802faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Persists the bound data together with a freshly computed CRC.  <br /></td></tr>
+<tr class="memitem:aea6685c90b8a40bf879c93f795cb0d1a" id="r_aea6685c90b8a40bf879c93f795cb0d1a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aea6685c90b8a40bf879c93f795cb0d1a">isValid</a> () const noexcept</td></tr>
+<tr class="memdesc:aea6685c90b8a40bf879c93f795cb0d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the image last read or written matches its CRC.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a0d2e425ec31b105ced5a1ec414518eb2" id="r_a0d2e425ec31b105ced5a1ec414518eb2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0d2e425ec31b105ced5a1ec414518eb2">Parameters</a> (T_STORAGE &amp;storage, T_DATA &amp;data) noexcept</td></tr>
+<tr class="memdesc:a0d2e425ec31b105ced5a1ec414518eb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the parameter manager to a storage backend and to the data structure it persists.  <br /></td></tr>
+<tr class="memitem:a401c8f010740c371697fba3fa25b559c" id="r_a401c8f010740c371697fba3fa25b559c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a401c8f010740c371697fba3fa25b559c">Parameters</a> (const Parameters &amp;)=delete</td></tr>
+<tr class="memdesc:a401c8f010740c371697fba3fa25b559c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is disabled: a copy would alias the same storage backend and data structure.  <br /></td></tr>
+<tr class="memitem:ab7707d467c6b510fc640db358633fd8b" id="r_ab7707d467c6b510fc640db358633fd8b"><td class="memItemLeft"><a class="el" href="#a0d2e425ec31b105ced5a1ec414518eb2">Parameters</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab7707d467c6b510fc640db358633fd8b">operator=</a> (const <a class="el" href="#a0d2e425ec31b105ced5a1ec414518eb2">Parameters</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ab7707d467c6b510fc640db358633fd8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is disabled: a copy would alias the same storage backend and data structure.  <br /></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a335a74b2beee583b06c1cc6a0c928957" name="a335a74b2beee583b06c1cc6a0c928957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a335a74b2beee583b06c1cc6a0c928957">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Lib::System::Parameters::Status</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Status codes for parameter operations. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564" name="a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5" name="a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"><p>Operation failed. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0d2e425ec31b105ced5a1ec414518eb2" name="a0d2e425ec31b105ced5a1ec414518eb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d2e425ec31b105ced5a1ec414518eb2">&#9670;&#160;</a></span>Parameters() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d79/a06187.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;::Parameters </td>
+          <td>(</td>
+          <td class="paramtype">T_STORAGE &amp;</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_DATA &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds the parameter manager to a storage backend and to the data structure it persists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">storage</td><td>Storage backend; must outlive this object. </td></tr>
+    <tr><td class="paramname">data</td><td>Parameter structure read by <a class="el" href="#a6c93bc540f4ca328949b18b8364730fc" title="setup()">setup()</a> and persisted by <a class="el" href="#ab2a15849ffa63fb1b31e58a50f802faa" title="write()">write()</a>; must outlive this object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a401c8f010740c371697fba3fa25b559c" name="a401c8f010740c371697fba3fa25b559c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a401c8f010740c371697fba3fa25b559c">&#9670;&#160;</a></span>Parameters() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d79/a06187.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;::Parameters </td>
+          <td>(</td>
+          <td class="paramtype">const Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is disabled: a copy would alias the same storage backend and data structure. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aea6685c90b8a40bf879c93f795cb0d1a" name="aea6685c90b8a40bf879c93f795cb0d1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea6685c90b8a40bf879c93f795cb0d1a">&#9670;&#160;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d0/d79/a06187.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;::isValid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the image last read or written matches its CRC. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the stored CRC matches the data, <em class="arg">false</em> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ab7707d467c6b510fc640db358633fd8b" name="ab7707d467c6b510fc640db358633fd8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7707d467c6b510fc640db358633fd8b">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0d2e425ec31b105ced5a1ec414518eb2">Parameters</a> &amp; <a class="el" href="../../d0/d79/a06187.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a0d2e425ec31b105ced5a1ec414518eb2">Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is disabled: a copy would alias the same storage backend and data structure. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a6c93bc540f4ca328949b18b8364730fc" name="a6c93bc540f4ca328949b18b8364730fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c93bc540f4ca328949b18b8364730fc">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a> <a class="el" href="../../d0/d79/a06187.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;::setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads the stored parameters, restoring and persisting defaults if the image is invalid. </p>
+<p>Opens the storage, reads the image and checks its CRC. On a mismatch, e.g. on first power-up or after corruption, 'restoreByDefault()' fills the bound data with defaults, which are then written back. On success the bound data holds the validated parameters.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564" title="Status::OK">Status::OK</a> on success, <a class="el" href="#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5" title="Status::ERROR">Status::ERROR</a> if the storage could not be opened, read or written. </dd></dl>
+
+</div>
+</div>
+<a id="ab2a15849ffa63fb1b31e58a50f802faa" name="ab2a15849ffa63fb1b31e58a50f802faa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2a15849ffa63fb1b31e58a50f802faa">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a> <a class="el" href="../../d0/d79/a06187.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;::write </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Persists the bound data together with a freshly computed CRC. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564" title="Status::OK">Status::OK</a> if the write succeeded, <a class="el" href="#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5" title="Status::ERROR">Status::ERROR</a> otherwise. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -11,7 +11,7 @@ var searchData=
   ['waveform_8',['Circular waveform',['../X:/Lib/IAR/Project/Examples/Lib_HAL_DAC.dox#dac_usage_dma',1,'']]],
   ['whole_20file_20write_20and_20read_9',['Whole-file write and read',['../X:/Lib/IAR/Project/Examples/Lib_BSP_GSM_A7670E.dox#a7670e_usage_files',1,'']]],
   ['whole_20port_20access_10',['Whole-port access',['../X:/Lib/IAR/Project/Examples/Lib_HAL_GPIO.dox#gpio_usage_port',1,'']]],
-  ['widgets_20in_20a_20periodic_20task_11',['Widgets in a periodic task',['../X:/Lib/IAR/Project/Examples/Lib_GUI_Display.dox#gui_usage_widgets',1,'']]],
+  ['widgets_20in_20a_20periodic_20task_11',['Widgets in a periodic task',['../X:/Lib/IAR/Project/Examples/Lib_GUI_Context.dox#gui_usage_widgets',1,'']]],
   ['window_20at_20run_20time_12',['Narrow the refresh window at run time',['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#windowwatchdog_usage_window',1,'']]],
   ['window_20short_13',['Keep the access window short',['../X:/Lib/IAR/Project/Examples/Lib_HAL_BackupRamDomain.dox#backup_usage_scope',1,'']]],
   ['with_20a_20duty_20cycle_14',['Start with a duty cycle',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_basic',1,'']]],

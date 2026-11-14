@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HTTP::Client&lt; T_TRANSPORT &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::USBHostPortAsync&lt; T_DERIVED &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,181 +91,739 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../d2/d41/a01037.html">HTTP</a></li><li class="navelem"><a href="../../d8/df0/a05791.html">Client</a></li>  </ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../da/d93/a01084.html">HAL</a></li><li class="navelem"><a href="../../d8/df0/a05791.html">USBHostPortAsync</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="../../d0/d9e/a05788.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HTTP::Client&lt; T_TRANSPORT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::USBHostPortAsync&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>HTTP/1.1 client over any connected <a class="el" href="../../d1/d3c/a06148.html" title="HttpTransport">HttpTransport</a>, without heap or exceptions.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;HttpTransport T_TRANSPORT&gt;<br />
-class Lib::HTTP::Client&lt; T_TRANSPORT &gt;</div><p>HTTP/1.1 client over any connected <a class="el" href="../../d1/d3c/a06148.html" title="HttpTransport">HttpTransport</a>, without heap or exceptions. </p>
-<p>Builds the request line and headers itself, sends them and the optional body, then reads the response into a caller-provided buffer. For plain HTTP the transport is the project's own socket or modem stream; for HTTPS it is a <a class="el" href="../../dc/d27/a05799.html" title="WolfSSLTransport">WolfSSLTransport</a> wrapping that stream. Every request sends <em>Connection: close</em>, so the caller reconnects the transport between requests.</p>
-<dl class="section important"><dt>Important</dt><dd>Only Content-Length delimited responses are understood: a chunked response is reported as <a class="el" href="../../d2/d41/a01037.html#afc43b899679a3737d2e7425a9168a85ca7850e7c3a0c981c95e69e331469c33b9" title="Status::MALFORMED_RESPONSE">Status::MALFORMED_RESPONSE</a>. Fine for typical cloud REST/JSON APIs, not for arbitrary servers.</dd>
-<dd>
-Requests block the calling task, polling the transport every tick, for at most 10 s while sending and 10 s while receiving.</dd></dl>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::HAL::USBHostPortAsync&lt; T_DERIVED &gt;</div><p>CRTP foundation for the interrupt-driven USB host modes. </p>
+<p>Owns the start-then-wait channel transfers, HAL callback registration and the event handler hook; the RTOS event group and the <a class="el" href="../../da/da4/a06338.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a> wiring come from <a class="el" href="../../d4/da8/a05511.html" title="Lib::HAL::AsyncPortCore">Lib::HAL::AsyncPortCore</a>. A mode specialization only supplies the HAL call that starts a transfer (<em class="arg">startTransfer()</em>), as in <a class="el" href="../../d6/df4/a05747.html" title="Lib::HAL::UARTPortAsync">Lib::HAL::UARTPortAsync</a>. The last URB state of every channel is kept, so <a class="el" href="#a3bcff372802df7955ce5761f4e32e420" title="Lib::HAL::USBHostPortAsync::transfer()">Lib::HAL::USBHostPortAsync::transfer()</a> can tell a completed transfer from NAK, STALL and an error. Every HAL callback, and therefore the event handler, runs in interrupt context.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_TRANSPORT</td><td>Connected transport satisfying <a class="el" href="../../d1/d3c/a06148.html" title="HttpTransport">HttpTransport</a>.</td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing 'startTransfer(uint8_t, USBDirection, USBEndpointType, bool,
+std::span&lt;uint8_t&gt;)', returning <em class="arg">true</em> once the HAL accepted the transfer.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HTTP/Client.hpp" target="_blank">Source</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d45/a06251.html#_a10">Lib::HTTP::Client</a>.</dd>
-</dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/USB/USBHostPortAsync.hpp" target="_blank">Source</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/.doxygen/HAL/md/USB.md" target="_blank">Detail Description</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afbf556ac8abd6b5e8b12958b7b7e8e87" id="r_afbf556ac8abd6b5e8b12958b7b7e8e87"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> (T_TRANSPORT &amp;transport) noexcept</td></tr>
-<tr class="memdesc:afbf556ac8abd6b5e8b12958b7b7e8e87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the client to a connected transport.  <br /></td></tr>
-<tr class="memitem:a893ac5643ef917f5ca701fabbe75a429" id="r_a893ac5643ef917f5ca701fabbe75a429"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a893ac5643ef917f5ca701fabbe75a429">Client</a> (const Client &amp;)=delete</td></tr>
-<tr class="memdesc:a893ac5643ef917f5ca701fabbe75a429"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: bound to one transport.  <br /></td></tr>
-<tr class="memitem:a3b9c27f75842a31365c97eaaa607d452" id="r_a3b9c27f75842a31365c97eaaa607d452"><td class="memItemLeft"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3b9c27f75842a31365c97eaaa607d452">operator=</a> (const <a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a3b9c27f75842a31365c97eaaa607d452"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: bound to one transport.  <br /></td></tr>
-<tr class="memitem:a207055b9f6a7daac509985f971a0e14f" id="r_a207055b9f6a7daac509985f971a0e14f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a207055b9f6a7daac509985f971a0e14f">Client</a> (Client &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a207055b9f6a7daac509985f971a0e14f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: bound to one transport.  <br /></td></tr>
-<tr class="memitem:a19375415236ef7e6b214f897791eeb09" id="r_a19375415236ef7e6b214f897791eeb09"><td class="memItemLeft"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a19375415236ef7e6b214f897791eeb09">operator=</a> (<a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a19375415236ef7e6b214f897791eeb09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: bound to one transport.  <br /></td></tr>
-<tr class="memitem:aabf7e35c74111468fdd296e6931b047f" id="r_aabf7e35c74111468fdd296e6931b047f"><td class="memItemLeft"><a class="el" href="../../d2/d41/a01037.html#afc43b899679a3737d2e7425a9168a85c">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aabf7e35c74111468fdd296e6931b047f">get</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> host, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> path, std::span&lt; uint8_t &gt; buffer, <a class="el" href="../../d0/d25/a05787.html">Response</a> &amp;response) noexcept</td></tr>
-<tr class="memdesc:aabf7e35c74111468fdd296e6931b047f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a GET request and waits for the response.  <br /></td></tr>
-<tr class="memitem:aee5955fa4ffad931d4418d2f59af2880" id="r_aee5955fa4ffad931d4418d2f59af2880"><td class="memItemLeft"><a class="el" href="../../d2/d41/a01037.html#afc43b899679a3737d2e7425a9168a85c">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aee5955fa4ffad931d4418d2f59af2880">post</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> host, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> path, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> contentType, std::span&lt; const uint8_t &gt; body, std::span&lt; uint8_t &gt; buffer, <a class="el" href="../../d0/d25/a05787.html">Response</a> &amp;response) noexcept</td></tr>
-<tr class="memdesc:aee5955fa4ffad931d4418d2f59af2880"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a POST request with a body and waits for the response.  <br /></td></tr>
-<tr class="memitem:aff0df8d671c191feb30e91ba3a1053a7" id="r_aff0df8d671c191feb30e91ba3a1053a7"><td class="memItemLeft"><a class="el" href="../../d2/d41/a01037.html#afc43b899679a3737d2e7425a9168a85c">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#aff0df8d671c191feb30e91ba3a1053a7">request</a> (<a class="el" href="../../d2/d41/a01037.html#a8f753d750ea425a0a07f531674302436">Method</a> method, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> host, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> path, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> contentType, std::span&lt; const uint8_t &gt; body, std::span&lt; uint8_t &gt; buffer, <a class="el" href="../../d0/d25/a05787.html">Response</a> &amp;response) noexcept</td></tr>
-<tr class="memdesc:aff0df8d671c191feb30e91ba3a1053a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a request with any method and waits for the response.  <br /></td></tr>
+<tr class="memitem:a031aa9b48caa98516825b7f35468b627" id="r_a031aa9b48caa98516825b7f35468b627"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a031aa9b48caa98516825b7f35468b627">setEventHandler</a> (<a class="el" href="#a10761412c20341dee385767eac673248">EventHandler</a> newHandler, void *newContext) noexcept</td></tr>
+<tr class="memdesc:a031aa9b48caa98516825b7f35468b627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs the handler that receives every event in interrupt context.  <br /></td></tr>
+<tr class="memitem:a3f0b1b6f781d9750119863a0ef5c1332" id="r_a3f0b1b6f781d9750119863a0ef5c1332"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a3f0b1b6f781d9750119863a0ef5c1332 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3f0b1b6f781d9750119863a0ef5c1332">waitForEvent</a> (<a class="el" href="../../da/d93/a01084.html#a53f17b15be5eab9c94b2c21a10f050fd">USBHostEvent</a> event, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a3f0b1b6f781d9750119863a0ef5c1332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for a bus event.  <br /></td></tr>
+<tr class="memitem:a3bcff372802df7955ce5761f4e32e420" id="r_a3bcff372802df7955ce5761f4e32e420"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a3bcff372802df7955ce5761f4e32e420 template"><td class="memItemLeft"><a class="el" href="../../da/d93/a01084.html#a62152c846403f6b93d0f2e9ff14adafe">USBHostTransferResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3bcff372802df7955ce5761f4e32e420">transfer</a> (uint8_t channel, <a class="el" href="../../da/d93/a01084.html#a0feace7a2249d65bd2313f48bf07ba0b">USBDirection</a> direction, <a class="el" href="../../da/d93/a01084.html#ae1783f3c88baf78f222c313659cf4a98">USBEndpointType</a> type, bool isSetup, std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a3bcff372802df7955ce5761f4e32e420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs one transfer on a channel and waits for its end.  <br /></td></tr>
+<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/da8/a05511.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order.  <br /></td></tr>
+<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/da8/a05511.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
+<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
+<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/da8/a05511.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
+<tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">HCD_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../de/d01/a05519.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
+<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const HCD_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../de/d01/a05519.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
+<tr class="memitem:ae2eed5f70766aca444ca11eb3ab9d1ad" id="r_ae2eed5f70766aca444ca11eb3ab9d1ad"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d41/a05803.html#ae2eed5f70766aca444ca11eb3ab9d1ad">start</a> () noexcept</td></tr>
+<tr class="memdesc:ae2eed5f70766aca444ca11eb3ab9d1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the controller interrupts and powers the port, so a device can be attached.  <br /></td></tr>
+<tr class="memitem:abb99db8a0c5b9c1c35ae04c3fcc63818" id="r_abb99db8a0c5b9c1c35ae04c3fcc63818"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d41/a05803.html#abb99db8a0c5b9c1c35ae04c3fcc63818">stop</a> () noexcept</td></tr>
+<tr class="memdesc:abb99db8a0c5b9c1c35ae04c3fcc63818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the controller interrupts and the port.  <br /></td></tr>
+<tr class="memitem:a4be20887571f3bd3694a79bb349979f8" id="r_a4be20887571f3bd3694a79bb349979f8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d41/a05803.html#a4be20887571f3bd3694a79bb349979f8">resetPort</a> () noexcept</td></tr>
+<tr class="memdesc:a4be20887571f3bd3694a79bb349979f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drives a bus reset on the port, as the first step after a device is attached.  <br /></td></tr>
+<tr class="memitem:aa013c6f71e1233cd4ef77f9d22d951f1" id="r_aa013c6f71e1233cd4ef77f9d22d951f1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d41/a05803.html#aa013c6f71e1233cd4ef77f9d22d951f1">openChannel</a> (uint8_t channel, uint8_t endpointNumber, uint8_t deviceAddress, <a class="el" href="../../da/d93/a01084.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a> speed, <a class="el" href="../../da/d93/a01084.html#ae1783f3c88baf78f222c313659cf4a98">USBEndpointType</a> type, uint16_t maxPacketSize) noexcept</td></tr>
+<tr class="memdesc:aa013c6f71e1233cd4ef77f9d22d951f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a host channel for one endpoint of the attached device.  <br /></td></tr>
+<tr class="memitem:a8f20ce05eb27e7ffc1854d4318e1cd9f" id="r_a8f20ce05eb27e7ffc1854d4318e1cd9f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d41/a05803.html#a8f20ce05eb27e7ffc1854d4318e1cd9f">closeChannel</a> (uint8_t channel) noexcept</td></tr>
+<tr class="memdesc:a8f20ce05eb27e7ffc1854d4318e1cd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Halts a host channel, so its transfer stops and the channel can be reused.  <br /></td></tr>
+<tr class="memitem:aeafad19d337548bb5ef919dd44723b5f" id="r_aeafad19d337548bb5ef919dd44723b5f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d41/a05803.html#aeafad19d337548bb5ef919dd44723b5f">getTransferCount</a> (uint8_t channel) const noexcept</td></tr>
+<tr class="memdesc:aeafad19d337548bb5ef919dd44723b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bytes a channel transferred in its last transfer.  <br /></td></tr>
+<tr class="memitem:a606a97ab7752495ff5b4874b04c54cc5" id="r_a606a97ab7752495ff5b4874b04c54cc5"><td class="memItemLeft"><a class="el" href="../../da/d93/a01084.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a>&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d41/a05803.html#a606a97ab7752495ff5b4874b04c54cc5">getSpeed</a> () noexcept</td></tr>
+<tr class="memdesc:a606a97ab7752495ff5b4874b04c54cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the speed of the attached device, as detected at the last bus reset.  <br /></td></tr>
+<tr class="memitem:aa5a82053bf356261f139d027918f7a98" id="r_aa5a82053bf356261f139d027918f7a98"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d41/a05803.html#aa5a82053bf356261f139d027918f7a98">getFrame</a> () noexcept</td></tr>
+<tr class="memdesc:aa5a82053bf356261f139d027918f7a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current frame number, for scheduling.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a1408a15ce86dc735091663f5aae98d4b" id="r_a1408a15ce86dc735091663f5aae98d4b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a1408a15ce86dc735091663f5aae98d4b">MAX_CHANNELS</a> = 16U</td></tr>
+<tr class="memdesc:a1408a15ce86dc735091663f5aae98d4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Channels that can be waited on (the event group has 24 bits).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a0eb76333730406f2b4eb1c25a840e786" id="r_a0eb76333730406f2b4eb1c25a840e786"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a> (HCD_HandleTypeDef *handle) noexcept</td></tr>
+<tr class="memdesc:a0eb76333730406f2b4eb1c25a840e786"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/da8/a05511.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (HCD_HandleTypeDef *handle) noexcept</td></tr>
+<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a HAL handle.  <br /></td></tr>
+<tr class="memitem:ac1e436d02537a9e4b651277ba21762f9" id="r_ac1e436d02537a9e4b651277ba21762f9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="../../d4/da8/a05511.html#ac1e436d02537a9e4b651277ba21762f9">signalFromISR</a> (HCD_HandleTypeDef *handle, uint32_t bits) noexcept</td></tr>
+<tr class="memdesc:ac1e436d02537a9e4b651277ba21762f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits on the port owning a HAL handle; called from interrupt context.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afbf556ac8abd6b5e8b12958b7b7e8e87" name="afbf556ac8abd6b5e8b12958b7b7e8e87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbf556ac8abd6b5e8b12958b7b7e8e87">&#9670;&#160;</a></span>Client() <span class="overload">[1/3]</span></h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a10761412c20341dee385767eac673248" name="a10761412c20341dee385767eac673248"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10761412c20341dee385767eac673248">&#9670;&#160;</a></span>EventHandler</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;HttpTransport T_TRANSPORT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;typename T_DERIVED&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/df0/a05791.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::Client </td>
-          <td>(</td>
-          <td class="paramtype">T_TRANSPORT &amp;</td>          <td class="paramname"><span class="paramname"><em>transport</em></span></td><td>)</td>
-          <td></td>
+          <td class="memname">using <a class="el" href="../../d8/df0/a05791.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::EventHandler = void (*)(void * context, <a class="el" href="../../da/d93/a01084.html#a53f17b15be5eab9c94b2c21a10f050fd">USBHostEvent</a> event, uint8_t channel) noexcept</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Binds the client to a connected transport. </p>
+<p>Handler called in interrupt context for every bus and channel event. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">transport</td><td>Transport requests go over; must outlive this client. </td></tr>
+    <tr><td class="paramname">context</td><td>Pointer given to <a class="el" href="#a031aa9b48caa98516825b7f35468b627" title="Lib::HAL::USBHostPortAsync::setEventHandler()">Lib::HAL::USBHostPortAsync::setEventHandler()</a>. </td></tr>
+    <tr><td class="paramname">event</td><td>The event. </td></tr>
+    <tr><td class="paramname">channel</td><td>Channel number for <a class="el" href="../../da/d93/a01084.html#a53f17b15be5eab9c94b2c21a10f050fda8fd93f85d871681d2952ca6d872c14d0" title="Lib::HAL::USBHostEvent::CHANNEL_DONE">Lib::HAL::USBHostEvent::CHANNEL_DONE</a>, <em class="arg">0</em> otherwise. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a893ac5643ef917f5ca701fabbe75a429" name="a893ac5643ef917f5ca701fabbe75a429"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a893ac5643ef917f5ca701fabbe75a429">&#9670;&#160;</a></span>Client() <span class="overload">[2/3]</span></h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0eb76333730406f2b4eb1c25a840e786" name="a0eb76333730406f2b4eb1c25a840e786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0eb76333730406f2b4eb1c25a840e786">&#9670;&#160;</a></span>USBHostPortAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;HttpTransport T_TRANSPORT&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/df0/a05791.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::Client </td>
+          <td class="memname"><a class="el" href="../../d8/df0/a05791.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::USBHostPortAsync </td>
           <td>(</td>
-          <td class="paramtype">const Client&lt; T_TRANSPORT &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">HCD_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: bound to one transport. </p>
-
-</div>
-</div>
-<a id="a207055b9f6a7daac509985f971a0e14f" name="a207055b9f6a7daac509985f971a0e14f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a207055b9f6a7daac509985f971a0e14f">&#9670;&#160;</a></span>Client() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;HttpTransport T_TRANSPORT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/df0/a05791.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::Client </td>
-          <td>(</td>
-          <td class="paramtype">Client&lt; T_TRANSPORT &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: bound to one transport. </p>
+<p>Binds the port to its native handle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aabf7e35c74111468fdd296e6931b047f" name="aabf7e35c74111468fdd296e6931b047f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabf7e35c74111468fdd296e6931b047f">&#9670;&#160;</a></span>get()</h2>
+<a id="a03c62c024b148a264f9a6a0077198302" name="a03c62c024b148a264f9a6a0077198302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c62c024b148a264f9a6a0077198302">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;HttpTransport T_TRANSPORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d2/d41/a01037.html#afc43b899679a3737d2e7425a9168a85c">Status</a> <a class="el" href="../../d8/df0/a05791.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::get </td>
+          <td class="memname">bool <a class="el" href="../../d4/da8/a05511.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, HCD_HandleTypeDef, <a class="el" href="../../d5/d41/a05803.html">USBHostPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a>&lt; T_DERIVED &gt; &gt;::close </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>host</em></span>, </td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group. </p>
+<p>Task context only; asserts when called from an interrupt.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
+
+</div>
+</div>
+<a id="a8f20ce05eb27e7ffc1854d4318e1cd9f" name="a8f20ce05eb27e7ffc1854d4318e1cd9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f20ce05eb27e7ffc1854d4318e1cd9f">&#9670;&#160;</a></span>closeChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/d41/a05803.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::closeChannel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Halts a host channel, so its transfer stops and the channel can be reused. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel number. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the halt, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a66f47e9670feddc6fb679436b07a1680" name="a66f47e9670feddc6fb679436b07a1680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66f47e9670feddc6fb679436b07a1680">&#9670;&#160;</a></span>findPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_DERIVED * <a class="el" href="../../d4/da8/a05511.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, HCD_HandleTypeDef, <a class="el" href="../../d5/d41/a05803.html">USBHostPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a>&lt; T_DERIVED &gt; &gt;::findPort </td>
+          <td>(</td>
+          <td class="paramtype">HCD_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds the port that owns a HAL handle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The port, or <b>nullptr</b> if no open port uses the handle. </dd></dl>
+
+</div>
+</div>
+<a id="aa5a82053bf356261f139d027918f7a98" name="aa5a82053bf356261f139d027918f7a98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5a82053bf356261f139d027918f7a98">&#9670;&#160;</a></span>getFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d5/d41/a05803.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::getFrame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the current frame number, for scheduling. </p>
+<dl class="section return"><dt>Returns</dt><dd>Frame number. </dd></dl>
+
+</div>
+</div>
+<a id="af92f93241be20a3c9a32286ed19dc4cf" name="af92f93241be20a3c9a32286ed19dc4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92f93241be20a3c9a32286ed19dc4cf">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const HCD_HandleTypeDef * <a class="el" href="../../de/d01/a05519.html">Lib::HAL::Device</a>&lt; T_DERIVED, HCD_HandleTypeDef &gt;::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Const-qualified access to the native microcontroller hardware handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
+
+</div>
+</div>
+<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">HCD_HandleTypeDef * <a class="el" href="../../de/d01/a05519.html">Lib::HAL::Device</a>&lt; T_DERIVED, HCD_HandleTypeDef &gt;::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
+
+</div>
+</div>
+<a id="a606a97ab7752495ff5b4874b04c54cc5" name="a606a97ab7752495ff5b4874b04c54cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a606a97ab7752495ff5b4874b04c54cc5">&#9670;&#160;</a></span>getSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d93/a01084.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a> <a class="el" href="../../d5/d41/a05803.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::getSpeed </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the speed of the attached device, as detected at the last bus reset. </p>
+<dl class="section return"><dt>Returns</dt><dd>Speed of the port as an <a class="el" href="../../da/d93/a01084.html#a8cde9e5e92df1421df294fcb1a50b4e7" title="Lib::HAL::USBSpeed">Lib::HAL::USBSpeed</a> value. </dd></dl>
+
+</div>
+</div>
+<a id="aeafad19d337548bb5ef919dd44723b5f" name="aeafad19d337548bb5ef919dd44723b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeafad19d337548bb5ef919dd44723b5f">&#9670;&#160;</a></span>getTransferCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d5/d41/a05803.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::getTransferCount </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of bytes a channel transferred in its last transfer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel number. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Transferred byte count. </dd></dl>
+
+</div>
+</div>
+<a id="a8be2d6d39175f6e71f25e4a64e0e2f1b" name="a8be2d6d39175f6e71f25e4a64e0e2f1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be2d6d39175f6e71f25e4a64e0e2f1b">&#9670;&#160;</a></span>isOpened()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/da8/a05511.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, HCD_HandleTypeDef, <a class="el" href="../../d5/d41/a05803.html">USBHostPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a>&lt; T_DERIVED &gt; &gt;::isOpened </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the port is open. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="../../d4/da8/a05511.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d4/da8/a05511.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a3822bc9b87b9e299982b230e2c029f35" name="a3822bc9b87b9e299982b230e2c029f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3822bc9b87b9e299982b230e2c029f35">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/da8/a05511.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, HCD_HandleTypeDef, <a class="el" href="../../d5/d41/a05803.html">USBHostPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a>&lt; T_DERIVED &gt; &gt;::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opens the port: event group, peripheral, <a class="el" href="../../d1/dab/a05515.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order. </p>
+<p>Task context only; asserts when called from an interrupt and on an unbound handle. A failure undoes the earlier steps, so the port stays closed.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
+
+</div>
+</div>
+<a id="aa013c6f71e1233cd4ef77f9d22d951f1" name="aa013c6f71e1233cd4ef77f9d22d951f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa013c6f71e1233cd4ef77f9d22d951f1">&#9670;&#160;</a></span>openChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/d41/a05803.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::openChannel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>endpointNumber</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>deviceAddress</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/d25/a05787.html">Response</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="../../da/d93/a01084.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a></td>          <td class="paramname"><span class="paramname"><em>speed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d93/a01084.html#ae1783f3c88baf78f222c313659cf4a98">USBEndpointType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>maxPacketSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes a host channel for one endpoint of the attached device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel number, below the number the controller has. </td></tr>
+    <tr><td class="paramname">endpointNumber</td><td>Endpoint number of the device (without the direction bit). </td></tr>
+    <tr><td class="paramname">deviceAddress</td><td>Address of the device on the bus (0 before SET_ADDRESS). </td></tr>
+    <tr><td class="paramname">speed</td><td>Bus speed of the device. </td></tr>
+    <tr><td class="paramname">type</td><td>Transfer type of the endpoint. </td></tr>
+    <tr><td class="paramname">maxPacketSize</td><td>Maximum packet size of the endpoint, in bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the channel, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a4be20887571f3bd3694a79bb349979f8" name="a4be20887571f3bd3694a79bb349979f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be20887571f3bd3694a79bb349979f8">&#9670;&#160;</a></span>resetPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/d41/a05803.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::resetPort </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Drives a bus reset on the port, as the first step after a device is attached. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the reset, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a031aa9b48caa98516825b7f35468b627" name="a031aa9b48caa98516825b7f35468b627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a031aa9b48caa98516825b7f35468b627">&#9670;&#160;</a></span>setEventHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d8/df0/a05791.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::setEventHandler </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a10761412c20341dee385767eac673248">EventHandler</a></td>          <td class="paramname"><span class="paramname"><em>newHandler</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>newContext</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Installs the handler that receives every event in interrupt context. </p>
+<p>Call it before starting the port with <a class="el" href="../../d5/d41/a05803.html#ae2eed5f70766aca444ca11eb3ab9d1ad" title="Lib::HAL::USBHostPortBase::start()">Lib::HAL::USBHostPortBase::start()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newHandler</td><td>Function to call, or <em class="arg">nullptr</em> to remove it. </td></tr>
+    <tr><td class="paramname">newContext</td><td>Pointer passed back to the handler as its first argument. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac1e436d02537a9e4b651277ba21762f9" name="ac1e436d02537a9e4b651277ba21762f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e436d02537a9e4b651277ba21762f9">&#9670;&#160;</a></span>signalFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d4/da8/a05511.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, HCD_HandleTypeDef, <a class="el" href="../../d5/d41/a05803.html">USBHostPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a>&lt; T_DERIVED &gt; &gt;::signalFromISR </td>
+          <td>(</td>
+          <td class="paramtype">HCD_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>bits</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets event bits on the port owning a HAL handle; called from interrupt context. </p>
+<p>Does nothing when no open port uses the handle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
+    <tr><td class="paramname">bits</td><td>Event bits to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae2eed5f70766aca444ca11eb3ab9d1ad" name="ae2eed5f70766aca444ca11eb3ab9d1ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2eed5f70766aca444ca11eb3ab9d1ad">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/d41/a05803.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enables the controller interrupts and powers the port, so a device can be attached. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the start, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="abb99db8a0c5b9c1c35ae04c3fcc63818" name="abb99db8a0c5b9c1c35ae04c3fcc63818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb99db8a0c5b9c1c35ae04c3fcc63818">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/d41/a05803.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disables the controller interrupts and the port. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the stop, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a3bcff372802df7955ce5761f4e32e420" name="a3bcff372802df7955ce5761f4e32e420"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bcff372802df7955ce5761f4e32e420">&#9670;&#160;</a></span>transfer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../da/d93/a01084.html#a62152c846403f6b93d0f2e9ff14adafe">USBHostTransferResult</a> <a class="el" href="../../d8/df0/a05791.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::transfer </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d93/a01084.html#a0feace7a2249d65bd2313f48bf07ba0b">USBDirection</a></td>          <td class="paramname"><span class="paramname"><em>direction</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../da/d93/a01084.html#ae1783f3c88baf78f222c313659cf4a98">USBEndpointType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isSetup</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -275,120 +833,53 @@ template&lt;HttpTransport T_TRANSPORT&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sends a GET request and waits for the response. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">host</td><td>Value of the Host header, such as 'api.example.com'. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">path</td><td>Request path including any query string, such as '/v1/status'. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; <em class="arg">response.body</em> views into it. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Parsed response; valid only on <a class="el" href="../../d2/d41/a01037.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
+<p>Runs one transfer on a channel and waits for its end. </p>
+<p>Task context only.</p>
+<p>For an OUT transfer the buffer is only read. A transfer that ends with NAK is reported as <a class="el" href="../../da/d93/a01084.html#a62152c846403f6b93d0f2e9ff14adafea9455b42e74acb2ec1c7292e54d28aff2" title="Lib::HAL::USBHostTransferResult::NOT_READY">Lib::HAL::USBHostTransferResult::NOT_READY</a> and is not repeated here, so the caller chooses its own retry policy. On timeout the channel is halted, so the HAL never uses <em class="arg">data</em> after this returns. Violating a precondition asserts in debug builds.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Result of the request. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel number, opened with <a class="el" href="../../d5/d41/a05803.html#aa013c6f71e1233cd4ef77f9d22d951f1" title="Lib::HAL::USBHostPortBase::openChannel()">Lib::HAL::USBHostPortBase::openChannel()</a>. </td></tr>
+    <tr><td class="paramname">direction</td><td>Data direction of the transfer. </td></tr>
+    <tr><td class="paramname">type</td><td>Transfer type of the endpoint. </td></tr>
+    <tr><td class="paramname">isSetup</td><td><em class="arg">true</em> for the setup stage of a control transfer, <em class="arg">false</em> for data and status stages. </td></tr>
+    <tr><td class="paramname">data</td><td>Source (OUT) or destination (IN) buffer, up to 65535 bytes; empty for a zero-length packet. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>How the transfer ended; <a class="el" href="../../d5/d41/a05803.html#aeafad19d337548bb5ef919dd44723b5f" title="Lib::HAL::USBHostPortBase::getTransferCount()">Lib::HAL::USBHostPortBase::getTransferCount()</a> tells how many bytes moved. </dd></dl>
 
 </div>
 </div>
-<a id="a19375415236ef7e6b214f897791eeb09" name="a19375415236ef7e6b214f897791eeb09"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19375415236ef7e6b214f897791eeb09">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a3f0b1b6f781d9750119863a0ef5c1332" name="a3f0b1b6f781d9750119863a0ef5c1332"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f0b1b6f781d9750119863a0ef5c1332">&#9670;&#160;</a></span>waitForEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;HttpTransport T_TRANSPORT&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp; <a class="el" href="../../d8/df0/a05791.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname">bool <a class="el" href="../../d8/df0/a05791.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::waitForEvent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a>&lt; T_TRANSPORT &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: bound to one transport. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a3b9c27f75842a31365c97eaaa607d452" name="a3b9c27f75842a31365c97eaaa607d452"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b9c27f75842a31365c97eaaa607d452">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;HttpTransport T_TRANSPORT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a> &amp; <a class="el" href="../../d8/df0/a05791.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#afbf556ac8abd6b5e8b12958b7b7e8e87">Client</a>&lt; T_TRANSPORT &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: bound to one transport. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="aee5955fa4ffad931d4418d2f59af2880" name="aee5955fa4ffad931d4418d2f59af2880"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee5955fa4ffad931d4418d2f59af2880">&#9670;&#160;</a></span>post()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;HttpTransport T_TRANSPORT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d2/d41/a01037.html#afc43b899679a3737d2e7425a9168a85c">Status</a> <a class="el" href="../../d8/df0/a05791.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::post </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>host</em></span>, </td>
+          <td class="paramtype"><a class="el" href="../../da/d93/a01084.html#a53f17b15be5eab9c94b2c21a10f050fd">USBHostEvent</a></td>          <td class="paramname"><span class="paramname"><em>event</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>contentType</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/d25/a05787.html">Response</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -398,91 +889,50 @@ template&lt;HttpTransport T_TRANSPORT&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sends a POST request with a body and waits for the response. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">host</td><td>Value of the Host header, such as 'api.example.com'. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">path</td><td>Request path including any query string. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">contentType</td><td>Value of the Content-Type header, such as 'application/json'. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">body</td><td>Request body. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; <em class="arg">response.body</em> views into it. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Parsed response; valid only on <a class="el" href="../../d2/d41/a01037.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
+<p>Waits for a bus event. </p>
+<p>Task context only.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Result of the request. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">event</td><td>One of <a class="el" href="../../da/d93/a01084.html#a53f17b15be5eab9c94b2c21a10f050fdab57e2519e26151feacdbe52076bc39ec" title="Lib::HAL::USBHostEvent::CONNECT">Lib::HAL::USBHostEvent::CONNECT</a>, <a class="el" href="../../da/d93/a01084.html#a53f17b15be5eab9c94b2c21a10f050fdadd7cd0eb57db08d4f98abc48e5593462" title="Lib::HAL::USBHostEvent::DISCONNECT">Lib::HAL::USBHostEvent::DISCONNECT</a>, <a class="el" href="../../da/d93/a01084.html#a53f17b15be5eab9c94b2c21a10f050fda5bcb737b3b015475d3595f95b82f6604" title="Lib::HAL::USBHostEvent::PORT_ENABLED">Lib::HAL::USBHostEvent::PORT_ENABLED</a> or <a class="el" href="../../da/d93/a01084.html#a53f17b15be5eab9c94b2c21a10f050fda877d4ba1f8ca996dcc530ffa2210acc5" title="Lib::HAL::USBHostEvent::PORT_DISABLED">Lib::HAL::USBHostEvent::PORT_DISABLED</a>. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the event happened since the last wait for it (the event is cleared), <b>false</b> on timeout or when the port is closed. </dd></dl>
 
 </div>
 </div>
-<a id="aff0df8d671c191feb30e91ba3a1053a7" name="aff0df8d671c191feb30e91ba3a1053a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff0df8d671c191feb30e91ba3a1053a7">&#9670;&#160;</a></span>request()</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a1408a15ce86dc735091663f5aae98d4b" name="a1408a15ce86dc735091663f5aae98d4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1408a15ce86dc735091663f5aae98d4b">&#9670;&#160;</a></span>MAX_CHANNELS</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;HttpTransport T_TRANSPORT&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d2/d41/a01037.html#afc43b899679a3737d2e7425a9168a85c">Status</a> <a class="el" href="../../d8/df0/a05791.html">Lib::HTTP::Client</a>&lt; T_TRANSPORT &gt;::request </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d2/d41/a01037.html#a8f753d750ea425a0a07f531674302436">Method</a></td>          <td class="paramname"><span class="paramname"><em>method</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>host</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>contentType</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>body</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/d25/a05787.html">Response</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>response</em></span>&#160;)</td>
+          <td class="memname">size_t <a class="el" href="../../d8/df0/a05791.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::MAX_CHANNELS = 16U</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sends a request with any method and waits for the response. </p>
-<p>Content-Type and Content-Length headers are added only when <em class="arg">body</em> is not empty.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">method</td><td>Request method. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">host</td><td>Value of the Host header. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">path</td><td>Request path including any query string. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">contentType</td><td>Value of the Content-Type header; ignored when <em class="arg">body</em> is empty. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">body</td><td>Request body; empty for none. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; <em class="arg">response.body</em> views into it. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Parsed response; valid only on <a class="el" href="../../d2/d41/a01037.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Result of the request. </dd></dl>
+<p>Channels that can be waited on (the event group has 24 bits). </p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::WindowWatchdog</title>
+<title>IAR EWARM Library: Lib::HAL::RTCDevice</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,60 +92,73 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::WindowWatchdog</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::RTCDevice</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Starts the hardware Window Watchdog (WWDG) with <a class="el" href="../../d0/d14/a06358.html" title="Lib::HAL::WindowWatchdog">Lib::HAL::WindowWatchdog</a> and refreshes it from a periodic task.</p>
-<p>Starts the hardware Window Watchdog (WWDG) with <a class="el" href="../../d0/d14/a06358.html" title="Lib::HAL::WindowWatchdog">Lib::HAL::WindowWatchdog</a> and refreshes it from a periodic task.The wrapper does not own the CubeMX-generated handle; it stores the pointer passed to the constructor, which must stay valid for the lifetime of the instance. The counter, prescaler and window are read from the handle when <a class="el" href="../../db/d00/a05793.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f" title="Lib::HAL::WindowWatchdog::open()">Lib::HAL::WindowWatchdog::open()</a> runs, so configure them in CubeMX before calling it.</p>
-<dl class="section important"><dt>Important</dt><dd>The class compiles only when <em class="arg">HAL_WWDG_MODULE_ENABLED</em> is defined. The project's HAL configuration header ('EWARM/Core/Inc/stm32f4xx_hal_conf.h') defines it, so the module is enabled for this target.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Once <a class="el" href="../../db/d00/a05793.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f" title="Lib::HAL::WindowWatchdog::open()">Lib::HAL::WindowWatchdog::open()</a> succeeds the watchdog cannot be stopped until the next reset. A refresh issued before the window opens, or after the counter reaches zero, resets the MCU. <a class="el" href="../../db/d00/a05793.html#a8391a6219cf7a6f1a8e9e1383b0e115b" title="Lib::HAL::WindowWatchdog::refresh()">Lib::HAL::WindowWatchdog::refresh()</a> reports only that the reload register accepted the refresh, so <em class="arg">true</em> does not by itself prove that the refresh fell inside the window.</dd></dl>
+<p>Reads and sets the real-time clock with <a class="el" href="../../d0/d14/a06358.html" title="Lib::HAL::RTCDevice">Lib::HAL::RTCDevice</a> and delivers a once-per-second tick to an observer from a worker task.</p>
+<p>Reads and sets the real-time clock with <a class="el" href="../../d0/d14/a06358.html" title="Lib::HAL::RTCDevice">Lib::HAL::RTCDevice</a> and delivers a once-per-second tick to an observer from a worker task.The device registers itself with <a class="el" href="../../da/da4/a06338.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a> on construction, so the HAL alarm callback can map the native handle back to the instance. startTickService() creates an RTOS task and arms Alarm A; the observer is a non-owning <a class="el" href="../../dc/d03/a05655.html#a0a60ddd5d190a0aaa1bbe1c7e6d62c59" title="Lib::HAL::RTCDevice::Callback">Lib::HAL::RTCDevice::Callback</a>, so the function it refers to must outlive the service.</p>
+<p>The header defines the C-linkage <b>HAL_RTC_AlarmAEventCallback()</b> itself. Do not define that callback in CubeMX user code or anywhere else, or the link fails with a duplicate symbol.</p>
+<dl class="section important"><dt>Important</dt><dd>The RTC is available on every STM32F4xx family, including the STM32F407xx target of this library. The module guard is <em class="arg">HAL_RTC_MODULE_ENABLED</em>; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so that guard is unverified here, although the STM32Cube template enables it.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="../../dc/d03/a05655.html#a9911cafdfc9189dd93f7eb0494ffd54a" title="Lib::HAL::RTCDevice::setDateTime()">Lib::HAL::RTCDevice::setDateTime()</a> and <a class="el" href="../../dc/d03/a05655.html#a653f2f434ecec9a018b72fd9101db1d0" title="Lib::HAL::RTCDevice::startTickService()">Lib::HAL::RTCDevice::startTickService()</a> assert that they run in task context, not in an ISR. <a class="el" href="../../dc/d03/a05655.html#acdd2b9c31ba35c63f5873309d8f0130e" title="Lib::HAL::RTCDevice::stopTickService()">Lib::HAL::RTCDevice::stopTickService()</a> blocks until the worker task exits. Called from the tick observer itself, it only requests the stop and must not wait on the worker, so the observer must return.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="windowwatchdog_usage_start"></a>
-Start and refresh</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d30/a00848.html">Lib/HAL/WWDG/WindowWatchdog.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="rtc_usage_read"></a>
+Read and set date and time</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00752.html">Lib/HAL/RTC/RTCDevice.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/d91/a01034.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a> hrtc; <span class="comment">// Generated by CubeMX.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="keyword">static</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../dc/d03/a05655.html">Lib::HAL::RTCDevice</a> rtcDevice(&amp;hrtc);</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d5/d84/a01612.html">WWDG_HandleTypeDef</a> hwwdg; <span class="comment">// Generated by CubeMX.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> windowWatchdogTask(<span class="keywordtype">void</span> *) {</div>
-<div class="line">    <span class="keyword">static</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../db/d00/a05793.html">Lib::HAL::WindowWatchdog</a> watchdog(&amp;hwwdg);</div>
-<div class="line">    <span class="keywordflow">if</span> (!watchdog.<a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d00/a05793.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="comment">// The refresh must fall inside the window configured in CubeMX.</span></div>
-<div class="line">        <span class="keywordflow">if</span> (!watchdog.<a id="a3" name="a3"></a><a class="code hl_function" href="../../db/d00/a05793.html#a8391a6219cf7a6f1a8e9e1383b0e115b">refresh</a>()) {</div>
-<div class="line">            <span class="comment">// The HAL refused the refresh; a refresh outside the window resets the MCU.</span></div>
-<div class="line">        }</div>
-<div class="line">        <a id="a4" name="a4"></a><a class="code hl_function" href="../../d0/d1f/a01087.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a id="_a5" name="_a5"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(20));</div>
+<div class="line"><span class="keywordtype">void</span> setInitialClock() noexcept {</div>
+<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../da/dde/a05663.html">Lib::HAL::RTCDevice::Time</a> time{.hours = 12U, .minutes = 30U, .seconds = 0U};</div>
+<div class="line">    <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_struct" href="../../d7/d33/a05659.html">Lib::HAL::RTCDevice::Date</a> date{.year = 26U, .month = 11U, .day = 13U, .weekDay = <a id="_a4" name="_a4"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d4/d95/a00989.html#ga3755707d628f4664c30d02fd2a2f0182">RTC_WEEKDAY_FRIDAY</a>};</div>
+<div class="line">    <span class="keywordflow">if</span> (!rtcDevice.setDateTime(time, date)) {</div>
+<div class="line">        <span class="comment">// The HAL refused the write; the clock keeps its previous value.</span></div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00848_html"><div class="ttname"><a href="../../d9/d30/a00848.html">WindowWatchdog.hpp</a></div><div class="ttdoc">Window Watchdog (WWDG) interface.</div></div>
-<div class="ttc" id="aa01034_html"><div class="ttname"><a href="../../de/d91/a01034.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01087_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d0/d1f/a01087.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:610</div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01612_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d5/d84/a01612.html">WWDG_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa05793_html"><div class="ttname"><a href="../../db/d00/a05793.html">Lib::HAL::WindowWatchdog</a></div><div class="ttdoc">Controls the hardware Window Watchdog peripheral subsystem.</div><div class="ttdef"><b>Definition</b> WindowWatchdog.hpp:35</div></div>
-<div class="ttc" id="aa05793_html_a5f510a61dd04e4f7b6fd5bb5fa5bd81f"><div class="ttname"><a href="../../db/d00/a05793.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f">Lib::HAL::WindowWatchdog::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes and starts the hardware window watchdog timer using the configuration stored in the nativ...</div><div class="ttdef"><b>Definition</b> WindowWatchdog.hpp:100</div></div>
-<div class="ttc" id="aa05793_html_a8391a6219cf7a6f1a8e9e1383b0e115b"><div class="ttname"><a href="../../db/d00/a05793.html#a8391a6219cf7a6f1a8e9e1383b0e115b">Lib::HAL::WindowWatchdog::refresh</a></div><div class="ttdeci">bool refresh() noexcept</div><div class="ttdoc">Refreshes the internal hardware counter to prevent system resets, respecting window boundaries.</div><div class="ttdef"><b>Definition</b> WindowWatchdog.hpp:113</div></div>
+<div class="ttc" id="aa00752_html"><div class="ttname"><a href="../../dd/d5c/a00752.html">RTCDevice.hpp</a></div><div class="ttdoc">Event-driven interface to the STM32 Real-Time Clock peripheral.</div></div>
+<div class="ttc" id="aa00989_html_ga3755707d628f4664c30d02fd2a2f0182"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d4/d95/a00989.html#ga3755707d628f4664c30d02fd2a2f0182">RTC_WEEKDAY_FRIDAY</a></div><div class="ttdeci">#define RTC_WEEKDAY_FRIDAY</div></div>
+<div class="ttc" id="aa01512_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa05655_html"><div class="ttname"><a href="../../dc/d03/a05655.html">Lib::HAL::RTCDevice</a></div><div class="ttdoc">Controls the microcontroller Real-Time Clock calendar structures with event notifications.</div><div class="ttdef"><b>Definition</b> RTCDevice.hpp:50</div></div>
+<div class="ttc" id="aa05659_html"><div class="ttname"><a href="../../d7/d33/a05659.html">Lib::HAL::RTCDevice::Date</a></div><div class="ttdoc">Calendar date fields in the HAL binary format.</div><div class="ttdef"><b>Definition</b> RTCDevice.hpp:63</div></div>
+<div class="ttc" id="aa05663_html"><div class="ttname"><a href="../../da/dde/a05663.html">Lib::HAL::RTCDevice::Time</a></div><div class="ttdoc">Time-of-day fields in the HAL binary format.</div><div class="ttdef"><b>Definition</b> RTCDevice.hpp:73</div></div>
+</div><!-- fragment --><p>The weekday must agree with the day of the month; <a class="el" href="../../dc/d03/a05655.html#a9911cafdfc9189dd93f7eb0494ffd54a" title="Lib::HAL::RTCDevice::setDateTime()">Lib::HAL::RTCDevice::setDateTime()</a> checks only that it lies between <em class="arg">RTC_WEEKDAY_MONDAY</em> and <em class="arg">RTC_WEEKDAY_SUNDAY</em>.</p>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="rtc_usage_tick"></a>
+Per-second tick observer</h3>
+<p>The observer runs in the worker task, so it may call RTOS services, but it must not block for longer than one second or the next tick is delayed.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00752.html">Lib/HAL/RTC/RTCDevice.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a> hrtc; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">static</span> <a class="code hl_class" href="../../dc/d03/a05655.html">Lib::HAL::RTCDevice</a> rtcDevice(&amp;hrtc);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> onTick(<span class="keyword">const</span> <a class="code hl_struct" href="../../da/dde/a05663.html">Lib::HAL::RTCDevice::Time</a> &amp; time, <span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d33/a05659.html">Lib::HAL::RTCDevice::Date</a> &amp; date) {</div>
+<div class="line">    <span class="comment">// Update the display or log the time. Keep it short.</span></div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(time);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(date);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> startClockTicks() noexcept {</div>
+<div class="line">    <span class="keywordflow">return</span> rtcDevice.startTickService(onTick);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> stopClockTicks() noexcept {</div>
+<div class="line">    rtcDevice.stopTickService();</div>
+<div class="line">}</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="windowwatchdog_usage_window"></a>
-Narrow the refresh window at run time</h3>
-<p><a class="el" href="../../db/d00/a05793.html#a874dc7d2f0c51055da55dc4f4622d62a" title="Lib::HAL::WindowWatchdog::setWindow()">Lib::HAL::WindowWatchdog::setWindow()</a> writes the window value into the handle and re-applies the configuration through <b>HAL_WWDG_Init()</b>. Call it before the refresh task starts, so that the first refresh falls inside the new window.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d30/a00848.html">Lib/HAL/WWDG/WindowWatchdog.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="rtc_usage_error"></a>
+Error path</h3>
+<p><a class="el" href="../../dc/d03/a05655.html#a653f2f434ecec9a018b72fd9101db1d0" title="Lib::HAL::RTCDevice::startTickService()">Lib::HAL::RTCDevice::startTickService()</a> returns <em class="arg">false</em> when the service already runs, and also when the observer is unbound (which asserts in a debug build), when the worker task cannot be created, or when the Alarm A configuration is refused. In the last two cases the service is left stopped, so a retry is safe. <a class="el" href="../../dc/d03/a05655.html#ad950fdd81c82bb7ecbe2f6f0a896c573" title="Lib::HAL::RTCDevice::getDateTime()">Lib::HAL::RTCDevice::getDateTime()</a> returns <em class="arg">false</em> when either HAL read fails; the output parameters are then not written and must not be used.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00752.html">Lib/HAL/RTC/RTCDevice.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a> hrtc; <span class="comment">// Generated by CubeMX.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> configureWindow(<a class="code hl_class" href="../../db/d00/a05793.html">Lib::HAL::WindowWatchdog</a> &amp; watchdog) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t WINDOW_VALUE = 0x50U; <span class="comment">// Window upper limit as a counter value.</span></div>
-<div class="line">    <span class="keywordflow">return</span> watchdog.setWindow(WINDOW_VALUE);</div>
+<div class="line"><span class="keyword">static</span> <a class="code hl_class" href="../../dc/d03/a05655.html">Lib::HAL::RTCDevice</a> rtcDevice(&amp;hrtc);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> readClock(<a class="code hl_struct" href="../../da/dde/a05663.html">Lib::HAL::RTCDevice::Time</a> &amp; time, <a class="code hl_struct" href="../../d7/d33/a05659.html">Lib::HAL::RTCDevice::Date</a> &amp; date) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> rtcDevice.getDateTime(time, date);</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Timer::TimOutputCompare</title>
+<title>IAR EWARM Library: Lib::HAL::IndependentWatchdog</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,84 +92,58 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOutputCompare</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::IndependentWatchdog</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Generates a timed event with <a class="el" href="../../d3/d73/a06348.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>.</p>
-<p>Generates a timed event with <a class="el" href="../../d3/d73/a06348.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>. The timer raises an interrupt when its counter matches the compare value of the channel, which wakes the task blocked in <a class="el" href="../../d9/d6d/a05693.html#a18804c13963fca99f8037034a6d4e7ec" title="Lib::HAL::Timer::TimOutputCompare::waitCompare()">Lib::HAL::Timer::TimOutputCompare::waitCompare()</a>. The task then sets the next compare value with <a class="el" href="../../d9/d6d/a05693.html#a14b6982f85b9be41e24886a8a1c7445d" title="Lib::HAL::Timer::TimOutputCompare::setCompare()">Lib::HAL::Timer::TimOutputCompare::setCompare()</a>. Call <a class="el" href="../../d9/d6d/a05693.html#a63482b7958cd7171218c959b2b5df044" title="Lib::HAL::Timer::TimOutputCompare::start()">Lib::HAL::Timer::TimOutputCompare::start()</a> from the waiting task, because it binds that task.</p>
-<p>The header defines the HAL callback <b>HAL_TIM_OC_DelayElapsedCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; the compare value is changed in the task.</p>
+<p>Starts the hardware Independent Watchdog (IWDG) with <a class="el" href="../../d3/d73/a06348.html" title="Lib::HAL::IndependentWatchdog">Lib::HAL::IndependentWatchdog</a> and keeps it alive from a task.</p>
+<p>Starts the hardware Independent Watchdog (IWDG) with <a class="el" href="../../d3/d73/a06348.html" title="Lib::HAL::IndependentWatchdog">Lib::HAL::IndependentWatchdog</a> and keeps it alive from a task.The wrapper does not own the CubeMX-generated handle; pass the <b>hiwdg</b> descriptor, which must outlive the instance. The prescaler and reload value are taken from that handle, so configure them in CubeMX before calling open(). refresh() is a single key-register write and is safe from task and ISR context.</p>
+<dl class="section important"><dt>Important</dt><dd>The IWDG is available on every STM32F4xx family, including the STM32F407xx target of this library. The module guard is <em class="arg">HAL_IWDG_MODULE_ENABLED</em>; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so that guard is unverified here, although the STM32Cube template enables it.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Once open() succeeds the watchdog cannot be stopped until the next reset. If refresh() is not called before the configured timeout expires, the MCU resets. Call open() only after the start-up code that must run without a refresh has finished.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timoc_usage_hw"></a>
-Hardware and CubeMX assumptions</h3>
-<ul>
-<li>Timer channel (here <em class="arg">TIM4</em>, <em class="arg">TIM_CHANNEL_2</em>) set to Output Compare mode with its interrupt enabled in the NVIC. The output pin is optional for this use.</li>
-<li>Timer clock and prescaler are set in CubeMX; the compare value is in timer ticks.</li>
-<li>One <a class="el" href="../../d3/d73/a06348.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a> per timer handle.</li>
-</ul>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="timoc_usage_delay"></a>
-Scheduling a compare event in a task</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d00/a00785.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="iwdg_usage_start"></a>
+Start the watchdog</h3>
+<p>open() returns <em class="arg">false</em> only when the HAL initialization or the lock sequence fails. In that case the watchdog is not running, so the firmware decides whether to continue unprotected or to restart.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/db9/a00725.html">Lib/HAL/IWDG/IndependentWatchdog.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/d91/a01034.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d0/d38/a01476.html">IWDG_HandleTypeDef</a> hiwdg; <span class="comment">// Generated by CubeMX.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>DelayedEvent final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">explicit</span> DelayedEvent(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
-<div class="line">        compare(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a>),</div>
-<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../de/da7/a06097.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Delayed&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../dc/d69/a06081.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d9/d6d/a05693.html">Lib::HAL::Timer::TimOutputCompare</a> compare; <span class="comment">// Constructed before the task starts using it.</span></div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d2/d1c/a06077.html">RTOS::Task</a> task;                           <span class="comment">// Must stay the last member.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!compare.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d9/d6d/a05693.html#a63482b7958cd7171218c959b2b5df044">start</a>()) {</div>
-<div class="line">            assert(!<span class="stringliteral">&quot;DelayedEvent: output compare failed to start&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="comment">// Fire 1000 ticks after the current counter value.</span></div>
-<div class="line">            compare.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d9/d6d/a05693.html#a14b6982f85b9be41e24886a8a1c7445d">setCompare</a>(compare.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d9/d6d/a05693.html#afaf7f01f359523e9b30110fdbf8b175b">getCounter</a>() + 1000U);</div>
-<div class="line"> </div>
-<div class="line">            <span class="keywordflow">if</span> (compare.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d9/d6d/a05693.html#a18804c13963fca99f8037034a6d4e7ec">waitCompare</a>(<a id="_a10" name="_a10"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500))) {</div>
-<div class="line">                <span class="comment">// The compare event fired; run the delayed action here.</span></div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00785_html"><div class="ttname"><a href="../../d3/d00/a00785.html">TimOutputCompare.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware Output Compare interface using STM32 Timers.</div></div>
-<div class="ttc" id="aa01034_html"><div class="ttname"><a href="../../de/d91/a01034.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01114_html_ga33e02d43345a7ac5886f01b39e4f7ccd"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a></div><div class="ttdeci">#define TIM_CHANNEL_2</div></div>
-<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa05693_html"><div class="ttname"><a href="../../d9/d6d/a05693.html">Lib::HAL::Timer::TimOutputCompare</a></div><div class="ttdoc">Controls one hardware timer channel configured under an active output compare profile.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:40</div></div>
-<div class="ttc" id="aa05693_html_a14b6982f85b9be41e24886a8a1c7445d"><div class="ttname"><a href="../../d9/d6d/a05693.html#a14b6982f85b9be41e24886a8a1c7445d">Lib::HAL::Timer::TimOutputCompare::setCompare</a></div><div class="ttdeci">void setCompare(uint32_t compareValue) noexcept</div><div class="ttdoc">Sets the counter value at which the output changes state, in the channel&#39;s CCRx register.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:148</div></div>
-<div class="ttc" id="aa05693_html_a18804c13963fca99f8037034a6d4e7ec"><div class="ttname"><a href="../../d9/d6d/a05693.html#a18804c13963fca99f8037034a6d4e7ec">Lib::HAL::Timer::TimOutputCompare::waitCompare</a></div><div class="ttdeci">bool waitCompare(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the counter next matches the compare value.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:119</div></div>
-<div class="ttc" id="aa05693_html_a63482b7958cd7171218c959b2b5df044"><div class="ttname"><a href="../../d9/d6d/a05693.html#a63482b7958cd7171218c959b2b5df044">Lib::HAL::Timer::TimOutputCompare::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the channel with its compare interrupt; the calling task becomes the one waitCompare() serves.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:81</div></div>
-<div class="ttc" id="aa05693_html_afaf7f01f359523e9b30110fdbf8b175b"><div class="ttname"><a href="../../d9/d6d/a05693.html#afaf7f01f359523e9b30110fdbf8b175b">Lib::HAL::Timer::TimOutputCompare::getCounter</a></div><div class="ttdeci">uint32_t getCounter() const noexcept</div><div class="ttdoc">Reads the running counter.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:167</div></div>
-<div class="ttc" id="aa06077_html"><div class="ttname"><a href="../../d2/d1c/a06077.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
-<div class="ttc" id="aa06081_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../dc/d69/a06081.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:89</div></div>
-<div class="ttc" id="aa06097_html"><div class="ttname"><a href="../../de/da7/a06097.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:638</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timoc_usage_stop"></a>
-Stopping</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d00/a00785.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> cancelDelay(<a class="code hl_class" href="../../d9/d6d/a05693.html">Lib::HAL::Timer::TimOutputCompare</a> &amp; compare) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(compare.stop());</div>
+<div class="line"><span class="keywordtype">bool</span> startIndependentWatchdog() noexcept {</div>
+<div class="line">    <span class="keyword">static</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../da/d5c/a05615.html">Lib::HAL::IndependentWatchdog</a> watchdog(hiwdg);</div>
+<div class="line">    <span class="keywordflow">return</span> watchdog.<a id="a2" name="a2"></a><a class="code hl_function" href="../../da/d5c/a05615.html#aefbbf9853d59e4b287ed0df49e5f7cdd">open</a>();</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00725_html"><div class="ttname"><a href="../../d8/db9/a00725.html">IndependentWatchdog.hpp</a></div><div class="ttdoc">Independent Watchdog (IWDG) interface.</div></div>
+<div class="ttc" id="aa01476_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d0/d38/a01476.html">IWDG_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa05615_html"><div class="ttname"><a href="../../da/d5c/a05615.html">Lib::HAL::IndependentWatchdog</a></div><div class="ttdoc">Controls the hardware Independent Watchdog; once started it cannot be stopped until the next reset.</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:32</div></div>
+<div class="ttc" id="aa05615_html_aefbbf9853d59e4b287ed0df49e5f7cdd"><div class="ttname"><a href="../../da/d5c/a05615.html#aefbbf9853d59e4b287ed0df49e5f7cdd">Lib::HAL::IndependentWatchdog::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes and starts the hardware watchdog timer using the configuration held in the native handle.</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:94</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="iwdg_usage_refresh"></a>
+Refresh from a supervisor task</h3>
+<p>The refresh period must stay well below the timeout that the prescaler and reload value define. A supervisor task that refreshes only after every other task reports healthy keeps the watchdog meaningful; a refresh placed in an unconditional timer ISR would hide a blocked task.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/db9/a00725.html">Lib/HAL/IWDG/IndependentWatchdog.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d14/a01040.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d0/d38/a01476.html">IWDG_HandleTypeDef</a> hiwdg; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> supervisorTask(<span class="keywordtype">void</span> *) {</div>
+<div class="line">    <span class="keyword">static</span> <a class="code hl_class" href="../../da/d5c/a05615.html">Lib::HAL::IndependentWatchdog</a> watchdog(hiwdg);</div>
+<div class="line">    <span class="keywordflow">if</span> (!watchdog.<a class="code hl_function" href="../../da/d5c/a05615.html#aefbbf9853d59e4b287ed0df49e5f7cdd">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="comment">// Refresh only when every monitored task has checked in.</span></div>
+<div class="line">        watchdog.<a id="a3" name="a3"></a><a class="code hl_function" href="../../da/d5c/a05615.html#ae9f164f43789bd02baa1587a44c30e61">refresh</a>();</div>
+<div class="line">        <a id="a4" name="a4"></a><a class="code hl_function" href="../../de/d1c/a01093.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a id="_a5" name="_a5"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa01040_html"><div class="ttname"><a href="../../db/d14/a01040.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01093_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d1c/a01093.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:610</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa05615_html_ae9f164f43789bd02baa1587a44c30e61"><div class="ttname"><a href="../../da/d5c/a05615.html#ae9f164f43789bd02baa1587a44c30e61">Lib::HAL::IndependentWatchdog::refresh</a></div><div class="ttdeci">void refresh() noexcept</div><div class="ttdoc">Reloads the watchdog counter to prevent a reset; has no effect before open().</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:104</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

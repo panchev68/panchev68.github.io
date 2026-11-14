@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Ethernet::Port</title>
+<title>IAR EWARM Library: Lib::Ethercat::SOES::EepromEmulation</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,89 +91,70 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../de/de2/a00999.html">Lib</a></li><li class="navelem"><a href="../../de/d41/a01030.html">Ethernet</a></li><li class="navelem"><a href="../../d5/d60/a05279.html">Port</a></li>  </ul>
+<li class="navelem"><a href="../../d9/d8e/a01050.html">Lib</a></li><li class="navelem"><a href="../../d2/d4d/a01079.html">Ethercat</a></li><li class="navelem"><a href="../../d9/d67/a01080.html">SOES</a></li><li class="navelem"><a href="../../d5/d60/a05279.html">EepromEmulation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d7/da2/a05276.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Ethernet::Port</div></div>
+  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::EepromEmulation<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Port number (0 to 65535).  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Port number (0 to 65535). </p>
+<div class="textblock"><p>EEPROM emulation of an EtherCAT slave controller. </p>
+<p>An ESC reads its configuration and the identity of the slave (the SII data) from an I2C EEPROM. Without one, or with the chip set to emulation, the ESC passes every EEPROM command to the PDI and waits for the application to answer it. This class serves those commands: it reads the control and status register, executes the read, write and reload commands against a memory the application provides (flash, RAM) and reports the result to the ESC, so the master can read the SII data with the usual EEPROM commands.</p>
+<p>Call <a class="el" href="#a43d5b4d5c217949b71744e5cc7f4ea38" title="process()">process()</a> periodically (or on the EEPROM event of the ESC). </p>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a77b8666fde23c166cb6a2ff8ba32e75f" id="r_a77b8666fde23c166cb6a2ff8ba32e75f"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">PortString</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;char, <a class="el" href="#af916e924d6a4d9df945906634537c45e">MAX_PORT_DIGITS</a> + 1U&gt;</td></tr>
-<tr class="memdesc:a77b8666fde23c166cb6a2ff8ba32e75f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed, NUL-terminated buffer holding the decimal digits of a port number.  <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0cdcdcee9376806af5c6778670685c80" id="r_a0cdcdcee9376806af5c6778670685c80"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a0cdcdcee9376806af5c6778670685c80">Port</a> () noexcept=default</td></tr>
-<tr class="memdesc:a0cdcdcee9376806af5c6778670685c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a port with the value 0.  <br /></td></tr>
-<tr class="memitem:a557aa5b63a11f1fb3bacd15033d34816" id="r_a557aa5b63a11f1fb3bacd15033d34816"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a557aa5b63a11f1fb3bacd15033d34816">Port</a> (uint16_t value) noexcept</td></tr>
-<tr class="memdesc:a557aa5b63a11f1fb3bacd15033d34816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a port with a value.  <br /></td></tr>
-<tr class="memitem:a74efeaeccbeb41630891ddb4725470a5" id="r_a74efeaeccbeb41630891ddb4725470a5"><td class="memItemLeft">constexpr uint16_t &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a74efeaeccbeb41630891ddb4725470a5">get</a> () noexcept</td></tr>
-<tr class="memdesc:a74efeaeccbeb41630891ddb4725470a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the port value.  <br /></td></tr>
-<tr class="memitem:a2c10d58145f110034d4c6152e2f11f3d" id="r_a2c10d58145f110034d4c6152e2f11f3d"><td class="memItemLeft">constexpr const uint16_t &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2c10d58145f110034d4c6152e2f11f3d">get</a> () const noexcept</td></tr>
-<tr class="memdesc:a2c10d58145f110034d4c6152e2f11f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the port value.  <br /></td></tr>
-<tr class="memitem:a1de553c3b996aee8be2112632f45ee1b" id="r_a1de553c3b996aee8be2112632f45ee1b"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a1de553c3b996aee8be2112632f45ee1b">set</a> (uint16_t newValue) noexcept</td></tr>
-<tr class="memdesc:a1de553c3b996aee8be2112632f45ee1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the port value.  <br /></td></tr>
-<tr class="memitem:a484cc8252d74ed19b3ddc021b4ebbc7a" id="r_a484cc8252d74ed19b3ddc021b4ebbc7a"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a484cc8252d74ed19b3ddc021b4ebbc7a">operator uint16_t</a> () const noexcept</td></tr>
-<tr class="memdesc:a484cc8252d74ed19b3ddc021b4ebbc7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts to the port value, so a <a class="el" href="../../d5/d60/a05279.html" title="Port">Port</a> can be passed where a 'uint16_t' is expected.  <br /></td></tr>
-<tr class="memitem:a4bdd58ee0e3a212c2e9b5be63a0ef4fd" id="r_a4bdd58ee0e3a212c2e9b5be63a0ef4fd"><td class="memItemLeft">constexpr <a class="el" href="#a0cdcdcee9376806af5c6778670685c80">Port</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4bdd58ee0e3a212c2e9b5be63a0ef4fd">operator=</a> (uint16_t newValue) noexcept</td></tr>
-<tr class="memdesc:a4bdd58ee0e3a212c2e9b5be63a0ef4fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a port value.  <br /></td></tr>
-<tr class="memitem:a5db32af54d9bdde977000618e7b6d476" id="r_a5db32af54d9bdde977000618e7b6d476"><td class="memItemLeft">constexpr auto&#160;</td><td class="memItemRight"><a class="el" href="#a5db32af54d9bdde977000618e7b6d476">operator&lt;=&gt;</a> (const <a class="el" href="#a0cdcdcee9376806af5c6778670685c80">Port</a> &amp;other) const noexcept=default</td></tr>
-<tr class="memdesc:a5db32af54d9bdde977000618e7b6d476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two ports by value.  <br /></td></tr>
-<tr class="memitem:a08c2068f012c9bf6bb7c16893081cab6" id="r_a08c2068f012c9bf6bb7c16893081cab6"><td class="memItemLeft">constexpr <a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">PortString</a>&#160;</td><td class="memItemRight"><a class="el" href="#a08c2068f012c9bf6bb7c16893081cab6">toString</a> () const noexcept</td></tr>
-<tr class="memdesc:a08c2068f012c9bf6bb7c16893081cab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the port value to its decimal digits.  <br /></td></tr>
-<tr class="memitem:af096519c074646658fc5d42017770060" id="r_af096519c074646658fc5d42017770060"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#af096519c074646658fc5d42017770060">fromString</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> str) noexcept</td></tr>
-<tr class="memdesc:af096519c074646658fc5d42017770060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a string and sets the port value if it is valid; the value is left alone otherwise.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a7658b363ed5d247291cd3b1f90cec20d" id="r_a7658b363ed5d247291cd3b1f90cec20d"><td class="memItemLeft">static constexpr <a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">PortString</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7658b363ed5d247291cd3b1f90cec20d">toString</a> (uint16_t value) noexcept</td></tr>
-<tr class="memdesc:a7658b363ed5d247291cd3b1f90cec20d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a port value to its decimal digits.  <br /></td></tr>
-<tr class="memitem:a75908d45c78d4098c3fa0e9f7dbc3638" id="r_a75908d45c78d4098c3fa0e9f7dbc3638"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a75908d45c78d4098c3fa0e9f7dbc3638">fromString</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> str, uint16_t &amp;result) noexcept</td></tr>
-<tr class="memdesc:a75908d45c78d4098c3fa0e9f7dbc3638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a string into a port value.  <br /></td></tr>
-<tr class="memitem:af5b8a66e23be35b8d2589b3cdc9d3214" id="r_af5b8a66e23be35b8d2589b3cdc9d3214"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#af5b8a66e23be35b8d2589b3cdc9d3214">validateString</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> str) noexcept</td></tr>
-<tr class="memdesc:af5b8a66e23be35b8d2589b3cdc9d3214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a string is a valid port number.  <br /></td></tr>
+<tr class="memitem:a1146daff507a230799851b6c5f9ee835" id="r_a1146daff507a230799851b6c5f9ee835"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> () noexcept=default</td></tr>
+<tr class="memdesc:a1146daff507a230799851b6c5f9ee835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the emulation.  <br /></td></tr>
+<tr class="memitem:a7958db98ab3c05231a7b72cb1af0b541" id="r_a7958db98ab3c05231a7b72cb1af0b541"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7958db98ab3c05231a7b72cb1af0b541">~EepromEmulation</a> ()=default</td></tr>
+<tr class="memdesc:a7958db98ab3c05231a7b72cb1af0b541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the emulation.  <br /></td></tr>
+<tr class="memitem:ad7dff510056bdddc1b0f203d3b4b4706" id="r_ad7dff510056bdddc1b0f203d3b4b4706"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad7dff510056bdddc1b0f203d3b4b4706">EepromEmulation</a> (const EepromEmulation &amp;other)=delete</td></tr>
+<tr class="memdesc:ad7dff510056bdddc1b0f203d3b4b4706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the object stands for the EEPROM of one slave controller.  <br /></td></tr>
+<tr class="memitem:a907dfb13c5a60c36936f72539a54bb0f" id="r_a907dfb13c5a60c36936f72539a54bb0f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a907dfb13c5a60c36936f72539a54bb0f">EepromEmulation</a> (EepromEmulation &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a907dfb13c5a60c36936f72539a54bb0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the object stands for the EEPROM of one slave controller.  <br /></td></tr>
+<tr class="memitem:ac18054ff925ab9ff88d05d79a8674626" id="r_ac18054ff925ab9ff88d05d79a8674626"><td class="memItemLeft"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac18054ff925ab9ff88d05d79a8674626">operator=</a> (const <a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:ac18054ff925ab9ff88d05d79a8674626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the object stands for the EEPROM of one slave controller.  <br /></td></tr>
+<tr class="memitem:a8a0057afb82e294f720a93b50ad87908" id="r_a8a0057afb82e294f720a93b50ad87908"><td class="memItemLeft"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8a0057afb82e294f720a93b50ad87908">operator=</a> (<a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a8a0057afb82e294f720a93b50ad87908"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the object stands for the EEPROM of one slave controller.  <br /></td></tr>
+<tr class="memitem:a070225a3de178cf14fb35d7a18f183e0" id="r_a070225a3de178cf14fb35d7a18f183e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a070225a3de178cf14fb35d7a18f183e0">setHandlers</a> (const <a class="el" href="#a341e46394d44eaa24f4fb65f459bf98e">Handlers</a> &amp;newHandlers) noexcept</td></tr>
+<tr class="memdesc:a070225a3de178cf14fb35d7a18f183e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the memory.  <br /></td></tr>
+<tr class="memitem:af5db1919319a4d3ff6af2f55f54bee74" id="r_af5db1919319a4d3ff6af2f55f54bee74"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af5db1919319a4d3ff6af2f55f54bee74">setReadSize</a> (size_t bytes) noexcept</td></tr>
+<tr class="memdesc:af5db1919319a4d3ff6af2f55f54bee74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets how many bytes a read command returns: 8, or 4 if the ESC is configured for 4-byte reads.  <br /></td></tr>
+<tr class="memitem:a43d5b4d5c217949b71744e5cc7f4ea38" id="r_a43d5b4d5c217949b71744e5cc7f4ea38"><td class="memTemplParams" colspan="2">template&lt;EscAccess T_ESC&gt; </td></tr>
+<tr class="memitem:a43d5b4d5c217949b71744e5cc7f4ea38 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a43d5b4d5c217949b71744e5cc7f4ea38">process</a> (T_ESC &amp;esc) noexcept</td></tr>
+<tr class="memdesc:a43d5b4d5c217949b71744e5cc7f4ea38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serves the EEPROM commands the ESC has handed to the PDI.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:af916e924d6a4d9df945906634537c45e" id="r_af916e924d6a4d9df945906634537c45e"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#af916e924d6a4d9df945906634537c45e">MAX_PORT_DIGITS</a> = 5U</td></tr>
-<tr class="memdesc:af916e924d6a4d9df945906634537c45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digits needed for the largest port number (65535).  <br /></td></tr>
+<tr class="memitem:aea9b75ed4e210eddf4a3f65a2986adbf" id="r_aea9b75ed4e210eddf4a3f65a2986adbf"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aea9b75ed4e210eddf4a3f65a2986adbf">WORD_SIZE</a> = 2U</td></tr>
+<tr class="memdesc:aea9b75ed4e210eddf4a3f65a2986adbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The EEPROM is addressed in 16-bit words.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a77b8666fde23c166cb6a2ff8ba32e75f" name="a77b8666fde23c166cb6a2ff8ba32e75f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77b8666fde23c166cb6a2ff8ba32e75f">&#9670;&#160;</a></span>PortString</h2>
+<a id="a341e46394d44eaa24f4fb65f459bf98e" name="a341e46394d44eaa24f4fb65f459bf98e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a341e46394d44eaa24f4fb65f459bf98e">&#9670;&#160;</a></span>Handlers</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">Lib::Ethernet::Port::PortString</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;char, <a class="el" href="#af916e924d6a4d9df945906634537c45e">MAX_PORT_DIGITS</a> + 1U&gt;</td>
+          <td class="memname">using <a class="el" href="#a341e46394d44eaa24f4fb65f459bf98e">Lib::Ethercat::SOES::EepromEmulation::Handlers</a> = <a class="el" href="../../d1/dd1/a05275.html">EepromHandlers</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Fixed, NUL-terminated buffer holding the decimal digits of a port number. </p>
-<p>Use 'data()' where a C string is expected. </p>
+<p>The memory behind the emulated EEPROM. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0cdcdcee9376806af5c6778670685c80" name="a0cdcdcee9376806af5c6778670685c80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0cdcdcee9376806af5c6778670685c80">&#9670;&#160;</a></span>Port() <span class="overload">[1/2]</span></h2>
+<a id="a1146daff507a230799851b6c5f9ee835" name="a1146daff507a230799851b6c5f9ee835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1146daff507a230799851b6c5f9ee835">&#9670;&#160;</a></span>EepromEmulation() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,7 +163,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethernet::Port::Port </td>
+          <td class="memname">Lib::Ethercat::SOES::EepromEmulation::EepromEmulation </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -190,17 +171,17 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a port with the value 0. </p>
+<p>Creates the emulation. </p>
 
 </div>
 </div>
-<a id="a557aa5b63a11f1fb3bacd15033d34816" name="a557aa5b63a11f1fb3bacd15033d34816"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a557aa5b63a11f1fb3bacd15033d34816">&#9670;&#160;</a></span>Port() <span class="overload">[2/2]</span></h2>
+<a id="a7958db98ab3c05231a7b72cb1af0b541" name="a7958db98ab3c05231a7b72cb1af0b541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7958db98ab3c05231a7b72cb1af0b541">&#9670;&#160;</a></span>~EepromEmulation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -209,23 +190,83 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Ethernet::Port::Port </td>
+          <td class="memname">Lib::Ethercat::SOES::EepromEmulation::~EepromEmulation </td>
           <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a port with a value. </p>
+<p>Destroys the emulation. </p>
+
+</div>
+</div>
+<a id="ad7dff510056bdddc1b0f203d3b4b4706" name="ad7dff510056bdddc1b0f203d3b4b4706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7dff510056bdddc1b0f203d3b4b4706">&#9670;&#160;</a></span>EepromEmulation() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethercat::SOES::EepromEmulation::EepromEmulation </td>
+          <td>(</td>
+          <td class="paramtype">const EepromEmulation &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the object stands for the EEPROM of one slave controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>The port value. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a907dfb13c5a60c36936f72539a54bb0f" name="a907dfb13c5a60c36936f72539a54bb0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a907dfb13c5a60c36936f72539a54bb0f">&#9670;&#160;</a></span>EepromEmulation() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethercat::SOES::EepromEmulation::EepromEmulation </td>
+          <td>(</td>
+          <td class="paramtype">EepromEmulation &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the object stands for the EEPROM of one slave controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -233,8 +274,8 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="af096519c074646658fc5d42017770060" name="af096519c074646658fc5d42017770060"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af096519c074646658fc5d42017770060">&#9670;&#160;</a></span>fromString() <span class="overload">[1/2]</span></h2>
+<a id="ac18054ff925ab9ff88d05d79a8674626" name="ac18054ff925ab9ff88d05d79a8674626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac18054ff925ab9ff88d05d79a8674626">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,32 +284,32 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Ethernet::Port::fromString </td>
+          <td class="memname"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp; Lib::Ethercat::SOES::EepromEmulation::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parses a string and sets the port value if it is valid; the value is left alone otherwise. </p>
+<p>Copy assignment is deleted: the object stands for the EEPROM of one slave controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">str</td><td>The decimal string to parse. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the string was valid. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 
 </div>
 </div>
-<a id="a75908d45c78d4098c3fa0e9f7dbc3638" name="a75908d45c78d4098c3fa0e9f7dbc3638"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75908d45c78d4098c3fa0e9f7dbc3638">&#9670;&#160;</a></span>fromString() <span class="overload">[2/2]</span></h2>
+<a id="a8a0057afb82e294f720a93b50ad87908" name="a8a0057afb82e294f720a93b50ad87908"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a0057afb82e294f720a93b50ad87908">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,189 +318,74 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool Lib::Ethernet::Port::fromString </td>
+          <td class="memname"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp; Lib::Ethercat::SOES::EepromEmulation::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="#a1146daff507a230799851b6c5f9ee835">EepromEmulation</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint16_t &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parses a string into a port value. </p>
+<p>Move assignment is deleted: the object stands for the EEPROM of one slave controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">str</td><td>The decimal string to parse: digits only, value 0 to 65535. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">result</td><td>The parsed value; unchanged if the string is not valid. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the string was valid. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 
 </div>
 </div>
-<a id="a2c10d58145f110034d4c6152e2f11f3d" name="a2c10d58145f110034d4c6152e2f11f3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c10d58145f110034d4c6152e2f11f3d">&#9670;&#160;</a></span>get() <span class="overload">[1/2]</span></h2>
+<a id="a43d5b4d5c217949b71744e5cc7f4ea38" name="a43d5b4d5c217949b71744e5cc7f4ea38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43d5b4d5c217949b71744e5cc7f4ea38">&#9670;&#160;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const uint16_t &amp; Lib::Ethernet::Port::get </td>
+          <td class="memname">size_t Lib::Ethercat::SOES::EepromEmulation::process </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the port value. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to the port value. </dd></dl>
-
-</div>
-</div>
-<a id="a74efeaeccbeb41630891ddb4725470a5" name="a74efeaeccbeb41630891ddb4725470a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74efeaeccbeb41630891ddb4725470a5">&#9670;&#160;</a></span>get() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t &amp; Lib::Ethernet::Port::get </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">T_ESC &amp;</td>          <td class="paramname"><span class="paramname"><em>esc</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the port value. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the port value. </dd></dl>
-
-</div>
-</div>
-<a id="a484cc8252d74ed19b3ddc021b4ebbc7a" name="a484cc8252d74ed19b3ddc021b4ebbc7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a484cc8252d74ed19b3ddc021b4ebbc7a">&#9670;&#160;</a></span>operator uint16_t()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Ethernet::Port::operator uint16_t </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts to the port value, so a <a class="el" href="../../d5/d60/a05279.html" title="Port">Port</a> can be passed where a 'uint16_t' is expected. </p>
-<dl class="section return"><dt>Returns</dt><dd>The port value. </dd></dl>
-
-</div>
-</div>
-<a id="a5db32af54d9bdde977000618e7b6d476" name="a5db32af54d9bdde977000618e7b6d476"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5db32af54d9bdde977000618e7b6d476">&#9670;&#160;</a></span>operator&lt;=&gt;()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">auto Lib::Ethernet::Port::operator&lt;=&gt; </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a0cdcdcee9376806af5c6778670685c80">Port</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Compares two ports by value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>The port to compare with. </td></tr>
+<p>Serves the EEPROM commands the ESC has handed to the PDI. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The ordering of the two values. </dd></dl>
-
-</div>
-</div>
-<a id="a4bdd58ee0e3a212c2e9b5be63a0ef4fd" name="a4bdd58ee0e3a212c2e9b5be63a0ef4fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4bdd58ee0e3a212c2e9b5be63a0ef4fd">&#9670;&#160;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a0cdcdcee9376806af5c6778670685c80">Port</a> &amp; Lib::Ethernet::Port::operator= </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>newValue</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Assigns a port value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">newValue</td><td>The value to assign. </td></tr>
+    <tr><td class="paramname">esc</td><td>The slave controller. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this port. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of commands served. </dd></dl>
 
 </div>
 </div>
-<a id="a1de553c3b996aee8be2112632f45ee1b" name="a1de553c3b996aee8be2112632f45ee1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1de553c3b996aee8be2112632f45ee1b">&#9670;&#160;</a></span>set()</h2>
+<a id="a070225a3de178cf14fb35d7a18f183e0" name="a070225a3de178cf14fb35d7a18f183e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a070225a3de178cf14fb35d7a18f183e0">&#9670;&#160;</a></span>setHandlers()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -468,31 +394,31 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Ethernet::Port::set </td>
+          <td class="memname">void Lib::Ethercat::SOES::EepromEmulation::setHandlers </td>
           <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>newValue</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a341e46394d44eaa24f4fb65f459bf98e">Handlers</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newHandlers</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the port value. </p>
+<p>Sets the memory. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">newValue</td><td>The new port value. </td></tr>
+    <tr><td class="paramname">newHandlers</td><td>The hooks. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a08c2068f012c9bf6bb7c16893081cab6" name="a08c2068f012c9bf6bb7c16893081cab6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08c2068f012c9bf6bb7c16893081cab6">&#9670;&#160;</a></span>toString() <span class="overload">[1/2]</span></h2>
+<a id="af5db1919319a4d3ff6af2f55f54bee74" name="af5db1919319a4d3ff6af2f55f54bee74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5db1919319a4d3ff6af2f55f54bee74">&#9670;&#160;</a></span>setReadSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -501,96 +427,32 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">PortString</a> Lib::Ethernet::Port::toString </td>
+          <td class="memname">void Lib::Ethercat::SOES::EepromEmulation::setReadSize </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the port value to its decimal digits. </p>
-<dl class="section return"><dt>Returns</dt><dd>NUL-terminated decimal digits of the port value. </dd></dl>
-
-</div>
-</div>
-<a id="a7658b363ed5d247291cd3b1f90cec20d" name="a7658b363ed5d247291cd3b1f90cec20d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7658b363ed5d247291cd3b1f90cec20d">&#9670;&#160;</a></span>toString() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr <a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">PortString</a> Lib::Ethernet::Port::toString </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Converts a port value to its decimal digits. </p>
-<p>The digits are returned by value in a fixed, NUL-terminated buffer. A <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html" title="std::string_view">std::string_view</a> would dangle: the only thing it could point at is a temporary that dies with the return expression.</p>
+<p>Sets how many bytes a read command returns: 8, or 4 if the ESC is configured for 4-byte reads. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>The port value to convert. </td></tr>
+    <tr><td class="paramname">bytes</td><td>4 or 8; another value is ignored. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>NUL-terminated decimal digits of the port value. </dd></dl>
-
-</div>
-</div>
-<a id="af5b8a66e23be35b8d2589b3cdc9d3214" name="af5b8a66e23be35b8d2589b3cdc9d3214"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5b8a66e23be35b8d2589b3cdc9d3214">&#9670;&#160;</a></span>validateString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool Lib::Ethernet::Port::validateString </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks that a string is a valid port number. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The string to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if it holds only digits and a value from 0 to 65535. </dd></dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="af916e924d6a4d9df945906634537c45e" name="af916e924d6a4d9df945906634537c45e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af916e924d6a4d9df945906634537c45e">&#9670;&#160;</a></span>MAX_PORT_DIGITS</h2>
+<a id="aea9b75ed4e210eddf4a3f65a2986adbf" name="aea9b75ed4e210eddf4a3f65a2986adbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea9b75ed4e210eddf4a3f65a2986adbf">&#9670;&#160;</a></span>WORD_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -599,7 +461,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::Ethernet::Port::MAX_PORT_DIGITS = 5U</td>
+          <td class="memname">size_t Lib::Ethercat::SOES::EepromEmulation::WORD_SIZE = 2U</td>
         </tr>
       </table>
   </td>
@@ -609,7 +471,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Digits needed for the largest port number (65535). </p>
+<p>The EEPROM is addressed in 16-bit words. </p>
 
 </div>
 </div>
