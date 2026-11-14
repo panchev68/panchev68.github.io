@@ -114,7 +114,11 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Singleton holding the two fault masks that go to the cloud with every report: the current one and the latched one. </p>
 <p>Unlike WCC there is no diagnostic task: the node sleeps between measurements, and the sensor rail, the modem and the single-reader UART streams belong to <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a>, so a second task probing them would collide with it. The runtime pass is the measurement cycle itself. The modules that own the devices report every result they get with <a class="el" href="#af59850d1f1ac256dc070a9fcf0bef9b0" title="update()">update()</a>: <a class="el" href="../../d9/d25/class_a_p_p_1_1_diagnostics_1_1_boot.html" title="Boot">Boot</a> once at start-up, <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a> after each measurement (both sensors, plus the I2C mirror, once per measurement period) and each modem session. The I2C sensors are mirrored from <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html#a1519cc8b2fe5798dcf0db9a81dbfef29" title="APP::PowerSupply::getIsSensorsOk()">APP::PowerSupply::getIsSensorsOk()</a> by <a class="el" href="#a23f68e218dee29c37a66256a803900c8" title="refreshPowerSensors()">refreshPowerSensors()</a>.</p>
-<p>Thread-safe: both masks are atomic bytes in an <b>Impl</b> in the '.cpp'. </p>
+<p>Thread-safe: both masks are atomic bytes in an <b>Impl</b> in the '.cpp'.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd>[Source]( <a href="https://github.com/panchev68-Senstate/RiverSense-Firmware/blob/main/Project/APP/Diagnostics/Runtime.cpp">Project/APP/Diagnostics/Runtime.cpp</a> ) </dd>
+<dd>
+[Detail Description]( <a href="https://github.com/panchev68-Senstate/RiverSense-Firmware/blob/main/Project/APP/Diagnostics/doc/Diagnostics.md">Project/APP/Diagnostics/doc/Diagnostics.md</a> ) </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -192,7 +196,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the current fault mask, from the last check of each device; any task. </p>
-<dl class="section return"><dt>Returns</dt><dd>One Device bit per device that failed its last check; <b>0</b> if all passed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>One <a class="el" href="../../d5/dae/namespace_a_p_p_1_1_diagnostics.html#ac98c96de312e353c1a0eccd825e78a7c" title="Device">Device</a> bit per device that failed its last check; <b>0</b> if all passed. </dd></dl>
 
 </div>
 </div>
@@ -220,7 +224,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the latched fault mask: every device that failed since the last successful upload; any task. </p>
-<dl class="section return"><dt>Returns</dt><dd>One Device bit per device that failed since the last <a class="el" href="#a8965761e771ef2cdea88f2e355ba58df" title="acknowledge()">acknowledge()</a>; <b>0</b> if none did. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>One <a class="el" href="../../d5/dae/namespace_a_p_p_1_1_diagnostics.html#ac98c96de312e353c1a0eccd825e78a7c" title="Device">Device</a> bit per device that failed since the last <a class="el" href="#a8965761e771ef2cdea88f2e355ba58df" title="acknowledge()">acknowledge()</a>; <b>0</b> if none did. </dd></dl>
 
 </div>
 </div>
