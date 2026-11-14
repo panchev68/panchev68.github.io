@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['firmware_0',['RiverSense firmware',['../index.html',1,'']]]
+  ['project_0',['River Sense firmware project',['../index.html',1,'']]]
 ];

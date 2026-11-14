@@ -80,7 +80,7 @@ var searchData=
   ['fireevent_77',['fireEvent',['https://panchev68.github.io/Lib/dc/d21/a05951.html#af14b33afcedbf5915faa9674eae453ba',1,'RTOS::Task::fireEvent()'],['https://panchev68.github.io/Lib/d0/d22/a05963.html#a4732602e81ec507a9370a1dd41be78f8',1,'RTOS::Task::Notify::fireEvent(Bits value) const noexcept']]],
   ['fireeventfromisr_78',['fireEventFromISR',['https://panchev68.github.io/Lib/d0/d22/a05963.html#a742840c973b7a2ce22645d9ae4f8d51a',1,'RTOS::Task::Notify::fireEventFromISR(Bits value) const noexcept'],['https://panchev68.github.io/Lib/d0/d22/a05963.html#a0fcaadc33f0db421bbae341a59b0b07a',1,'RTOS::Task::Notify::fireEventFromISR(Bits value, BaseType_t &amp;higherPriorityTaskWoken) const noexcept']]],
   ['firmware_79',['Firmware',['https://panchev68.github.io/Lib/db/d2e/a06075.html',1,'Lib::System::Version::Firmware'],['https://panchev68.github.io/Lib/db/d2e/a06075.html#af62d830e6120addddf7a108aef4c37d1',1,'Lib::System::Version::Firmware::Firmware()']]],
-  ['firmware_80',['RiverSense firmware',['../index.html',1,'']]],
+  ['firmware_20project_80',['River Sense firmware project',['../index.html',1,'']]],
   ['firmwarestring_81',['FirmwareString',['https://panchev68.github.io/Lib/db/d2e/a06075.html#a1590155a31fe02b206f55b5255f8d2c6',1,'Lib::System::Version::Firmware']]],
   ['firmwaresubversion_82',['firmwareSubversion',['https://panchev68.github.io/Lib/de/d62/a06055.html#a3b197564b64cf294fa3fbc8aaeeec351',1,'Lib::System::System::Config']]],
   ['firmwareversion_83',['FirmwareVersion',['https://panchev68.github.io/Lib/db/dc9/a06027.html',1,'Lib::System::FirmwareVersion'],['https://panchev68.github.io/Lib/db/dc9/a06027.html#a442edbd6ce53c5d45e852377b1bdb060',1,'Lib::System::FirmwareVersion::FirmwareVersion()']]],

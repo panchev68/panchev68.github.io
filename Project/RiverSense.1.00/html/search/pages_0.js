@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['build_20requirements_0',['Build requirements',['../index.html#main_build',1,'']]]
+  ['firmware_20project_0',['River Sense firmware project',['../index.html',1,'']]]
 ];
