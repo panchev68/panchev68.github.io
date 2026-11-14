@@ -103,6 +103,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">Lib::Helper::Delay<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Busy-wait delay helpers based on the ARM Cortex-M Data Watchpoint and Trace (DWT) cycle counter.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Busy-wait delay helpers based on the ARM Cortex-M Data Watchpoint and Trace (DWT) cycle counter. </p>
 <p>Suitable for short, precise delays where suspending the task or using RTOS timers would be too coarse. Every delay is rounded up to whole CPU cycles, so it is never shorter than requested; interrupts may lengthen it. The microsecond path and its helpers carry 'pragma inline=forced': measured on a 16 MHz Cortex-M33 with optimization off (a Debug build, where asserts/breakpoints in a caller like a 1-Wire bit-bang driver are actually live), the un-inlined call chain added roughly 100 extra cycles (over 6 us) on top of the requested wait - enough by itself to corrupt a protocol slot a few microseconds wide. Forcing the inline keeps that overhead low independent of the build's optimization level. </p>

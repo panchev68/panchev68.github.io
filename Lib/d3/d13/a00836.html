@@ -102,9 +102,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">RingBuffer.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Fixed-size, lock-free single-producer/single-consumer ring buffer (circular FIFO) for elements of type 'T'.  
-<a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Fixed-size, lock-free single-producer/single-consumer ring buffer (circular FIFO) for elements of type 'T'. </p>
 <p>'writePos' is written only by 'push()'/bulk-write/write-side-DMA calls and 'readPos' only by 'pop()'/bulk-read/ read-side-DMA calls, so no shared counter is mutated from both sides. Both indices are <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01934.html" title="std::atomic">std::atomic</a> (lock-free on Cortex-M) with release/acquire ordering, which guarantees that a slot written by the producer is visible to the consumer before the index that publishes it, and that the compiler never caches an index in a register across a polling loop. This makes one producer context (e.g. an ISR) and one consumer context (e.g. a task) safe against each other without a lock. Queries such as 'available()' still return a momentary snapshot when used across contexts. 'overwrite()' is the one exception: it advances 'readPos' from the producer side, so it must not run concurrently with 'pop()'/consumer-side reads.</p>
