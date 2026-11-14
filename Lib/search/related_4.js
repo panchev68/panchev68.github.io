@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['master_0',['Master',['../d4/deb/a04779.html#a34b85c36cc2386b553fcff72fc15a596',1,'Lib::Communication::Modbus::Protocol::Master()'],['../d2/d04/a04815.html#a34b85c36cc2386b553fcff72fc15a596',1,'Lib::Communication::Modbus::SerialPortBase::Master()']]]
+  ['master_0',['Master',['../db/d2a/a04776.html#a34b85c36cc2386b553fcff72fc15a596',1,'Lib::Communication::Modbus::Protocol']]]
 ];

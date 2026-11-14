@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::SemaphoreCounting</title>
+<title>IAR EWARM Library: RTOS::TickClient</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,58 +92,60 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::SemaphoreCounting</div></div>
+  <div class="headertitle"><div class="title">RTOS::TickClient</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows limiting concurrent access to a pool of resources with an <a class="el" href="../../d1/d66/a06266.html" title="RTOS::SemaphoreCounting">RTOS::SemaphoreCounting</a>.</p>
-<p>Shows limiting concurrent access to a pool of resources with an <a class="el" href="../../d1/d66/a06266.html" title="RTOS::SemaphoreCounting">RTOS::SemaphoreCounting</a>. Covers a pool of three buffers guarded by a counting semaphore: a task takes a slot before using a buffer and gives it back afterwards. <a class="el" href="../../d7/d57/a05931.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> and <a class="el" href="../../d7/d57/a05931.html#a5682e0c5d8eb6b2076978634963b4020" title="RTOS::SemaphoreBase::give()">RTOS::SemaphoreBase::give()</a> are task-context only; the FromISR variants serve interrupt handlers. Requires <em class="arg">configUSE_COUNTING_SEMAPHORES</em> set to <b>1</b>.</p>
+<p>Shows a periodic task built on <a class="el" href="../../d1/d66/a06266.html" title="RTOS::TickClient">RTOS::TickClient</a>, which calls the <em class="arg">handleTickEvent()</em> of its derived class on every timer expiry.</p>
+<p>Shows a periodic task built on <a class="el" href="../../d1/d66/a06266.html" title="RTOS::TickClient">RTOS::TickClient</a>, which calls the <em class="arg">handleTickEvent()</em> of its derived class on every timer expiry.Covers a class that inherits <a class="el" href="../../d1/d66/a06266.html" title="RTOS::TickClient">RTOS::TickClient</a> with itself as the template argument and implements <em class="arg">handleTickEvent()</em>. The callback runs in the FreeRTOS timer service task, so it must not block.</p>
+<dl class="section important"><dt>Important</dt><dd><em class="arg">handleTickEvent()</em> must be public or the base must be befriended, because the base calls it.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_counting_usage_pool"></a>
-Buffer pool</h3>
-<p>The constructor takes the maximum count and the initial count, so both are <b>3</b> here: all slots are free at start.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/ddc/a00917.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="tick_client_usage_class"></a>
+Derived class</h3>
+<p>The period is given in scheduler ticks. <a class="el" href="../../dc/d76/a05964.html#ab55e2272bf479804d0a0d2f1e6e5bed4" title="RTOS::TickClient::Config::autoStart">RTOS::TickClient::Config::autoStart</a> is <em class="arg">false</em>, so the timer waits for an explicit <a class="el" href="../../d8/d3f/a05960.html#a59730ccf7ef04d00837d566cd5184305" title="RTOS::TickClient::start()">RTOS::TickClient::start()</a>.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d38/a00926.html">Lib/RTOS/FreeRTOS/TickClient.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d3/d01/a05935.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">class </span>Sampler final : <span class="keyword">public</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d8/d3f/a05960.html">RTOS::TickClient</a>&lt;Sampler&gt; {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> openPool() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> bufferPool.open();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00917_html"><div class="ttname"><a href="../../d4/ddc/a00917.html">SemaphoreCounting.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS counting semaphores.</div></div>
-<div class="ttc" id="aa05935_html"><div class="ttname"><a href="../../d3/d01/a05935.html">RTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting semaphore resource manager for tracking multiple resource instances or queued events.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:41</div></div>
+<div class="line">    Sampler() noexcept :</div>
+<div class="line">        <a id="a1" name="a1"></a><a class="code hl_function" href="../../d8/d3f/a05960.html#a3e885923e858b4dbbb6896a511cb5166">TickClient</a>(Config{.period = 100U, .autoStart = <span class="keyword">false</span>, .name = <span class="stringliteral">&quot;Sampler&quot;</span>}) {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> handleTickEvent() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="comment">// Read the sensor; runs every 100 ticks, in the timer service task.</span></div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00926_html"><div class="ttname"><a href="../../d8/d38/a00926.html">TickClient.hpp</a></div><div class="ttdoc">CRTP base driving periodic work from a FreeRTOS software timer.</div></div>
+<div class="ttc" id="aa05960_html"><div class="ttname"><a href="../../d8/d3f/a05960.html">RTOS::TickClient</a></div><div class="ttdoc">RAII owner of a periodic FreeRTOS software timer that calls handleTickEvent() of the derived class on...</div><div class="ttdef"><b>Definition</b> TickClient.hpp:40</div></div>
+<div class="ttc" id="aa05960_html_a3e885923e858b4dbbb6896a511cb5166"><div class="ttname"><a href="../../d8/d3f/a05960.html#a3e885923e858b4dbbb6896a511cb5166">RTOS::TickClient::TickClient</a></div><div class="ttdeci">TickClient(const Config &amp;config) noexcept</div><div class="ttdoc">Initializes a new tick client and creates the underlying timer; check isValid() for the outcome.</div><div class="ttdef"><b>Definition</b> TickClient.hpp:64</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_counting_usage_take"></a>
-Taking and returning a slot</h3>
-<p><a class="el" href="../../d7/d57/a05931.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> with an <a class="el" href="../../d2/d3e/a06276.html" title="RTOS::Timeout">RTOS::Timeout</a> returns <b>false</b> when every slot stays busy for the whole window.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/ddc/a00917.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="tick_client_usage_run"></a>
+Starting and stopping</h3>
+<p>Check <a class="el" href="../../d8/d3f/a05960.html#a408eb1aee05259b64d9d520fecbad54f" title="RTOS::TickClient::isValid()">RTOS::TickClient::isValid()</a> after construction, because a failed timer creation leaves the object unusable.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d38/a00926.html">Lib/RTOS/FreeRTOS/TickClient.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="keyword">class </span>Sampler final : <span class="keyword">public</span> <a class="code hl_class" href="../../d8/d3f/a05960.html">RTOS::TickClient</a>&lt;Sampler&gt; {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../d3/d01/a05935.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> workerTask(<span class="keywordtype">void</span> * parameters) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!bufferPool.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    Sampler() noexcept :</div>
+<div class="line">        <a class="code hl_function" href="../../d8/d3f/a05960.html#a3e885923e858b4dbbb6896a511cb5166">TickClient</a>(Config{.period = 100U, .autoStart = <span class="keyword">false</span>, .name = <span class="stringliteral">&quot;Sampler&quot;</span>}) {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (bufferPool.take(<a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d6/d0c/a05979.html">RTOS::Timeout</a>(20ms))) {</div>
-<div class="line">        <span class="comment">// Use the buffer reserved for this task here.</span></div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(bufferPool.give());</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// All buffers were busy for 20 ms.</span></div>
+<div class="line">    <span class="keywordtype">void</span> handleTickEvent() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="comment">// Read the sensor.</span></div>
 <div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> exampleTask() noexcept {</div>
+<div class="line">    Sampler sampler;</div>
+<div class="line">    <span class="keywordflow">if</span> (!sampler.isValid()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Timer creation failed.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sampler.start()); <span class="comment">// Starts periodic calls to handleTickEvent().</span></div>
+<div class="line">    <span class="comment">// ...</span></div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sampler.stop());</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00932_html"><div class="ttname"><a href="../../d8/dbb/a00932.html">Timeout.hpp</a></div><div class="ttdoc">FreeRTOS-compatible timeout management utility.</div></div>
-<div class="ttc" id="aa05979_html"><div class="ttname"><a href="../../d6/d0c/a05979.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:36</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

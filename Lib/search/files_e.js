@@ -8,7 +8,7 @@ var searchData=
   ['originalitysignature_2ehpp_5',['OriginalitySignature.hpp',['../db/d7b/a00296.html',1,'']]],
   ['os_5fdefines_2eh_6',['os_defines.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00824.html',0,'']]],
   ['ospi_2ehpp_7',['OSPI.hpp',['../dc/de4/a00677.html',1,'']]],
-  ['ospi_2fw25q128jvsiq_2ehpp_8',['W25Q128JVSIQ.hpp',['../dc/d43/a08328.html',1,'']]],
+  ['ospi_2fw25q128jvsiq_2ehpp_8',['W25Q128JVSIQ.hpp',['../db/d14/a08330.html',1,'']]],
   ['ospiport_2dblock_2ehpp_9',['OSPIPort-Block.hpp',['../dc/df1/a00662.html',1,'']]],
   ['ospiport_2ddma_2ehpp_10',['OSPIPort-DMA.hpp',['../da/d46/a00665.html',1,'']]],
   ['ospiport_2dit_2ehpp_11',['OSPIPort-IT.hpp',['../d0/d5c/a00668.html',1,'']]],

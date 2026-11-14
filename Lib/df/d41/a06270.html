@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Task</title>
+<title>IAR EWARM Library: RTOS::Timeout</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,63 +92,62 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Task</div></div>
+  <div class="headertitle"><div class="title">RTOS::Timeout</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows creating an <a class="el" href="../../df/d41/a06270.html" title="RTOS::Task">RTOS::Task</a>, synchronizing it with notification event bits, and stopping it.</p>
-<p>Shows creating an <a class="el" href="../../df/d41/a06270.html" title="RTOS::Task">RTOS::Task</a>, synchronizing it with notification event bits, and stopping it.A worker task waits for an event bit and a controller fires that bit. The controller can be another task, using <a class="el" href="../../d0/d5d/a05955.html#a4732602e81ec507a9370a1dd41be78f8" title="RTOS::Task::Notify::fireEvent()">RTOS::Task::Notify::fireEvent()</a>, or an ISR, using <a class="el" href="../../d0/d5d/a05955.html#a742840c973b7a2ce22645d9ae4f8d51a" title="RTOS::Task::Notify::fireEventFromISR()">RTOS::Task::Notify::fireEventFromISR()</a>. The entry callable is stored in place inside the task wrapper, so a capturing lambda such as '[this]' needs no heap allocation. It must be trivially copyable and fit <a class="el" href="../../d3/d4c/a05943.html#a5b5ac88638f4130500b5e1647fbc15a1" title="RTOS::Task::ENTRY_CAPACITY">RTOS::Task::ENTRY_CAPACITY</a> bytes. Receiving calls such as <a class="el" href="../../d0/d5d/a05955.html#a1eafe4fed845fcf63255a0cd6b71e5a1" title="RTOS::Task::Notify::waitForBits()">RTOS::Task::Notify::waitForBits()</a> must run in the task itself.</p>
+<p>Shows tracking a deadline in a polling loop with <a class="el" href="../../df/d41/a06270.html" title="RTOS::Timeout">RTOS::Timeout</a>.</p>
+<p>Shows tracking a deadline in a polling loop with RTOS::Timeout.Covers a timeout created from a duration, polled until it expires, restarted explicitly with <a class="el" href="../../d1/d4e/a05972.html#a4f719fdc728f4b1e2a6a3b33c747c32e" title="RTOS::Timeout::reset()">RTOS::Timeout::reset()</a>, and disabled when no limit is needed. The timeout measures elapsed time with the scheduler tick count and can be polled from task and ISR context.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="task_usage_worker"></a>
-Worker task with event bits</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/de9/a00923.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d92/a00929.html">Lib/RTOS/FreeRTOS/TickCounter.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timeout_usage_poll"></a>
+Polling until a deadline</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>Worker {</div>
-<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"><span class="keywordtype">bool</span> isPeripheralReady() noexcept;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t WORK_BIT = 0x01U; <span class="comment">///&lt; Event bit requesting one unit of work.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a0" name="_a0"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        task.setup({<span class="stringliteral">&quot;Worker&quot;</span>, 256, <a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../d1/d1f/a05947.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>});</div>
-<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> requestWork() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(task.notify.fireEvent(WORK_BIT));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> task.stop();</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d3/d4c/a05943.html">RTOS::Task</a> task;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keywordflow">if</span> (task.<a id="a4" name="a4"></a><a class="code hl_variable" href="../../d3/d4c/a05943.html#a685a41d4d36b20105207a99ea2b7a100">notify</a>.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d0/d5d/a05955.html#a1eafe4fed845fcf63255a0cd6b71e5a1">waitForBits</a>(WORK_BIT, <a id="_a6" name="_a6"></a><a class="code hl_function" href="../../d5/dc4/a05975.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a>(500ms))) {</div>
-<div class="line">                <span class="comment">// Perform the requested work.</span></div>
-<div class="line">            }</div>
+<div class="line"><span class="keywordtype">bool</span> waitForReady() noexcept {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/d4e/a05972.html">RTOS::Timeout</a> deadline(500ms);</div>
+<div class="line">    <span class="keywordflow">while</span> (!deadline.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d1/d4e/a05972.html#a4264c550073d457fa8f6ca89e591a0e6">isExpired</a>()) {</div>
+<div class="line">        <span class="keywordflow">if</span> (isPeripheralReady()) {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
+<div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(10ms);</div>
 <div class="line">    }</div>
-<div class="line">};</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Not ready within 500 ms.</span></div>
+<div class="line">}</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00923_html"><div class="ttname"><a href="../../df/de9/a00923.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
-<div class="ttc" id="aa00929_html"><div class="ttname"><a href="../../dc/d92/a00929.html">TickCounter.hpp</a></div><div class="ttdoc">Converts between scheduler ticks, milliseconds, seconds and std::chrono::duration values.</div></div>
-<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
-<div class="ttc" id="aa01692_html_aaf6b4883d69cf5ba182f4f29a103cc4b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a></div><div class="ttdeci">constexpr auto end(_Container &amp;__cont) -&gt; decltype(__cont.end())</div></div>
-<div class="ttc" id="aa05943_html"><div class="ttname"><a href="../../d3/d4c/a05943.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
-<div class="ttc" id="aa05943_html_a685a41d4d36b20105207a99ea2b7a100"><div class="ttname"><a href="../../d3/d4c/a05943.html#a685a41d4d36b20105207a99ea2b7a100">RTOS::Task::notify</a></div><div class="ttdeci">Notify notify</div><div class="ttdoc">Task notification controller.</div><div class="ttdef"><b>Definition</b> Task.hpp:651</div></div>
-<div class="ttc" id="aa05947_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d1/d1f/a05947.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:87</div></div>
-<div class="ttc" id="aa05955_html_a1eafe4fed845fcf63255a0cd6b71e5a1"><div class="ttname"><a href="../../d0/d5d/a05955.html#a1eafe4fed845fcf63255a0cd6b71e5a1">RTOS::Task::Notify::waitForBits</a></div><div class="ttdeci">bool waitForBits(Bits bitsToWaitFor, TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the calling task until any of the given bits is set or the timeout expires.</div><div class="ttdef"><b>Definition</b> Task.hpp:384</div></div>
-<div class="ttc" id="aa05975_html_ad6656fb17699eab5dc474d46e3e29234"><div class="ttname"><a href="../../d5/dc4/a05975.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a></div><div class="ttdeci">static constexpr TickType toTicks(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Converts a std::chrono::duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:236</div></div>
+<div class="ttc" id="aa00887_html"><div class="ttname"><a href="../../d7/d92/a00887.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
+<div class="ttc" id="aa00932_html"><div class="ttname"><a href="../../d8/dbb/a00932.html">Timeout.hpp</a></div><div class="ttdoc">FreeRTOS-compatible timeout management utility.</div></div>
+<div class="ttc" id="aa01026_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
+<div class="ttc" id="aa05972_html"><div class="ttname"><a href="../../d1/d4e/a05972.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:36</div></div>
+<div class="ttc" id="aa05972_html_a4264c550073d457fa8f6ca89e591a0e6"><div class="ttname"><a href="../../d1/d4e/a05972.html#a4264c550073d457fa8f6ca89e591a0e6">RTOS::Timeout::isExpired</a></div><div class="ttdeci">bool isExpired() const noexcept</div><div class="ttdoc">Checks if the timeout duration has elapsed.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:143</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timeout_usage_restart"></a>
+Restarting and disabling</h3>
+<p><a class="el" href="../../d1/d4e/a05972.html#a4f719fdc728f4b1e2a6a3b33c747c32e" title="RTOS::Timeout::reset()">RTOS::Timeout::reset()</a> restarts the window from the current tick, and <a class="el" href="../../d1/d4e/a05972.html#a9f4c1790b62b338de5ee47cad756a53e" title="RTOS::Timeout::disable()">RTOS::Timeout::disable()</a> makes the timeout never expire until <a class="el" href="../../d1/d4e/a05972.html#a859711fa5327754ac08a5a5f7b6175ba" title="RTOS::Timeout::set()">RTOS::Timeout::set()</a> is called again.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> restartWindows() noexcept {</div>
+<div class="line">    <a class="code hl_class" href="../../d1/d4e/a05972.html">RTOS::Timeout</a> unlimited(1s);</div>
+<div class="line">    unlimited.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d1/d4e/a05972.html#a9f4c1790b62b338de5ee47cad756a53e">disable</a>();</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="../../d1/d4e/a05972.html">RTOS::Timeout</a> retry(200ms);</div>
+<div class="line">    retry.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d1/d4e/a05972.html#a4f719fdc728f4b1e2a6a3b33c747c32e">reset</a>();</div>
+<div class="line">    <span class="keywordflow">if</span> (retry.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d1/d4e/a05972.html#a9960d8cda67ce72d1c02dcd7d3608066">getRemainingTicks</a>() &gt; 0U) {</div>
+<div class="line">        <span class="comment">// Still inside the window.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05972_html_a4f719fdc728f4b1e2a6a3b33c747c32e"><div class="ttname"><a href="../../d1/d4e/a05972.html#a4f719fdc728f4b1e2a6a3b33c747c32e">RTOS::Timeout::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdoc">Restarts the clock at the current tick, keeping the configured duration; does nothing if disabled.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:128</div></div>
+<div class="ttc" id="aa05972_html_a9960d8cda67ce72d1c02dcd7d3608066"><div class="ttname"><a href="../../d1/d4e/a05972.html#a9960d8cda67ce72d1c02dcd7d3608066">RTOS::Timeout::getRemainingTicks</a></div><div class="ttdeci">TickType getRemainingTicks() const noexcept</div><div class="ttdoc">Retrieves the remaining ticks until expiration.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:155</div></div>
+<div class="ttc" id="aa05972_html_a9f4c1790b62b338de5ee47cad756a53e"><div class="ttname"><a href="../../d1/d4e/a05972.html#a9f4c1790b62b338de5ee47cad756a53e">RTOS::Timeout::disable</a></div><div class="ttdeci">void disable() noexcept</div><div class="ttdoc">Disables the timeout.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:99</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

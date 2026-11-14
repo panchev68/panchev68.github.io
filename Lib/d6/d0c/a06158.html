@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::IS62WV51216</title>
+<title>IAR EWARM Library: FunctionRef</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,72 +92,51 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::IS62WV51216</div></div>
+  <div class="headertitle"><div class="title">FunctionRef</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a concrete SRAM class on top of the CRTP base, with a post-write hook, used from a task.</p>
-<p>Demonstrates a concrete SRAM class on top of the CRTP base, with a post-write hook, used from a task.The chip sits on FSMC bank 1, chip select NE3, so it appears at <b>0x68000000</b>. Offsets passed to <a class="el" href="../../db/d82/a04567.html#a71a6069370565b21f326cb1f4e446a71" title="Lib::BSP::IS62WV51216::read()">Lib::BSP::IS62WV51216::read()</a> and <a class="el" href="../../db/d82/a04567.html#abb442f01943c59f8ce352f5f92d959b1" title="Lib::BSP::IS62WV51216::write()">Lib::BSP::IS62WV51216::write()</a> are relative to that base. The derived class shadows <a class="el" href="../../db/d82/a04567.html#a4b6251a86a54f6053c2b89c00ba6a744" title="Lib::BSP::IS62WV51216::onMemoryChanged()">Lib::BSP::IS62WV51216::onMemoryChanged()</a> to count writes and befriends the base so the hook can stay private.</p>
-<dl class="section important"><dt>Important</dt><dd>CubeMX <b>MX_FSMC_Init()</b> must run before the first transfer.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The hook runs with the mutex held and the mutex is not recursive: calling <a class="el" href="../../db/d82/a04567.html#a71a6069370565b21f326cb1f4e446a71" title="Lib::BSP::IS62WV51216::read()">Lib::BSP::IS62WV51216::read()</a> or <a class="el" href="../../db/d82/a04567.html#abb442f01943c59f8ce352f5f92d959b1" title="Lib::BSP::IS62WV51216::write()">Lib::BSP::IS62WV51216::write()</a> from it deadlocks.</dd></dl>
+<p>Binds a <a class="el" href="../../d6/d0c/a06158.html" title="FunctionRef">FunctionRef</a> to a lambda, to a functor and to a free function, then calls it.</p>
+<p>Binds a <a class="el" href="../../d6/d0c/a06158.html" title="FunctionRef">FunctionRef</a> to a lambda, to a functor and to a free function, then calls it.<a class="el" href="../../d6/d0c/a06158.html" title="FunctionRef">FunctionRef</a> owns nothing. It stores a capture-less lambda or a free function by value, and also any other callable that is trivially copyable and exactly as wide as a pointer, such as a functor holding one 'int' on this 32-bit target or a lambda capturing only 'this'. Any other callable is referenced, so an lvalue of it must outlive the reference, and a larger temporary is rejected at compile time.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="is62_usage_frame"></a>
-Write and read back a record from a task</h3>
-<p>The derived class passes its <a class="el" href="../../d0/dff/a04571.html" title="Lib::BSP::IS62WV51216::Config">Lib::BSP::IS62WV51216::Config</a> to the base constructor. <a class="el" href="../../db/d82/a04567.html#abb442f01943c59f8ce352f5f92d959b1" title="Lib::BSP::IS62WV51216::write()">Lib::BSP::IS62WV51216::write()</a> and <a class="el" href="../../db/d82/a04567.html#a71a6069370565b21f326cb1f4e446a71" title="Lib::BSP::IS62WV51216::read()">Lib::BSP::IS62WV51216::read()</a> take a span of bytes; the offset is relative to the base address.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/dd6/a00272.html">Lib/BSP/RAM/IS62WV51216.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="functionref_usage_rebind"></a>
+Bind and rebind</h3>
+<p>Assigning a new callable to a <a class="el" href="../../d6/d0c/a06158.html" title="FunctionRef">FunctionRef</a> rebinds it to that callable.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/def/a00359.html">Lib/Core/FunctionRef.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>FrameStore final : <span class="keyword">public</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d82/a04567.html">Lib::BSP::IS62WV51216</a>&lt;FrameStore&gt; {</div>
-<div class="line">    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="../../db/d82/a04567.html">Lib::BSP::IS62WV51216</a>&lt;FrameStore&gt;; <span class="comment">// The base calls onMemoryChanged().</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> Config CONFIG{.baseAddress = 0x68000000U, .sizeBytes = 1024U * 1024U};</div>
-<div class="line"> </div>
-<div class="line">    FrameStore() noexcept :</div>
-<div class="line">        <a id="a1" name="a1"></a><a class="code hl_function" href="../../db/d82/a04567.html#a7921fa0f977faf912d2049453fd4c308">IS62WV51216</a>(CONFIG) {</div>
+<div class="line"><span class="keyword">struct </span>Adder {</div>
+<div class="line">    <span class="keywordtype">int</span> base;</div>
+<div class="line">    Adder(<span class="keywordtype">int</span> b) :</div>
+<div class="line">        base(b) {</div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    [[nodiscard]] uint32_t getWriteCount() <span class="keyword">const</span> <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> writeCount;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    uint32_t writeCount{0U};</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onMemoryChanged([[maybe_unused]] uintptr_t absoluteAddress, [[maybe_unused]] <span class="keywordtype">size_t</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a>) <span class="keyword">noexcept</span> {</div>
-<div class="line">        ++writeCount; <span class="comment">// Runs with the mutex held: no read()/write() here.</span></div>
+<div class="line">    <span class="keywordtype">int</span> operator()(<span class="keywordtype">int</span> x)<span class="keyword"> const </span>{</div>
+<div class="line">        <span class="keywordflow">return</span> base + x;</div>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line">FrameStore sram;</div>
+<div class="line"><span class="keywordtype">void</span> functionRefExample() {</div>
+<div class="line">    <span class="comment">// A capture-less lambda is stored by value, so the temporary is fine.</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/daa/a04816.html">FunctionRef</a>&lt;int(<span class="keywordtype">int</span>)&gt; callable = [](<span class="keywordtype">int</span> x) { <span class="keywordflow">return</span> x * 2; };</div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; callable(5) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> loggerTask() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!sram.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Out of heap for the mutex.</span></div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// A functor as wide as a pointer is stored by value too, so the temporary is fine.</span></div>
+<div class="line">    callable = Adder{3};</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; callable(5) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;std::byte, 4&gt;</a> record{std::byte{0xDE}, std::byte{0xAD}, std::byte{0xBE}, std::byte{0xEF}};</div>
-<div class="line">    <span class="keywordflow">if</span> (!sram.write(0x100U, std::span&lt;const std::byte&gt;{record})) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;std::byte, 4&gt;</a> readBack{};</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sram.read(0x100U, std::span&lt;std::byte&gt;{readBack}));</div>
+<div class="line">    <span class="comment">// A captureless lambda held in an lvalue is also stored by value.</span></div>
+<div class="line">    <span class="keyword">auto</span> square = [](<span class="keywordtype">int</span> v) { <span class="keywordflow">return</span> v * v; };</div>
+<div class="line">    callable = square;</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; callable(4) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
-<div class="ttc" id="aa00272_html"><div class="ttname"><a href="../../d9/dd6/a00272.html">IS62WV51216.hpp</a></div><div class="ttdoc">Declares the BSP driver template for the IS62WV51216 external SRAM; header-only, no HAL dependency.</div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa01692_html_a86f849fa422e14fa194d390bdcc1d2cd"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a></div><div class="ttdeci">constexpr auto size(const _Container &amp;__cont) noexcept(noexcept(__cont.size())) -&gt; decltype(__cont.size())</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa04567_html"><div class="ttname"><a href="../../db/d82/a04567.html">Lib::BSP::IS62WV51216</a></div><div class="ttdoc">Mutex-guarded byte access to an IS62WV51216 SRAM mapped into the address space by the FSMC/FMC.</div><div class="ttdef"><b>Definition</b> IS62WV51216.hpp:39</div></div>
-<div class="ttc" id="aa04567_html_a7921fa0f977faf912d2049453fd4c308"><div class="ttname"><a href="../../db/d82/a04567.html#a7921fa0f977faf912d2049453fd4c308">Lib::BSP::IS62WV51216::IS62WV51216</a></div><div class="ttdeci">IS62WV51216(const Config &amp;config) noexcept</div><div class="ttdoc">Binds the driver to the mapped region without opening the mutex.</div><div class="ttdef"><b>Definition</b> IS62WV51216.hpp:57</div></div>
+<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
+<div class="ttc" id="aa00359_html"><div class="ttname"><a href="../../d4/def/a00359.html">FunctionRef.hpp</a></div><div class="ttdoc">Non-owning callable reference modelled on C++26 std::function_ref, without heap, RTTI or virtual disp...</div></div>
+<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
+<div class="ttc" id="aa04816_html"><div class="ttname"><a href="../../d1/daa/a04816.html">FunctionRef</a></div><div class="ttdoc">Primary template; only the function-signature specializations below are defined.</div><div class="ttdef"><b>Definition</b> FunctionRef.hpp:35</div></div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">10</div>
+<div class="line">8</div>
+<div class="line">16</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

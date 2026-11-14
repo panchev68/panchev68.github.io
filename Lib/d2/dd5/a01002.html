@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::Thermometer::DTH</title>
+<title>IAR EWARM Library: Lib::Canbus</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,49 +91,112 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/d48/a00988.html">BSP</a></li><li class="navelem"><a href="../../df/d59/a01001.html">Thermometer</a></li><li class="navelem"><a href="../../d2/dd5/a01002.html">DTH</a></li>  </ul>
+<li class="navelem"><a href="../../d2/d4c/a00984.html">Lib</a></li><li class="navelem"><a href="../../d2/dd5/a01002.html">Canbus</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::Thermometer::DTH</div></div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
+  <div class="headertitle"><div class="title">Lib::Canbus</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>DHT-family (DHT11/DHT21/DHT22) temperature/humidity sensor driver. </p>
-<p>Driver for the DHT22 (AM2302) temperature and humidity sensor. It uses a GPIO pin for the data line and a hardware timer's input capture to time the pulses. </p>
+<div class="textblock"><p>CAN bus client/server service layer built on <a class="el" href="../../da/def/a05344.html" title="Lib::HAL::CANPortBase">Lib::HAL::CANPortBase</a>. </p>
+<p>Mirrors the HAL <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0" title="Lib::HAL::DriverMode">Lib::HAL::DriverMode</a> shape but for roles: client and server <em class="arg">Service</em> specializations share a non-template <em class="arg">ServiceBase</em> owning the CAN port, two RTOS tasks, an RX queue and diagnostics counters. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Base" id="r_Base"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../da/d19/a04667.html">Base</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP base for DHT sensor driver implementations.  <a href="../../da/d19/a04667.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Driver_3C_20Type_3A_3ADTH22_20_3E" id="r_Driver_3C_20Type_3A_3ADTH22_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d69/a04679.html">Driver&lt; Type::DTH22 &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Concrete driver implementation for the DHT22 sensor.  <a href="../../de/d69/a04679.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Parm" id="r_Parm"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d2/ddb/a04687.html">Parm</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DHT sensor protocol parameters.  <a href="../../d2/ddb/a04687.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Service" id="r_Service"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/d7a/a04768.html">Service</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN bus client/server service, specialized per <a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02" title="Mode">Mode</a> in 'ClientBase.hpp' and 'ServerBase.hpp'.  <a href="../../d5/d7a/a04768.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Service_3C_20Mode_3A_3ACLIENT_20_3E" id="r_Service_3C_20Mode_3A_3ACLIENT_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d0e/a04744.html">Service&lt; Mode::CLIENT &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN bus client: sends requests and values to a server node and reacts to its responses and errors.  <a href="../../d8/d0e/a04744.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Service_3C_20Mode_3A_3ASERVER_20_3E" id="r_Service_3C_20Mode_3A_3ASERVER_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d42/a04748.html">Service&lt; Mode::SERVER &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CAN bus server: discovers client nodes by scanning and answers their requests.  <a href="../../dc/d42/a04748.html#details">More...</a><br /></td></tr>
+<tr class="memitem:ServiceBase" id="r_ServiceBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../da/d0e/a04752.html">ServiceBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for CAN bus services.  <a href="../../da/d0e/a04752.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ac925b6863b7c23b83aa215b6588e2487" id="r_ac925b6863b7c23b83aa215b6588e2487"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ac925b6863b7c23b83aa215b6588e2487">DTH22</a> = Driver&lt;Type::DTH22&gt;</td></tr>
-<tr class="memdesc:ac925b6863b7c23b83aa215b6588e2487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for the DTH22 sensor driver.  <br /></td></tr>
+<tr class="memitem:a6a342d3a95a10dc45d846c70f8fd7fb9" id="r_a6a342d3a95a10dc45d846c70f8fd7fb9"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a6a342d3a95a10dc45d846c70f8fd7fb9">ClientBase</a> = <a class="el" href="../../d5/d7a/a04768.html">Service</a>&lt;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1">Mode::CLIENT</a>&gt;</td></tr>
+<tr class="memdesc:a6a342d3a95a10dc45d846c70f8fd7fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client service alias for <a class="el" href="../../d5/d7a/a04768.html" title="Service">Service</a>.  <br /></td></tr>
+<tr class="memitem:ab5bb4cbc53b78fbe35d7058920026275" id="r_ab5bb4cbc53b78fbe35d7058920026275"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ab5bb4cbc53b78fbe35d7058920026275">ServerBase</a> = <a class="el" href="../../d5/d7a/a04768.html">Service</a>&lt;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a>&gt;</td></tr>
+<tr class="memdesc:ab5bb4cbc53b78fbe35d7058920026275"><td class="mdescLeft">&#160;</td><td class="mdescRight">Server service alias for <a class="el" href="../../d5/d7a/a04768.html" title="Service">Service</a>.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:ad81e761f20d5185ff2c7cbf5e547ef02" id="r_ad81e761f20d5185ff2c7cbf5e547ef02"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02">Mode</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1">CLIENT</a>
+, <br />
+&#160;&#160;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">SERVER</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ad81e761f20d5185ff2c7cbf5e547ef02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operational mode of a CAN bus service.  <a href="#ad81e761f20d5185ff2c7cbf5e547ef02">More...</a><br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
-<a id="ac925b6863b7c23b83aa215b6588e2487" name="ac925b6863b7c23b83aa215b6588e2487"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac925b6863b7c23b83aa215b6588e2487">&#9670;&#160;</a></span>DTH22</h2>
+<a id="a6a342d3a95a10dc45d846c70f8fd7fb9" name="a6a342d3a95a10dc45d846c70f8fd7fb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a342d3a95a10dc45d846c70f8fd7fb9">&#9670;&#160;</a></span>ClientBase</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#ac925b6863b7c23b83aa215b6588e2487">Lib::BSP::Thermometer::DTH::DTH22</a> = Driver&lt;Type::DTH22&gt;</td>
+          <td class="memname">using <a class="el" href="#a6a342d3a95a10dc45d846c70f8fd7fb9">Lib::Canbus::ClientBase</a> = <a class="el" href="../../d5/d7a/a04768.html">Service</a>&lt;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1">Mode::CLIENT</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Alias for the DTH22 sensor driver. </p>
+<p>Client service alias for <a class="el" href="../../d5/d7a/a04768.html" title="Service">Service</a>. </p>
+
+</div>
+</div>
+<a id="ab5bb4cbc53b78fbe35d7058920026275" name="ab5bb4cbc53b78fbe35d7058920026275"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5bb4cbc53b78fbe35d7058920026275">&#9670;&#160;</a></span>ServerBase</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ab5bb4cbc53b78fbe35d7058920026275">Lib::Canbus::ServerBase</a> = <a class="el" href="../../d5/d7a/a04768.html">Service</a>&lt;<a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Server service alias for <a class="el" href="../../d5/d7a/a04768.html" title="Service">Service</a>. </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="ad81e761f20d5185ff2c7cbf5e547ef02" name="ad81e761f20d5185ff2c7cbf5e547ef02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad81e761f20d5185ff2c7cbf5e547ef02">&#9670;&#160;</a></span>Mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ad81e761f20d5185ff2c7cbf5e547ef02">Lib::Canbus::Mode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Operational mode of a CAN bus service. </p>
+<p>Used as a template parameter to specialize <a class="el" href="../../d5/d7a/a04768.html" title="Lib::Canbus::Service">Lib::Canbus::Service</a> for a client or a server role. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1" name="ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1"></a>CLIENT&#160;</td><td class="fielddoc"><p>Client mode: initiates requests and processes responses from the server. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844" name="ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844"></a>SERVER&#160;</td><td class="fielddoc"><p>Server mode: processes requests from clients and sends responses. </p>
+</td></tr>
+</table>
 
 </div>
 </div>

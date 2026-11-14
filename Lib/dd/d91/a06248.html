@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Kernel</title>
+<title>IAR EWARM Library: RTOS::Mutex</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,67 +92,77 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Kernel</div></div>
+  <div class="headertitle"><div class="title">RTOS::Mutex</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows the scheduler and critical-section helpers of <a class="el" href="../../dd/d91/a06248.html" title="RTOS::Kernel">RTOS::Kernel</a>.</p>
-<p>Shows the scheduler and critical-section helpers of RTOS::Kernel.Covers a short critical section that protects a shared counter from other tasks and ISRs, the tick count and the free-standing delay helpers, and the heap statistics. <a class="el" href="../../de/d76/a05879.html" title="RTOS::Kernel::CriticalSection">RTOS::Kernel::CriticalSection</a> selects the variant that matches the context it is constructed in. <a class="el" href="../../dd/dc3/a05875.html" title="RTOS::Kernel::CriticalSectionFromISR">RTOS::Kernel::CriticalSectionFromISR</a> is the explicit interrupt variant that saves and restores the interrupt mask.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Keep critical sections as short as possible: no task switch and no blocking call can happen while one is active.</dd></dl>
+<p>Shows creating, locking and unlocking a priority-inheriting <a class="el" href="../../dd/d91/a06248.html" title="RTOS::Mutex">RTOS::Mutex</a>.</p>
+<p>Shows creating, locking and unlocking a priority-inheriting RTOS::Mutex.Covers a normal and a recursive mutex, a blocking lock with a timeout, a non-blocking try-lock, and the ownership query. The example runs in task context; a mutex must never be locked or unlocked from an ISR. For scope-based locking use the <a class="el" href="../../dd/d9a/a06250.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a> wrapper.</p>
+<dl class="section important"><dt>Important</dt><dd>Unlock only from the task that holds the lock. Unlocking from another task is a programming error; the wrapper asserts on it when <em class="arg">INCLUDE_xSemaphoreGetMutexHolder</em> and <em class="arg">INCLUDE_xTaskGetCurrentTaskHandle</em> are enabled.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="kernel_usage_critical"></a>
-Protecting shared data</h3>
-<p>Construction enters the critical section and destruction leaves it, so the scope braces bound its length.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <span class="keyword">volatile</span> uint32_t sharedCounter = 0U;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> incrementCounter() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../de/d76/a05879.html">RTOS::Kernel::CriticalSection</a> criticalSection;</div>
-<div class="line">    sharedCounter = sharedCounter + 1U;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00887_html"><div class="ttname"><a href="../../d7/d92/a00887.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
-<div class="ttc" id="aa05879_html"><div class="ttname"><a href="../../de/d76/a05879.html">RTOS::Kernel::CriticalSection</a></div><div class="ttdoc">RAII guard for a kernel critical section, usable from both task and interrupt context.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:159</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="kernel_usage_timing"></a>
-Tick count and delays</h3>
-<p><a class="el" href="../../d0/daa/a01029.html#aa54eb7aeffc794961e60ade51c195480" title="RTOS::getTickCount()">RTOS::getTickCount()</a> is task-context only; use <a class="el" href="../../d0/daa/a01029.html#a80d033e9ce70fec78bacaa61cc1221bf" title="RTOS::getTickCountFromISR()">RTOS::getTickCountFromISR()</a> inside an interrupt.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="mutex_usage_normal"></a>
+Normal mutex with timeout</h3>
+<p><a class="el" href="../../d5/dd4/a05896.html#a2b2c30777cc3c44739df34e98fc05d0f" title="RTOS::Mutex::lock()">RTOS::Mutex::lock()</a> with a duration returns <em class="arg">false</em> when the timeout expires, and the protected resource must not be touched then.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd6/a00896.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> measureDelay() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a1" name="_a1"></a><a class="code hl_typedef" href="../../d5/dfd/a05871.html#ab3a21cca75c9a9c61acc1cb12a3cc132">RTOS::Kernel::TickType</a> startTick = <a id="a2" name="a2"></a><a class="code hl_function" href="../../d0/daa/a01029.html#aa54eb7aeffc794961e60ade51c195480">RTOS::getTickCount</a>();</div>
-<div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(100ms);</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d5/dfd/a05871.html#ab3a21cca75c9a9c61acc1cb12a3cc132">RTOS::Kernel::TickType</a> elapsedTicks = <a class="code hl_function" href="../../d0/daa/a01029.html#aa54eb7aeffc794961e60ade51c195480">RTOS::getTickCount</a>() - startTick;</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(elapsedTicks);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa01029_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
-<div class="ttc" id="aa01029_html_aa54eb7aeffc794961e60ade51c195480"><div class="ttname"><a href="../../d0/daa/a01029.html#aa54eb7aeffc794961e60ade51c195480">RTOS::getTickCount</a></div><div class="ttdeci">Kernel::TickType getTickCount() noexcept</div><div class="ttdoc">Retrieves current system tick count.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:663</div></div>
-<div class="ttc" id="aa05871_html_ab3a21cca75c9a9c61acc1cb12a3cc132"><div class="ttname"><a href="../../d5/dfd/a05871.html#ab3a21cca75c9a9c61acc1cb12a3cc132">RTOS::Kernel::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdoc">System tick count type.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:62</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="kernel_usage_heap"></a>
-Heap statistics and yielding</h3>
-<p><a class="el" href="../../d5/dfd/a05871.html#a4b6fcf3aac5f49123ae6f31506c23d23" title="RTOS::Kernel::getMemoryInfo()">RTOS::Kernel::getMemoryInfo()</a> reports the total and free heap in bytes, and the lowest free level reached so far. The allocation counters are filled only when <em class="arg">RTOS_HEAP_HAS_STATS</em> is set, which is the case for the heap_4 and heap_5 schemes.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d92/a00887.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> checkHeap() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../db/d5e/a05891.html">RTOS::Kernel::MemoryInfo</a> heap = <a id="a5" name="a5"></a><a class="code hl_function" href="../../d5/dfd/a05871.html#a4b6fcf3aac5f49123ae6f31506c23d23">RTOS::Kernel::getMemoryInfo</a>();</div>
-<div class="line">    <span class="keywordflow">if</span> (heap.<a id="a6" name="a6"></a><a class="code hl_variable" href="../../db/d5e/a05891.html#a944d10ce32d8114a8a1349e2582022bd">freeHeap</a> &lt; heap.<a id="a7" name="a7"></a><a class="code hl_variable" href="../../db/d5e/a05891.html#a83580325c3df5098f79f23bd212fb20a">totalHeap</a> / 10U) {</div>
-<div class="line">        <span class="comment">// Less than 10 % of the heap is free.</span></div>
+<div class="line"><span class="keywordtype">void</span> useBus() noexcept {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d5/dd4/a05896.html">RTOS::Mutex</a> bus(<a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../d5/dd4/a05896.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (!bus.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d5/dd4/a05896.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap, or the type is disabled in the FreeRTOS config.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a id="a8" name="a8"></a><a class="code hl_function" href="../../d5/dfd/a05871.html#a297bee1d1e840d599f99a4260a551012">RTOS::Kernel::yield</a>(); <span class="comment">// Let other tasks of the same priority run.</span></div>
+<div class="line">    <span class="keywordflow">if</span> (bus.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d5/dd4/a05896.html#a2b2c30777cc3c44739df34e98fc05d0f">lock</a>(50ms)) {</div>
+<div class="line">        <span class="comment">// Shared resource used exclusively.</span></div>
+<div class="line">        bus.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d5/dd4/a05896.html#a55031b1cdaf584950893279ceac8ff93">unlock</a>();</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Timed out after 50 ms; the resource was not touched.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    bus.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d5/dd4/a05896.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05871_html_a297bee1d1e840d599f99a4260a551012"><div class="ttname"><a href="../../d5/dfd/a05871.html#a297bee1d1e840d599f99a4260a551012">RTOS::Kernel::yield</a></div><div class="ttdeci">static void yield() noexcept</div><div class="ttdoc">Yields the processor to another ready task of equal priority.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:404</div></div>
-<div class="ttc" id="aa05871_html_a4b6fcf3aac5f49123ae6f31506c23d23"><div class="ttname"><a href="../../d5/dfd/a05871.html#a4b6fcf3aac5f49123ae6f31506c23d23">RTOS::Kernel::getMemoryInfo</a></div><div class="ttdeci">static MemoryInfo getMemoryInfo() noexcept</div><div class="ttdoc">Retrieves memory heap diagnostics.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:481</div></div>
-<div class="ttc" id="aa05891_html"><div class="ttname"><a href="../../db/d5e/a05891.html">RTOS::Kernel::MemoryInfo</a></div><div class="ttdoc">Heap memory diagnostics snapshot.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:382</div></div>
-<div class="ttc" id="aa05891_html_a83580325c3df5098f79f23bd212fb20a"><div class="ttname"><a href="../../db/d5e/a05891.html#a83580325c3df5098f79f23bd212fb20a">RTOS::Kernel::MemoryInfo::totalHeap</a></div><div class="ttdeci">size_t totalHeap</div><div class="ttdoc">Total configured heap size.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:383</div></div>
-<div class="ttc" id="aa05891_html_a944d10ce32d8114a8a1349e2582022bd"><div class="ttname"><a href="../../db/d5e/a05891.html#a944d10ce32d8114a8a1349e2582022bd">RTOS::Kernel::MemoryInfo::freeHeap</a></div><div class="ttdeci">size_t freeHeap</div><div class="ttdoc">Current free heap bytes.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:384</div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00896_html"><div class="ttname"><a href="../../da/dd6/a00896.html">Mutex.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS mutex and recursive mutex synchronization primitives.</div></div>
+<div class="ttc" id="aa05896_html"><div class="ttname"><a href="../../d5/dd4/a05896.html">RTOS::Mutex</a></div><div class="ttdoc">Priority-inheriting mutual exclusion lock, normal or recursive.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:49</div></div>
+<div class="ttc" id="aa05896_html_a2b2c30777cc3c44739df34e98fc05d0f"><div class="ttname"><a href="../../d5/dd4/a05896.html#a2b2c30777cc3c44739df34e98fc05d0f">RTOS::Mutex::lock</a></div><div class="ttdeci">bool lock(TickType timeout=WAIT_FOREVER) noexcept</div><div class="ttdoc">Locks the mutex, blocking the calling task for up to the given number of ticks.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:219</div></div>
+<div class="ttc" id="aa05896_html_a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="../../d5/dd4/a05896.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Standard non-recursive priority-inheritance mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:61</div></div>
+<div class="ttc" id="aa05896_html_a55031b1cdaf584950893279ceac8ff93"><div class="ttname"><a href="../../d5/dd4/a05896.html#a55031b1cdaf584950893279ceac8ff93">RTOS::Mutex::unlock</a></div><div class="ttdeci">void unlock() noexcept</div><div class="ttdoc">Unlocks a previously acquired mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:280</div></div>
+<div class="ttc" id="aa05896_html_a9f2abf5c8b3442dd741bac7c15e5726a"><div class="ttname"><a href="../../d5/dd4/a05896.html#a9f2abf5c8b3442dd741bac7c15e5726a">RTOS::Mutex::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the underlying FreeRTOS mutex handle, if not already open.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:142</div></div>
+<div class="ttc" id="aa05896_html_acae6fb03115a857672d114638e6da0cb"><div class="ttname"><a href="../../d5/dd4/a05896.html#acae6fb03115a857672d114638e6da0cb">RTOS::Mutex::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the underlying FreeRTOS handle and marks the mutex closed.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:198</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="mutex_usage_recursive"></a>
+Recursive mutex and try-lock</h3>
+<p>A recursive mutex can be locked again by the task that already holds it; each <a class="el" href="../../d5/dd4/a05896.html#a2b2c30777cc3c44739df34e98fc05d0f" title="RTOS::Mutex::lock()">RTOS::Mutex::lock()</a> needs a matching <a class="el" href="../../d5/dd4/a05896.html#a55031b1cdaf584950893279ceac8ff93" title="RTOS::Mutex::unlock()">RTOS::Mutex::unlock()</a>. <a class="el" href="../../d5/dd4/a05896.html#a18a279e5ed19c174389ad7be7fb2264d" title="RTOS::Mutex::tryLock()">RTOS::Mutex::tryLock()</a> is the non-blocking form of <a class="el" href="../../d5/dd4/a05896.html#a2b2c30777cc3c44739df34e98fc05d0f" title="RTOS::Mutex::lock()">RTOS::Mutex::lock()</a>, and for the owning task it succeeds at once.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd6/a00896.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> nestedUse() noexcept {</div>
+<div class="line">    <a class="code hl_class" href="../../d5/dd4/a05896.html">RTOS::Mutex</a> nested(<a id="_a6" name="_a6"></a><a class="code hl_enumvalue" href="../../d5/dd4/a05896.html#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638">RTOS::Mutex::Type::RECURSIVE</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (!nested.<a class="code hl_function" href="../../d5/dd4/a05896.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>() || !nested.<a class="code hl_function" href="../../d5/dd4/a05896.html#a2b2c30777cc3c44739df34e98fc05d0f">lock</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// The owning task acquires the recursive mutex again without waiting.</span></div>
+<div class="line">    <span class="keywordflow">if</span> (nested.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d5/dd4/a05896.html#a18a279e5ed19c174389ad7be7fb2264d">tryLock</a>()) {</div>
+<div class="line">        nested.<a class="code hl_function" href="../../d5/dd4/a05896.html#a55031b1cdaf584950893279ceac8ff93">unlock</a>(); <span class="comment">// Balances the tryLock() above.</span></div>
+<div class="line">    }</div>
+<div class="line">    nested.<a class="code hl_function" href="../../d5/dd4/a05896.html#a55031b1cdaf584950893279ceac8ff93">unlock</a>(); <span class="comment">// Balances the lock() above.</span></div>
+<div class="line">    nested.<a class="code hl_function" href="../../d5/dd4/a05896.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05896_html_a18a279e5ed19c174389ad7be7fb2264d"><div class="ttname"><a href="../../d5/dd4/a05896.html#a18a279e5ed19c174389ad7be7fb2264d">RTOS::Mutex::tryLock</a></div><div class="ttdeci">bool tryLock() noexcept</div><div class="ttdoc">Attempts to lock the mutex without blocking.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:270</div></div>
+<div class="ttc" id="aa05896_html_a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638"><div class="ttname"><a href="../../d5/dd4/a05896.html#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638">RTOS::Mutex::Type::RECURSIVE</a></div><div class="ttdeci">@ RECURSIVE</div><div class="ttdoc">Recursive mutex allowing nested lock acquisitions by the same task.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:62</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="mutex_usage_owner"></a>
+Ownership query</h3>
+<p><a class="el" href="../../d5/dd4/a05896.html#a0fe980766d5bb3fb9f27336981430a6f" title="RTOS::Mutex::isOwnedByCurrentTask()">RTOS::Mutex::isOwnedByCurrentTask()</a> is task-context only and is useful before a shared helper unlocks a mutex it did not lock. It needs <em class="arg">INCLUDE_xSemaphoreGetMutexHolder</em> and <em class="arg">INCLUDE_xTaskGetCurrentTaskHandle</em> in the FreeRTOS config.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd6/a00896.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> releaseIfHeld(<a class="code hl_class" href="../../d5/dd4/a05896.html">RTOS::Mutex</a> &amp; bus) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (bus.isOwnedByCurrentTask()) {</div>
+<div class="line">        bus.unlock();</div>
+<div class="line">    }</div>
+<div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

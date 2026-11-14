@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::MutexGuard</title>
+<title>IAR EWARM Library: RTOS::QueueSet</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,60 +92,106 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::MutexGuard</div></div>
+  <div class="headertitle"><div class="title">RTOS::QueueSet</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows scope-based locking with <a class="el" href="../../db/d2c/a06256.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope.</p>
-<p>Shows scope-based locking with <a class="el" href="../../db/d2c/a06256.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope. It covers an indefinite lock and a timed lock, and checks the guard state after construction.</p>
-<p>The example runs in a task context with the FreeRTOS scheduler running. A mutex must never be locked or unlocked from an ISR. The first guard blocks indefinitely, because it uses the default <a class="el" href="../../db/d12/a05903.html#acb650bbb5d2ae6ae2bab2490d29712be" title="RTOS::Mutex::WAIT_FOREVER">RTOS::Mutex::WAIT_FOREVER</a> timeout.</p>
+<p>Shows waiting on a queue and a semaphore at the same time with an <a class="el" href="../../db/d2c/a06256.html" title="RTOS::QueueSet">RTOS::QueueSet</a>.</p>
+<p>Shows waiting on a queue and a semaphore at the same time with an <a class="el" href="../../db/d2c/a06256.html" title="RTOS::QueueSet">RTOS::QueueSet</a>. Covers a set that combines a command queue and a button semaphore, and a task that blocks on the set and dispatches whichever member became ready. Every member must be empty when it is added, and it can belong to only one set at a time. Requires <em class="arg">configUSE_QUEUE_SETS</em> set to <b>1</b>.</p>
+<dl class="section important"><dt>Important</dt><dd>The set length must be at least the sum of the member lengths: 4 for the command queue plus 1 for the binary semaphore, so 5 here.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_scope"></a>
-Scoped lock with an indefinite wait</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd6/a00896.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="queue_set_usage_declare"></a>
+Declaring the members and the set</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/QueueSet.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> lockedSection() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d12/a05903.html">RTOS::Mutex</a> mutex(<a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../db/d12/a05903.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a>);</div>
-<div class="line">    <span class="keywordflow">if</span> (!mutex.<a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d12/a05903.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d5/d98/a05916.html">RTOS::Queue&lt;uint8_t, 4U&gt;</a> commands;</div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../db/dbf/a05920.html">RTOS::Semaphore</a> buttonPressed;</div>
+<div class="line">    RTOS::QueueSet&lt;2U&gt; events;</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00905_html"><div class="ttname"><a href="../../da/d5b/a00905.html">Queue.hpp</a></div><div class="ttdoc">Type-safe RAII wrapper for FreeRTOS queues.</div></div>
+<div class="ttc" id="aa00908_html"><div class="ttname"><a href="../../d0/d85/a00908.html">QueueSet.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS queue sets.</div></div>
+<div class="ttc" id="aa00911_html"><div class="ttname"><a href="../../d7/d12/a00911.html">Semaphore.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS binary semaphores.</div></div>
+<div class="ttc" id="aa05916_html"><div class="ttname"><a href="../../d5/d98/a05916.html">RTOS::Queue</a></div><div class="ttdoc">Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type.</div><div class="ttdef"><b>Definition</b> Queue.hpp:55</div></div>
+<div class="ttc" id="aa05920_html"><div class="ttname"><a href="../../db/dbf/a05920.html">RTOS::Semaphore</a></div><div class="ttdoc">Binary semaphore resource manager for task and ISR synchronization.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:44</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="queue_set_usage_open"></a>
+Opening the set</h3>
+<p>RTOS::QueueSet::open() with an initializer list creates the set and adds both members in one call. Each member handle comes from <a class="el" href="../../d5/d98/a05916.html#abd1cd42014765c2d80dc782dd6d5e25c" title="RTOS::Queue::getHandle()">RTOS::Queue::getHandle()</a> or <a class="el" href="../../d4/dde/a05924.html#a9cd3c80279acde60a0701a674eecc148" title="RTOS::SemaphoreBase::getHandle()">RTOS::SemaphoreBase::getHandle()</a> of its own wrapper.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/QueueSet.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a class="code hl_class" href="../../d5/d98/a05916.html">RTOS::Queue&lt;uint8_t, 4U&gt;</a> commands;</div>
+<div class="line">    <a class="code hl_class" href="../../db/dbf/a05920.html">RTOS::Semaphore</a> buttonPressed;</div>
+<div class="line">    RTOS::QueueSet&lt;2U&gt; events;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> openEvents() noexcept {</div>
+<div class="line">    <span class="keywordflow">if</span> (!commands.open() || !buttonPressed.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Creation failed: out of heap.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../da/d2e/a05907.html">RTOS::MutexGuard</a> guard(mutex); <span class="comment">// Locks on construction, waits forever.</span></div>
-<div class="line">        <span class="keywordflow">if</span> (guard.<a id="a4" name="a4"></a><a class="code hl_function" href="../../da/d2e/a05907.html#a3f156fd8fcb57426c142acbd54ddb267">isLocked</a>()) {</div>
-<div class="line">            <span class="comment">// Critical section protected by &#39;mutex&#39;.</span></div>
-<div class="line">        }</div>
-<div class="line">    } <span class="comment">// Guard destroyed here; the mutex is unlocked only if it was locked.</span></div>
-<div class="line"> </div>
-<div class="line">    mutex.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/d12/a05903.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
+<div class="line">    <span class="keywordflow">return</span> events.<a id="a2" name="a2"></a><a class="code hl_function" href="../../db/dbf/a05920.html#a4f3a14ce62c98f7ce5520ce3e91b2322">open</a>(5U, {commands.getHandle(), buttonPressed.getHandle()});</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00896_html"><div class="ttname"><a href="../../da/dd6/a00896.html">Mutex.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS mutex and recursive mutex synchronization primitives.</div></div>
-<div class="ttc" id="aa00899_html"><div class="ttname"><a href="../../d3/d8a/a00899.html">MutexGuard.hpp</a></div><div class="ttdoc">RAII wrapper for safe, exception-free mutex acquisition and release.</div></div>
-<div class="ttc" id="aa05903_html"><div class="ttname"><a href="../../db/d12/a05903.html">RTOS::Mutex</a></div><div class="ttdoc">Priority-inheriting mutual exclusion lock, normal or recursive.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:49</div></div>
-<div class="ttc" id="aa05903_html_a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="../../db/d12/a05903.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Standard non-recursive priority-inheritance mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:61</div></div>
-<div class="ttc" id="aa05903_html_a9f2abf5c8b3442dd741bac7c15e5726a"><div class="ttname"><a href="../../db/d12/a05903.html#a9f2abf5c8b3442dd741bac7c15e5726a">RTOS::Mutex::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the underlying FreeRTOS mutex handle, if not already open.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:142</div></div>
-<div class="ttc" id="aa05903_html_acae6fb03115a857672d114638e6da0cb"><div class="ttname"><a href="../../db/d12/a05903.html#acae6fb03115a857672d114638e6da0cb">RTOS::Mutex::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the underlying FreeRTOS handle and marks the mutex closed.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:198</div></div>
-<div class="ttc" id="aa05907_html"><div class="ttname"><a href="../../da/d2e/a05907.html">RTOS::MutexGuard</a></div><div class="ttdoc">Scope-based lock guard for RTOS::Mutex, in the style of std::lock_guard.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:45</div></div>
-<div class="ttc" id="aa05907_html_a3f156fd8fcb57426c142acbd54ddb267"><div class="ttname"><a href="../../da/d2e/a05907.html#a3f156fd8fcb57426c142acbd54ddb267">RTOS::MutexGuard::isLocked</a></div><div class="ttdeci">bool isLocked() const noexcept</div><div class="ttdoc">Checks if the guard currently holds the lock.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:150</div></div>
+<div class="ttc" id="aa05920_html_a4f3a14ce62c98f7ce5520ce3e91b2322"><div class="ttname"><a href="../../db/dbf/a05920.html#a4f3a14ce62c98f7ce5520ce3e91b2322">RTOS::Semaphore::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Allocates the native FreeRTOS binary semaphore handle, if not already open.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:117</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_timed"></a>
-Timed lock</h3>
-<p>The guard converts the <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> to ticks. When the lock times out, the critical section is not protected and nothing is unlocked.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd6/a00896.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="queue_set_usage_wait"></a>
+Waiting and dispatching</h3>
+<p>RTOS::QueueSet::select() returns the member that became ready, or <em class="arg">nullptr</em> on timeout. Read each ready member exactly once with a zero timeout, so the set reports only new events.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/QueueSet.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> timedSection(<a class="code hl_class" href="../../db/d12/a05903.html">RTOS::Mutex</a> &amp; mutex) {</div>
-<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_class" href="../../da/d2e/a05907.html">RTOS::MutexGuard</a> guard(mutex, 10ms); guard) {</div>
-<div class="line">        <span class="comment">// Lock acquired within 10 ms.</span></div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// Timed out: the critical section is not protected.</span></div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a class="code hl_class" href="../../d5/d98/a05916.html">RTOS::Queue&lt;uint8_t, 4U&gt;</a> commands;</div>
+<div class="line">    <a class="code hl_class" href="../../db/dbf/a05920.html">RTOS::Semaphore</a> buttonPressed;</div>
+<div class="line">    RTOS::QueueSet&lt;2U&gt; events;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> openEvents() noexcept {</div>
+<div class="line">    <span class="keywordflow">if</span> (!commands.open() || !buttonPressed.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> events.<a class="code hl_function" href="../../db/dbf/a05920.html#a4f3a14ce62c98f7ce5520ce3e91b2322">open</a>(5U, {commands.getHandle(), buttonPressed.getHandle()});</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> eventTask(<span class="keywordtype">void</span> * parameters) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!openEvents()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="keyword">const</span> RTOS::QueueSet&lt;2U&gt;::Member <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga528eb8f3b350394c0406d4d58ab7dbf4ab2fdab230a2c39f3595a947861863cb7">ready</a> = events.select(100ms);</div>
+<div class="line">        <span class="keywordflow">if</span> (ready == commands.getHandle()) {</div>
+<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint8_t&gt;</a> command = commands.receive(0U); command.has_value()) {</div>
+<div class="line">                <span class="comment">// Handle *command.</span></div>
+<div class="line">            }</div>
+<div class="line">        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ready == buttonPressed.getHandle()) {</div>
+<div class="line">            <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(buttonPressed.take(0U));</div>
+<div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa01613_html_ga528eb8f3b350394c0406d4d58ab7dbf4ab2fdab230a2c39f3595a947861863cb7"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga528eb8f3b350394c0406d4d58ab7dbf4ab2fdab230a2c39f3595a947861863cb7">future_status::ready</a></div><div class="ttdeci">@ ready</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

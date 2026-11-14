@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::LPTimer</title>
+<title>IAR EWARM Library: Lib::HAL::Reset</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,71 +92,42 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::LPTimer</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Reset</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Arms a low-power timeout with <a class="el" href="../../d9/dac/a06190.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> and waits for it from a task.</p>
-<p>Arms a low-power timeout with <a class="el" href="../../d9/dac/a06190.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> and waits for it from a task. <a class="el" href="../../d7/dbb/a05535.html#af87c45b091cb7b10192ce86953eba07a" title="Lib::HAL::LPTimer::startTimeoutInterrupt()">Lib::HAL::LPTimer::startTimeoutInterrupt()</a> converts a millisecond timeout into a prescaled LPTIM period, and the autoreload match callback sets an event bit that <a class="el" href="../../d7/dbb/a05535.html#a8f6329f1b312d263381f3738aacd64b8" title="Lib::HAL::LPTimer::waitForEvent()">Lib::HAL::LPTimer::waitForEvent()</a> waits on. <a class="el" href="../../d7/dbb/a05535.html#a4fc71247da21a5d02602615eb66c4256" title="Lib::HAL::LPTimer::getElapsedRtosTicks()">Lib::HAL::LPTimer::getElapsedRtosTicks()</a> reports how much of the timeout has passed, in RTOS ticks.</p>
-<p>The LPTIM interrupt path is handled by the class: its callback is registered with the HAL in <a class="el" href="../../d7/dbb/a05535.html#a1a9d936e6ff40316674eb1bb6293d5eb" title="Lib::HAL::LPTimer::open()">Lib::HAL::LPTimer::open()</a>. The CubeMX-generated <b>LPTIM1_IRQHandler()</b> must still call <b>HAL_LPTIM_IRQHandler()</b> for that callback to run.</p>
-<dl class="section important"><dt>Important</dt><dd>The class is written for the STM32U5 LPTIM: its instance limit and clock-source table follow that series. It requires the LPTIM peripheral and <em class="arg">USE_HAL_LPTIM_REGISTER_CALLBACKS</em> set to <b>1</b>. The header is guarded by <em class="arg">HAL_LPTIM_MODULE_ENABLED</em> and <em class="arg">LPTIM1</em>; on the STM32F407 target, LPTIM1 does not exist, so the header compiles to nothing. <a class="el" href="../../de/dd2/a06258.html" title="RTOS::PowerManager">RTOS::PowerManager</a> uses this class for tickless sleep under the same guard.</dd></dl>
+<p>Reads the cause of the last reset with <a class="el" href="../../db/d15/a05484.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> and requests a system reset with <a class="el" href="../../db/d15/a05484.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">Lib::HAL::Reset::resetSystem()</a>.</p>
+<p>Reads the cause of the last reset with <a class="el" href="../../db/d15/a05484.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> and requests a system reset with <a class="el" href="../../db/d15/a05484.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">.Both</a> members are static; the class has no state and no instance. <a class="el" href="../../db/d15/a05484.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> clears the RCC reset flags on every call, so read it once, early in start-up, and keep the result. A later call reports <a class="el" href="../../db/d15/a05484.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3" title="Lib::HAL::Reset::State::UNKNOWN">Lib::HAL::Reset::State::UNKNOWN</a> unless a new reset has occurred since.</p>
+<p>The class has no HAL module guard, so it needs no module enabled in 'stm32f4xx_hal_conf.h'; it depends on the CMSIS and RCC definitions only. The reset flags it maps differ between families; the power-on flag <em class="arg">RCC_FLAG_PORRST</em> is used only where the device defines it.</p>
+<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="../../db/d15/a05484.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">Lib::HAL::Reset::resetSystem()</a> does not return. Flush logs, close files and stop peripherals that must finish first, because the reset discards everything else.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="lptim_usage_hw"></a>
-Hardware and CubeMX assumptions</h3>
-<ul>
-<li>LPTIM1 enabled in CubeMX with its clock source (LSE, LSI or MSIK) set; the frequency table inside the class must match the CubeMX clock tree.</li>
-<li><em class="arg">USE_HAL_LPTIM_REGISTER_CALLBACKS</em> set to <b>1</b> in the HAL configuration header.</li>
-<li>Up to two instances (one per LPTIM handle). A third one asserts.</li>
-</ul>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="lptim_usage_timeout"></a>
-Waiting for a timeout in a task</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/d56/a00707.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="reset_usage_cause"></a>
+Report the cause of the last reset</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d77/a00683.html">Lib/HAL/Reset.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d6c/a00977.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> waitForTimeout(<a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/dbb/a05535.html">Lib::HAL::LPTimer</a> &amp; timer, uint32_t timeoutMs) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (!timer.startTimeoutInterrupt(timeoutMs)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint32_t bits = timer.waitForEvent(HAL_LPTIM_AUTORELOAD_MATCH_CB_ID, portMAX_DELAY);</div>
-<div class="line">    timer.stopInterrupt();</div>
-<div class="line">    <span class="keywordflow">return</span> bits != 0U;</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_enumeration" href="../../db/d15/a05484.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a> bootReset() noexcept {</div>
+<div class="line">    <span class="comment">// Call once from start-up, before any watchdog is started.</span></div>
+<div class="line">    <span class="keywordflow">return</span> <a id="a1" name="a1"></a><a class="code hl_function" href="../../db/d15/a05484.html#a1cb344701ab8751dd646298cb07d5957">Lib::HAL::Reset::getResetState</a>();</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setup(LPTIM_HandleTypeDef * lptimHandle) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <a class="code hl_class" href="../../d7/dbb/a05535.html">Lib::HAL::LPTimer</a> timer(lptimHandle, LPTIM_CHANNEL_1);</div>
-<div class="line">    <span class="keywordflow">if</span> (!timer.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(waitForTimeout(timer, 500U));</div>
+<div class="line"><span class="keywordtype">bool</span> wasWatchdogReset(<a class="code hl_enumeration" href="../../db/d15/a05484.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a> state) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> state == <a id="_a2" name="_a2"></a><a class="code hl_enumvalue" href="../../db/d15/a05484.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9">Lib::HAL::Reset::State::INDEPENDENT_WATCHDOG</a> ||</div>
+<div class="line">           state == <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../db/d15/a05484.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368">Lib::HAL::Reset::State::WINDOW_WATCHDOG</a>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00707_html"><div class="ttname"><a href="../../d1/d56/a00707.html">LPTimer.hpp</a></div><div class="ttdoc">Low-power timer peripheral driver for STM32 architectures.</div></div>
-<div class="ttc" id="aa00977_html"><div class="ttname"><a href="../../d5/d6c/a00977.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa05535_html"><div class="ttname"><a href="../../d7/dbb/a05535.html">Lib::HAL::LPTimer</a></div><div class="ttdoc">Manages LPTIM peripheral configuration and interrupt-driven timeout events.</div><div class="ttdef"><b>Definition</b> LPTimer.hpp:42</div></div>
+<div class="ttc" id="aa00683_html"><div class="ttname"><a href="../../db/d77/a00683.html">Reset.hpp</a></div><div class="ttdoc">Reports the cause of the last system reset and triggers a new one.</div></div>
+<div class="ttc" id="aa05484_html_a1cb344701ab8751dd646298cb07d5957"><div class="ttname"><a href="../../db/d15/a05484.html#a1cb344701ab8751dd646298cb07d5957">Lib::HAL::Reset::getResetState</a></div><div class="ttdeci">static State getResetState() noexcept</div><div class="ttdoc">Reads the cause of the last system reset and clears the reset-flag register for the next one.</div><div class="ttdef"><b>Definition</b> Reset.hpp:66</div></div>
+<div class="ttc" id="aa05484_html_ae9f0fa1c20664b577fc615da59211d91"><div class="ttname"><a href="../../db/d15/a05484.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a></div><div class="ttdeci">State</div><div class="ttdoc">Cause of the last system reset, as latched by the RCC reset-flag register.</div><div class="ttdef"><b>Definition</b> Reset.hpp:45</div></div>
+<div class="ttc" id="aa05484_html_ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9"><div class="ttname"><a href="../../db/d15/a05484.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9">Lib::HAL::Reset::State::INDEPENDENT_WATCHDOG</a></div><div class="ttdeci">@ INDEPENDENT_WATCHDOG</div><div class="ttdoc">Independent watchdog (IWDG) reset.</div><div class="ttdef"><b>Definition</b> Reset.hpp:51</div></div>
+<div class="ttc" id="aa05484_html_ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368"><div class="ttname"><a href="../../db/d15/a05484.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368">Lib::HAL::Reset::State::WINDOW_WATCHDOG</a></div><div class="ttdeci">@ WINDOW_WATCHDOG</div><div class="ttdoc">Window watchdog (WWDG) reset.</div><div class="ttdef"><b>Definition</b> Reset.hpp:52</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="lptim_usage_ticks"></a>
-Converting elapsed time to RTOS ticks</h3>
-<p><a class="el" href="../../d7/dbb/a05535.html#a4fc71247da21a5d02602615eb66c4256" title="Lib::HAL::LPTimer::getElapsedRtosTicks()">Lib::HAL::LPTimer::getElapsedRtosTicks()</a> returns the full armed timeout once the match fired, and the current counter scaled to RTOS ticks otherwise. Pass the same timeout (in milliseconds) that was armed.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/d56/a00707.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="reset_usage_request"></a>
+Request a software reset</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d77/a00683.html">Lib/HAL/Reset.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line">uint32_t elapsedTicks(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/dbb/a05535.html">Lib::HAL::LPTimer</a> &amp; timer, uint32_t armedTimeoutMs) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> timer.getElapsedRtosTicks(armedTimeoutMs);</div>
+<div class="line"><span class="keywordtype">void</span> restartAfterFault() noexcept {</div>
+<div class="line">    <span class="comment">// Record the fault in backup storage or a log before resetting.</span></div>
+<div class="line">    <a id="a4" name="a4"></a><a class="code hl_function" href="../../db/d15/a05484.html#a6fd6f2776e6c5decf3577c484f08a1c0">Lib::HAL::Reset::resetSystem</a>();</div>
 <div class="line">}</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="lptim_usage_close"></a>
-Closing</h3>
-<p><a class="el" href="../../d7/dbb/a05535.html#a6295b01535aa1df83366d83b9426ff7d" title="Lib::HAL::LPTimer::close()">Lib::HAL::LPTimer::close()</a> de-initializes the LPTIM; the destructor calls it as well.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/d56/a00707.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> shutdown(<a class="code hl_class" href="../../d7/dbb/a05535.html">Lib::HAL::LPTimer</a> &amp; timer) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(timer.close());</div>
-<div class="line">}</div>
+<div class="ttc" id="aa05484_html_a6fd6f2776e6c5decf3577c484f08a1c0"><div class="ttname"><a href="../../db/d15/a05484.html#a6fd6f2776e6c5decf3577c484f08a1c0">Lib::HAL::Reset::resetSystem</a></div><div class="ttdeci">static void resetSystem() noexcept</div><div class="ttdoc">Resets the microcontroller through the CMSIS system-reset intrinsic.</div><div class="ttdef"><b>Definition</b> Reset.hpp:84</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
