@@ -108,16 +108,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;HttpTransport T_TRANSPORT&gt;<br />
 class Lib::HTTP::Client&lt; T_TRANSPORT &gt;</div><p>HTTP/1.1 client over any connected <a class="el" href="../../d8/d3d/a06135.html" title="HttpTransport">HttpTransport</a>, without heap or exceptions. </p>
-<p>Builds the request line and headers itself, sends them and the optional body, then reads the response into a caller-provided buffer. For plain HTTP the transport is the project's own socket or modem stream; for HTTPS it is a <a class="el" href="../../d0/d25/a05787.html" title="WolfSSLTransport">WolfSSLTransport</a> wrapping that stream. Every request sends 'Connection: close', so the caller reconnects the transport between requests.</p>
+<p>Builds the request line and headers itself, sends them and the optional body, then reads the response into a caller-provided buffer. For plain HTTP the transport is the project's own socket or modem stream; for HTTPS it is a <a class="el" href="../../d0/d25/a05787.html" title="WolfSSLTransport">WolfSSLTransport</a> wrapping that stream. Every request sends <em>Connection: close</em>, so the caller reconnects the transport between requests.</p>
 <dl class="section important"><dt>Important</dt><dd>Only Content-Length delimited responses are understood: a chunked response is reported as <a class="el" href="../../d1/dd8/a01022.html#afc43b899679a3737d2e7425a9168a85ca7850e7c3a0c981c95e69e331469c33b9" title="Status::MALFORMED_RESPONSE">Status::MALFORMED_RESPONSE</a>. Fine for typical cloud REST/JSON APIs, not for arbitrary servers.</dd>
 <dd>
 Requests block the calling task, polling the transport every tick, for at most 10 s while sending and 10 s while receiving.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_TRANSPORT</td><td>Connected transport satisfying <a class="el" href="../../d8/d3d/a06135.html" title="HttpTransport">HttpTransport</a>. </td></tr>
+    <tr><td class="paramname">T_TRANSPORT</td><td>Connected transport satisfying <a class="el" href="../../d8/d3d/a06135.html" title="HttpTransport">HttpTransport</a>.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HTTP/Client.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/dd3/a06236.html#_a10">Lib::HTTP::Client</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -279,7 +280,7 @@ template&lt;HttpTransport T_TRANSPORT&gt; </div>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">host</td><td>Value of the Host header, such as 'api.example.com'. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">path</td><td>Request path including any query string, such as '/v1/status'. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; 'response.body' views into it. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; <em class="arg">response.body</em> views into it. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Parsed response; valid only on <a class="el" href="../../d1/dd8/a01022.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
   </table>
   </dd>
@@ -404,7 +405,7 @@ template&lt;HttpTransport T_TRANSPORT&gt; </div>
     <tr><td class="paramdir"></td><td class="paramname">path</td><td>Request path including any query string. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">contentType</td><td>Value of the Content-Type header, such as 'application/json'. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">body</td><td>Request body. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; 'response.body' views into it. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; <em class="arg">response.body</em> views into it. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Parsed response; valid only on <a class="el" href="../../d1/dd8/a01022.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
   </table>
   </dd>
@@ -468,15 +469,15 @@ template&lt;HttpTransport T_TRANSPORT&gt; </div>
 </div><div class="memdoc">
 
 <p>Sends a request with any method and waits for the response. </p>
-<p>Content-Type and Content-Length headers are added only when 'body' is not empty.</p>
+<p>Content-Type and Content-Length headers are added only when <em class="arg">body</em> is not empty.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">method</td><td>Request method. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">host</td><td>Value of the Host header. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">path</td><td>Request path including any query string. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">contentType</td><td>Value of the Content-Type header; ignored when 'body' is empty. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">contentType</td><td>Value of the Content-Type header; ignored when <em class="arg">body</em> is empty. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">body</td><td>Request body; empty for none. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; 'response.body' views into it. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Receives the whole response, headers and body; <em class="arg">response.body</em> views into it. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">response</td><td>Parsed response; valid only on <a class="el" href="../../d1/dd8/a01022.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
   </table>
   </dd>

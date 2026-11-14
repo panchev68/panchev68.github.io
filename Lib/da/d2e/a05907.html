@@ -112,9 +112,12 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Manages low-power states and peripheral synchronization for the RTOS tickless idle mechanism. </p>
-<p>The kernel calls the hook from the idle task with the scheduler suspended. The manager masks interrupts, confirms that sleeping is still allowed, and then either stops the core in STOP1 until the LPTIM timeout (deep sleep) or waits in a plain '__WFI()' (light sleep). Pre-sleep and post-sleep callbacks run only around deep sleep and always with interrupts masked, so they must be short and must not call any blocking API.</p>
-<p>Stop mode needs a clock that keeps running while the core is stopped, so the manager drives an LPTIM through <a class="el" href="../../d4/dc1/a06186.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a>. It targets the STM32U5 family, whose HAL provides both that driver's LPTIM interface and 'HAL_PWREx_EnterSTOP1Mode()'. On a device without an LPTIM, such as the STM32F407, the component is compiled away and the application runs without tickless idle.</p>
-<p>The kernel reaches the manager through <a class="el" href="#a98ee80183ed645629084a482c158afd1" title="vPortSuppressTicksAndSleep()">vPortSuppressTicksAndSleep()</a>. Exactly one translation unit of the application must define 'RTOS_POWER_MANAGER_IMPLEMENTATION' before including this header; that unit emits the hook as a strong symbol which replaces the weak default of the FreeRTOS port. </p>
+<p>The kernel calls the hook from the idle task with the scheduler suspended. The manager masks interrupts, confirms that sleeping is still allowed, and then either stops the core in STOP1 until the LPTIM timeout (deep sleep) or waits in a plain <b>__WFI()</b> (light sleep). Pre-sleep and post-sleep callbacks run only around deep sleep and always with interrupts masked, so they must be short and must not call any blocking API.</p>
+<p>Stop mode needs a clock that keeps running while the core is stopped, so the manager drives an LPTIM through <a class="el" href="../../d4/dc1/a06186.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a>. It targets the STM32U5 family, whose HAL provides both that driver's LPTIM interface and <b>HAL_PWREx_EnterSTOP1Mode()</b>. On a device without an LPTIM, such as the STM32F407, the component is compiled away and the application runs without tickless idle.</p>
+<p>The kernel reaches the manager through <a class="el" href="#a98ee80183ed645629084a482c158afd1" title="vPortSuppressTicksAndSleep()">vPortSuppressTicksAndSleep()</a>. Exactly one translation unit of the application must define <em class="arg">RTOS_POWER_MANAGER_IMPLEMENTATION</em> before including this header; that unit emits the hook as a strong symbol which replaces the weak default of the FreeRTOS port.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/PowerManager.hpp" target="_blank">Source</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/doc/PowerManager.md" target="_blank">Detail Description</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -182,7 +185,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af76fc6de7d330151f7765c0ff6149226" id="r_af76fc6de7d330151f7765c0ff6149226"><td class="memItemLeft">static <a class="el" href="#af37259063989766044b7fa592bd44085">PowerManager</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af76fc6de7d330151f7765c0ff6149226">instance</a> () noexcept</td></tr>
 <tr class="memdesc:af76fc6de7d330151f7765c0ff6149226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the singleton instance of the PowerManager.  <br /></td></tr>
 <tr class="memitem:ac35887bd479a4425729b40a4b3114f52" id="r_ac35887bd479a4425729b40a4b3114f52"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ac35887bd479a4425729b40a4b3114f52">isDebuggerAttached</a> () noexcept</td></tr>
-<tr class="memdesc:ac35887bd479a4425729b40a4b3114f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether a debugger is currently attached, through the Cortex-M 'C_DEBUGEN' bit.  <br /></td></tr>
+<tr class="memdesc:ac35887bd479a4425729b40a4b3114f52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether a debugger is currently attached, through the Cortex-M <em class="arg">C_DEBUGEN</em> bit.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -327,7 +330,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if deep sleep mode is currently permitted. </p>
-<p>Also <b>false</b> whenever a debugger is attached (<a class="el" href="#ac35887bd479a4425729b40a4b3114f52" title="isDebuggerAttached()">isDebuggerAttached()</a>): STOP1 stops the core clock, and even with 'HAL_DBGMCU_EnableDBGStopMode()' (see <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>) SWD can still misread or momentarily lose the connection across the transition, which a plain '__WFI()' light sleep never does, since the core clock never stops. Unconditional in every build: the check itself is a single free register read, costing nothing when no debugger is attached, so there is no release-build reason to skip it.</p>
+<p>Also <b>false</b> whenever a debugger is attached (<a class="el" href="#ac35887bd479a4425729b40a4b3114f52" title="isDebuggerAttached()">isDebuggerAttached()</a>): STOP1 stops the core clock, and even with <b>HAL_DBGMCU_EnableDBGStopMode()</b> (see <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>) SWD can still misread or momentarily lose the connection across the transition, which a plain <b>__WFI()</b> light sleep never does, since the core clock never stops. Unconditional in every build: the check itself is a single free register read, costing nothing when no debugger is attached, so there is no release-build reason to skip it.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if permitted, initialized, and no debugger is attached. </dd></dl>
 
 </div>
@@ -465,7 +468,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the number of registered post-sleep callbacks. </p>
-<dl class="section return"><dt>Returns</dt><dd>Count in the range 0 to <a class="el" href="#af82bcd9010f003fecb07b8882dca25d2" title="MAX_CALLBACKS">MAX_CALLBACKS</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Count in the range <b>0</b> to <a class="el" href="#af82bcd9010f003fecb07b8882dca25d2" title="MAX_CALLBACKS">MAX_CALLBACKS</a>. </dd></dl>
 
 </div>
 </div>
@@ -493,7 +496,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the number of registered pre-sleep callbacks. </p>
-<dl class="section return"><dt>Returns</dt><dd>Count in the range 0 to <a class="el" href="#af82bcd9010f003fecb07b8882dca25d2" title="MAX_CALLBACKS">MAX_CALLBACKS</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Count in the range <b>0</b> to <a class="el" href="#af82bcd9010f003fecb07b8882dca25d2" title="MAX_CALLBACKS">MAX_CALLBACKS</a>. </dd></dl>
 
 </div>
 </div>
@@ -551,7 +554,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the LPTimer that times deep sleep. </p>
-<dl class="section return"><dt>Returns</dt><dd>Timer passed to <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>, or 'nullptr' before a successful setup. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Timer passed to <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>, or <em class="arg">nullptr</em> before a successful setup. </dd></dl>
 
 </div>
 </div>
@@ -609,7 +612,7 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reports whether a debugger is currently attached, through the Cortex-M 'C_DEBUGEN' bit. </p>
+<p>Reports whether a debugger is currently attached, through the Cortex-M <em class="arg">C_DEBUGEN</em> bit. </p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if a debugger is attached. </dd></dl>
 
 </div>

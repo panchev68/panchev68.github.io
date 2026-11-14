@@ -131,7 +131,7 @@ Classes</h2></td></tr>
 <tr class="memitem:Task" id="r_Task"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dd/d7b/a05939.html">Task</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII-managed FreeRTOS task abstraction.  <a href="../../dd/d7b/a05939.html#details">More...</a><br /></td></tr>
 <tr class="memitem:TickClient" id="r_TickClient"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d22/a05963.html">TickClient</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII owner of a periodic FreeRTOS software timer that calls 'Derived::handleTickEvent()' on every expiry.  <a href="../../d0/d22/a05963.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII owner of a periodic FreeRTOS software timer that calls <em class="arg">handleTickEvent()</em> of the derived class on every expiry.  <a href="../../d0/d22/a05963.html#details">More...</a><br /></td></tr>
 <tr class="memitem:TickCounter" id="r_TickCounter"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d67/a05971.html">TickCounter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static utility class for reading the system tick count and converting between ticks and time units.  <a href="../../d3/d67/a05971.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Timeout" id="r_Timeout"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/dc4/a05975.html">Timeout</a></td></tr>
@@ -343,7 +343,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Converts a duration to scheduler ticks, rounding up so the resulting wait is never shorter than requested. </p>
-<p>The single conversion every wrapper uses for its <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> overloads. Non-positive durations yield zero; durations beyond the tick range saturate at the largest tick value, which equals 'portMAX_DELAY' (wait forever). The duration must be representable as a 64-bit tick count.</p>
+<p>The single conversion every wrapper uses for its overloads taking a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>. Non-positive durations yield <b>0</b>; durations beyond the tick range saturate at the largest tick value, which equals <em class="arg">portMAX_DELAY</em> (wait forever). The duration must be representable as a 64-bit tick count.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Duration representation. </td></tr>
@@ -472,15 +472,15 @@ template&lt;typename Rep, typename Period&gt; </div>
 </div><div class="memdoc">
 
 <p>Converts a raw millisecond count to the equivalent FreeRTOS tick count, rounding up to the nearest whole tick. </p>
-<p>Kept for legacy call sites only; pass the <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> duration itself to <a class="el" href="#ab892d206cb79c31e373b3631e023b644" title="durationToTicks()">durationToTicks()</a> or to the duration overload of the consuming API instead of unwrapping it with 'count()'.</p>
+<p>Kept for legacy call sites only; pass the <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> itself to <a class="el" href="#ab892d206cb79c31e373b3631e023b644" title="RTOS::durationToTicks()">RTOS::durationToTicks()</a> or to the duration overload of the consuming API instead of unwrapping it with <em class="arg">count()</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">milliseconds</td><td>Duration in milliseconds; must be non-negative. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Equivalent tick count, saturated at 'portMAX_DELAY'.</dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="../../d7/d98/a00983.html#_deprecated000001">Deprecated</a></b></dt><dd>Pass a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> duration to <a class="el" href="#ab892d206cb79c31e373b3631e023b644" title="durationToTicks()">durationToTicks()</a> instead. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Equivalent tick count, saturated at <em class="arg">portMAX_DELAY</em>.</dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../d7/d98/a00983.html#_deprecated000001">Deprecated</a></b></dt><dd>Pass a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> to <a class="el" href="#ab892d206cb79c31e373b3631e023b644" title="RTOS::durationToTicks()">RTOS::durationToTicks()</a> instead. </dd></dl>
 <dl class="deprecated"><dt><b><a class="el" href="../../d7/d98/a00983.html#_deprecated000002">Deprecated</a></b></dt><dd>pass a std::chrono duration to durationToTicks() instead</dd></dl>
 <dl class="deprecated"><dt><b><a class="el" href="../../d7/d98/a00983.html#_deprecated000003">Deprecated</a></b></dt><dd>pass a std::chrono duration to durationToTicks() instead</dd></dl>
 

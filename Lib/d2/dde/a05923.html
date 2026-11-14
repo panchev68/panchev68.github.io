@@ -110,7 +110,10 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Binary semaphore resource manager for task and ISR synchronization. </p>
-<p>Created empty (taken): the first <a class="el" href="../../d3/d20/a05927.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="take()">take()</a> blocks until a 'give()'. Not a replacement for <a class="el" href="../../dd/d91/a06248.html" title="RTOS::Mutex">RTOS::Mutex</a>, since a binary semaphore has no owner and no priority inheritance. </p>
+<p>Created empty (taken): the first <a class="el" href="../../d3/d20/a05927.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="take()">take()</a> blocks until a <a class="el" href="../../d3/d20/a05927.html#a5682e0c5d8eb6b2076978634963b4020" title="give()">give()</a> is called. Not a replacement for <a class="el" href="../../dd/d91/a06248.html" title="RTOS::Mutex">RTOS::Mutex</a>, since a binary semaphore has no owner and no priority inheritance.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/Semaphore.hpp" target="_blank">Source</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/doc/Semaphore.md" target="_blank">Detail Description</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d2c/a06256.html#_a1">RTOS::QueueSet</a>, and <a class="el" href="../../de/dd2/a06258.html#_a0">RTOS::Semaphore</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -199,7 +202,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a9f2ff1e57e66e99707d4107fa4c19812" id="r_a9f2ff1e57e66e99707d4107fa4c19812"><td class="memItemLeft"><a class="el" href="../../d3/d20/a05927.html#a4b0fa065d254b79172dce084d987b8d4">Handle</a>&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d20/a05927.html#a9f2ff1e57e66e99707d4107fa4c19812">semaphoreHandle</a></td></tr>
-<tr class="memdesc:a9f2ff1e57e66e99707d4107fa4c19812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Native FreeRTOS semaphore handle, or 'nullptr' when closed.  <br /></td></tr>
+<tr class="memdesc:a9f2ff1e57e66e99707d4107fa4c19812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Native FreeRTOS semaphore handle, or <em class="arg">nullptr</em> when closed.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="a4b0fa065d254b79172dce084d987b8d4" name="a4b0fa065d254b79172dce084d987b8d4"></a>
@@ -493,7 +496,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the current count value. </p>
-<dl class="section return"><dt>Returns</dt><dd>1 if given, 0 if taken or not open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>1</b> if given, <b>0</b> if taken or not open. </dd></dl>
 
 </div>
 </div>
@@ -521,8 +524,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the current count from an ISR context. </p>
-<p>FreeRTOS V10 has no 'uxSemaphoreGetCountFromISR()', but a semaphore is a queue of zero-sized items whose count is its number of waiting items, so the ISR-safe queue query gives the same value.</p>
-<dl class="section return"><dt>Returns</dt><dd>Current count (0 or 1 for a binary semaphore), or 0 if not open. </dd></dl>
+<p>FreeRTOS V10 has no <b>uxSemaphoreGetCountFromISR()</b>, but a semaphore is a queue of zero-sized items whose count is its number of waiting items, so the ISR-safe queue query gives the same value.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current count (<b>0</b> or <b>1</b> for a binary semaphore), or <b>0</b> if not open. </dd></dl>
 
 </div>
 </div>
@@ -578,7 +581,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Accesses the underlying native semaphore handle for interop with raw FreeRTOS APIs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native handle, or 'nullptr' if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Native handle, or <em class="arg">nullptr</em> if closed. </dd></dl>
 
 </div>
 </div>
@@ -665,7 +668,7 @@ Protected Attributes</h2></td></tr>
 <p>Gives the semaphore from an ISR context, leaving the context switch to the caller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a higher priority task was woken, never cleared; the caller initializes it to 'pdFALSE' and passes it to 'portYIELD_FROM_ISR()' before leaving the ISR. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a higher priority task was woken, never cleared; the caller initializes it to <em class="arg">pdFALSE</em> and passes it to <b>portYIELD_FROM_ISR()</b> before leaving the ISR. </td></tr>
   </table>
   </dd>
 </dl>
@@ -902,7 +905,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Collapses pending signals into exactly one from an ISR context and requests the context switch itself. </p>
-<p>Convenient when the overwrite is the last RTOS call of the ISR; batch several FromISR calls through the 'overwriteFromISR(BaseType_t &amp;)' overload instead, so that only one context switch is requested.</p>
+<p>Convenient when the overwrite is the last RTOS call of the ISR; batch several FromISR calls through the <a class="el" href="#ac4fa91c7638ef0a1811557de4ff2709a" title="overwriteFromISR(BaseType_t &amp;)">overwriteFromISR(BaseType_t &amp;)</a> overload instead, so that only one context switch is requested.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if the semaphore is open and now signaled, <b>false</b> if it is not open. </dd></dl>
 
 </div>
@@ -933,7 +936,7 @@ Protected Attributes</h2></td></tr>
 <p>Collapses any number of pending signals into exactly one from an ISR context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a higher priority task was woken, never cleared; the caller initializes it to 'pdFALSE' and passes it to 'portYIELD_FROM_ISR()' before leaving the ISR. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a higher priority task was woken, never cleared; the caller initializes it to <em class="arg">pdFALSE</em> and passes it to <b>portYIELD_FROM_ISR()</b> before leaving the ISR. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1002,7 +1005,7 @@ Protected Attributes</h2></td></tr>
 <p>Takes the semaphore from an ISR context without blocking. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a higher priority task was woken, never cleared; the caller initializes it to 'pdFALSE' and passes it to 'portYIELD_FROM_ISR()' before leaving the ISR. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a higher priority task was woken, never cleared; the caller initializes it to <em class="arg">pdFALSE</em> and passes it to <b>portYIELD_FROM_ISR()</b> before leaving the ISR. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1178,7 +1181,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Native FreeRTOS semaphore handle, or 'nullptr' when closed. </p>
+<p>Native FreeRTOS semaphore handle, or <em class="arg">nullptr</em> when closed. </p>
 
 </div>
 </div>

@@ -111,7 +111,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>RAII wrapper for managing FreeRTOS software timer resources. </p>
-<p>Provides one-shot and auto-reload timers with task and ISR command variants. The native timer stores the address of its owning instance as the timer ID, which the expiry trampoline uses to reach 'callback'; moving the instance re-targets that ID. Every command is queued to the timer daemon task, so a command issued from inside a timer callback never blocks, since blocking there could only deadlock the daemon on its own command queue. Destroy or move an instance only while no callback of it can be running concurrently, for example from a task whose priority does not exceed 'configTIMER_TASK_PRIORITY', or after <a class="el" href="#a798530d43191f94bd5cd6f8cfea846b3" title="stop()">stop()</a>. </p>
+<p>Provides one-shot and auto-reload timers with task and ISR command variants. The native timer stores the address of its owning instance as the timer ID, which the expiry trampoline uses to reach <em class="arg">callback</em>; moving the instance re-targets that ID. Every command is queued to the timer daemon task, so a command issued from inside a timer callback never blocks, since blocking there could only deadlock the daemon on its own command queue. Destroy or move an instance only while no callback of it can be running concurrently, for example from a task whose priority does not exceed <em class="arg">configTIMER_TASK_PRIORITY</em>, or after <a class="el" href="#a798530d43191f94bd5cd6f8cfea846b3" title="stop()">stop()</a>.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/Timer.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/dd5/a06272.html#_a6">RTOS::Timer</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -1284,17 +1285,17 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Defers a function call to the timer daemon task. </p>
-<p>Requires 'INCLUDE_xTimerPendFunctionCall' and task context. The call runs at the daemon priority, in queue order with the timer commands, so it must not block.</p>
+<p>Requires <em class="arg">INCLUDE_xTimerPendFunctionCall</em> and task context. The call runs at the daemon priority, in queue order with the timer commands, so it must not block.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">function</td><td>Function to run; must be non-null. </td></tr>
-    <tr><td class="paramname">parameter1</td><td>First argument passed to 'function'. </td></tr>
-    <tr><td class="paramname">parameter2</td><td>Second argument passed to 'function'. </td></tr>
+    <tr><td class="paramname">parameter1</td><td>First argument passed to <em class="arg">function</em>. </td></tr>
+    <tr><td class="paramname">parameter2</td><td>Second argument passed to <em class="arg">function</em>. </td></tr>
     <tr><td class="paramname">blockTime</td><td>Max block duration while the command queue is full; forced to zero inside a timer callback. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the call was queued, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Status::FAILURE">Status::FAILURE</a> if the queue stayed full, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Status::INVALID">Status::INVALID</a> if 'function' is null. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the call was queued, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Status::FAILURE">Status::FAILURE</a> if the queue stayed full, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Status::INVALID">Status::INVALID</a> if <em class="arg">function</em> is null. </dd></dl>
 
 </div>
 </div>
@@ -1340,13 +1341,13 @@ Static Public Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">function</td><td>Function to run; must be non-null. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">parameter1</td><td>First argument passed to 'function'. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">parameter2</td><td>Second argument passed to 'function'. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a context switch should be requested on ISR exit. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">parameter1</td><td>First argument passed to <em class="arg">function</em>. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">parameter2</td><td>Second argument passed to <em class="arg">function</em>. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a context switch should be requested on ISR exit. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the call was queued, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Status::FAILURE">Status::FAILURE</a> if the queue is full, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Status::INVALID">Status::INVALID</a> if 'function' is null. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the call was queued, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Status::FAILURE">Status::FAILURE</a> if the queue is full, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Status::INVALID">Status::INVALID</a> if <em class="arg">function</em> is null. </dd></dl>
 
 </div>
 </div>
@@ -1386,12 +1387,12 @@ Static Public Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">function</td><td>Function to run; must be non-null. </td></tr>
-    <tr><td class="paramname">parameter1</td><td>First argument passed to 'function'. </td></tr>
-    <tr><td class="paramname">parameter2</td><td>Second argument passed to 'function'. </td></tr>
+    <tr><td class="paramname">parameter1</td><td>First argument passed to <em class="arg">function</em>. </td></tr>
+    <tr><td class="paramname">parameter2</td><td>Second argument passed to <em class="arg">function</em>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the call was queued, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Status::FAILURE">Status::FAILURE</a> if the queue is full, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Status::INVALID">Status::INVALID</a> if 'function' is null. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the call was queued, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Status::FAILURE">Status::FAILURE</a> if the queue is full, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Status::INVALID">Status::INVALID</a> if <em class="arg">function</em> is null. </dd></dl>
 
 </div>
 </div>
@@ -1484,7 +1485,7 @@ Static Public Attributes</h2></td></tr>
 <p>Restarts the timer from an ISR. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a context switch should be requested on ISR exit. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a context switch should be requested on ISR exit. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1734,7 +1735,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">period</td><td>New period, rounded up to whole ticks; must be positive. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a context switch should be requested on ISR exit. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a context switch should be requested on ISR exit. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1808,7 +1809,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">period</td><td>New period in ticks; must not be zero. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a context switch should be requested on ISR exit. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a context switch should be requested on ISR exit. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1923,7 +1924,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">periodMs</td><td>Period in ms. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a context switch should be requested on ISR exit. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a context switch should be requested on ISR exit. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2060,7 +2061,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <p>Starts the timer from an ISR. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a context switch should be requested on ISR exit. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a context switch should be requested on ISR exit. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2157,7 +2158,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <p>Stops the timer from an ISR. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a context switch should be requested on ISR exit. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a context switch should be requested on ISR exit. </td></tr>
   </table>
   </dd>
 </dl>

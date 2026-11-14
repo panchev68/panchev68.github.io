@@ -109,7 +109,10 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Owner of a FreeRTOS stream buffer handle. </p>
 <p>FreeRTOS stream buffers are lock-free only for a single writer and a single reader: two tasks blocked in <a class="el" href="#a9663c6c51ab3170bdb2f6145b76943a1" title="send()">send()</a>, or two blocked in <a class="el" href="#afcb77be5968f3241437df1c795ad6a74" title="receive()">receive()</a>, trip a kernel assertion. Several writers or readers must serialize their calls themselves, e.g. with a <a class="el" href="../../dd/d91/a06248.html" title="RTOS::Mutex">RTOS::Mutex</a>, and then use a zero timeout. A reader blocked in <a class="el" href="#afcb77be5968f3241437df1c795ad6a74" title="receive()">receive()</a> wakes up once at least the trigger level is buffered or its timeout expires, and then returns whatever is available.</p>
-<p>Every task-context <a class="el" href="#a9663c6c51ab3170bdb2f6145b76943a1" title="send()">/@ref</a> receive() takes its timeout explicitly, with no default: pass 0 to poll, 'portMAX_DELAY' to wait indefinitely, or a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> duration. Interrupt variants never block. </p>
+<p>Every task-context <a class="el" href="#a9663c6c51ab3170bdb2f6145b76943a1" title="send()">send()</a> and <a class="el" href="#afcb77be5968f3241437df1c795ad6a74" title="receive()">receive()</a> take its timeout explicitly, with no default: pass 0 to poll, <em class="arg">portMAX_DELAY</em> to wait indefinitely, or a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> duration. Interrupt variants never block.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/StreamBuffer.hpp" target="_blank">Source</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/doc/StreamBuffer.md" target="_blank">Detail Description</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../da/d8a/a06262.html#_a0">RTOS::StreamBuffer</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -142,7 +145,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9663c6c51ab3170bdb2f6145b76943a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes to the buffer, blocking up to a timeout until all of them fit.  <br /></td></tr>
 <tr class="memitem:a90fd7e18b6942f386c8bd21d6b58fda9" id="r_a90fd7e18b6942f386c8bd21d6b58fda9"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:a90fd7e18b6942f386c8bd21d6b58fda9 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a90fd7e18b6942f386c8bd21d6b58fda9">send</a> (const void *source, size_t length, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a90fd7e18b6942f386c8bd21d6b58fda9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes to the buffer, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout until all of them fit.  <br /></td></tr>
+<tr class="memdesc:a90fd7e18b6942f386c8bd21d6b58fda9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes to the buffer, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout until all of them fit.  <br /></td></tr>
 <tr class="memitem:ad136ebc50dc918bcf385175da8884804" id="r_ad136ebc50dc918bcf385175da8884804"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ad136ebc50dc918bcf385175da8884804">send</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> sv, <a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a> blockTime) noexcept</td></tr>
 <tr class="memdesc:ad136ebc50dc918bcf385175da8884804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the characters of a string view, without a terminating NUL, to the buffer.  <br /></td></tr>
 <tr class="memitem:a4883c46367940580d73bb086a97ca720" id="r_a4883c46367940580d73bb086a97ca720"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
@@ -165,10 +168,10 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 <tr class="memitem:a0395a389b2611ca514780b2068950ff2 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a0395a389b2611ca514780b2068950ff2">sendFromISR</a> (const T_RANGE &amp;range) noexcept</td></tr>
 <tr class="memdesc:a0395a389b2611ca514780b2068950ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the bytes of a contiguous container from an interrupt and requests the context switch itself.  <br /></td></tr>
 <tr class="memitem:afcb77be5968f3241437df1c795ad6a74" id="r_afcb77be5968f3241437df1c795ad6a74"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#afcb77be5968f3241437df1c795ad6a74">receive</a> (void *dest, size_t maxLen, <a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a> blockTime) noexcept</td></tr>
-<tr class="memdesc:afcb77be5968f3241437df1c795ad6a74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to 'maxLen' bytes, blocking up to a timeout until the trigger level is reached.  <br /></td></tr>
+<tr class="memdesc:afcb77be5968f3241437df1c795ad6a74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <em class="arg">maxLen</em> bytes, blocking up to a timeout until the trigger level is reached.  <br /></td></tr>
 <tr class="memitem:a03310c8bafaaa99ad0088c133c2d64ea" id="r_a03310c8bafaaa99ad0088c133c2d64ea"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:a03310c8bafaaa99ad0088c133c2d64ea template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a03310c8bafaaa99ad0088c133c2d64ea">receive</a> (void *dest, size_t maxLen, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a03310c8bafaaa99ad0088c133c2d64ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to 'maxLen' bytes, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout until the trigger level is reached.  <br /></td></tr>
+<tr class="memdesc:a03310c8bafaaa99ad0088c133c2d64ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <em class="arg">maxLen</em> bytes, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout until the trigger level is reached.  <br /></td></tr>
 <tr class="memitem:ad3fabb92c46683255bc2583500f83640" id="r_ad3fabb92c46683255bc2583500f83640"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
 requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
  !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
@@ -180,11 +183,11 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
  !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
 &lt;std::ranges::range_value_t&lt;T_RANGE&gt;&gt;)</td></tr>
 <tr class="memitem:a33ea080c60ab94514d7103e9f4f2e8dc template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a33ea080c60ab94514d7103e9f4f2e8dc">receive</a> (T_RANGE &amp;&amp;dest, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a33ea080c60ab94514d7103e9f4f2e8dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads into a writable contiguous container, waiting up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for the trigger level.  <br /></td></tr>
+<tr class="memdesc:a33ea080c60ab94514d7103e9f4f2e8dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads into a writable contiguous container, waiting up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for the trigger level.  <br /></td></tr>
 <tr class="memitem:a97854f9de8be9d323e9fd10fa9b8189d" id="r_a97854f9de8be9d323e9fd10fa9b8189d"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a97854f9de8be9d323e9fd10fa9b8189d">receiveFromISR</a> (void *dest, size_t maxLen, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:a97854f9de8be9d323e9fd10fa9b8189d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to 'maxLen' bytes from an interrupt, without blocking.  <br /></td></tr>
+<tr class="memdesc:a97854f9de8be9d323e9fd10fa9b8189d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <em class="arg">maxLen</em> bytes from an interrupt, without blocking.  <br /></td></tr>
 <tr class="memitem:adf2c923f7d9b6abf2adc4271b59cbc4e" id="r_adf2c923f7d9b6abf2adc4271b59cbc4e"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#adf2c923f7d9b6abf2adc4271b59cbc4e">receiveFromISR</a> (void *dest, size_t maxLen) noexcept</td></tr>
-<tr class="memdesc:adf2c923f7d9b6abf2adc4271b59cbc4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to 'maxLen' bytes from an interrupt and requests the context switch itself.  <br /></td></tr>
+<tr class="memdesc:adf2c923f7d9b6abf2adc4271b59cbc4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <em class="arg">maxLen</em> bytes from an interrupt and requests the context switch itself.  <br /></td></tr>
 <tr class="memitem:a65c2b881483b84ac7812abb5c3c1a12c" id="r_a65c2b881483b84ac7812abb5c3c1a12c"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
 requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
  !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
@@ -280,7 +283,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Initializes an empty, closed stream buffer. </p>
-<p>Call 'open()' or 'createStatic()' before use. </p>
+<p>Call open() or createStatic() before use. </p>
 
 </div>
 </div>
@@ -424,7 +427,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Gets the number of bytes ready to be read. </p>
-<dl class="section return"><dt>Returns</dt><dd>Buffered bytes, or 0 if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Buffered bytes, or <b>0</b> if closed. </dd></dl>
 
 </div>
 </div>
@@ -453,7 +456,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 
 <p>Gets the maximum number of bytes the buffer can hold. </p>
 <p>FreeRTOS does not expose this value, so it is cached at creation time.</p>
-<dl class="section return"><dt>Returns</dt><dd>Capacity in bytes, or 0 if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Capacity in bytes, or <b>0</b> if closed. </dd></dl>
 
 </div>
 </div>
@@ -481,7 +484,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Gets the native handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native stream buffer handle, or 'nullptr' if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Native stream buffer handle, or <em class="arg">nullptr</em> if closed. </dd></dl>
 
 </div>
 </div>
@@ -509,7 +512,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Gets the number of bytes that can be written without blocking. </p>
-<dl class="section return"><dt>Returns</dt><dd>Free bytes, or 0 if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Free bytes, or <b>0</b> if closed. </dd></dl>
 
 </div>
 </div>
@@ -537,7 +540,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Gets the buffered bytes as a percentage of the capacity. </p>
-<dl class="section return"><dt>Returns</dt><dd>Utilization in the range 0 to 100, or 0 if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Utilization in the range 0 to 100, or <b>0</b> if closed. </dd></dl>
 
 </div>
 </div>
@@ -649,7 +652,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Converts implicitly to the native handle, for interop with raw FreeRTOS APIs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native stream buffer handle, or 'nullptr' if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Native stream buffer handle, or <em class="arg">nullptr</em> if closed. </dd></dl>
 
 </div>
 </div>
@@ -747,7 +750,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </table>
 </div><div class="memdoc">
 
-<p>Reads into a writable contiguous container, waiting up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for the trigger level. </p>
+<p>Reads into a writable contiguous container, waiting up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for the trigger level. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T_RANGE</td><td>Writable, contiguous, sized range of trivially copyable elements; an lvalue or a view such as std::span. </td></tr>
@@ -763,7 +766,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of 'dest'. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of <em class="arg">dest</em>. </dd></dl>
 
 </div>
 </div>
@@ -810,11 +813,11 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the bytes; must not be empty. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of 'dest'; not necessarily a whole multiple of the element size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of <em class="arg">dest</em>; not necessarily a whole multiple of the element size. </dd></dl>
 
 </div>
 </div>
@@ -852,7 +855,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reads up to 'maxLen' bytes, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout until the trigger level is reached. </p>
+<p>Reads up to <em class="arg">maxLen</em> bytes, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout until the trigger level is reached. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
@@ -863,12 +866,12 @@ template&lt;typename Rep, typename Period&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Destination for the bytes; must be non-null. </td></tr>
-    <tr><td class="paramname">maxLen</td><td>Capacity of 'dest' in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramname">maxLen</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read; 0 on timeout with an empty buffer or if the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes read; <b>0</b> on timeout with an empty buffer or if the buffer is closed. </dd></dl>
 
 </div>
 </div>
@@ -904,16 +907,16 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reads up to 'maxLen' bytes, blocking up to a timeout until the trigger level is reached. </p>
+<p>Reads up to <em class="arg">maxLen</em> bytes, blocking up to a timeout until the trigger level is reached. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Destination for the bytes; must be non-null. </td></tr>
-    <tr><td class="paramname">maxLen</td><td>Capacity of 'dest' in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">maxLen</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read; 0 on timeout with an empty buffer or if the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes read; <b>0</b> on timeout with an empty buffer or if the buffer is closed. </dd></dl>
 
 </div>
 </div>
@@ -942,10 +945,10 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Unblocks a task waiting to send, for a reader that drained the buffer by other means, e.g. </p>
 <p>by DMA.</p>
-<p>Only needed when the kernel's own 'sbRECEIVE_COMPLETED()' hook is replaced; a regular <a class="el" href="#afcb77be5968f3241437df1c795ad6a74" title="receive()">receive()</a> already does this.</p>
+<p>Only needed when the kernel's own <b>sbRECEIVE_COMPLETED()</b> hook is replaced; a regular <a class="el" href="#afcb77be5968f3241437df1c795ad6a74" title="receive()">receive()</a> already does this.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the writer was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the writer was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -994,7 +997,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of 'dest'. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of <em class="arg">dest</em>. </dd></dl>
 
 </div>
 </div>
@@ -1040,11 +1043,11 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the bytes; must not be empty. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the writer was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the writer was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of 'dest'. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of <em class="arg">dest</em>. </dd></dl>
 
 </div>
 </div>
@@ -1075,11 +1078,11 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </table>
 </div><div class="memdoc">
 
-<p>Reads up to 'maxLen' bytes from an interrupt and requests the context switch itself. </p>
+<p>Reads up to <em class="arg">maxLen</em> bytes from an interrupt and requests the context switch itself. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Destination for the bytes; must be non-null. </td></tr>
-    <tr><td class="paramname">maxLen</td><td>Capacity of 'dest' in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramname">maxLen</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1119,12 +1122,12 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </table>
 </div><div class="memdoc">
 
-<p>Reads up to 'maxLen' bytes from an interrupt, without blocking. </p>
+<p>Reads up to <em class="arg">maxLen</em> bytes from an interrupt, without blocking. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">dest</td><td>Destination for the bytes; must be non-null. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">maxLen</td><td>Capacity of 'dest' in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the writer was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">maxLen</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the writer was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1204,7 +1207,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">range</td><td>Elements to write; must not be empty. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1246,7 +1249,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Writes bytes to the buffer, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout until all of them fit. </p>
+<p>Writes bytes to the buffer, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout until all of them fit. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
@@ -1262,7 +1265,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than 'length' if the timeout expired first. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than <em class="arg">length</em> if the timeout expired first. </dd></dl>
 
 </div>
 </div>
@@ -1303,11 +1306,11 @@ template&lt;typename Rep, typename Period&gt; </div>
   <table class="params">
     <tr><td class="paramname">source</td><td>Bytes to write; must be non-null. </td></tr>
     <tr><td class="paramname">length</td><td>Number of bytes to write; must be greater than zero. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than 'length' if the timeout expired first. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than <em class="arg">length</em> if the timeout expired first. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../da/d8a/a06262.html#a11">RTOS::StreamBuffer</a>.</dd>
 </dl>
 
@@ -1344,7 +1347,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sv</td><td>Characters to write; must not be empty. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1377,10 +1380,10 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Unblocks a task waiting to receive, for a writer that filled the buffer by other means, e.g. </p>
 <p>by DMA.</p>
-<p>Only needed when the kernel's own 'sbSEND_COMPLETED()' hook is replaced; a regular <a class="el" href="#a9663c6c51ab3170bdb2f6145b76943a1" title="send()">send()</a> already does this.</p>
+<p>Only needed when the kernel's own <b>sbSEND_COMPLETED()</b> hook is replaced; a regular <a class="el" href="#a9663c6c51ab3170bdb2f6145b76943a1" title="send()">send()</a> already does this.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the reader was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the reader was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1473,7 +1476,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">range</td><td>Elements to write; must not be empty. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the reader was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the reader was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1516,7 +1519,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than 'length' if the buffer ran out of space. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than <em class="arg">length</em> if the buffer ran out of space. </dd></dl>
 
 </div>
 </div>
@@ -1557,11 +1560,11 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">source</td><td>Bytes to write; must be non-null. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">length</td><td>Number of bytes to write; must be greater than zero. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the reader was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the reader was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than 'length' if the buffer ran out of space. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than <em class="arg">length</em> if the buffer ran out of space. </dd></dl>
 
 </div>
 </div>

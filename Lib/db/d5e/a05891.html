@@ -109,8 +109,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Static utility class for managing heap memory in FreeRTOS. </p>
-<p>When 'MEMORY_MANAGER_DIAG' is defined, each allocation carries a small header recording its size, which enables usage diagnostics. Without it, calls forward directly to the FreeRTOS heap with no per-allocation overhead.</p>
-<p>Every allocating and freeing method must be called from task context: the FreeRTOS heap suspends the scheduler and is not interrupt-safe. </p>
+<p>When <em class="arg">MEMORY_MANAGER_DIAG</em> is defined, each allocation carries a small header recording its size, which enables usage diagnostics. Without it, calls forward directly to the FreeRTOS heap with no per-allocation overhead.</p>
+<p>Every allocating and freeing method must be called from task context: the FreeRTOS heap suspends the scheduler and is not interrupt-safe.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/MemoryManager.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -154,7 +155,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:adac10bc926abef9028d009268e8d6190" id="r_adac10bc926abef9028d009268e8d6190"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#adac10bc926abef9028d009268e8d6190">isValidSize</a> (size_t size) noexcept</td></tr>
 <tr class="memdesc:adac10bc926abef9028d009268e8d6190"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the requested size is valid.  <br /></td></tr>
 <tr class="memitem:a134eebce76e186c0254d90ff9cea40e5" id="r_a134eebce76e186c0254d90ff9cea40e5"><td class="memItemLeft">static uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a134eebce76e186c0254d90ff9cea40e5">getHeapUsagePercent</a> () noexcept</td></tr>
-<tr class="memdesc:a134eebce76e186c0254d90ff9cea40e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heap usage percentage is unavailable without 'configTOTAL_HEAP_SIZE'.  <br /></td></tr>
+<tr class="memdesc:a134eebce76e186c0254d90ff9cea40e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Heap usage percentage is unavailable without <em class="arg">configTOTAL_HEAP_SIZE</em>.  <br /></td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
 <a id="a12545d9824f6613ee89191861f120584" name="a12545d9824f6613ee89191861f120584"></a>
@@ -339,7 +340,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the allocated memory, or 'nullptr' on failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the allocated memory, or <em class="arg">nullptr</em> on failure. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../da/da7/a06244.html#a2">RTOS::MemoryManager</a>.</dd>
 </dl>
 
@@ -374,10 +375,10 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Frees a previously allocated memory block. </p>
 <p>Must be called from task context.</p>
-<p>Like 'free()', a 'nullptr' is a successful no-op: it reports <a class="el" href="#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> and is not counted in the diagnostics.</p>
+<p>Like <b>free()</b>, a <em class="arg">nullptr</em> is a successful no-op: it reports <a class="el" href="#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> and is not counted in the diagnostics.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">pointer</td><td>Pointer previously returned by <a class="el" href="#a22bb0dd4b2e20be87fa1cc27bc71f9de" title="allocate()">allocate()</a>, or 'nullptr'. With 'MEMORY_MANAGER_DIAG' any other pointer corrupts the heap, since its header is read back. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">pointer</td><td>Pointer previously returned by <a class="el" href="#a22bb0dd4b2e20be87fa1cc27bc71f9de" title="allocate()">allocate()</a>, or <em class="arg">nullptr</em>. With <em class="arg">MEMORY_MANAGER_DIAG</em> any other pointer corrupts the heap, since its header is read back. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Optional pointer to receive the operation status; always <a class="el" href="#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>. </td></tr>
   </table>
   </dd>
@@ -438,8 +439,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Heap usage percentage is unavailable without 'configTOTAL_HEAP_SIZE'. </p>
-<dl class="section return"><dt>Returns</dt><dd>Always 0. </dd></dl>
+<p>Heap usage percentage is unavailable without <em class="arg">configTOTAL_HEAP_SIZE</em>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Always <b>0</b>. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../da/da7/a06244.html#a4">RTOS::MemoryManager</a>.</dd>
 </dl>
 

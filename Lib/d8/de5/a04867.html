@@ -109,14 +109,15 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
 class Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;</div><p>CRTP base for a single server-side SSH session (CubeMX: wolfSSH Core). </p>
-<p>A derived class implements the byte transport the session runs over: 'ioReceive(std::span&lt;uint8_t&gt;)' and 'ioSend(std::span&lt;const uint8_t&gt;)', each returning the number of bytes transferred, 0 when none are available yet, or a negative 'WS_CBIO_ERR_*' code. wolfSSH reaches them through a 'void*' context dispatched back to this instance, not through a virtual table, so CRTP replaces the vtable a transport-agnostic design would otherwise need.</p>
+<p>A derived class implements the byte transport the session runs over: <em class="arg">ioReceive()</em> and <em class="arg">ioSend()</em>, each returning the number of bytes transferred, 0 when none are available yet, or a negative WS_CBIO_ERR_* code. wolfSSH reaches them through a void pointer context dispatched back to this instance, not through a virtual table, so CRTP replaces the vtable a transport-agnostic design would otherwise need.</p>
 <p>One instance is one connection: construct it after accepting a connection on the underlying transport (e.g. a TCP socket or a UART link), destroy it when the connection ends. Not thread-safe: service one session from one task.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Concrete session type implementing 'ioReceive()'/'ioSend()'; publicly inherits from this class. </td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete session type implementing <em class="arg">ioReceive()</em> and <em class="arg">ioSend()</em>; publicly inherits from this class.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Crypto/WolfSSH.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -294,7 +295,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Runs (or resumes) the SSH handshake and authentication. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d7/d06/a01005.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c" title="WolfSSHStatus::SUCCESS">WolfSSHStatus::SUCCESS</a> once the session is ready for <a class="el" href="#ac07508d68f41b64e463fdd58db57558b" title="read()">/@ref</a> send(), <a class="el" href="../../d7/d06/a01005.html#a173e4abd0ef87e757ea6dfe73552a7c3aabb57fd8245067368ea2a5cfb5577614" title="WolfSSHStatus::WOULD_BLOCK">WolfSSHStatus::WOULD_BLOCK</a> if the transport needs to be retried, <a class="el" href="../../d7/d06/a01005.html#a173e4abd0ef87e757ea6dfe73552a7c3abb1ca97ec761fc37101737ba0aa2e7c5" title="WolfSSHStatus::ERROR">WolfSSHStatus::ERROR</a> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d7/d06/a01005.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c" title="WolfSSHStatus::SUCCESS">WolfSSHStatus::SUCCESS</a> once the session is ready for <a class="el" href="#ac07508d68f41b64e463fdd58db57558b" title="read()">read()</a> and <a class="el" href="#a034957692d48053e848ee6d77605fe2f" title="send()">send()</a>, <a class="el" href="../../d7/d06/a01005.html#a173e4abd0ef87e757ea6dfe73552a7c3aabb57fd8245067368ea2a5cfb5577614" title="WolfSSHStatus::WOULD_BLOCK">WolfSSHStatus::WOULD_BLOCK</a> if the transport needs to be retried, <a class="el" href="../../d7/d06/a01005.html#a173e4abd0ef87e757ea6dfe73552a7c3abb1ca97ec761fc37101737ba0aa2e7c5" title="WolfSSHStatus::ERROR">WolfSSHStatus::ERROR</a> otherwise. </dd></dl>
 
 </div>
 </div>

@@ -110,14 +110,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt;<br />
 requires (std::is_trivially_copyable_v&lt;T_ELEMENT_TYPE&gt; &amp;&amp; std::default_initializable&lt;T_ELEMENT_TYPE&gt; &amp;&amp; (N_QUEUE_LENGTH &gt; 0U))<br />
 class RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;</div><p>Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type. </p>
-<p>The kernel copies every item with 'memcpy()' on send and receive, which is why the element type must be trivially copyable: anything owning a resource (a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html" title="std::vector">std::vector</a>, a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01653.html#ga32db3d9898c44d3b3a578b560f7758cc" title="std::string">std::string</a>, a smart pointer) would be shallow-copied and double-released. Task-context methods may block; the 'FromISR' variants never block and report through 'higherPriorityTaskWoken' whether the caller must request a context switch with 'portYIELD_FROM_ISR()' before leaving the interrupt. A queue that has been added to a 'RTOS::QueueSet' must only be read after the set selected it, and then with a zero timeout.</p>
+<p>The kernel copies every item with <b>memcpy()</b> on send and receive, which is why the element type must be trivially copyable: anything owning a resource (a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html" title="std::vector">std::vector</a>, a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01653.html#ga32db3d9898c44d3b3a578b560f7758cc" title="std::string">std::string</a>, a smart pointer) would be shallow-copied and double-released. Task-context methods may block; the FromISR variants never block and report through <em class="arg">higherPriorityTaskWoken</em> whether the caller must request a context switch with <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. A queue that has been added to a <a class="el" href="../../db/d2c/a06256.html" title="RTOS::QueueSet">RTOS::QueueSet</a> must only be read after the set selected it, and then with a zero timeout.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T_ELEMENT_TYPE</td><td>Data type held by the queue; must be trivially copyable and default-initializable. </td></tr>
-    <tr><td class="paramname">N_QUEUE_LENGTH</td><td>Maximum number of items the queue can hold; must be greater than zero. </td></tr>
+    <tr><td class="paramname">N_QUEUE_LENGTH</td><td>Maximum number of items the queue can hold; must be greater than zero.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/Queue.hpp" target="_blank">Source</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/doc/Queue.md" target="_blank">Detail Description</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d3a/a06254.html#_a0">RTOS::Queue</a>, and <a class="el" href="../../db/d2c/a06256.html#_a0">RTOS::QueueSet</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -126,7 +129,7 @@ Public Types</h2></td></tr>
 <tr class="memitem:a7b7645018d43538240c762c09964eb6d" id="r_a7b7645018d43538240c762c09964eb6d"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a7b7645018d43538240c762c09964eb6d">Handle</a> = QueueHandle_t</td></tr>
 <tr class="memdesc:a7b7645018d43538240c762c09964eb6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Native FreeRTOS queue handle.  <br /></td></tr>
 <tr class="memitem:a2e005eeef82edd981b9d0cac15b7f677" id="r_a2e005eeef82edd981b9d0cac15b7f677"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a2e005eeef82edd981b9d0cac15b7f677">Storage</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, N_QUEUE_LENGTH * sizeof(T_ELEMENT_TYPE)&gt;</td></tr>
-<tr class="memdesc:a2e005eeef82edd981b9d0cac15b7f677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Item storage for 'createStatic()'.  <br /></td></tr>
+<tr class="memdesc:a2e005eeef82edd981b9d0cac15b7f677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Item storage for createStatic().  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -150,7 +153,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:abe1cd4bde4ff79326492fd1d5c56ffc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest item from the queue, blocking up to a timeout for one to arrive.  <br /></td></tr>
 <tr class="memitem:a6707cd8aa1086c87efb4858f59eb33cd" id="r_a6707cd8aa1086c87efb4858f59eb33cd"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:a6707cd8aa1086c87efb4858f59eb33cd template"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6707cd8aa1086c87efb4858f59eb33cd">receive</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a6707cd8aa1086c87efb4858f59eb33cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest item from the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for one to arrive.  <br /></td></tr>
+<tr class="memdesc:a6707cd8aa1086c87efb4858f59eb33cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest item from the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for one to arrive.  <br /></td></tr>
 <tr class="memitem:a2195f46d6d07e619db12bf5baee526c1" id="r_a2195f46d6d07e619db12bf5baee526c1"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2195f46d6d07e619db12bf5baee526c1">receiveFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
 <tr class="memdesc:a2195f46d6d07e619db12bf5baee526c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest item from the queue from an interrupt, without blocking.  <br /></td></tr>
 <tr class="memitem:a0785cb3870134fdae999c6b1f92a1891" id="r_a0785cb3870134fdae999c6b1f92a1891"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0785cb3870134fdae999c6b1f92a1891">receiveFromISR</a> () noexcept</td></tr>
@@ -159,14 +162,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a684ff0185b4a7701c81c8503764b97bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the oldest item without removing it, blocking up to a timeout for one to arrive.  <br /></td></tr>
 <tr class="memitem:a680b60f6c52507b3bb14498ecf87791a" id="r_a680b60f6c52507b3bb14498ecf87791a"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:a680b60f6c52507b3bb14498ecf87791a template"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a680b60f6c52507b3bb14498ecf87791a">peek</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
-<tr class="memdesc:a680b60f6c52507b3bb14498ecf87791a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the oldest item without removing it, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for one to arrive.  <br /></td></tr>
+<tr class="memdesc:a680b60f6c52507b3bb14498ecf87791a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the oldest item without removing it, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for one to arrive.  <br /></td></tr>
 <tr class="memitem:a5828637bad2d5f35eade62bc5fe2726d" id="r_a5828637bad2d5f35eade62bc5fe2726d"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5828637bad2d5f35eade62bc5fe2726d">peekFromISR</a> () const noexcept</td></tr>
 <tr class="memdesc:a5828637bad2d5f35eade62bc5fe2726d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the oldest item without removing it from an interrupt, without blocking.  <br /></td></tr>
 <tr class="memitem:ab15322e6aead7ac29c01289b9be388d8" id="r_ab15322e6aead7ac29c01289b9be388d8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab15322e6aead7ac29c01289b9be388d8">send</a> (const T_ELEMENT_TYPE &amp;item, TickType_t maxWait=portMAX_DELAY) noexcept</td></tr>
 <tr class="memdesc:ab15322e6aead7ac29c01289b9be388d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the back of the queue, blocking up to a timeout for free space.  <br /></td></tr>
 <tr class="memitem:ac2c33422e644cb774321992bb195b484" id="r_ac2c33422e644cb774321992bb195b484"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:ac2c33422e644cb774321992bb195b484 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac2c33422e644cb774321992bb195b484">send</a> (const T_ELEMENT_TYPE &amp;item, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:ac2c33422e644cb774321992bb195b484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the back of the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for free space.  <br /></td></tr>
+<tr class="memdesc:ac2c33422e644cb774321992bb195b484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the back of the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for free space.  <br /></td></tr>
 <tr class="memitem:ad4d0487e882e9df0a5ff94c12e2e8299" id="r_ad4d0487e882e9df0a5ff94c12e2e8299"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad4d0487e882e9df0a5ff94c12e2e8299">sendFromISR</a> (const T_ELEMENT_TYPE &amp;item, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
 <tr class="memdesc:ad4d0487e882e9df0a5ff94c12e2e8299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the back of the queue from an interrupt, without blocking.  <br /></td></tr>
 <tr class="memitem:a67e911c970037e95a08acca718cc1e75" id="r_a67e911c970037e95a08acca718cc1e75"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a67e911c970037e95a08acca718cc1e75">sendFromISR</a> (const T_ELEMENT_TYPE &amp;item) noexcept</td></tr>
@@ -175,7 +178,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a56084e2572cee1d9421d7c9547bb57c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the front of the queue, blocking up to a timeout for free space.  <br /></td></tr>
 <tr class="memitem:a6c48cce891ac5711c498e15ce81cae7a" id="r_a6c48cce891ac5711c498e15ce81cae7a"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:a6c48cce891ac5711c498e15ce81cae7a template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6c48cce891ac5711c498e15ce81cae7a">sendToFront</a> (const T_ELEMENT_TYPE &amp;item, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a6c48cce891ac5711c498e15ce81cae7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the front of the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for free space.  <br /></td></tr>
+<tr class="memdesc:a6c48cce891ac5711c498e15ce81cae7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the front of the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for free space.  <br /></td></tr>
 <tr class="memitem:a6a3673161ba51852fe499817c4b0a847" id="r_a6a3673161ba51852fe499817c4b0a847"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6a3673161ba51852fe499817c4b0a847">sendToFrontFromISR</a> (const T_ELEMENT_TYPE &amp;item, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
 <tr class="memdesc:a6a3673161ba51852fe499817c4b0a847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the front of the queue from an interrupt, without blocking.  <br /></td></tr>
 <tr class="memitem:a1a8f30270f104c56c11c54fe3c7a13d5" id="r_a1a8f30270f104c56c11c54fe3c7a13d5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1a8f30270f104c56c11c54fe3c7a13d5">sendToFrontFromISR</a> (const T_ELEMENT_TYPE &amp;item) noexcept</td></tr>
@@ -240,7 +243,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Item storage for 'createStatic()'. </p>
+<p>Item storage for createStatic(). </p>
 
 </div>
 </div>
@@ -271,7 +274,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Initializes an empty, closed queue instance. </p>
-<p>Call 'open()' or 'createStatic()' before use. </p>
+<p>Call open() or createStatic() before use. </p>
 
 </div>
 </div>
@@ -395,7 +398,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the maximum number of items the queue can hold. </p>
-<dl class="section return"><dt>Returns</dt><dd>The 'N_QUEUE_LENGTH' template argument. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The <em class="arg">N_QUEUE_LENGTH</em> template argument. </dd></dl>
 
 </div>
 </div>
@@ -425,7 +428,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Deletes the native queue and releases its memory; does nothing if already closed. </p>
-<p>The queue must not be a member of a 'RTOS::QueueSet' at this point, and no task may be blocked on it. </p>
+<p>The queue must not be a member of a <a class="el" href="../../db/d2c/a06256.html" title="RTOS::QueueSet">RTOS::QueueSet</a> at this point, and no task may be blocked on it. </p>
 
 </div>
 </div>
@@ -455,8 +458,8 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the native handle, e.g. </p>
-<p>for 'RTOS::QueueSet'addToSet().</p>
-<dl class="section return"><dt>Returns</dt><dd>Native queue handle, or 'nullptr' if closed. </dd></dl>
+<p>for RTOS::QueueSet::addToSet().</p>
+<dl class="section return"><dt>Returns</dt><dd>Native queue handle, or <em class="arg">nullptr</em> if closed. </dd></dl>
 
 </div>
 </div>
@@ -636,7 +639,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the number of items currently held by the queue; task context only. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of queued items, or 0 if the queue is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of queued items, or <b>0</b> if the queue is closed. </dd></dl>
 
 </div>
 </div>
@@ -666,7 +669,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the number of items currently held by the queue from an interrupt. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of queued items, or 0 if the queue is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of queued items, or <b>0</b> if the queue is closed. </dd></dl>
 
 </div>
 </div>
@@ -762,7 +765,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Stores an item in a single-slot queue, replacing the previous item if present; never blocks. </p>
-<p>Only available for a length-1 queue, the only case for which FreeRTOS defines 'xQueueOverwrite()'.</p>
+<p>Only available for a length-1 queue, the only case for which FreeRTOS defines <b>xQueueOverwrite()</b>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">item</td><td>Item to store. </td></tr>
@@ -799,7 +802,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Stores an item in a single-slot queue from an interrupt, requesting any context switch itself. </p>
-<p>Convenient when the overwrite is the last RTOS call of the ISR; batch several FromISR calls through the 'overwriteFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)' overload instead, so that only one context switch is requested.</p>
+<p>Convenient when the overwrite is the last RTOS call of the ISR; batch several FromISR calls through the <a class="el" href="#a8c3a548d7ac74afcd8410b4fefd0b835" title="overwriteFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)">overwriteFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)</a> overload instead, so that only one context switch is requested.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">item</td><td>Item to store. </td></tr>
@@ -840,11 +843,11 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Stores an item in a single-slot queue from an interrupt, replacing the previous item if present. </p>
-<p>Only available for a length-1 queue, the only case for which FreeRTOS defines 'xQueueOverwriteFromISR()'.</p>
+<p>Only available for a length-1 queue, the only case for which FreeRTOS defines <b>xQueueOverwriteFromISR()</b>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">item</td><td>Item to store. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a higher-priority task was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a higher-priority task was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -879,7 +882,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copies the oldest item without removing it, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for one to arrive. </p>
+<p>Copies the oldest item without removing it, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for one to arrive. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
@@ -925,7 +928,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <p>Copies the oldest item without removing it, blocking up to a timeout for one to arrive. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
@@ -990,7 +993,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Removes the oldest item from the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for one to arrive. </p>
+<p>Removes the oldest item from the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for one to arrive. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
@@ -1036,7 +1039,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <p>Removes the oldest item from the queue, blocking up to a timeout for one to arrive. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1070,7 +1073,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Removes the oldest item from the queue from an interrupt, requesting any context switch itself. </p>
-<p>Convenient when the receive is the last RTOS call of the ISR; batch several FromISR calls through the 'receiveFromISR(BaseType_t &amp;)' overload instead, so that only one context switch is requested.</p>
+<p>Convenient when the receive is the last RTOS call of the ISR; batch several FromISR calls through the <a class="el" href="#a2195f46d6d07e619db12bf5baee526c1" title="receiveFromISR(BaseType_t &amp;)">receiveFromISR(BaseType_t &amp;)</a> overload instead, so that only one context switch is requested.</p>
 <dl class="section return"><dt>Returns</dt><dd>The received item, or <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> if the queue is empty or closed. </dd></dl>
 
 </div>
@@ -1103,7 +1106,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <p>Removes the oldest item from the queue from an interrupt, without blocking. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a higher-priority task was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a higher-priority task was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1171,7 +1174,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copies an item to the back of the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for free space. </p>
+<p>Copies an item to the back of the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for free space. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
@@ -1223,7 +1226,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
-    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1257,7 +1260,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Copies an item to the back of the queue from an interrupt, requesting any context switch itself. </p>
-<p>Convenient when the send is the last RTOS call of the ISR; batch several FromISR calls through the 'sendFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)' overload instead, so that only one context switch is requested.</p>
+<p>Convenient when the send is the last RTOS call of the ISR; batch several FromISR calls through the <a class="el" href="#ad4d0487e882e9df0a5ff94c12e2e8299" title="sendFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)">sendFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)</a> overload instead, so that only one context switch is requested.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
@@ -1301,7 +1304,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a higher-priority task was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a higher-priority task was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1340,7 +1343,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copies an item to the front of the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for free space. </p>
+<p>Copies an item to the front of the queue, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for free space. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
@@ -1393,7 +1396,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
-    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1427,7 +1430,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Copies an item to the front of the queue from an interrupt, requesting any context switch itself. </p>
-<p>Convenient when the send is the last RTOS call of the ISR; batch several FromISR calls through the 'sendToFrontFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)' overload instead, so that only one context switch is requested.</p>
+<p>Convenient when the send is the last RTOS call of the ISR; batch several FromISR calls through the <a class="el" href="#a6a3673161ba51852fe499817c4b0a847" title="sendToFrontFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)">sendToFrontFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)</a> overload instead, so that only one context switch is requested.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
@@ -1471,7 +1474,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if a higher-priority task was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if a higher-priority task was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1505,7 +1508,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the number of free item slots; task context only. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of free slots, or 0 if the queue is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of free slots, or <b>0</b> if the queue is closed. </dd></dl>
 
 </div>
 </div>

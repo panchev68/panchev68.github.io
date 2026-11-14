@@ -110,7 +110,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div class="textblock"><p>Owner of a FreeRTOS message buffer handle. </p>
 <p>Passes discrete variable-length messages from exactly one writer to exactly one reader, either of which may be a task or an interrupt. Each message is received whole or not at all.</p>
 <p>Every message occupies its payload plus a 4-byte length header, so a buffer of N bytes carries messages of at most N minus 4 bytes. Like stream buffers, message buffers are lock-free only for a single writer and a single reader; several writers or readers must serialize their calls themselves, e.g. with a <a class="el" href="../../dd/d91/a06248.html" title="RTOS::Mutex">RTOS::Mutex</a>. A receive into a destination smaller than the next message returns 0 and leaves the message in the buffer; use <a class="el" href="#a37a7b059106d8091fea3b44f5bbe9804" title="getNextMessageLength()">getNextMessageLength()</a> to size the destination.</p>
-<p>Every task-context <a class="el" href="#a10110decaf3c897711e612ba455525cd" title="send()">/@ref</a> receive() takes its timeout explicitly, with no default: pass 0 to poll, 'portMAX_DELAY' to wait indefinitely, or a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> duration. Interrupt variants never block. </p>
+<p>Every task-context <a class="el" href="#a10110decaf3c897711e612ba455525cd" title="send()">send()</a> and <a class="el" href="#a8bc5b3b484124680e0b606c983ee095e" title="receive()">receive()</a> take its timeout explicitly, with no default: pass 0 to poll, <em class="arg">portMAX_DELAY</em> to wait indefinitely, or a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> duration. Interrupt variants never block.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/MessageBuffer.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d93/a06246.html#_a0">RTOS::MessageBuffer</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -143,7 +144,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a10110decaf3c897711e612ba455525cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one message, blocking up to a timeout until it fits as a whole.  <br /></td></tr>
 <tr class="memitem:a1712e848853501aa71fc5c2964e1f69b" id="r_a1712e848853501aa71fc5c2964e1f69b"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:a1712e848853501aa71fc5c2964e1f69b template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a1712e848853501aa71fc5c2964e1f69b">send</a> (const void *source, size_t length, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a1712e848853501aa71fc5c2964e1f69b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout until it fits as a whole.  <br /></td></tr>
+<tr class="memdesc:a1712e848853501aa71fc5c2964e1f69b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout until it fits as a whole.  <br /></td></tr>
 <tr class="memitem:ad16d5ca2a80de79ba48343d0bfccee65" id="r_ad16d5ca2a80de79ba48343d0bfccee65"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
 requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
 &lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</td></tr>
@@ -153,7 +154,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
 &lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</td></tr>
 <tr class="memitem:a3b439ce9bde0121286ae234701343bf7 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a3b439ce9bde0121286ae234701343bf7">send</a> (const T_RANGE &amp;range, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a3b439ce9bde0121286ae234701343bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the bytes of a contiguous container as one message, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout.  <br /></td></tr>
+<tr class="memdesc:a3b439ce9bde0121286ae234701343bf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the bytes of a contiguous container as one message, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout.  <br /></td></tr>
 <tr class="memitem:a895f6a523a73fe0a86afc445c60cad95" id="r_a895f6a523a73fe0a86afc445c60cad95"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a895f6a523a73fe0a86afc445c60cad95">sendFromISR</a> (const void *source, size_t length) noexcept</td></tr>
 <tr class="memdesc:a895f6a523a73fe0a86afc445c60cad95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one message from an interrupt and requests a context switch itself if the reader was unblocked.  <br /></td></tr>
 <tr class="memitem:a0b7914e52386e01c6613b3d9486aa91d" id="r_a0b7914e52386e01c6613b3d9486aa91d"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a0b7914e52386e01c6613b3d9486aa91d">sendFromISR</a> (const void *source, size_t length, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
@@ -172,7 +173,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 <tr class="memdesc:a8bc5b3b484124680e0b606c983ee095e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message, blocking up to a timeout for one to arrive.  <br /></td></tr>
 <tr class="memitem:a8d2c0700e62b2af3dde3e9e6bf271e65" id="r_a8d2c0700e62b2af3dde3e9e6bf271e65"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
 <tr class="memitem:a8d2c0700e62b2af3dde3e9e6bf271e65 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8d2c0700e62b2af3dde3e9e6bf271e65">receive</a> (void *dest, size_t length, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a8d2c0700e62b2af3dde3e9e6bf271e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for one to arrive.  <br /></td></tr>
+<tr class="memdesc:a8d2c0700e62b2af3dde3e9e6bf271e65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for one to arrive.  <br /></td></tr>
 <tr class="memitem:ac11eec5d444a52705627fa96d446acc1" id="r_ac11eec5d444a52705627fa96d446acc1"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
 requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::borrowed_range&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
  !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
@@ -184,7 +185,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
  !std::is_const_v&lt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01622.html#ga05f704b8440a5839204308c83a07748f">std::remove_reference_t</a>&lt;std::ranges::range_reference_t&lt;T_RANGE&gt;&gt;&gt; &amp;&amp; std::is_trivially_copyable_v<br class="typebreak" />
 &lt;std::ranges::range_value_t&lt;T_RANGE&gt;&gt;)</td></tr>
 <tr class="memitem:aef2317c952c81b10cd9eb6d18abe3d88 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aef2317c952c81b10cd9eb6d18abe3d88">receive</a> (T_RANGE &amp;&amp;dest, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:aef2317c952c81b10cd9eb6d18abe3d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message into a writable contiguous container, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout.  <br /></td></tr>
+<tr class="memdesc:aef2317c952c81b10cd9eb6d18abe3d88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message into a writable contiguous container, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout.  <br /></td></tr>
 <tr class="memitem:aa2cbd475f54d4d04bd40a1470fb8d0ea" id="r_aa2cbd475f54d4d04bd40a1470fb8d0ea"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aa2cbd475f54d4d04bd40a1470fb8d0ea">receiveFromISR</a> (void *dest, size_t length) noexcept</td></tr>
 <tr class="memdesc:aa2cbd475f54d4d04bd40a1470fb8d0ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the oldest message from an interrupt, requesting a context switch if the writer was unblocked.  <br /></td></tr>
 <tr class="memitem:a628659ce57bfd336fc92c684a7df4f3e" id="r_a628659ce57bfd336fc92c684a7df4f3e"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a628659ce57bfd336fc92c684a7df4f3e">receiveFromISR</a> (void *dest, size_t length, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
@@ -284,7 +285,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Initializes an empty, closed message buffer. </p>
-<p>Call 'open()' or 'createStatic()' before use. </p>
+<p>Call open() or createStatic() before use. </p>
 
 </div>
 </div>
@@ -430,7 +431,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Gets the buffer size configured at creation, length headers included. </p>
-<dl class="section return"><dt>Returns</dt><dd>Capacity in bytes, or 0 if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Capacity in bytes, or <b>0</b> if closed. </dd></dl>
 
 </div>
 </div>
@@ -458,7 +459,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Gets the native handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native message buffer handle, or 'nullptr' if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Native message buffer handle, or <em class="arg">nullptr</em> if closed. </dd></dl>
 
 </div>
 </div>
@@ -486,7 +487,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Gets the largest payload a single message may carry in this buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Capacity minus the 4-byte length header, or 0 if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Capacity minus the 4-byte length header, or <b>0</b> if closed. </dd></dl>
 
 </div>
 </div>
@@ -514,7 +515,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Gets the payload size of the oldest buffered message without reading it. </p>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or 0 if the buffer is empty or closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> if the buffer is empty or closed. </dd></dl>
 
 </div>
 </div>
@@ -543,7 +544,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 
 <p>Gets the free space in the buffer, length headers included. </p>
 <p>A message fits only if its payload plus the 4-byte header is not larger than this value.</p>
-<dl class="section return"><dt>Returns</dt><dd>Free bytes, or 0 if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Free bytes, or <b>0</b> if closed. </dd></dl>
 
 </div>
 </div>
@@ -655,7 +656,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </div><div class="memdoc">
 
 <p>Converts implicitly to the native handle, for interop with raw FreeRTOS APIs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native message buffer handle, or 'nullptr' if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Native message buffer handle, or <em class="arg">nullptr</em> if closed. </dd></dl>
 
 </div>
 </div>
@@ -753,7 +754,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 </table>
 </div><div class="memdoc">
 
-<p>Reads the oldest message into a writable contiguous container, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout. </p>
+<p>Reads the oldest message into a writable contiguous container, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T_RANGE</td><td>Writable, contiguous, sized range of trivially copyable elements; an lvalue or a view such as std::span. </td></tr>
@@ -769,7 +770,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of 'dest', or 0 as for the pointer overload. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of <em class="arg">dest</em>, or <b>0</b> as for the pointer overload. </dd></dl>
 
 </div>
 </div>
@@ -816,11 +817,11 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must not be empty. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of 'dest', or 0 as for the pointer overload; not necessarily a whole multiple of the element size. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of <em class="arg">dest</em>, or <b>0</b> as for the pointer overload; not necessarily a whole multiple of the element size. </dd></dl>
 
 </div>
 </div>
@@ -858,7 +859,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the oldest message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout for one to arrive. </p>
+<p>Reads the oldest message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout for one to arrive. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
@@ -869,12 +870,12 @@ template&lt;typename Rep, typename Period&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Capacity of 'dest' in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or 0 on timeout, if 'dest' is too small for the next message, or if the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> on timeout, if <em class="arg">dest</em> is too small for the next message, or if the buffer is closed. </dd></dl>
 
 </div>
 </div>
@@ -914,12 +915,12 @@ template&lt;typename Rep, typename Period&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Capacity of 'dest' in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or 0 on timeout, if 'dest' is too small for the next message, or if the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> on timeout, if <em class="arg">dest</em> is too small for the next message, or if the buffer is closed. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d93/a06246.html#a3">RTOS::MessageBuffer</a>.</dd>
 </dl>
 
@@ -950,10 +951,10 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Unblocks a task waiting to send, for a reader that drained the buffer by other means, e.g. </p>
 <p>by DMA.</p>
-<p>Only needed when the kernel's own 'sbRECEIVE_COMPLETED()' hook is replaced; a regular <a class="el" href="#a8bc5b3b484124680e0b606c983ee095e" title="receive()">receive()</a> already does this.</p>
+<p>Only needed when the kernel's own <b>sbRECEIVE_COMPLETED()</b> hook is replaced; a regular <a class="el" href="#a8bc5b3b484124680e0b606c983ee095e" title="receive()">receive()</a> already does this.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the writer was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the writer was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1002,7 +1003,7 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of 'dest', or 0 as for the pointer overload. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of <em class="arg">dest</em>, or <b>0</b> as for the pointer overload. </dd></dl>
 
 </div>
 </div>
@@ -1048,11 +1049,11 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the payload; must not be empty. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the writer was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the writer was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of 'dest', or 0 as for the pointer overload. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes written to the front of <em class="arg">dest</em>, or <b>0</b> as for the pointer overload. </dd></dl>
 
 </div>
 </div>
@@ -1087,11 +1088,11 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Capacity of 'dest' in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or 0 if no message fits, the buffer is empty or closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> if no message fits, the buffer is empty or closed. </dd></dl>
 
 </div>
 </div>
@@ -1131,12 +1132,12 @@ requires (std::ranges::contiguous_range&lt;T_RANGE&gt; &amp;&amp; std::ranges::s
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">dest</td><td>Destination for the payload; must be non-null. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Capacity of 'dest' in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the writer was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Capacity of <em class="arg">dest</em> in bytes; must be greater than zero. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the writer was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or 0 if no message fits, the buffer is empty or closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes, or <b>0</b> if no message fits, the buffer is empty or closed. </dd></dl>
 
 </div>
 </div>
@@ -1200,7 +1201,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 </table>
 </div><div class="memdoc">
 
-<p>Writes the bytes of a contiguous container as one message, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout. </p>
+<p>Writes the bytes of a contiguous container as one message, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout. </p>
 <p>Any contiguous, sized range, such as <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html" title="std::array">std::array</a> or std::span, is accepted.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -1217,7 +1218,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, 0 otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, <b>0</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -1263,11 +1264,11 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">range</td><td>Message payload; must not be empty. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, 0 otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, <b>0</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -1305,7 +1306,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Writes one message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout until it fits as a whole. </p>
+<p>Writes one message, blocking up to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> timeout until it fits as a whole. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
@@ -1321,7 +1322,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'length' if the message was written, 0 on timeout, invalid parameters or a closed buffer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">length</em> if the message was written, <b>0</b> on timeout, invalid parameters or a closed buffer. </dd></dl>
 
 </div>
 </div>
@@ -1362,11 +1363,11 @@ template&lt;typename Rep, typename Period&gt; </div>
   <table class="params">
     <tr><td class="paramname">source</td><td>Message payload; must be non-null. </td></tr>
     <tr><td class="paramname">length</td><td>Payload size in bytes; must be in the range 1 to <a class="el" href="#ac0cdf8e25be1101c88e2a89f0a109ce5" title="getMaxMessageSize()">getMaxMessageSize()</a>. </td></tr>
-    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, 'portMAX_DELAY' waits indefinitely. </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum number of ticks to block; 0 polls, <em class="arg">portMAX_DELAY</em> waits indefinitely. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'length' if the message was written, 0 on timeout, invalid parameters or a closed buffer. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">length</em> if the message was written, <b>0</b> on timeout, invalid parameters or a closed buffer. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d93/a06246.html#a1">RTOS::MessageBuffer</a>.</dd>
 </dl>
 
@@ -1397,10 +1398,10 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Unblocks a task waiting to receive, for a writer that filled the buffer by other means, e.g. </p>
 <p>by DMA.</p>
-<p>Only needed when the kernel's own 'sbSEND_COMPLETED()' hook is replaced; a regular <a class="el" href="#a10110decaf3c897711e612ba455525cd" title="send()">send()</a> already does this.</p>
+<p>Only needed when the kernel's own <b>sbSEND_COMPLETED()</b> hook is replaced; a regular <a class="el" href="#a10110decaf3c897711e612ba455525cd" title="send()">send()</a> already does this.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the reader was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the reader was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1448,7 +1449,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, 0 otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, <b>0</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -1493,11 +1494,11 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">range</td><td>Message payload; must not be empty. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the reader was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the reader was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, 0 otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Payload size in bytes if the message was written, <b>0</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -1536,7 +1537,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'length' if the message was written, 0 if it did not fit, the parameters are invalid or the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">length</em> if the message was written, <b>0</b> if it did not fit, the parameters are invalid or the buffer is closed. </dd></dl>
 
 </div>
 </div>
@@ -1577,11 +1578,11 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">source</td><td>Message payload; must be non-null. </td></tr>
     <tr><td class="paramdir"></td><td class="paramname">length</td><td>Payload size in bytes; must be in the range 1 to <a class="el" href="#ac0cdf8e25be1101c88e2a89f0a109ce5" title="getMaxMessageSize()">getMaxMessageSize()</a>. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the reader was unblocked; initialize it to 'pdFALSE' and pass it to 'portYIELD_FROM_ISR()' before leaving the interrupt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <em class="arg">pdTRUE</em> if the reader was unblocked; initialize it to <em class="arg">pdFALSE</em> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'length' if the message was written, 0 if it did not fit, the parameters are invalid or the buffer is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">length</em> if the message was written, <b>0</b> if it did not fit, the parameters are invalid or the buffer is closed. </dd></dl>
 
 </div>
 </div>
