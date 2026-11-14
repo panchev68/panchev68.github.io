@@ -117,8 +117,10 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div class="textblock"><p>Flash-backed card number blocklist singleton. </p>
 <p>The list is an append-only log of 8-byte slots in a reserved flash region, so adding and removing a number never needs an erase. Word 0 of a slot holds the card number; word 1 is the state: 0xFFFFFFFF when erased, 0x5A5A5A5A when the number is blocked and 0x00000000 when it was removed again.</p>
 <p>Removal only clears bits of word 1, which NOR flash allows without erasing. A slot interrupted by a power loss is neither erased nor active and is skipped. Only <a class="el" href="#aa0728beab8a6e8fa5db984b45aa21a7e" title="clear()">clear()</a> erases the region; a full region rejects further adds until then. <a class="el" href="#aa0728beab8a6e8fa5db984b45aa21a7e" title="clear()">clear()</a> itself can be interrupted (e.g. a brown-out mid-erase, up to several seconds): <a class="el" href="#a24514e9e781fcce6136b21ee067d94f6" title="open()">open()</a> does not assume the first erased slot marks the end of the log, so a later un-erased sector still reporting an active number is never silently dropped from the index; <a class="el" href="#aa0728beab8a6e8fa5db984b45aa21a7e" title="clear()">clear()</a> stays callable after a failed attempt so the caller can simply retry it to finish erasing.</p>
-<p><a class="el" href="#a24514e9e781fcce6136b21ee067d94f6" title="open()">open()</a> reads the region once into a sorted RAM index (number and slot), so <a class="el" href="#ab5bee847e25d9f4179f8ccb9c4c7954a" title="contains()">contains()</a> never touches the flash and <a class="el" href="#adf2afa3b063bf43ae5596641fe1eb799" title="add()">add()</a> / <a class="el" href="#ae247c763edcda6351a57ec9ea1e900d7" title="remove()">remove()</a> each program one slot.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/StorageManager/doc/Blocklist.md">Detail Description</a> </dd>
+<p><a class="el" href="#a24514e9e781fcce6136b21ee067d94f6" title="open()">open()</a> reads the region once into a sorted RAM index (number and slot), so <a class="el" href="#ab5bee847e25d9f4179f8ccb9c4c7954a" title="contains()">contains()</a> never touches the flash and <a class="el" href="#adf2afa3b063bf43ae5596641fe1eb799" title="add()">add()</a> and <a class="el" href="#ae247c763edcda6351a57ec9ea1e900d7" title="remove()">remove()</a> each program one slot.</p>
+<p>The RAM index, the mutex and the private helpers live in an <b>Impl</b> defined in <em class="arg">Blocklist.cpp</em>.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/StorageManager/doc/Blocklist.md">Detail Description</a> </dd>
 <dd>
 <a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/StorageManager/Blocklist.cpp">Source</a> </dd></dl>
 </div><table class="memberdecls">
@@ -155,7 +157,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0b3dfc0f1bd678146706c5f730ffc851" id="r_a0b3dfc0f1bd678146706c5f730ffc851"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a0b3dfc0f1bd678146706c5f730ffc851">getCount</a> () const noexcept</td></tr>
 <tr class="memdesc:a0b3dfc0f1bd678146706c5f730ffc851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of blocked card numbers.  <br /></td></tr>
 <tr class="memitem:ade313435fb14f61734b8af425d06ce1a" id="r_ade313435fb14f61734b8af425d06ce1a"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ade313435fb14f61734b8af425d06ce1a">getFreeSlots</a> () const noexcept</td></tr>
-<tr class="memdesc:ade313435fb14f61734b8af425d06ce1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many more numbers <a class="el" href="#adf2afa3b063bf43ae5596641fe1eb799" title="add()">add()</a> can accept before <b>Status::FULL</b>.  <br /></td></tr>
+<tr class="memdesc:ade313435fb14f61734b8af425d06ce1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many more numbers <a class="el" href="#adf2afa3b063bf43ae5596641fe1eb799" title="add()">add()</a> can accept before <a class="el" href="#ab29f9d83dc9107143ad8baa1d2cc56d0aba7de5bc6888294e5884b024a4c894f1" title="Status::FULL">Status::FULL</a>.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -171,7 +173,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:af443da402270ffb1f88c7fd809df898d" id="r_af443da402270ffb1f88c7fd809df898d"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#af443da402270ffb1f88c7fd809df898d">SLOT_SIZE</a> = 8U</td></tr>
 <tr class="memdesc:af443da402270ffb1f88c7fd809df898d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes per slot.  <br /></td></tr>
 <tr class="memitem:a7383b94cfe4eb80aec75699f1fad5188" id="r_a7383b94cfe4eb80aec75699f1fad5188"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a7383b94cfe4eb80aec75699f1fad5188">CAPACITY</a> = <a class="el" href="#a0e371d630f3ad1fb281c6ec2ec7e0a2f">REGION_SIZE</a> / <a class="el" href="#af443da402270ffb1f88c7fd809df898d">SLOT_SIZE</a></td></tr>
-<tr class="memdesc:a7383b94cfe4eb80aec75699f1fad5188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots in the region (32768); a removed number keeps its slot, so this also counts past removals.  <br /></td></tr>
+<tr class="memdesc:a7383b94cfe4eb80aec75699f1fad5188"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots in the region (32768), also counting removed numbers.  <br /></td></tr>
 <tr class="memitem:afb3174f12ef57865cd92808b7d4f19f9" id="r_afb3174f12ef57865cd92808b7d4f19f9"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#afb3174f12ef57865cd92808b7d4f19f9">MAX_ACTIVE</a> = 8192U</td></tr>
 <tr class="memdesc:afb3174f12ef57865cd92808b7d4f19f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocked numbers held in the RAM index at once (48 KiB).  <br /></td></tr>
 </table>
@@ -275,7 +277,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Erases the whole list. </p>
-<p>Blocks the caller for the 64 sector erases (up to several seconds). Safe to retry after a <b>Status::STORAGE_ERROR</b>, including one from a previous, interrupted call.</p>
+<p>Blocks the caller for the 64 sector erases (up to several seconds). Safe to retry after a <a class="el" href="#ab29f9d83dc9107143ad8baa1d2cc56d0a7ae7f2a13f0d5a18b0db91af9c5aef34" title="Status::STORAGE_ERROR">Status::STORAGE_ERROR</a>, including one from a previous, interrupted call.</p>
 <dl class="section return"><dt>Returns</dt><dd>Update outcome. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#aa0728beab8a6e8fa5db984b45aa21a7e">clear()</a>.</p>
@@ -372,8 +374,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns how many more numbers <a class="el" href="#adf2afa3b063bf43ae5596641fe1eb799" title="add()">add()</a> can accept before <b>Status::FULL</b>. </p>
-<dl class="section return"><dt>Returns</dt><dd>Remaining capacity, limited by both free slots and <b>MAX_ACTIVE</b>. </dd></dl>
+<p>Returns how many more numbers <a class="el" href="#adf2afa3b063bf43ae5596641fe1eb799" title="add()">add()</a> can accept before <a class="el" href="#ab29f9d83dc9107143ad8baa1d2cc56d0aba7de5bc6888294e5884b024a4c894f1" title="Status::FULL">Status::FULL</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Remaining capacity, limited by both free slots and <a class="el" href="#afb3174f12ef57865cd92808b7d4f19f9" title="MAX_ACTIVE">MAX_ACTIVE</a>. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#ade313435fb14f61734b8af425d06ce1a">getFreeSlots()</a>.</p>
 
@@ -431,7 +433,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Opens the list: reads the region once to build the RAM index and find the first free slot. </p>
-<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="../../da/d74/class_a_p_p_1_1_storage_manager.html#a0641fe5449b330fc8893f239ed309783" title="StorageManager::start()">StorageManager::start()</a> succeeded. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="../../da/d74/class_a_p_p_1_1_storage_manager.html#a0641fe5449b330fc8893f239ed309783" title="APP::StorageManager::start()">APP::StorageManager::start()</a> succeeded. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> on success; <b>false</b> on a flash failure or more than <a class="el" href="#afb3174f12ef57865cd92808b7d4f19f9" title="MAX_ACTIVE">MAX_ACTIVE</a> active slots. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a24514e9e781fcce6136b21ee067d94f6">open()</a>.</p>
@@ -495,7 +497,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Slots in the region (32768); a removed number keeps its slot, so this also counts past removals. </p>
+<p>Slots in the region (32768), also counting removed numbers. </p>
 
 </div>
 </div>

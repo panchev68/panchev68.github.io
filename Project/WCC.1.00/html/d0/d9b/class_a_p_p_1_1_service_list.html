@@ -115,11 +115,13 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Flash-backed service card number list singleton. </p>
-<p>A service card (maintenance of the container, emptied by the collection truck) is a normally verified <a class="el" href="../../d1/deb/namespace_a_p_p.html#a2bf194f119a7399d53cf62fd363a483a" title="APP::CardRecord">APP::CardRecord</a> whose number is also listed here; <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html" title="APP::RFID">APP::RFID</a> checks this list instead of the <a class="el" href="../../db/da7/class_a_p_p_1_1_blocklist.html" title="APP::Blocklist">APP::Blocklist</a> and, if the number is present, hands the card to <a class="el" href="../../d4/dba/class_a_p_p_1_1_user_interface.html#a38e2c6c65ce3e12848af7a75efcba9cb" title="APP::UserInterface::requestServiceOpen()">APP::UserInterface::requestServiceOpen()</a>, which opens the two client doors and the main container door ('OUT3') one at a time, instead of the usual 5/20 l amount selection.</p>
+<p>A service card (maintenance of the container, emptied by the collection truck) is a normally verified <a class="el" href="../../d1/deb/namespace_a_p_p.html#a2bf194f119a7399d53cf62fd363a483a" title="APP::CardRecord">APP::CardRecord</a> whose number is also listed here; <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html" title="APP::RFID">APP::RFID</a> checks this list instead of the <a class="el" href="../../db/da7/class_a_p_p_1_1_blocklist.html" title="APP::Blocklist">APP::Blocklist</a> and, if the number is present, hands the card to <a class="el" href="../../d4/dba/class_a_p_p_1_1_user_interface.html#a38e2c6c65ce3e12848af7a75efcba9cb" title="APP::UserInterface::requestServiceOpen()">APP::UserInterface::requestServiceOpen()</a>, which opens the two client doors and the main container door (<em class="arg">OUT3</em>) one at a time, instead of the usual 5/20 l amount selection.</p>
 <p>The list is an append-only log of 8-byte slots in a reserved flash region, with the same layout as <a class="el" href="../../db/da7/class_a_p_p_1_1_blocklist.html" title="APP::Blocklist">APP::Blocklist</a>. Word 0 of a slot holds the card number; word 1 is the state: 0xFFFFFFFF when erased, 0x5A5A5A5A when the number is listed and 0x00000000 when it was removed again.</p>
 <p>Removal only clears bits of word 1, which NOR flash allows without erasing. A slot interrupted by a power loss is neither erased nor active and is skipped. Only <a class="el" href="#a11f8910b0ac55013cfa386e651b024d4" title="clear()">clear()</a> erases the region; a full region rejects further adds until then. <a class="el" href="#a11f8910b0ac55013cfa386e651b024d4" title="clear()">clear()</a> itself can be interrupted (e.g. a brown-out mid-erase, up to several seconds): <a class="el" href="#a3f0876ffccc28db4f01afa94d4bdb558" title="open()">open()</a> does not assume the first erased slot marks the end of the log, so a later un-erased sector still reporting an active number is never silently dropped from the index; <a class="el" href="#a11f8910b0ac55013cfa386e651b024d4" title="clear()">clear()</a> stays callable after a failed attempt so the caller can simply retry it to finish erasing.</p>
-<p><a class="el" href="#a3f0876ffccc28db4f01afa94d4bdb558" title="open()">open()</a> reads the region once into a sorted RAM index (number and slot), so <a class="el" href="#ab45d45ee23c876821c2e13fbf98902f6" title="contains()">contains()</a> never touches the flash and <a class="el" href="#af9e47a85d4476e199894ac886f48b113" title="add()">add()</a> / <a class="el" href="#a536bfab107e1225476c49050508749fd" title="remove()">remove()</a> each program one slot.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/StorageManager/doc/ServiceList.md">Detail Description</a> </dd>
+<p><a class="el" href="#a3f0876ffccc28db4f01afa94d4bdb558" title="open()">open()</a> reads the region once into a sorted RAM index (number and slot), so <a class="el" href="#ab45d45ee23c876821c2e13fbf98902f6" title="contains()">contains()</a> never touches the flash and <a class="el" href="#af9e47a85d4476e199894ac886f48b113" title="add()">add()</a> and <a class="el" href="#a536bfab107e1225476c49050508749fd" title="remove()">remove()</a> each program one slot.</p>
+<p>The RAM index, the mutex and the private helpers live in an <b>Impl</b> defined in <em class="arg">ServiceList.cpp</em>.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/StorageManager/doc/ServiceList.md">Detail Description</a> </dd>
 <dd>
 <a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/StorageManager/ServiceList.cpp">Source</a> </dd></dl>
 </div><table class="memberdecls">
@@ -172,9 +174,9 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:aad931e8588b85cf88d11d7fa56668721" id="r_aad931e8588b85cf88d11d7fa56668721"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aad931e8588b85cf88d11d7fa56668721">SLOT_SIZE</a> = 8U</td></tr>
 <tr class="memdesc:aad931e8588b85cf88d11d7fa56668721"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes per slot.  <br /></td></tr>
 <tr class="memitem:a6412b33f068027f6da66ac991a2e20fd" id="r_a6412b33f068027f6da66ac991a2e20fd"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a6412b33f068027f6da66ac991a2e20fd">CAPACITY</a> = <a class="el" href="#ade3e0a750ade74f2fc68d62612afda33">REGION_SIZE</a> / <a class="el" href="#aad931e8588b85cf88d11d7fa56668721">SLOT_SIZE</a></td></tr>
-<tr class="memdesc:a6412b33f068027f6da66ac991a2e20fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots in the region (8192); a removed number keeps its slot, so this also counts past removals.  <br /></td></tr>
+<tr class="memdesc:a6412b33f068027f6da66ac991a2e20fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Slots in the region (8192), also counting removed numbers.  <br /></td></tr>
 <tr class="memitem:a50f9cc32db584b5ae1a43ab4609127d3" id="r_a50f9cc32db584b5ae1a43ab4609127d3"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a50f9cc32db584b5ae1a43ab4609127d3">MAX_ACTIVE</a> = 512U</td></tr>
-<tr class="memdesc:a50f9cc32db584b5ae1a43ab4609127d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service numbers held in the RAM index at once (3 KiB); far fewer are expected than customer cards.  <br /></td></tr>
+<tr class="memdesc:a50f9cc32db584b5ae1a43ab4609127d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service numbers held in the RAM index at once (3 KiB).  <br /></td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
 <a id="a171fca641c4bfec07b6fbdeb4f89645c" name="a171fca641c4bfec07b6fbdeb4f89645c"></a>
@@ -496,7 +498,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Slots in the region (8192); a removed number keeps its slot, so this also counts past removals. </p>
+<p>Slots in the region (8192), also counting removed numbers. </p>
 
 </div>
 </div>
@@ -520,7 +522,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Service numbers held in the RAM index at once (3 KiB); far fewer are expected than customer cards. </p>
+<p>Service numbers held in the RAM index at once (3 KiB). </p>
 
 </div>
 </div>

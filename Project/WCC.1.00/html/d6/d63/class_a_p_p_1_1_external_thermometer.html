@@ -114,8 +114,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>DS18B20 external thermometer module singleton. </p>
 <p>Owns two tasks sharing the one DS18B20 driver through an internal mutex: a slow one that reads the temperature every 5 minutes for the PGA460 speed-of-sound compensation (<a class="el" href="#aca8986ad61112f7ed0b2208582609a42" title="getTemperature()">getTemperature()</a>), and a fast one that samples every 15 s and raises the fire alarm when the temperature rises 5 C or more within 30 s (<a class="el" href="#a3f4943575d01cc97cb12254674e74504" title="getIsFireAlarmOn()">getIsFireAlarmOn()</a>). The alarm clears on its own once the rise drops below the threshold; a single failed read keeps the published value, the alarm state and the window unchanged.</p>
-<p>The state, the tasks and the private helpers live in <b>Impl</b>, defined in 'ExternalThermometer.cpp'.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/doc/ExternalThermometer.md">Detail Description</a> </dd>
+<p>The state, the tasks and the private helpers live in <b>Impl</b>, defined in <em class="arg">ExternalThermometer.cpp</em>.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/doc/ExternalThermometer.md">Detail Description</a> </dd>
 <dd>
 <a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/ExternalThermometer.cpp">Source</a> </dd></dl>
 </div><table class="memberdecls">
@@ -188,7 +189,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the last valid temperature. </p>
-<dl class="section return"><dt>Returns</dt><dd>Temperature in degrees Celsius, or <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> if no read succeeded yet or the last several reads failed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Temperature in degrees Celsius, or <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> if no read succeeded yet or the last <b>Impl::MAX_FAILURES</b> reads failed. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#aca8986ad61112f7ed0b2208582609a42">getTemperature()</a>.</p>
 

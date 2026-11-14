@@ -110,12 +110,13 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Cascaded MPPT controller of the solar accumulator charger, driving the LMR14030 buck charger. </p>
-<p>The outer loop (library MPPT, every <a class="el" href="#ac4203b2dacdc59ac3a2a22d16eb19588" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> steps) computes the panel voltage setpoint; the inner loop (every <a class="el" href="#afe161e81321d9fd3492f8b6ee4dc38ad" title="step()">step()</a>) moves the 'DAC_OUT' voltage injected into the buck feedback node until the measured panel voltage reaches that setpoint.</p>
-<p>The DAC current is summed into the 'FB' node through 'R30', so a higher DAC voltage lowers the buck output voltage, unloads the panel and lets its voltage rise. Panel irradiance is not measured; it is estimated from the panel current relative to the MPP reference current.</p>
+<p>The outer loop (library MPPT, every <a class="el" href="#ac4203b2dacdc59ac3a2a22d16eb19588" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> steps) computes the panel voltage setpoint; the inner loop (every <a class="el" href="#afe161e81321d9fd3492f8b6ee4dc38ad" title="step()">step()</a>) moves the <em class="arg">DAC_OUT</em> voltage injected into the buck feedback node until the measured panel voltage reaches that setpoint.</p>
+<p>The DAC current is summed into the <em class="arg">FB</em> node through <em class="arg">R30</em>, so a higher DAC voltage lowers the buck output voltage, unloads the panel and lets its voltage rise. Panel irradiance is not measured; it is estimated from the panel current relative to the MPP reference current.</p>
 <div class="fragment"><div class="line">Vout = Vfb * (1 + R28 / R31 + R28 / R30) - Vdac * (R28 / R30)</div>
-</div><!-- fragment --><p>The state, the hardware constants and the private helpers live in <b>Impl</b>, defined in 'MPPT.cpp' and owned through a pointer created in the constructor.</p>
+</div><!-- fragment --><p>The state, the hardware constants and the private helpers live in <b>Impl</b>, defined in <em class="arg">MPPT.cpp</em> and owned through a pointer created in the constructor.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Not thread-safe by design: <a class="el" href="#a9a01ceecdf4348d0a5fe6a7069eb865b" title="init()">init()</a>, <a class="el" href="#afe161e81321d9fd3492f8b6ee4dc38ad" title="step()">step()</a> and <a class="el" href="#a79fe266c146356ddae6673c6d8a9d016" title="disable()">disable()</a> must all be called from the single power supply task.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/PowerSupply/doc/MPPT.md">Detail Description</a> </dd>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/PowerSupply/doc/MPPT.md">Detail Description</a> </dd>
 <dd>
 <a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/APP/PowerSupply/MPPT.cpp">Source</a> </dd></dl>
 </div><table class="memberdecls">
@@ -306,7 +307,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the charger output current measured by the last <a class="el" href="#afe161e81321d9fd3492f8b6ee4dc38ad" title="step()">step()</a>. </p>
-<p>The 0x41 monitor's shunt 'R25' sits between the charger diode 'D4' and the 6 V rail, so this is the current the charger feeds into the loads plus the accumulator; the accumulator's own discharge does not pass it.</p>
+<p>The 0x41 monitor's shunt <em class="arg">R25</em> sits between the charger diode <em class="arg">D4</em> and the 6 V rail, so this is the current the charger feeds into the loads plus the accumulator; the accumulator's own discharge does not pass it.</p>
 <dl class="section return"><dt>Returns</dt><dd>Charger output current, in amperes; never positive (calibration sign), <b>0</b> until the first update. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a0fef8a2b874d7359ad782a352f1bc998">getChargerCurrent()</a>.</p>
@@ -485,7 +486,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Starts the DAC at the lowest charge voltage and enables the charger. </p>
-<dl class="section pre"><dt>Precondition</dt><dd>The sensors in <a class="el" href="../../de/d01/struct_m_p_p_t_1_1_config.html" title="Config">Config</a> are already initialized. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The sensors in <a class="el" href="../../de/d01/struct_m_p_p_t_1_1_config.html" title="Config">Config</a> are already initialized.</dd></dl>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if the DAC started and the charger was enabled. </dd></dl>
 
 </div>

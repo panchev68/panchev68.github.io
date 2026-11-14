@@ -113,17 +113,22 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Standby current probe singleton. </p>
-<p>Switches the devices of the board to their low-power state one by one, 'STAGE_TIME' (10 s) apart, so the supply current can be watched on an ammeter. A short blue blink of the RGB LED separates two stages, and every stage starts with as many short beeps as its number (the beeps and the blink are short, wait for them to end before reading the current):</p>
+<p><b>TEST ONLY:</b> switches the devices of the board to their low-power state one by one, <b>Impl::STAGE_TIME</b> (5 s) apart, so the supply current can be watched on an ammeter. A short blue blink of the RGB LED separates two stages, and every stage starts with as many short beeps as its number (the beeps and the blink are short, wait for them to end before reading the current):</p>
 <ol type="1">
 <li>Baseline: both INA219 and the TMP102 are initialized and measuring continuously (as the charger leaves them).</li>
 <li>INA219 of the solar panel in Power-Down.</li>
 <li>INA219 of the accumulator in Power-Down.</li>
 <li>TMP102 in shutdown.</li>
-<li>ST25R100 held in reset ('ST25R100_RESET' high).</li>
-<li>Buck charger disabled ('CHARGER_EN_CTRL' high; the pin is low, i.e. enabled, after reset).</li>
+<li>ST25R100 held in reset (<em class="arg">ST25R100_RESET</em> high).</li>
+<li>Buck charger disabled (<em class="arg">CHARGER_EN_CTRL</em> high; the pin is low, i.e. enabled, after reset).</li>
 </ol>
 <p>Before stage 1 the green LED blinks the reset cause: 1 power-on or brown-out, 2 reset pin, 3 software, 4 IWDG, 5 WWDG, 6 low-power reset (an option byte resets the MCU on STOP entry). The RGB LED (no red one is used) also shows what the core did, so it can be read without a debugger: green while the devices are prepared, one green blink at the end of a stage if the core went through STOP1 during it (none if it did not), then the blue blink. After the last stage the task sleeps. The current drop at each beep shows what the device drew. Start it with <a class="el" href="../../db/d62/class_a_p_p_1_1_application.html#a233a23ffb60e53be21e227e691d889de" title="APP::Application::ENABLE_POWER_PROBE_TEST">APP::Application::ENABLE_POWER_PROBE_TEST</a> and turn off <a class="el" href="../../db/d62/class_a_p_p_1_1_application.html#a44ac4ddca8fc54019514c57ad644fc32" title="APP::Application::ENABLE_POWER_SUPPLY">APP::Application::ENABLE_POWER_SUPPLY</a> and <a class="el" href="../../db/d62/class_a_p_p_1_1_application.html#a2d207c42bb27130963db5abe468da539" title="APP::Application::ENABLE_STARTUP_DIAGNOSTICS">APP::Application::ENABLE_STARTUP_DIAGNOSTICS</a>, so nothing else touches the devices; the flash is put to deep power-down by <a class="el" href="../../da/d74/class_a_p_p_1_1_storage_manager.html" title="APP::StorageManager">APP::StorageManager</a> itself.</p>
-<p>Floor mode (<b>Impl::FLOOR_MODE</b> in 'PowerProbeTest.cpp', on by default): no stages. <a class="el" href="#a212ec45a4374908a103138a24484137a" title="start()">start()</a> first switches the clock of every peripheral off (I2C1, USART1, USART3, SPI3, OCTOSPI1, DAC1, TIM1, DCACHE1), then the task shows the reset cause and blocks for <b>portMAX_DELAY</b>, so the core sleeps as deeply as it can and the ammeter shows what the board itself draws. Set it to <b>false</b> for the stages above. </p>
+<p>Floor mode (<b>Impl::FLOOR_MODE</b>, on by default): no stages. <a class="el" href="#a212ec45a4374908a103138a24484137a" title="start()">start()</a> first switches the clock of every peripheral off (I2C1, USART1, USART3, SPI3, OCTOSPI1, DAC1, TIM1, DCACHE1), then the task shows the reset cause and blocks for <b>portMAX_DELAY</b>, so the core sleeps as deeply as it can and the ammeter shows what the board itself draws. Set it to <em class="arg">false</em> for the stages above.</p>
+<p>The state, the task and the helpers live in <b>Impl</b>, defined in <em class="arg">PowerProbeTest.cpp</em>.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/Tests/doc/PowerProbeTest.md">Detail Description</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/Tests/PowerProbeTest.cpp">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -162,7 +167,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the stage the probe is in. </p>
-<dl class="section return"><dt>Returns</dt><dd>0 before the first stage, then 1..6; 7 once every stage is done. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>0</b> before the first stage, then 1..6; <b>7</b> once every stage is done. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#ae52792ae6d91ac411ab9ea3a0c1bd7f6">getStage()</a>.</p>
 

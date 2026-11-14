@@ -114,8 +114,12 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>PGA460 UART link self-test singleton. </p>
-<p>Every 'PERIOD' it powers the 12 V rail, opens the UART, sends a 'P1BL' burst command (as <a class="el" href="../../d7/dc4/class_a_p_p_1_1_distance_meter.html" title="APP::DistanceMeter">APP::DistanceMeter</a> does), waits the listen window, sends the 'UMR' result request and checks that a 6-byte answer comes back with a valid checksum and the fixed 01b marker in the diagnostic byte. The PGA460 answers that request even when no transducer is connected, so this proves the supply, the UART wiring and the framing and does not need an echo. <a class="el" href="../../d7/dc4/class_a_p_p_1_1_distance_meter.html" title="APP::DistanceMeter">APP::DistanceMeter</a> must be disabled while this runs (both use the same UART). The counters and the last raw answer are kept for inspection with a debugger.</p>
-<p>The state, the task and the helpers live in <b>Impl</b>, defined in 'PGA460CommsTest.cpp'. </p>
+<p><b>TEST ONLY:</b> every <b>PERIOD</b> it powers the 12 V rail, opens the UART, sends a <em class="arg">P1BL</em> burst command (as <a class="el" href="../../d7/dc4/class_a_p_p_1_1_distance_meter.html" title="APP::DistanceMeter">APP::DistanceMeter</a> does), waits the listen window, sends the <em class="arg">UMR</em> result request and checks that a 6-byte answer comes back with a valid checksum and the fixed 01b marker in the diagnostic byte. The PGA460 answers that request even when no transducer is connected, so this proves the supply, the UART wiring and the framing and does not need an echo. <a class="el" href="../../d7/dc4/class_a_p_p_1_1_distance_meter.html" title="APP::DistanceMeter">APP::DistanceMeter</a> must be disabled while this runs (both use the same UART). The counters and the last raw answer are kept for inspection with a debugger.</p>
+<p>The state, the task and the helpers live in <b>Impl</b>, defined in 'PGA460CommsTest.cpp'.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/Tests/doc/PGA460CommsTest.md">Detail Description</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/Tests/PGA460CommsTest.cpp">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -156,7 +160,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aafc9dc4ae2aef975153e73315da721eb" id="r_aafc9dc4ae2aef975153e73315da721eb"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aafc9dc4ae2aef975153e73315da721eb">getBaudRate</a> () const noexcept</td></tr>
 <tr class="memdesc:aafc9dc4ae2aef975153e73315da721eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the baud rate of the last attempt.  <br /></td></tr>
 <tr class="memitem:a175babff95b99b55c5d004ba5a2c6f53" id="r_a175babff95b99b55c5d004ba5a2c6f53"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a175babff95b99b55c5d004ba5a2c6f53">getRxIdleHigh</a> () const noexcept</td></tr>
-<tr class="memdesc:a175babff95b99b55c5d004ba5a2c6f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the level of the RX pin (PA10) before the last request.  <br /></td></tr>
+<tr class="memdesc:a175babff95b99b55c5d004ba5a2c6f53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the level of the RX pin (<em class="arg">PA10</em>) before the last request.  <br /></td></tr>
 <tr class="memitem:a81e4db2181dd68ba09a07d3bc071ae1d" id="r_a81e4db2181dd68ba09a07d3bc071ae1d"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a81e4db2181dd68ba09a07d3bc071ae1d">getUartFlags</a> () const noexcept</td></tr>
 <tr class="memdesc:a81e4db2181dd68ba09a07d3bc071ae1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the USART error flags seen while the last answer was read.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -381,7 +385,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the level of the RX pin (PA10) before the last request. </p>
+<p>Returns the level of the RX pin (<em class="arg">PA10</em>) before the last request. </p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if high (the idle level); <b>false</b> means the PGA460 TXD is not driven or is held low. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a175babff95b99b55c5d004ba5a2c6f53">getRxIdleHigh()</a>.</p>
@@ -442,7 +446,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the USART error flags seen while the last answer was read. </p>
-<dl class="section return"><dt>Returns</dt><dd>Bits of USART_ISR: PE (0), FE (1), NE (2), ORE (3); 0 if none. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Bits of <em class="arg">USART_ISR:</em> <em class="arg">PE</em> (0), <em class="arg">FE</em> (1), <em class="arg">NE</em> (2), <em class="arg">ORE</em> (3); <b>0</b> if none. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a81e4db2181dd68ba09a07d3bc071ae1d">getUartFlags()</a>.</p>
 
