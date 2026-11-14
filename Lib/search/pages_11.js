@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['scan_20into_20a_20buffer_0',['Continuous scan into a buffer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_dma',1,'']]],
+  ['scan_20channels_20into_20a_20buffer_0',['Scan channels into a buffer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_dma',1,'']]],
   ['scheduling_20a_20compare_20event_20in_20a_20task_1',['Scheduling a compare event in a task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOutputCompare.dox#timoc_usage_delay',1,'']]],
   ['scoped_20lock_20with_20an_20indefinite_20wait_2',['Scoped lock with an indefinite wait',['../X:/Lib/IAR/Project/Examples/RTOS_MutexGuard.dox#mutexguard_usage_scope',1,'']]],
   ['sealing_20a_20telemetry_20record_3',['Sealing a telemetry record',['../X:/Lib/IAR/Project/Examples/Lib_Crypto_WolfSSL.dox#wolfssl_usage_seal',1,'']]],
@@ -35,7 +35,7 @@ var searchData=
   ['software_20engine_32',['Hashing with the software engine',['../X:/Lib/IAR/Project/Examples/Lib_Crypto_SHA256.dox#sha256_usage_software',1,'']]],
   ['software_20reset_33',['Request a software reset',['../X:/Lib/IAR/Project/Examples/Lib_HAL_Reset.dox#reset_usage_request',1,'']]],
   ['start_34',['Where to start',['../index.html#mainpage_start',1,'']]],
-  ['start_20and_20refresh_35',['Start and refresh',['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#wwdg_usage_start',1,'']]],
+  ['start_20and_20refresh_35',['Start and refresh',['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#windowwatchdog_usage_start',1,'']]],
   ['start_20the_20watchdog_36',['Start the watchdog',['../X:/Lib/IAR/Project/Examples/Lib_HAL_IndependentWatchdog.dox#iwdg_usage_start',1,'']]],
   ['start_20up_20click_20and_20alarm_37',['Start-up click and alarm',['../X:/Lib/IAR/Project/Examples/Lib_BSP_Beep.dox#beep_usage_alarm',1,'']]],
   ['start_20with_20a_20duty_20cycle_38',['Start with a duty cycle',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_basic',1,'']]],

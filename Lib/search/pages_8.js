@@ -18,7 +18,7 @@ var searchData=
   ['interrupt_20driven_20transfers_15',['Interrupt driven transfers',['../X:/Lib/IAR/Project/Examples/Lib_HAL_I2C.dox#i2c_usage_it',1,'Interrupt-driven transfers'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_SPI.dox#spi_usage_it',1,'Interrupt-driven transfers'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_UART.dox#uart_usage_it',1,'Interrupt-driven transfers']]],
   ['interrupt_20hook_16',['Interrupt hook',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_isr',1,'']]],
   ['interrupt_20on_20an_20input_20pin_17',['Interrupt on an input pin',['../X:/Lib/IAR/Project/Examples/Lib_HAL_GPIO.dox#gpio_usage_exti',1,'']]],
-  ['into_20a_20buffer_18',['Continuous scan into a buffer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_dma',1,'']]],
+  ['into_20a_20buffer_18',['Scan channels into a buffer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_dma',1,'']]],
   ['into_20bcd_19',['Packing decimal values into BCD',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_HexHelper.dox#hexhelper_usage_bcd',1,'']]],
   ['is_20',['What the project is',['../index.html#mainpage_overview',1,'']]],
   ['isr_20to_20task_20uart_20receive_21',['ISR to task (UART receive)',['../X:/Lib/IAR/Project/Examples/RTOS_StreamBuffer.dox#streambuffer_usage_isr',1,'']]]

@@ -16,9 +16,9 @@ var searchData=
   ['record_13',['Sealing a telemetry record',['../X:/Lib/IAR/Project/Examples/Lib_Crypto_WolfSSL.dox#wolfssl_usage_seal',1,'']]],
   ['record_20from_20a_20task_14',['Write and read back a record from a task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_IS62WV51216.dox#is62_usage_frame',1,'']]],
   ['recursive_20mutex_20and_20try_20lock_15',['Recursive mutex and try-lock',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_recursive',1,'']]],
-  ['refresh_16',['Start and refresh',['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#wwdg_usage_start',1,'']]],
+  ['refresh_16',['Start and refresh',['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#windowwatchdog_usage_start',1,'']]],
   ['refresh_20from_20a_20supervisor_20task_17',['Refresh from a supervisor task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_IndependentWatchdog.dox#iwdg_usage_refresh',1,'']]],
-  ['refresh_20window_20at_20run_20time_18',['Narrow the refresh window at run time',['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#wwdg_usage_window',1,'']]],
+  ['refresh_20window_20at_20run_20time_18',['Narrow the refresh window at run time',['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#windowwatchdog_usage_window',1,'']]],
   ['region_20before_20use_19',['Check the region before use',['../X:/Lib/IAR/Project/Examples/Lib_HAL_OTP.dox#otp_usage_bounds',1,'']]],
   ['rejecting_20malformed_20input_20',['Rejecting malformed input',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_Bcd.dox#bcd_usage_invalid',1,'']]],
   ['reload_20timer_21',['Auto-reload timer',['../X:/Lib/IAR/Project/Examples/RTOS_Timer.dox#timer_usage_blink',1,'']]],
@@ -31,9 +31,9 @@ var searchData=
   ['resynchronizing_28',['Writing and resynchronizing',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_write',1,'']]],
   ['returning_20a_20slot_29',['Taking and returning a slot',['../X:/Lib/IAR/Project/Examples/RTOS_SemaphoreCounting.dox#semaphore_counting_usage_take',1,'']]],
   ['ring_20and_20send_20one_20frame_30',['Fill the ring and send one frame',['../X:/Lib/IAR/Project/Examples/Lib_BSP_SK6812.dox#sk6812_usage_frame',1,'']]],
-  ['role_31',['role',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usb_usage_device',1,'Device role'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usb_usage_host',1,'Host role']]],
-  ['role_20otg_20controller_32',['Dual-role OTG controller',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usb_usage_otg',1,'']]],
-  ['role_20with_20dma_33',['Device role with DMA',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usb_usage_dma',1,'']]],
+  ['role_31',['role',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usbdeviceport_usage_device',1,'Device role'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usbdeviceport_usage_host',1,'Host role']]],
+  ['role_20otg_20controller_32',['Dual-role OTG controller',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usbdeviceport_usage_otg',1,'']]],
+  ['role_20with_20dma_33',['Device role with DMA',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usbdeviceport_usage_dma',1,'']]],
   ['rtos_20ticks_34',['Converting elapsed time to RTOS ticks',['../X:/Lib/IAR/Project/Examples/Lib_HAL_LPTimer.dox#lptim_usage_ticks',1,'']]],
-  ['run_20time_35',['run time',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_update',1,'Changing duty cycle and period at run time'],['../X:/Lib/IAR/Project/Examples/RTOS_Timer.dox#timer_usage_period',1,'Changing the period at run time'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#wwdg_usage_window',1,'Narrow the refresh window at run time']]]
+  ['run_20time_35',['run time',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_update',1,'Changing duty cycle and period at run time'],['../X:/Lib/IAR/Project/Examples/RTOS_Timer.dox#timer_usage_period',1,'Changing the period at run time'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#windowwatchdog_usage_window',1,'Narrow the refresh window at run time']]]
 ];

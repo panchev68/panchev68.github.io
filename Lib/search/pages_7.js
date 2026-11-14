@@ -16,7 +16,7 @@ var searchData=
   ['hex_20digit_20conversion_13',['Hex digit conversion',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_Ascii.dox#ascii_usage_hex',1,'']]],
   ['hook_14',['Interrupt hook',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_isr',1,'']]],
   ['hooks_15',['Begin and end transaction hooks',['../X:/Lib/IAR/Project/Examples/Lib_HAL_SPI.dox#spi_usage_hooks',1,'']]],
-  ['host_20role_16',['Host role',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usb_usage_host',1,'']]],
-  ['http_20get_20over_20the_20modem_17',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]],
-  ['https_20post_20and_20plain_20http_20get_20over_20the_20modem_18',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]]
+  ['host_20role_16',['Host role',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usbdeviceport_usage_host',1,'']]],
+  ['http_20get_20over_20the_20modem_17',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#client_usage_telemetry',1,'']]],
+  ['https_20post_20and_20plain_20http_20get_20over_20the_20modem_18',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#client_usage_telemetry',1,'']]]
 ];

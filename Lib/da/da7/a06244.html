@@ -111,11 +111,11 @@ Checked allocation</h3>
 <div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_enumeration" href="../../db/d5e/a05891.html#a12545d9824f6613ee89191861f120584">RTOS::MemoryManager::Status</a> status = <a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../db/d5e/a05891.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c">RTOS::MemoryManager::Status::SUCCESS</a>;</div>
 <div class="line">    <span class="keywordtype">void</span> * <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#gab511a0eef21ba5813dd03bda276604a7a14511f2f5564650d129ca7cabc333278">block</a> = <a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d5e/a05891.html#a22bb0dd4b2e20be87fa1cc27bc71f9de">RTOS::MemoryManager::allocate</a>(256U, &amp;status);</div>
 <div class="line">    <span class="keywordflow">if</span> (status != <a class="code hl_enumvalue" href="../../db/d5e/a05891.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c">RTOS::MemoryManager::Status::SUCCESS</a>) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// INVALID_SIZE, SIZE_TOO_LARGE or OUT_OF_MEMORY.</span></div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// INVALID_SIZE, SIZE_TOO_LARGE or OUT_OF_MEMORY; in debug builds OUT_OF_MEMORY also asserts first.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">const</span> std::span&lt;uint8_t&gt; buffer(<span class="keyword">static_cast&lt;</span>uint8_t *<span class="keyword">&gt;</span>(<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#gab511a0eef21ba5813dd03bda276604a7a14511f2f5564650d129ca7cabc333278">block</a>), 256U);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(buffer);</div>
+<div class="line">    buffer[0] = 0U;</div>
 <div class="line"> </div>
 <div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="../../db/d5e/a05891.html#a357c16b4d26202d54fa9221c2b471ca5">RTOS::MemoryManager::deallocate</a>(<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#gab511a0eef21ba5813dd03bda276604a7a14511f2f5564650d129ca7cabc333278">block</a>);</div>
 <div class="line">}</div>

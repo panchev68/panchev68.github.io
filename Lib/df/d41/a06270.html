@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 <p>Shows tracking a deadline in a polling loop with <a class="el" href="../../df/d41/a06270.html" title="RTOS::Timeout">RTOS::Timeout</a>.</p>
-<p>Shows tracking a deadline in a polling loop with RTOS::Timeout.Covers a timeout created from a duration, polled until it expires, restarted after a successful step, and disabled when no limit is needed. The timeout measures elapsed time with the scheduler tick count.</p>
+<p>Shows tracking a deadline in a polling loop with RTOS::Timeout.Covers a timeout created from a duration, polled until it expires, restarted explicitly with <a class="el" href="../../d5/dc4/a05975.html#a4f719fdc728f4b1e2a6a3b33c747c32e" title="RTOS::Timeout::reset()">RTOS::Timeout::reset()</a>, and disabled when no limit is needed. The timeout measures elapsed time with the scheduler tick count and can be polled from task and ISR context.</p>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="timeout_usage_poll"></a>
 Polling until a deadline</h3>
@@ -107,10 +107,14 @@ Polling until a deadline</h3>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> isPeripheralReady() noexcept;</div>
+<div class="line"> </div>
 <div class="line"><span class="keywordtype">bool</span> waitForReady() noexcept {</div>
 <div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d5/dc4/a05975.html">RTOS::Timeout</a> deadline(500ms);</div>
 <div class="line">    <span class="keywordflow">while</span> (!deadline.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d5/dc4/a05975.html#a4264c550073d457fa8f6ca89e591a0e6">isExpired</a>()) {</div>
-<div class="line">        <span class="comment">// Poll the peripheral here.</span></div>
+<div class="line">        <span class="keywordflow">if</span> (isPeripheralReady()) {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">        }</div>
 <div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(10ms);</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Not ready within 500 ms.</span></div>

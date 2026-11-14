@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 <p>Shows passing typed messages between a producer task and a consumer with an <a class="el" href="../../d6/d3a/a06254.html" title="RTOS::Queue">RTOS::Queue</a>.</p>
-<p>Shows passing typed messages between a producer task and a consumer with an RTOS::Queue.Covers a queue of eight 32-bit samples with a blocking send and receive that take a timeout, and a latest-value queue of length one that uses <a class="el" href="../../da/dc6/a05919.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe" title="RTOS::Queue::overwrite()">RTOS::Queue::overwrite()</a>. Each element is copied into the queue, so the sender may reuse its variable immediately. Use the FromISR variants for sends and receives inside an interrupt handler.</p>
+<p>Shows passing typed messages between a producer task and a consumer with an <a class="el" href="../../d6/d3a/a06254.html" title="RTOS::Queue">RTOS::Queue</a>. Covers a queue of eight 32-bit samples with a blocking send and receive that take a timeout, and a latest-value queue of length one that uses <a class="el" href="../../da/dc6/a05919.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe" title="RTOS::Queue::overwrite()">RTOS::Queue::overwrite()</a>. Each element is copied into the queue, so the sender may reuse its variable immediately. Use the FromISR variants for sends and receives inside an interrupt handler.</p>
 <dl class="section important"><dt>Important</dt><dd>Open the queues from task context before any ISR uses them.</dd></dl>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="queue_usage_declare"></a>
@@ -116,7 +116,7 @@ Declaring the queues</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="queue_usage_producer"></a>
 Producer task</h3>
-<p><a class="el" href="../../da/dc6/a05919.html#ab15322e6aead7ac29c01289b9be388d8" title="RTOS::Queue::send()">RTOS::Queue::send()</a> drops the item when the queue stays full for the whole timeout; <a class="el" href="../../da/dc6/a05919.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe" title="RTOS::Queue::overwrite()">RTOS::Queue::overwrite()</a> always succeeds and replaces the single stored value.</p>
+<p><a class="el" href="../../da/dc6/a05919.html#ab15322e6aead7ac29c01289b9be388d8" title="RTOS::Queue::send()">RTOS::Queue::send()</a> returns <b>false</b> and does not queue the item when the queue stays full for the whole timeout. <a class="el" href="../../da/dc6/a05919.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe" title="RTOS::Queue::overwrite()">RTOS::Queue::overwrite()</a> never blocks and replaces the single stored value.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dd3/a00902.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
@@ -146,7 +146,7 @@ Producer task</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="queue_usage_consumer"></a>
 Consumer task</h3>
-<p><a class="el" href="../../da/dc6/a05919.html#abe1cd4bde4ff79326492fd1d5c56ffc6" title="RTOS::Queue::receive()">RTOS::Queue::receive()</a> returns an empty <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html" title="std::optional">std::optional</a> when no item arrives within the timeout.</p>
+<p><a class="el" href="../../da/dc6/a05919.html#abe1cd4bde4ff79326492fd1d5c56ffc6" title="RTOS::Queue::receive()">RTOS::Queue::receive()</a> returns <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> when no item arrives within the timeout.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dd3/a00902.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>

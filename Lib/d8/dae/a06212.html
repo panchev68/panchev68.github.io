@@ -95,24 +95,25 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">Lib::HAL::UARTPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Sends and receives bytes with 'Lib::HAL::UARTPort' in its three transfer modes: <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="Lib::HAL::DriverMode::BLOCKING">Lib::HAL::DriverMode::BLOCKING</a>, <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> and <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949" title="Lib::HAL::DriverMode::DMA">Lib::HAL::DriverMode::DMA</a>.</p>
-<p>Sends and receives bytes with 'Lib::HAL::UARTPort' in its three transfer modes: <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="Lib::HAL::DriverMode::BLOCKING">Lib::HAL::DriverMode::BLOCKING</a>, <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> and <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949" title="Lib::HAL::DriverMode::DMA">Lib::HAL::DriverMode::DMA</a>. The port wraps a CubeMX 'UART_HandleTypeDef' and does not create or configure the pins, clock or NVIC; the CubeMX-generated init code does that.</p>
-<p>The blocking mode completes inside the HAL call and may be used from any task. The IT and DMA modes start the transfer and wait on an <a class="el" href="../../d1/d65/a06240.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, so 'Lib::HAL::UARTPort::send()' and 'Lib::HAL::UARTPort::receive()' are task-only; they assert when called from an ISR. The HAL callbacks that report completion run in interrupt context, and the USART interrupt handler (CubeMX 'USART2_IRQHandler()') must call <b>HAL_UART_IRQHandler()</b> for the handle.</p>
-<dl class="section warning"><dt>Warning</dt><dd>The IT and DMA ports register their own HAL callbacks in 'Lib::HAL::UARTPort::open()', so the HAL configuration header must set 'USE_HAL_UART_REGISTER_CALLBACKS' to <b>1</b>; otherwise the build stops with a compile-time error.</dd></dl>
+<p>Sends and receives bytes with <a class="el" href="../../d8/dae/a06212.html" title="Lib::HAL::UARTPort">Lib::HAL::UARTPort</a> in its three transfer modes, selected by the template argument 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' or 'Lib::HAL::DriverMode::DMA'.</p>
+<p>Sends and receives bytes with <a class="el" href="../../d8/dae/a06212.html" title="Lib::HAL::UARTPort">Lib::HAL::UARTPort</a> in its three transfer modes, selected by the template argument 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' or 'Lib::HAL::DriverMode::DMA'. The port wraps a CubeMX <em class="arg">UART_HandleTypeDef</em> and does not create or configure the pins, clock or NVIC; the CubeMX-generated init code does that.</p>
+<p>The blocking mode polls the HAL until the transfer completes or the timeout expires; it has no RTOS wait. The IT and DMA modes start the transfer and wait on an <a class="el" href="../../d1/d65/a06240.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, so their <a class="el" href="../../dc/d4a/a05587.html#aa6f2b7746c93553e8ba0a2fda3c494bc" title="Lib::HAL::UARTPortAsync::send()">Lib::HAL::UARTPortAsync::send()</a> and <a class="el" href="../../dc/d4a/a05587.html#a3c10830f8d93936773f64d95201bc7da" title="Lib::HAL::UARTPortAsync::receive()">Lib::HAL::UARTPortAsync::receive()</a> are task-only and assert when called from an ISR. The HAL callbacks that report completion run in interrupt context, and the USART interrupt handler (CubeMX <b>USART2_IRQHandler()</b>) must call <b>HAL_UART_IRQHandler()</b> for the handle.</p>
+<dl class="section warning"><dt>Warning</dt><dd>The IT and DMA ports register their own HAL callbacks in <a class="el" href="../../df/d5e/a05351.html#a3822bc9b87b9e299982b230e2c029f35" title="Lib::HAL::AsyncPortCore::open()">Lib::HAL::AsyncPortCore::open()</a>, so the HAL configuration header must set <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> to <b>1</b>; otherwise the build stops with a compile-time error.</dd></dl>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="uart_usage_setup"></a>
 Setup and lifecycle</h3>
-<p>The CubeMX init code creates the handle ('huart2' in the examples below) and the interrupt. The port does not own the handle, so it must outlive the port. 'Lib::HAL::UARTPort::open()' runs <b>HAL_UART_Init()</b> and, for the IT and DMA modes, registers the callbacks and creates the event group; it returns <b>false</b> on failure. 'Lib::HAL::UARTPort::close()' reverses this and must be called from task context. The destructor of the IT and DMA modes closes an open port.</p>
-<p>The BLOCKING specialization is different: its constructor takes a 'Lib::HAL::DriverDataDirection' tag ('RX' or 'TX') that only labels the half of a duplex link the instance drives, and it has no event group, so it needs no open() before use.</p>
+<p>The CubeMX init code creates the handle (<b>huart2</b> in the examples below) and the interrupt. The port does not own the handle, so the handle must outlive the port. For the IT and DMA modes, <a class="el" href="../../d6/d66/a05595.html#a55dca0e7725a4f8e8697ba94ce8c1ef7" title="Lib::HAL::UARTPortAsync::open()">Lib::HAL::UARTPortAsync::open()</a> creates the event group, runs <b>HAL_UART_Init()</b>, registers the port with the DeviceManager and registers the HAL callbacks; it returns <b>false</b> on failure and leaves the port closed. <a class="el" href="../../df/d5e/a05351.html#a03c62c024b148a264f9a6a0077198302" title="Lib::HAL::AsyncPortCore::close()">Lib::HAL::AsyncPortCore::close()</a> reverses this and must be called from task context. The destructor of the IT and DMA modes closes an open port.</p>
+<p>The BLOCKING specialization is different: its constructor takes a <a class="el" href="../../d3/ded/a01017.html#a82754326f2fd3bd32ea447c756ec2825" title="Lib::HAL::DriverDataDirection">Lib::HAL::DriverDataDirection</a> tag (<em class="arg">RX</em> or <em class="arg">TX</em>) that only labels the half of a duplex link the instance drives. It has no event group, so it needs no open() before use.</p>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="uart_usage_blocking"></a>
 Blocking transfers</h3>
-<p>'Lib::HAL::UARTPort::send()' and 'Lib::HAL::UARTPort::receive()' take a 'std::span' and a timeout in any <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> duration. The buffer size must be between 1 and 65535 bytes. Both return <b>false</b> on error or timeout.</p>
+<p>The send() and receive() calls of the 'Lib::HAL::DriverMode::BLOCKING' port take a std::span and a timeout in any <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>. The buffer size must be between 1 and 65535 bytes. Both return <b>false</b> on error or timeout.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
 <div class="line"> </div>
@@ -130,6 +131,7 @@ Blocking transfers</h3>
 <div class="line">}</div>
 <div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
 <div class="ttc" id="aa00749_html"><div class="ttname"><a href="../../d5/de8/a00749.html">UART.hpp</a></div><div class="ttdoc">Public umbrella include for the UART subsystem, pulling in every &#39;UARTPort&#39; component.</div></div>
 <div class="ttc" id="aa01017_html_a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49"><div class="ttname"><a href="../../d3/ded/a01017.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49">Lib::HAL::DriverDataDirection::TX</a></div><div class="ttdeci">@ TX</div><div class="ttdoc">Port used for transmission.</div><div class="ttdef"><b>Definition</b> DriverDataDirection.hpp:21</div></div>
@@ -140,12 +142,13 @@ Blocking transfers</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="uart_usage_it"></a>
 Interrupt-driven transfers</h3>
-<p>Open the port once from a task. The CubeMX 'USART2_IRQHandler()' is the only hook needed: it calls 'HAL_UART_IRQHandler(&amp;huart2)', which in turn fires the callbacks that 'Lib::HAL::UARTPort::open()' registered. Transmit and receive use separate event bits, so one task may send while another receives on the same port.</p>
+<p>Open the port once from a task. The CubeMX <b>USART2_IRQHandler()</b> is the only hook needed: it calls <b>HAL_UART_IRQHandler()</b> with the handle, which in turn fires the callbacks that <a class="el" href="../../df/d5e/a05351.html#a3822bc9b87b9e299982b230e2c029f35" title="Lib::HAL::AsyncPortCore::open()">Lib::HAL::AsyncPortCore::open()</a> registered. Transmit and receive use separate event bits, so one task may send while another receives on the same port.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">extern</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
 <div class="line"> </div>
@@ -179,14 +182,10 @@ Interrupt-driven transfers</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="uart_usage_error"></a>
 Error path and abort</h3>
-<p>When a transfer times out or the HAL reports an error, 'Lib::HAL::UARTPort::send()' and 'Lib::HAL::UARTPort::receive()' abort that direction before they return <b>false</b>, so the HAL never touches the caller's buffer afterwards. A task blocked in one of them can be released from another task by 'Lib::HAL::UARTPort::abort()', which returns <b>false</b> if the hardware did not stop cleanly. 'Lib::HAL::UARTPort::setBaudRate()' returns <b>false</b> while a transfer is in flight, so stop or wait for the transfer first.</p>
+<p>When a transfer times out or the HAL reports an error, <a class="el" href="../../dc/d4a/a05587.html#aa6f2b7746c93553e8ba0a2fda3c494bc" title="Lib::HAL::UARTPortAsync::send()">Lib::HAL::UARTPortAsync::send()</a> and <a class="el" href="../../dc/d4a/a05587.html#a3c10830f8d93936773f64d95201bc7da" title="Lib::HAL::UARTPortAsync::receive()">Lib::HAL::UARTPortAsync::receive()</a> abort that direction before they return <b>false</b>, so the HAL never touches the caller's buffer afterwards. A task blocked in one of them can be released from another task by <a class="el" href="../../dc/d4a/a05587.html#ac0f3ec8c2a5d8ad83c45e752232f2005" title="Lib::HAL::UARTPortAsync::abort()">Lib::HAL::UARTPortAsync::abort()</a>, which returns <b>false</b> if the hardware did not stop cleanly. <a class="el" href="../../d6/d66/a05595.html#aa69f87ceff32286dc0ce857ef84e314c" title="Lib::HAL::UARTPortBase::setBaudRate()">Lib::HAL::UARTPortBase::setBaudRate()</a> returns <b>false</b> while a transfer is in flight, so abort or wait for the transfer first.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> recoverAndRetune(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; port) <span class="keyword">noexcept</span> {</div>
 <div class="line">    <span class="keywordflow">if</span> (!port.setBaudRate(115200U)) {</div>
@@ -197,12 +196,14 @@ Error path and abort</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="uart_usage_dma"></a>
 DMA transfers</h3>
-<p>The DMA mode has the same API as the IT mode. The CubeMX code must link the UART handle to its DMA handles and enable the DMA interrupts. The buffer must stay valid until the transfer completes, and it must be reachable by the DMA controller (not CCM RAM); a debug build asserts on a CCM buffer.</p>
+<p>The DMA mode has the same API as the IT mode. The CubeMX code must link the UART handle to its DMA handles and enable the DMA interrupts; this header does not check that. The buffer must stay valid until the transfer completes, and it must be reachable by the DMA controller (not CCM RAM): each DMA start asserts on it in a debug build.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">extern</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
 <div class="line"> </div>
@@ -212,6 +213,7 @@ DMA transfers</h3>
 <div class="line"><span class="keywordtype">bool</span> sendDma(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; port, <span class="keywordtype">size_t</span> length) <span class="keyword">noexcept</span> {</div>
 <div class="line">    <span class="keywordflow">return</span> port.send(std::span&lt;const uint8_t&gt;(dmaTxBuffer).first(length), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

@@ -97,9 +97,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div class="contents">
 <p>Keeps a boot counter and a calibration structure in the two flash pages reserved for the emulated EEPROM.</p>
 <p>Keeps a boot counter and a calibration structure in the two flash pages reserved for the emulated EEPROM.Each value has its own 16-bit key and its own length, so the counter and the calibration are stored side by side. A missing key reads as <b>0</b> bytes, which lets the first boot start from defaults. Every <a class="el" href="../../d4/da1/a04423.html#a063c0d9941fea672cb74a10cb66f281e" title="Lib::BSP::EEPROM::FlashEmulation::write()">Lib::BSP::EEPROM::FlashEmulation::write()</a> of a changed value appends a record, and the emulation compacts the pages when the active one is full.</p>
-<dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="../../d4/da1/a04423.html#a8947a65dd4bc123a43147aadad6d5328" title="Lib::BSP::EEPROM::FlashEmulation::open()">Lib::BSP::EEPROM::FlashEmulation::open()</a> once, before the first read() or write(), and only from a task, never from an ISR.</dd>
+<dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="../../d4/da1/a04423.html#a8947a65dd4bc123a43147aadad6d5328" title="Lib::BSP::EEPROM::FlashEmulation::open()">Lib::BSP::EEPROM::FlashEmulation::open()</a> before the first read() or write(); calling it again is harmless. Call it only from a task, never from an ISR.</dd>
 <dd>
-Target: STM32U5 with 'HAL_FLASH_MODULE_ENABLED' defined. The programming unit is a 16-byte quadword and the sector addresses are U5-specific. On STM32F407 the class compiles to nothing.</dd></dl>
+Target: STM32U5 with <em class="arg">HAL_FLASH_MODULE_ENABLED</em> defined. The header is written for the STM32U5 flash layout (16-byte quadword programming, page and bank addressing); it is not a supported driver on STM32F407.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Each boot writes the counter once, so frequent resets wear the flash. Store the counter less often when the device restarts many times.</dd></dl>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="flashemu_usage_values"></a>
@@ -122,7 +122,7 @@ Boot counter and calibration</h3>
 <div class="line">        uint16_t gain;  <span class="comment">// Gain in 1/1000 units.</span></div>
 <div class="line">    };</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// The two pages must be reserved in the linker script: the last sector pair of bank 2.</span></div>
+<div class="line">    <span class="comment">// Reserve the two pages in the linker script; the base must be page aligned and both pages must lie in one bank.</span></div>
 <div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/da1/a04423.html">Lib::BSP::EEPROM::FlashEmulation</a> eeprom{0x081FC000U};</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace</span></div>

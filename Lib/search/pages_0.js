@@ -1,7 +1,7 @@
 var searchData=
 [
   ['a_20block_0',['Erase a sector and program a block',['../X:/Lib/IAR/Project/Examples/Lib_HAL_FlashInterface.dox#flash_usage_erase',1,'']]],
-  ['a_20buffer_1',['Continuous scan into a buffer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_dma',1,'']]],
+  ['a_20buffer_1',['Scan channels into a buffer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_dma',1,'']]],
   ['a_20compare_20event_20in_20a_20task_2',['Scheduling a compare event in a task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOutputCompare.dox#timoc_usage_delay',1,'']]],
   ['a_20deadline_3',['Polling until a deadline',['../X:/Lib/IAR/Project/Examples/RTOS_Timeout.dox#timeout_usage_poll',1,'']]],
   ['a_20delay_4',['Measuring a delay',['../X:/Lib/IAR/Project/Examples/Lib_Helper_TimePeriod.dox#timeperiod_usage_measure',1,'']]],
@@ -59,13 +59,13 @@ var searchData=
   ['and_20lifecycle_56',['and lifecycle',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_config',1,'Construction and lifecycle'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_OSPI.dox#ospi_usage_setup',1,'Setup and lifecycle'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_UART.dox#uart_usage_setup',1,'Setup and lifecycle']]],
   ['and_20motor_20channels_20polled_20from_20one_20task_57',['Battery and motor channels polled from one task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_INA219.dox#ina219_usage_task',1,'']]],
   ['and_20period_20at_20run_20time_58',['Changing duty cycle and period at run time',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_update',1,'']]],
-  ['and_20plain_20http_20get_20over_20the_20modem_59',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]],
+  ['and_20plain_20http_20get_20over_20the_20modem_59',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#client_usage_telemetry',1,'']]],
   ['and_20program_20a_20block_60',['Erase a sector and program a block',['../X:/Lib/IAR/Project/Examples/Lib_HAL_FlashInterface.dox#flash_usage_erase',1,'']]],
   ['and_20read_20back_20a_20record_20from_20a_20task_61',['Write and read back a record from a task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_IS62WV51216.dox#is62_usage_frame',1,'']]],
   ['and_20rebind_62',['Bind and rebind',['../X:/Lib/IAR/Project/Examples/Lib_Core_FunctionRef.dox#functionref_usage_rebind',1,'']]],
   ['and_20receive_63',['Blocking send and receive',['../X:/Lib/IAR/Project/Examples/Lib_HAL_CAN.dox#can_usage_block',1,'']]],
   ['and_20receive_20a_20message_64',['Send and receive a message',['../X:/Lib/IAR/Project/Examples/RTOS_MessageBuffer.dox#messagebuffer_usage_basic',1,'']]],
-  ['and_20refresh_65',['Start and refresh',['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#wwdg_usage_start',1,'']]],
+  ['and_20refresh_65',['Start and refresh',['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#windowwatchdog_usage_start',1,'']]],
   ['and_20resynchronizing_66',['Writing and resynchronizing',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_write',1,'']]],
   ['and_20returning_20a_20slot_67',['Taking and returning a slot',['../X:/Lib/IAR/Project/Examples/RTOS_SemaphoreCounting.dox#semaphore_counting_usage_take',1,'']]],
   ['and_20send_20one_20frame_68',['Fill the ring and send one frame',['../X:/Lib/IAR/Project/Examples/Lib_BSP_SK6812.dox#sk6812_usage_frame',1,'']]],
@@ -84,6 +84,6 @@ var searchData=
   ['ascii_81',['ASCII',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_HexHelper.dox#hexhelper_usage_nibble',1,'Nibble to ASCII'],['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_Bcd.dox#bcd_usage_ascii',1,'Single digit to ASCII']]],
   ['ascii_20to_20nibble_82',['ASCII to nibble',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_HexHelper.dox#hexhelper_usage_parse',1,'']]],
   ['assumptions_83',['assumptions',['../X:/Lib/IAR/Project/Examples/Lib_HAL_LPTimer.dox#lptim_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimEncoder.dox#timenc_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimInputCapture.dox#timic_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOnePulse.dox#timop_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOutputCompare.dox#timoc_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimTimebase.dox#timtimebase_usage_hw',1,'Hardware and CubeMX assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_BSP_Ultrasonic_PGA460TPWRQ1.dox#pga460_usage_hw',1,'Hardware assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_hw',1,'Hardware assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_CAN.dox#can_usage_hw',1,'Hardware assumptions'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_DAC.dox#dac_usage_hw',1,'Hardware assumptions']]],
-  ['at_20run_20time_84',['at run time',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_update',1,'Changing duty cycle and period at run time'],['../X:/Lib/IAR/Project/Examples/RTOS_Timer.dox#timer_usage_period',1,'Changing the period at run time'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#wwdg_usage_window',1,'Narrow the refresh window at run time']]],
+  ['at_20run_20time_84',['at run time',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimPwmOutput.dox#timpwm_usage_update',1,'Changing duty cycle and period at run time'],['../X:/Lib/IAR/Project/Examples/RTOS_Timer.dox#timer_usage_period',1,'Changing the period at run time'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_WindowWatchdog.dox#windowwatchdog_usage_window',1,'Narrow the refresh window at run time']]],
   ['auto_20reload_20timer_85',['Auto-reload timer',['../X:/Lib/IAR/Project/Examples/RTOS_Timer.dox#timer_usage_blink',1,'']]]
 ];

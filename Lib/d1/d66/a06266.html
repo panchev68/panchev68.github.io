@@ -95,9 +95,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">RTOS::TickClient</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows a periodic task built on <a class="el" href="../../d1/d66/a06266.html" title="RTOS::TickClient">RTOS::TickClient</a>, which calls its derived class on every timer expiry.</p>
-<p>Shows a periodic task built on <a class="el" href="../../d1/d66/a06266.html" title="RTOS::TickClient">RTOS::TickClient</a>, which calls its derived class on every timer expiry.Covers a class that inherits <a class="el" href="../../d1/d66/a06266.html" title="RTOS::TickClient">RTOS::TickClient</a> with itself as the template argument and implements 'handleTickEvent()'. The callback runs in the FreeRTOS timer daemon task, so it must not block.</p>
-<dl class="section important"><dt>Important</dt><dd>'handleTickEvent()' must be public or the base must be befriended, because the base calls it.</dd></dl>
+<p>Shows a periodic task built on <a class="el" href="../../d1/d66/a06266.html" title="RTOS::TickClient">RTOS::TickClient</a>, which calls the <em class="arg">handleTickEvent()</em> of its derived class on every timer expiry.</p>
+<p>Shows a periodic task built on <a class="el" href="../../d1/d66/a06266.html" title="RTOS::TickClient">RTOS::TickClient</a>, which calls the <em class="arg">handleTickEvent()</em> of its derived class on every timer expiry.Covers a class that inherits <a class="el" href="../../d1/d66/a06266.html" title="RTOS::TickClient">RTOS::TickClient</a> with itself as the template argument and implements <em class="arg">handleTickEvent()</em>. The callback runs in the FreeRTOS timer service task, so it must not block.</p>
+<dl class="section important"><dt>Important</dt><dd><em class="arg">handleTickEvent()</em> must be public or the base must be befriended, because the base calls it.</dd></dl>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="tick_client_usage_class"></a>
 Derived class</h3>
@@ -112,7 +112,7 @@ Derived class</h3>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> handleTickEvent() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="comment">// Read the sensor; runs every 100 ticks, in the timer daemon task.</span></div>
+<div class="line">        <span class="comment">// Read the sensor; runs every 100 ticks, in the timer service task.</span></div>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="ttc" id="aa00923_html"><div class="ttname"><a href="../../df/de9/a00923.html">TickClient.hpp</a></div><div class="ttdoc">CRTP base driving periodic work from a FreeRTOS software timer.</div></div>
@@ -136,9 +136,7 @@ Starting and stopping</h3>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> exampleTask(<span class="keywordtype">void</span> * parameters) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
-<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> exampleTask() noexcept {</div>
 <div class="line">    Sampler sampler;</div>
 <div class="line">    <span class="keywordflow">if</span> (!sampler.isValid()) {</div>
 <div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Timer creation failed.</span></div>

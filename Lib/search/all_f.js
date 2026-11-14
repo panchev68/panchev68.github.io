@@ -310,7 +310,7 @@ var searchData=
   ['mode_20state_307',['mode state',['https://panchev68.github.io/HALF4/dd/de4/a01121.html',0,'TIM OSSI OffState Selection for Idle mode state'],['https://panchev68.github.io/HALF4/dc/d51/a01120.html',0,'TIM OSSR OffState Selection for Run mode state']]],
   ['mode_20structure_20definition_308',['HAL mode structure definition',['https://panchev68.github.io/HALF4/df/de8/a00839.html',0,'']]],
   ['mode_2ehpp_309',['Mode.hpp',['../dc/d50/a00332.html',1,'']]],
-  ['modem_310',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#http_usage_telemetry',1,'']]],
+  ['modem_310',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#client_usage_telemetry',1,'']]],
   ['modem_5fconfiguration_5fchanged_5fwhile_5fjoin_5fin_5fprogress_311',['MODEM_CONFIGURATION_CHANGED_WHILE_JOIN_IN_PROGRESS',['../d2/d38/a05147.html#a1ca3b1d6d0209c50bd947bfccb88bb66a59b9887429b867a85d180627b16d7384',1,'Lib::Digi::Core::Frame0x8a']]],
   ['modem_5fstatus_312',['MODEM_STATUS',['../d0/d2b/a01010.html#a28e123f246098db8d8570511c8c739f4acc784cdd0c040d61dae94e83a9ef410b',1,'Lib::Digi::Core::Frame']]],
   ['modem_5fupdate_5fin_5fprogress_313',['MODEM_UPDATE_IN_PROGRESS',['../db/d58/a05143.html#a1f2d004cd4c6fbc142552586f654c372a27b071737e20d1ed918b9530a9bdfe6e',1,'Lib::Digi::Core::Frame0x89']]],

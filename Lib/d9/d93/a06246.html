@@ -96,11 +96,11 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 <p>Shows creating an <a class="el" href="../../d9/d93/a06246.html" title="RTOS::MessageBuffer">RTOS::MessageBuffer</a>, then sending and receiving one small message from a task.</p>
-<p>Shows creating an <a class="el" href="../../d9/d93/a06246.html" title="RTOS::MessageBuffer">RTOS::MessageBuffer</a>, then sending and receiving one small message from a task. The example focuses on the API and leaves out task setup; FreeRTOS must already be running.</p>
+<p>Shows creating an <a class="el" href="../../d9/d93/a06246.html" title="RTOS::MessageBuffer">RTOS::MessageBuffer</a>, then sending and receiving one small message from a task. The example focuses on the API and leaves out task setup, so FreeRTOS must already be running.</p>
 <ul>
-<li>A message buffer supports one writer and one reader.</li>
-<li>Every message costs its payload plus a length header, <b>4</b> bytes with the default 'configMESSAGE_BUFFER_LENGTH_TYPE', so a 256-byte buffer carries messages of up to <a class="el" href="../../d0/d49/a05895.html#ac0cdf8e25be1101c88e2a89f0a109ce5" title="RTOS::MessageBuffer::getMaxMessageSize()">RTOS::MessageBuffer::getMaxMessageSize()</a> bytes (<b>252</b>).</li>
-<li>From an interrupt use <a class="el" href="../../d0/d49/a05895.html#a895f6a523a73fe0a86afc445c60cad95" title="RTOS::MessageBuffer::sendFromISR()">RTOS::MessageBuffer::sendFromISR()</a> and <a class="el" href="../../d0/d49/a05895.html#aa2cbd475f54d4d04bd40a1470fb8d0ea" title="RTOS::MessageBuffer::receiveFromISR()">RTOS::MessageBuffer::receiveFromISR()</a> instead. The overloads that take a 'higherPriorityTaskWoken' flag leave the 'portYIELD_FROM_ISR()' call to the caller.</li>
+<li>A message buffer supports one writer and one reader; several writers or readers must serialize their calls themselves, e.g. with a <a class="el" href="../../dd/d91/a06248.html" title="RTOS::Mutex">RTOS::Mutex</a>.</li>
+<li>Every message costs its payload plus a length header, <b>4</b> bytes with the default <em class="arg">configMESSAGE_BUFFER_LENGTH_TYPE</em>, so a 256-byte buffer carries messages of up to <a class="el" href="../../d0/d49/a05895.html#ac0cdf8e25be1101c88e2a89f0a109ce5" title="RTOS::MessageBuffer::getMaxMessageSize()">RTOS::MessageBuffer::getMaxMessageSize()</a> bytes (<b>252</b>).</li>
+<li>From an interrupt use <a class="el" href="../../d0/d49/a05895.html#a895f6a523a73fe0a86afc445c60cad95" title="RTOS::MessageBuffer::sendFromISR()">RTOS::MessageBuffer::sendFromISR()</a> and <a class="el" href="../../d0/d49/a05895.html#aa2cbd475f54d4d04bd40a1470fb8d0ea" title="RTOS::MessageBuffer::receiveFromISR()">RTOS::MessageBuffer::receiveFromISR()</a> instead; the overloads that take a <em class="arg">higherPriorityTaskWoken</em> flag leave the <b>portYIELD_FROM_ISR()</b> call to the caller.</li>
 </ul>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="messagebuffer_usage_basic"></a>

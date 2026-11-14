@@ -96,12 +96,12 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 <p>Shows signalling between a task and an ISR with a binary <a class="el" href="../../de/dd2/a06258.html" title="RTOS::Semaphore">RTOS::Semaphore</a>.</p>
-<p>Shows signalling between a task and an ISR with a binary RTOS::Semaphore.Covers opening the semaphore, a task waiting for an event with a timeout, and an interrupt handler that gives the semaphore from ISR context. The FromISR variant must not be called from a task, and the task variant must not be called from an ISR.</p>
+<p>Shows signalling between a task and an ISR with a binary <a class="el" href="../../de/dd2/a06258.html" title="RTOS::Semaphore">RTOS::Semaphore</a>. Covers opening the semaphore, a task waiting for an event with a timeout, and an interrupt handler that gives the semaphore from ISR context. <a class="el" href="../../d3/d20/a05927.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> and <a class="el" href="../../d3/d20/a05927.html#a5682e0c5d8eb6b2076978634963b4020" title="RTOS::SemaphoreBase::give()">RTOS::SemaphoreBase::give()</a> assert when called from an ISR, so the handler uses the FromISR variant.</p>
 <dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="../../d2/dde/a05923.html#a4f3a14ce62c98f7ce5520ce3e91b2322" title="RTOS::Semaphore::open()">RTOS::Semaphore::open()</a> from task context before the interrupt is enabled.</dd></dl>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="semaphore_usage_open"></a>
 Creating the semaphore</h3>
-<p>The semaphore is created empty, so the first <a class="el" href="../../d3/d20/a05927.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> blocks until the ISR gives it.</p>
+<p>The semaphore is created empty (taken), so the first <a class="el" href="../../d3/d20/a05927.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> blocks until the ISR gives it.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>
@@ -117,7 +117,7 @@ Creating the semaphore</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="semaphore_usage_isr"></a>
 Signalling from the interrupt</h3>
-<p>The handler runs in ISR context, so it uses only the <a class="el" href="../../d3/d20/a05927.html#aa210564f44d72420fb519ca27f12d9a1" title="RTOS::SemaphoreBase::giveFromISR()">RTOS::SemaphoreBase::giveFromISR()</a> variant.</p>
+<p>The handler runs in ISR context, so it calls the <a class="el" href="../../d3/d20/a05927.html#aa210564f44d72420fb519ca27f12d9a1" title="RTOS::SemaphoreBase::giveFromISR()">RTOS::SemaphoreBase::giveFromISR()</a> variant, which requests the context switch itself.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>

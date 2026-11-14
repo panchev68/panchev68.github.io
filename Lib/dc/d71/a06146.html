@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><!--header-->
 <div class="contents">
 <p>Demonstrates a timer-mode rotary encoder with a push button, polled from a menu task.</p>
-<p>Demonstrates a timer-mode rotary encoder with a push button, polled from a menu task.TIM3 is set to encoder mode in CubeMX and the button pin, named ENC_BTN, is an EXTI on both edges with a pull-up, so the 'PIN()' macro can build its handle. The task polls <a class="el" href="../../d6/df1/a04447.html#afa10c44ad4eee7779caf46410cac1255" title="Lib::BSP::EncoderTimer::read()">Lib::BSP::EncoderTimer::read()</a> every 10 ms. Holding the button for <a class="el" href="../../d6/df1/a04447.html#aa64ce59f0c59f795c337dcad2b2a104e" title="Lib::BSP::EncoderTimer::BUTTON_HOLD_TIME">Lib::BSP::EncoderTimer::BUTTON_HOLD_TIME</a> resets the position.</p>
+<p>Demonstrates a timer-mode rotary encoder with a push button, polled from a menu task.TIM3 is set to encoder mode in CubeMX and the button pin, named <em class="arg">ENC_BTN</em>, is an EXTI on both edges with a pull-up, so the <em class="arg">PIN()</em> macro can build its handle. The task polls <a class="el" href="../../d6/df1/a04447.html#afa10c44ad4eee7779caf46410cac1255" title="Lib::BSP::EncoderTimer::read()">Lib::BSP::EncoderTimer::read()</a> every 10 ms. Holding the button for <a class="el" href="../../d6/df1/a04447.html#aa64ce59f0c59f795c337dcad2b2a104e" title="Lib::BSP::EncoderTimer::BUTTON_HOLD_TIME">Lib::BSP::EncoderTimer::BUTTON_HOLD_TIME</a> resets the position.</p>
 <dl class="section important"><dt>Important</dt><dd>Poll faster than one detent can be turned: several steps between two calls make only one event.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Cannot share a program with <a class="el" href="../../d5/db3/a06144.html" title="Lib::BSP::EncoderPins">Lib::BSP::EncoderPins</a>, which needs its own <b>HAL_GPIO_EXTI_Callback()</b>.</dd></dl>
 <hr  />
@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 Menu position from timer and button events</h3>
 <p><a class="el" href="../../d6/df1/a04447.html#afa10c44ad4eee7779caf46410cac1255" title="Lib::BSP::EncoderTimer::read()">Lib::BSP::EncoderTimer::read()</a> returns at most one event per call in priority order: button change, rotation, then hold. Each returned value is handled in one 'switch', and any other value falls through to 'default'.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d1a/a00251.html">Lib/BSP/Encoder/EncoderTimer.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d80/a00614.html">Lib/HAL/GPIO/Handle.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
@@ -145,6 +146,7 @@ Menu position from timer and button events</h3>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
 <div class="ttc" id="aa00251_html"><div class="ttname"><a href="../../d3/d1a/a00251.html">EncoderTimer.hpp</a></div><div class="ttdoc">Declares the BSP rotary encoder driver on a HAL timer in encoder mode; compiles to nothing without HA...</div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00614_html"><div class="ttname"><a href="../../d7/d80/a00614.html">Handle.hpp</a></div><div class="ttdoc">GPIO pin handle wrapper providing typed access to port and pin configuration.</div></div>
 <div class="ttc" id="aa00614_html_a45dbeff58bd7e046067745552ea8044c"><div class="ttname"><a href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a></div><div class="ttdeci">#define PIN(p)</div><div class="ttdef"><b>Definition</b> Handle.hpp:25</div></div>
 <div class="ttc" id="aa00884_html"><div class="ttname"><a href="../../dd/d08/a00884.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
 <div class="ttc" id="aa01026_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>

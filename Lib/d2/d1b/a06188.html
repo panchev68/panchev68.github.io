@@ -95,24 +95,24 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">Lib::HAL::OSPIPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Runs a command with a data phase on the Octo-SPI controller through 'Lib::HAL::OSPIPort' in its three transfer modes: <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="Lib::HAL::DriverMode::BLOCKING">Lib::HAL::DriverMode::BLOCKING</a>, <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> and <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949" title="Lib::HAL::DriverMode::DMA">Lib::HAL::DriverMode::DMA</a>.</p>
-<p>Runs a command with a data phase on the Octo-SPI controller through 'Lib::HAL::OSPIPort' in its three transfer modes: <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="Lib::HAL::DriverMode::BLOCKING">Lib::HAL::DriverMode::BLOCKING</a>, <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> and <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949" title="Lib::HAL::DriverMode::DMA">Lib::HAL::DriverMode::DMA</a>. The port wraps a CubeMX 'OSPI_HandleTypeDef' and does not configure the pins, clock or memory-mapped mode.</p>
-<p>Each transfer is two steps: 'Lib::HAL::OSPIPort::command()' sends the instruction, address, alternate-byte and dummy phases described by a HAL 'OSPI_RegularCmdTypeDef', and the following 'Lib::HAL::OSPIPort::transmit()' or 'Lib::HAL::OSPIPort::receive()' moves the data phase. The size of the buffer must equal the 'NbData' of that command. The BLOCKING mode completes inside the HAL calls and works from any context. The IT and DMA modes wait on an <a class="el" href="../../d1/d65/a06240.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, so their calls are task-only and assert when called from an ISR. The OCTOSPI interrupt handler must call <b>HAL_OSPI_IRQHandler()</b> for the handle.</p>
-<dl class="section important"><dt>Important</dt><dd>The OCTOSPI controller is not on the STM32F407 used by this library (F7, H7 and L4+ only), so the 'HAL_OSPI_MODULE_ENABLED' guard of this class has nothing to enable there. On that target the header compiles to nothing, so the example below applies only to a target with an OCTOSPI peripheral.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The IT and DMA modes register their own HAL callbacks in 'Lib::HAL::OSPIPort::open()', so the HAL configuration header must set 'USE_HAL_OSPI_REGISTER_CALLBACKS' to <b>1</b>.</dd></dl>
+<p>Runs a command with a data phase on the Octo-SPI controller through <a class="el" href="../../d2/d1b/a06188.html" title="Lib::HAL::OSPIPort">Lib::HAL::OSPIPort</a> in its three transfer modes: 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' and 'Lib::HAL::DriverMode::DMA'.</p>
+<p>Runs a command with a data phase on the Octo-SPI controller through <a class="el" href="../../d2/d1b/a06188.html" title="Lib::HAL::OSPIPort">Lib::HAL::OSPIPort</a> in its three transfer modes: 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' and 'Lib::HAL::DriverMode::DMA'. The port wraps a CubeMX <em class="arg">OSPI_HandleTypeDef</em> and does not configure the pins, clock or memory-mapped mode.</p>
+<p>Each transfer is two steps: Lib::HAL::OSPIPort::command() sends the instruction, address, alternate-byte and dummy phases described by a HAL <em class="arg">OSPI_RegularCmdTypeDef</em>, and the following Lib::HAL::OSPIPort::transmit() or Lib::HAL::OSPIPort::receive() moves the data phase. The size of the buffer must equal the <em class="arg">NbData</em> of that command. The BLOCKING mode completes inside the HAL calls and works from any context. The IT and DMA modes are task-only and assert when called from an ISR; they wait on an <a class="el" href="../../d1/d65/a06240.html" title="RTOS::EventGroup">RTOS::EventGroup</a> for the data phase and for a command without one, while a command with a data phase is issued through the polling HAL call. The OCTOSPI interrupt handler must call <b>HAL_OSPI_IRQHandler()</b> for the handle.</p>
+<dl class="section important"><dt>Important</dt><dd>The OCTOSPI controller is not on the STM32F407 used by this library (F7, H7 and L4+ only), so the <em class="arg">HAL_OSPI_MODULE_ENABLED</em> guard of this class has nothing to enable there. On that target the header compiles to nothing, so the example below applies only to a target with an OCTOSPI peripheral.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The IT and DMA modes register their own HAL callbacks in open(), so the HAL configuration header must set <em class="arg">USE_HAL_OSPI_REGISTER_CALLBACKS</em> to <b>1</b>.</dd></dl>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="ospi_usage_setup"></a>
 Setup and lifecycle</h3>
-<p>The CubeMX init code creates and configures the handle, including the flash size and the clock. 'Lib::HAL::OSPIPort::open()' runs <b>HAL_OSPI_Init()</b>; for the IT and DMA modes it also registers the callbacks and creates the event group. 'Lib::HAL::OSPIPort::close()' reverses this from task context. The port does not own the handle.</p>
+<p>The CubeMX init code creates and configures the handle, including the flash size and the clock. open() runs <b>HAL_OSPI_Init()</b>; for the IT and DMA modes it also registers the callbacks and creates the event group. close() reverses this from task context. The port does not own the handle.</p>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="ospi_usage_blocking"></a>
 Blocking command and data phase</h3>
 <p>The timeouts are <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> durations. The example reads a block with the Quad I/O fast read opcode <b>0xEB</b> of a serial flash; the instruction, address and dummy values are device-specific, and every field not set stays zero.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d73/a00674.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">extern</span> OSPI_HandleTypeDef hospi1;</div>
 <div class="line"> </div>
@@ -135,8 +135,8 @@ Blocking command and data phase</h3>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> port.receive(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
 <div class="ttc" id="aa00674_html"><div class="ttname"><a href="../../d8/d73/a00674.html">OSPI.hpp</a></div><div class="ttdoc">Public umbrella include for the OCTOSPI subsystem.</div></div>
 <div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
@@ -144,12 +144,12 @@ Blocking command and data phase</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="ospi_usage_it"></a>
 Interrupt-driven transfer</h3>
-<p>The IT mode uses the same two calls from a task. The OCTOSPI handler is the only interrupt hook: CubeMX 'OCTOSPI1_IRQHandler()' calls 'HAL_OSPI_IRQHandler(&amp;hospi1)', which fires the callbacks that 'Lib::HAL::OSPIPort::open()' registered. A command without a data phase completes through the same event group.</p>
+<p>The IT mode uses the same two calls from a task. The OCTOSPI handler is the only interrupt hook: the CubeMX <b>OCTOSPI1_IRQHandler()</b> calls <b>HAL_OSPI_IRQHandler(&amp;hospi1)</b>, which fires the callbacks that open() registered. A command without a data phase completes through the same event group.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d73/a00674.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">extern</span> OSPI_HandleTypeDef hospi1;</div>
 <div class="line"> </div>
@@ -189,7 +189,7 @@ Interrupt-driven transfer</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="ospi_usage_error"></a>
 Error path and abort</h3>
-<p>A timed-out or failed phase returns <b>false</b> and the port stops its transfer, so the caller may issue the next command. If a task must release a blocked transfer from outside, 'Lib::HAL::OSPIPort::abort()' stops the controller and wakes the waiting task. The DMA mode requires the buffer to be reachable by the DMA controller; the port asserts on a CCM RAM buffer in a debug build.</p>
+<p>A timed-out or failed phase returns <b>false</b> and the port stops its transfer, so the caller may issue the next command. If a task must release a blocked transfer from outside, Lib::HAL::OSPIPort::abort() stops the controller and wakes the waiting task; it is called from task context. The DMA mode requires the buffer to be reachable by the DMA controller; the port asserts on a CCM RAM buffer in a debug build.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d73/a00674.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> cancelPending(Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; port) <span class="keyword">noexcept</span> {</div>

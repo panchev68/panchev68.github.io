@@ -95,14 +95,16 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">RTOS::PowerManager</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows enabling tickless low-power idle with <a class="el" href="../../db/d70/a06252.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, registering peripheral callbacks around sleep and holding a deep-sleep lock while a peripheral is busy.</p>
-<p>Shows enabling tickless low-power idle with <a class="el" href="../../db/d70/a06252.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, registering peripheral callbacks around sleep and holding a deep-sleep lock while a peripheral is busy.The manager puts the MCU into Stop mode when the idle time is long enough, and into Sleep mode otherwise. It needs a low-power timer to wake the scheduler, and it is a singleton, so <a class="el" href="../../da/d2e/a05907.html#af76fc6de7d330151f7765c0ff6149226" title="RTOS::PowerManager::instance()">RTOS::PowerManager::instance()</a> is used everywhere.</p>
-<dl class="section important"><dt>Important</dt><dd>The class is compiled only when 'FREERTOS_LOW_POWER_SUPPORT', 'HAL_LPTIM_MODULE_ENABLED' and 'LPTIM1' are defined, and 'configUSE_TICKLESS_IDLE' must be 1 or 2 in 'FreeRTOSConfig.h'. On a target where these are absent the whole class compiles to nothing.</dd></dl>
+<p>Shows enabling tickless low-power idle with <a class="el" href="../../db/d70/a06252.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, registering peripheral callbacks around deep sleep and holding a deep-sleep lock while a peripheral is busy.</p>
+<p>Shows enabling tickless low-power idle with <a class="el" href="../../db/d70/a06252.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, registering peripheral callbacks around deep sleep and holding a deep-sleep lock while a peripheral is busy.The manager puts the MCU into STOP1 deep sleep when the expected idle time is long enough, and into light sleep (plain <b>__WFI()</b>) otherwise. It needs a low-power timer to wake the scheduler, and it is a singleton, so <a class="el" href="../../da/d2e/a05907.html#af76fc6de7d330151f7765c0ff6149226" title="RTOS::PowerManager::instance()">RTOS::PowerManager::instance()</a> is used everywhere.</p>
+<dl class="section important"><dt>Important</dt><dd>The class is compiled only when 'FREERTOS_LOW_POWER_SUPPORT', 'HAL_LPTIM_MODULE_ENABLED' and 'LPTIM1' are defined, 'main.h' and 'FreeRTOS.h' are on the include path, and 'USE_HAL_LPTIM_REGISTER_CALLBACKS' is 1. 'configUSE_TICKLESS_IDLE' must be 1 or 2 in 'FreeRTOSConfig.h'. On a target where these are absent the whole class compiles to nothing.</dd>
+<dd>
+Define 'RTOS_POWER_MANAGER_IMPLEMENTATION' in exactly one '.cpp' file before including the header. That file emits the kernel hook 'vPortSuppressTicksAndSleep()'; without it the port's own weak implementation runs.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Deep sleep is withheld while a debugger is attached. Stop mode can make SWD and Live Watch lose the connection, so the manager checks <a class="el" href="../../da/d2e/a05907.html#ac35887bd479a4425729b40a4b3114f52" title="RTOS::PowerManager::isDebuggerAttached()">RTOS::PowerManager::isDebuggerAttached()</a> first.</dd></dl>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="power_manager_usage_setup"></a>
 Setup and sleep callbacks</h3>
-<p><a class="el" href="../../da/d2e/a05907.html#a565502e655a008546ced2e18d0fc7b22" title="RTOS::PowerManager::setup()">RTOS::PowerManager::setup()</a> binds the <a class="el" href="../../d4/dc1/a06186.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> that wakes the scheduler. The callbacks run before and after each sleep, so they should save and restore only the peripheral state that Stop mode loses.</p>
+<p><a class="el" href="../../da/d2e/a05907.html#a565502e655a008546ced2e18d0fc7b22" title="RTOS::PowerManager::setup()">RTOS::PowerManager::setup()</a> binds the <a class="el" href="../../d4/dc1/a06186.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> that wakes the scheduler; the timer must be opened first. The callbacks run only around each STOP1 entry, not around light sleep, so they should save and restore only the peripheral state that Stop mode loses.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d6a/a00704.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -111,7 +113,7 @@ Setup and sleep callbacks</h3>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/d01/a05531.html">Lib::HAL::LPTimer</a> lowPowerTimer(&amp;hlptim1, 0U); <span class="comment">// The channel is the one the wrapper configures.</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/d01/a05531.html">Lib::HAL::LPTimer</a> lowPowerTimer(&amp;hlptim1, LPTIM_CHANNEL_1); <span class="comment">// The LPTIM channel the wrapper configures.</span></div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordtype">void</span> uartPreSleep() {</div>
 <div class="line">        <span class="comment">// Save the UART state and gate its clock.</span></div>
@@ -124,17 +126,21 @@ Setup and sleep callbacks</h3>
 <div class="line">} <span class="comment">// namespace</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">bool</span> setupLowPower() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!lowPowerTimer.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
 <div class="line">    <span class="keyword">auto</span> &amp; manager = <a id="a1" name="a1"></a><a class="code hl_function" href="../../da/d2e/a05907.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a>();</div>
 <div class="line">    <span class="keywordflow">if</span> (!manager.setup(lowPowerTimer)) {</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> manager.registerPreSleepCallback(uartPreSleep) &amp;&amp; manager.registerPostSleepCallback(uartPostSleep);</div>
+<div class="line">    <span class="keywordflow">return</span> manager.registerPreSleepCallback(&amp;uartPreSleep) &amp;&amp; manager.registerPostSleepCallback(&amp;uartPostSleep);</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00704_html"><div class="ttname"><a href="../../d4/d6a/a00704.html">LPTimer.hpp</a></div><div class="ttdoc">Low-power timer peripheral driver for STM32 architectures.</div></div>
 <div class="ttc" id="aa00899_html"><div class="ttname"><a href="../../d3/d8a/a00899.html">PowerManager.hpp</a></div><div class="ttdoc">Power management component providing low-power mode transitions for FreeRTOS tickless idle.</div></div>
 <div class="ttc" id="aa05531_html"><div class="ttname"><a href="../../d1/d01/a05531.html">Lib::HAL::LPTimer</a></div><div class="ttdoc">Manages LPTIM peripheral configuration and interrupt-driven timeout events.</div><div class="ttdef"><b>Definition</b> LPTimer.hpp:42</div></div>
-<div class="ttc" id="aa05907_html_af76fc6de7d330151f7765c0ff6149226"><div class="ttname"><a href="../../da/d2e/a05907.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a></div><div class="ttdeci">static PowerManager &amp; instance() noexcept</div><div class="ttdoc">Retrieves the singleton instance of the PowerManager.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:196</div></div>
+<div class="ttc" id="aa05907_html_af76fc6de7d330151f7765c0ff6149226"><div class="ttname"><a href="../../da/d2e/a05907.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a></div><div class="ttdeci">static PowerManager &amp; instance() noexcept</div><div class="ttdoc">Retrieves the singleton instance of the PowerManager.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:195</div></div>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="power_manager_usage_lock"></a>
 Deep-sleep lock</h3>
@@ -146,20 +152,20 @@ Deep-sleep lock</h3>
 <div class="line">    <span class="comment">// Run the transfer that needs the peripheral clock.</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aa01641_html_ga82fa606b1427f731ac64bb8ac49221f3"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01641.html#ga82fa606b1427f731ac64bb8ac49221f3">lock</a></div><div class="ttdeci">void lock(_L1 &amp;__l1, _L2 &amp;__l2, _L3 &amp;... __l3)</div></div>
-<div class="ttc" id="aa05915_html"><div class="ttname"><a href="../../d1/d77/a05915.html">RTOS::PowerManager::DeepSleepLock</a></div><div class="ttdoc">RAII guard that blocks deep sleep for its lifetime, e.g.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:131</div></div>
+<div class="ttc" id="aa05915_html"><div class="ttname"><a href="../../d1/d77/a05915.html">RTOS::PowerManager::DeepSleepLock</a></div><div class="ttdoc">RAII guard that blocks deep sleep for its lifetime, e.g.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:130</div></div>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="power_manager_usage_stats"></a>
 Checking statistics</h3>
-<p><a class="el" href="../../da/d2e/a05907.html#a0bae4d059d5136a3f1a01b190a524c37" title="RTOS::PowerManager::getStatistics()">RTOS::PowerManager::getStatistics()</a> reports how often each sleep mode was entered. A deep-sleep count that stays at zero usually means a debugger is attached or a lock is held.</p>
+<p><a class="el" href="../../da/d2e/a05907.html#a0bae4d059d5136a3f1a01b190a524c37" title="RTOS::PowerManager::getStatistics()">RTOS::PowerManager::getStatistics()</a> returns a snapshot of how often each sleep mode was entered. A deep-sleep count that stays at zero usually means a debugger is attached or a lock is held.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">bool</span> deepSleepSeen() {</div>
 <div class="line">    <span class="keyword">const</span> <a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../db/da7/a05911.html">RTOS::PowerManager::Statistics</a> stats = <a class="code hl_function" href="../../da/d2e/a05907.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a>().<a id="a5" name="a5"></a><a class="code hl_function" href="../../da/d2e/a05907.html#a0bae4d059d5136a3f1a01b190a524c37">getStatistics</a>();</div>
 <div class="line">    <span class="keywordflow">return</span> stats.<a id="a6" name="a6"></a><a class="code hl_variable" href="../../db/da7/a05911.html#ae80981e088a11d9e03983df5989a0c57">deepSleepCount</a> &gt; 0U;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05907_html_a0bae4d059d5136a3f1a01b190a524c37"><div class="ttname"><a href="../../da/d2e/a05907.html#a0bae4d059d5136a3f1a01b190a524c37">RTOS::PowerManager::getStatistics</a></div><div class="ttdeci">Statistics getStatistics() const noexcept</div><div class="ttdoc">Reads the sleep counters as one consistent snapshot.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:432</div></div>
-<div class="ttc" id="aa05911_html"><div class="ttname"><a href="../../db/da7/a05911.html">RTOS::PowerManager::Statistics</a></div><div class="ttdoc">Sleep counters collected by the idle hook, for power profiling.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:119</div></div>
-<div class="ttc" id="aa05911_html_ae80981e088a11d9e03983df5989a0c57"><div class="ttname"><a href="../../db/da7/a05911.html#ae80981e088a11d9e03983df5989a0c57">RTOS::PowerManager::Statistics::deepSleepCount</a></div><div class="ttdeci">uint32_t deepSleepCount</div><div class="ttdoc">Number of completed STOP1 entries.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:120</div></div>
+<div class="ttc" id="aa05907_html_a0bae4d059d5136a3f1a01b190a524c37"><div class="ttname"><a href="../../da/d2e/a05907.html#a0bae4d059d5136a3f1a01b190a524c37">RTOS::PowerManager::getStatistics</a></div><div class="ttdeci">Statistics getStatistics() const noexcept</div><div class="ttdoc">Reads the sleep counters as one consistent snapshot.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:430</div></div>
+<div class="ttc" id="aa05911_html"><div class="ttname"><a href="../../db/da7/a05911.html">RTOS::PowerManager::Statistics</a></div><div class="ttdoc">Sleep counters collected by the idle hook, for power profiling.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:118</div></div>
+<div class="ttc" id="aa05911_html_ae80981e088a11d9e03983df5989a0c57"><div class="ttname"><a href="../../db/da7/a05911.html#ae80981e088a11d9e03983df5989a0c57">RTOS::PowerManager::Statistics::deepSleepCount</a></div><div class="ttdeci">uint32_t deepSleepCount</div><div class="ttdoc">Number of completed STOP1 entries.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:119</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

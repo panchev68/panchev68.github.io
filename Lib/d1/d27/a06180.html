@@ -95,10 +95,10 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="headertitle"><div class="title">Lib::HAL::HASHPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Computes a SHA-256 digest of a byte buffer with 'Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::BLOCKING&gt;' and with 'Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::IT&gt;'.</p>
-<p>Computes a SHA-256 digest of a byte buffer with 'Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::BLOCKING&gt;' and with 'Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::IT&gt;'.Both modes share the lifecycle from 'Lib::HAL::HASHPortBase': <a class="el" href="../../d7/d41/a05427.html#ae9dc794f4ad8b52c9c6ecdd73468f030" title="Lib::HAL::HASHPortBase::open()">Lib::HAL::HASHPortBase::open()</a> initializes the HAL handle and 'Lib::HAL::HASHPortBase'close() de-initializes it. The handle is CubeMX-generated, must stay valid for the lifetime of the port, and must use 'HASH_DATATYPE_8B', because byte-stream hashing asserts it. The BLOCKING mode polls the peripheral in the calling task. The IT mode waits on an RTOS event group that the HASH ISR sets, so it must be called from task context and needs 'USE_HAL_HASH_REGISTER_CALLBACKS' set to 1 in the HAL configuration; the header enforces that with a compile-time error.</p>
-<p>Both modes return the digest as a 'Lib::HAL::HASHPortBase'Sha256Digest (32 big-endian bytes) in an optional that is empty on failure or timeout. The IT mode takes a mutex, so concurrent callers from several tasks are serialized.</p>
-<dl class="section important"><dt>Important</dt><dd>The HASH peripheral is not present on the STM32F407xx device: its CMSIS header defines no 'HASH_BASE'. The HASH peripheral belongs to other STM32F4 families (for example the STM32F415/F417 and STM32F437/F439). The module guard is 'HAL_HASH_MODULE_ENABLED'; the STM32Cube template enables it, but the project's 'stm32f4xx_hal_conf.h' is not in the repository, so the guard is unverified here. Do not use this class on the STM32F407xx target.</dd></dl>
+<p>Computes a SHA-256 digest of a byte buffer with <a class="el" href="../../d1/d27/a06180.html" title="Lib::HAL::HASHPort">Lib::HAL::HASHPort</a>, in its 'Lib::HAL::DriverMode::BLOCKING' and its 'Lib::HAL::DriverMode::IT' specializations.</p>
+<p>Computes a SHA-256 digest of a byte buffer with <a class="el" href="../../d1/d27/a06180.html" title="Lib::HAL::HASHPort">Lib::HAL::HASHPort</a>, in its 'Lib::HAL::DriverMode::BLOCKING' and its 'Lib::HAL::DriverMode::IT' specializations.Both modes share the lifecycle from Lib::HAL::HASHPortBase: open() initializes the HAL handle and close() de-initializes it. The handle is CubeMX-generated, must stay valid for the lifetime of the port, and must use <em class="arg">HASH_DATATYPE_8B</em>, because byte-stream hashing asserts it. The BLOCKING mode polls the peripheral in the calling task. The IT mode waits on an RTOS event group that the HASH ISR sets, so it must be called from task context and needs <em class="arg">USE_HAL_HASH_REGISTER_CALLBACKS</em> set to <b>1</b> in the HAL configuration; the header enforces that with a compile-time error.</p>
+<p>Both modes return the digest as a <a class="el" href="../../d7/d41/a05427.html#add4d9f33ecf447251492399927b27da5" title="Lib::HAL::HASHPortBase::Sha256Digest">Lib::HAL::HASHPortBase::Sha256Digest</a> (32 big-endian bytes) in a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html" title="std::optional">std::optional</a> that is empty on failure or timeout. The IT mode takes a mutex, so concurrent callers from several tasks are serialized.</p>
+<dl class="section important"><dt>Important</dt><dd>The HASH peripheral is not present on the STM32F407xx device: its CMSIS header defines no <em class="arg">HASH_BASE</em>. The HASH peripheral belongs to other STM32F4 families (for example the STM32F415/F417 and STM32F437/F439). The module guard is <em class="arg">HAL_HASH_MODULE_ENABLED</em>; the STM32Cube template enables it, but the project's 'stm32f4xx_hal_conf.h' is not in the repository, so the guard is unverified here. Do not use this class on the STM32F407xx target.</dd></dl>
 <hr  />
 <h3 class="doxsection"><a class="anchor" id="hash_usage_setup"></a>
 Handle setup</h3>
@@ -106,17 +106,18 @@ Handle setup</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="hash_usage_block"></a>
 Blocking digest</h3>
-<p>'Lib::HAL::HASHPortBase'open() must succeed before 'Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::BLOCKING&gt;::sha256()' is called. The timeout bounds the HAL polling loop, so a stalled peripheral returns an empty optional instead of hanging.</p>
+<p>The port's open() must succeed before sha256() is called. The timeout bounds the HAL polling loop, so a stalled peripheral returns an empty optional instead of hanging.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d10/a00635.html">Lib/HAL/HASH.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">extern</span> HASH_HandleTypeDef hhash; <span class="comment">// Generated by CubeMX.</span></div>
 <div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;Lib::HAL::HASHPortBase&lt;Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::BLOCKING&gt;</a>&gt;::Sha256Digest&gt; hashOnce() noexcept {</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::BLOCKING&gt;::Sha256Digest</a>&gt; hashOnce() noexcept {</div>
 <div class="line">    <span class="keyword">constexpr</span> <a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 3&gt;</a> MESSAGE{0x61U, 0x62U, 0x63U};</div>
 <div class="line"> </div>
 <div class="line">    Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; port(&amp;hhash);</div>
@@ -132,6 +133,7 @@ Blocking digest</h3>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
 <div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
 <div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
 <div class="ttc" id="aa00635_html"><div class="ttname"><a href="../../d4/d10/a00635.html">HASH.hpp</a></div><div class="ttdoc">Public umbrella include for the HASH subsystem.</div></div>
 <div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
 <div class="ttc" id="aa01662_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html">std::nullopt</a></div></div>
@@ -140,13 +142,14 @@ Blocking digest</h3>
 </div><!-- fragment --><hr  />
 <h3 class="doxsection"><a class="anchor" id="hash_usage_it"></a>
 Interrupt digest from a task</h3>
-<p>The IT port registers its callbacks in 'Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::IT&gt;::open()' and unregisters them in 'Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::IT&gt;::close()'. A failed or timed-out digest recovers the HAL handle, so the next call starts from a clean state.</p>
+<p>The IT port registers its HAL callbacks in its open() and unregisters them in its close(). A timed-out digest reinitializes the peripheral, so the next call starts from a clean state; a HAL error returns an empty optional without that step.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d10/a00635.html">Lib/HAL/HASH.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
@@ -161,8 +164,8 @@ Interrupt digest from a task</h3>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
 <div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> digest = port.sha256(std::span&lt;const uint8_t&gt;(MESSAGE), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
-<div class="line">        <span class="keywordflow">if</span> (!digest.has_value()) {</div>
-<div class="line">            <span class="comment">// Timed out, failed, or the HAL refused to start; retry later.</span></div>
+<div class="line">        <span class="keywordflow">if</span> (digest.has_value()) {</div>
+<div class="line">            <span class="comment">// Use digest.value().</span></div>
 <div class="line">        }</div>
 <div class="line">        <a id="a4" name="a4"></a><a class="code hl_function" href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a id="_a5" name="_a5"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(1));</div>
 <div class="line">    }</div>

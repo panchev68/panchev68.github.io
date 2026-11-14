@@ -18,7 +18,7 @@ var searchData=
   ['blocking_20single_20conversion_15',['Blocking single conversion',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_block',1,'']]],
   ['blocking_20transfers_16',['Blocking transfers',['../X:/Lib/IAR/Project/Examples/Lib_HAL_SPI.dox#spi_usage_block',1,'Blocking transfers'],['../X:/Lib/IAR/Project/Examples/Lib_HAL_UART.dox#uart_usage_blocking',1,'Blocking transfers']]],
   ['boot_20counter_20and_20calibration_17',['Boot counter and calibration',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EEPROM_Internal_FlashEmulation.dox#flashemu_usage_values',1,'']]],
-  ['buffer_18',['Continuous scan into a buffer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_dma',1,'']]],
+  ['buffer_18',['Scan channels into a buffer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_ADC.dox#adc_usage_dma',1,'']]],
   ['buffer_20pool_19',['Buffer pool',['../X:/Lib/IAR/Project/Examples/RTOS_SemaphoreCounting.dox#semaphore_counting_usage_pool',1,'']]],
   ['build_20requirements_20',['Build requirements',['../index.html#mainpage_build',1,'']]],
   ['bus_21',['New chip driver and storage on a shared bus',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EEPROM_I2C_Driver.dox#eeprom_usage_bus',1,'']]],
