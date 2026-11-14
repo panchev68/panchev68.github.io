@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Reset</title>
+<title>IAR EWARM Library: Lib::HAL::StreamSerialPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,42 +92,91 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::Reset</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::StreamSerialPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Reads the cause of the last reset with <a class="el" href="../../d2/d0e/a05496.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> and requests a system reset with <a class="el" href="../../d2/d0e/a05496.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">Lib::HAL::Reset::resetSystem()</a>.</p>
-<p>Reads the cause of the last reset with <a class="el" href="../../d2/d0e/a05496.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> and requests a system reset with <a class="el" href="../../d2/d0e/a05496.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">.Both</a> members are static; the class has no state and no instance. <a class="el" href="../../d2/d0e/a05496.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> clears the RCC reset flags on every call, so read it once, early in start-up, and keep the result. A later call reports <a class="el" href="../../d2/d0e/a05496.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3" title="Lib::HAL::Reset::State::UNKNOWN">Lib::HAL::Reset::State::UNKNOWN</a> unless a new reset has occurred since.</p>
-<p>The class depends only on the CMSIS and RCC definitions, so it has no HAL module guard and needs no module enabled in 'stm32f4xx_hal_conf.h'. The reset flags it maps differ between families; 'RCC_FLAG_PORRST' is used only where the device defines it.</p>
-<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="../../d2/d0e/a05496.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">Lib::HAL::Reset::resetSystem()</a> does not return. Flush logs, close files and stop peripherals that must finish first, because the reset discards everything else.</dd></dl>
+<p>Reads a UART byte stream with <a class="el" href="../../dd/dae/a06201.html" title="Lib::HAL::StreamSerialPort">Lib::HAL::StreamSerialPort</a>, which receives one byte at a time in an interrupt and pushes it into an <a class="el" href="../../d4/d72/a06267.html" title="RTOS::StreamBuffer">RTOS::StreamBuffer</a> that one task reads.</p>
+<p>Reads a UART byte stream with <a class="el" href="../../dd/dae/a06201.html" title="Lib::HAL::StreamSerialPort">Lib::HAL::StreamSerialPort</a>, which receives one byte at a time in an interrupt and pushes it into an <a class="el" href="../../d4/d72/a06267.html" title="RTOS::StreamBuffer">RTOS::StreamBuffer</a> that one task reads. Writes are blocking and run in task context. The port wraps a CubeMX <em class="arg">UART_HandleTypeDef</em>. Its <a class="el" href="../../d0/d5e/a05570.html#a1b052f09718429b991946fea7724f411" title="Lib::HAL::StreamSerialPort::open()">Lib::HAL::StreamSerialPort::open()</a> calls only <b>HAL_UART_Init()</b>; the pins and the clock come from the CubeMX MSP init code.</p>
+<p>Only one task may call <a class="el" href="../../d0/d5e/a05570.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="Lib::HAL::StreamSerialPort::read()">Lib::HAL::StreamSerialPort::read()</a> and <a class="el" href="../../d0/d5e/a05570.html#ad313993195f0d6ea829d9c7b61df667f" title="Lib::HAL::StreamSerialPort::discardInput()">Lib::HAL::StreamSerialPort::discardInput()</a>; the stream buffer has a single reader. Up to four ports can be open at once, because the interrupt finds the owning port by its handle in a table of four entries.</p>
+<dl class="section important"><dt>Important</dt><dd>The class is compiled only when <em class="arg">HAL_UART_MODULE_ENABLED</em> is defined. The project's 'EWARM/Core/Inc/stm32f4xx_hal_conf.h' defines it, together with <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> set to <b>1</b>.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="reset_usage_cause"></a>
-Report the cause of the last reset</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d9b/a00680.html">Lib/HAL/Reset.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="stream_usage_config"></a>
+Construction and lifecycle</h3>
+<p>The <a class="el" href="../../d3/d27/a05574.html" title="Lib::HAL::StreamSerialPort::Config">Lib::HAL::StreamSerialPort::Config</a> struct takes the CubeMX handle and the receive capacity in bytes. The constructor does not touch the hardware; <a class="el" href="../../d0/d5e/a05570.html#a1b052f09718429b991946fea7724f411" title="Lib::HAL::StreamSerialPort::open()">Lib::HAL::StreamSerialPort::open()</a> initializes the UART when it is still in the reset state, allocates the stream once, and arms the first one-byte reception. It returns <b>true</b> when the port is already open. <a class="el" href="../../d0/d5e/a05570.html#af4d1dbc5fcd691c510918d277281ee6e" title="Lib::HAL::StreamSerialPort::close()">Lib::HAL::StreamSerialPort::close()</a> aborts the reception and de-initializes the UART, so its pins return to the analog state and a powered-down device is not back-fed through TX. The destructor closes an open port.</p>
+<p>The CubeMX init must set <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> to <b>1</b>, because the port registers its own RX-complete and error callbacks.</p>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="stream_usage_isr"></a>
+Interrupt hook</h3>
+<p>No application code runs in the interrupt. The CubeMX <b>USART2_IRQHandler()</b> must call <b>HAL_UART_IRQHandler()</b> for the handle, which fires the callbacks registered by <a class="el" href="../../d0/d5e/a05570.html#a1b052f09718429b991946fea7724f411" title="Lib::HAL::StreamSerialPort::open()">Lib::HAL::StreamSerialPort::open()</a>. Each received byte is sent to the stream from the interrupt context, and a yield is requested when a higher-priority task woke up. A byte that does not fit is counted and can be read back with <a class="el" href="../../d0/d5e/a05570.html#a32276aa918b5679e4f0e8df69175063f" title="Lib::HAL::StreamSerialPort::getDroppedCount()">Lib::HAL::StreamSerialPort::getDroppedCount()</a>.</p>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="stream_usage_read"></a>
+Reading a frame</h3>
+<p><a class="el" href="../../d0/d5e/a05570.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="Lib::HAL::StreamSerialPort::read()">Lib::HAL::StreamSerialPort::read()</a> copies up to the size of the span and returns the number of bytes received. It returns 0 on timeout or while the port is closed, so a caller that expects a frame loops until it has collected enough bytes or a deadline has passed.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_enumeration" href="../../d2/d0e/a05496.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a> bootReset() noexcept {</div>
-<div class="line">    <span class="comment">// Call once from start-up, before any watchdog is started.</span></div>
-<div class="line">    <span class="keywordflow">return</span> <a id="a1" name="a1"></a><a class="code hl_function" href="../../d2/d0e/a05496.html#a1cb344701ab8751dd646298cb07d5957">Lib::HAL::Reset::getResetState</a>();</div>
-<div class="line">}</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> wasWatchdogReset(<a class="code hl_enumeration" href="../../d2/d0e/a05496.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a> state) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> state == <a id="_a2" name="_a2"></a><a class="code hl_enumvalue" href="../../d2/d0e/a05496.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9">Lib::HAL::Reset::State::INDEPENDENT_WATCHDOG</a> ||</div>
-<div class="line">           state == <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d2/d0e/a05496.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368">Lib::HAL::Reset::State::WINDOW_WATCHDOG</a>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00680_html"><div class="ttname"><a href="../../d4/d9b/a00680.html">Reset.hpp</a></div><div class="ttdoc">Reports the cause of the last system reset and triggers a new one.</div></div>
-<div class="ttc" id="aa05496_html_a1cb344701ab8751dd646298cb07d5957"><div class="ttname"><a href="../../d2/d0e/a05496.html#a1cb344701ab8751dd646298cb07d5957">Lib::HAL::Reset::getResetState</a></div><div class="ttdeci">static State getResetState() noexcept</div><div class="ttdoc">Reads the cause of the last system reset and clears the reset-flag register for the next one.</div><div class="ttdef"><b>Definition</b> Reset.hpp:66</div></div>
-<div class="ttc" id="aa05496_html_ae9f0fa1c20664b577fc615da59211d91"><div class="ttname"><a href="../../d2/d0e/a05496.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a></div><div class="ttdeci">State</div><div class="ttdoc">Cause of the last system reset, as latched by the RCC reset-flag register.</div><div class="ttdef"><b>Definition</b> Reset.hpp:45</div></div>
-<div class="ttc" id="aa05496_html_ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9"><div class="ttname"><a href="../../d2/d0e/a05496.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9">Lib::HAL::Reset::State::INDEPENDENT_WATCHDOG</a></div><div class="ttdeci">@ INDEPENDENT_WATCHDOG</div><div class="ttdoc">Independent watchdog (IWDG) reset.</div><div class="ttdef"><b>Definition</b> Reset.hpp:51</div></div>
-<div class="ttc" id="aa05496_html_ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368"><div class="ttname"><a href="../../d2/d0e/a05496.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368">Lib::HAL::Reset::State::WINDOW_WATCHDOG</a></div><div class="ttdeci">@ WINDOW_WATCHDOG</div><div class="ttdoc">Window watchdog (WWDG) reset.</div><div class="ttdef"><b>Definition</b> Reset.hpp:52</div></div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>ModemReader final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    ModemReader() noexcept :</div>
+<div class="line">        port({</div>
+<div class="line">            .handle = &amp;huart2,</div>
+<div class="line">            .bufferSize = 256U,</div>
+<div class="line">        }) {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from the single reader task.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a1" name="_a1"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> port.open();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from the single reader task only; returns the number of bytes stored in &#39;frame&#39;.</span></div>
+<div class="line">    <span class="keywordtype">size_t</span> readFrame(std::span&lt;uint8_t&gt; frame) <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordtype">size_t</span> total = 0U;</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> deadline = std::chrono::steady_clock::now() + <a id="a2" name="a2"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500);</div>
+<div class="line">        <span class="keywordflow">while</span> ((total &lt; frame.size()) &amp;&amp; (std::chrono::steady_clock::now() &lt; deadline)) {</div>
+<div class="line">            total += port.read(frame.subspan(total), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(20));</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> total;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d0/d5e/a05570.html">Lib::HAL::StreamSerialPort</a> port;</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00734_html"><div class="ttname"><a href="../../d6/dc0/a00734.html">StreamSerialPort.hpp</a></div><div class="ttdoc">Interrupt-driven UART with a continuous receive stream, for devices that talk without being asked.</div></div>
+<div class="ttc" id="aa01149_html_ga5de4a49eb132735325e706f406c69d6e"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a></div><div class="ttdeci">struct __UART_HandleTypeDef UART_HandleTypeDef</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
+<div class="ttc" id="aa05570_html"><div class="ttname"><a href="../../d0/d5e/a05570.html">Lib::HAL::StreamSerialPort</a></div><div class="ttdoc">UART port that receives continuously into a stream buffer and transmits by polling.</div><div class="ttdef"><b>Definition</b> StreamSerialPort.hpp:50</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="reset_usage_request"></a>
-Request a software reset</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d9b/a00680.html">Lib/HAL/Reset.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="stream_usage_write"></a>
+Writing and resynchronizing</h3>
+<p><a class="el" href="../../d0/d5e/a05570.html#a0a35058ffe6e3bb6d1a5a9fb335c3588" title="Lib::HAL::StreamSerialPort::write()">Lib::HAL::StreamSerialPort::write()</a> accepts a byte span or a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html" title="std::string_view">std::string_view</a> and returns <b>true</b> only when every byte was sent. Before a new exchange, <a class="el" href="../../d0/d5e/a05570.html#ad313993195f0d6ea829d9c7b61df667f" title="Lib::HAL::StreamSerialPort::discardInput()">Lib::HAL::StreamSerialPort::discardInput()</a> drops bytes left from an earlier, unanswered message. Like <a class="el" href="../../d0/d5e/a05570.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="Lib::HAL::StreamSerialPort::read()">Lib::HAL::StreamSerialPort::read()</a>, it belongs to the single reader task.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> restartAfterFault() noexcept {</div>
-<div class="line">    <span class="comment">// Record the fault in backup storage or a log before resetting.</span></div>
-<div class="line">    <a id="a4" name="a4"></a><a class="code hl_function" href="../../d2/d0e/a05496.html#a6fd6f2776e6c5decf3577c484f08a1c0">Lib::HAL::Reset::resetSystem</a>();</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Call from the single reader task only.</span></div>
+<div class="line"><span class="keywordtype">bool</span> sendCommand(<a class="code hl_class" href="../../d0/d5e/a05570.html">Lib::HAL::StreamSerialPort</a> &amp; port) <span class="keyword">noexcept</span> {</div>
+<div class="line">    port.discardInput();</div>
+<div class="line">    <span class="keywordflow">return</span> port.write(<a id="_a4" name="_a4"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>(<span class="stringliteral">&quot;AT\r\n&quot;</span>), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05496_html_a6fd6f2776e6c5decf3577c484f08a1c0"><div class="ttname"><a href="../../d2/d0e/a05496.html#a6fd6f2776e6c5decf3577c484f08a1c0">Lib::HAL::Reset::resetSystem</a></div><div class="ttdeci">static void resetSystem() noexcept</div><div class="ttdoc">Resets the microcontroller through the CMSIS system-reset intrinsic.</div><div class="ttdef"><b>Definition</b> Reset.hpp:84</div></div>
+<div class="ttc" id="aa00215_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a></div></div>
+<div class="ttc" id="aa02950_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

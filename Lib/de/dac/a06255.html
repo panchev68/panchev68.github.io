@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::MessageBuffer</title>
+<title>IAR EWARM Library: RTOS::MutexGuard</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,58 +92,60 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::MessageBuffer</div></div>
+  <div class="headertitle"><div class="title">RTOS::MutexGuard</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows creating an <a class="el" href="../../de/dac/a06255.html" title="RTOS::MessageBuffer">RTOS::MessageBuffer</a>, then sending and receiving one small message from a task.</p>
-<p>Shows creating an <a class="el" href="../../de/dac/a06255.html" title="RTOS::MessageBuffer">RTOS::MessageBuffer</a>, then sending and receiving one small message from a task. The example focuses on the API and leaves out task setup; FreeRTOS must already be running.</p>
-<ul>
-<li>A message buffer supports one writer and one reader.</li>
-<li>Every message costs its payload plus a length header, <b>4</b> bytes with the default 'configMESSAGE_BUFFER_LENGTH_TYPE', so a 256-byte buffer carries messages of up to <a class="el" href="../../dd/d2a/a05904.html#ac0cdf8e25be1101c88e2a89f0a109ce5" title="RTOS::MessageBuffer::getMaxMessageSize()">RTOS::MessageBuffer::getMaxMessageSize()</a> bytes (<b>252</b>).</li>
-<li>From an interrupt use <a class="el" href="../../dd/d2a/a05904.html#a895f6a523a73fe0a86afc445c60cad95" title="RTOS::MessageBuffer::sendFromISR()">RTOS::MessageBuffer::sendFromISR()</a> and <a class="el" href="../../dd/d2a/a05904.html#aa2cbd475f54d4d04bd40a1470fb8d0ea" title="RTOS::MessageBuffer::receiveFromISR()">RTOS::MessageBuffer::receiveFromISR()</a> instead. The overloads that take a 'higherPriorityTaskWoken' flag leave the 'portYIELD_FROM_ISR()' call to the caller.</li>
-</ul>
+<p>Shows scope-based locking with <a class="el" href="../../de/dac/a06255.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope.</p>
+<p>Shows scope-based locking with <a class="el" href="../../de/dac/a06255.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope. It covers an indefinite lock and a timed lock, and checks the guard state after construction.</p>
+<p>The example runs in a task context with the FreeRTOS scheduler running. A mutex must never be locked or unlocked from an ISR. The first guard blocks indefinitely, because it uses the default <a class="el" href="../../d7/de6/a05902.html#acb650bbb5d2ae6ae2bab2490d29712be" title="RTOS::Mutex::WAIT_FOREVER">RTOS::Mutex::WAIT_FOREVER</a> timeout.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="messagebuffer_usage_basic"></a>
-Send and receive a message</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d46/a00890.html">Lib/RTOS/FreeRTOS/MessageBuffer.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_scope"></a>
+Scoped lock with an indefinite wait</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd6/a00896.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> taskSendReceiveExample() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dd/d2a/a05904.html">RTOS::MessageBuffer</a> mb;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a 256-byte underlying message buffer.</span></div>
-<div class="line">    <span class="keywordflow">if</span> (!mb.open(256)) {</div>
+<div class="line"><span class="keywordtype">void</span> lockedSection() {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/de6/a05902.html">RTOS::Mutex</a> mutex(<a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../d7/de6/a05902.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (!mutex.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d7/de6/a05902.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>()) {</div>
 <div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> payload[] = <span class="stringliteral">&quot;hello&quot;</span>;</div>
-<div class="line">    <span class="comment">// Send from a task, blocking up to 100 ticks if necessary.</span></div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> sent = mb.<a id="a1" name="a1"></a><a class="code hl_function" href="../../dd/d2a/a05904.html#a10110decaf3c897711e612ba455525cd">send</a>(payload, <span class="keyword">sizeof</span>(payload), <span class="keyword">static_cast&lt;</span><a id="_a2" name="_a2"></a><a class="code hl_typedef" href="../../dd/d2a/a05904.html#a74349e8aa0172b4a9f4763e24b7c10a6">RTOS::MessageBuffer::TickType</a><span class="keyword">&gt;</span>(100));</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sent);</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d0/dba/a05906.html">RTOS::MutexGuard</a> guard(mutex); <span class="comment">// Locks on construction, waits forever.</span></div>
+<div class="line">        <span class="keywordflow">if</span> (guard.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d0/dba/a05906.html#a3f156fd8fcb57426c142acbd54ddb267">isLocked</a>()) {</div>
+<div class="line">            <span class="comment">// Critical section protected by &#39;mutex&#39;.</span></div>
+<div class="line">        }</div>
+<div class="line">    } <span class="comment">// Guard destroyed here; the mutex is unlocked only if it was locked.</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Receive the message, blocking up to 100 ms.</span></div>
-<div class="line">    <span class="keywordtype">char</span> recv[32] = {};</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> received = mb.<a id="a3" name="a3"></a><a class="code hl_function" href="../../dd/d2a/a05904.html#a8bc5b3b484124680e0b606c983ee095e">receive</a>(recv, <span class="keyword">sizeof</span>(recv), 100ms);</div>
+<div class="line">    mutex.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d7/de6/a05902.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00896_html"><div class="ttname"><a href="../../da/dd6/a00896.html">Mutex.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS mutex and recursive mutex synchronization primitives.</div></div>
+<div class="ttc" id="aa00899_html"><div class="ttname"><a href="../../d3/d8a/a00899.html">MutexGuard.hpp</a></div><div class="ttdoc">RAII wrapper for safe, exception-free mutex acquisition and release.</div></div>
+<div class="ttc" id="aa05902_html"><div class="ttname"><a href="../../d7/de6/a05902.html">RTOS::Mutex</a></div><div class="ttdoc">Priority-inheriting mutual exclusion lock, normal or recursive.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:49</div></div>
+<div class="ttc" id="aa05902_html_a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="../../d7/de6/a05902.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Standard non-recursive priority-inheritance mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:61</div></div>
+<div class="ttc" id="aa05902_html_a9f2abf5c8b3442dd741bac7c15e5726a"><div class="ttname"><a href="../../d7/de6/a05902.html#a9f2abf5c8b3442dd741bac7c15e5726a">RTOS::Mutex::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the underlying FreeRTOS mutex handle, if not already open.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:142</div></div>
+<div class="ttc" id="aa05902_html_acae6fb03115a857672d114638e6da0cb"><div class="ttname"><a href="../../d7/de6/a05902.html#acae6fb03115a857672d114638e6da0cb">RTOS::Mutex::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the underlying FreeRTOS handle and marks the mutex closed.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:198</div></div>
+<div class="ttc" id="aa05906_html"><div class="ttname"><a href="../../d0/dba/a05906.html">RTOS::MutexGuard</a></div><div class="ttdoc">Scope-based lock guard for RTOS::Mutex, in the style of std::lock_guard.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:45</div></div>
+<div class="ttc" id="aa05906_html_a3f156fd8fcb57426c142acbd54ddb267"><div class="ttname"><a href="../../d0/dba/a05906.html#a3f156fd8fcb57426c142acbd54ddb267">RTOS::MutexGuard::isLocked</a></div><div class="ttdeci">bool isLocked() const noexcept</div><div class="ttdoc">Checks if the guard currently holds the lock.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:150</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_timed"></a>
+Timed lock</h3>
+<p>The guard converts the <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> to ticks. When the lock times out, the critical section is not protected and nothing is unlocked.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd6/a00896.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// &#39;received&#39; is the payload size, or 0 on timeout or if &#39;recv&#39; was too small for the message.</span></div>
-<div class="line">    <span class="keywordflow">if</span> (received &gt; 0 &amp;&amp; received &lt; <span class="keyword">sizeof</span>(recv)) {</div>
-<div class="line">        recv[received] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> timedSection(<a class="code hl_class" href="../../d7/de6/a05902.html">RTOS::Mutex</a> &amp; mutex) {</div>
+<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_class" href="../../d0/dba/a05906.html">RTOS::MutexGuard</a> guard(mutex, 10ms); guard) {</div>
+<div class="line">        <span class="comment">// Lock acquired within 10 ms.</span></div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Timed out: the critical section is not protected.</span></div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    mb.<a id="a4" name="a4"></a><a class="code hl_function" href="../../dd/d2a/a05904.html#a34199efdeb4b4ffc33966e52cb123bd8">close</a>();</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00890_html"><div class="ttname"><a href="../../d7/d46/a00890.html">MessageBuffer.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS message buffers.</div></div>
-<div class="ttc" id="aa05904_html"><div class="ttname"><a href="../../dd/d2a/a05904.html">RTOS::MessageBuffer</a></div><div class="ttdoc">Owner of a FreeRTOS message buffer handle.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:47</div></div>
-<div class="ttc" id="aa05904_html_a10110decaf3c897711e612ba455525cd"><div class="ttname"><a href="../../dd/d2a/a05904.html#a10110decaf3c897711e612ba455525cd">RTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *source, size_t length, TickType blockTime) noexcept</div><div class="ttdoc">Writes one message, blocking up to a timeout until it fits as a whole.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:236</div></div>
-<div class="ttc" id="aa05904_html_a34199efdeb4b4ffc33966e52cb123bd8"><div class="ttname"><a href="../../dd/d2a/a05904.html#a34199efdeb4b4ffc33966e52cb123bd8">RTOS::MessageBuffer::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the native message buffer; does nothing if already closed.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:200</div></div>
-<div class="ttc" id="aa05904_html_a74349e8aa0172b4a9f4763e24b7c10a6"><div class="ttname"><a href="../../dd/d2a/a05904.html#a74349e8aa0172b4a9f4763e24b7c10a6">RTOS::MessageBuffer::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdoc">Scheduler tick count used for timeouts.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:51</div></div>
-<div class="ttc" id="aa05904_html_a8bc5b3b484124680e0b606c983ee095e"><div class="ttname"><a href="../../dd/d2a/a05904.html#a8bc5b3b484124680e0b606c983ee095e">RTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dest, size_t length, TickType blockTime) noexcept</div><div class="ttdoc">Reads the oldest message, blocking up to a timeout for one to arrive.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:375</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Ethercat::SOES::Slave&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;</title>
+<title>IAR EWARM Library: Lib::Ethernet::Port</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,202 +91,98 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dc5/a01024.html">Ethercat</a></li><li class="navelem"><a href="../../db/d23/a01025.html">SOES</a></li><li class="navelem"><a href="../../de/d4f/a05270.html">Slave</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d3/d08/a01018.html">Ethernet</a></li><li class="navelem"><a href="../../de/d4f/a05270.html">Port</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d1/dad/a05267.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::Slave&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::Ethernet::Port</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Port number (0 to 65535).  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt;<br />
-class Lib::Ethercat::SOES::Slave&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;</div><p>EtherCAT slave: the application layer state machine, the process data and the mailbox of one slave controller. </p>
-<p>Written directly on the ESC registers, so no vendor stack is needed. The class follows the master's AL control requests (INIT, PRE-OP, SAFE-OP, OP), checks the sync manager configuration the master wrote before each step up, reports a refused request or a failure through the AL status and AL status code registers, drops from OP to SAFE-OP when the process data watchdog expires, and exchanges the process data of SM2 (outputs) and SM3 (inputs), which it enables through the PDI control registers on entering OP and SAFE-OP. Mailbox messages of a protocol such as CoE are handed to the derived class.</p>
-<p>The BOOTSTRAP state is offered when the derived class says so (<a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c" title="isBootstrapSupported()">isBootstrapSupported()</a>); the firmware update itself runs over FoE. Distributed clock synchronization is configured by the master in the ESC; the step to SAFE-OP asks the derived class to accept it (<a class="el" href="#a7e7721361c828febdd00cb2be71940c7" title="checkDistributedClock()">checkDistributedClock()</a>). Not covered: AoE and SoE on the mailbox. CoE, FoE and EoE are the separate classes 'CoE', 'FoE' and 'EoE' (class/): call their 'handle()' from <a class="el" href="#a5276f808524352e6c6df3a118ee9077c" title="handleMailboxMessage()">handleMailboxMessage()</a>. The chip is reached through any type that provides 'readReg()' and 'writeReg()' (the LAN9252 driver does).</p>
-<p>The class is a CRTP base. A derived class may provide <a class="el" href="#a5276f808524352e6c6df3a118ee9077c" title="handleMailboxMessage()">handleMailboxMessage()</a>, <a class="el" href="#af9c8b2d649246374776bf22b633106a1" title="handleMailboxIdle()">handleMailboxIdle()</a>, <a class="el" href="#ac39266e5345996d9607fc9174ef47fc1" title="handleStateChange()">handleStateChange()</a>, <a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c" title="isBootstrapSupported()">isBootstrapSupported()</a> and <a class="el" href="#a7e7721361c828febdd00cb2be71940c7" title="checkDistributedClock()">checkDistributedClock()</a>; each replaces the default of this class. If it declares them private, it must make 'Slave&lt;...&gt;' its friend. One task at a time may use a slave.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>The derived slave class. </td></tr>
-    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller, see 'EscAccess'. </td></tr>
-    <tr><td class="paramname">T_MAILBOX_SIZE</td><td>Largest mailbox, in bytes, the slave can handle. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Ethercat::SOES::Slave&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d33/a05268.svg" width="326" height="455"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
+<div class="textblock"><p>Port number (0 to 65535). </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a77b8666fde23c166cb6a2ff8ba32e75f" id="r_a77b8666fde23c166cb6a2ff8ba32e75f"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">PortString</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;char, <a class="el" href="#af916e924d6a4d9df945906634537c45e">MAX_PORT_DIGITS</a> + 1U&gt;</td></tr>
+<tr class="memdesc:a77b8666fde23c166cb6a2ff8ba32e75f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed, NUL-terminated buffer holding the decimal digits of a port number.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a40fe2ce2a9a0c83f329f4d57beaa9f4b" id="r_a40fe2ce2a9a0c83f329f4d57beaa9f4b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">Slave</a> (T_ESC &amp;controller, const <a class="el" href="../../d7/dc7/a05266.html">ProcessDataSize</a> &amp;processDataSize) noexcept</td></tr>
-<tr class="memdesc:a40fe2ce2a9a0c83f329f4d57beaa9f4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the slave to the slave controller.  <br /></td></tr>
-<tr class="memitem:a30f4b4d98758403d0c59df05000b9170" id="r_a30f4b4d98758403d0c59df05000b9170"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a30f4b4d98758403d0c59df05000b9170">~Slave</a> ()=default</td></tr>
-<tr class="memdesc:a30f4b4d98758403d0c59df05000b9170"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the slave.  <br /></td></tr>
-<tr class="memitem:a1b34ce396cbdf85bf7f8b25ce76b4491" id="r_a1b34ce396cbdf85bf7f8b25ce76b4491"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1b34ce396cbdf85bf7f8b25ce76b4491">Slave</a> (const Slave &amp;other)=delete</td></tr>
-<tr class="memdesc:a1b34ce396cbdf85bf7f8b25ce76b4491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the object stands for one slave controller.  <br /></td></tr>
-<tr class="memitem:aca9087f0bb6c11b99f5bb29a7cab5d2c" id="r_aca9087f0bb6c11b99f5bb29a7cab5d2c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aca9087f0bb6c11b99f5bb29a7cab5d2c">Slave</a> (Slave &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:aca9087f0bb6c11b99f5bb29a7cab5d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the object stands for one slave controller.  <br /></td></tr>
-<tr class="memitem:a802e630e4a9fa2528af9b1176a841322" id="r_a802e630e4a9fa2528af9b1176a841322"><td class="memItemLeft"><a class="el" href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">Slave</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a802e630e4a9fa2528af9b1176a841322">operator=</a> (const <a class="el" href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">Slave</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a802e630e4a9fa2528af9b1176a841322"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the object stands for one slave controller.  <br /></td></tr>
-<tr class="memitem:af66a6530fe5cdde6fa1a989a5f84eeb6" id="r_af66a6530fe5cdde6fa1a989a5f84eeb6"><td class="memItemLeft"><a class="el" href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">Slave</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af66a6530fe5cdde6fa1a989a5f84eeb6">operator=</a> (<a class="el" href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">Slave</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:af66a6530fe5cdde6fa1a989a5f84eeb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the object stands for one slave controller.  <br /></td></tr>
-<tr class="memitem:acc49b31f1582074322945e578143555c" id="r_acc49b31f1582074322945e578143555c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acc49b31f1582074322945e578143555c">start</a> () noexcept</td></tr>
-<tr class="memdesc:acc49b31f1582074322945e578143555c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts the slave in INIT and publishes that in the AL status register.  <br /></td></tr>
-<tr class="memitem:ad379452d18db66bb7ba544fd1539e0ce" id="r_ad379452d18db66bb7ba544fd1539e0ce"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad379452d18db66bb7ba544fd1539e0ce">process</a> () noexcept</td></tr>
-<tr class="memdesc:ad379452d18db66bb7ba544fd1539e0ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Services the slave: follows the AL control register, watches the process data watchdog and the mailbox.  <br /></td></tr>
-<tr class="memitem:a3a1200c4fbb64c5e7c0dab76fb9d2023" id="r_a3a1200c4fbb64c5e7c0dab76fb9d2023"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3a1200c4fbb64c5e7c0dab76fb9d2023">setError</a> (<a class="el" href="../../db/d23/a01025.html#a10c6daadd4bfb6d09e355d88ec1681dc">Error</a> code) noexcept</td></tr>
-<tr class="memdesc:a3a1200c4fbb64c5e7c0dab76fb9d2023"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports an application error: the slave drops to SAFE-OP if it was in OP and shows the error to the master, which acknowledges it through the AL control register.  <br /></td></tr>
-<tr class="memitem:a391eb22011819a165c89b893c7c0449c" id="r_a391eb22011819a165c89b893c7c0449c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a391eb22011819a165c89b893c7c0449c">readOutputs</a> (std::span&lt; uint8_t &gt; data) noexcept</td></tr>
-<tr class="memdesc:a391eb22011819a165c89b893c7c0449c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the outputs the master wrote (SM2).  <br /></td></tr>
-<tr class="memitem:a012edf8137afeda7183b0d4464897074" id="r_a012edf8137afeda7183b0d4464897074"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a012edf8137afeda7183b0d4464897074">writeInputs</a> (std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
-<tr class="memdesc:a012edf8137afeda7183b0d4464897074"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the inputs for the master (SM3).  <br /></td></tr>
-<tr class="memitem:aba721979d3b3f7d15cfa48c584e87182" id="r_aba721979d3b3f7d15cfa48c584e87182"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aba721979d3b3f7d15cfa48c584e87182">areOutputsValid</a> () const noexcept</td></tr>
-<tr class="memdesc:aba721979d3b3f7d15cfa48c584e87182"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the outputs may be applied.  <br /></td></tr>
-<tr class="memitem:a488cf78d1e9512af19de30969c6f1d52" id="r_a488cf78d1e9512af19de30969c6f1d52"><td class="memItemLeft"><a class="el" href="../../db/d23/a01025.html#afea74831b3c37117c52ebef85489a279">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a488cf78d1e9512af19de30969c6f1d52">getState</a> () const noexcept</td></tr>
-<tr class="memdesc:a488cf78d1e9512af19de30969c6f1d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the AL state.  <br /></td></tr>
-<tr class="memitem:a3a39f586f68b1ee07853a6bdff7fbdf7" id="r_a3a39f586f68b1ee07853a6bdff7fbdf7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3a39f586f68b1ee07853a6bdff7fbdf7">hasError</a> () const noexcept</td></tr>
-<tr class="memdesc:a3a39f586f68b1ee07853a6bdff7fbdf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the AL error indication.  <br /></td></tr>
-<tr class="memitem:a2944b7e04f26a7786ee0042d429ead54" id="r_a2944b7e04f26a7786ee0042d429ead54"><td class="memItemLeft"><a class="el" href="../../db/d23/a01025.html#a10c6daadd4bfb6d09e355d88ec1681dc">Error</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2944b7e04f26a7786ee0042d429ead54">getError</a> () const noexcept</td></tr>
-<tr class="memdesc:a2944b7e04f26a7786ee0042d429ead54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the AL status code that is shown.  <br /></td></tr>
-<tr class="memitem:a65f05684a824724062151ac2fdc257d0" id="r_a65f05684a824724062151ac2fdc257d0"><td class="memItemLeft"><a class="el" href="#a186483b3bfbc3199f52b2081e591cb83">SlaveMailbox</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a65f05684a824724062151ac2fdc257d0">getMailbox</a> () noexcept</td></tr>
-<tr class="memdesc:a65f05684a824724062151ac2fdc257d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives access to the mailbox, for example to answer a message with 'reply()'.  <br /></td></tr>
+<tr class="memitem:a0cdcdcee9376806af5c6778670685c80" id="r_a0cdcdcee9376806af5c6778670685c80"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a0cdcdcee9376806af5c6778670685c80">Port</a> () noexcept=default</td></tr>
+<tr class="memdesc:a0cdcdcee9376806af5c6778670685c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a port with the value 0.  <br /></td></tr>
+<tr class="memitem:a557aa5b63a11f1fb3bacd15033d34816" id="r_a557aa5b63a11f1fb3bacd15033d34816"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a557aa5b63a11f1fb3bacd15033d34816">Port</a> (uint16_t value) noexcept</td></tr>
+<tr class="memdesc:a557aa5b63a11f1fb3bacd15033d34816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a port with a value.  <br /></td></tr>
+<tr class="memitem:a74efeaeccbeb41630891ddb4725470a5" id="r_a74efeaeccbeb41630891ddb4725470a5"><td class="memItemLeft">constexpr uint16_t &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a74efeaeccbeb41630891ddb4725470a5">get</a> () noexcept</td></tr>
+<tr class="memdesc:a74efeaeccbeb41630891ddb4725470a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the port value.  <br /></td></tr>
+<tr class="memitem:a2c10d58145f110034d4c6152e2f11f3d" id="r_a2c10d58145f110034d4c6152e2f11f3d"><td class="memItemLeft">constexpr const uint16_t &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2c10d58145f110034d4c6152e2f11f3d">get</a> () const noexcept</td></tr>
+<tr class="memdesc:a2c10d58145f110034d4c6152e2f11f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the port value.  <br /></td></tr>
+<tr class="memitem:a1de553c3b996aee8be2112632f45ee1b" id="r_a1de553c3b996aee8be2112632f45ee1b"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a1de553c3b996aee8be2112632f45ee1b">set</a> (uint16_t newValue) noexcept</td></tr>
+<tr class="memdesc:a1de553c3b996aee8be2112632f45ee1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the port value.  <br /></td></tr>
+<tr class="memitem:a484cc8252d74ed19b3ddc021b4ebbc7a" id="r_a484cc8252d74ed19b3ddc021b4ebbc7a"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a484cc8252d74ed19b3ddc021b4ebbc7a">operator uint16_t</a> () const noexcept</td></tr>
+<tr class="memdesc:a484cc8252d74ed19b3ddc021b4ebbc7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts to the port value, so a <a class="el" href="../../de/d4f/a05270.html" title="Port">Port</a> can be passed where a 'uint16_t' is expected.  <br /></td></tr>
+<tr class="memitem:a4bdd58ee0e3a212c2e9b5be63a0ef4fd" id="r_a4bdd58ee0e3a212c2e9b5be63a0ef4fd"><td class="memItemLeft">constexpr <a class="el" href="#a0cdcdcee9376806af5c6778670685c80">Port</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4bdd58ee0e3a212c2e9b5be63a0ef4fd">operator=</a> (uint16_t newValue) noexcept</td></tr>
+<tr class="memdesc:a4bdd58ee0e3a212c2e9b5be63a0ef4fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a port value.  <br /></td></tr>
+<tr class="memitem:a5db32af54d9bdde977000618e7b6d476" id="r_a5db32af54d9bdde977000618e7b6d476"><td class="memItemLeft">constexpr auto&#160;</td><td class="memItemRight"><a class="el" href="#a5db32af54d9bdde977000618e7b6d476">operator&lt;=&gt;</a> (const <a class="el" href="#a0cdcdcee9376806af5c6778670685c80">Port</a> &amp;other) const noexcept=default</td></tr>
+<tr class="memdesc:a5db32af54d9bdde977000618e7b6d476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares two ports by value.  <br /></td></tr>
+<tr class="memitem:a08c2068f012c9bf6bb7c16893081cab6" id="r_a08c2068f012c9bf6bb7c16893081cab6"><td class="memItemLeft">constexpr <a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">PortString</a>&#160;</td><td class="memItemRight"><a class="el" href="#a08c2068f012c9bf6bb7c16893081cab6">toString</a> () const noexcept</td></tr>
+<tr class="memdesc:a08c2068f012c9bf6bb7c16893081cab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the port value to its decimal digits.  <br /></td></tr>
+<tr class="memitem:af096519c074646658fc5d42017770060" id="r_af096519c074646658fc5d42017770060"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#af096519c074646658fc5d42017770060">fromString</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> str) noexcept</td></tr>
+<tr class="memdesc:af096519c074646658fc5d42017770060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a string and sets the port value if it is valid; the value is left alone otherwise.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a5276f808524352e6c6df3a118ee9077c" id="r_a5276f808524352e6c6df3a118ee9077c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5276f808524352e6c6df3a118ee9077c">handleMailboxMessage</a> (const <a class="el" href="../../d2/dbd/a05254.html">MailboxHeader</a> &amp;header, std::span&lt; const uint8_t &gt; payload)</td></tr>
-<tr class="memdesc:a5276f808524352e6c6df3a118ee9077c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called for every message the master sends over the mailbox.  <br /></td></tr>
-<tr class="memitem:a3d61cb1f7f2e035ec2c0f6636a81355c" id="r_a3d61cb1f7f2e035ec2c0f6636a81355c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c">isBootstrapSupported</a> () const</td></tr>
-<tr class="memdesc:a3d61cb1f7f2e035ec2c0f6636a81355c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks whether the slave has a BOOTSTRAP state (a firmware update over FoE).  <br /></td></tr>
-<tr class="memitem:a7e7721361c828febdd00cb2be71940c7" id="r_a7e7721361c828febdd00cb2be71940c7"><td class="memItemLeft"><a class="el" href="../../db/d23/a01025.html#a10c6daadd4bfb6d09e355d88ec1681dc">Error</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7e7721361c828febdd00cb2be71940c7">checkDistributedClock</a> (uint8_t syncActivation)</td></tr>
-<tr class="memdesc:a7e7721361c828febdd00cb2be71940c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on the step from PRE-OP to SAFE-OP when the master has activated distributed clock synchronization (SYNC0 / SYNC1 outputs, ESC register 0x0981).  <br /></td></tr>
-<tr class="memitem:af9c8b2d649246374776bf22b633106a1" id="r_af9c8b2d649246374776bf22b633106a1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af9c8b2d649246374776bf22b633106a1">handleMailboxIdle</a> ()</td></tr>
-<tr class="memdesc:af9c8b2d649246374776bf22b633106a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on every pass of <a class="el" href="#ad379452d18db66bb7ba544fd1539e0ce" title="process()">process()</a> while the mailbox is started, after the pending message was handled; a protocol that sends in several steps, such as the CoE object list, continues here.  <br /></td></tr>
-<tr class="memitem:ac39266e5345996d9607fc9174ef47fc1" id="r_ac39266e5345996d9607fc9174ef47fc1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac39266e5345996d9607fc9174ef47fc1">handleStateChange</a> (<a class="el" href="../../db/d23/a01025.html#afea74831b3c37117c52ebef85489a279">State</a> previous, <a class="el" href="../../db/d23/a01025.html#afea74831b3c37117c52ebef85489a279">State</a> current)</td></tr>
-<tr class="memdesc:ac39266e5345996d9607fc9174ef47fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called after every change of the AL state.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a7658b363ed5d247291cd3b1f90cec20d" id="r_a7658b363ed5d247291cd3b1f90cec20d"><td class="memItemLeft">static constexpr <a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">PortString</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7658b363ed5d247291cd3b1f90cec20d">toString</a> (uint16_t value) noexcept</td></tr>
+<tr class="memdesc:a7658b363ed5d247291cd3b1f90cec20d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a port value to its decimal digits.  <br /></td></tr>
+<tr class="memitem:a75908d45c78d4098c3fa0e9f7dbc3638" id="r_a75908d45c78d4098c3fa0e9f7dbc3638"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a75908d45c78d4098c3fa0e9f7dbc3638">fromString</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> str, uint16_t &amp;result) noexcept</td></tr>
+<tr class="memdesc:a75908d45c78d4098c3fa0e9f7dbc3638"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a string into a port value.  <br /></td></tr>
+<tr class="memitem:af5b8a66e23be35b8d2589b3cdc9d3214" id="r_af5b8a66e23be35b8d2589b3cdc9d3214"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#af5b8a66e23be35b8d2589b3cdc9d3214">validateString</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> str) noexcept</td></tr>
+<tr class="memdesc:af5b8a66e23be35b8d2589b3cdc9d3214"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a string is a valid port number.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:af916e924d6a4d9df945906634537c45e" id="r_af916e924d6a4d9df945906634537c45e"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#af916e924d6a4d9df945906634537c45e">MAX_PORT_DIGITS</a> = 5U</td></tr>
+<tr class="memdesc:af916e924d6a4d9df945906634537c45e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digits needed for the largest port number (65535).  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="ac47f19d90fa852a20c9401bb0a28d971" name="ac47f19d90fa852a20c9401bb0a28d971"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac47f19d90fa852a20c9401bb0a28d971">&#9670;&#160;</a></span>Error</h2>
+<a id="a77b8666fde23c166cb6a2ff8ba32e75f" name="a77b8666fde23c166cb6a2ff8ba32e75f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77b8666fde23c166cb6a2ff8ba32e75f">&#9670;&#160;</a></span>PortString</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::Error = <a class="el" href="../../db/d23/a01025.html#a10c6daadd4bfb6d09e355d88ec1681dc">SlaveError</a></td>
+          <td class="memname">using <a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">Lib::Ethernet::Port::PortString</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;char, <a class="el" href="#af916e924d6a4d9df945906634537c45e">MAX_PORT_DIGITS</a> + 1U&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>AL status codes. </p>
-
-</div>
-</div>
-<a id="a186483b3bfbc3199f52b2081e591cb83" name="a186483b3bfbc3199f52b2081e591cb83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a186483b3bfbc3199f52b2081e591cb83">&#9670;&#160;</a></span>SlaveMailbox</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::SlaveMailbox = <a class="el" href="../../d8/d44/a05258.html">Mailbox</a>&lt;T_ESC, T_MAILBOX_SIZE&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>The mailbox of the slave. </p>
-
-</div>
-</div>
-<a id="a511a0b0fbb34c264baf4c6cd796a1923" name="a511a0b0fbb34c264baf4c6cd796a1923"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a511a0b0fbb34c264baf4c6cd796a1923">&#9670;&#160;</a></span>State</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::State = <a class="el" href="../../db/d23/a01025.html#afea74831b3c37117c52ebef85489a279">SlaveState</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>AL states. </p>
+<p>Fixed, NUL-terminated buffer holding the decimal digits of a port number. </p>
+<p>Use 'data()' where a C string is expected. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a40fe2ce2a9a0c83f329f4d57beaa9f4b" name="a40fe2ce2a9a0c83f329f4d57beaa9f4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">&#9670;&#160;</a></span>Slave() <span class="overload">[1/3]</span></h2>
+<a id="a0cdcdcee9376806af5c6778670685c80" name="a0cdcdcee9376806af5c6778670685c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cdcdcee9376806af5c6778670685c80">&#9670;&#160;</a></span>Port() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::Slave </td>
-          <td>(</td>
-          <td class="paramtype">T_ESC &amp;</td>          <td class="paramname"><span class="paramname"><em>controller</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d7/dc7/a05266.html">ProcessDataSize</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>processDataSize</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Binds the slave to the slave controller. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">controller</td><td>Register access of the slave controller; it must outlive the slave. </td></tr>
-    <tr><td class="paramname">processDataSize</td><td>Sizes of the process data of the slave. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4f/a05270_a40fe2ce2a9a0c83f329f4d57beaa9f4b_icgraph.svg" width="662" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a30f4b4d98758403d0c59df05000b9170" name="a30f4b4d98758403d0c59df05000b9170"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30f4b4d98758403d0c59df05000b9170">&#9670;&#160;</a></span>~Slave()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::~<a class="el" href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">Slave</a> </td>
+          <td class="memname">Lib::Ethernet::Port::Port </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -292,383 +190,133 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the slave. </p>
-<p>Not virtual: derived classes are never deleted through this base. </p>
+<p>Creates a port with the value 0. </p>
 
 </div>
 </div>
-<a id="a1b34ce396cbdf85bf7f8b25ce76b4491" name="a1b34ce396cbdf85bf7f8b25ce76b4491"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b34ce396cbdf85bf7f8b25ce76b4491">&#9670;&#160;</a></span>Slave() <span class="overload">[2/3]</span></h2>
+<a id="a557aa5b63a11f1fb3bacd15033d34816" name="a557aa5b63a11f1fb3bacd15033d34816"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a557aa5b63a11f1fb3bacd15033d34816">&#9670;&#160;</a></span>Port() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::Slave </td>
+          <td class="memname">Lib::Ethernet::Port::Port </td>
           <td>(</td>
-          <td class="paramtype">const Slave&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: the object stands for one slave controller. </p>
+<p>Creates a port with a value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+    <tr><td class="paramname">value</td><td>The port value. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4f/a05270_a1b34ce396cbdf85bf7f8b25ce76b4491_cgraph.svg" width="630" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aca9087f0bb6c11b99f5bb29a7cab5d2c" name="aca9087f0bb6c11b99f5bb29a7cab5d2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca9087f0bb6c11b99f5bb29a7cab5d2c">&#9670;&#160;</a></span>Slave() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::Slave </td>
-          <td>(</td>
-          <td class="paramtype">Slave&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moving is deleted: the object stands for one slave controller. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4f/a05270_aca9087f0bb6c11b99f5bb29a7cab5d2c_cgraph.svg" width="630" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aba721979d3b3f7d15cfa48c584e87182" name="aba721979d3b3f7d15cfa48c584e87182"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aba721979d3b3f7d15cfa48c584e87182">&#9670;&#160;</a></span>areOutputsValid()</h2>
+<a id="af096519c074646658fc5d42017770060" name="af096519c074646658fc5d42017770060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af096519c074646658fc5d42017770060">&#9670;&#160;</a></span>fromString() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::areOutputsValid </td>
+          <td class="memname">bool Lib::Ethernet::Port::fromString </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the outputs may be applied. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> in OP, the only state in which the master's outputs are valid. </dd></dl>
-
-</div>
-</div>
-<a id="a7e7721361c828febdd00cb2be71940c7" name="a7e7721361c828febdd00cb2be71940c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e7721361c828febdd00cb2be71940c7">&#9670;&#160;</a></span>checkDistributedClock()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d23/a01025.html#a10c6daadd4bfb6d09e355d88ec1681dc">Error</a> <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::checkDistributedClock </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>syncActivation</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Called on the step from PRE-OP to SAFE-OP when the master has activated distributed clock synchronization (SYNC0 / SYNC1 outputs, ESC register 0x0981). </p>
-<p>Default: the configuration is refused, because the base class has no distributed clock support.</p>
+<p>Parses a string and sets the port value if it is valid; the value is left alone otherwise. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">syncActivation</td><td>Value of the SYNC activation register: bit 0 activates the cyclic operation, bit 1 enables SYNC0, bit 2 enables SYNC1, bit 3 is the automatic activation. </td></tr>
+    <tr><td class="paramname">str</td><td>The decimal string to parse. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'Error::NONE' to accept the configuration, otherwise the AL status code to refuse it with. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the string was valid. </dd></dl>
 
 </div>
 </div>
-<a id="a2944b7e04f26a7786ee0042d429ead54" name="a2944b7e04f26a7786ee0042d429ead54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2944b7e04f26a7786ee0042d429ead54">&#9670;&#160;</a></span>getError()</h2>
+<a id="a75908d45c78d4098c3fa0e9f7dbc3638" name="a75908d45c78d4098c3fa0e9f7dbc3638"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75908d45c78d4098c3fa0e9f7dbc3638">&#9670;&#160;</a></span>fromString() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../db/d23/a01025.html#a10c6daadd4bfb6d09e355d88ec1681dc">Error</a> <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::getError </td>
+          <td class="memname">constexpr bool Lib::Ethernet::Port::fromString </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the AL status code that is shown. </p>
-<dl class="section return"><dt>Returns</dt><dd>The code; 'Error::NONE' without an error. </dd></dl>
-
-</div>
-</div>
-<a id="a65f05684a824724062151ac2fdc257d0" name="a65f05684a824724062151ac2fdc257d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65f05684a824724062151ac2fdc257d0">&#9670;&#160;</a></span>getMailbox()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a186483b3bfbc3199f52b2081e591cb83">SlaveMailbox</a> &amp; <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::getMailbox </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gives access to the mailbox, for example to answer a message with 'reply()'. </p>
-<dl class="section return"><dt>Returns</dt><dd>The mailbox. </dd></dl>
-
-</div>
-</div>
-<a id="a488cf78d1e9512af19de30969c6f1d52" name="a488cf78d1e9512af19de30969c6f1d52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a488cf78d1e9512af19de30969c6f1d52">&#9670;&#160;</a></span>getState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/d23/a01025.html#afea74831b3c37117c52ebef85489a279">State</a> <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::getState </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the AL state. </p>
-<dl class="section return"><dt>Returns</dt><dd>The current state. </dd></dl>
-
-</div>
-</div>
-<a id="af9c8b2d649246374776bf22b633106a1" name="af9c8b2d649246374776bf22b633106a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9c8b2d649246374776bf22b633106a1">&#9670;&#160;</a></span>handleMailboxIdle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::handleMailboxIdle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Called on every pass of <a class="el" href="#ad379452d18db66bb7ba544fd1539e0ce" title="process()">process()</a> while the mailbox is started, after the pending message was handled; a protocol that sends in several steps, such as the CoE object list, continues here. </p>
-<p>Default: nothing. </p>
-
-</div>
-</div>
-<a id="a5276f808524352e6c6df3a118ee9077c" name="a5276f808524352e6c6df3a118ee9077c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5276f808524352e6c6df3a118ee9077c">&#9670;&#160;</a></span>handleMailboxMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::handleMailboxMessage </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d2/dbd/a05254.html">MailboxHeader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>header</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>&#160;)</td>
+          <td class="paramtype">uint16_t &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Called for every message the master sends over the mailbox. </p>
-<p>Default: not handled.</p>
-<p>Answer through <a class="el" href="#a65f05684a824724062151ac2fdc257d0" title="getMailbox()">.reply</a>(); the message is released when the call returns.</p>
+<p>Parses a string into a port value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">header</td><td>Header of the message. </td></tr>
-    <tr><td class="paramname">payload</td><td>Payload of the message, valid during the call. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">str</td><td>The decimal string to parse: digits only, value 0 to 65535. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">result</td><td>The parsed value; unchanged if the string is not valid. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the message was handled; <b>false</b> makes the slave answer with a mailbox error for an unsupported protocol. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the string was valid. </dd></dl>
 
 </div>
 </div>
-<a id="ac39266e5345996d9607fc9174ef47fc1" name="ac39266e5345996d9607fc9174ef47fc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac39266e5345996d9607fc9174ef47fc1">&#9670;&#160;</a></span>handleStateChange()</h2>
+<a id="a2c10d58145f110034d4c6152e2f11f3d" name="a2c10d58145f110034d4c6152e2f11f3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c10d58145f110034d4c6152e2f11f3d">&#9670;&#160;</a></span>get() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::handleStateChange </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d23/a01025.html#afea74831b3c37117c52ebef85489a279">State</a></td>          <td class="paramname"><span class="paramname"><em>previous</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../db/d23/a01025.html#afea74831b3c37117c52ebef85489a279">State</a></td>          <td class="paramname"><span class="paramname"><em>current</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Called after every change of the AL state. </p>
-<p>Default: nothing.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">previous</td><td>State before the change. </td></tr>
-    <tr><td class="paramname">current</td><td>State after the change. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a3a39f586f68b1ee07853a6bdff7fbdf7" name="a3a39f586f68b1ee07853a6bdff7fbdf7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a39f586f68b1ee07853a6bdff7fbdf7">&#9670;&#160;</a></span>hasError()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::hasError </td>
+          <td class="memname">const uint16_t &amp; Lib::Ethernet::Port::get </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -676,29 +324,55 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks the AL error indication. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> while an error is shown to the master. </dd></dl>
+<p>Gets the port value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the port value. </dd></dl>
 
 </div>
 </div>
-<a id="a3d61cb1f7f2e035ec2c0f6636a81355c" name="a3d61cb1f7f2e035ec2c0f6636a81355c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d61cb1f7f2e035ec2c0f6636a81355c">&#9670;&#160;</a></span>isBootstrapSupported()</h2>
+<a id="a74efeaeccbeb41630891ddb4725470a5" name="a74efeaeccbeb41630891ddb4725470a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74efeaeccbeb41630891ddb4725470a5">&#9670;&#160;</a></span>get() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::isBootstrapSupported </td>
+          <td class="memname">uint16_t &amp; Lib::Ethernet::Port::get </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the port value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the port value. </dd></dl>
+
+</div>
+</div>
+<a id="a484cc8252d74ed19b3ddc021b4ebbc7a" name="a484cc8252d74ed19b3ddc021b4ebbc7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a484cc8252d74ed19b3ddc021b4ebbc7a">&#9670;&#160;</a></span>operator uint16_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethernet::Port::operator uint16_t </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -706,265 +380,236 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Asks whether the slave has a BOOTSTRAP state (a firmware update over FoE). </p>
-<p>Default: no.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a request for BOOTSTRAP from INIT is accepted. </dd></dl>
+<p>Converts to the port value, so a <a class="el" href="../../de/d4f/a05270.html" title="Port">Port</a> can be passed where a 'uint16_t' is expected. </p>
+<dl class="section return"><dt>Returns</dt><dd>The port value. </dd></dl>
 
 </div>
 </div>
-<a id="a802e630e4a9fa2528af9b1176a841322" name="a802e630e4a9fa2528af9b1176a841322"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a802e630e4a9fa2528af9b1176a841322">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a5db32af54d9bdde977000618e7b6d476" name="a5db32af54d9bdde977000618e7b6d476"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5db32af54d9bdde977000618e7b6d476">&#9670;&#160;</a></span>operator&lt;=&gt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">Slave</a> &amp; <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname">auto Lib::Ethernet::Port::operator&lt;=&gt; </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a0cdcdcee9376806af5c6778670685c80">Port</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares two ports by value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The port to compare with. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The ordering of the two values. </dd></dl>
+
+</div>
+</div>
+<a id="a4bdd58ee0e3a212c2e9b5be63a0ef4fd" name="a4bdd58ee0e3a212c2e9b5be63a0ef4fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bdd58ee0e3a212c2e9b5be63a0ef4fd">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0cdcdcee9376806af5c6778670685c80">Port</a> &amp; Lib::Ethernet::Port::operator= </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>newValue</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: the object stands for one slave controller. </p>
+<p>Assigns a port value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+    <tr><td class="paramname">newValue</td><td>The value to assign. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4f/a05270_a802e630e4a9fa2528af9b1176a841322_cgraph.svg" width="662" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this port. </dd></dl>
 
 </div>
 </div>
-<a id="af66a6530fe5cdde6fa1a989a5f84eeb6" name="af66a6530fe5cdde6fa1a989a5f84eeb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af66a6530fe5cdde6fa1a989a5f84eeb6">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a1de553c3b996aee8be2112632f45ee1b" name="a1de553c3b996aee8be2112632f45ee1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1de553c3b996aee8be2112632f45ee1b">&#9670;&#160;</a></span>set()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">Slave</a> &amp; <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname">void Lib::Ethernet::Port::set </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a40fe2ce2a9a0c83f329f4d57beaa9f4b">Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>newValue</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: the object stands for one slave controller. </p>
+<p>Sets the port value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+    <tr><td class="paramname">newValue</td><td>The new port value. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d4f/a05270_af66a6530fe5cdde6fa1a989a5f84eeb6_cgraph.svg" width="662" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="ad379452d18db66bb7ba544fd1539e0ce" name="ad379452d18db66bb7ba544fd1539e0ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad379452d18db66bb7ba544fd1539e0ce">&#9670;&#160;</a></span>process()</h2>
+<a id="a08c2068f012c9bf6bb7c16893081cab6" name="a08c2068f012c9bf6bb7c16893081cab6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08c2068f012c9bf6bb7c16893081cab6">&#9670;&#160;</a></span>toString() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::process </td>
+          <td class="memname"><a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">PortString</a> Lib::Ethernet::Port::toString </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Services the slave: follows the AL control register, watches the process data watchdog and the mailbox. </p>
-<p>Call it periodically. </p>
+<p>Converts the port value to its decimal digits. </p>
+<dl class="section return"><dt>Returns</dt><dd>NUL-terminated decimal digits of the port value. </dd></dl>
 
 </div>
 </div>
-<a id="a391eb22011819a165c89b893c7c0449c" name="a391eb22011819a165c89b893c7c0449c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a391eb22011819a165c89b893c7c0449c">&#9670;&#160;</a></span>readOutputs()</h2>
+<a id="a7658b363ed5d247291cd3b1f90cec20d" name="a7658b363ed5d247291cd3b1f90cec20d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7658b363ed5d247291cd3b1f90cec20d">&#9670;&#160;</a></span>toString() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::readOutputs </td>
+          <td class="memname">constexpr <a class="el" href="#a77b8666fde23c166cb6a2ff8ba32e75f">PortString</a> Lib::Ethernet::Port::toString </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the outputs the master wrote (SM2). </p>
+<p>Converts a port value to its decimal digits. </p>
+<p>The digits are returned by value in a fixed, NUL-terminated buffer. A <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html" title="std::string_view">std::string_view</a> would dangle: the only thing it could point at is a temporary that dies with the return expression.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>Destination; its size must be the output size of the slave. </td></tr>
+    <tr><td class="paramname">value</td><td>The port value to convert. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the outputs were read; SM2 is enabled only in OP, so this fails in every other state. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>NUL-terminated decimal digits of the port value. </dd></dl>
 
 </div>
 </div>
-<a id="a3a1200c4fbb64c5e7c0dab76fb9d2023" name="a3a1200c4fbb64c5e7c0dab76fb9d2023"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a1200c4fbb64c5e7c0dab76fb9d2023">&#9670;&#160;</a></span>setError()</h2>
+<a id="af5b8a66e23be35b8d2589b3cdc9d3214" name="af5b8a66e23be35b8d2589b3cdc9d3214"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5b8a66e23be35b8d2589b3cdc9d3214">&#9670;&#160;</a></span>validateString()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::setError </td>
+          <td class="memname">constexpr bool Lib::Ethernet::Port::validateString </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/d23/a01025.html#a10c6daadd4bfb6d09e355d88ec1681dc">Error</a></td>          <td class="paramname"><span class="paramname"><em>code</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>str</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reports an application error: the slave drops to SAFE-OP if it was in OP and shows the error to the master, which acknowledges it through the AL control register. </p>
+<p>Checks that a string is a valid port number. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">code</td><td>The AL status code. </td></tr>
+    <tr><td class="paramname">str</td><td>The string to check. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if it holds only digits and a value from 0 to 65535. </dd></dl>
 
 </div>
 </div>
-<a id="acc49b31f1582074322945e578143555c" name="acc49b31f1582074322945e578143555c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc49b31f1582074322945e578143555c">&#9670;&#160;</a></span>start()</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="af916e924d6a4d9df945906634537c45e" name="af916e924d6a4d9df945906634537c45e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af916e924d6a4d9df945906634537c45e">&#9670;&#160;</a></span>MAX_PORT_DIGITS</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="memname">size_t Lib::Ethernet::Port::MAX_PORT_DIGITS = 5U</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Puts the slave in INIT and publishes that in the AL status register. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the status was written. </dd></dl>
-
-</div>
-</div>
-<a id="a012edf8137afeda7183b0d4464897074" name="a012edf8137afeda7183b0d4464897074"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a012edf8137afeda7183b0d4464897074">&#9670;&#160;</a></span>writeInputs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/d4f/a05270.html">Lib::Ethercat::SOES::Slave</a>&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;::writeInputs </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes the inputs for the master (SM3). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Source; its size must be the input size of the slave. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the inputs were written. </dd></dl>
+<p>Digits needed for the largest port number (65535). </p>
 
 </div>
 </div>

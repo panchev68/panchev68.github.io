@@ -13,11 +13,12 @@ var searchData=
   ['menu_20position_20from_20timer_20and_20button_20events_10',['Menu position from timer and button events',['../X:/Lib/IAR/Project/Examples/Lib_BSP_EncoderTimer.dox#enctimer_usage_menu',1,'']]],
   ['message_11',['message',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Exception.dox#exception_usage_message',1,'Reading the message'],['../X:/Lib/IAR/Project/Examples/RTOS_MessageBuffer.dox#messagebuffer_usage_basic',1,'Send and receive a message']]],
   ['minutes_12',['Local time to UTC minutes',['../X:/Lib/IAR/Project/Examples/Lib_Helper_TimeZone.dox#timezone_usage_convert',1,'']]],
-  ['modem_13',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#client_usage_telemetry',1,'']]],
-  ['monitoring_14',['Underrun monitoring',['../X:/Lib/IAR/Project/Examples/Lib_HAL_DAC.dox#dac_usage_it',1,'']]],
-  ['monitoring_20and_20control_15',['Monitoring and control',['../X:/Lib/IAR/Project/Examples/RTOS_StreamBuffer.dox#streambuffer_usage_monitor',1,'']]],
-  ['motor_20channels_20polled_20from_20one_20task_16',['Battery and motor channels polled from one task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_INA219.dox#ina219_usage_task',1,'']]],
-  ['moving_20ownership_17',['Moving ownership',['../X:/Lib/IAR/Project/Examples/RTOS_StreamBuffer.dox#streambuffer_usage_move',1,'']]],
-  ['mutex_20and_20try_20lock_18',['Recursive mutex and try-lock',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_recursive',1,'']]],
-  ['mutex_20with_20timeout_19',['Normal mutex with timeout',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_normal',1,'']]]
+  ['mode_13',['Bulk transfer with a transfer mode',['../X:/Lib/IAR/Project/Examples/Lib_Helper_RingBuffer.dox#ringbuffer_usage_bulk',1,'']]],
+  ['modem_14',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#client_usage_telemetry',1,'']]],
+  ['monitoring_15',['Underrun monitoring',['../X:/Lib/IAR/Project/Examples/Lib_HAL_DAC.dox#dac_usage_it',1,'']]],
+  ['monitoring_20and_20control_16',['Monitoring and control',['../X:/Lib/IAR/Project/Examples/RTOS_StreamBuffer.dox#streambuffer_usage_monitor',1,'']]],
+  ['motor_20channels_20polled_20from_20one_20task_17',['Battery and motor channels polled from one task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_INA219.dox#ina219_usage_task',1,'']]],
+  ['moving_20ownership_18',['Moving ownership',['../X:/Lib/IAR/Project/Examples/RTOS_StreamBuffer.dox#streambuffer_usage_move',1,'']]],
+  ['mutex_20and_20try_20lock_19',['Recursive mutex and try-lock',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_recursive',1,'']]],
+  ['mutex_20with_20timeout_20',['Normal mutex with timeout',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_normal',1,'']]]
 ];

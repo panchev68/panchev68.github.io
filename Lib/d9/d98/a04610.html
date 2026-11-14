@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;</title>
+<title>IAR EWARM Library: Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Diagnostics</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,694 +91,326 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../d7/d06/a01005.html">RFID</a></li><li class="navelem"><a href="../../d9/d98/a04610.html">NfcManager</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/d48/a00988.html">BSP</a></li><li class="navelem"><a href="../../de/de2/a00999.html">RFID</a></li><li class="navelem"><a href="../../df/dc0/a04602.html">NfcManager</a></li><li class="navelem"><a href="../../d9/d98/a04610.html">Diagnostics</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../de/d76/a04607.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Diagnostics</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Debug counters and the register evidence captured on the discovery path.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt;<br />
-class Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;</div><p>Manages the ISO14443A card discovery state machine of an ST25R100 reader. </p>
-<p>Waits for the reader's wake-up (card detect) event, then runs REQA, anticollision and SELECT in a dedicated RTOS task and reports the activated card's UID through a callback. Single-size (4-byte), double-size (7-byte, e.g. NTAG21x) and triple-size (10-byte) UIDs are supported. While the callback runs the card stays selected, so it may read NFC Forum Type 2 memory with <a class="el" href="#a4c81d15f935d8e1c2dd13d993975f940" title="readPages()">readPages()</a> or write one page with <a class="el" href="#aa61c13d6b4df75e3243f862a1e8af3d5" title="writePage()">writePage()</a>. After every attempt, successful or not, the reader is put back into Wake-up mode.</p>
-<p>Owns the task that drives the reader; the reader itself is shared by reference. Not thread-safe: call <a class="el" href="#a347e0188a1c8207e8d11268d607aa763" title="start()">start()</a> and <a class="el" href="#ae7bf77d346d29fc8a4da4226fc32e640" title="stop()">stop()</a> from one task.</p>
-<div class="fragment"><div class="line"><span class="keyword">using </span><a class="code hl_typedef" href="#a6701c6a8809d64b58d6f2572a5d5e3db">Reader</a> = <a class="code hl_class" href="../../d0/dad/a04630.html">Lib::BSP::RFID::ST25R100&lt;Lib::HAL::DriverMode::IT&gt;</a>; <span class="keyword">using </span>Manager =</div>
-<div class="line"><a class="code hl_class" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager&lt;Lib::HAL::DriverMode::IT&gt;</a>;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// The UID is 4, 7 or 10 bytes. readPages() and writePage() may be called from here. void onCard(std::span&lt;const uint8_t&gt;</span></div>
-<div class="line">uid) <span class="keyword">noexcept</span> {</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">Manager manager(reader, {.taskConfig = {<span class="stringliteral">&quot;NFC&quot;</span>, 512U, <a class="code hl_enumvalue" href="../../d7/d14/a05966.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>}, .onCardActivated = onCard});</div>
-<div class="line"><span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(manager.start());</div>
-<div class="ttc" id="aa04610_html"><div class="ttname"><a href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a></div><div class="ttdoc">Manages the ISO14443A card discovery state machine of an ST25R100 reader.</div><div class="ttdef"><b>Definition</b> NfcManager.hpp:53</div></div>
-<div class="ttc" id="aa04610_html_a6701c6a8809d64b58d6f2572a5d5e3db"><div class="ttname"><a href="#a6701c6a8809d64b58d6f2572a5d5e3db">Lib::BSP::RFID::NfcManager::Reader</a></div><div class="ttdeci">ST25R100&lt; T_MODE &gt; Reader</div><div class="ttdoc">Reader driver type.</div><div class="ttdef"><b>Definition</b> NfcManager.hpp:56</div></div>
-<div class="ttc" id="aa04630_html"><div class="ttname"><a href="../../d0/dad/a04630.html">Lib::BSP::RFID::ST25R100</a></div><div class="ttdoc">Driver for the ST25R100 NFC controller: SPI comms, IRQ handling, ISO14443A protocol ops.</div><div class="ttdef"><b>Definition</b> ST25R100.hpp:43</div></div>
-<div class="ttc" id="aa05966_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d7/d14/a05966.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:85</div></div>
-</div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_MODE</td><td>Transfer mode of the SPI port bound to the reader. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/dba/a04608.svg" width="310" height="367"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d2/dc4/a04614.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration parameters for the NFC manager.  <a href="../../d2/dc4/a04614.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Diagnostics" id="r_Diagnostics"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d9a/a04618.html">Diagnostics</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debug counters and the register evidence captured on the discovery path.  <a href="../../d1/d9a/a04618.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a4e43b591f0d6680b5fdacd85a2858caf" id="r_a4e43b591f0d6680b5fdacd85a2858caf"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4e43b591f0d6680b5fdacd85a2858caf">NfcManager</a> (<a class="el" href="#a6701c6a8809d64b58d6f2572a5d5e3db">Reader</a> &amp;reader, const <a class="el" href="../../d2/dc4/a04614.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a4e43b591f0d6680b5fdacd85a2858caf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the manager to the reader; touches neither the reader nor the scheduler.  <br /></td></tr>
-<tr class="memitem:a99dc2c6cf10e46e8158d7e15504f0cc5" id="r_a99dc2c6cf10e46e8158d7e15504f0cc5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a99dc2c6cf10e46e8158d7e15504f0cc5">~NfcManager</a> () noexcept</td></tr>
-<tr class="memdesc:a99dc2c6cf10e46e8158d7e15504f0cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the discovery task and closes the reader.  <br /></td></tr>
-<tr class="memitem:a347e0188a1c8207e8d11268d607aa763" id="r_a347e0188a1c8207e8d11268d607aa763"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a347e0188a1c8207e8d11268d607aa763">start</a> () noexcept</td></tr>
-<tr class="memdesc:a347e0188a1c8207e8d11268d607aa763"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the reader and starts the discovery task.  <br /></td></tr>
-<tr class="memitem:ae7bf77d346d29fc8a4da4226fc32e640" id="r_ae7bf77d346d29fc8a4da4226fc32e640"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae7bf77d346d29fc8a4da4226fc32e640">stop</a> () noexcept</td></tr>
-<tr class="memdesc:ae7bf77d346d29fc8a4da4226fc32e640"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the discovery task and closes the reader.  <br /></td></tr>
-<tr class="memitem:a3b2d0421ba5761b21a2c806ae6480bbf" id="r_a3b2d0421ba5761b21a2c806ae6480bbf"><td class="memItemLeft"><a class="el" href="#a4b1ad1aa4900bec7f1e8c0f90d7c5b9c">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3b2d0421ba5761b21a2c806ae6480bbf">getState</a> () const noexcept</td></tr>
-<tr class="memdesc:a3b2d0421ba5761b21a2c806ae6480bbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current discovery state.  <br /></td></tr>
-<tr class="memitem:a0fc17fc5e17c79eac24ad7d9d6fb72ab" id="r_a0fc17fc5e17c79eac24ad7d9d6fb72ab"><td class="memItemLeft">const <a class="el" href="../../d1/d9a/a04618.html">Diagnostics</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0fc17fc5e17c79eac24ad7d9d6fb72ab">getDiagnostics</a> () const noexcept</td></tr>
-<tr class="memdesc:a0fc17fc5e17c79eac24ad7d9d6fb72ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the debug counters and register snapshots.  <br /></td></tr>
-<tr class="memitem:a2c7d71eee5f6187585aba0f69b39c3f6" id="r_a2c7d71eee5f6187585aba0f69b39c3f6"><td class="memItemLeft"><a class="el" href="../../dd/d6a/a04642.html">Reader::ADCRange</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2c7d71eee5f6187585aba0f69b39c3f6">getWakeupADCRange</a> () const noexcept</td></tr>
-<tr class="memdesc:a2c7d71eee5f6187585aba0f69b39c3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the lifetime min/max wake-up ADC values observed by the reader.  <br /></td></tr>
-<tr class="memitem:aca5c8406388ff9e1c1f7808fd7c5b4c4" id="r_aca5c8406388ff9e1c1f7808fd7c5b4c4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aca5c8406388ff9e1c1f7808fd7c5b4c4">resetWakeupADCRange</a> () noexcept</td></tr>
-<tr class="memdesc:aca5c8406388ff9e1c1f7808fd7c5b4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the wake-up ADC min/max tracking, e.g.  <br /></td></tr>
-<tr class="memitem:a4c81d15f935d8e1c2dd13d993975f940" id="r_a4c81d15f935d8e1c2dd13d993975f940"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4c81d15f935d8e1c2dd13d993975f940">readPages</a> (uint8_t firstPage, <a class="el" href="#a5f65acf300f17deb99c963ab374432b3">ReadBuffer</a> &amp;destination) noexcept</td></tr>
-<tr class="memdesc:a4c81d15f935d8e1c2dd13d993975f940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads four NFC Forum Type 2 pages (16 bytes) from the selected card with the READ (0x30) command.  <br /></td></tr>
-<tr class="memitem:abdbd4ef43ac6798f86fb0f05d695d011" id="r_abdbd4ef43ac6798f86fb0f05d695d011"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abdbd4ef43ac6798f86fb0f05d695d011">readSignature</a> (<a class="el" href="#afea6f0e2a71e2700aba290c8c12dcbcc">SignatureBuffer</a> &amp;destination) noexcept</td></tr>
-<tr class="memdesc:abdbd4ef43ac6798f86fb0f05d695d011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the 32-byte originality signature of the selected NTAG21x card with the READ_SIG (0x3C) command.  <br /></td></tr>
-<tr class="memitem:aa61c13d6b4df75e3243f862a1e8af3d5" id="r_aa61c13d6b4df75e3243f862a1e8af3d5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa61c13d6b4df75e3243f862a1e8af3d5">writePage</a> (uint8_t page, std::span&lt; const uint8_t, 4U &gt; data) noexcept</td></tr>
-<tr class="memdesc:aa61c13d6b4df75e3243f862a1e8af3d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes one NFC Forum Type 2 page (4 bytes) to the selected card with the WRITE (0xA2) command, then reads it back with <a class="el" href="#a4c81d15f935d8e1c2dd13d993975f940" title="readPages()">readPages()</a> to confirm.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:abf8e383e737a671cc3fc943b2c7c8568" id="r_abf8e383e737a671cc3fc943b2c7c8568"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#abf8e383e737a671cc3fc943b2c7c8568">MAX_UID_LENGTH</a> = 10U</td></tr>
-<tr class="memdesc:abf8e383e737a671cc3fc943b2c7c8568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest supported UID (triple size).  <br /></td></tr>
-<tr class="memitem:aa713a0e5aef09830dd634bed6da90f6b" id="r_aa713a0e5aef09830dd634bed6da90f6b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aa713a0e5aef09830dd634bed6da90f6b">READ_RESPONSE_SIZE</a> = 16U</td></tr>
-<tr class="memdesc:aa713a0e5aef09830dd634bed6da90f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes returned by one Type 2 READ (4 pages).  <br /></td></tr>
-<tr class="memitem:a990ef843ce606ef8224995b226c95e75" id="r_a990ef843ce606ef8224995b226c95e75"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a990ef843ce606ef8224995b226c95e75">SIGNATURE_SIZE</a> = 32U</td></tr>
-<tr class="memdesc:a990ef843ce606ef8224995b226c95e75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes of the NTAG21x originality signature (ECDSA r || s).  <br /></td></tr>
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt;<br />
+struct Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Diagnostics</div><p>Debug counters and the register evidence captured on the discovery path. </p>
+<p>Meant to be inspected with a debugger; the register snapshots are overwritten on every attempt. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aab85c176a71d381e5691bc1819f7e0f7" id="r_aab85c176a71d381e5691bc1819f7e0f7"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aab85c176a71d381e5691bc1819f7e0f7">cardDetectedCount</a> = 0U</td></tr>
+<tr class="memdesc:aab85c176a71d381e5691bc1819f7e0f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wake-up (card detect) events received.  <br /></td></tr>
+<tr class="memitem:ac30dad467ffa48919576e8a5431a4a2b" id="r_ac30dad467ffa48919576e8a5431a4a2b"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ac30dad467ffa48919576e8a5431a4a2b">cardActivatedCount</a> = 0U</td></tr>
+<tr class="memdesc:ac30dad467ffa48919576e8a5431a4a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cards that completed REQA, anticollision and SELECT.  <br /></td></tr>
+<tr class="memitem:a985da4fadf54931272c8b4013511c43a" id="r_a985da4fadf54931272c8b4013511c43a"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a985da4fadf54931272c8b4013511c43a">reqaTimeoutCount</a> = 0U</td></tr>
+<tr class="memdesc:a985da4fadf54931272c8b4013511c43a"><td class="mdescLeft">&#160;</td><td class="mdescRight">REQA attempts without a valid ATQA.  <br /></td></tr>
+<tr class="memitem:a4d95a6bbb4d079d8bebedbf9b8ee8fa1" id="r_a4d95a6bbb4d079d8bebedbf9b8ee8fa1"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a4d95a6bbb4d079d8bebedbf9b8ee8fa1">anticollisionTimeoutCount</a> = 0U</td></tr>
+<tr class="memdesc:a4d95a6bbb4d079d8bebedbf9b8ee8fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Anticollision attempts without a valid UID reply.  <br /></td></tr>
+<tr class="memitem:a87c463babfda8c7c065f6a30250dd1e1" id="r_a87c463babfda8c7c065f6a30250dd1e1"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a87c463babfda8c7c065f6a30250dd1e1">selectTimeoutCount</a> = 0U</td></tr>
+<tr class="memdesc:a87c463babfda8c7c065f6a30250dd1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">SELECT attempts without a valid SAK.  <br /></td></tr>
+<tr class="memitem:a6e9a133ac2b92dc90de4a93eee54e810" id="r_a6e9a133ac2b92dc90de4a93eee54e810"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a6e9a133ac2b92dc90de4a93eee54e810">unsupportedUidCount</a> = 0U</td></tr>
+<tr class="memdesc:a6e9a133ac2b92dc90de4a93eee54e810"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cards with a malformed cascade (more than three levels or too many UID bytes).  <br /></td></tr>
+<tr class="memitem:aa594bb3892a314d5bae571485028c1f6" id="r_aa594bb3892a314d5bae571485028c1f6"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aa594bb3892a314d5bae571485028c1f6">readFailureCount</a> = 0U</td></tr>
+<tr class="memdesc:aa594bb3892a314d5bae571485028c1f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Failed <a class="el" href="../../df/dc0/a04602.html#a4c81d15f935d8e1c2dd13d993975f940" title="readPages()">readPages()</a> calls.  <br /></td></tr>
+<tr class="memitem:a96a8716efd8affbfbc401fcaba040259" id="r_a96a8716efd8affbfbc401fcaba040259"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a96a8716efd8affbfbc401fcaba040259">writeFailureCount</a> = 0U</td></tr>
+<tr class="memdesc:a96a8716efd8affbfbc401fcaba040259"><td class="mdescLeft">&#160;</td><td class="mdescRight">Failed <a class="el" href="../../df/dc0/a04602.html#aa61c13d6b4df75e3243f862a1e8af3d5" title="writePage()">writePage()</a> calls (send or read-back mismatch).  <br /></td></tr>
+<tr class="memitem:a15be1ad50b46f4fe74d830fd5dd5380f" id="r_a15be1ad50b46f4fe74d830fd5dd5380f"><td class="memItemLeft"><a class="el" href="../../d4/de8/a04646.html">Reader::TxRxDiagnostics</a>&#160;</td><td class="memItemRight"><a class="el" href="#a15be1ad50b46f4fe74d830fd5dd5380f">lastTimeout</a> {}</td></tr>
+<tr class="memdesc:a15be1ad50b46f4fe74d830fd5dd5380f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers captured at the most recent timeout.  <br /></td></tr>
+<tr class="memitem:a41d5ce61c5cef34fac6065d36b07a07d" id="r_a41d5ce61c5cef34fac6065d36b07a07d"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a41d5ce61c5cef34fac6065d36b07a07d">preTransmitFifoStatus1</a> = 0U</td></tr>
+<tr class="memdesc:a41d5ce61c5cef34fac6065d36b07a07d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em class="arg">FIFO_STATUS_1</em> after REQA was queued, before transmission.  <br /></td></tr>
+<tr class="memitem:a794df80db631bc66fa479aa99fc0927f" id="r_a794df80db631bc66fa479aa99fc0927f"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a794df80db631bc66fa479aa99fc0927f">postTxRxOnStatus</a> = 0U</td></tr>
+<tr class="memdesc:a794df80db631bc66fa479aa99fc0927f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em class="arg">STATUS</em> right after <b>txRxOn()</b>.  <br /></td></tr>
+<tr class="memitem:a40166692a25986bd12544ffb546c499d" id="r_a40166692a25986bd12544ffb546c499d"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a40166692a25986bd12544ffb546c499d">postTransmitIrqStatus1</a> = 0U</td></tr>
+<tr class="memdesc:a40166692a25986bd12544ffb546c499d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em class="arg">IRQ_STATUS_1</em> right after REQA transmission.  <br /></td></tr>
+<tr class="memitem:a21142618b9524d09ba5f29b9c81d45a8" id="r_a21142618b9524d09ba5f29b9c81d45a8"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a21142618b9524d09ba5f29b9c81d45a8">postTransmitIrqStatus2</a> = 0U</td></tr>
+<tr class="memdesc:a21142618b9524d09ba5f29b9c81d45a8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em class="arg">IRQ_STATUS_2</em> right after REQA transmission.  <br /></td></tr>
+<tr class="memitem:ad91c2db0d45e9677759d63979315ed24" id="r_ad91c2db0d45e9677759d63979315ed24"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ad91c2db0d45e9677759d63979315ed24">postTransmitStatus</a> = 0U</td></tr>
+<tr class="memdesc:ad91c2db0d45e9677759d63979315ed24"><td class="mdescLeft">&#160;</td><td class="mdescRight"><em class="arg">STATUS</em> right after REQA transmission.  <br /></td></tr>
+<tr class="memitem:a144c567d53c9d9fb36969c7e0a96d4f7" id="r_a144c567d53c9d9fb36969c7e0a96d4f7"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a144c567d53c9d9fb36969c7e0a96d4f7">reqaPollStatusBits</a> = 0U</td></tr>
+<tr class="memdesc:a144c567d53c9d9fb36969c7e0a96d4f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">OR of every <em class="arg">STATUS</em> seen while waiting for the ATQA.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="aaa9dd3ae634e7a69d4f917e7bd454305" name="aaa9dd3ae634e7a69d4f917e7bd454305"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa9dd3ae634e7a69d4f917e7bd454305">&#9670;&#160;</a></span>CardActivatedCallback</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::CardActivatedCallback = <a class="el" href="../../d2/da7/a04830.html">FunctionRef</a>&lt;void(std::span&lt;const uint8_t&gt;) noexcept&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Receives the activated card's UID. </p>
-
-</div>
-</div>
-<a id="a5f65acf300f17deb99c963ab374432b3" name="a5f65acf300f17deb99c963ab374432b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f65acf300f17deb99c963ab374432b3">&#9670;&#160;</a></span>ReadBuffer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::ReadBuffer = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#aa713a0e5aef09830dd634bed6da90f6b">READ_RESPONSE_SIZE</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destination of <a class="el" href="#a4c81d15f935d8e1c2dd13d993975f940" title="readPages()">readPages()</a>. </p>
-
-</div>
-</div>
-<a id="a6701c6a8809d64b58d6f2572a5d5e3db" name="a6701c6a8809d64b58d6f2572a5d5e3db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6701c6a8809d64b58d6f2572a5d5e3db">&#9670;&#160;</a></span>Reader</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Reader = <a class="el" href="../../d0/dad/a04630.html">ST25R100</a>&lt;T_MODE&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Reader driver type. </p>
-
-</div>
-</div>
-<a id="afea6f0e2a71e2700aba290c8c12dcbcc" name="afea6f0e2a71e2700aba290c8c12dcbcc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afea6f0e2a71e2700aba290c8c12dcbcc">&#9670;&#160;</a></span>SignatureBuffer</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::SignatureBuffer = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a990ef843ce606ef8224995b226c95e75">SIGNATURE_SIZE</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Destination of <a class="el" href="#abdbd4ef43ac6798f86fb0f05d695d011" title="readSignature()">readSignature()</a>. </p>
-
-</div>
-</div>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9c" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b1ad1aa4900bec7f1e8c0f90d7c5b9c">&#9670;&#160;</a></span>State</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a4b1ad1aa4900bec7f1e8c0f90d7c5b9c">Lib::BSP::RFID::NfcManager::State</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Card discovery state machine labels. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5daf7f2ebbba4975d61dab1c40188c7" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5daf7f2ebbba4975d61dab1c40188c7"></a>IDLE&#160;</td><td class="fielddoc"><p>Waiting for card detection event. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca85c5b813825733ffaddba38ff01013d9" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca85c5b813825733ffaddba38ff01013d9"></a>POLL_REQA&#160;</td><td class="fielddoc"><p>Request command issued. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9cad5dc3be53612bd06503c0bbfad204df3" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9cad5dc3be53612bd06503c0bbfad204df3"></a>POLL_ANTICOL&#160;</td><td class="fielddoc"><p>Anticollision sequence active. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4"></a>POLL_SELECT&#160;</td><td class="fielddoc"><p>Card selection sequence active. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11" name="a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11"></a>CARD_ACTIVATED&#160;</td><td class="fielddoc"><p>Card successfully activated. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4e43b591f0d6680b5fdacd85a2858caf" name="a4e43b591f0d6680b5fdacd85a2858caf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e43b591f0d6680b5fdacd85a2858caf">&#9670;&#160;</a></span>NfcManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::NfcManager </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a6701c6a8809d64b58d6f2572a5d5e3db">Reader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>reader</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../d2/dc4/a04614.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Binds the manager to the reader; touches neither the reader nor the scheduler. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">reader</td><td>Reader driver shared by reference. </td></tr>
-    <tr><td class="paramname">config</td><td>Manager configuration, copied. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a99dc2c6cf10e46e8158d7e15504f0cc5" name="a99dc2c6cf10e46e8158d7e15504f0cc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99dc2c6cf10e46e8158d7e15504f0cc5">&#9670;&#160;</a></span>~NfcManager()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::~<a class="el" href="#a4e43b591f0d6680b5fdacd85a2858caf">NfcManager</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the discovery task and closes the reader. </p>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d98/a04610_a99dc2c6cf10e46e8158d7e15504f0cc5_cgraph.svg" width="670" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a0fc17fc5e17c79eac24ad7d9d6fb72ab" name="a0fc17fc5e17c79eac24ad7d9d6fb72ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fc17fc5e17c79eac24ad7d9d6fb72ab">&#9670;&#160;</a></span>getDiagnostics()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="../../d1/d9a/a04618.html">Diagnostics</a> &amp; <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::getDiagnostics </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the debug counters and register snapshots. </p>
-<dl class="section return"><dt>Returns</dt><dd>Diagnostics collected by the discovery task. </dd></dl>
-
-</div>
-</div>
-<a id="a3b2d0421ba5761b21a2c806ae6480bbf" name="a3b2d0421ba5761b21a2c806ae6480bbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b2d0421ba5761b21a2c806ae6480bbf">&#9670;&#160;</a></span>getState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a4b1ad1aa4900bec7f1e8c0f90d7c5b9c">State</a> <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::getState </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the current discovery state. </p>
-<dl class="section return"><dt>Returns</dt><dd>State of the discovery state machine. </dd></dl>
-
-</div>
-</div>
-<a id="a2c7d71eee5f6187585aba0f69b39c3f6" name="a2c7d71eee5f6187585aba0f69b39c3f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c7d71eee5f6187585aba0f69b39c3f6">&#9670;&#160;</a></span>getWakeupADCRange()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dd/d6a/a04642.html">Reader::ADCRange</a> <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::getWakeupADCRange </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the lifetime min/max wake-up ADC values observed by the reader. </p>
-<dl class="section return"><dt>Returns</dt><dd>Wake-up ADC range. </dd></dl>
-
-</div>
-</div>
-<a id="a4c81d15f935d8e1c2dd13d993975f940" name="a4c81d15f935d8e1c2dd13d993975f940"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c81d15f935d8e1c2dd13d993975f940">&#9670;&#160;</a></span>readPages()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::readPages </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>firstPage</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#a5f65acf300f17deb99c963ab374432b3">ReadBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>destination</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reads four NFC Forum Type 2 pages (16 bytes) from the selected card with the READ (0x30) command. </p>
-<p>Valid only from within the <a class="el" href="../../d2/dc4/a04614.html#ad4b8d3f5ae272c06dc5ce104f9ff06df" title="Config::onCardActivated">Config::onCardActivated</a> callback, while the card is still selected.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">firstPage</td><td>Page address of the first byte. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">destination</td><td>Receives pages 'firstPage' to 'firstPage + 3'. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if 16 bytes were received. </dd></dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d98/a04610_a4c81d15f935d8e1c2dd13d993975f940_cgraph.svg" width="486" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d98/a04610_a4c81d15f935d8e1c2dd13d993975f940_icgraph.svg" width="694" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="abdbd4ef43ac6798f86fb0f05d695d011" name="abdbd4ef43ac6798f86fb0f05d695d011"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdbd4ef43ac6798f86fb0f05d695d011">&#9670;&#160;</a></span>readSignature()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::readSignature </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#afea6f0e2a71e2700aba290c8c12dcbcc">SignatureBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>destination</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reads the 32-byte originality signature of the selected NTAG21x card with the READ_SIG (0x3C) command. </p>
-<p>The signature is NXP's ECDSA (secp128r1) signature over the 7-byte UID of an NTAG21x. Valid only from within the <a class="el" href="../../d2/dc4/a04614.html#ad4b8d3f5ae272c06dc5ce104f9ff06df" title="Config::onCardActivated">Config::onCardActivated</a> callback, while the card is still selected.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">destination</td><td>Receives the signature, r || s, big-endian. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if 32 bytes were received (a card without the command does not answer). </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d98/a04610_abdbd4ef43ac6798f86fb0f05d695d011_cgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aca5c8406388ff9e1c1f7808fd7c5b4c4" name="aca5c8406388ff9e1c1f7808fd7c5b4c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca5c8406388ff9e1c1f7808fd7c5b4c4">&#9670;&#160;</a></span>resetWakeupADCRange()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::resetWakeupADCRange </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Resets the wake-up ADC min/max tracking, e.g. </p>
-<p>before a fresh tuning run. </p>
-
-</div>
-</div>
-<a id="a347e0188a1c8207e8d11268d607aa763" name="a347e0188a1c8207e8d11268d607aa763"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a347e0188a1c8207e8d11268d607aa763">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Opens the reader and starts the discovery task. </p>
-<p>The card-detect callback is bound before the reader is opened: 'open()' already arms the wake-up interrupt and runs a calibration sequence of tens of milliseconds, and an event arriving in that window would be dropped otherwise.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the reader opened and the task started, or both were already running. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d98/a04610_a347e0188a1c8207e8d11268d607aa763_cgraph.svg" width="723" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ae7bf77d346d29fc8a4da4226fc32e640" name="ae7bf77d346d29fc8a4da4226fc32e640"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae7bf77d346d29fc8a4da4226fc32e640">&#9670;&#160;</a></span>stop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::stop </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the discovery task and closes the reader. </p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d98/a04610_ae7bf77d346d29fc8a4da4226fc32e640_icgraph.svg" width="670" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aa61c13d6b4df75e3243f862a1e8af3d5" name="aa61c13d6b4df75e3243f862a1e8af3d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa61c13d6b4df75e3243f862a1e8af3d5">&#9670;&#160;</a></span>writePage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::writePage </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>page</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t, 4U &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes one NFC Forum Type 2 page (4 bytes) to the selected card with the WRITE (0xA2) command, then reads it back with <a class="el" href="#a4c81d15f935d8e1c2dd13d993975f940" title="readPages()">readPages()</a> to confirm. </p>
-<p>Valid only from within the <a class="el" href="../../d2/dc4/a04614.html#ad4b8d3f5ae272c06dc5ce104f9ff06df" title="Config::onCardActivated">Config::onCardActivated</a> callback, while the card is still selected.</p>
-<p>Untested on real hardware. The card's 4-bit ACK/NAK reply to WRITE is not decoded, so the read-back is the only success signal.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">page</td><td>NFC Forum Type 2 page address. </td></tr>
-    <tr><td class="paramname">data</td><td>4 bytes to write. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the page reads back as written. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d98/a04610_aa61c13d6b4df75e3243f862a1e8af3d5_cgraph.svg" width="851" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="abf8e383e737a671cc3fc943b2c7c8568" name="abf8e383e737a671cc3fc943b2c7c8568"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf8e383e737a671cc3fc943b2c7c8568">&#9670;&#160;</a></span>MAX_UID_LENGTH</h2>
+<a id="a4d95a6bbb4d079d8bebedbf9b8ee8fa1" name="a4d95a6bbb4d079d8bebedbf9b8ee8fa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d95a6bbb4d079d8bebedbf9b8ee8fa1">&#9670;&#160;</a></span>anticollisionTimeoutCount</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::MAX_UID_LENGTH = 10U</td>
+          <td class="memname">uint32_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::anticollisionTimeoutCount = 0U</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Longest supported UID (triple size). </p>
+<p>Anticollision attempts without a valid UID reply. </p>
 
 </div>
 </div>
-<a id="aa713a0e5aef09830dd634bed6da90f6b" name="aa713a0e5aef09830dd634bed6da90f6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa713a0e5aef09830dd634bed6da90f6b">&#9670;&#160;</a></span>READ_RESPONSE_SIZE</h2>
+<a id="ac30dad467ffa48919576e8a5431a4a2b" name="ac30dad467ffa48919576e8a5431a4a2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac30dad467ffa48919576e8a5431a4a2b">&#9670;&#160;</a></span>cardActivatedCount</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::READ_RESPONSE_SIZE = 16U</td>
+          <td class="memname">uint32_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::cardActivatedCount = 0U</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Bytes returned by one Type 2 READ (4 pages). </p>
+<p>Cards that completed REQA, anticollision and SELECT. </p>
 
 </div>
 </div>
-<a id="a990ef843ce606ef8224995b226c95e75" name="a990ef843ce606ef8224995b226c95e75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a990ef843ce606ef8224995b226c95e75">&#9670;&#160;</a></span>SIGNATURE_SIZE</h2>
+<a id="aab85c176a71d381e5691bc1819f7e0f7" name="aab85c176a71d381e5691bc1819f7e0f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab85c176a71d381e5691bc1819f7e0f7">&#9670;&#160;</a></span>cardDetectedCount</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;<a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d9/d98/a04610.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::SIGNATURE_SIZE = 32U</td>
+          <td class="memname">uint32_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::cardDetectedCount = 0U</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Bytes of the NTAG21x originality signature (ECDSA r || s). </p>
+<p>Wake-up (card detect) events received. </p>
+
+</div>
+</div>
+<a id="a15be1ad50b46f4fe74d830fd5dd5380f" name="a15be1ad50b46f4fe74d830fd5dd5380f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15be1ad50b46f4fe74d830fd5dd5380f">&#9670;&#160;</a></span>lastTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/de8/a04646.html">Reader::TxRxDiagnostics</a> <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::lastTimeout {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registers captured at the most recent timeout. </p>
+
+</div>
+</div>
+<a id="a40166692a25986bd12544ffb546c499d" name="a40166692a25986bd12544ffb546c499d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40166692a25986bd12544ffb546c499d">&#9670;&#160;</a></span>postTransmitIrqStatus1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::postTransmitIrqStatus1 = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><em class="arg">IRQ_STATUS_1</em> right after REQA transmission. </p>
+
+</div>
+</div>
+<a id="a21142618b9524d09ba5f29b9c81d45a8" name="a21142618b9524d09ba5f29b9c81d45a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21142618b9524d09ba5f29b9c81d45a8">&#9670;&#160;</a></span>postTransmitIrqStatus2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::postTransmitIrqStatus2 = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><em class="arg">IRQ_STATUS_2</em> right after REQA transmission. </p>
+
+</div>
+</div>
+<a id="ad91c2db0d45e9677759d63979315ed24" name="ad91c2db0d45e9677759d63979315ed24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad91c2db0d45e9677759d63979315ed24">&#9670;&#160;</a></span>postTransmitStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::postTransmitStatus = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><em class="arg">STATUS</em> right after REQA transmission. </p>
+
+</div>
+</div>
+<a id="a794df80db631bc66fa479aa99fc0927f" name="a794df80db631bc66fa479aa99fc0927f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a794df80db631bc66fa479aa99fc0927f">&#9670;&#160;</a></span>postTxRxOnStatus</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::postTxRxOnStatus = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><em class="arg">STATUS</em> right after <b>txRxOn()</b>. </p>
+
+</div>
+</div>
+<a id="a41d5ce61c5cef34fac6065d36b07a07d" name="a41d5ce61c5cef34fac6065d36b07a07d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41d5ce61c5cef34fac6065d36b07a07d">&#9670;&#160;</a></span>preTransmitFifoStatus1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::preTransmitFifoStatus1 = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><em class="arg">FIFO_STATUS_1</em> after REQA was queued, before transmission. </p>
+
+</div>
+</div>
+<a id="aa594bb3892a314d5bae571485028c1f6" name="aa594bb3892a314d5bae571485028c1f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa594bb3892a314d5bae571485028c1f6">&#9670;&#160;</a></span>readFailureCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::readFailureCount = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Failed <a class="el" href="../../df/dc0/a04602.html#a4c81d15f935d8e1c2dd13d993975f940" title="readPages()">readPages()</a> calls. </p>
+
+</div>
+</div>
+<a id="a144c567d53c9d9fb36969c7e0a96d4f7" name="a144c567d53c9d9fb36969c7e0a96d4f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a144c567d53c9d9fb36969c7e0a96d4f7">&#9670;&#160;</a></span>reqaPollStatusBits</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::reqaPollStatusBits = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>OR of every <em class="arg">STATUS</em> seen while waiting for the ATQA. </p>
+
+</div>
+</div>
+<a id="a985da4fadf54931272c8b4013511c43a" name="a985da4fadf54931272c8b4013511c43a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a985da4fadf54931272c8b4013511c43a">&#9670;&#160;</a></span>reqaTimeoutCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::reqaTimeoutCount = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>REQA attempts without a valid ATQA. </p>
+
+</div>
+</div>
+<a id="a87c463babfda8c7c065f6a30250dd1e1" name="a87c463babfda8c7c065f6a30250dd1e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87c463babfda8c7c065f6a30250dd1e1">&#9670;&#160;</a></span>selectTimeoutCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::selectTimeoutCount = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>SELECT attempts without a valid SAK. </p>
+
+</div>
+</div>
+<a id="a6e9a133ac2b92dc90de4a93eee54e810" name="a6e9a133ac2b92dc90de4a93eee54e810"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e9a133ac2b92dc90de4a93eee54e810">&#9670;&#160;</a></span>unsupportedUidCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::unsupportedUidCount = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cards with a malformed cascade (more than three levels or too many UID bytes). </p>
+
+</div>
+</div>
+<a id="a96a8716efd8affbfbc401fcaba040259" name="a96a8716efd8affbfbc401fcaba040259"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96a8716efd8affbfbc401fcaba040259">&#9670;&#160;</a></span>writeFailureCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0">Lib::HAL::DriverMode</a> T_MODE&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../df/dc0/a04602.html">Lib::BSP::RFID::NfcManager</a>&lt; T_MODE &gt;::Diagnostics::writeFailureCount = 0U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Failed <a class="el" href="../../df/dc0/a04602.html#aa61c13d6b4df75e3243f862a1e8af3d5" title="writePage()">writePage()</a> calls (send or read-back mismatch). </p>
 
 </div>
 </div>

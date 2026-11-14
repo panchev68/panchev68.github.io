@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::GPIO::Output</title>
+<title>IAR EWARM Library: Lib::HAL::IndependentWatchdog</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,116 +92,58 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::GPIO::Output</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::IndependentWatchdog</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Drives and reads single pins with <a class="el" href="../../d0/d79/a06187.html" title="Lib::HAL::GPIO::Output">Lib::HAL::GPIO::Output</a>, <a class="el" href="../../d8/d73/a05412.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and <a class="el" href="../../db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a>.</p>
-<p>Drives and reads single pins with <a class="el" href="../../d0/d79/a06187.html" title="Lib::HAL::GPIO::Output">Lib::HAL::GPIO::Output</a>, <a class="el" href="../../d8/d73/a05412.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and <a class="el" href="../../db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a>. Each wrapper is bound to one <a class="el" href="../../da/df4/a05408.html" title="Lib::HAL::GPIO::Handle">Lib::HAL::GPIO::Handle</a>, built from a CubeMX-generated pin pair through the 'PIN()' macro. None of these classes takes a transfer mode, so there is no <a class="el" href="../../de/d02/a01026.html#a031c16cd1ba2f466615bbfa2b2832ed0" title="Lib::HAL::DriverMode">Lib::HAL::DriverMode</a> parameter.</p>
-<p>The wrappers do not configure the pin: the mode, speed and pull are set by the CubeMX-generated 'MX_GPIO_Init()', which must run before any wrapper is used. Output and input calls are plain register accesses and are safe from an ISR. <a class="el" href="../../db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> is the exception, see its own subsection.</p>
+<p>Starts the hardware Independent Watchdog (IWDG) with <a class="el" href="../../d0/d79/a06187.html" title="Lib::HAL::IndependentWatchdog">Lib::HAL::IndependentWatchdog</a> and keeps it alive from a task.</p>
+<p>Starts the hardware Independent Watchdog (IWDG) with <a class="el" href="../../d0/d79/a06187.html" title="Lib::HAL::IndependentWatchdog">Lib::HAL::IndependentWatchdog</a> and keeps it alive from a task.The wrapper does not own the CubeMX-generated handle; pass the <b>hiwdg</b> descriptor, which must outlive the instance. The prescaler and reload value are taken from that handle, so configure them in CubeMX before calling open(). refresh() is a single key-register write and is safe from task and ISR context.</p>
+<dl class="section important"><dt>Important</dt><dd>The IWDG is available on every STM32F4xx family, including the STM32F407xx target of this library. The module guard is <em class="arg">HAL_IWDG_MODULE_ENABLED</em>; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so that guard is unverified here, although the STM32Cube template enables it.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Once open() succeeds the watchdog cannot be stopped until the next reset. If refresh() is not called before the configured timeout expires, the MCU resets. Call open() only after the start-up code that must run without a refresh has finished.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_handle"></a>
-Handle and the PIN() macro</h3>
-<p>'PIN(LED)' expands to a <a class="el" href="../../d4/d15/a05404.html" title="Lib::HAL::GPIO::PinConfig">Lib::HAL::GPIO::PinConfig</a> built from 'LED_GPIO_Port' and 'LED_Pin', the symbols CubeMX emits in 'main.h'. <a class="el" href="../../da/df4/a05408.html" title="Lib::HAL::GPIO::Handle">Lib::HAL::GPIO::Handle</a> converts implicitly from that value and must outlive every wrapper that refers to it. A default-constructed handle has no port, and the wrapper constructors assert on it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="iwdg_usage_start"></a>
+Start the watchdog</h3>
+<p>open() returns <b>false</b> only when the HAL initialization or the lock sequence fails. In that case the watchdog is not running, so the firmware decides whether to continue unprotected or to restart.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d91/a00659.html">Lib/HAL/IWDG/IndependentWatchdog.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d0/d38/a01476.html">IWDG_HandleTypeDef</a> hiwdg; <span class="comment">// Generated by CubeMX.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../da/df4/a05408.html">Lib::HAL::GPIO::Handle</a> LED_HANDLE = <a id="_a1" name="_a1"></a><a class="code hl_define" href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(LED);</div>
-<div class="line"><span class="keyword">constexpr</span> <a class="code hl_class" href="../../da/df4/a05408.html">Lib::HAL::GPIO::Handle</a> BUTTON_HANDLE = <a class="code hl_define" href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(BUTTON);</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="ttc" id="aa00614_html_a45dbeff58bd7e046067745552ea8044c"><div class="ttname"><a href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a></div><div class="ttdeci">#define PIN(p)</div><div class="ttdef"><b>Definition</b> Handle.hpp:25</div></div>
-<div class="ttc" id="aa00623_html"><div class="ttname"><a href="../../df/d6f/a00623.html">GPIO.hpp</a></div><div class="ttdoc">Public convenience aliases for the GPIO subsystem.</div></div>
-<div class="ttc" id="aa05408_html"><div class="ttname"><a href="../../da/df4/a05408.html">Lib::HAL::GPIO::Handle</a></div><div class="ttdoc">Lightweight wrapper for GPIO pin configuration providing typed access.</div><div class="ttdef"><b>Definition</b> Handle.hpp:50</div></div>
+<div class="line"><span class="keywordtype">bool</span> startIndependentWatchdog() noexcept {</div>
+<div class="line">    <span class="keyword">static</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../de/d5f/a05458.html">Lib::HAL::IndependentWatchdog</a> watchdog(hiwdg);</div>
+<div class="line">    <span class="keywordflow">return</span> watchdog.<a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d5f/a05458.html#aefbbf9853d59e4b287ed0df49e5f7cdd">open</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00659_html"><div class="ttname"><a href="../../dc/d91/a00659.html">IndependentWatchdog.hpp</a></div><div class="ttdoc">Independent Watchdog (IWDG) interface.</div></div>
+<div class="ttc" id="aa01476_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d0/d38/a01476.html">IWDG_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa05458_html"><div class="ttname"><a href="../../de/d5f/a05458.html">Lib::HAL::IndependentWatchdog</a></div><div class="ttdoc">Controls the hardware Independent Watchdog; once started it cannot be stopped until the next reset.</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:29</div></div>
+<div class="ttc" id="aa05458_html_aefbbf9853d59e4b287ed0df49e5f7cdd"><div class="ttname"><a href="../../de/d5f/a05458.html#aefbbf9853d59e4b287ed0df49e5f7cdd">Lib::HAL::IndependentWatchdog::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes and starts the hardware watchdog timer using the configuration held in the native handle.</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:91</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_output"></a>
-Driving an output</h3>
-<p><a class="el" href="../../d3/d7f/a05416.html#a52416b95040bffe9915b005b33bc3600" title="Lib::HAL::GPIO::Output::write()">Lib::HAL::GPIO::Output::write()</a> takes the logic level, <a class="el" href="../../d3/d7f/a05416.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11" title="Lib::HAL::GPIO::Output::setHigh()">Lib::HAL::GPIO::Output::setHigh()</a> and <a class="el" href="../../d3/d7f/a05416.html#a0fc44f31312833d252e8aef8a1c4e361" title="Lib::HAL::GPIO::Output::setLow()">Lib::HAL::GPIO::Output::setLow()</a> are shorthands, and <a class="el" href="../../d3/d7f/a05416.html#ad11ab03ddf964b154331b7ffc708e4c2" title="Lib::HAL::GPIO::Output::toggle()">Lib::HAL::GPIO::Output::toggle()</a> inverts the current level. The class is non-copyable and non-movable, so keep it as a long-lived object.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="iwdg_usage_refresh"></a>
+Refresh from a supervisor task</h3>
+<p>The refresh period must stay well below the timeout that the prescaler and reload value define. A supervisor task that refreshes only after every other task reports healthy keeps the watchdog meaningful; a refresh placed in an unconditional timer ISR would hide a blocked task.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d91/a00659.html">Lib/HAL/IWDG/IndependentWatchdog.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d6c/a00977.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d3/d7f/a05416.html">Lib::HAL::GPIO::Output</a> led(LED_HANDLE);</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d0/d38/a01476.html">IWDG_HandleTypeDef</a> hiwdg; <span class="comment">// Generated by CubeMX.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> blinkOnce() noexcept {</div>
-<div class="line">    led.setHigh();</div>
-<div class="line">    led.toggle();    <span class="comment">// Now low.</span></div>
-<div class="line">    led.write(<span class="keyword">true</span>); <span class="comment">// Now high again.</span></div>
+<div class="line"><span class="keywordtype">void</span> supervisorTask(<span class="keywordtype">void</span> *) {</div>
+<div class="line">    <span class="keyword">static</span> <a class="code hl_class" href="../../de/d5f/a05458.html">Lib::HAL::IndependentWatchdog</a> watchdog(hiwdg);</div>
+<div class="line">    <span class="keywordflow">if</span> (!watchdog.<a class="code hl_function" href="../../de/d5f/a05458.html#aefbbf9853d59e4b287ed0df49e5f7cdd">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="comment">// Refresh only when every monitored task has checked in.</span></div>
+<div class="line">        watchdog.<a id="a3" name="a3"></a><a class="code hl_function" href="../../de/d5f/a05458.html#ae9f164f43789bd02baa1587a44c30e61">refresh</a>();</div>
+<div class="line">        <a id="a4" name="a4"></a><a class="code hl_function" href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a id="_a5" name="_a5"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05416_html"><div class="ttname"><a href="../../d3/d7f/a05416.html">Lib::HAL::GPIO::Output</a></div><div class="ttdoc">Represents a discrete hardware output pin capable of state driving and active reading.</div><div class="ttdef"><b>Definition</b> Output.hpp:35</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_input"></a>
-Reading an input</h3>
-<p><a class="el" href="../../d8/d73/a05412.html#acf9a806f75242814c40947cdc229ed24" title="Lib::HAL::GPIO::Input::read()">Lib::HAL::GPIO::Input::read()</a> returns <b>true</b> when the pin is high, and <a class="el" href="../../d8/d73/a05412.html#ac4819ceaa799d09422b2441ab37d1bf3" title="Lib::HAL::GPIO::Input::isHigh()">Lib::HAL::GPIO::Input::isHigh()</a> and <a class="el" href="../../d8/d73/a05412.html#aac45963cf0777027622bcfbd5773ad89" title="Lib::HAL::GPIO::Input::isLow()">Lib::HAL::GPIO::Input::isLow()</a> are named forms of the same read. The explicit 'bool' conversion operator also reads the pin.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line"><a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d8/d73/a05412.html">Lib::HAL::GPIO::Input</a> button(BUTTON_HANDLE);</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> isButtonPressed() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> button.isLow(); <span class="comment">// Active-low button with a pull-up configured by CubeMX.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa05412_html"><div class="ttname"><a href="../../d8/d73/a05412.html">Lib::HAL::GPIO::Input</a></div><div class="ttdoc">Represents a discrete hardware input pin mapped to a specific microcontroller port.</div><div class="ttdef"><b>Definition</b> Input.hpp:34</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_exti"></a>
-Interrupt on an input pin</h3>
-<p><a class="el" href="../../db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> derives from <a class="el" href="../../d8/d73/a05412.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and registers its pin with a shared dispatcher in its constructor, which asserts if the pin is already registered. The EXTI line and its edge are set by CubeMX, and the header provides the 'HAL_GPIO_EXTI_Callback()' family, so do not define those in user code.</p>
-<p>The bound callback is not run in the interrupt. The HAL callback only signals a shared worker task, which invokes the callback in task context, so the callback may use RTOS calls that are illegal from an ISR. A capturing lambda must be an lvalue that outlives the binding; a capture-less lambda or a function pointer can be passed directly.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Each EXTI line can be claimed by one <a class="el" href="../../db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> at a time; a second one on the same pin asserts in its constructor.</dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> onButtonEdge() <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="comment">// Runs in the EXTI worker task, not in the ISR.</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><a id="_a4" name="_a4"></a><a class="code hl_class" href="../../db/d21/a05396.html">Lib::HAL::GPIO::ExtInterrupt</a> button(BUTTON_HANDLE);</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setupButtonInterrupt() noexcept {</div>
-<div class="line">    button.bindCallback(onButtonEdge);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> teardownButtonInterrupt() noexcept {</div>
-<div class="line">    button.unbindCallback();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05396_html"><div class="ttname"><a href="../../db/d21/a05396.html">Lib::HAL::GPIO::ExtInterrupt</a></div><div class="ttdoc">Handles hardware external line interrupts with centralized notification-driven dispatching.</div><div class="ttdef"><b>Definition</b> ExtInterrupt.hpp:50</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_port"></a>
-Whole-port access</h3>
-<p><a class="el" href="../../dd/d1f/a05420.html" title="Lib::HAL::GPIO::Port">Lib::HAL::GPIO::Port</a> wraps one register block ('GPIOD' and so on) rather than a single pin. <a class="el" href="../../dd/d1f/a05420.html#a5cbf2a8c7874db91ada4dfec7e22aff1" title="Lib::HAL::GPIO::Port::setup()">Lib::HAL::GPIO::Port::setup()</a> passes a native 'GPIO_InitTypeDef' to 'HAL_GPIO_Init()', and <a class="el" href="../../dd/d1f/a05420.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0" title="Lib::HAL::GPIO::Port::write()">Lib::HAL::GPIO::Port::write()</a> and <a class="el" href="../../dd/d1f/a05420.html#adce8df0019ea415a350cf833ac481fc2" title="Lib::HAL::GPIO::Port::read()">Lib::HAL::GPIO::Port::read()</a> access the output and input data registers as one word. Use it only when several pins must change in one bus write; the pin wrappers above are the default.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> initPortDLow4() noexcept {</div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../dd/d1f/a05420.html">Lib::HAL::GPIO::Port</a> port(GPIOD);</div>
-<div class="line"> </div>
-<div class="line">    port.<a id="a6" name="a6"></a><a class="code hl_function" href="../../dd/d1f/a05420.html#a5cbf2a8c7874db91ada4dfec7e22aff1">setup</a>({</div>
-<div class="line">        .Pin = <a id="_a7" name="_a7"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga176efbf43a259b7bb0a85a47401505be">GPIO_PIN_0</a> | <a id="_a8" name="_a8"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6c35af4e75c3cb57bb650feaa7a136b5">GPIO_PIN_1</a> | <a id="_a9" name="_a9"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6eee38b797a7268f04357dfa2759efd2">GPIO_PIN_2</a> | <a id="_a10" name="_a10"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#gadcaf899c018a0dde572b5af783565c62">GPIO_PIN_3</a>,</div>
-<div class="line">        .Mode = <a id="_a11" name="_a11"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d7/d4f/a00819.html#ga1013838a64cec2f8c88f079c449d1982">GPIO_MODE_OUTPUT_PP</a>,</div>
-<div class="line">        .Pull = <a id="_a12" name="_a12"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d8b/a00821.html#ga5c2862579882c1cc64e36d38fbd07a4c">GPIO_NOPULL</a>,</div>
-<div class="line">        .Speed = <a id="_a13" name="_a13"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d00/a00820.html#gab7916c4265bfa1b26a5205ea9c1caa4e">GPIO_SPEED_FREQ_LOW</a>,</div>
-<div class="line">        .Alternate = 0,</div>
-<div class="line">    });</div>
-<div class="line"> </div>
-<div class="line">    port.<a id="a14" name="a14"></a><a class="code hl_function" href="../../dd/d1f/a05420.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0">write</a>(0x0AU); <span class="comment">// Drives PD1 and PD3 high, PD0 and PD2 low.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa00818_html_ga176efbf43a259b7bb0a85a47401505be"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga176efbf43a259b7bb0a85a47401505be">GPIO_PIN_0</a></div><div class="ttdeci">#define GPIO_PIN_0</div></div>
-<div class="ttc" id="aa00818_html_ga6c35af4e75c3cb57bb650feaa7a136b5"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6c35af4e75c3cb57bb650feaa7a136b5">GPIO_PIN_1</a></div><div class="ttdeci">#define GPIO_PIN_1</div></div>
-<div class="ttc" id="aa00818_html_ga6eee38b797a7268f04357dfa2759efd2"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6eee38b797a7268f04357dfa2759efd2">GPIO_PIN_2</a></div><div class="ttdeci">#define GPIO_PIN_2</div></div>
-<div class="ttc" id="aa00818_html_gadcaf899c018a0dde572b5af783565c62"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#gadcaf899c018a0dde572b5af783565c62">GPIO_PIN_3</a></div><div class="ttdeci">#define GPIO_PIN_3</div></div>
-<div class="ttc" id="aa00819_html_ga1013838a64cec2f8c88f079c449d1982"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d7/d4f/a00819.html#ga1013838a64cec2f8c88f079c449d1982">GPIO_MODE_OUTPUT_PP</a></div><div class="ttdeci">#define GPIO_MODE_OUTPUT_PP</div></div>
-<div class="ttc" id="aa00820_html_gab7916c4265bfa1b26a5205ea9c1caa4e"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dc/d00/a00820.html#gab7916c4265bfa1b26a5205ea9c1caa4e">GPIO_SPEED_FREQ_LOW</a></div><div class="ttdeci">#define GPIO_SPEED_FREQ_LOW</div></div>
-<div class="ttc" id="aa00821_html_ga5c2862579882c1cc64e36d38fbd07a4c"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d8b/a00821.html#ga5c2862579882c1cc64e36d38fbd07a4c">GPIO_NOPULL</a></div><div class="ttdeci">#define GPIO_NOPULL</div></div>
-<div class="ttc" id="aa05420_html"><div class="ttname"><a href="../../dd/d1f/a05420.html">Lib::HAL::GPIO::Port</a></div><div class="ttdoc">Discrete hardware port controller wrapping peripheral register blocks.</div><div class="ttdef"><b>Definition</b> HAL/GPIO/Port.hpp:31</div></div>
-<div class="ttc" id="aa05420_html_a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0"><div class="ttname"><a href="../../dd/d1f/a05420.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0">Lib::HAL::GPIO::Port::write</a></div><div class="ttdeci">void write(uint32_t value) noexcept</div><div class="ttdoc">Writes a bitmask to all output lines of the port in a single store.</div><div class="ttdef"><b>Definition</b> HAL/GPIO/Port.hpp:113</div></div>
-<div class="ttc" id="aa05420_html_a5cbf2a8c7874db91ada4dfec7e22aff1"><div class="ttname"><a href="../../dd/d1f/a05420.html#a5cbf2a8c7874db91ada4dfec7e22aff1">Lib::HAL::GPIO::Port::setup</a></div><div class="ttdeci">void setup(Config config) noexcept</div><div class="ttdoc">Initializes the selected pins of the port from a HAL descriptor.</div><div class="ttdef"><b>Definition</b> HAL/GPIO/Port.hpp:144</div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00977_html"><div class="ttname"><a href="../../d5/d6c/a00977.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01029_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa05458_html_ae9f164f43789bd02baa1587a44c30e61"><div class="ttname"><a href="../../de/d5f/a05458.html#ae9f164f43789bd02baa1587a44c30e61">Lib::HAL::IndependentWatchdog::refresh</a></div><div class="ttdeci">void refresh() noexcept</div><div class="ttdoc">Reloads the independent hardware counter to prevent a system reset.</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:101</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

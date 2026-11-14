@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::GSM::A7670E::File</title>
+<title>IAR EWARM Library: Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,139 +91,102 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../df/dbc/a01004.html">GSM</a></li><li class="navelem"><a href="../../df/de9/a04534.html">A7670E</a></li><li class="navelem"><a href="../../d1/d2a/a04566.html">File</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/d48/a00988.html">BSP</a></li><li class="navelem"><a href="../../d1/d2a/a04566.html">IS62WV51216</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="../../d9/d0c/a04563.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::GSM::A7670E::File<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Mutex-guarded byte access to an IS62WV51216 SRAM mapped into the address space by the FSMC/FMC.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Handle-based access to one file on the modem file system, in the manner of fopen() with fread(), fwrite(), fseek() and fclose(). </p>
-<p>Only one File can be open at a time, because the number of modem file handles is not documented. Data lives in the modem flash.</p>
-<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="#ab53db1c5f8ccb661295ce0203e34d7ec" title="read()">read()</a> returns <b>0</b> both at the end of the file and on an error, because the modem does not document what it returns at the end of the file.</dd></dl>
-<dl class="section important"><dt>Important</dt><dd>Destroying an open File closes it. </dd></dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::GSM::A7670E::File:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/df4/a04564.svg" width="238" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;</div><p>Mutex-guarded byte access to an IS62WV51216 SRAM mapped into the address space by the FSMC/FMC. </p>
+<p>The memory controller is set up outside this class (CubeMX <b>MX_FSMC_Init()</b>); the driver only copies bytes at offsets inside the configured region. After each write the CRTP hook <a class="el" href="#a4b6251a86a54f6053c2b89c00ba6a744" title="onMemoryChanged()">onMemoryChanged()</a> runs under the lock; a derived class may shadow it, keeping it public or befriending the base.</p>
+<dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="#afa482d28208b65335930cb3722de8871" title="open()">open()</a> first: until then every transfer fails rather than touching the region unprotected.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete class; must publicly inherit <a class="el" href="../../d1/d2a/a04566.html" title="IS62WV51216">IS62WV51216</a>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://www.issi.com" target="_blank">ISSI IS62WV51216 datasheet (issi.com, search for the part number)</a> </dd>
+<dd>
+<a href="https://manualmachine.com/datasheet/is62wv51216all/8417543-datasheet-issi" target="_blank">IS62WV51216ALL/BLL datasheet, Rev B (third-party copy)</a></dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/RAM/IS62WV51216.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d8a/a06157.html#_a0">Lib::BSP::IS62WV51216</a>.</dd>
+</dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d6/dfd/a04570.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Location of the mapped SRAM region.  <a href="../../d6/dfd/a04570.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a82552ae5d2d082b01cc048b6d5f28504" id="r_a82552ae5d2d082b01cc048b6d5f28504"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a82552ae5d2d082b01cc048b6d5f28504">File</a> (<a class="el" href="../../df/de9/a04534.html#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> &amp;owner) noexcept</td></tr>
-<tr class="memdesc:a82552ae5d2d082b01cc048b6d5f28504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the File to the modem that stores the file; nothing is opened yet.  <br /></td></tr>
-<tr class="memitem:a8d5bf6c606ffd1d8d17f5d6bba29157a" id="r_a8d5bf6c606ffd1d8d17f5d6bba29157a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8d5bf6c606ffd1d8d17f5d6bba29157a">~File</a> () noexcept</td></tr>
-<tr class="memdesc:a8d5bf6c606ffd1d8d17f5d6bba29157a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the file if it is open.  <br /></td></tr>
-<tr class="memitem:a25edad5fbc94c04a5121f75434361dfe" id="r_a25edad5fbc94c04a5121f75434361dfe"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a25edad5fbc94c04a5121f75434361dfe">File</a> (const File &amp;other)=delete</td></tr>
-<tr class="memdesc:a25edad5fbc94c04a5121f75434361dfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: a File owns one modem file handle.  <br /></td></tr>
-<tr class="memitem:ab85d612b0acb279719a29f07ec991d48" id="r_ab85d612b0acb279719a29f07ec991d48"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab85d612b0acb279719a29f07ec991d48">File</a> (File &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ab85d612b0acb279719a29f07ec991d48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: a File owns one modem file handle.  <br /></td></tr>
-<tr class="memitem:a095369cd880af04d889d44d6edb4ffe4" id="r_a095369cd880af04d889d44d6edb4ffe4"><td class="memItemLeft"><a class="el" href="#a82552ae5d2d082b01cc048b6d5f28504">File</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a095369cd880af04d889d44d6edb4ffe4">operator=</a> (const <a class="el" href="#a82552ae5d2d082b01cc048b6d5f28504">File</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a095369cd880af04d889d44d6edb4ffe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: a File owns one modem file handle.  <br /></td></tr>
-<tr class="memitem:adff8a97f3267437e7baa45a767cf3a3c" id="r_adff8a97f3267437e7baa45a767cf3a3c"><td class="memItemLeft"><a class="el" href="#a82552ae5d2d082b01cc048b6d5f28504">File</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#adff8a97f3267437e7baa45a767cf3a3c">operator=</a> (<a class="el" href="#a82552ae5d2d082b01cc048b6d5f28504">File</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:adff8a97f3267437e7baa45a767cf3a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: a File owns one modem file handle.  <br /></td></tr>
-<tr class="memitem:a96670932bba49251bcc459dac43017a1" id="r_a96670932bba49251bcc459dac43017a1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a96670932bba49251bcc459dac43017a1">open</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> path, <a class="el" href="#a1daedc54cbed94813a3f5a28788f02ee">Mode</a> mode) noexcept</td></tr>
-<tr class="memdesc:a96670932bba49251bcc459dac43017a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a file on the modem file system.  <br /></td></tr>
-<tr class="memitem:a7c0a91066586518abbef60479f08ec66" id="r_a7c0a91066586518abbef60479f08ec66"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7c0a91066586518abbef60479f08ec66">close</a> () noexcept</td></tr>
-<tr class="memdesc:a7c0a91066586518abbef60479f08ec66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the file and releases the modem for the next File.  <br /></td></tr>
-<tr class="memitem:a90b350290b06d5ee2cf1d7b325804454" id="r_a90b350290b06d5ee2cf1d7b325804454"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a90b350290b06d5ee2cf1d7b325804454">isOpen</a> () const noexcept</td></tr>
-<tr class="memdesc:a90b350290b06d5ee2cf1d7b325804454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether this object has an open file.  <br /></td></tr>
-<tr class="memitem:ab53db1c5f8ccb661295ce0203e34d7ec" id="r_ab53db1c5f8ccb661295ce0203e34d7ec"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ab53db1c5f8ccb661295ce0203e34d7ec">read</a> (std::span&lt; uint8_t &gt; data) noexcept</td></tr>
-<tr class="memdesc:ab53db1c5f8ccb661295ce0203e34d7ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from the current position and moves past them.  <br /></td></tr>
-<tr class="memitem:ad841aa788c7ebf36c0d12b1ded803d60" id="r_ad841aa788c7ebf36c0d12b1ded803d60"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad841aa788c7ebf36c0d12b1ded803d60">write</a> (std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
-<tr class="memdesc:ad841aa788c7ebf36c0d12b1ded803d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes at the current position and moves past them.  <br /></td></tr>
-<tr class="memitem:a66b6ed3c3e1e592174dc4ff92dfe8cd5" id="r_a66b6ed3c3e1e592174dc4ff92dfe8cd5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a66b6ed3c3e1e592174dc4ff92dfe8cd5">seek</a> (int32_t offset, <a class="el" href="#a24d9949178c04dbff8a51a46404f5274">Origin</a> origin) noexcept</td></tr>
-<tr class="memdesc:a66b6ed3c3e1e592174dc4ff92dfe8cd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the current position.  <br /></td></tr>
-<tr class="memitem:aca9142e54a9033aeac167cdd5a56cd8b" id="r_aca9142e54a9033aeac167cdd5a56cd8b"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint32_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aca9142e54a9033aeac167cdd5a56cd8b">tell</a> () noexcept</td></tr>
-<tr class="memdesc:aca9142e54a9033aeac167cdd5a56cd8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current position.  <br /></td></tr>
-<tr class="memitem:ae432dc9450887014c08de3cc35287be2" id="r_ae432dc9450887014c08de3cc35287be2"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint32_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae432dc9450887014c08de3cc35287be2">size</a> () noexcept</td></tr>
-<tr class="memdesc:ae432dc9450887014c08de3cc35287be2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the open file; the current position is kept.  <br /></td></tr>
+<tr class="memitem:a7921fa0f977faf912d2049453fd4c308" id="r_a7921fa0f977faf912d2049453fd4c308"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7921fa0f977faf912d2049453fd4c308">IS62WV51216</a> (const Config &amp;config) noexcept</td></tr>
+<tr class="memdesc:a7921fa0f977faf912d2049453fd4c308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to the mapped region without opening the mutex.  <br /></td></tr>
+<tr class="memitem:afa482d28208b65335930cb3722de8871" id="r_afa482d28208b65335930cb3722de8871"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa482d28208b65335930cb3722de8871">open</a> () noexcept</td></tr>
+<tr class="memdesc:afa482d28208b65335930cb3722de8871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the mutex that guards every transfer.  <br /></td></tr>
+<tr class="memitem:ab7d16cfbd2da4ddbf5fe344a3eace30f" id="r_ab7d16cfbd2da4ddbf5fe344a3eace30f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab7d16cfbd2da4ddbf5fe344a3eace30f">close</a> () noexcept</td></tr>
+<tr class="memdesc:ab7d16cfbd2da4ddbf5fe344a3eace30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the mutex; transfers fail until <a class="el" href="#afa482d28208b65335930cb3722de8871" title="open()">open()</a> is called again.  <br /></td></tr>
+<tr class="memitem:a71a6069370565b21f326cb1f4e446a71" id="r_a71a6069370565b21f326cb1f4e446a71"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a71a6069370565b21f326cb1f4e446a71">read</a> (uint32_t address, void *data, size_t size) noexcept</td></tr>
+<tr class="memdesc:a71a6069370565b21f326cb1f4e446a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies bytes from the SRAM region into a buffer, under the mutex.  <br /></td></tr>
+<tr class="memitem:a2b3f4b448d2b7076918a849936826646" id="r_a2b3f4b448d2b7076918a849936826646"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2b3f4b448d2b7076918a849936826646">read</a> (uint32_t address, std::span&lt; std::byte &gt; data) noexcept</td></tr>
+<tr class="memdesc:a2b3f4b448d2b7076918a849936826646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies bytes from the SRAM region into a span, under the mutex.  <br /></td></tr>
+<tr class="memitem:abb442f01943c59f8ce352f5f92d959b1" id="r_abb442f01943c59f8ce352f5f92d959b1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abb442f01943c59f8ce352f5f92d959b1">write</a> (uint32_t address, const void *data, size_t size) noexcept</td></tr>
+<tr class="memdesc:abb442f01943c59f8ce352f5f92d959b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies bytes from a buffer into the SRAM region, under the mutex.  <br /></td></tr>
+<tr class="memitem:abd6c3b651e745ff59409e2f5cf7acb44" id="r_abd6c3b651e745ff59409e2f5cf7acb44"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abd6c3b651e745ff59409e2f5cf7acb44">write</a> (uint32_t address, std::span&lt; const std::byte &gt; data) noexcept</td></tr>
+<tr class="memdesc:abd6c3b651e745ff59409e2f5cf7acb44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies bytes from a span into the SRAM region, under the mutex.  <br /></td></tr>
+<tr class="memitem:a5d44f7cbee5d1bc849cb54ef47f257a3" id="r_a5d44f7cbee5d1bc849cb54ef47f257a3"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5d44f7cbee5d1bc849cb54ef47f257a3">getSize</a> () const noexcept</td></tr>
+<tr class="memdesc:a5d44f7cbee5d1bc849cb54ef47f257a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the mapped region.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a8bbb723bb8da60c1ded7fa4770488e41" id="r_a8bbb723bb8da60c1ded7fa4770488e41"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8bbb723bb8da60c1ded7fa4770488e41">~IS62WV51216</a> () noexcept</td></tr>
+<tr class="memdesc:a8bbb723bb8da60c1ded7fa4770488e41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the mutex.  <br /></td></tr>
+<tr class="memitem:a4b6251a86a54f6053c2b89c00ba6a744" id="r_a4b6251a86a54f6053c2b89c00ba6a744"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4b6251a86a54f6053c2b89c00ba6a744">onMemoryChanged</a> (uintptr_t absoluteAddress, size_t size) noexcept</td></tr>
+<tr class="memdesc:a4b6251a86a54f6053c2b89c00ba6a744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reacts to a completed write; does nothing by default.  <br /></td></tr>
+<tr class="memitem:a627f5ee3afe264e55f1cc04cafae392d" id="r_a627f5ee3afe264e55f1cc04cafae392d"><td class="memItemLeft">uintptr_t&#160;</td><td class="memItemRight"><a class="el" href="#a627f5ee3afe264e55f1cc04cafae392d">toAbsoluteAddress</a> (uint32_t address) const noexcept</td></tr>
+<tr class="memdesc:a627f5ee3afe264e55f1cc04cafae392d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a region-relative offset to an absolute memory address.  <br /></td></tr>
+<tr class="memitem:a1b6c9da4691865cdfa1b28945756e9e5" id="r_a1b6c9da4691865cdfa1b28945756e9e5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1b6c9da4691865cdfa1b28945756e9e5">isRangeValid</a> (uint32_t address, size_t size) const noexcept</td></tr>
+<tr class="memdesc:a1b6c9da4691865cdfa1b28945756e9e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that an access lies within the configured region.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a0d15eea85e078fd1ca516727c0e8ca8a" id="r_a0d15eea85e078fd1ca516727c0e8ca8a"><td class="memItemLeft">const uintptr_t&#160;</td><td class="memItemRight"><a class="el" href="#a0d15eea85e078fd1ca516727c0e8ca8a">baseAddress</a></td></tr>
+<tr class="memdesc:a0d15eea85e078fd1ca516727c0e8ca8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute start address of the mapped region.  <br /></td></tr>
+<tr class="memitem:af112bc4831d358a9018b8a296e932392" id="r_af112bc4831d358a9018b8a296e932392"><td class="memItemLeft">const size_t&#160;</td><td class="memItemRight"><a class="el" href="#af112bc4831d358a9018b8a296e932392">sizeBytes</a></td></tr>
+<tr class="memdesc:af112bc4831d358a9018b8a296e932392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Region size in bytes.  <br /></td></tr>
+<tr class="memitem:a0d53d69589f382b51186fd40078d3d7a" id="r_a0d53d69589f382b51186fd40078d3d7a"><td class="memItemLeft"><a class="el" href="../../d7/de6/a05902.html">RTOS::Mutex</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0d53d69589f382b51186fd40078d3d7a">mutex</a></td></tr>
+<tr class="memdesc:a0d53d69589f382b51186fd40078d3d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes transfers between tasks; no handle until open().  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a1daedc54cbed94813a3f5a28788f02ee" name="a1daedc54cbed94813a3f5a28788f02ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1daedc54cbed94813a3f5a28788f02ee">&#9670;&#160;</a></span>Mode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a1daedc54cbed94813a3f5a28788f02ee">Lib::BSP::GSM::A7670E::File::Mode</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Access mode of <a class="el" href="#a96670932bba49251bcc459dac43017a1" title="open()">open()</a>. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1daedc54cbed94813a3f5a28788f02eea3466fab4975481651940ed328aa990e4" name="a1daedc54cbed94813a3f5a28788f02eea3466fab4975481651940ed328aa990e4"></a>READ&#160;</td><td class="fielddoc"><p>Read only; the file must exist. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a1daedc54cbed94813a3f5a28788f02eead4b9e47f65b6e79b010582f15785867e" name="a1daedc54cbed94813a3f5a28788f02eead4b9e47f65b6e79b010582f15785867e"></a>WRITE&#160;</td><td class="fielddoc"><p>Create the file, or clear it if it exists. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a1daedc54cbed94813a3f5a28788f02eea375ffb668aa90f1c7fcae55e9734a752" name="a1daedc54cbed94813a3f5a28788f02eea375ffb668aa90f1c7fcae55e9734a752"></a>APPEND&#160;</td><td class="fielddoc"><p>Keep the content and write after its end. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a id="a24d9949178c04dbff8a51a46404f5274" name="a24d9949178c04dbff8a51a46404f5274"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24d9949178c04dbff8a51a46404f5274">&#9670;&#160;</a></span>Origin</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a24d9949178c04dbff8a51a46404f5274">Lib::BSP::GSM::A7670E::File::Origin</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reference point of <a class="el" href="#a66b6ed3c3e1e592174dc4ff92dfe8cd5" title="seek()">seek()</a>, as in 'SEEK_SET', 'SEEK_CUR' and 'SEEK_END'. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a24d9949178c04dbff8a51a46404f5274a19aad9f2fe3ce0023298ab83f7e75775" name="a24d9949178c04dbff8a51a46404f5274a19aad9f2fe3ce0023298ab83f7e75775"></a>BEGIN&#160;</td><td class="fielddoc"><p>Offset from the start of the file. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a24d9949178c04dbff8a51a46404f5274aa2770969c827f0f2910f6179418462df" name="a24d9949178c04dbff8a51a46404f5274aa2770969c827f0f2910f6179418462df"></a>CURRENT&#160;</td><td class="fielddoc"><p>Offset from the current position. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a24d9949178c04dbff8a51a46404f5274ab1a326c06d88bf042f73d70f50197905" name="a24d9949178c04dbff8a51a46404f5274ab1a326c06d88bf042f73d70f50197905"></a>END&#160;</td><td class="fielddoc"><p>Offset from the end of the file. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a82552ae5d2d082b01cc048b6d5f28504" name="a82552ae5d2d082b01cc048b6d5f28504"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82552ae5d2d082b01cc048b6d5f28504">&#9670;&#160;</a></span>File() <span class="overload">[1/3]</span></h2>
+<a id="a7921fa0f977faf912d2049453fd4c308" name="a7921fa0f977faf912d2049453fd4c308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7921fa0f977faf912d2049453fd4c308">&#9670;&#160;</a></span>IS62WV51216()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::GSM::A7670E::File::File </td>
+          <td class="memname"><a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::IS62WV51216 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../df/de9/a04534.html#a4efe1fb5ffea1200b206cd1eb712fbe2">A7670E</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>owner</em></span></td><td>)</td>
+          <td class="paramtype">const Config &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -232,39 +197,31 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the File to the modem that stores the file; nothing is opened yet. </p>
+<p>Binds the driver to the mapped region without opening the mutex. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">owner</td><td>Modem that stores the file. </td></tr>
+    <tr><td class="paramname">config</td><td>Location of the mapped SRAM region. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_a82552ae5d2d082b01cc048b6d5f28504_cgraph.svg" width="598" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_a82552ae5d2d082b01cc048b6d5f28504_icgraph.svg" width="670" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d8a/a06157.html#a1">Lib::BSP::IS62WV51216</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a8d5bf6c606ffd1d8d17f5d6bba29157a" name="a8d5bf6c606ffd1d8d17f5d6bba29157a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d5bf6c606ffd1d8d17f5d6bba29157a">&#9670;&#160;</a></span>~File()</h2>
+<a id="a8bbb723bb8da60c1ded7fa4770488e41" name="a8bbb723bb8da60c1ded7fa4770488e41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bbb723bb8da60c1ded7fa4770488e41">&#9670;&#160;</a></span>~IS62WV51216()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::GSM::A7670E::File::~File </td>
+          <td class="memname"><a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a7921fa0f977faf912d2049453fd4c308">IS62WV51216</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -272,111 +229,30 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the file if it is open. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_a8d5bf6c606ffd1d8d17f5d6bba29157a_cgraph.svg" width="646" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a25edad5fbc94c04a5121f75434361dfe" name="a25edad5fbc94c04a5121f75434361dfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25edad5fbc94c04a5121f75434361dfe">&#9670;&#160;</a></span>File() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::BSP::GSM::A7670E::File::File </td>
-          <td>(</td>
-          <td class="paramtype">const File &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copying is deleted: a File owns one modem file handle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_a25edad5fbc94c04a5121f75434361dfe_cgraph.svg" width="931" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ab85d612b0acb279719a29f07ec991d48" name="ab85d612b0acb279719a29f07ec991d48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab85d612b0acb279719a29f07ec991d48">&#9670;&#160;</a></span>File() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::BSP::GSM::A7670E::File::File </td>
-          <td>(</td>
-          <td class="paramtype">File &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moving is deleted: a File owns one modem file handle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_ab85d612b0acb279719a29f07ec991d48_cgraph.svg" width="931" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Deletes the mutex. </p>
+<p>Protected and non-virtual: only the derived class destroys the base, so no vtable is needed. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a7c0a91066586518abbef60479f08ec66" name="a7c0a91066586518abbef60479f08ec66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c0a91066586518abbef60479f08ec66">&#9670;&#160;</a></span>close()</h2>
+<a id="ab7d16cfbd2da4ddbf5fe344a3eace30f" name="ab7d16cfbd2da4ddbf5fe344a3eace30f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d16cfbd2da4ddbf5fe344a3eace30f">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::BSP::GSM::A7670E::File::close </td>
+          <td class="memname">void <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -389,28 +265,24 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the file and releases the modem for the next File. </p>
-<p>The object is released even if the modem refuses the close, so a broken handle cannot block the others. </p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_a7c0a91066586518abbef60479f08ec66_icgraph.svg" width="987" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Deletes the mutex; transfers fail until <a class="el" href="#afa482d28208b65335930cb3722de8871" title="open()">open()</a> is called again. </p>
+<p>The SRAM content is kept. </p>
 
 </div>
 </div>
-<a id="a90b350290b06d5ee2cf1d7b325804454" name="a90b350290b06d5ee2cf1d7b325804454"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90b350290b06d5ee2cf1d7b325804454">&#9670;&#160;</a></span>isOpen()</h2>
+<a id="a5d44f7cbee5d1bc849cb54ef47f257a3" name="a5d44f7cbee5d1bc849cb54ef47f257a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d44f7cbee5d1bc849cb54ef47f257a3">&#9670;&#160;</a></span>getSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::GSM::A7670E::File::isOpen </td>
+          <td class="memname">size_t <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::getSize </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -423,251 +295,108 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Tells whether this object has an open file. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="#a96670932bba49251bcc459dac43017a1" title="open()">open()</a> and <a class="el" href="#a7c0a91066586518abbef60479f08ec66" title="close()">close()</a>. </dd></dl>
+<p>Gets the size of the mapped region. </p>
+<dl class="section return"><dt>Returns</dt><dd>Region size in bytes; valid offsets are below it. </dd></dl>
 
 </div>
 </div>
-<a id="a96670932bba49251bcc459dac43017a1" name="a96670932bba49251bcc459dac43017a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96670932bba49251bcc459dac43017a1">&#9670;&#160;</a></span>open()</h2>
+<a id="a1b6c9da4691865cdfa1b28945756e9e5" name="a1b6c9da4691865cdfa1b28945756e9e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b6c9da4691865cdfa1b28945756e9e5">&#9670;&#160;</a></span>isRangeValid()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::GSM::A7670E::File::open </td>
+          <td class="memname">bool <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::isRangeValid </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>path</em></span>, </td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a1daedc54cbed94813a3f5a28788f02ee">Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span>&#160;)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Opens a file on the modem file system. </p>
-<p>Fails while another File is open, because only one handle is used at a time.</p>
+<p>Checks that an access lies within the configured region. </p>
+<p>Compares against the remaining space 'sizeBytes - address' instead of 'address + size', so an oversized request cannot wrap around and pass.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">path</td><td>Full path such as 'C:/config.bin'; at most 115 bytes and no comma. </td></tr>
-    <tr><td class="paramname">mode</td><td>Access mode, see <a class="el" href="#a1daedc54cbed94813a3f5a28788f02ee" title="Mode">Mode</a>. </td></tr>
+    <tr><td class="paramname">address</td><td>Offset inside the region. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to access. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the file is open. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_a96670932bba49251bcc459dac43017a1_cgraph.svg" width="1987" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_a96670932bba49251bcc459dac43017a1_icgraph.svg" width="638" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the whole range is inside the region. </dd></dl>
 
 </div>
 </div>
-<a id="a095369cd880af04d889d44d6edb4ffe4" name="a095369cd880af04d889d44d6edb4ffe4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a095369cd880af04d889d44d6edb4ffe4">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a4b6251a86a54f6053c2b89c00ba6a744" name="a4b6251a86a54f6053c2b89c00ba6a744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b6251a86a54f6053c2b89c00ba6a744">&#9670;&#160;</a></span>onMemoryChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a82552ae5d2d082b01cc048b6d5f28504">File</a> &amp; Lib::BSP::GSM::A7670E::File::operator= </td>
+          <td class="memname">void <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::onMemoryChanged </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a82552ae5d2d082b01cc048b6d5f28504">File</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy assignment is deleted: a File owns one modem file handle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_a095369cd880af04d889d44d6edb4ffe4_cgraph.svg" width="971" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="adff8a97f3267437e7baa45a767cf3a3c" name="adff8a97f3267437e7baa45a767cf3a3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adff8a97f3267437e7baa45a767cf3a3c">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a82552ae5d2d082b01cc048b6d5f28504">File</a> &amp; Lib::BSP::GSM::A7670E::File::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a82552ae5d2d082b01cc048b6d5f28504">File</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move assignment is deleted: a File owns one modem file handle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_adff8a97f3267437e7baa45a767cf3a3c_cgraph.svg" width="971" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ab53db1c5f8ccb661295ce0203e34d7ec" name="ab53db1c5f8ccb661295ce0203e34d7ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab53db1c5f8ccb661295ce0203e34d7ec">&#9670;&#160;</a></span>read()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::BSP::GSM::A7670E::File::read </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reads bytes from the current position and moves past them. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; its size is the number of bytes to read. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read; <b>0</b> at the end of the file or on an error. </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_ab53db1c5f8ccb661295ce0203e34d7ec_cgraph.svg" width="1280" height="335"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_ab53db1c5f8ccb661295ce0203e34d7ec_icgraph.svg" width="638" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a66b6ed3c3e1e592174dc4ff92dfe8cd5" name="a66b6ed3c3e1e592174dc4ff92dfe8cd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66b6ed3c3e1e592174dc4ff92dfe8cd5">&#9670;&#160;</a></span>seek()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::BSP::GSM::A7670E::File::seek </td>
-          <td>(</td>
-          <td class="paramtype">int32_t</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
+          <td class="paramtype">uintptr_t</td>          <td class="paramname"><span class="paramname"><em>absoluteAddress</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a24d9949178c04dbff8a51a46404f5274">Origin</a></td>          <td class="paramname"><span class="paramname"><em>origin</em></span>&#160;)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Moves the current position. </p>
+<p>Reacts to a completed write; does nothing by default. </p>
+<p>Shadow it in the derived class to mark data dirty, notify a consumer or maintain a cache. Runs inside <a class="el" href="#abb442f01943c59f8ce352f5f92d959b1" title="write()">write()</a> with the mutex held, so keep it short.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Calling read() or write() from here deadlocks: the mutex is not recursive.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">offset</td><td>Signed number of bytes, relative to 'origin'. </td></tr>
-    <tr><td class="paramname">origin</td><td>Reference point, see <a class="el" href="#a24d9949178c04dbff8a51a46404f5274" title="Origin">Origin</a>. </td></tr>
+    <tr><td class="paramname">absoluteAddress</td><td>Absolute memory address where the change began. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes that were changed. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the modem accepted the position. </dd></dl>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
-</div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_a66b6ed3c3e1e592174dc4ff92dfe8cd5_cgraph.svg" width="1646" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
-</div>
-<div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_a66b6ed3c3e1e592174dc4ff92dfe8cd5_icgraph.svg" width="971" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="ae432dc9450887014c08de3cc35287be2" name="ae432dc9450887014c08de3cc35287be2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae432dc9450887014c08de3cc35287be2">&#9670;&#160;</a></span>size()</h2>
+<a id="afa482d28208b65335930cb3722de8871" name="afa482d28208b65335930cb3722de8871"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa482d28208b65335930cb3722de8871">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint32_t &gt; Lib::BSP::GSM::A7670E::File::size </td>
+          <td class="memname">bool <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -680,31 +409,32 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the size of the open file; the current position is kept. </p>
-<dl class="section return"><dt>Returns</dt><dd>Size in bytes, or <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> if the file is not open or the modem failed. </dd></dl>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
-</div>
-<div id="dynsection-15-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_ae432dc9450887014c08de3cc35287be2_cgraph.svg" width="1979" height="495"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Creates the mutex that guards every transfer. </p>
+<p>Does nothing if already open. Task context only.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the driver is open afterwards. </dd></dl>
 
 </div>
 </div>
-<a id="aca9142e54a9033aeac167cdd5a56cd8b" name="aca9142e54a9033aeac167cdd5a56cd8b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca9142e54a9033aeac167cdd5a56cd8b">&#9670;&#160;</a></span>tell()</h2>
+<a id="a2b3f4b448d2b7076918a849936826646" name="a2b3f4b448d2b7076918a849936826646"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b3f4b448d2b7076918a849936826646">&#9670;&#160;</a></span>read() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint32_t &gt; Lib::BSP::GSM::A7670E::File::tell </td>
+          <td class="memname">bool <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::read </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::span&lt; std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -714,54 +444,267 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the current position. </p>
-<dl class="section return"><dt>Returns</dt><dd>Offset from the start of the file, or <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> if the file is not open or the modem failed. </dd></dl>
-<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary">
-</div>
-<div id="dynsection-16-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_aca9142e54a9033aeac167cdd5a56cd8b_cgraph.svg" width="1280" height="332"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary">
-</div>
-<div id="dynsection-17-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d2a/a04566_aca9142e54a9033aeac167cdd5a56cd8b_icgraph.svg" width="630" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ad841aa788c7ebf36c0d12b1ded803d60" name="ad841aa788c7ebf36c0d12b1ded803d60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad841aa788c7ebf36c0d12b1ded803d60">&#9670;&#160;</a></span>write()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::BSP::GSM::A7670E::File::write </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes bytes at the current position and moves past them. </p>
+<p>Copies bytes from the SRAM region into a span, under the mutex. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>Bytes to write; 1 byte or more. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">address</td><td>Offset inside the region, not an absolute address. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; its size is the number of bytes read. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every byte was written. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on an out-of-range access or a closed driver. </dd></dl>
+
+</div>
+</div>
+<a id="a71a6069370565b21f326cb1f4e446a71" name="a71a6069370565b21f326cb1f4e446a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a6069370565b21f326cb1f4e446a71">&#9670;&#160;</a></span>read() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies bytes from the SRAM region into a buffer, under the mutex. </p>
+<p>Task context only. A <em class="arg">size</em> of 0 copies nothing and only checks the offset.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">address</td><td>Offset inside the region, not an absolute address. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination buffer; must not be <em class="arg">nullptr</em> when <em class="arg">size</em> is not 0. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a null buffer, an out-of-range access or a closed driver. </dd></dl>
+
+</div>
+</div>
+<a id="a627f5ee3afe264e55f1cc04cafae392d" name="a627f5ee3afe264e55f1cc04cafae392d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a627f5ee3afe264e55f1cc04cafae392d">&#9670;&#160;</a></span>toAbsoluteAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uintptr_t <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::toAbsoluteAddress </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts a region-relative offset to an absolute memory address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Offset inside the mapped SRAM region. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Absolute address corresponding to the given offset. </dd></dl>
+
+</div>
+</div>
+<a id="abb442f01943c59f8ce352f5f92d959b1" name="abb442f01943c59f8ce352f5f92d959b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb442f01943c59f8ce352f5f92d959b1">&#9670;&#160;</a></span>write() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::write </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies bytes from a buffer into the SRAM region, under the mutex. </p>
+<p>Task context only. Calls <a class="el" href="#a4b6251a86a54f6053c2b89c00ba6a744" title="onMemoryChanged()">onMemoryChanged()</a> after the copy, still holding the lock. A <em class="arg">size</em> of 0 copies nothing, calls no hook and only checks the offset.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Offset inside the region, not an absolute address. </td></tr>
+    <tr><td class="paramname">data</td><td>Source buffer; must not be <em class="arg">nullptr</em> when <em class="arg">size</em> is not 0. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a null buffer, an out-of-range access or a closed driver. </dd></dl>
+
+</div>
+</div>
+<a id="abd6c3b651e745ff59409e2f5cf7acb44" name="abd6c3b651e745ff59409e2f5cf7acb44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd6c3b651e745ff59409e2f5cf7acb44">&#9670;&#160;</a></span>write() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::write </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies bytes from a span into the SRAM region, under the mutex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Offset inside the region, not an absolute address. </td></tr>
+    <tr><td class="paramname">data</td><td>Bytes to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on an out-of-range access or a closed driver. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a0d15eea85e078fd1ca516727c0e8ca8a" name="a0d15eea85e078fd1ca516727c0e8ca8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d15eea85e078fd1ca516727c0e8ca8a">&#9670;&#160;</a></span>baseAddress</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uintptr_t <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::baseAddress</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Absolute start address of the mapped region. </p>
+
+</div>
+</div>
+<a id="a0d53d69589f382b51186fd40078d3d7a" name="a0d53d69589f382b51186fd40078d3d7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d53d69589f382b51186fd40078d3d7a">&#9670;&#160;</a></span>mutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/de6/a05902.html">RTOS::Mutex</a> <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::mutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Serializes transfers between tasks; no handle until open(). </p>
+
+</div>
+</div>
+<a id="af112bc4831d358a9018b8a296e932392" name="af112bc4831d358a9018b8a296e932392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af112bc4831d358a9018b8a296e932392">&#9670;&#160;</a></span>sizeBytes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const size_t <a class="el" href="../../d1/d2a/a04566.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::sizeBytes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Region size in bytes. </p>
 
 </div>
 </div>

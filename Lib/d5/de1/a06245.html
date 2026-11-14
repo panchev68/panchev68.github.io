@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HTTP::Client</title>
+<title>IAR EWARM Library: RTOS::EventGroup</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,169 +92,59 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HTTP::Client</div></div>
+  <div class="headertitle"><div class="title">RTOS::EventGroup</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a GSM modem adapted to 'HttpTransport', an HTTPS POST through 'WolfSSLTransport' and a plain HTTP GET.</p>
-<p>Demonstrates a GSM modem adapted to 'HttpTransport', an HTTPS POST through 'WolfSSLTransport' and a plain HTTP GET.'GsmStream' gives the modem the two methods the concept requires; it inherits nothing, and its 'connect()' and 'disconnect()' are its own, since neither 'Client' nor 'WolfSSLTransport' opens or closes the link. The modem driver has no TCP API of its own, so the adapter drives the TCP AT commands through the public 'sendCommand()', 'sendCommandWithData()', 'writeCommand()' and 'waitForLine()' calls; the command syntax and the '+CIPRXGET' framing are written for the A76xx TCP/IP commands and must be checked against the module manual before use. For HTTPS the TLS session runs over that stream and the client runs over the session; for plain HTTP the client uses the stream directly. The host name appears twice for different reasons: 'open()' checks it against the server certificate, the request sends it in the Host header. 'response.body' views into 'buffer', so it is valid only while 'buffer' lives. The requests block the calling task; call them from a task, never from an ISR.</p>
-<dl class="section important"><dt>Important</dt><dd>Connect the raw link before 'open()' and disconnect it after 'close()': the handshake and the close notification both travel over it.</dd>
-<dd>
-Every request sends 'Connection: close': reconnect the link, and for HTTPS rerun 'open()', before the next request.</dd></dl>
+<p>Shows opening an <a class="el" href="../../d5/de1/a06245.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, setting one bit from a task and one from an interrupt, and waiting for both.</p>
+<p>Shows opening an <a class="el" href="../../d5/de1/a06245.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, setting one bit from a task and one from an interrupt, and waiting for both. <a class="el" href="../../d1/d9a/a05866.html#a13c55cc45daa6d96a1f21460a4c71626" title="RTOS::EventGroup::setBitsFromISR()">RTOS::EventGroup::setBitsFromISR()</a> is deferred by FreeRTOS to the timer daemon task, so it needs <em class="arg">configUSE_TIMERS</em> and <em class="arg">INCLUDE_xTimerPendFunctionCall</em> enabled. <a class="el" href="../../d1/d9a/a05866.html#a27fe7bec268decd9b548d4ad2375ca34" title="RTOS::EventGroup::Bits">RTOS::EventGroup::Bits</a> is an <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02030.html" title="std::bitset">std::bitset</a> limited to the bits FreeRTOS leaves usable. Only the FromISR calls may run in an interrupt; <a class="el" href="../../d1/d9a/a05866.html#ac933f049ba3d9d3e242bdc243dea3482" title="RTOS::EventGroup::wait()">RTOS::EventGroup::wait()</a> and <a class="el" href="../../d1/d9a/a05866.html#a154c164a4617cf8553683bb42f04ff11" title="RTOS::EventGroup::setBits()">RTOS::EventGroup::setBits()</a> must run in a task. The value returned by <a class="el" href="../../d1/d9a/a05866.html#ac933f049ba3d9d3e242bdc243dea3482" title="RTOS::EventGroup::wait()">RTOS::EventGroup::wait()</a> is the state when the wait ended, before the clear on exit.</p>
+<dl class="section important"><dt>Important</dt><dd>Open the event group before the interrupt that calls <a class="el" href="../../d1/d9a/a05866.html#a13c55cc45daa6d96a1f21460a4c71626" title="RTOS::EventGroup::setBitsFromISR()">RTOS::EventGroup::setBitsFromISR()</a> is enabled.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="http_usage_telemetry"></a>
-HTTPS POST and plain HTTP GET over the modem</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d35/a00266.html">Lib/BSP/GSM/A7670E.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d2f/a00854.html">Lib/HTTP/Client.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="eventgroup_usage_basic"></a>
+Set and wait for bits</h3>
+<ul>
+<li><em class="arg">TASK_READY</em> is set by the task itself.</li>
+<li><em class="arg">DATA_READY</em> is set by an interrupt through <a class="el" href="../../d1/d9a/a05866.html#a13c55cc45daa6d96a1f21460a4c71626" title="RTOS::EventGroup::setBitsFromISR()">RTOS::EventGroup::setBitsFromISR()</a>.</li>
+<li>The wait clears both bits on exit only when both were set.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/RTOS/FreeRTOS/EventGroup.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00041.html">algorithm</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using </span>Modem = <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/ddc/a04532.html">Lib::BSP::GSM::A7670E</a>;</div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Adapter giving the modem the HttpTransport shape. connect() and disconnect() are its own.</span></div>
-<div class="line"><span class="keyword">class </span>GsmStream final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/d9a/a05866.html">RTOS::EventGroup</a> events;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">explicit</span> GsmStream(Modem &amp; modem) noexcept :</div>
-<div class="line">        modem(modem) {</div>
-<div class="line">    }</div>
+<div class="line"><span class="keyword">constexpr</span> <a id="_a1" name="_a1"></a><a class="code hl_typedef" href="../../d1/d9a/a05866.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> TASK_READY{1U &lt;&lt; 0U}; <span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d1/d9a/a05866.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> DATA_READY{1U &lt;&lt; 3U}; <span class="keyword">const</span></div>
+<div class="line"><a class="code hl_typedef" href="../../d1/d9a/a05866.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> ALL_READY = TASK_READY | DATA_READY;</div>
 <div class="line"> </div>
-<div class="line">    [[nodiscard]] <span class="keywordtype">bool</span> connect(<a id="_a1" name="_a1"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> host, uint16_t port) <span class="keyword">noexcept</span> {</div>
-<div class="line">        Modem::CommandBuilder command{commandBuffer};</div>
-<div class="line">        command.append(<span class="stringliteral">&quot;AT+CIPOPEN=0,\&quot;TCP\&quot;,\&quot;&quot;</span>);</div>
-<div class="line">        command.append(host);</div>
-<div class="line">        command.append(<span class="stringliteral">&quot;\&quot;,&quot;</span>);</div>
-<div class="line">        command.appendNumber(port);</div>
-<div class="line">        <span class="keywordflow">return</span> command.isComplete() &amp;&amp; (modem.sendCommand(command.view(), CONNECT_TIMEOUT) == Modem::Result::OK);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> disconnect() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(modem.sendCommand(<span class="stringliteral">&quot;AT+CIPCLOSE=0&quot;</span>, CLOSE_TIMEOUT));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    [[nodiscard]] <span class="keywordtype">bool</span> send(std::span&lt;const uint8_t&gt; <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, <span class="keywordtype">size_t</span> &amp; sentLength) <span class="keyword">noexcept</span> {</div>
-<div class="line">        sentLength = 0U;</div>
-<div class="line">        Modem::CommandBuilder command{commandBuffer};</div>
-<div class="line">        command.append(<span class="stringliteral">&quot;AT+CIPSEND=0,&quot;</span>);</div>
-<div class="line">        command.appendNumber(<span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>.size()));</div>
-<div class="line">        <span class="keywordflow">if</span> (!command.isComplete() || (modem.sendCommandWithData(command.view(), <span class="stringliteral">&quot;&gt;&quot;</span>, <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, SEND_TIMEOUT) != Modem::Result::OK)) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        sentLength = <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>.size(); <span class="comment">// The whole block is accepted or the call fails.</span></div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    [[nodiscard]] <span class="keywordtype">bool</span> receive(std::span&lt;uint8_t&gt; buffer, <span class="keywordtype">size_t</span> &amp; receivedLength) <span class="keyword">noexcept</span> {</div>
-<div class="line">        receivedLength = 0U;</div>
-<div class="line">        Modem::CommandBuilder command{commandBuffer};</div>
-<div class="line">        command.append(<span class="stringliteral">&quot;AT+CIPRXGET=2,0,&quot;</span>);</div>
-<div class="line">        command.appendNumber(<span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(buffer.size()));</div>
-<div class="line">        <span class="keywordflow">if</span> (!command.isComplete() || !modem.writeCommand(command.view())) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <a id="_a3" name="_a3"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;char, LINE_SIZE&gt;</a> line{};</div>
-<div class="line">        <span class="keyword">const</span> <a id="_a4" name="_a4"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;size_t&gt;</a> length = modem.waitForLine(RECEIVE_PREFIX, line, RECEIVE_TIMEOUT);</div>
-<div class="line">        <span class="keywordflow">if</span> (!length) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>; <span class="comment">// Nothing has arrived yet: 0 bytes with true.</span></div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// The line carries the requested and the confirmed length; the confirmed one is the byte count that follows.</span></div>
-<div class="line">        <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> fields = <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>{line.data(), *length}.substr(RECEIVE_PREFIX.size());</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">size_t</span> comma = fields.find(<span class="charliteral">&#39;,&#39;</span>);</div>
-<div class="line">        <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint32_t&gt;</a> available = (comma == std::string_view::npos) ? <a id="_a5" name="_a5"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html">std::nullopt</a> : Modem::Parse::parseNumber(fields.substr(comma + 1U));</div>
-<div class="line">        <span class="keywordflow">if</span> (!available) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        receivedLength = modem.readData(buffer.first(<a id="_a6" name="_a6"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01628.html#gae9cf068dc91c8779040669efa4a8cf65">std::min&lt;size_t&gt;</a>(*available, buffer.size())), RECEIVE_TIMEOUT);</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(modem.waitForLine(<span class="stringliteral">&quot;OK&quot;</span>, line, RECEIVE_TIMEOUT));</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a id="_a7" name="_a7"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> CONNECT_TIMEOUT{10000};</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> CLOSE_TIMEOUT{5000};</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> SEND_TIMEOUT{10000};</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> RECEIVE_TIMEOUT{500};</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> RECEIVE_PREFIX = <span class="stringliteral">&quot;+CIPRXGET: 2,0,&quot;</span>;</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> LINE_SIZE = 64U;</div>
-<div class="line"> </div>
-<div class="line">    Modem &amp; modem;</div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;char, 160U&gt;</a> commandBuffer{};</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">static_assert</span>(<a class="code hl_concept" href="../../d5/db3/a06144.html">Lib::HTTP::HttpTransport&lt;GsmStream&gt;</a>);</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="keyword">const</span> std::span&lt;const uint8_t&gt; CLOUD_CA_CERTIFICATE; <span class="comment">// PEM, embedded in the firmware.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> HOST = <span class="stringliteral">&quot;api.example.com&quot;</span>;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> sendTelemetry(Modem &amp; modem, std::span&lt;const uint8_t&gt; json) {</div>
-<div class="line">    GsmStream <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>(modem);</div>
-<div class="line">    <span class="keywordflow">if</span> (!<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>.connect(HOST, 443U)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> isAccepted = <span class="keyword">false</span>;</div>
-<div class="line">    <a id="_a8" name="_a8"></a><a class="code hl_class" href="../../d3/dcf/a05796.html">Lib::HTTP::WolfSSLTransport&lt;GsmStream&gt;</a> tls;</div>
-<div class="line">    <span class="keywordflow">if</span> (tls.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d3/dcf/a05796.html#a34b1d6a735d69895b3381e71a3d7b24f">open</a>(stream, HOST, CLOUD_CA_CERTIFICATE)) {</div>
-<div class="line">        <a id="_a10" name="_a10"></a><a class="code hl_class" href="../../d0/d9e/a05788.html">Lib::HTTP::Client</a> client(tls);</div>
-<div class="line">        <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 512&gt;</a> buffer{};</div>
-<div class="line">        <a id="_a11" name="_a11"></a><a class="code hl_struct" href="../../de/dc9/a05784.html">Lib::HTTP::Response</a> response;</div>
-<div class="line">        <span class="keyword">const</span> <a id="_a12" name="_a12"></a><a class="code hl_enumeration" href="../../d6/dcf/a01031.html#afc43b899679a3737d2e7425a9168a85c">Lib::HTTP::Status</a> status = client.post(HOST, <span class="stringliteral">&quot;/v1/telemetry&quot;</span>, <span class="stringliteral">&quot;application/json&quot;</span>, json, buffer, response);</div>
-<div class="line">        isAccepted = (status == <a id="_a13" name="_a13"></a><a class="code hl_enumvalue" href="../../d6/dcf/a01031.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c">Lib::HTTP::Status::SUCCESS</a>) &amp;&amp; (response.<a id="a14" name="a14"></a><a class="code hl_variable" href="../../de/dc9/a05784.html#a5c7bf28c88b7a994c33f96fecbd5b4a3">statusCode</a> == 200U);</div>
-<div class="line">        tls.<a id="a15" name="a15"></a><a class="code hl_function" href="../../d3/dcf/a05796.html#afc96144cd745fe9fc116e7fa03ea0c00">close</a>(); <span class="comment">// TLS first, the TCP link below still carries its close notification.</span></div>
-<div class="line">    }</div>
-<div class="line">    <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>.disconnect();</div>
-<div class="line">    <span class="keywordflow">return</span> isAccepted;</div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> EXTI0_IRQHandler() { <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d1/d9a/a05866.html#a13c55cc45daa6d96a1f21460a4c71626">setBitsFromISR</a>(DATA_READY)); <span class="comment">// Deferred to the timer daemon</span></div>
+<div class="line">task.</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line">uint16_t fetchStatus(Modem &amp; modem) {</div>
-<div class="line">    GsmStream <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>(modem);</div>
-<div class="line">    <span class="keywordflow">if</span> (!<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>.connect(HOST, 80U)) {</div>
-<div class="line">        <span class="keywordflow">return</span> 0U;</div>
+<div class="line"><span class="keywordtype">void</span> exampleTask() { <span class="keywordflow">if</span> (!events.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d1/d9a/a05866.html#ae966e8d3efe519e3138fedaa3108a300">open</a>()) { <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="../../d0/d9e/a05788.html">Lib::HTTP::Client</a> client(stream); <span class="comment">// Plain HTTP: the raw stream directly.</span></div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 512&gt;</a> buffer{};</div>
-<div class="line">    <a class="code hl_struct" href="../../de/dc9/a05784.html">Lib::HTTP::Response</a> response;</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_enumeration" href="../../d6/dcf/a01031.html#afc43b899679a3737d2e7425a9168a85c">Lib::HTTP::Status</a> status = client.get(HOST, <span class="stringliteral">&quot;/v1/status&quot;</span>, buffer, response);</div>
-<div class="line">    <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">stream</a>.disconnect();</div>
-<div class="line">    <span class="keywordflow">return</span> (status == <a class="code hl_enumvalue" href="../../d6/dcf/a01031.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c">Lib::HTTP::Status::SUCCESS</a>) ? response.<a class="code hl_variable" href="../../de/dc9/a05784.html#a5c7bf28c88b7a994c33f96fecbd5b4a3">statusCode</a> : <span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(0U);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d1/d9a/a05866.html#a154c164a4617cf8553683bb42f04ff11">setBits</a>(TASK_READY));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Wait up to 1 s for both bits.</span></div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d1/d9a/a05866.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> result = events.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d1/d9a/a05866.html#ac933f049ba3d9d3e242bdc243dea3482">wait</a>(ALL_READY, <span class="keyword">true</span>, <span class="keyword">true</span>, 1s);</div>
+<div class="line">    <span class="keywordflow">if</span> ((result &amp; ALL_READY) == ALL_READY) {</div>
+<div class="line">        <span class="comment">// Both bits set.</span></div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Timeout: not both bits were set.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    events.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d1/d9a/a05866.html#a86f5d90cf8de78fe435b35460bef5edd">close</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00041_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00041.html">algorithm</a></div></div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
-<div class="ttc" id="aa00215_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a></div></div>
-<div class="ttc" id="aa00266_html"><div class="ttname"><a href="../../d5/d35/a00266.html">A7670E.hpp</a></div><div class="ttdoc">Power, AT command and file system control of the SIMCom A7670E LTE Cat-1 modem, header-only,...</div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00854_html"><div class="ttname"><a href="../../d6/d2f/a00854.html">Client.hpp</a></div><div class="ttdoc">Declares the transport-agnostic HTTP/1.1 client and its wolfSSL TLS transport; header-only,...</div></div>
-<div class="ttc" id="aa01031_html_afc43b899679a3737d2e7425a9168a85c"><div class="ttname"><a href="../../d6/dcf/a01031.html#afc43b899679a3737d2e7425a9168a85c">Lib::HTTP::Status</a></div><div class="ttdeci">Status</div><div class="ttdoc">Result of an HTTP request.</div><div class="ttdef"><b>Definition</b> Client.hpp:42</div></div>
-<div class="ttc" id="aa01031_html_afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="../../d6/dcf/a01031.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c">Lib::HTTP::Status::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">The response was received and parsed; see Response.</div><div class="ttdef"><b>Definition</b> Client.hpp:43</div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01628_html_gae9cf068dc91c8779040669efa4a8cf65"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01628.html#gae9cf068dc91c8779040669efa4a8cf65">std::min</a></div><div class="ttdeci">constexpr const _Tp &amp; min(const _Tp &amp;__a, const _Tp &amp;__b)</div></div>
-<div class="ttc" id="aa01662_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html">std::nullopt</a></div></div>
-<div class="ttc" id="aa01692_html_a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2af7b44cfafd5c52223d5498196c8a2e7b">io_errc::stream</a></div><div class="ttdeci">@ stream</div></div>
-<div class="ttc" id="aa01692_html_aba9b31054eec50310ef02c998663e27b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a></div><div class="ttdeci">constexpr auto data(_Container &amp;__cont) noexcept(noexcept(__cont.data())) -&gt; decltype(__cont.data())</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa02950_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></div></div>
-<div class="ttc" id="aa04532_html"><div class="ttname"><a href="../../d1/ddc/a04532.html">Lib::BSP::GSM::A7670E</a></div><div class="ttdoc">Driver of the SIMCom A7670E modem: supply and power key, AT command exchange and the file system.</div><div class="ttdef"><b>Definition</b> A7670E.hpp:59</div></div>
-<div class="ttc" id="aa05784_html"><div class="ttname"><a href="../../de/dc9/a05784.html">Lib::HTTP::Response</a></div><div class="ttdoc">Parsed HTTP response.</div><div class="ttdef"><b>Definition</b> Client.hpp:57</div></div>
-<div class="ttc" id="aa05784_html_a5c7bf28c88b7a994c33f96fecbd5b4a3"><div class="ttname"><a href="../../de/dc9/a05784.html#a5c7bf28c88b7a994c33f96fecbd5b4a3">Lib::HTTP::Response::statusCode</a></div><div class="ttdeci">uint16_t statusCode</div><div class="ttdoc">HTTP status code, such as 200.</div><div class="ttdef"><b>Definition</b> Client.hpp:58</div></div>
-<div class="ttc" id="aa05788_html"><div class="ttname"><a href="../../d0/d9e/a05788.html">Lib::HTTP::Client</a></div><div class="ttdoc">HTTP/1.1 client over any connected HttpTransport, without heap or exceptions.</div><div class="ttdef"><b>Definition</b> Client.hpp:91</div></div>
-<div class="ttc" id="aa05796_html"><div class="ttname"><a href="../../d3/dcf/a05796.html">Lib::HTTP::WolfSSLTransport</a></div><div class="ttdoc">TLS client session on wolfSSL over any connected raw HttpTransport, itself an HttpTransport.</div><div class="ttdef"><b>Definition</b> Client.hpp:485</div></div>
-<div class="ttc" id="aa05796_html_a34b1d6a735d69895b3381e71a3d7b24f"><div class="ttname"><a href="../../d3/dcf/a05796.html#a34b1d6a735d69895b3381e71a3d7b24f">Lib::HTTP::WolfSSLTransport::open</a></div><div class="ttdeci">bool open(T_RAW_TRANSPORT &amp;rawTransport, std::string_view serverName, std::span&lt; const uint8_t &gt; caCertificate) noexcept</div><div class="ttdoc">Runs the TLS handshake over an already connected raw transport.</div><div class="ttdef"><b>Definition</b> Client.hpp:549</div></div>
-<div class="ttc" id="aa05796_html_afc96144cd745fe9fc116e7fa03ea0c00"><div class="ttname"><a href="../../d3/dcf/a05796.html#afc96144cd745fe9fc116e7fa03ea0c00">Lib::HTTP::WolfSSLTransport::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Ends the TLS session with a close notification; the raw transport stays connected.</div><div class="ttdef"><b>Definition</b> Client.hpp:610</div></div>
-<div class="ttc" id="aa06144_html"><div class="ttname"><a href="../../d5/db3/a06144.html">Lib::HTTP::HttpTransport</a></div><div class="ttdoc">Connected byte stream a Lib::HTTP::Client sends requests over and receives responses from.</div><div class="ttdef"><b>Definition</b> Client.hpp:70</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+<div class="ttc" id="aa00884_html"><div class="ttname"><a href="../../dd/d08/a00884.html">EventGroup.hpp</a></div><div class="ttdoc">Declares the RTOS event group wrapper; compiles to nothing without FreeRTOS or dynamic allocation.</div></div>
+<div class="ttc" id="aa05866_html"><div class="ttname"><a href="../../d1/d9a/a05866.html">RTOS::EventGroup</a></div><div class="ttdoc">Owning wrapper of a FreeRTOS event group, letting tasks wait on several flags at once.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:42</div></div>
+<div class="ttc" id="aa05866_html_a13c55cc45daa6d96a1f21460a4c71626"><div class="ttname"><a href="../../d1/d9a/a05866.html#a13c55cc45daa6d96a1f21460a4c71626">RTOS::EventGroup::setBitsFromISR</a></div><div class="ttdeci">bool setBitsFromISR(Bits bitsToSet) noexcept</div><div class="ttdoc">Requests the timer daemon to set bits from an ISR, and yields to it if it outranks the interrupted ta...</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:396</div></div>
+<div class="ttc" id="aa05866_html_a154c164a4617cf8553683bb42f04ff11"><div class="ttname"><a href="../../d1/d9a/a05866.html#a154c164a4617cf8553683bb42f04ff11">RTOS::EventGroup::setBits</a></div><div class="ttdeci">Bits setBits(Bits bitsToSet) noexcept</div><div class="ttdoc">Sets bits and unblocks every task whose wait condition is now met.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:342</div></div>
+<div class="ttc" id="aa05866_html_a27fe7bec268decd9b548d4ad2375ca34"><div class="ttname"><a href="../../d1/d9a/a05866.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a></div><div class="ttdeci">std::bitset&lt; EVENT_GROUP_BIT_WIDTH &gt; Bits</div><div class="ttdoc">Event group bits; bits above the usable width cannot exist.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:48</div></div>
+<div class="ttc" id="aa05866_html_a86f5d90cf8de78fe435b35460bef5edd"><div class="ttname"><a href="../../d1/d9a/a05866.html#a86f5d90cf8de78fe435b35460bef5edd">RTOS::EventGroup::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the native event group and releases its memory.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:172</div></div>
+<div class="ttc" id="aa05866_html_ac933f049ba3d9d3e242bdc243dea3482"><div class="ttname"><a href="../../d1/d9a/a05866.html#ac933f049ba3d9d3e242bdc243dea3482">RTOS::EventGroup::wait</a></div><div class="ttdeci">Bits wait(Bits requestedBits, bool clearOnExit, bool waitForAll, TickType timeout) noexcept</div><div class="ttdoc">Blocks until the requested bits are set or the timeout expires.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:214</div></div>
+<div class="ttc" id="aa05866_html_ae966e8d3efe519e3138fedaa3108a300"><div class="ttname"><a href="../../d1/d9a/a05866.html#ae966e8d3efe519e3138fedaa3108a300">RTOS::EventGroup::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the native event group on the FreeRTOS heap, with all bits cleared.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:126</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Timer::TimInputCapture</title>
+<title>IAR EWARM Library: Lib::HAL::StreamSerialPort</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,128 +91,68 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../de/d41/a01030.html">Timer</a></li><li class="navelem"><a href="../../d0/d5e/a05570.html">TimInputCapture</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../d0/d5e/a05570.html">StreamSerialPort</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="../../d2/d72/a05567.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimInputCapture<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::StreamSerialPort<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>UART port that receives continuously into a stream buffer and transmits by polling.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Controls one hardware timer channel configured under an active Input Capture profile. </p>
-<p>Capture interrupts are mapped through the DeviceManager to a task notification, so a task blocked in <a class="el" href="#a2732cd4549f6b1ca08da0cbcb462f404" title="waitCapture()">waitCapture()</a> wakes on each captured edge. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d5f/a06225.html#_a4">Lib::HAL::Timer::TimInputCapture</a>.</dd>
+<div class="textblock"><p>UART port that receives continuously into a stream buffer and transmits by polling. </p>
+<p>'Lib::HAL::UARTPort' receives only into a buffer the caller hands over for one transfer, so bytes arriving between two calls are lost. Devices that send unsolicited data need a receiver that is always armed. This port keeps one byte armed with HAL_UART_Receive_IT() and pushes every received byte into an <a class="el" href="../../d4/d72/a06267.html" title="RTOS::StreamBuffer">RTOS::StreamBuffer</a> from the interrupt. One task reads it with <a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="read()">read()</a>.</p>
+<p><a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e" title="close()">close()</a> de-initializes the UART, which returns its pins to the analog state, so a powered-down device is not back-fed through TX. <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a> brings it back.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Exactly one task may call <a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="read()">read()</a> and <a class="el" href="#ad313993195f0d6ea829d9c7b61df667f" title="discardInput()">discardInput()</a>; the stream buffer allows a single reader. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/dc5/a06153.html#_a4">Lib::BSP::GSM::A7670E</a>, and <a class="el" href="../../dd/dae/a06201.html#_a3">Lib::HAL::StreamSerialPort</a>.</dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::Timer::TimInputCapture:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d72/a05569.svg" width="406" height="678"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::Timer::TimInputCapture:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/d7d/a05568.svg" width="406" height="678"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d27/a05574.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construction parameters.  <a href="../../d3/d27/a05574.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:abfe70b316d617c0b779207aebafd9fb9" id="r_abfe70b316d617c0b779207aebafd9fb9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abfe70b316d617c0b779207aebafd9fb9">TimInputCapture</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *timHandle, uint32_t timChannel) noexcept</td></tr>
-<tr class="memdesc:abfe70b316d617c0b779207aebafd9fb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the capture abstraction wrapper directly to a native configuration structure.  <br /></td></tr>
-<tr class="memitem:a3b3c0bd5c909651c9a4de95e888d86da" id="r_a3b3c0bd5c909651c9a4de95e888d86da"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3b3c0bd5c909651c9a4de95e888d86da">~TimInputCapture</a> () noexcept</td></tr>
-<tr class="memdesc:a3b3c0bd5c909651c9a4de95e888d86da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the capture before the base leaves the DeviceManager registry.  <br /></td></tr>
-<tr class="memitem:add28b2f0b32350281b1f47c4e4e25e84" id="r_add28b2f0b32350281b1f47c4e4e25e84"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#add28b2f0b32350281b1f47c4e4e25e84">start</a> () noexcept</td></tr>
-<tr class="memdesc:add28b2f0b32350281b1f47c4e4e25e84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the channel with its capture interrupt; the calling task becomes the one <a class="el" href="#a2732cd4549f6b1ca08da0cbcb462f404" title="waitCapture()">waitCapture()</a> serves.  <br /></td></tr>
-<tr class="memitem:a6d1e0aa45356b048a97c7390802d142a" id="r_a6d1e0aa45356b048a97c7390802d142a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6d1e0aa45356b048a97c7390802d142a">stop</a> () noexcept</td></tr>
-<tr class="memdesc:a6d1e0aa45356b048a97c7390802d142a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the channel and its capture interrupt.  <br /></td></tr>
-<tr class="memitem:a2732cd4549f6b1ca08da0cbcb462f404" id="r_a2732cd4549f6b1ca08da0cbcb462f404"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2732cd4549f6b1ca08da0cbcb462f404">waitCapture</a> (<a class="el" href="../../d8/d89/a05566.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout=portMAX_DELAY) const noexcept</td></tr>
-<tr class="memdesc:a2732cd4549f6b1ca08da0cbcb462f404"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called <a class="el" href="#add28b2f0b32350281b1f47c4e4e25e84" title="start()">start()</a> until the next edge is captured.  <br /></td></tr>
-<tr class="memitem:a1fc8b61efbe101b5e3e019e16d73f707" id="r_a1fc8b61efbe101b5e3e019e16d73f707"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a1fc8b61efbe101b5e3e019e16d73f707 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1fc8b61efbe101b5e3e019e16d73f707">waitCapture</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
-<tr class="memdesc:a1fc8b61efbe101b5e3e019e16d73f707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called <a class="el" href="#add28b2f0b32350281b1f47c4e4e25e84" title="start()">start()</a> until the next edge is captured.  <br /></td></tr>
-<tr class="memitem:ac7f8fd84985b45a4db579b480aaf5251" id="r_ac7f8fd84985b45a4db579b480aaf5251"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ac7f8fd84985b45a4db579b480aaf5251">getCapture</a> () const noexcept</td></tr>
-<tr class="memdesc:ac7f8fd84985b45a4db579b480aaf5251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the counter value latched at the last captured edge.  <br /></td></tr>
-<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d73/a05382.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
-<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:a0a4806d9f5ce4953eb151c8ec4f74cb5" id="r_a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d89/a05566.html#a0a4806d9f5ce4953eb151c8ec4f74cb5">Manager</a></td></tr>
-<tr class="memdesc:a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry routing HAL callbacks to instances.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:ac7b1eac52b77847537b732a7e3cd0d2e" id="r_ac7b1eac52b77847537b732a7e3cd0d2e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d89/a05566.html#ac7b1eac52b77847537b732a7e3cd0d2e">bindWorker</a> () noexcept</td></tr>
-<tr class="memdesc:ac7b1eac52b77847537b732a7e3cd0d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the calling task the one woken by hardware events; call before enabling the interrupt.  <br /></td></tr>
-<tr class="memitem:a50fe83a38ed76cc7a5f8cea7dca98f4d" id="r_a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d89/a05566.html#a50fe83a38ed76cc7a5f8cea7dca98f4d">waitEvent</a> (<a class="el" href="../../d8/d89/a05566.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout) const noexcept</td></tr>
-<tr class="memdesc:a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the next hardware event.  <br /></td></tr>
-<tr class="memitem:a96061f4587cc3508811475a8309ab3f0" id="r_a96061f4587cc3508811475a8309ab3f0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d89/a05566.html#a96061f4587cc3508811475a8309ab3f0">notifyWorkerFromISR</a> () noexcept</td></tr>
-<tr class="memdesc:a96061f4587cc3508811475a8309ab3f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the bound task from the HAL callback.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a4e452b46ec2394148f37767c37e5b374" id="r_a4e452b46ec2394148f37767c37e5b374"><td class="memItemLeft">friend&#160;</td><td class="memItemRight"><a class="el" href="#a4e452b46ec2394148f37767c37e5b374">void::HAL_TIM_IC_CaptureCallback</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *htim)</td></tr>
+<tr class="memitem:a273a38e15bd84ddcb1ab16c18bcb563a" id="r_a273a38e15bd84ddcb1ab16c18bcb563a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> (const <a class="el" href="../../d3/d27/a05574.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a273a38e15bd84ddcb1ab16c18bcb563a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a CubeMX handle; nothing is touched until <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a>.  <br /></td></tr>
+<tr class="memitem:a82213704bb45f3f325b198dc0eb1ecab" id="r_a82213704bb45f3f325b198dc0eb1ecab"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a82213704bb45f3f325b198dc0eb1ecab">~StreamSerialPort</a> () noexcept</td></tr>
+<tr class="memdesc:a82213704bb45f3f325b198dc0eb1ecab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if it is still open.  <br /></td></tr>
+<tr class="memitem:a4385588b551ca7105aacb5fa1b83da65" id="r_a4385588b551ca7105aacb5fa1b83da65"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4385588b551ca7105aacb5fa1b83da65">StreamSerialPort</a> (const StreamSerialPort &amp;other)=delete</td></tr>
+<tr class="memdesc:a4385588b551ca7105aacb5fa1b83da65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the port is bound to one peripheral and registered with its interrupt.  <br /></td></tr>
+<tr class="memitem:a4dbd8a6587109d4ce29242ec1ddfdec0" id="r_a4dbd8a6587109d4ce29242ec1ddfdec0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4dbd8a6587109d4ce29242ec1ddfdec0">StreamSerialPort</a> (StreamSerialPort &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a4dbd8a6587109d4ce29242ec1ddfdec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the interrupt keeps a pointer to this object.  <br /></td></tr>
+<tr class="memitem:a49b22bf81050b4ee173b0cb712fce161" id="r_a49b22bf81050b4ee173b0cb712fce161"><td class="memItemLeft"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a49b22bf81050b4ee173b0cb712fce161">operator=</a> (const <a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a49b22bf81050b4ee173b0cb712fce161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the port is bound to one peripheral.  <br /></td></tr>
+<tr class="memitem:a5d8430086822b05225d0b3f4372238b2" id="r_a5d8430086822b05225d0b3f4372238b2"><td class="memItemLeft"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5d8430086822b05225d0b3f4372238b2">operator=</a> (<a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a5d8430086822b05225d0b3f4372238b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the interrupt keeps a pointer to this object.  <br /></td></tr>
+<tr class="memitem:a1b052f09718429b991946fea7724f411" id="r_a1b052f09718429b991946fea7724f411"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1b052f09718429b991946fea7724f411">open</a> () noexcept</td></tr>
+<tr class="memdesc:a1b052f09718429b991946fea7724f411"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the UART if needed, empties the stream and starts continuous reception.  <br /></td></tr>
+<tr class="memitem:af4d1dbc5fcd691c510918d277281ee6e" id="r_af4d1dbc5fcd691c510918d277281ee6e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e">close</a> () noexcept</td></tr>
+<tr class="memdesc:af4d1dbc5fcd691c510918d277281ee6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops reception and de-initializes the UART, leaving its pins analog.  <br /></td></tr>
+<tr class="memitem:a6fe88c556292e95190f066d34a6455a9" id="r_a6fe88c556292e95190f066d34a6455a9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6fe88c556292e95190f066d34a6455a9">isOpen</a> () const noexcept</td></tr>
+<tr class="memdesc:a6fe88c556292e95190f066d34a6455a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the port is open.  <br /></td></tr>
+<tr class="memitem:a0a35058ffe6e3bb6d1a5a9fb335c3588" id="r_a0a35058ffe6e3bb6d1a5a9fb335c3588"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0a35058ffe6e3bb6d1a5a9fb335c3588">write</a> (std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:a0a35058ffe6e3bb6d1a5a9fb335c3588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits bytes, polling the UART until they are sent.  <br /></td></tr>
+<tr class="memitem:aa11ae6544b3fe4193e42a03891973953" id="r_aa11ae6544b3fe4193e42a03891973953"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa11ae6544b3fe4193e42a03891973953">write</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> text, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:aa11ae6544b3fe4193e42a03891973953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits the characters of a string, without a terminator.  <br /></td></tr>
+<tr class="memitem:a6ef7de0de72ebe36f7b4e1c63a4bd00a" id="r_a6ef7de0de72ebe36f7b4e1c63a4bd00a"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a">read</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:a6ef7de0de72ebe36f7b4e1c63a4bd00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes received bytes from the stream, waiting until at least one is there or the timeout expires.  <br /></td></tr>
+<tr class="memitem:ad313993195f0d6ea829d9c7b61df667f" id="r_ad313993195f0d6ea829d9c7b61df667f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad313993195f0d6ea829d9c7b61df667f">discardInput</a> () noexcept</td></tr>
+<tr class="memdesc:ad313993195f0d6ea829d9c7b61df667f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops every byte already received.  <br /></td></tr>
+<tr class="memitem:a32276aa918b5679e4f0e8df69175063f" id="r_a32276aa918b5679e4f0e8df69175063f"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a32276aa918b5679e4f0e8df69175063f">getDroppedCount</a> () const noexcept</td></tr>
+<tr class="memdesc:a32276aa918b5679e4f0e8df69175063f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many received bytes were lost because the stream was full.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a0a4806d9f5ce4953eb151c8ec4f74cb5" name="a0a4806d9f5ce4953eb151c8ec4f74cb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a4806d9f5ce4953eb151c8ec4f74cb5">&#9670;&#160;</a></span>Manager</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d8/d89/a05566.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#abfe70b316d617c0b779207aebafd9fb9">TimInputCapture</a> &gt;::Manager</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Registry routing HAL callbacks to instances. </p>
-
-</div>
-</div>
-<a id="ad8ef8d64da7b2fb93cca36bca48241bc" name="ad8ef8d64da7b2fb93cca36bca48241bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8ef8d64da7b2fb93cca36bca48241bc">&#9670;&#160;</a></span>TickType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d8/d89/a05566.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#abfe70b316d617c0b779207aebafd9fb9">TimInputCapture</a> &gt;::TickType</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Scheduler tick count type. </p>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="abfe70b316d617c0b779207aebafd9fb9" name="abfe70b316d617c0b779207aebafd9fb9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfe70b316d617c0b779207aebafd9fb9">&#9670;&#160;</a></span>TimInputCapture()</h2>
+<a id="a273a38e15bd84ddcb1ab16c18bcb563a" name="a273a38e15bd84ddcb1ab16c18bcb563a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a273a38e15bd84ddcb1ab16c18bcb563a">&#9670;&#160;</a></span>StreamSerialPort() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,14 +161,10 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::Timer::TimInputCapture::TimInputCapture </td>
+          <td class="memname">Lib::HAL::StreamSerialPort::StreamSerialPort </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>timHandle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="../../d3/d27/a05574.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timChannel</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -236,25 +174,18 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the capture abstraction wrapper directly to a native configuration structure. </p>
+<p>Binds the port to a CubeMX handle; nothing is touched until <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timHandle</td><td>Target native hardware TIM descriptor block (e.g., &amp;htim1). </td></tr>
-    <tr><td class="paramname">timChannel</td><td>Target hardware channel ('TIM_CHANNEL_1' .. 'TIM_CHANNEL_4'). </td></tr>
+    <tr><td class="paramname">config</td><td>Construction parameters, copied. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d5e/a05570_abfe70b316d617c0b779207aebafd9fb9_cgraph.svg" width="606" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a3b3c0bd5c909651c9a4de95e888d86da" name="a3b3c0bd5c909651c9a4de95e888d86da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b3c0bd5c909651c9a4de95e888d86da">&#9670;&#160;</a></span>~TimInputCapture()</h2>
+<a id="a82213704bb45f3f325b198dc0eb1ecab" name="a82213704bb45f3f325b198dc0eb1ecab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82213704bb45f3f325b198dc0eb1ecab">&#9670;&#160;</a></span>~StreamSerialPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,7 +194,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::Timer::TimInputCapture::~TimInputCapture </td>
+          <td class="memname">Lib::HAL::StreamSerialPort::~StreamSerialPort </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -276,19 +207,79 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the capture before the base leaves the DeviceManager registry. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
+<p>Closes the port if it is still open. </p>
+
 </div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d5e/a05570_a3b3c0bd5c909651c9a4de95e888d86da_cgraph.svg" width="1099" height="74"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<a id="a4385588b551ca7105aacb5fa1b83da65" name="a4385588b551ca7105aacb5fa1b83da65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4385588b551ca7105aacb5fa1b83da65">&#9670;&#160;</a></span>StreamSerialPort() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::StreamSerialPort::StreamSerialPort </td>
+          <td>(</td>
+          <td class="paramtype">const StreamSerialPort &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the port is bound to one peripheral and registered with its interrupt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4dbd8a6587109d4ce29242ec1ddfdec0" name="a4dbd8a6587109d4ce29242ec1ddfdec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dbd8a6587109d4ce29242ec1ddfdec0">&#9670;&#160;</a></span>StreamSerialPort() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::StreamSerialPort::StreamSerialPort </td>
+          <td>(</td>
+          <td class="paramtype">StreamSerialPort &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the interrupt keeps a pointer to this object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ac7b1eac52b77847537b732a7e3cd0d2e" name="ac7b1eac52b77847537b732a7e3cd0d2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7b1eac52b77847537b732a7e3cd0d2e">&#9670;&#160;</a></span>bindWorker()</h2>
+<a id="af4d1dbc5fcd691c510918d277281ee6e" name="af4d1dbc5fcd691c510918d277281ee6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4d1dbc5fcd691c510918d277281ee6e">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +288,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d8/d89/a05566.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#abfe70b316d617c0b779207aebafd9fb9">TimInputCapture</a> &gt;::bindWorker </td>
+          <td class="memname">void Lib::HAL::StreamSerialPort::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -305,23 +296,18 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Makes the calling task the one woken by hardware events; call before enabling the interrupt. </p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d89/a05566_ac7b1eac52b77847537b732a7e3cd0d2e_icgraph.svg" width="718" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Stops reception and de-initializes the UART, leaving its pins analog. </p>
+<p>Task context only. </p>
 
 </div>
 </div>
-<a id="ac7f8fd84985b45a4db579b480aaf5251" name="ac7f8fd84985b45a4db579b480aaf5251"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7f8fd84985b45a4db579b480aaf5251">&#9670;&#160;</a></span>getCapture()</h2>
+<a id="ad313993195f0d6ea829d9c7b61df667f" name="ad313993195f0d6ea829d9c7b61df667f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad313993195f0d6ea829d9c7b61df667f">&#9670;&#160;</a></span>discardInput()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,7 +316,35 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::HAL::Timer::TimInputCapture::getCapture </td>
+          <td class="memname">void Lib::HAL::StreamSerialPort::discardInput </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Drops every byte already received. </p>
+<p>The stream is drained rather than reset: a reset fails while the interrupt may be writing. </p>
+
+</div>
+</div>
+<a id="a32276aa918b5679e4f0e8df69175063f" name="a32276aa918b5679e4f0e8df69175063f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32276aa918b5679e4f0e8df69175063f">&#9670;&#160;</a></span>getDroppedCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::HAL::StreamSerialPort::getDroppedCount </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -343,21 +357,13 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the counter value latched at the last captured edge. </p>
-<dl class="section return"><dt>Returns</dt><dd>Raw value of the channel's CCRx register, or 0 if unavailable. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d5f/a06225.html#a9">Lib::HAL::Timer::TimInputCapture</a>.</dd>
-</dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d5e/a05570_ac7f8fd84985b45a4db579b480aaf5251_cgraph.svg" width="726" height="134"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Returns how many received bytes were lost because the stream was full. </p>
+<dl class="section return"><dt>Returns</dt><dd>Lost byte count since construction. </dd></dl>
 
 </div>
 </div>
-<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle()</h2>
+<a id="a6fe88c556292e95190f066d34a6455a9" name="a6fe88c556292e95190f066d34a6455a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fe88c556292e95190f066d34a6455a9">&#9670;&#160;</a></span>isOpen()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -366,148 +372,9 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * <a class="el" href="../../d3/d73/a05382.html">Lib::HAL::Device</a>&lt; <a class="el" href="#abfe70b316d617c0b779207aebafd9fb9">TimInputCapture</a>, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> &gt;::getHandle </td>
+          <td class="memname">bool Lib::HAL::StreamSerialPort::isOpen </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d73/a05382_ac39b97fd324efde09c82d0ccfe7fe4e8_icgraph.svg" width="1155" height="174"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a96061f4587cc3508811475a8309ab3f0" name="a96061f4587cc3508811475a8309ab3f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96061f4587cc3508811475a8309ab3f0">&#9670;&#160;</a></span>notifyWorkerFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d8/d89/a05566.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#abfe70b316d617c0b779207aebafd9fb9">TimInputCapture</a> &gt;::notifyWorkerFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Wakes the bound task from the HAL callback. </p>
-
-</div>
-</div>
-<a id="add28b2f0b32350281b1f47c4e4e25e84" name="add28b2f0b32350281b1f47c4e4e25e84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add28b2f0b32350281b1f47c4e4e25e84">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimInputCapture::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Starts the channel with its capture interrupt; the calling task becomes the one <a class="el" href="#a2732cd4549f6b1ca08da0cbcb462f404" title="waitCapture()">waitCapture()</a> serves. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware channel activation sequence succeeded. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d5f/a06225.html#a6">Lib::HAL::Timer::TimInputCapture</a>.</dd>
-</dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d5e/a05570_add28b2f0b32350281b1f47c4e4e25e84_cgraph.svg" width="782" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a6d1e0aa45356b048a97c7390802d142a" name="a6d1e0aa45356b048a97c7390802d142a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d1e0aa45356b048a97c7390802d142a">&#9670;&#160;</a></span>stop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimInputCapture::stop </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the channel and its capture interrupt. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware channel stopped safely. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d5e/a05570_a6d1e0aa45356b048a97c7390802d142a_cgraph.svg" width="774" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d5e/a05570_a6d1e0aa45356b048a97c7390802d142a_icgraph.svg" width="662" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a1fc8b61efbe101b5e3e019e16d73f707" name="a1fc8b61efbe101b5e3e019e16d73f707"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fc8b61efbe101b5e3e019e16d73f707">&#9670;&#160;</a></span>waitCapture() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimInputCapture::waitCapture </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -518,32 +385,76 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks the task that called <a class="el" href="#add28b2f0b32350281b1f47c4e4e25e84" title="start()">start()</a> until the next edge is captured. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Tells whether the port is open. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a> and <a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e" title="close()">close()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a1b052f09718429b991946fea7724f411" name="a1b052f09718429b991946fea7724f411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b052f09718429b991946fea7724f411">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::StreamSerialPort::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the UART if needed, empties the stream and starts continuous reception. </p>
+<p>Task context only.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the port is receiving. </dd></dl>
+
+</div>
+</div>
+<a id="a49b22bf81050b4ee173b0cb712fce161" name="a49b22bf81050b4ee173b0cb712fce161"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49b22bf81050b4ee173b0cb712fce161">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp; Lib::HAL::StreamSerialPort::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the port is bound to one peripheral. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if an edge was captured, <b>false</b> on timeout. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d5e/a05570_a1fc8b61efbe101b5e3e019e16d73f707_cgraph.svg" width="1224" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 
 </div>
 </div>
-<a id="a2732cd4549f6b1ca08da0cbcb462f404" name="a2732cd4549f6b1ca08da0cbcb462f404"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2732cd4549f6b1ca08da0cbcb462f404">&#9670;&#160;</a></span>waitCapture() <span class="overload">[2/2]</span></h2>
+<a id="a5d8430086822b05225d0b3f4372238b2" name="a5d8430086822b05225d0b3f4372238b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d8430086822b05225d0b3f4372238b2">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -552,10 +463,48 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimInputCapture::waitCapture </td>
+          <td class="memname"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp; Lib::HAL::StreamSerialPort::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d89/a05566.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the interrupt keeps a pointer to this object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="a6ef7de0de72ebe36f7b4e1c63a4bd00a" name="a6ef7de0de72ebe36f7b4e1c63a4bd00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::HAL::StreamSerialPort::read </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -565,27 +514,20 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks the task that called <a class="el" href="#add28b2f0b32350281b1f47c4e4e25e84" title="start()">start()</a> until the next edge is captured. </p>
+<p>Takes received bytes from the stream, waiting until at least one is there or the timeout expires. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; up to its size is copied. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Longest time to wait for the first byte. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if an edge was captured, <b>false</b> on timeout. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d5f/a06225.html#a7">Lib::HAL::Timer::TimInputCapture</a>.</dd>
-</dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d5e/a05570_a2732cd4549f6b1ca08da0cbcb462f404_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes copied; 0 on timeout or while closed. </dd></dl>
 
 </div>
 </div>
-<a id="a50fe83a38ed76cc7a5f8cea7dca98f4d" name="a50fe83a38ed76cc7a5f8cea7dca98f4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50fe83a38ed76cc7a5f8cea7dca98f4d">&#9670;&#160;</a></span>waitEvent()</h2>
+<a id="a0a35058ffe6e3bb6d1a5a9fb335c3588" name="a0a35058ffe6e3bb6d1a5a9fb335c3588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a35058ffe6e3bb6d1a5a9fb335c3588">&#9670;&#160;</a></span>write() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -594,59 +536,74 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d8/d89/a05566.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#abfe70b316d617c0b779207aebafd9fb9">TimInputCapture</a> &gt;::waitEvent </td>
+          <td class="memname">bool Lib::HAL::StreamSerialPort::write </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d8/d89/a05566.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Blocks the calling task until the next hardware event. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if an event arrived, <b>false</b> on timeout. </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d89/a05566_a50fe83a38ed76cc7a5f8cea7dca98f4d_icgraph.svg" width="758" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
-<a id="a4e452b46ec2394148f37767c37e5b374" name="a4e452b46ec2394148f37767c37e5b374"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e452b46ec2394148f37767c37e5b374">&#9670;&#160;</a></span>void::HAL_TIM_IC_CaptureCallback</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">void::HAL_TIM_IC_CaptureCallback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>htim</em></span></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Transmits bytes, polling the UART until they are sent. </p>
+<p>Task context only.</p>
+<p>The receive interrupt stays armed meanwhile.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Bytes to send; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Longest time the transmission may take. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every byte was sent. </dd></dl>
+
+</div>
+</div>
+<a id="aa11ae6544b3fe4193e42a03891973953" name="aa11ae6544b3fe4193e42a03891973953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa11ae6544b3fe4193e42a03891973953">&#9670;&#160;</a></span>write() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::StreamSerialPort::write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transmits the characters of a string, without a terminator. </p>
+<p>Task context only.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Characters to send; 1 to 65535 characters. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Longest time the transmission may take. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every character was sent. </dd></dl>
 
 </div>
 </div>

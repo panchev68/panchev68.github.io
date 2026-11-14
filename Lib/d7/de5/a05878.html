@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Pneumatics::Sensor</title>
+<title>IAR EWARM Library: RTOS::Kernel::CriticalSection</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,82 +91,52 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d8/d79/a01036.html">Pneumatics</a></li><li class="navelem"><a href="../../d7/de5/a05878.html">Sensor</a></li>  </ul>
+<li class="navelem"><a href="../../d0/daa/a01029.html">RTOS</a></li><li class="navelem"><a href="../../d5/d43/a05870.html">Kernel</a></li><li class="navelem"><a href="../../d7/de5/a05878.html">CriticalSection</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="../../dd/dc3/a05875.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Pneumatics::Sensor<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">RTOS::Kernel::CriticalSection<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>RAII guard for a kernel critical section, usable from both task and interrupt context.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Wraps a boolean position-sensor input, accounting for physical absence and inverted wiring. </p>
-<p>The sensor reads its input through a reference on every call, so the owner keeps updating the bound flag, e.g. from a GPIO polling task. An absent sensor always reads as <a class="el" href="#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b" title="State::DISABLED">State::DISABLED</a>. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Pneumatics::Sensor:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/d0d/a05876.svg" width="206" height="180"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/df8/a05882.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wiring and presence parameters for the sensor input.  <a href="../../dc/df8/a05882.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
+<div class="textblock"><p>RAII guard for a kernel critical section, usable from both task and interrupt context. </p>
+<p>The construction context is sampled once: in task context the guard uses the nesting <b>taskENTER_CRITICAL()</b> pair, inside an interrupt it saves and restores the interrupt mask instead, because the task-level pair must never be used from an ISR. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/dd3/a06247.html#_a0">RTOS::Kernel</a>.</dd>
+</dl>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a710e69df2dee7bfc8aa209f4f6cc8d1c" id="r_a710e69df2dee7bfc8aa209f4f6cc8d1c"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a710e69df2dee7bfc8aa209f4f6cc8d1c">Sensor</a> (const <a class="el" href="../../dc/df8/a05882.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a710e69df2dee7bfc8aa209f4f6cc8d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the sensor name and input source, and configures its presence and inversion.  <br /></td></tr>
-<tr class="memitem:a2a1b8d661f06dff4eccff343ce7772bd" id="r_a2a1b8d661f06dff4eccff343ce7772bd"><td class="memItemLeft"><a class="el" href="#a7063555b30fb75832750a0361328040e">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2a1b8d661f06dff4eccff343ce7772bd">read</a> () const noexcept</td></tr>
-<tr class="memdesc:a2a1b8d661f06dff4eccff343ce7772bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the current sensor state, accounting for presence and inversion.  <br /></td></tr>
-<tr class="memitem:af197d2b1d06755fc83c2fca16e9c02e5" id="r_af197d2b1d06755fc83c2fca16e9c02e5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af197d2b1d06755fc83c2fca16e9c02e5">isActive</a> () const noexcept</td></tr>
-<tr class="memdesc:af197d2b1d06755fc83c2fca16e9c02e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the sensor is present and currently active.  <br /></td></tr>
-<tr class="memitem:aed9398c1217d23a7d2cd9e94a09f3722" id="r_aed9398c1217d23a7d2cd9e94a09f3722"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aed9398c1217d23a7d2cd9e94a09f3722">isPresent</a> () const noexcept</td></tr>
-<tr class="memdesc:aed9398c1217d23a7d2cd9e94a09f3722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the sensor is physically present.  <br /></td></tr>
-<tr class="memitem:a132f01180c3998d6e6d751330a9b4b6d" id="r_a132f01180c3998d6e6d751330a9b4b6d"><td class="memItemLeft">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#a132f01180c3998d6e6d751330a9b4b6d">getName</a> () const noexcept</td></tr>
-<tr class="memdesc:a132f01180c3998d6e6d751330a9b4b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the configured name of the sensor.  <br /></td></tr>
+<tr class="memitem:ae0d8591a9f951915226f9cc3fee5dc0c" id="r_ae0d8591a9f951915226f9cc3fee5dc0c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae0d8591a9f951915226f9cc3fee5dc0c">CriticalSection</a> () noexcept</td></tr>
+<tr class="memdesc:ae0d8591a9f951915226f9cc3fee5dc0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enters a critical section using the variant that matches the current execution context.  <br /></td></tr>
+<tr class="memitem:a4a507b226238920b8fae903a5bd87776" id="r_a4a507b226238920b8fae903a5bd87776"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4a507b226238920b8fae903a5bd87776">~CriticalSection</a> () noexcept</td></tr>
+<tr class="memdesc:a4a507b226238920b8fae903a5bd87776"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exits the critical section entered by the constructor.  <br /></td></tr>
+<tr class="memitem:a12c8f603f29e98f7bf45f3685a8a9346" id="r_a12c8f603f29e98f7bf45f3685a8a9346"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a12c8f603f29e98f7bf45f3685a8a9346">CriticalSection</a> (const CriticalSection &amp;)=delete</td></tr>
+<tr class="memdesc:a12c8f603f29e98f7bf45f3685a8a9346"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the guard owns the nesting level of one scope.  <br /></td></tr>
+<tr class="memitem:a9de7a81409af7b28d1da974ded4a7688" id="r_a9de7a81409af7b28d1da974ded4a7688"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9de7a81409af7b28d1da974ded4a7688">CriticalSection</a> (CriticalSection &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a9de7a81409af7b28d1da974ded4a7688"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the guard owns the nesting level of one scope.  <br /></td></tr>
+<tr class="memitem:aabac4732503c72da02f8e49754bbc736" id="r_aabac4732503c72da02f8e49754bbc736"><td class="memItemLeft"><a class="el" href="#ae0d8591a9f951915226f9cc3fee5dc0c">CriticalSection</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aabac4732503c72da02f8e49754bbc736">operator=</a> (const <a class="el" href="#ae0d8591a9f951915226f9cc3fee5dc0c">CriticalSection</a> &amp;)=delete</td></tr>
+<tr class="memdesc:aabac4732503c72da02f8e49754bbc736"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the guard owns the nesting level of one scope.  <br /></td></tr>
+<tr class="memitem:aedeb62fa344a12ef7e33a668f584bed9" id="r_aedeb62fa344a12ef7e33a668f584bed9"><td class="memItemLeft"><a class="el" href="#ae0d8591a9f951915226f9cc3fee5dc0c">CriticalSection</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aedeb62fa344a12ef7e33a668f584bed9">operator=</a> (<a class="el" href="#ae0d8591a9f951915226f9cc3fee5dc0c">CriticalSection</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:aedeb62fa344a12ef7e33a668f584bed9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the guard owns the nesting level of one scope.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ad400f492f44701d418ca4978f59ffa87" id="r_ad400f492f44701d418ca4978f59ffa87"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ad400f492f44701d418ca4978f59ffa87">enter</a> () noexcept</td></tr>
+<tr class="memdesc:ad400f492f44701d418ca4978f59ffa87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enters a critical section from task context.  <br /></td></tr>
+<tr class="memitem:a47b5d102f923a56ea7c79117f98e8fa2" id="r_a47b5d102f923a56ea7c79117f98e8fa2"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a47b5d102f923a56ea7c79117f98e8fa2">exit</a> () noexcept</td></tr>
+<tr class="memdesc:a47b5d102f923a56ea7c79117f98e8fa2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exits a critical section previously entered with <a class="el" href="#ad400f492f44701d418ca4978f59ffa87" title="enter()">enter()</a>.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a7063555b30fb75832750a0361328040e" name="a7063555b30fb75832750a0361328040e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7063555b30fb75832750a0361328040e">&#9670;&#160;</a></span>State</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a7063555b30fb75832750a0361328040e">Lib::Pneumatics::Sensor::State</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Possible states of the sensor. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115" name="a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115"></a>ACTIVE&#160;</td><td class="fielddoc"><p>Sensor is active. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2" name="a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2"></a>INACTIVE&#160;</td><td class="fielddoc"><p>Sensor is inactive. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b" name="a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b"></a>DISABLED&#160;</td><td class="fielddoc"><p>Sensor is physically absent; its state is not meaningful. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a710e69df2dee7bfc8aa209f4f6cc8d1c" name="a710e69df2dee7bfc8aa209f4f6cc8d1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a710e69df2dee7bfc8aa209f4f6cc8d1c">&#9670;&#160;</a></span>Sensor()</h2>
+<a id="ae0d8591a9f951915226f9cc3fee5dc0c" name="ae0d8591a9f951915226f9cc3fee5dc0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0d8591a9f951915226f9cc3fee5dc0c">&#9670;&#160;</a></span>CriticalSection() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -173,32 +145,107 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Pneumatics::Sensor::Sensor </td>
+          <td class="memname">RTOS::Kernel::CriticalSection::CriticalSection </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/df8/a05882.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the sensor name and input source, and configures its presence and inversion. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">config</td><td>Name, wiring source, presence flag, and inversion flag. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Enters a critical section using the variant that matches the current execution context. </p>
+
+</div>
+</div>
+<a id="a4a507b226238920b8fae903a5bd87776" name="a4a507b226238920b8fae903a5bd87776"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a507b226238920b8fae903a5bd87776">&#9670;&#160;</a></span>~CriticalSection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Kernel::CriticalSection::~CriticalSection </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Exits the critical section entered by the constructor. </p>
+
+</div>
+</div>
+<a id="a12c8f603f29e98f7bf45f3685a8a9346" name="a12c8f603f29e98f7bf45f3685a8a9346"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12c8f603f29e98f7bf45f3685a8a9346">&#9670;&#160;</a></span>CriticalSection() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Kernel::CriticalSection::CriticalSection </td>
+          <td>(</td>
+          <td class="paramtype">const CriticalSection &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: the guard owns the nesting level of one scope. </p>
+
+</div>
+</div>
+<a id="a9de7a81409af7b28d1da974ded4a7688" name="a9de7a81409af7b28d1da974ded4a7688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9de7a81409af7b28d1da974ded4a7688">&#9670;&#160;</a></span>CriticalSection() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Kernel::CriticalSection::CriticalSection </td>
+          <td>(</td>
+          <td class="paramtype">CriticalSection &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the guard owns the nesting level of one scope. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a132f01180c3998d6e6d751330a9b4b6d" name="a132f01180c3998d6e6d751330a9b4b6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a132f01180c3998d6e6d751330a9b4b6d">&#9670;&#160;</a></span>getName()</h2>
+<a id="ad400f492f44701d418ca4978f59ffa87" name="ad400f492f44701d418ca4978f59ffa87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad400f492f44701d418ca4978f59ffa87">&#9670;&#160;</a></span>enter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,26 +254,26 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Pneumatics::Sensor::getName </td>
+          <td class="memname">void RTOS::Kernel::CriticalSection::enter </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieves the configured name of the sensor. </p>
-<dl class="section return"><dt>Returns</dt><dd>Name of the sensor. </dd></dl>
+<p>Enters a critical section from task context. </p>
+<p>Must be balanced by exactly one <a class="el" href="#a47b5d102f923a56ea7c79117f98e8fa2" title="exit()">exit()</a> call from the same task. </p>
 
 </div>
 </div>
-<a id="af197d2b1d06755fc83c2fca16e9c02e5" name="af197d2b1d06755fc83c2fca16e9c02e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af197d2b1d06755fc83c2fca16e9c02e5">&#9670;&#160;</a></span>isActive()</h2>
+<a id="a47b5d102f923a56ea7c79117f98e8fa2" name="a47b5d102f923a56ea7c79117f98e8fa2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b5d102f923a56ea7c79117f98e8fa2">&#9670;&#160;</a></span>exit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,26 +282,25 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Pneumatics::Sensor::isActive </td>
+          <td class="memname">void RTOS::Kernel::CriticalSection::exit </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks whether the sensor is present and currently active. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> only for a present sensor whose effective input is active. </dd></dl>
+<p>Exits a critical section previously entered with <a class="el" href="#ad400f492f44701d418ca4978f59ffa87" title="enter()">enter()</a>. </p>
 
 </div>
 </div>
-<a id="aed9398c1217d23a7d2cd9e94a09f3722" name="aed9398c1217d23a7d2cd9e94a09f3722"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed9398c1217d23a7d2cd9e94a09f3722">&#9670;&#160;</a></span>isPresent()</h2>
+<a id="aabac4732503c72da02f8e49754bbc736" name="aabac4732503c72da02f8e49754bbc736"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabac4732503c72da02f8e49754bbc736">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -263,26 +309,26 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Pneumatics::Sensor::isPresent </td>
+          <td class="memname"><a class="el" href="#ae0d8591a9f951915226f9cc3fee5dc0c">CriticalSection</a> &amp; RTOS::Kernel::CriticalSection::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="#ae0d8591a9f951915226f9cc3fee5dc0c">CriticalSection</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Indicates whether the sensor is physically present. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the sensor is present, <b>false</b> if absent. </dd></dl>
+<p>Non-copyable: the guard owns the nesting level of one scope. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="a2a1b8d661f06dff4eccff343ce7772bd" name="a2a1b8d661f06dff4eccff343ce7772bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a1b8d661f06dff4eccff343ce7772bd">&#9670;&#160;</a></span>read()</h2>
+<a id="aedeb62fa344a12ef7e33a668f584bed9" name="aedeb62fa344a12ef7e33a668f584bed9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedeb62fa344a12ef7e33a668f584bed9">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -291,21 +337,21 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a7063555b30fb75832750a0361328040e">State</a> Lib::Pneumatics::Sensor::read </td>
+          <td class="memname"><a class="el" href="#ae0d8591a9f951915226f9cc3fee5dc0c">CriticalSection</a> &amp; RTOS::Kernel::CriticalSection::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="#ae0d8591a9f951915226f9cc3fee5dc0c">CriticalSection</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the current sensor state, accounting for presence and inversion. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b" title="State::DISABLED">State::DISABLED</a> if the sensor is absent, otherwise <a class="el" href="#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115" title="State::ACTIVE">State::ACTIVE</a> or <a class="el" href="#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2" title="State::INACTIVE">State::INACTIVE</a>. </dd></dl>
+<p>Non-movable: the guard owns the nesting level of one scope. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>

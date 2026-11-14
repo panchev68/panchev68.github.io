@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::EEPROM::FlashEmulation</title>
+<title>IAR EWARM Library: Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,77 +92,81 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::EEPROM::FlashEmulation</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Keeps a boot counter and a calibration structure in the two flash pages reserved for the emulated EEPROM.</p>
-<p>Keeps a boot counter and a calibration structure in the two flash pages reserved for the emulated EEPROM.Each value has its own 16-bit key and its own length, so the counter and the calibration are stored side by side. A missing key reads as <b>0</b> bytes, which lets the first boot start from defaults. Every <a class="el" href="../../dd/d4b/a04432.html#a063c0d9941fea672cb74a10cb66f281e" title="Lib::BSP::EEPROM::FlashEmulation::write()">Lib::BSP::EEPROM::FlashEmulation::write()</a> of a changed value appends a record, and the emulation compacts the pages when the active one is full.</p>
-<dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="../../dd/d4b/a04432.html#a8947a65dd4bc123a43147aadad6d5328" title="Lib::BSP::EEPROM::FlashEmulation::open()">Lib::BSP::EEPROM::FlashEmulation::open()</a> once, before the first read() or write(), and only from a task, never from an ISR.</dd>
-<dd>
-Target: STM32U5 with 'HAL_FLASH_MODULE_ENABLED' defined. The programming unit is a 16-byte quadword and the sector addresses are U5-specific. On STM32F407 the class compiles to nothing.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Each boot writes the counter once, so frequent resets wear the flash. Store the counter less often when the device restarts many times.</dd></dl>
+<p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.</p>
+<p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.The driver takes a shared Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; by reference and does not own it. Addresses are byte addresses within the 16 MB chip, and <a class="el" href="../../d4/d22/a04494.html#aff869cb6bde4f4f94493097c4c7e2da6" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()</a> works on 4 KB sectors, so a write must be preceded by an erase of the sector it touches.</p>
+<dl class="section important"><dt>Important</dt><dd>Target: a part with OCTOSPI, such as STM32U5. The class is compiled only when <em class="arg">HAL_OSPI_MODULE_ENABLED</em> is defined; on STM32F407 the whole class compiles to nothing.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Erasing and writing block the calling task while the chip is busy, which can take milliseconds. Do not call them from an ISR.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="flashemu_usage_values"></a>
-Boot counter and calibration</h3>
-<p>A key read as <b>0</b> bytes starts from the default value. Read the value into a buffer of its size, compare the returned length with that size, and write back only what changed.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d22/a00245.html">Lib/BSP/EEPROM/Internal/FlashEmulation.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_open"></a>
+Open and identify</h3>
+<p><a class="el" href="../../d4/d22/a04494.html#acc5fbed9faca7400c7d70130fbb74131" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()</a> powers the chip up, resets it and reads the JEDEC ID; the driver is present only for the 16 MB part. <a class="el" href="../../d4/d22/a04494.html#a40a9ef783ecafece7202ae4ec39d4939" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()</a> reports the cached result without touching the bus.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dfe/a08327.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/de4/a00677.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00314.html">cstring</a>&gt;</span></div>
+<div class="line"><span class="comment">// OCTOSPI port configured in the application (CubeMX) and shared with other consumers; defined outside this file.</span></div>
+<div class="line"><span class="keyword">extern</span> Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; ospiPort;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">constexpr</span> uint16_t KEY_BOOT_COUNT = 1U;  <span class="comment">// Number of boots, 4 bytes.</span></div>
-<div class="line">    <span class="keyword">constexpr</span> uint16_t KEY_CALIBRATION = 2U; <span class="comment">// Calibration structure.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">struct </span>Calibration {</div>
-<div class="line">        int16_t offset; <span class="comment">// Sensor offset in millimetres.</span></div>
-<div class="line">        uint16_t gain;  <span class="comment">// Gain in 1/1000 units.</span></div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// The two pages must be reserved in the linker script: the last sector pair of bank 2.</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dd/d4b/a04432.html">Lib::BSP::EEPROM::FlashEmulation</a> eeprom{0x081FC000U};</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/d22/a04494.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> flash({.ospi = ospiPort});</div>
 <div class="line"> </div>
 <div class="line">} <span class="comment">// namespace</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startup() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!eeprom.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// The area could not be prepared; run with the default settings.</span></div>
+<div class="line"><span class="keywordtype">bool</span> openFlash() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Chip did not answer or the JEDEC ID is unexpected.</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> flash.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d4/d22/a04494.html#a40a9ef783ecafece7202ae4ec39d4939">isPresent</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00677_html"><div class="ttname"><a href="../../dc/de4/a00677.html">OSPI.hpp</a></div><div class="ttdoc">Public umbrella include for the OCTOSPI subsystem.</div></div>
+<div class="ttc" id="aa04494_html"><div class="ttname"><a href="../../d4/d22/a04494.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a></div><div class="ttdoc">Quad-SPI (OCTOSPI) device driver for the Winbond W25Q128JVSIQ.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:82</div></div>
+<div class="ttc" id="aa04494_html_a40a9ef783ecafece7202ae4ec39d4939"><div class="ttname"><a href="../../d4/d22/a04494.html#a40a9ef783ecafece7202ae4ec39d4939">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent</a></div><div class="ttdeci">bool isPresent() const noexcept</div><div class="ttdoc">Checks whether the device is present and initialized.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:236</div></div>
+<div class="ttc" id="aa08327_html"><div class="ttname"><a href="../../de/dfe/a08327.html">W25Q128JVSIQ.hpp</a></div><div class="ttdoc">Quad-SPI (OCTOSPI) driver for the Winbond W25Q128JVSIQ 128 Mbit device.</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_rw"></a>
+Read and write</h3>
+<p><a class="el" href="../../d4/d22/a04494.html#a48fee6a63474b5ad43a51157fcd0129a" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()</a> programs pages of <b>256</b> bytes. The sector must be erased first, because programming can only clear bits.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dfe/a08327.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> storeRecord(<a class="code hl_class" href="../../d4/d22/a04494.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> &amp; flash) {</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t RECORD_ADDRESS = 0x000000U;</div>
+<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> record{0x12U, 0x34U, 0x56U, 0x78U};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d4/d22/a04494.html#aff869cb6bde4f4f94493097c4c7e2da6">eraseSector</a>(RECORD_ADDRESS)) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d4/d22/a04494.html#a48fee6a63474b5ad43a51157fcd0129a">write</a>(RECORD_ADDRESS, record.data(), record.size())) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Boot counter: a missing key reads as 0 bytes, so the first boot starts from 0.</span></div>
-<div class="line">    uint32_t bootCount = 0U;</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <span class="keyword">sizeof</span>(bootCount)&gt; rawCount{};</div>
-<div class="line">    <span class="keywordflow">if</span> (eeprom.read(KEY_BOOT_COUNT, rawCount) == rawCount.size()) {</div>
-<div class="line">        std::memcpy(&amp;bootCount, rawCount.data(), <span class="keyword">sizeof</span>(bootCount));</div>
-<div class="line">    }</div>
-<div class="line">    ++bootCount;</div>
-<div class="line">    std::memcpy(rawCount.data(), &amp;bootCount, <span class="keyword">sizeof</span>(bootCount));</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(eeprom.write(KEY_BOOT_COUNT, rawCount));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Calibration: read it, or keep the defaults when it is missing or of another size.</span></div>
-<div class="line">    Calibration calibration{0, 1000U};</div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <span class="keyword">sizeof</span>(Calibration)&gt; rawCalibration{};</div>
-<div class="line">    <span class="keywordflow">if</span> (eeprom.read(KEY_CALIBRATION, rawCalibration) == rawCalibration.size()) {</div>
-<div class="line">        std::memcpy(&amp;calibration, rawCalibration.data(), <span class="keyword">sizeof</span>(calibration));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Store a new calibration after the user changes it.</span></div>
-<div class="line">    calibration.offset = 12;</div>
-<div class="line">    std::memcpy(rawCalibration.data(), &amp;calibration, <span class="keyword">sizeof</span>(calibration));</div>
-<div class="line">    <span class="keywordflow">if</span> (!eeprom.write(KEY_CALIBRATION, rawCalibration)) {</div>
-<div class="line">        <span class="comment">// The flash refused the record; keep the value in RAM and report the fault.</span></div>
-<div class="line">    }</div>
+<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> readBack{};</div>
+<div class="line">    <span class="keywordflow">return</span> flash.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d4/d22/a04494.html#abb4813e3ca50641c3bc3d1a367927ab8">read</a>(RECORD_ADDRESS, readBack.data(), readBack.size()) &amp;&amp; readBack == record;</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00245_html"><div class="ttname"><a href="../../d6/d22/a00245.html">FlashEmulation.hpp</a></div><div class="ttdoc">EEPROM emulation in the internal flash of an STM32U5 microcontroller, for small key-value settings an...</div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00314_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00314.html">cstring</a></div></div>
 <div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa04432_html"><div class="ttname"><a href="../../dd/d4b/a04432.html">Lib::BSP::EEPROM::FlashEmulation</a></div><div class="ttdoc">Stores 16-bit keyed records in two erasable flash pages, appended as a log and compacted when a page ...</div><div class="ttdef"><b>Definition</b> FlashEmulation.hpp:61</div></div>
+<div class="ttc" id="aa04494_html_a48fee6a63474b5ad43a51157fcd0129a"><div class="ttname"><a href="../../d4/d22/a04494.html#a48fee6a63474b5ad43a51157fcd0129a">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write</a></div><div class="ttdeci">bool write(uint32_t addr, const void *data, size_t size) noexcept</div><div class="ttdoc">Writes size bytes from data to the device starting at addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:287</div></div>
+<div class="ttc" id="aa04494_html_abb4813e3ca50641c3bc3d1a367927ab8"><div class="ttname"><a href="../../d4/d22/a04494.html#abb4813e3ca50641c3bc3d1a367927ab8">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::read</a></div><div class="ttdeci">bool read(uint32_t addr, void *buffer, size_t size) noexcept</div><div class="ttdoc">Reads size bytes from the device starting at addr into buffer.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:252</div></div>
+<div class="ttc" id="aa04494_html_aff869cb6bde4f4f94493097c4c7e2da6"><div class="ttname"><a href="../../d4/d22/a04494.html#aff869cb6bde4f4f94493097c4c7e2da6">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t addr) noexcept</div><div class="ttdoc">Erases the 4 KB sector that contains addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:330</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_power"></a>
+Power down</h3>
+<p><a class="el" href="../../d4/d22/a04494.html#a8a0d94550896c7062f6594cd0e532007" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()</a> lowers the standby current between accesses. Call <a class="el" href="../../d4/d22/a04494.html#a686c0c59ab4f223b15aefeeab43ca2bd" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()</a> before the next access.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dfe/a08327.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> idleFlash(<a class="code hl_class" href="../../d4/d22/a04494.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> &amp; flash) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(flash.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d4/d22/a04494.html#a8a0d94550896c7062f6594cd0e532007">enterPowerDown</a>());</div>
+<div class="line">    <span class="comment">// ... long idle period ...</span></div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(flash.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d4/d22/a04494.html#a686c0c59ab4f223b15aefeeab43ca2bd">releasePowerDown</a>());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa04494_html_a686c0c59ab4f223b15aefeeab43ca2bd"><div class="ttname"><a href="../../d4/d22/a04494.html#a686c0c59ab4f223b15aefeeab43ca2bd">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown</a></div><div class="ttdeci">bool releasePowerDown() noexcept</div><div class="ttdoc">Wakes the device from deep power-down; call before any access after enterPowerDown().</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:214</div></div>
+<div class="ttc" id="aa04494_html_a8a0d94550896c7062f6594cd0e532007"><div class="ttname"><a href="../../d4/d22/a04494.html#a8a0d94550896c7062f6594cd0e532007">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown</a></div><div class="ttdeci">bool enterPowerDown() noexcept</div><div class="ttdoc">Puts an opened device into deep power-down between accesses; the port stays open.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:205</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

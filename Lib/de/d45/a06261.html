@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::PowerManager</title>
+<title>IAR EWARM Library: RTOS::QueueSet</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,74 +92,106 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::PowerManager</div></div>
+  <div class="headertitle"><div class="title">RTOS::QueueSet</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows enabling tickless low-power idle with <a class="el" href="../../de/d45/a06261.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, registering peripheral callbacks around sleep and holding a deep-sleep lock while a peripheral is busy.</p>
-<p>Shows enabling tickless low-power idle with <a class="el" href="../../de/d45/a06261.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, registering peripheral callbacks around sleep and holding a deep-sleep lock while a peripheral is busy.The manager puts the MCU into Stop mode when the idle time is long enough, and into Sleep mode otherwise. It needs a low-power timer to wake the scheduler, and it is a singleton, so <a class="el" href="../../d5/d98/a05916.html#af76fc6de7d330151f7765c0ff6149226" title="RTOS::PowerManager::instance()">RTOS::PowerManager::instance()</a> is used everywhere.</p>
-<dl class="section important"><dt>Important</dt><dd>The class is compiled only when 'FREERTOS_LOW_POWER_SUPPORT', 'HAL_LPTIM_MODULE_ENABLED' and 'LPTIM1' are defined, and 'configUSE_TICKLESS_IDLE' must be 1 or 2 in 'FreeRTOSConfig.h'. On a target where these are absent the whole class compiles to nothing.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Deep sleep is withheld while a debugger is attached. Stop mode can make SWD and Live Watch lose the connection, so the manager checks <a class="el" href="../../d5/d98/a05916.html#ac35887bd479a4425729b40a4b3114f52" title="RTOS::PowerManager::isDebuggerAttached()">RTOS::PowerManager::isDebuggerAttached()</a> first.</dd></dl>
+<p>Shows waiting on a queue and a semaphore at the same time with an <a class="el" href="../../de/d45/a06261.html" title="RTOS::QueueSet">RTOS::QueueSet</a>.</p>
+<p>Shows waiting on a queue and a semaphore at the same time with an <a class="el" href="../../de/d45/a06261.html" title="RTOS::QueueSet">RTOS::QueueSet</a>. Covers a set that combines a command queue and a button semaphore, and a task that blocks on the set and dispatches whichever member became ready. Every member must be empty when it is added, and it can belong to only one set at a time. Requires <em class="arg">configUSE_QUEUE_SETS</em> set to <b>1</b>.</p>
+<dl class="section important"><dt>Important</dt><dd>The set length must be at least the sum of the member lengths: 4 for the command queue plus 1 for the binary semaphore, so 5 here.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="power_manager_usage_setup"></a>
-Setup and sleep callbacks</h3>
-<p><a class="el" href="../../d5/d98/a05916.html#a565502e655a008546ced2e18d0fc7b22" title="RTOS::PowerManager::setup()">RTOS::PowerManager::setup()</a> binds the <a class="el" href="../../d6/d4c/a06195.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> that wakes the scheduler. The callbacks run before and after each sleep, so they should save and restore only the peripheral state that Stop mode loses.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d6a/a00704.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="queue_set_usage_declare"></a>
+Declaring the members and the set</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/QueueSet.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// CubeMX-generated LPTIM handle, declared at global scope so it links to the definition in the CubeMX sources.</span></div>
-<div class="line"><span class="keyword">extern</span> LPTIM_HandleTypeDef hlptim1;</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/df0/a05540.html">Lib::HAL::LPTimer</a> lowPowerTimer(&amp;hlptim1, 0U); <span class="comment">// The channel is the one the wrapper configures.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> uartPreSleep() {</div>
-<div class="line">        <span class="comment">// Save the UART state and gate its clock.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> uartPostSleep() {</div>
-<div class="line">        <span class="comment">// Restore the UART clock and state.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> setupLowPower() {</div>
-<div class="line">    <span class="keyword">auto</span> &amp; manager = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d5/d98/a05916.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a>();</div>
-<div class="line">    <span class="keywordflow">if</span> (!manager.setup(lowPowerTimer)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> manager.registerPreSleepCallback(uartPreSleep) &amp;&amp; manager.registerPostSleepCallback(uartPostSleep);</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint8_t, 4U&gt;</a> commands;</div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../de/d4c/a05926.html">RTOS::Semaphore</a> buttonPressed;</div>
+<div class="line">    RTOS::QueueSet&lt;2U&gt; events;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00704_html"><div class="ttname"><a href="../../d4/d6a/a00704.html">LPTimer.hpp</a></div><div class="ttdoc">Low-power timer peripheral driver for STM32 architectures.</div></div>
-<div class="ttc" id="aa00899_html"><div class="ttname"><a href="../../d3/d8a/a00899.html">PowerManager.hpp</a></div><div class="ttdoc">Power management component providing low-power mode transitions for FreeRTOS tickless idle.</div></div>
-<div class="ttc" id="aa05540_html"><div class="ttname"><a href="../../d9/df0/a05540.html">Lib::HAL::LPTimer</a></div><div class="ttdoc">Manages LPTIM peripheral configuration and interrupt-driven timeout events.</div><div class="ttdef"><b>Definition</b> LPTimer.hpp:42</div></div>
-<div class="ttc" id="aa05916_html_af76fc6de7d330151f7765c0ff6149226"><div class="ttname"><a href="../../d5/d98/a05916.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a></div><div class="ttdeci">static PowerManager &amp; instance() noexcept</div><div class="ttdoc">Retrieves the singleton instance of the PowerManager.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:193</div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00905_html"><div class="ttname"><a href="../../da/d5b/a00905.html">Queue.hpp</a></div><div class="ttdoc">Type-safe RAII wrapper for FreeRTOS queues.</div></div>
+<div class="ttc" id="aa00908_html"><div class="ttname"><a href="../../d0/d85/a00908.html">QueueSet.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS queue sets.</div></div>
+<div class="ttc" id="aa00911_html"><div class="ttname"><a href="../../d7/d12/a00911.html">Semaphore.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS binary semaphores.</div></div>
+<div class="ttc" id="aa05922_html"><div class="ttname"><a href="../../df/dc9/a05922.html">RTOS::Queue</a></div><div class="ttdoc">Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type.</div><div class="ttdef"><b>Definition</b> Queue.hpp:55</div></div>
+<div class="ttc" id="aa05926_html"><div class="ttname"><a href="../../de/d4c/a05926.html">RTOS::Semaphore</a></div><div class="ttdoc">Binary semaphore resource manager for task and ISR synchronization.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:44</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="power_manager_usage_lock"></a>
-Deep-sleep lock</h3>
-<p>A <a class="el" href="../../d4/dde/a05924.html" title="RTOS::PowerManager::DeepSleepLock">RTOS::PowerManager::DeepSleepLock</a> blocks Stop mode for its lifetime. The guard is released at the end of the scope, so the peripheral must finish its transfer inside it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="queue_set_usage_open"></a>
+Opening the set</h3>
+<p>RTOS::QueueSet::open() with an initializer list creates the set and adds both members in one call. Each member handle comes from <a class="el" href="../../df/dc9/a05922.html#abd1cd42014765c2d80dc782dd6d5e25c" title="RTOS::Queue::getHandle()">RTOS::Queue::getHandle()</a> or <a class="el" href="../../d8/d5e/a05930.html#a9cd3c80279acde60a0701a674eecc148" title="RTOS::SemaphoreBase::getHandle()">RTOS::SemaphoreBase::getHandle()</a> of its own wrapper.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/QueueSet.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> transferWithClock() {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d4/dde/a05924.html">RTOS::PowerManager::DeepSleepLock</a> <a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01641.html#ga82fa606b1427f731ac64bb8ac49221f3">lock</a>; <span class="comment">// Blocks Stop mode until the end of this scope.</span></div>
-<div class="line">    <span class="comment">// Run the transfer that needs the peripheral clock.</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint8_t, 4U&gt;</a> commands;</div>
+<div class="line">    <a class="code hl_class" href="../../de/d4c/a05926.html">RTOS::Semaphore</a> buttonPressed;</div>
+<div class="line">    RTOS::QueueSet&lt;2U&gt; events;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa01641_html_ga82fa606b1427f731ac64bb8ac49221f3"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01641.html#ga82fa606b1427f731ac64bb8ac49221f3">lock</a></div><div class="ttdeci">void lock(_L1 &amp;__l1, _L2 &amp;__l2, _L3 &amp;... __l3)</div></div>
-<div class="ttc" id="aa05924_html"><div class="ttname"><a href="../../d4/dde/a05924.html">RTOS::PowerManager::DeepSleepLock</a></div><div class="ttdoc">RAII guard that blocks deep sleep for its lifetime, e.g.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:128</div></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> openEvents() noexcept {</div>
+<div class="line">    <span class="keywordflow">if</span> (!commands.open() || !buttonPressed.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> events.<a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d4c/a05926.html#a4f3a14ce62c98f7ce5520ce3e91b2322">open</a>(5U, {commands.getHandle(), buttonPressed.getHandle()});</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05926_html_a4f3a14ce62c98f7ce5520ce3e91b2322"><div class="ttname"><a href="../../de/d4c/a05926.html#a4f3a14ce62c98f7ce5520ce3e91b2322">RTOS::Semaphore::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Allocates the native FreeRTOS binary semaphore handle, if not already open.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:117</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="power_manager_usage_stats"></a>
-Checking statistics</h3>
-<p><a class="el" href="../../d5/d98/a05916.html#a0bae4d059d5136a3f1a01b190a524c37" title="RTOS::PowerManager::getStatistics()">RTOS::PowerManager::getStatistics()</a> reports how often each sleep mode was entered. A deep-sleep count that stays at zero usually means a debugger is attached or a lock is held.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="queue_set_usage_wait"></a>
+Waiting and dispatching</h3>
+<p>RTOS::QueueSet::select() returns the member that became ready, or <em class="arg">nullptr</em> on timeout. Read each ready member exactly once with a zero timeout, so the set reports only new events.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/QueueSet.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d12/a00911.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> deepSleepSeen() {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../db/dbf/a05920.html">RTOS::PowerManager::Statistics</a> stats = <a class="code hl_function" href="../../d5/d98/a05916.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a>().<a id="a5" name="a5"></a><a class="code hl_function" href="../../d5/d98/a05916.html#a0bae4d059d5136a3f1a01b190a524c37">getStatistics</a>();</div>
-<div class="line">    <span class="keywordflow">return</span> stats.<a id="a6" name="a6"></a><a class="code hl_variable" href="../../db/dbf/a05920.html#ae80981e088a11d9e03983df5989a0c57">deepSleepCount</a> &gt; 0U;</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a class="code hl_class" href="../../df/dc9/a05922.html">RTOS::Queue&lt;uint8_t, 4U&gt;</a> commands;</div>
+<div class="line">    <a class="code hl_class" href="../../de/d4c/a05926.html">RTOS::Semaphore</a> buttonPressed;</div>
+<div class="line">    RTOS::QueueSet&lt;2U&gt; events;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05916_html_a0bae4d059d5136a3f1a01b190a524c37"><div class="ttname"><a href="../../d5/d98/a05916.html#a0bae4d059d5136a3f1a01b190a524c37">RTOS::PowerManager::getStatistics</a></div><div class="ttdeci">Statistics getStatistics() const noexcept</div><div class="ttdoc">Reads the sleep counters as one consistent snapshot.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:430</div></div>
-<div class="ttc" id="aa05920_html"><div class="ttname"><a href="../../db/dbf/a05920.html">RTOS::PowerManager::Statistics</a></div><div class="ttdoc">Sleep counters collected by the idle hook, for power profiling.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:116</div></div>
-<div class="ttc" id="aa05920_html_ae80981e088a11d9e03983df5989a0c57"><div class="ttname"><a href="../../db/dbf/a05920.html#ae80981e088a11d9e03983df5989a0c57">RTOS::PowerManager::Statistics::deepSleepCount</a></div><div class="ttdeci">uint32_t deepSleepCount</div><div class="ttdoc">Number of completed STOP1 entries.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:117</div></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> openEvents() noexcept {</div>
+<div class="line">    <span class="keywordflow">if</span> (!commands.open() || !buttonPressed.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> events.<a class="code hl_function" href="../../de/d4c/a05926.html#a4f3a14ce62c98f7ce5520ce3e91b2322">open</a>(5U, {commands.getHandle(), buttonPressed.getHandle()});</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> eventTask(<span class="keywordtype">void</span> * parameters) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!openEvents()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="keyword">const</span> RTOS::QueueSet&lt;2U&gt;::Member <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga528eb8f3b350394c0406d4d58ab7dbf4ab2fdab230a2c39f3595a947861863cb7">ready</a> = events.select(100ms);</div>
+<div class="line">        <span class="keywordflow">if</span> (ready == commands.getHandle()) {</div>
+<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint8_t&gt;</a> command = commands.receive(0U); command.has_value()) {</div>
+<div class="line">                <span class="comment">// Handle *command.</span></div>
+<div class="line">            }</div>
+<div class="line">        } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (ready == buttonPressed.getHandle()) {</div>
+<div class="line">            <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(buttonPressed.take(0U));</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa01613_html_ga528eb8f3b350394c0406d4d58ab7dbf4ab2fdab230a2c39f3595a947861863cb7"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga528eb8f3b350394c0406d4d58ab7dbf4ab2fdab230a2c39f3595a947861863cb7">future_status::ready</a></div><div class="ttdeci">@ ready</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

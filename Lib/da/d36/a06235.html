@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::Convert::HexHelper</title>
+<title>IAR EWARM Library: Lib::Helper::RingBuffer</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,72 +92,114 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Convert::HexHelper</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::RingBuffer</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows the lightweight conversion helpers of 'Lib::Helper::Convert::HexHelper': a nibble to its ASCII hex digit, a value from <b>0</b> to <b>99</b> packed into 8-bit BCD, a decimal value packed into 32-bit BCD, and an ASCII hex digit back to its numeric nibble.</p>
-<p>Shows the lightweight conversion helpers of 'Lib::Helper::Convert::HexHelper': a nibble to its ASCII hex digit, a value from <b>0</b> to <b>99</b> packed into 8-bit BCD, a decimal value packed into 32-bit BCD, and an ASCII hex digit back to its numeric nibble.The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs. 'Lib::Helper::Convert::HexHelper'toBcd() and <a class="el" href="../../d4/d0d/a05692.html#a0ff1064b777a7e7bcc333deb8863d171" title="Lib::Helper::Convert::HexHelper::toBcd8()">Lib::Helper::Convert::HexHelper::toBcd8()</a> assert on a value above their capacity in debug builds. 'Lib::Helper::Convert::HexHelper'fromAscii() returns 'Lib::Helper::Convert::HexHelper'INVALID_NIBBLE for a non-hex character.</p>
+<p>Passes samples from a producer context to a consumer context with <a class="el" href="../../da/d36/a06235.html" title="Lib::Helper::RingBuffer">Lib::Helper::RingBuffer</a>.</p>
+<p>Passes samples from a producer context to a consumer context with <a class="el" href="../../da/d36/a06235.html" title="Lib::Helper::RingBuffer">Lib::Helper::RingBuffer</a>. The buffer is lock-free and safe only with one producer (for example an interrupt handler) and one consumer (for example a task). <a class="el" href="../../d3/d16/a05746.html#ab0835299e7ff3714143b1196743a174f" title="Lib::Helper::RingBuffer::overwrite()">Lib::Helper::RingBuffer::overwrite()</a> advances the read side and must not run concurrently with <a class="el" href="../../d3/d16/a05746.html#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Lib::Helper::RingBuffer::pop()">Lib::Helper::RingBuffer::pop()</a> or with consumer-side reads.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_nibble"></a>
-Nibble to ASCII</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/dad/a00806.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printNibbleAsAscii() {</div>
-<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/d0d/a05692.html">Lib::Helper::Convert::HexHelper</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> c = HexHelper::toAscii(0xAU);</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Nibble 0xA -&gt; &quot;</span> &lt;&lt; c &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
-<div class="ttc" id="aa00806_html"><div class="ttname"><a href="../../d0/dad/a00806.html">HexHelper.hpp</a></div><div class="ttdoc">Utility helpers for hexadecimal and BCD conversions.</div></div>
-<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
-<div class="ttc" id="aa05692_html"><div class="ttname"><a href="../../d4/d0d/a05692.html">Lib::Helper::Convert::HexHelper</a></div><div class="ttdoc">Helper class that exposes static constexpr conversion utilities.</div><div class="ttdef"><b>Definition</b> HexHelper.hpp:29</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">Nibble 0xA -&gt; A</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_bcd"></a>
-Packing decimal values into BCD</h3>
-<p>'Lib::Helper::Convert::HexHelper'toBcd8() packs <b>0</b> to <b>99</b> into one byte, and 'Lib::Helper::Convert::HexHelper'toBcd() packs up to <b>8</b> decimal digits into 32 bits.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/dad/a00806.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="ringbuffer_usage_single"></a>
+Single element transfer</h3>
+<p>The producer calls <a class="el" href="../../d3/d16/a05746.html#a15a0e34223bfa6bb69410c75ff946f0c" title="Lib::Helper::RingBuffer::push()">Lib::Helper::RingBuffer::push()</a> from the interrupt handler and the consumer calls <a class="el" href="../../d3/d16/a05746.html#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Lib::Helper::RingBuffer::pop()">Lib::Helper::RingBuffer::pop()</a> from a task. A full buffer makes <a class="el" href="../../d3/d16/a05746.html#a15a0e34223bfa6bb69410c75ff946f0c" title="Lib::Helper::RingBuffer::push()">Lib::Helper::RingBuffer::push()</a> return <b>false</b>, so the sample is dropped and the caller decides what to do with it.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/de8/a00839.html">Lib/Helper/RingBuffer.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printPackedBcd() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d4/d0d/a05692.html">Lib::Helper::Convert::HexHelper</a>;</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d3/d16/a05746.html">Lib::Helper::RingBuffer&lt;uint16_t, 32U&gt;</a> samples;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint8_t bcd8 = HexHelper::toBcd8(42U);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;BCD8(42) -&gt; 0x&quot;</span> &lt;&lt; <a id="a2" name="a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex &lt;&lt; static_cast&lt;int&gt;</a>(bcd8) &lt;&lt; <a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint32_t bcd32 = HexHelper::toBcd(1234U);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;BCD32(1234) -&gt; 0x&quot;</span> &lt;&lt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex</a> &lt;&lt; bcd32 &lt;&lt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa01692_html_a0fc906aec6c2cb724b0aad05ee44de0d"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex</a></div><div class="ttdeci">ios_base &amp; hex(ios_base &amp;__base)</div></div>
-<div class="ttc" id="aa01692_html_a8e1042ae25efda13674517f13a10c44c"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a></div><div class="ttdeci">ios_base &amp; dec(ios_base &amp;__base)</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">BCD8(42) -&gt; 0x42</div>
-<div class="line">BCD32(1234) -&gt; 0x1234</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_parse"></a>
-ASCII to nibble</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/dad/a00806.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printAsciiAsNibble() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d4/d0d/a05692.html">Lib::Helper::Convert::HexHelper</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint8_t nibble = HexHelper::fromAscii(<span class="charliteral">&#39;F&#39;</span>);</div>
-<div class="line">    <span class="keywordflow">if</span> (nibble != HexHelper::INVALID_NIBBLE) {</div>
-<div class="line">        <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;&#39;F&#39; -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(nibble) &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><span class="comment">// Producer: called from the ADC conversion-complete interrupt.</span></div>
+<div class="line"><span class="keywordtype">void</span> onSample(uint16_t value) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (!samples.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d3/d16/a05746.html#a15a0e34223bfa6bb69410c75ff946f0c">push</a>(value)) {</div>
+<div class="line">        <span class="comment">// Buffer full: the newest sample is dropped.</span></div>
 <div class="line">    }</div>
 <div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Consumer: called from a task.</span></div>
+<div class="line"><span class="keywordtype">void</span> consumeOne() noexcept {</div>
+<div class="line">    uint16_t value = 0U;</div>
+<div class="line">    <span class="keywordflow">if</span> (samples.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d3/d16/a05746.html#a8355cafc3456b4a8c5f5122ea38ca0d8">pop</a>(value)) {</div>
+<div class="line">        <span class="comment">// Use value.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00839_html"><div class="ttname"><a href="../../df/de8/a00839.html">RingBuffer.hpp</a></div><div class="ttdoc">Fixed-size, lock-free single-producer/single-consumer ring buffer (circular FIFO) for elements of typ...</div></div>
+<div class="ttc" id="aa05746_html"><div class="ttname"><a href="../../d3/d16/a05746.html">Lib::Helper::RingBuffer</a></div><div class="ttdoc">Fixed-capacity FIFO container with lock-free single-producer/single-consumer semantics.</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:58</div></div>
+<div class="ttc" id="aa05746_html_a15a0e34223bfa6bb69410c75ff946f0c"><div class="ttname"><a href="../../d3/d16/a05746.html#a15a0e34223bfa6bb69410c75ff946f0c">Lib::Helper::RingBuffer::push</a></div><div class="ttdeci">bool push(const T &amp;value) noexcept</div><div class="ttdoc">Appends a copy of value if space is available (producer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:148</div></div>
+<div class="ttc" id="aa05746_html_a8355cafc3456b4a8c5f5122ea38ca0d8"><div class="ttname"><a href="../../d3/d16/a05746.html#a8355cafc3456b4a8c5f5122ea38ca0d8">Lib::Helper::RingBuffer::pop</a></div><div class="ttdeci">bool pop(T &amp;value) noexcept</div><div class="ttdoc">Removes the oldest element and moves it into value (consumer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:168</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="ringbuffer_usage_bulk"></a>
+Bulk transfer with a transfer mode</h3>
+<p><a class="el" href="../../d3/d16/a05746.html#a4eb0599938edcdc26882c4a3b9ba7d98" title="Lib::Helper::RingBuffer::write()">Lib::Helper::RingBuffer::write()</a> and <a class="el" href="../../d3/d16/a05746.html#a03a48e3cd8a1b0b70db7a640e62a3bd7" title="Lib::Helper::RingBuffer::read()">Lib::Helper::RingBuffer::read()</a> move several elements at once. <a class="el" href="../../d3/d16/a05746.html#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19" title="Lib::Helper::RingBuffer::TransferMode::PARTIAL">Lib::Helper::RingBuffer::TransferMode::PARTIAL</a> transfers as many elements as fit or are available; <a class="el" href="../../d3/d16/a05746.html#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d" title="Lib::Helper::RingBuffer::TransferMode::ALL">Lib::Helper::RingBuffer::TransferMode::ALL</a> transfers nothing unless the whole request can be served.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/de8/a00839.html">Lib/Helper/RingBuffer.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="../../d3/d16/a05746.html">Lib::Helper::RingBuffer&lt;uint8_t, 64U&gt;</a> rxBuffer;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> bulkExample() noexcept {</div>
+<div class="line">    <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> frame{0x01U, 0x02U, 0x03U, 0x04U};</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> written = rxBuffer.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d3/d16/a05746.html#a4eb0599938edcdc26882c4a3b9ba7d98">write</a>(frame, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d3/d16/a05746.html#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d">Lib::Helper::RingBuffer&lt;uint8_t, 64U&gt;::TransferMode::ALL</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (written == 0U) {</div>
+<div class="line">        <span class="comment">// Not enough free space for the whole frame; nothing was written.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 16U&gt;</a> chunk{};</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> readCount = rxBuffer.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d3/d16/a05746.html#a03a48e3cd8a1b0b70db7a640e62a3bd7">read</a>(chunk, <a id="_a7" name="_a7"></a><a class="code hl_enumvalue" href="../../d3/d16/a05746.html#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">Lib::Helper::RingBuffer&lt;uint8_t, 64U&gt;::TransferMode::PARTIAL</a>);</div>
+<div class="line">    [[maybe_unused]] <span class="keyword">const</span> std::span&lt;const uint8_t&gt; received(chunk.data(), readCount);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="ttc" id="aa05746_html_a03a48e3cd8a1b0b70db7a640e62a3bd7"><div class="ttname"><a href="../../d3/d16/a05746.html#a03a48e3cd8a1b0b70db7a640e62a3bd7">Lib::Helper::RingBuffer::read</a></div><div class="ttdeci">size_t read(std::span&lt; T &gt; data, TransferMode mode=TransferMode::PARTIAL) noexcept</div><div class="ttdoc">Copies as many stored elements into data as fit, removing them from the buffer (consumer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:217</div></div>
+<div class="ttc" id="aa05746_html_a4eb0599938edcdc26882c4a3b9ba7d98"><div class="ttname"><a href="../../d3/d16/a05746.html#a4eb0599938edcdc26882c4a3b9ba7d98">Lib::Helper::RingBuffer::write</a></div><div class="ttdeci">size_t write(std::span&lt; const T &gt; data, TransferMode mode=TransferMode::PARTIAL) noexcept</div><div class="ttdoc">Copies as many elements of data as fit into the buffer (producer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:192</div></div>
+<div class="ttc" id="aa05746_html_aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d"><div class="ttname"><a href="../../d3/d16/a05746.html#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d">Lib::Helper::RingBuffer::TransferMode::ALL</a></div><div class="ttdeci">@ ALL</div><div class="ttdoc">Transfers nothing unless the whole request fits/is available.</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:68</div></div>
+<div class="ttc" id="aa05746_html_aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19"><div class="ttname"><a href="../../d3/d16/a05746.html#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">Lib::Helper::RingBuffer::TransferMode::PARTIAL</a></div><div class="ttdeci">@ PARTIAL</div><div class="ttdoc">Transfers as many elements as fit/are available.</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:67</div></div>
 </div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line"><span class="charliteral">&#39;F&#39;</span> -&gt; 15</div>
+<div class="fragment"><div class="line">write(frame, ALL) returns 4 when at least 4 slots are free, and 0 otherwise.</div>
+<div class="line">read(chunk, PARTIAL) returns the number of bytes stored, up to 16.</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="ringbuffer_usage_dma"></a>
+Direct access for DMA</h3>
+<p>A DMA controller can write into the free span returned by <a class="el" href="../../d3/d16/a05746.html#a7c67da9354083f337c51e4e0c60c3938" title="Lib::Helper::RingBuffer::getLinearWriteBlock()">Lib::Helper::RingBuffer::getLinearWriteBlock()</a> and read from the stored span returned by <a class="el" href="../../d3/d16/a05746.html#ad539c026bf02e5545168b2182f0a89f3" title="Lib::Helper::RingBuffer::getLinearReadBlock()">Lib::Helper::RingBuffer::getLinearReadBlock()</a>. The caller publishes the elements afterwards with <a class="el" href="../../d3/d16/a05746.html#a18fc2b9e414d300e7fba07ffb189c7e2" title="Lib::Helper::RingBuffer::advance()">Lib::Helper::RingBuffer::advance()</a> and <a class="el" href="../../d3/d16/a05746.html#a5c9a29852441fa6ed23a28ce0ec0c8db" title="Lib::Helper::RingBuffer::skip()">Lib::Helper::RingBuffer::skip()</a>. Each span may be shorter than the total free or stored space when the data wraps past the end of the storage, so call again to reach the remainder.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/de8/a00839.html">Lib/Helper/RingBuffer.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="../../d3/d16/a05746.html">Lib::Helper::RingBuffer&lt;uint8_t, 256U&gt;</a> dmaBuffer;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> dmaReceiveDone(<span class="keywordtype">size_t</span> receivedBytes) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="comment">// The DMA wrote into the span returned by getLinearWriteBlock() before this call.</span></div>
+<div class="line">    [[maybe_unused]] <span class="keyword">const</span> <span class="keywordtype">size_t</span> published = dmaBuffer.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d3/d16/a05746.html#a18fc2b9e414d300e7fba07ffb189c7e2">advance</a>(receivedBytes);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> dmaTransmitFrom() noexcept {</div>
+<div class="line">    <span class="keyword">const</span> std::span&lt;const uint8_t&gt; <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#gab511a0eef21ba5813dd03bda276604a7a14511f2f5564650d129ca7cabc333278">block</a> = dmaBuffer.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d3/d16/a05746.html#ad539c026bf02e5545168b2182f0a89f3">getLinearReadBlock</a>();</div>
+<div class="line">    <span class="comment">// Start a DMA transfer from block.data() with block.size() bytes, then call skip() when it completes.</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aa01683_html_gab511a0eef21ba5813dd03bda276604a7a14511f2f5564650d129ca7cabc333278"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#gab511a0eef21ba5813dd03bda276604a7a14511f2f5564650d129ca7cabc333278">file_type::block</a></div><div class="ttdeci">@ block</div></div>
+<div class="ttc" id="aa05746_html_a18fc2b9e414d300e7fba07ffb189c7e2"><div class="ttname"><a href="../../d3/d16/a05746.html#a18fc2b9e414d300e7fba07ffb189c7e2">Lib::Helper::RingBuffer::advance</a></div><div class="ttdeci">size_t advance(size_t count) noexcept</div><div class="ttdoc">Publishes elements already written into the span from getLinearWriteBlock() (producer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:286</div></div>
+<div class="ttc" id="aa05746_html_ad539c026bf02e5545168b2182f0a89f3"><div class="ttname"><a href="../../d3/d16/a05746.html#ad539c026bf02e5545168b2182f0a89f3">Lib::Helper::RingBuffer::getLinearReadBlock</a></div><div class="ttdeci">std::span&lt; const T &gt; getLinearReadBlock() const noexcept</div><div class="ttdoc">Returns the longest contiguous stored span starting at the read position (consumer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:305</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="ringbuffer_usage_latest"></a>
+Keeping the latest samples</h3>
+<p>When only the most recent samples matter, <a class="el" href="../../d3/d16/a05746.html#ab0835299e7ff3714143b1196743a174f" title="Lib::Helper::RingBuffer::overwrite()">Lib::Helper::RingBuffer::overwrite()</a> discards the oldest elements to make room. Call it only from the producer side and only when no consumer reads at the same time.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/de8/a00839.html">Lib/Helper/RingBuffer.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="../../d3/d16/a05746.html">Lib::Helper::RingBuffer&lt;int16_t, 8U&gt;</a> window;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> keepLatest() noexcept {</div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;int16_t, 3U&gt;</a> batch{10, 20, 30};</div>
+<div class="line">    [[maybe_unused]] <span class="keyword">const</span> <span class="keywordtype">size_t</span> accepted = window.<a id="a10" name="a10"></a><a class="code hl_function" href="../../d3/d16/a05746.html#ab0835299e7ff3714143b1196743a174f">overwrite</a>(batch);</div>
+<div class="line">    <span class="comment">// The window now holds the newest elements, at most CAPACITY of them.</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aa05746_html_ab0835299e7ff3714143b1196743a174f"><div class="ttname"><a href="../../d3/d16/a05746.html#ab0835299e7ff3714143b1196743a174f">Lib::Helper::RingBuffer::overwrite</a></div><div class="ttdeci">size_t overwrite(std::span&lt; const T &gt; data) noexcept</div><div class="ttdoc">Copies data in, discarding the oldest elements to make room if needed (producer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:242</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

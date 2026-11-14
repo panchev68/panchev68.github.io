@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::SemaphoreCounting</title>
+<title>IAR EWARM Library: RTOS::Task</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,56 +92,63 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::SemaphoreCounting</div></div>
+  <div class="headertitle"><div class="title">RTOS::Task</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows limiting concurrent access to a pool of resources with an <a class="el" href="../../da/daf/a06269.html" title="RTOS::SemaphoreCounting">RTOS::SemaphoreCounting</a>.</p>
-<p>Shows limiting concurrent access to a pool of resources with an RTOS::SemaphoreCounting.Covers a pool of three buffers guarded by a counting semaphore: a task takes a slot before using a buffer and gives it back afterwards. <a class="el" href="../../d7/d35/a05936.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> and <a class="el" href="../../d7/d35/a05936.html#a5682e0c5d8eb6b2076978634963b4020" title="RTOS::SemaphoreBase::give()">RTOS::SemaphoreBase::give()</a> are task-context only; FromISR variants exist for interrupt handlers.</p>
+<p>Shows creating an <a class="el" href="../../da/daf/a06269.html" title="RTOS::Task">RTOS::Task</a>, synchronizing it with notification event bits, and stopping it.</p>
+<p>Shows creating an <a class="el" href="../../da/daf/a06269.html" title="RTOS::Task">RTOS::Task</a>, synchronizing it with notification event bits, and stopping it.A worker task waits for an event bit and a controller fires that bit. The controller can be another task, using <a class="el" href="../../d9/d23/a05954.html#a4732602e81ec507a9370a1dd41be78f8" title="RTOS::Task::Notify::fireEvent()">RTOS::Task::Notify::fireEvent()</a>, or an ISR, using <a class="el" href="../../d9/d23/a05954.html#a742840c973b7a2ce22645d9ae4f8d51a" title="RTOS::Task::Notify::fireEventFromISR()">RTOS::Task::Notify::fireEventFromISR()</a>. The entry callable is stored in place inside the task wrapper, so a capturing lambda such as '[this]' needs no heap allocation. It must be trivially copyable and fit <a class="el" href="../../df/de3/a05942.html#a5b5ac88638f4130500b5e1647fbc15a1" title="RTOS::Task::ENTRY_CAPACITY">RTOS::Task::ENTRY_CAPACITY</a> bytes. Receiving calls such as <a class="el" href="../../d9/d23/a05954.html#a1eafe4fed845fcf63255a0cd6b71e5a1" title="RTOS::Task::Notify::waitForBits()">RTOS::Task::Notify::waitForBits()</a> must run in the task itself.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_counting_usage_pool"></a>
-Buffer pool</h3>
-<p>The constructor takes the maximum count and the initial count, so both are 3 here: all slots are free at start.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd1/a00914.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../da/d70/a05940.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> openPool() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> bufferPool.open();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00914_html"><div class="ttname"><a href="../../d3/dd1/a00914.html">SemaphoreCounting.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS counting semaphores.</div></div>
-<div class="ttc" id="aa05940_html"><div class="ttname"><a href="../../da/d70/a05940.html">RTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting semaphore resource manager for tracking multiple resource instances or queued events.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:38</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_counting_usage_take"></a>
-Taking and returning a slot</h3>
-<p><a class="el" href="../../d7/d35/a05936.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> with an <a class="el" href="../../d4/d36/a06279.html" title="RTOS::Timeout">RTOS::Timeout</a> returns <b>false</b> when every slot stays busy for the whole window.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd1/a00914.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="task_usage_worker"></a>
+Worker task with event bits</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/de9/a00923.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d92/a00929.html">Lib/RTOS/FreeRTOS/TickCounter.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../da/d70/a05940.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">class </span>Worker {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> workerTask(<span class="keywordtype">void</span> * parameters) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t WORK_BIT = 0x01U; <span class="comment">///&lt; Event bit requesting one unit of work.</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!bufferPool.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a0" name="_a0"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        task.setup({<span class="stringliteral">&quot;Worker&quot;</span>, 256, <a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../de/d4a/a05946.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>});</div>
+<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (bufferPool.take(<a id="_a1" name="_a1"></a><a class="code hl_class" href="../../db/df6/a05984.html">RTOS::Timeout</a>(20ms))) {</div>
-<div class="line">        <span class="comment">// One of the three buffers is reserved for this task.</span></div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(bufferPool.give());</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// All buffers were busy for 20 ms.</span></div>
+<div class="line">    <span class="keywordtype">void</span> requestWork() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(task.notify.fireEvent(WORK_BIT));</div>
 <div class="line">    }</div>
-<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> task.stop();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../df/de3/a05942.html">RTOS::Task</a> task;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (task.<a id="a4" name="a4"></a><a class="code hl_variable" href="../../df/de3/a05942.html#a685a41d4d36b20105207a99ea2b7a100">notify</a>.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d9/d23/a05954.html#a1eafe4fed845fcf63255a0cd6b71e5a1">waitForBits</a>(WORK_BIT, <a id="_a6" name="_a6"></a><a class="code hl_function" href="../../d2/d2f/a05974.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a>(500ms))) {</div>
+<div class="line">                <span class="comment">// Perform the requested work.</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa05984_html"><div class="ttname"><a href="../../db/df6/a05984.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:33</div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00923_html"><div class="ttname"><a href="../../df/de9/a00923.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
+<div class="ttc" id="aa00929_html"><div class="ttname"><a href="../../dc/d92/a00929.html">TickCounter.hpp</a></div><div class="ttdoc">Converts between scheduler ticks, milliseconds, seconds and std::chrono::duration values.</div></div>
+<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
+<div class="ttc" id="aa01692_html_aaf6b4883d69cf5ba182f4f29a103cc4b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a></div><div class="ttdeci">constexpr auto end(_Container &amp;__cont) -&gt; decltype(__cont.end())</div></div>
+<div class="ttc" id="aa05942_html"><div class="ttname"><a href="../../df/de3/a05942.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
+<div class="ttc" id="aa05942_html_a685a41d4d36b20105207a99ea2b7a100"><div class="ttname"><a href="../../df/de3/a05942.html#a685a41d4d36b20105207a99ea2b7a100">RTOS::Task::notify</a></div><div class="ttdeci">Notify notify</div><div class="ttdoc">Task notification controller.</div><div class="ttdef"><b>Definition</b> Task.hpp:651</div></div>
+<div class="ttc" id="aa05946_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../de/d4a/a05946.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:87</div></div>
+<div class="ttc" id="aa05954_html_a1eafe4fed845fcf63255a0cd6b71e5a1"><div class="ttname"><a href="../../d9/d23/a05954.html#a1eafe4fed845fcf63255a0cd6b71e5a1">RTOS::Task::Notify::waitForBits</a></div><div class="ttdeci">bool waitForBits(Bits bitsToWaitFor, TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the calling task until any of the given bits is set or the timeout expires.</div><div class="ttdef"><b>Definition</b> Task.hpp:384</div></div>
+<div class="ttc" id="aa05974_html_ad6656fb17699eab5dc474d46e3e29234"><div class="ttname"><a href="../../d2/d2f/a05974.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a></div><div class="ttdeci">static constexpr TickType toTicks(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Converts a std::chrono::duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:236</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

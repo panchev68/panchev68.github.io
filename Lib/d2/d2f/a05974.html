@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Task::Notify</title>
+<title>IAR EWARM Library: RTOS::TickCounter</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,144 +91,118 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d2/d41/a01037.html">RTOS</a></li><li class="navelem"><a href="../../d9/dd6/a05962.html">Task</a></li><li class="navelem"><a href="../../d2/d2f/a05974.html">Notify</a></li>  </ul>
+<li class="navelem"><a href="../../d0/daa/a01029.html">RTOS</a></li><li class="navelem"><a href="../../d2/d2f/a05974.html">TickCounter</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="../../d3/d67/a05971.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">RTOS::Task::Notify<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">RTOS::TickCounter<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Static utility class for reading the system tick count and converting between ticks and time units.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Encapsulates FreeRTOS task notification mechanics. </p>
-<p>Sending methods target the owning task. Receiving methods (<a class="el" href="#a05ffffc3617eb293c579a9e12885057b" title="wait()">wait()</a>, <a class="el" href="#a1eafe4fed845fcf63255a0cd6b71e5a1" title="waitForBits()">waitForBits()</a>, <a class="el" href="#ab2c154d06ce722fcc5d10141ea9971dc" title="take()">take()</a>) always act on the calling task, as FreeRTOS does, so they must be called from the owning task itself. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::Task::Notify:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d4e/a05972.svg" width="179" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Result" id="r_Result"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d4d/a05978.html">Result</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result structure for notification queries.  <a href="../../d6/d4d/a05978.html#details">More...</a><br /></td></tr>
+<div class="textblock"><p>Static utility class for reading the system tick count and converting between ticks and time units. </p>
+<p>Every conversion to ticks rounds up, so a wait is never shorter than requested, and saturates at <em class="arg">portMAX_DELAY</em>, which FreeRTOS treats as waiting forever. Every method that reads the tick count is task-context only and has an explicit <em class="arg">FromISR</em> twin for interrupt context.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/TickCounter.hpp" target="_blank">Source</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/doc/TickCounter.md" target="_blank">Detail Description</a> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:af8b741f7cd6bd8cefd26aae83980fbfd" id="r_af8b741f7cd6bd8cefd26aae83980fbfd"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> = TickType_t</td></tr>
+<tr class="memdesc:af8b741f7cd6bd8cefd26aae83980fbfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scheduler tick count type.  <br /></td></tr>
+<tr class="memitem:a73acf8fc8b1cd8e08ae680600c7644ed" id="r_a73acf8fc8b1cd8e08ae680600c7644ed"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a73acf8fc8b1cd8e08ae680600c7644ed">Tick</a> = <a class="el" href="../../d5/d43/a05870.html#ab8efa244b2762e143dbfc23e170ed0e1">Kernel::TickDuration</a></td></tr>
+<tr class="memdesc:a73acf8fc8b1cd8e08ae680600c7644ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Duration of whole scheduler ticks.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af4a648aef0b1204911e4f0b57ca2d90b" id="r_af4a648aef0b1204911e4f0b57ca2d90b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af4a648aef0b1204911e4f0b57ca2d90b">Notify</a> (<a class="el" href="../../d9/dd6/a05962.html#ac2742beae9aedddaae140fff6d501d87">Task</a> *owner) noexcept</td></tr>
-<tr class="memdesc:af4a648aef0b1204911e4f0b57ca2d90b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the notification controller to its parent task.  <br /></td></tr>
-<tr class="memitem:a4732602e81ec507a9370a1dd41be78f8" id="r_a4732602e81ec507a9370a1dd41be78f8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4732602e81ec507a9370a1dd41be78f8">fireEvent</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> value) const noexcept</td></tr>
-<tr class="memdesc:a4732602e81ec507a9370a1dd41be78f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fires an event by setting the given bits in the notification value.  <br /></td></tr>
-<tr class="memitem:ac28b1bcc68bd40c199a5e504d7cd696c" id="r_ac28b1bcc68bd40c199a5e504d7cd696c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac28b1bcc68bd40c199a5e504d7cd696c">notify</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> value, <a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a> action=<a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f">Action::SET_VALUE_WITH_OVERWRITE</a>) const noexcept</td></tr>
-<tr class="memdesc:ac28b1bcc68bd40c199a5e504d7cd696c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a generic notification.  <br /></td></tr>
-<tr class="memitem:a90999910ff7124119e0143b6281ebeac" id="r_a90999910ff7124119e0143b6281ebeac"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a90999910ff7124119e0143b6281ebeac">notifyFromISR</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> value, <a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a> action=<a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f">Action::SET_VALUE_WITH_OVERWRITE</a>) const noexcept</td></tr>
-<tr class="memdesc:a90999910ff7124119e0143b6281ebeac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a notification from an ISR context and requests a context switch when needed.  <br /></td></tr>
-<tr class="memitem:a25aaaf77386e00477eb6dc16df543364" id="r_a25aaaf77386e00477eb6dc16df543364"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a25aaaf77386e00477eb6dc16df543364">notifyFromISR</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> value, <a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a> action, BaseType_t &amp;higherPriorityTaskWoken) const noexcept</td></tr>
-<tr class="memdesc:a25aaaf77386e00477eb6dc16df543364"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a notification from an ISR context, leaving the context switch to the caller.  <br /></td></tr>
-<tr class="memitem:a742840c973b7a2ce22645d9ae4f8d51a" id="r_a742840c973b7a2ce22645d9ae4f8d51a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a742840c973b7a2ce22645d9ae4f8d51a">fireEventFromISR</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> value) const noexcept</td></tr>
-<tr class="memdesc:a742840c973b7a2ce22645d9ae4f8d51a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fires an event from an ISR context by setting the given bits, and requests a context switch when needed.  <br /></td></tr>
-<tr class="memitem:a0fcaadc33f0db421bbae341a59b0b07a" id="r_a0fcaadc33f0db421bbae341a59b0b07a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0fcaadc33f0db421bbae341a59b0b07a">fireEventFromISR</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> value, BaseType_t &amp;higherPriorityTaskWoken) const noexcept</td></tr>
-<tr class="memdesc:a0fcaadc33f0db421bbae341a59b0b07a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fires an event from an ISR context by setting the given bits, leaving the context switch to the caller.  <br /></td></tr>
-<tr class="memitem:a05ffffc3617eb293c579a9e12885057b" id="r_a05ffffc3617eb293c579a9e12885057b"><td class="memItemLeft"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#a05ffffc3617eb293c579a9e12885057b">wait</a> (uint32_t bitsToClearOnEntry=<a class="el" href="#a14b93aef9b147c71b74dc5c0976cd5a0">ALL_BITS</a>, uint32_t bitsToClearOnExit=0U, <a class="el" href="../../d9/dd6/a05962.html#ae8e5ffc65178ca37479e618247718ca9">TickType</a> timeout=portMAX_DELAY) const noexcept</td></tr>
-<tr class="memdesc:a05ffffc3617eb293c579a9e12885057b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until a notification is received.  <br /></td></tr>
-<tr class="memitem:a9b7ec0e3945a5a2e59f89abc12c995ac" id="r_a9b7ec0e3945a5a2e59f89abc12c995ac"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a9b7ec0e3945a5a2e59f89abc12c995ac template"><td class="memItemLeft"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9b7ec0e3945a5a2e59f89abc12c995ac">wait</a> (uint32_t bitsToClearOnEntry, uint32_t bitsToClearOnExit, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
-<tr class="memdesc:a9b7ec0e3945a5a2e59f89abc12c995ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until a notification is received, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout.  <br /></td></tr>
-<tr class="memitem:a1eafe4fed845fcf63255a0cd6b71e5a1" id="r_a1eafe4fed845fcf63255a0cd6b71e5a1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1eafe4fed845fcf63255a0cd6b71e5a1">waitForBits</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> bitsToWaitFor, <a class="el" href="../../d9/dd6/a05962.html#ae8e5ffc65178ca37479e618247718ca9">TickType</a> timeout=portMAX_DELAY) const noexcept</td></tr>
-<tr class="memdesc:a1eafe4fed845fcf63255a0cd6b71e5a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until any of the given bits is set or the timeout expires.  <br /></td></tr>
-<tr class="memitem:acd94a5ede593ed6ae5571c18903e030b" id="r_acd94a5ede593ed6ae5571c18903e030b"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:acd94a5ede593ed6ae5571c18903e030b template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acd94a5ede593ed6ae5571c18903e030b">waitForBits</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> bitsToWaitFor, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
-<tr class="memdesc:acd94a5ede593ed6ae5571c18903e030b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until any of the given bits is set, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout.  <br /></td></tr>
-<tr class="memitem:a1fb17f69e367f23f6497932cc17e4630" id="r_a1fb17f69e367f23f6497932cc17e4630"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1fb17f69e367f23f6497932cc17e4630">give</a> () const noexcept</td></tr>
-<tr class="memdesc:a1fb17f69e367f23f6497932cc17e4630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the notification value of the owning task, like giving a counting semaphore.  <br /></td></tr>
-<tr class="memitem:a38804fffd180e5a0cfd4488727e7521a" id="r_a38804fffd180e5a0cfd4488727e7521a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a38804fffd180e5a0cfd4488727e7521a">giveFromISR</a> () const noexcept</td></tr>
-<tr class="memdesc:a38804fffd180e5a0cfd4488727e7521a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the notification value from an ISR context and requests a context switch when needed.  <br /></td></tr>
-<tr class="memitem:a4e0005f0d61c80d42a6f4a1f86447d6f" id="r_a4e0005f0d61c80d42a6f4a1f86447d6f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4e0005f0d61c80d42a6f4a1f86447d6f">giveFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) const noexcept</td></tr>
-<tr class="memdesc:a4e0005f0d61c80d42a6f4a1f86447d6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increments the notification value from an ISR context, leaving the context switch to the caller.  <br /></td></tr>
-<tr class="memitem:ab2c154d06ce722fcc5d10141ea9971dc" id="r_ab2c154d06ce722fcc5d10141ea9971dc"><td class="memItemLeft"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab2c154d06ce722fcc5d10141ea9971dc">take</a> (bool clearOnExit=true, <a class="el" href="../../d9/dd6/a05962.html#ae8e5ffc65178ca37479e618247718ca9">TickType</a> timeout=portMAX_DELAY) const noexcept</td></tr>
-<tr class="memdesc:ab2c154d06ce722fcc5d10141ea9971dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the notification value is non-zero, like taking a semaphore.  <br /></td></tr>
-<tr class="memitem:affe9d15dcc3438ccb68a264744683f96" id="r_affe9d15dcc3438ccb68a264744683f96"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:affe9d15dcc3438ccb68a264744683f96 template"><td class="memItemLeft"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#affe9d15dcc3438ccb68a264744683f96">take</a> (bool clearOnExit, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
-<tr class="memdesc:affe9d15dcc3438ccb68a264744683f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the notification value is non-zero, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout.  <br /></td></tr>
-<tr class="memitem:ae4d92ef7755e1231a03356b8e9ff8ecc" id="r_ae4d92ef7755e1231a03356b8e9ff8ecc"><td class="memItemLeft"><a class="el" href="../../d6/d4d/a05978.html">Result</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae4d92ef7755e1231a03356b8e9ff8ecc">notifyAndQuery</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> value, <a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a> action=<a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f">Action::SET_VALUE_WITH_OVERWRITE</a>) const noexcept</td></tr>
-<tr class="memdesc:ae4d92ef7755e1231a03356b8e9ff8ecc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the owning task and returns the previous notification value.  <br /></td></tr>
-<tr class="memitem:a01a8186691b5ea2d9884997612955204" id="r_a01a8186691b5ea2d9884997612955204"><td class="memItemLeft"><a class="el" href="../../d6/d4d/a05978.html">Result</a>&#160;</td><td class="memItemRight"><a class="el" href="#a01a8186691b5ea2d9884997612955204">notifyAndQueryFromISR</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> value, <a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a> action=<a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f">Action::SET_VALUE_WITH_OVERWRITE</a>) const noexcept</td></tr>
-<tr class="memdesc:a01a8186691b5ea2d9884997612955204"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the owning task from an ISR, returns the previous notification value and requests a context switch when needed.  <br /></td></tr>
-<tr class="memitem:aabfa91e4b27b8816c32546da448da44f" id="r_aabfa91e4b27b8816c32546da448da44f"><td class="memItemLeft"><a class="el" href="../../d6/d4d/a05978.html">Result</a>&#160;</td><td class="memItemRight"><a class="el" href="#aabfa91e4b27b8816c32546da448da44f">notifyAndQueryFromISR</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> value, <a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a> action, BaseType_t &amp;higherPriorityTaskWoken) const noexcept</td></tr>
-<tr class="memdesc:aabfa91e4b27b8816c32546da448da44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notifies the owning task from an ISR and returns the previous notification value, leaving the context switch to the caller.  <br /></td></tr>
-<tr class="memitem:a4a968ee53740cc429b232c80589b748a" id="r_a4a968ee53740cc429b232c80589b748a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4a968ee53740cc429b232c80589b748a">clearState</a> () const noexcept</td></tr>
-<tr class="memdesc:a4a968ee53740cc429b232c80589b748a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears a pending notification of the owning task without changing its value.  <br /></td></tr>
-<tr class="memitem:adfd929a14d86953a749caecb186a493b" id="r_adfd929a14d86953a749caecb186a493b"><td class="memItemLeft"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#adfd929a14d86953a749caecb186a493b">clearBits</a> (<a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> bitsToClear) const noexcept</td></tr>
-<tr class="memdesc:adfd929a14d86953a749caecb186a493b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears specific notification bits of the owning task.  <br /></td></tr>
+<tr class="memitem:a2e4f16891a303abf7194b28efe452c4b" id="r_a2e4f16891a303abf7194b28efe452c4b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2e4f16891a303abf7194b28efe452c4b">TickCounter</a> ()=delete</td></tr>
+<tr class="memdesc:a2e4f16891a303abf7194b28efe452c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted default constructor; this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a82caaf97a995139e4dc974230659be08" id="r_a82caaf97a995139e4dc974230659be08"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a82caaf97a995139e4dc974230659be08">~TickCounter</a> ()=delete</td></tr>
+<tr class="memdesc:a82caaf97a995139e4dc974230659be08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted destructor; this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a06b8da334970d2eee58bc03a57c34687" id="r_a06b8da334970d2eee58bc03a57c34687"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a06b8da334970d2eee58bc03a57c34687">TickCounter</a> (const TickCounter &amp;)=delete</td></tr>
+<tr class="memdesc:a06b8da334970d2eee58bc03a57c34687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:ab51f397146bf8a3184476a1b302318e4" id="r_ab51f397146bf8a3184476a1b302318e4"><td class="memItemLeft"><a class="el" href="#a2e4f16891a303abf7194b28efe452c4b">TickCounter</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab51f397146bf8a3184476a1b302318e4">operator=</a> (const <a class="el" href="#a2e4f16891a303abf7194b28efe452c4b">TickCounter</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ab51f397146bf8a3184476a1b302318e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: this is a non-instantiable static utility class.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a14b93aef9b147c71b74dc5c0976cd5a0" id="r_a14b93aef9b147c71b74dc5c0976cd5a0"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a14b93aef9b147c71b74dc5c0976cd5a0">ALL_BITS</a> = 0xFFFFFFFFU</td></tr>
-<tr class="memdesc:a14b93aef9b147c71b74dc5c0976cd5a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit mask matching every notification bit.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a3bd8941116778102907c08b9b5184316" id="r_a3bd8941116778102907c08b9b5184316"><td class="memItemLeft">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3bd8941116778102907c08b9b5184316">get</a> () noexcept</td></tr>
+<tr class="memdesc:a3bd8941116778102907c08b9b5184316"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current scheduler tick count from task context.  <br /></td></tr>
+<tr class="memitem:af393a988abb6fd04e4b69529d19ba65f" id="r_af393a988abb6fd04e4b69529d19ba65f"><td class="memItemLeft">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#af393a988abb6fd04e4b69529d19ba65f">getFromISR</a> () noexcept</td></tr>
+<tr class="memdesc:af393a988abb6fd04e4b69529d19ba65f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current scheduler tick count from an ISR context.  <br /></td></tr>
+<tr class="memitem:a97f0500abd250ef6ac60226faa35ccfa" id="r_a97f0500abd250ef6ac60226faa35ccfa"><td class="memItemLeft">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a97f0500abd250ef6ac60226faa35ccfa">getElapsedTicksSince</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTick) noexcept</td></tr>
+<tr class="memdesc:a97f0500abd250ef6ac60226faa35ccfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes ticks elapsed since a previously captured tick value.  <br /></td></tr>
+<tr class="memitem:a26129c317f81ddbd57a1d7ea37d14ed1" id="r_a26129c317f81ddbd57a1d7ea37d14ed1"><td class="memItemLeft">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a26129c317f81ddbd57a1d7ea37d14ed1">getElapsedTicksSinceFromISR</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTick) noexcept</td></tr>
+<tr class="memdesc:a26129c317f81ddbd57a1d7ea37d14ed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes ticks elapsed since a previously captured tick value, from an ISR context.  <br /></td></tr>
+<tr class="memitem:ad4fcc4e8a08eaa60fbd53f10dc70dbd7" id="r_ad4fcc4e8a08eaa60fbd53f10dc70dbd7"><td class="memTemplParams" colspan="2">template&lt;typename T_DURATION = std::chrono::milliseconds&gt; </td></tr>
+<tr class="memitem:ad4fcc4e8a08eaa60fbd53f10dc70dbd7 template"><td class="memItemLeft">static T_DURATION&#160;</td><td class="memItemRight"><a class="el" href="#ad4fcc4e8a08eaa60fbd53f10dc70dbd7">getElapsedTimeSince</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTick) noexcept</td></tr>
+<tr class="memdesc:ad4fcc4e8a08eaa60fbd53f10dc70dbd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the time elapsed since a captured tick value as a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>.  <br /></td></tr>
+<tr class="memitem:aa3f5e84f5b3ee794a2d267dd1352433c" id="r_aa3f5e84f5b3ee794a2d267dd1352433c"><td class="memTemplParams" colspan="2">template&lt;typename T_DURATION = std::chrono::milliseconds&gt; </td></tr>
+<tr class="memitem:aa3f5e84f5b3ee794a2d267dd1352433c template"><td class="memItemLeft">static T_DURATION&#160;</td><td class="memItemRight"><a class="el" href="#aa3f5e84f5b3ee794a2d267dd1352433c">getElapsedTimeSinceFromISR</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTick) noexcept</td></tr>
+<tr class="memdesc:aa3f5e84f5b3ee794a2d267dd1352433c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the time elapsed since a captured tick value as a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>, from an ISR context.  <br /></td></tr>
+<tr class="memitem:a076271f4adc3b8822a7994941ad622a2" id="r_a076271f4adc3b8822a7994941ad622a2"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a076271f4adc3b8822a7994941ad622a2">hasReached</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> targetTick) noexcept</td></tr>
+<tr class="memdesc:a076271f4adc3b8822a7994941ad622a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a tick value lies in the past.  <br /></td></tr>
+<tr class="memitem:a0439598f9750afff7ebf7fa4437e482c" id="r_a0439598f9750afff7ebf7fa4437e482c"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a0439598f9750afff7ebf7fa4437e482c">hasReachedFromISR</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> targetTick) noexcept</td></tr>
+<tr class="memdesc:a0439598f9750afff7ebf7fa4437e482c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a tick value lies in the past, from an ISR context.  <br /></td></tr>
+<tr class="memitem:aa4d1e4d7efa2415ef43f6f577ad17c3a" id="r_aa4d1e4d7efa2415ef43f6f577ad17c3a"><td class="memItemLeft">static constexpr <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa4d1e4d7efa2415ef43f6f577ad17c3a">msToTicks</a> (uint32_t milliseconds<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">milliseconds</a>) noexcept</td></tr>
+<tr class="memdesc:aa4d1e4d7efa2415ef43f6f577ad17c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a millisecond count to scheduler ticks, rounding up.  <br /></td></tr>
+<tr class="memitem:ac56249d4802c3597d13fb0534586e09c" id="r_ac56249d4802c3597d13fb0534586e09c"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ac56249d4802c3597d13fb0534586e09c">ticksToMs</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> ticks) noexcept</td></tr>
+<tr class="memdesc:ac56249d4802c3597d13fb0534586e09c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a scheduler tick count to milliseconds, truncating any remainder.  <br /></td></tr>
+<tr class="memitem:ad6ca3574ba475e43f8e1b9289f2ede66" id="r_ad6ca3574ba475e43f8e1b9289f2ede66"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ad6ca3574ba475e43f8e1b9289f2ede66">ticksToSeconds</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> ticks) noexcept</td></tr>
+<tr class="memdesc:ad6ca3574ba475e43f8e1b9289f2ede66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a scheduler tick count to whole seconds, truncating any remainder.  <br /></td></tr>
+<tr class="memitem:ad6656fb17699eab5dc474d46e3e29234" id="r_ad6656fb17699eab5dc474d46e3e29234"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:ad6656fb17699eab5dc474d46e3e29234 template"><td class="memItemLeft">static constexpr <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad6656fb17699eab5dc474d46e3e29234">toTicks</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; duration) noexcept</td></tr>
+<tr class="memdesc:ad6656fb17699eab5dc474d46e3e29234"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> to scheduler ticks, rounding up.  <br /></td></tr>
+<tr class="memitem:a9c2f37f5b366ec485302e551cafdb87a" id="r_a9c2f37f5b366ec485302e551cafdb87a"><td class="memTemplParams" colspan="2">template&lt;typename T_DURATION = std::chrono::milliseconds&gt; </td></tr>
+<tr class="memitem:a9c2f37f5b366ec485302e551cafdb87a template"><td class="memItemLeft">static constexpr T_DURATION&#160;</td><td class="memItemRight"><a class="el" href="#a9c2f37f5b366ec485302e551cafdb87a">toDuration</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> ticks) noexcept</td></tr>
+<tr class="memdesc:a9c2f37f5b366ec485302e551cafdb87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a scheduler tick count to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a76db1b2abff36d5013ab969b3b149834" name="a76db1b2abff36d5013ab969b3b149834"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76db1b2abff36d5013ab969b3b149834">&#9670;&#160;</a></span>Bits</h2>
+<a id="a73acf8fc8b1cd8e08ae680600c7644ed" name="a73acf8fc8b1cd8e08ae680600c7644ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73acf8fc8b1cd8e08ae680600c7644ed">&#9670;&#160;</a></span>Tick</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a76db1b2abff36d5013ab969b3b149834">RTOS::Task::Notify::Bits</a> = uint32_t</td>
+          <td class="memname">using <a class="el" href="#a73acf8fc8b1cd8e08ae680600c7644ed">RTOS::TickCounter::Tick</a> = <a class="el" href="../../d5/d43/a05870.html#ab8efa244b2762e143dbfc23e170ed0e1">Kernel::TickDuration</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Native 32-bit notification value, used as a bit mask. </p>
+<p>Duration of whole scheduler ticks. </p>
 
 </div>
 </div>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a2e9af9f97a3c22576f3f0e8fe98b88c0" name="a2e9af9f97a3c22576f3f0e8fe98b88c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">&#9670;&#160;</a></span>Action</h2>
+<a id="af8b741f7cd6bd8cefd26aae83980fbfd" name="af8b741f7cd6bd8cefd26aae83980fbfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8b741f7cd6bd8cefd26aae83980fbfd">&#9670;&#160;</a></span>TickType</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">RTOS::Task::Notify::Action</a> : uint8_t</td>
+          <td class="memname">using <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> = TickType_t</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Notification actions. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a2e9af9f97a3c22576f3f0e8fe98b88c0a24ce802dad4f363a652f77ce888c9b91" name="a2e9af9f97a3c22576f3f0e8fe98b88c0a24ce802dad4f363a652f77ce888c9b91"></a>NO_ACTION&#160;</td><td class="fielddoc"><p>No state change. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a2e9af9f97a3c22576f3f0e8fe98b88c0a584142dc5514c9123172a12e9f7f150f" name="a2e9af9f97a3c22576f3f0e8fe98b88c0a584142dc5514c9123172a12e9f7f150f"></a>SET_BITS&#160;</td><td class="fielddoc"><p>Bitwise OR. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a2e9af9f97a3c22576f3f0e8fe98b88c0a90cf1f5206b348a822cc1a453a587534" name="a2e9af9f97a3c22576f3f0e8fe98b88c0a90cf1f5206b348a822cc1a453a587534"></a>INCREMENT&#160;</td><td class="fielddoc"><p>Increment value. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f" name="a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f"></a>SET_VALUE_WITH_OVERWRITE&#160;</td><td class="fielddoc"><p>Overwrite value. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a2e9af9f97a3c22576f3f0e8fe98b88c0a07e53fb05649b7d8f7020183075a9afb" name="a2e9af9f97a3c22576f3f0e8fe98b88c0a07e53fb05649b7d8f7020183075a9afb"></a>SET_VALUE_WITHOUT_OVERWRITE&#160;</td><td class="fielddoc"><p>Set if clear. </p>
-</td></tr>
-</table>
+<p>Scheduler tick count type. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d6a/a06273.html#_a0">RTOS::TickCounter</a>.</dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af4a648aef0b1204911e4f0b57ca2d90b" name="af4a648aef0b1204911e4f0b57ca2d90b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4a648aef0b1204911e4f0b57ca2d90b">&#9670;&#160;</a></span>Notify()</h2>
+<a id="a2e4f16891a303abf7194b28efe452c4b" name="a2e4f16891a303abf7194b28efe452c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e4f16891a303abf7194b28efe452c4b">&#9670;&#160;</a></span>TickCounter() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,38 +211,80 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::Task::Notify::Notify </td>
+          <td class="memname">RTOS::TickCounter::TickCounter </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d9/dd6/a05962.html#ac2742beae9aedddaae140fff6d501d87">Task</a> *</td>          <td class="paramname"><span class="paramname"><em>owner</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the notification controller to its parent task. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">owner</td><td>Pointer to the parent task. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
+<p>Deleted default constructor; this is a non-instantiable static utility class. </p>
+
 </div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_af4a648aef0b1204911e4f0b57ca2d90b_cgraph.svg" width="438" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<a id="a82caaf97a995139e4dc974230659be08" name="a82caaf97a995139e4dc974230659be08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82caaf97a995139e4dc974230659be08">&#9670;&#160;</a></span>~TickCounter()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::TickCounter::~TickCounter </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted destructor; this is a non-instantiable static utility class. </p>
+
+</div>
+</div>
+<a id="a06b8da334970d2eee58bc03a57c34687" name="a06b8da334970d2eee58bc03a57c34687"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06b8da334970d2eee58bc03a57c34687">&#9670;&#160;</a></span>TickCounter() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::TickCounter::TickCounter </td>
+          <td>(</td>
+          <td class="paramtype">const TickCounter &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: this is a non-instantiable static utility class. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="adfd929a14d86953a749caecb186a493b" name="adfd929a14d86953a749caecb186a493b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adfd929a14d86953a749caecb186a493b">&#9670;&#160;</a></span>clearBits()</h2>
+<a id="a3bd8941116778102907c08b9b5184316" name="a3bd8941116778102907c08b9b5184316"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bd8941116778102907c08b9b5184316">&#9670;&#160;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,209 +293,29 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> RTOS::Task::Notify::clearBits </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToClear</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Clears specific notification bits of the owning task. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bitsToClear</td><td>Pattern of bits to clear. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Notification value before the bits were cleared. </dd></dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_adfd929a14d86953a749caecb186a493b_cgraph.svg" width="486" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_adfd929a14d86953a749caecb186a493b_icgraph.svg" width="510" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4a968ee53740cc429b232c80589b748a" name="a4a968ee53740cc429b232c80589b748a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a968ee53740cc429b232c80589b748a">&#9670;&#160;</a></span>clearState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Task::Notify::clearState </td>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::get </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Clears a pending notification of the owning task without changing its value. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a notification was pending and has been cleared. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a4a968ee53740cc429b232c80589b748a_cgraph.svg" width="494" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4732602e81ec507a9370a1dd41be78f8" name="a4732602e81ec507a9370a1dd41be78f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4732602e81ec507a9370a1dd41be78f8">&#9670;&#160;</a></span>fireEvent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Task::Notify::fireEvent </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fires an event by setting the given bits in the notification value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Bits to set. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a4732602e81ec507a9370a1dd41be78f8_cgraph.svg" width="763" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a4732602e81ec507a9370a1dd41be78f8_icgraph.svg" width="502" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a742840c973b7a2ce22645d9ae4f8d51a" name="a742840c973b7a2ce22645d9ae4f8d51a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a742840c973b7a2ce22645d9ae4f8d51a">&#9670;&#160;</a></span>fireEventFromISR() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Task::Notify::fireEventFromISR </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fires an event from an ISR context by setting the given bits, and requests a context switch when needed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Bits to set. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a742840c973b7a2ce22645d9ae4f8d51a_cgraph.svg" width="654" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a0fcaadc33f0db421bbae341a59b0b07a" name="a0fcaadc33f0db421bbae341a59b0b07a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fcaadc33f0db421bbae341a59b0b07a">&#9670;&#160;</a></span>fireEventFromISR() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Task::Notify::fireEventFromISR </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Fires an event from an ISR context by setting the given bits, leaving the context switch to the caller. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">value</td><td>Bits to set. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the owning task was woken and outranks the interrupted task, never cleared. </td></tr>
-  </table>
-  </dd>
+<p>Returns the current scheduler tick count from task context. </p>
+<p>Use <a class="el" href="#af393a988abb6fd04e4b69529d19ba65f" title="getFromISR()">getFromISR()</a> inside an interrupt.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current tick count. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d6a/a06273.html#a2">RTOS::TickCounter</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a0fcaadc33f0db421bbae341a59b0b07a_cgraph.svg" width="654" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a1fb17f69e367f23f6497932cc17e4630" name="a1fb17f69e367f23f6497932cc17e4630"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fb17f69e367f23f6497932cc17e4630">&#9670;&#160;</a></span>give()</h2>
+<a id="a97f0500abd250ef6ac60226faa35ccfa" name="a97f0500abd250ef6ac60226faa35ccfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97f0500abd250ef6ac60226faa35ccfa">&#9670;&#160;</a></span>getElapsedTicksSince()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -486,32 +324,182 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Task::Notify::give </td>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::getElapsedTicksSince </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTick</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes ticks elapsed since a previously captured tick value. </p>
+<p>Task context only. Safe across one tick counter wraparound, since the subtraction is performed in the unsigned tick type.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTick</td><td>Tick value captured at the start of the interval. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of ticks elapsed since <em class="arg">startTick</em>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d6a/a06273.html#a4">RTOS::TickCounter</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a26129c317f81ddbd57a1d7ea37d14ed1" name="a26129c317f81ddbd57a1d7ea37d14ed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26129c317f81ddbd57a1d7ea37d14ed1">&#9670;&#160;</a></span>getElapsedTicksSinceFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::getElapsedTicksSinceFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTick</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes ticks elapsed since a previously captured tick value, from an ISR context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTick</td><td>Tick value captured at the start of the interval. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of ticks elapsed since <em class="arg">startTick</em>. </dd></dl>
+
+</div>
+</div>
+<a id="ad4fcc4e8a08eaa60fbd53f10dc70dbd7" name="ad4fcc4e8a08eaa60fbd53f10dc70dbd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4fcc4e8a08eaa60fbd53f10dc70dbd7">&#9670;&#160;</a></span>getElapsedTimeSince()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DURATION = std::chrono::milliseconds&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_DURATION RTOS::TickCounter::getElapsedTimeSince </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTick</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the time elapsed since a captured tick value as a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>. </p>
+<p>Task context only.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DURATION</td><td>Target <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> type; an integral target truncates any remainder. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTick</td><td>Tick value captured at the start of the interval. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Time elapsed since <em class="arg">startTick</em>. </dd></dl>
+
+</div>
+</div>
+<a id="aa3f5e84f5b3ee794a2d267dd1352433c" name="aa3f5e84f5b3ee794a2d267dd1352433c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3f5e84f5b3ee794a2d267dd1352433c">&#9670;&#160;</a></span>getElapsedTimeSinceFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DURATION = std::chrono::milliseconds&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_DURATION RTOS::TickCounter::getElapsedTimeSinceFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTick</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Computes the time elapsed since a captured tick value as a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>, from an ISR context. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DURATION</td><td>Target <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> type; an integral target truncates any remainder. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTick</td><td>Tick value captured at the start of the interval. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Time elapsed since <em class="arg">startTick</em>. </dd></dl>
+
+</div>
+</div>
+<a id="af393a988abb6fd04e4b69529d19ba65f" name="af393a988abb6fd04e4b69529d19ba65f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af393a988abb6fd04e4b69529d19ba65f">&#9670;&#160;</a></span>getFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::getFromISR </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Increments the notification value of the owning task, like giving a counting semaphore. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a1fb17f69e367f23f6497932cc17e4630_cgraph.svg" width="446" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Returns the current scheduler tick count from an ISR context. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current tick count. </dd></dl>
 
 </div>
 </div>
-<a id="a38804fffd180e5a0cfd4488727e7521a" name="a38804fffd180e5a0cfd4488727e7521a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38804fffd180e5a0cfd4488727e7521a">&#9670;&#160;</a></span>giveFromISR() <span class="overload">[1/2]</span></h2>
+<a id="a076271f4adc3b8822a7994941ad622a2" name="a076271f4adc3b8822a7994941ad622a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a076271f4adc3b8822a7994941ad622a2">&#9670;&#160;</a></span>hasReached()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -520,123 +508,33 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Task::Notify::giveFromISR </td>
+          <td class="memname">bool RTOS::TickCounter::hasReached </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>targetTick</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Increments the notification value from an ISR context and requests a context switch when needed. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a38804fffd180e5a0cfd4488727e7521a_cgraph.svg" width="280" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a38804fffd180e5a0cfd4488727e7521a_icgraph.svg" width="550" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4e0005f0d61c80d42a6f4a1f86447d6f" name="a4e0005f0d61c80d42a6f4a1f86447d6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e0005f0d61c80d42a6f4a1f86447d6f">&#9670;&#160;</a></span>giveFromISR() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Task::Notify::giveFromISR </td>
-          <td>(</td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Increments the notification value from an ISR context, leaving the context switch to the caller. </p>
+<p>Checks whether a tick value lies in the past. </p>
+<p>Task context only. Wraparound-safe while <em class="arg">targetTick</em> is less than half the tick range away.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the owning task was woken and outranks the interrupted task, never cleared; the caller initializes it to 'pdFALSE' and passes it to 'portYIELD_FROM_ISR()' before leaving the ISR. </td></tr>
+    <tr><td class="paramname">targetTick</td><td>Tick value to test, e.g. a deadline. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <em class="arg">targetTick</em> has been reached or passed. </dd></dl>
 
 </div>
 </div>
-<a id="ac28b1bcc68bd40c199a5e504d7cd696c" name="ac28b1bcc68bd40c199a5e504d7cd696c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac28b1bcc68bd40c199a5e504d7cd696c">&#9670;&#160;</a></span>notify()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Task::Notify::notify </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f">Action::SET_VALUE_WITH_OVERWRITE</a></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends a generic notification. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Notification data. </td></tr>
-    <tr><td class="paramname">action</td><td>Notification action type. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful. </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_ac28b1bcc68bd40c199a5e504d7cd696c_cgraph.svg" width="462" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
-</div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_ac28b1bcc68bd40c199a5e504d7cd696c_icgraph.svg" width="779" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ae4d92ef7755e1231a03356b8e9ff8ecc" name="ae4d92ef7755e1231a03356b8e9ff8ecc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae4d92ef7755e1231a03356b8e9ff8ecc">&#9670;&#160;</a></span>notifyAndQuery()</h2>
+<a id="a0439598f9750afff7ebf7fa4437e482c" name="a0439598f9750afff7ebf7fa4437e482c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0439598f9750afff7ebf7fa4437e482c">&#9670;&#160;</a></span>hasReachedFromISR()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -645,43 +543,33 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d4d/a05978.html">Result</a> RTOS::Task::Notify::notifyAndQuery </td>
+          <td class="memname">bool RTOS::TickCounter::hasReachedFromISR </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>targetTick</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f">Action::SET_VALUE_WITH_OVERWRITE</a></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Notifies the owning task and returns the previous notification value. </p>
+<p>Checks whether a tick value lies in the past, from an ISR context. </p>
+<p>Wraparound-safe while <em class="arg">targetTick</em> is less than half the tick range away.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>New value. </td></tr>
-    <tr><td class="paramname">action</td><td>Action type. </td></tr>
+    <tr><td class="paramname">targetTick</td><td>Tick value to test, e.g. a deadline. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Result containing status and previous value. </dd></dl>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
-</div>
-<div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_ae4d92ef7755e1231a03356b8e9ff8ecc_cgraph.svg" width="526" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <em class="arg">targetTick</em> has been reached or passed. </dd></dl>
 
 </div>
 </div>
-<a id="aabfa91e4b27b8816c32546da448da44f" name="aabfa91e4b27b8816c32546da448da44f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabfa91e4b27b8816c32546da448da44f">&#9670;&#160;</a></span>notifyAndQueryFromISR() <span class="overload">[1/2]</span></h2>
+<a id="aa4d1e4d7efa2415ef43f6f577ad17c3a" name="aa4d1e4d7efa2415ef43f6f577ad17c3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4d1e4d7efa2415ef43f6f577ad17c3a">&#9670;&#160;</a></span>msToTicks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -690,43 +578,34 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d4d/a05978.html">Result</a> RTOS::Task::Notify::notifyAndQueryFromISR </td>
+          <td class="memname">constexpr <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::msToTicks </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>milliseconds</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Notifies the owning task from an ISR and returns the previous notification value, leaving the context switch to the caller. </p>
+<p>Converts a millisecond count to scheduler ticks, rounding up. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">value</td><td>New value. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">action</td><td>Action type. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the owning task was woken and outranks the interrupted task, never cleared; the caller initializes it to 'pdFALSE' and passes it to 'portYIELD_FROM_ISR()' before leaving the ISR. </td></tr>
+    <tr><td class="paramname">milliseconds</td><td>Duration in milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Result containing status and previous value. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Equivalent number of ticks, saturated at <em class="arg">portMAX_DELAY</em>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../da/dba/a06169.html#_a6">Lib::HAL::ADCPort</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a01a8186691b5ea2d9884997612955204" name="a01a8186691b5ea2d9884997612955204"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01a8186691b5ea2d9884997612955204">&#9670;&#160;</a></span>notifyAndQueryFromISR() <span class="overload">[2/2]</span></h2>
+<a id="ab51f397146bf8a3184476a1b302318e4" name="ab51f397146bf8a3184476a1b302318e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab51f397146bf8a3184476a1b302318e4">&#9670;&#160;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -735,49 +614,26 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d4d/a05978.html">Result</a> RTOS::Task::Notify::notifyAndQueryFromISR </td>
+          <td class="memname"><a class="el" href="#a2e4f16891a303abf7194b28efe452c4b">TickCounter</a> &amp; RTOS::TickCounter::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="#a2e4f16891a303abf7194b28efe452c4b">TickCounter</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f">Action::SET_VALUE_WITH_OVERWRITE</a></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Notifies the owning task from an ISR, returns the previous notification value and requests a context switch when needed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>New value. </td></tr>
-    <tr><td class="paramname">action</td><td>Action type. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Result containing status and previous value. </dd></dl>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
-</div>
-<div id="dynsection-15-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a01a8186691b5ea2d9884997612955204_cgraph.svg" width="360" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary">
-</div>
-<div id="dynsection-16-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a01a8186691b5ea2d9884997612955204_icgraph.svg" width="360" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Non-copyable: this is a non-instantiable static utility class. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="a25aaaf77386e00477eb6dc16df543364" name="a25aaaf77386e00477eb6dc16df543364"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25aaaf77386e00477eb6dc16df543364">&#9670;&#160;</a></span>notifyFromISR() <span class="overload">[1/2]</span></h2>
+<a id="ac56249d4802c3597d13fb0534586e09c" name="ac56249d4802c3597d13fb0534586e09c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac56249d4802c3597d13fb0534586e09c">&#9670;&#160;</a></span>ticksToMs()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -786,43 +642,32 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Task::Notify::notifyFromISR </td>
+          <td class="memname">constexpr uint32_t RTOS::TickCounter::ticksToMs </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sends a notification from an ISR context, leaving the context switch to the caller. </p>
+<p>Converts a scheduler tick count to milliseconds, truncating any remainder. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">value</td><td>Notification data. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">action</td><td>Action type. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to 'pdTRUE' if the owning task was woken and outranks the interrupted task, never cleared; the caller initializes it to 'pdFALSE' and passes it to 'portYIELD_FROM_ISR()' before leaving the ISR. </td></tr>
+    <tr><td class="paramname">ticks</td><td>Duration in ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Equivalent duration in milliseconds, saturated at <em class="arg">UINT32_MAX</em>. </dd></dl>
 
 </div>
 </div>
-<a id="a90999910ff7124119e0143b6281ebeac" name="a90999910ff7124119e0143b6281ebeac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90999910ff7124119e0143b6281ebeac">&#9670;&#160;</a></span>notifyFromISR() <span class="overload">[2/2]</span></h2>
+<a id="ad6ca3574ba475e43f8e1b9289f2ede66" name="ad6ca3574ba475e43f8e1b9289f2ede66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ca3574ba475e43f8e1b9289f2ede66">&#9670;&#160;</a></span>ticksToSeconds()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -831,49 +676,76 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Task::Notify::notifyFromISR </td>
+          <td class="memname">constexpr uint32_t RTOS::TickCounter::ticksToSeconds </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0">Action</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f">Action::SET_VALUE_WITH_OVERWRITE</a></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sends a notification from an ISR context and requests a context switch when needed. </p>
+<p>Converts a scheduler tick count to whole seconds, truncating any remainder. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Notification data. </td></tr>
-    <tr><td class="paramname">action</td><td>Action type. </td></tr>
+    <tr><td class="paramname">ticks</td><td>Duration in ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful. </dd></dl>
-<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary">
-</div>
-<div id="dynsection-17-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a90999910ff7124119e0143b6281ebeac_cgraph.svg" width="296" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary">
-</div>
-<div id="dynsection-18-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a90999910ff7124119e0143b6281ebeac_icgraph.svg" width="654" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd>Equivalent duration in whole seconds. </dd></dl>
 
 </div>
 </div>
-<a id="affe9d15dcc3438ccb68a264744683f96" name="affe9d15dcc3438ccb68a264744683f96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affe9d15dcc3438ccb68a264744683f96">&#9670;&#160;</a></span>take() <span class="overload">[1/2]</span></h2>
+<a id="a9c2f37f5b366ec485302e551cafdb87a" name="a9c2f37f5b366ec485302e551cafdb87a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c2f37f5b366ec485302e551cafdb87a">&#9670;&#160;</a></span>toDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DURATION = std::chrono::milliseconds&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T_DURATION RTOS::TickCounter::toDuration </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts a scheduler tick count to a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DURATION</td><td>Target <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> type; an integral target truncates any remainder. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ticks</td><td>Duration in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Equivalent duration as <em class="arg">T_DURATION</em>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d6a/a06273.html#a6">RTOS::TickCounter</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ad6656fb17699eab5dc474d46e3e29234" name="ad6656fb17699eab5dc474d46e3e29234"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6656fb17699eab5dc474d46e3e29234">&#9670;&#160;</a></span>toTicks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -884,328 +756,37 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> RTOS::Task::Notify::take </td>
+          <td class="memname">constexpr <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::toTicks </td>
           <td>(</td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>clearOnExit</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks the calling task until the notification value is non-zero, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout. </p>
+<p>Converts a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> to scheduler ticks, rounding up. </p>
+<p>Negative durations convert to <b>0</b> ticks. The duration must be representable as a 64-bit tick count. Forwards to <a class="el" href="../../d0/daa/a01029.html#ab892d206cb79c31e373b3631e023b644" title="RTOS::durationToTicks()">RTOS::durationToTicks()</a>, the one conversion shared by every wrapper.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the input duration. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the input duration. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">clearOnExit</td><td><b>true</b> resets the value to zero on return, <b>false</b> decrements it. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum wait, rounded up to whole ticks. </td></tr>
+    <tr><td class="paramname">duration</td><td>Duration to convert. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Notification value before it was cleared or decremented, zero on timeout. </dd></dl>
-<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary">
-</div>
-<div id="dynsection-19-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_affe9d15dcc3438ccb68a264744683f96_cgraph.svg" width="1000" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ab2c154d06ce722fcc5d10141ea9971dc" name="ab2c154d06ce722fcc5d10141ea9971dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2c154d06ce722fcc5d10141ea9971dc">&#9670;&#160;</a></span>take() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> RTOS::Task::Notify::take </td>
-          <td>(</td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>clearOnExit</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/dd6/a05962.html#ae8e5ffc65178ca37479e618247718ca9">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Blocks the calling task until the notification value is non-zero, like taking a semaphore. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">clearOnExit</td><td><b>true</b> resets the value to zero on return, <b>false</b> decrements it. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum wait in ticks; 'portMAX_DELAY' waits forever. </td></tr>
-  </table>
-  </dd>
+<dl class="section return"><dt>Returns</dt><dd>Equivalent number of ticks, saturated at <em class="arg">portMAX_DELAY</em>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d0/d93/a06237.html#_a3">Lib::Helper::TimePeriod</a>, <a class="el" href="../../da/daf/a06269.html#_a6">RTOS::Task</a>, and <a class="el" href="../../de/d6a/a06273.html#a7">RTOS::TickCounter</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Notification value before it was cleared or decremented, zero on timeout. </dd></dl>
-<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary">
-</div>
-<div id="dynsection-20-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_ab2c154d06ce722fcc5d10141ea9971dc_icgraph.svg" width="486" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a9b7ec0e3945a5a2e59f89abc12c995ac" name="a9b7ec0e3945a5a2e59f89abc12c995ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b7ec0e3945a5a2e59f89abc12c995ac">&#9670;&#160;</a></span>wait() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> RTOS::Task::Notify::wait </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>bitsToClearOnEntry</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>bitsToClearOnExit</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Blocks the calling task until a notification is received, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bitsToClearOnEntry</td><td>Bits to clear before waiting. </td></tr>
-    <tr><td class="paramname">bitsToClearOnExit</td><td>Bits to clear after a notification arrived. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum wait, rounded up to whole ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Received bits, or all zero on timeout. </dd></dl>
-<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary">
-</div>
-<div id="dynsection-21-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a9b7ec0e3945a5a2e59f89abc12c995ac_cgraph.svg" width="1000" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a05ffffc3617eb293c579a9e12885057b" name="a05ffffc3617eb293c579a9e12885057b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05ffffc3617eb293c579a9e12885057b">&#9670;&#160;</a></span>wait() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a> RTOS::Task::Notify::wait </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>bitsToClearOnEntry</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a14b93aef9b147c71b74dc5c0976cd5a0">ALL_BITS</a></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>bitsToClearOnExit</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/dd6/a05962.html#ae8e5ffc65178ca37479e618247718ca9">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Blocks the calling task until a notification is received. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bitsToClearOnEntry</td><td>Bits to clear before waiting. </td></tr>
-    <tr><td class="paramname">bitsToClearOnExit</td><td>Bits to clear after a notification arrived. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum wait in ticks; 'portMAX_DELAY' waits forever. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Received bits, or all zero on timeout. </dd></dl>
-<div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary">
-</div>
-<div id="dynsection-22-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a05ffffc3617eb293c579a9e12885057b_icgraph.svg" width="486" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="acd94a5ede593ed6ae5571c18903e030b" name="acd94a5ede593ed6ae5571c18903e030b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd94a5ede593ed6ae5571c18903e030b">&#9670;&#160;</a></span>waitForBits() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Task::Notify::waitForBits </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToWaitFor</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Blocks the calling task until any of the given bits is set, with a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> timeout. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bitsToWaitFor</td><td>Bits to wait for; any one of them ends the wait. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum total wait, rounded up to whole ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if one of the bits was received, <b>false</b> on timeout. </dd></dl>
-<div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-23-summary" class="dynsummary">
-</div>
-<div id="dynsection-23-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_acd94a5ede593ed6ae5571c18903e030b_cgraph.svg" width="1096" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a1eafe4fed845fcf63255a0cd6b71e5a1" name="a1eafe4fed845fcf63255a0cd6b71e5a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1eafe4fed845fcf63255a0cd6b71e5a1">&#9670;&#160;</a></span>waitForBits() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Task::Notify::waitForBits </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a76db1b2abff36d5013ab969b3b149834">Bits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToWaitFor</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/dd6/a05962.html#ae8e5ffc65178ca37479e618247718ca9">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Blocks the calling task until any of the given bits is set or the timeout expires. </p>
-<p>The notification value itself is checked first, so an awaited bit that is already set returns at once, even when no notification is pending any more (for example after <a class="el" href="#a4a968ee53740cc429b232c80589b748a" title="clearState()">clearState()</a>, or after an earlier <a class="el" href="#a05ffffc3617eb293c579a9e12885057b" title="wait()">wait()</a> that did not clear it). Notifications carrying only unrelated bits do not end the wait early; those bits are left set in the notification value, and only the awaited bits are cleared on a match. A zero timeout only polls the current value.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">bitsToWaitFor</td><td>Bits to wait for; any one of them ends the wait. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum total wait in ticks; 'portMAX_DELAY' waits forever. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if one of the bits was set, <b>false</b> on timeout. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/d83/a06287.html#a5">RTOS::Task</a>.</dd>
-</dl>
-<div id="dynsection-24" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-24-summary" class="dynsummary">
-</div>
-<div id="dynsection-24-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d2f/a05974_a1eafe4fed845fcf63255a0cd6b71e5a1_icgraph.svg" width="598" height="147"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a14b93aef9b147c71b74dc5c0976cd5a0" name="a14b93aef9b147c71b74dc5c0976cd5a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14b93aef9b147c71b74dc5c0976cd5a0">&#9670;&#160;</a></span>ALL_BITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t RTOS::Task::Notify::ALL_BITS = 0xFFFFFFFFU</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Bit mask matching every notification bit. </p>
 
 </div>
 </div>

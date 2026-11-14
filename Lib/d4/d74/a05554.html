@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::LPTimer</title>
+<title>IAR EWARM Library: Lib::HAL::Timer::TimOnePulse</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,98 +91,77 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../d4/d74/a05554.html">LPTimer</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../d1/dd8/a01022.html">Timer</a></li><li class="navelem"><a href="../../d4/d74/a05554.html">TimOnePulse</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="../../de/ddf/a05551.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::LPTimer<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOnePulse<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Controls a hardware timer configured in One-Pulse Mode.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Manages LPTIM peripheral configuration and interrupt-driven timeout events. </p>
-<p>Targets the STM32U5 family and every other part whose HAL ships the modern LPTIM interface, which it relies on for 'LPTIM_OC_ConfigTypeDef', <b>HAL_LPTIM_OC_ConfigChannel()</b> and the per-channel state array. Parts without an LPTIM peripheral, STM32F407 among them, compile this header away, so including it unconditionally is safe. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/ddc/a06209.html#_a0">Lib::HAL::LPTimer</a>, and <a class="el" href="../../dd/d51/a06275.html#_a0">RTOS::PowerManager</a>.</dd>
+<div class="textblock"><p>Controls a hardware timer configured in One-Pulse Mode. </p>
+<p>Maps the output channel's compare interrupt through the DeviceManager to a task notification, so a task blocked in <a class="el" href="#aeba87dc02428bea360275fd39706fa18" title="waitPulseStart()">waitPulseStart()</a> wakes when a pulse starts.</p>
+<p>In OPM, channels 1 and 2 are always used together: one is the output, the other the trigger input. After a trigger the counter runs from 0 to ARR once; with PWM mode 2 (or PWM mode 1 with inverted polarity) the output is inactive while the counter is below CCRx and active from CCRx up to ARR. The compare interrupt therefore fires when the pulse starts, not when it ends. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/d2f/a06207.html#_a4">Lib::HAL::Timer::TimOnePulse</a>.</dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::LPTimer:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dfa/a05552.svg" width="219" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ad8ef8d64da7b2fb93cca36bca48241bc" id="r_ad8ef8d64da7b2fb93cca36bca48241bc"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d22/a05546.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td></tr>
+<tr class="memdesc:ad8ef8d64da7b2fb93cca36bca48241bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scheduler tick count type.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6520e9a177a61a7f1a6cecc9b582e5fc" id="r_a6520e9a177a61a7f1a6cecc9b582e5fc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> (<a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Handle</a> *handle, uint32_t channel) noexcept</td></tr>
-<tr class="memdesc:a6520e9a177a61a7f1a6cecc9b582e5fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an LPTimer instance and claims a slot in the handle registry.  <br /></td></tr>
-<tr class="memitem:add3250c704445e43eb5798c76d514cd0" id="r_add3250c704445e43eb5798c76d514cd0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#add3250c704445e43eb5798c76d514cd0">~LPTimer</a> () noexcept</td></tr>
-<tr class="memdesc:add3250c704445e43eb5798c76d514cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the peripheral and releases the registry slot, so no dangling instance is left for the interrupts.  <br /></td></tr>
-<tr class="memitem:a694916ba4b3b845dc40a55807a3c010a" id="r_a694916ba4b3b845dc40a55807a3c010a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a694916ba4b3b845dc40a55807a3c010a">LPTimer</a> (const LPTimer &amp;other)=delete</td></tr>
-<tr class="memdesc:a694916ba4b3b845dc40a55807a3c010a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a registry slot and an RTOS event group.  <br /></td></tr>
-<tr class="memitem:a0151830764f6149bcd064718e12efa9d" id="r_a0151830764f6149bcd064718e12efa9d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0151830764f6149bcd064718e12efa9d">LPTimer</a> (LPTimer &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a0151830764f6149bcd064718e12efa9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns a registry slot and an RTOS event group.  <br /></td></tr>
-<tr class="memitem:a3ab3ebd892230fa7165da48b1196d7a5" id="r_a3ab3ebd892230fa7165da48b1196d7a5"><td class="memItemLeft"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3ab3ebd892230fa7165da48b1196d7a5">operator=</a> (const <a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a3ab3ebd892230fa7165da48b1196d7a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a registry slot and an RTOS event group.  <br /></td></tr>
-<tr class="memitem:ac4e8a52cdf24942a7b3ca487f0fa2022" id="r_ac4e8a52cdf24942a7b3ca487f0fa2022"><td class="memItemLeft"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac4e8a52cdf24942a7b3ca487f0fa2022">operator=</a> (<a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ac4e8a52cdf24942a7b3ca487f0fa2022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns a registry slot and an RTOS event group.  <br /></td></tr>
-<tr class="memitem:a1a9d936e6ff40316674eb1bb6293d5eb" id="r_a1a9d936e6ff40316674eb1bb6293d5eb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1a9d936e6ff40316674eb1bb6293d5eb">open</a> () noexcept</td></tr>
-<tr class="memdesc:a1a9d936e6ff40316674eb1bb6293d5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the LPTIM peripheral and associated event groups.  <br /></td></tr>
-<tr class="memitem:a6295b01535aa1df83366d83b9426ff7d" id="r_a6295b01535aa1df83366d83b9426ff7d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6295b01535aa1df83366d83b9426ff7d">close</a> () noexcept</td></tr>
-<tr class="memdesc:a6295b01535aa1df83366d83b9426ff7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the LPTIM peripheral and clears event groups.  <br /></td></tr>
-<tr class="memitem:af87c45b091cb7b10192ce86953eba07a" id="r_af87c45b091cb7b10192ce86953eba07a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af87c45b091cb7b10192ce86953eba07a">startTimeoutInterrupt</a> (uint32_t timeoutMs) noexcept</td></tr>
-<tr class="memdesc:af87c45b091cb7b10192ce86953eba07a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures and starts an interrupt-driven timeout.  <br /></td></tr>
-<tr class="memitem:a524f65747a660c2243dfe55d318bb083" id="r_a524f65747a660c2243dfe55d318bb083"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a524f65747a660c2243dfe55d318bb083">stopInterrupt</a> () noexcept</td></tr>
-<tr class="memdesc:a524f65747a660c2243dfe55d318bb083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timeout interrupt.  <br /></td></tr>
-<tr class="memitem:a8f6329f1b312d263381f3738aacd64b8" id="r_a8f6329f1b312d263381f3738aacd64b8"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a8f6329f1b312d263381f3738aacd64b8">waitForEvent</a> (<a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">CallbackID</a> eventId, uint32_t timeout) noexcept</td></tr>
-<tr class="memdesc:a8f6329f1b312d263381f3738aacd64b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until a specific timer event is received.  <br /></td></tr>
-<tr class="memitem:abaedcebf007dff3863b7fd1eec8fd303" id="r_abaedcebf007dff3863b7fd1eec8fd303"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abaedcebf007dff3863b7fd1eec8fd303">hasExpired</a> () const noexcept</td></tr>
-<tr class="memdesc:abaedcebf007dff3863b7fd1eec8fd303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the timeout event has occurred.  <br /></td></tr>
-<tr class="memitem:a4fc71247da21a5d02602615eb66c4256" id="r_a4fc71247da21a5d02602615eb66c4256"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a4fc71247da21a5d02602615eb66c4256">getElapsedRtosTicks</a> (uint32_t armedTimeoutMs) const noexcept</td></tr>
-<tr class="memdesc:a4fc71247da21a5d02602615eb66c4256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates elapsed RTOS ticks since the timeout was armed.  <br /></td></tr>
-<tr class="memitem:add82be5171e6f5f28baaba0aea38a0de" id="r_add82be5171e6f5f28baaba0aea38a0de"><td class="memItemLeft"><a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Handle</a> *&#160;</td><td class="memItemRight"><a class="el" href="#add82be5171e6f5f28baaba0aea38a0de">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:add82be5171e6f5f28baaba0aea38a0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the native HAL handle.  <br /></td></tr>
+<tr class="memitem:ae287fccac43cfbccd505d62c3450d886" id="r_ae287fccac43cfbccd505d62c3450d886"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *timHandle, uint32_t outputChannel) noexcept</td></tr>
+<tr class="memdesc:ae287fccac43cfbccd505d62c3450d886"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the One-Pulse wrapper directly to a native configuration structure.  <br /></td></tr>
+<tr class="memitem:a1e04591efe0469a8ca79694006f138e6" id="r_a1e04591efe0469a8ca79694006f138e6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1e04591efe0469a8ca79694006f138e6">~TimOnePulse</a> () noexcept</td></tr>
+<tr class="memdesc:a1e04591efe0469a8ca79694006f138e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer before the base leaves the DeviceManager registry.  <br /></td></tr>
+<tr class="memitem:a4dd784ca9da4b8c662101a2b232a1f61" id="r_a4dd784ca9da4b8c662101a2b232a1f61"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61">start</a> () noexcept</td></tr>
+<tr class="memdesc:a4dd784ca9da4b8c662101a2b232a1f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arms the timer for trigger events; the calling task becomes the one <a class="el" href="#aeba87dc02428bea360275fd39706fa18" title="waitPulseStart()">waitPulseStart()</a> serves.  <br /></td></tr>
+<tr class="memitem:a2ab7da84b6cafce46167eeca602289ac" id="r_a2ab7da84b6cafce46167eeca602289ac"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2ab7da84b6cafce46167eeca602289ac">stop</a> () noexcept</td></tr>
+<tr class="memdesc:a2ab7da84b6cafce46167eeca602289ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disarms the One-Pulse engine and its interrupts.  <br /></td></tr>
+<tr class="memitem:aeba87dc02428bea360275fd39706fa18" id="r_aeba87dc02428bea360275fd39706fa18"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aeba87dc02428bea360275fd39706fa18">waitPulseStart</a> (<a class="el" href="../../d1/d22/a05546.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout=portMAX_DELAY) const noexcept</td></tr>
+<tr class="memdesc:aeba87dc02428bea360275fd39706fa18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e.  <br /></td></tr>
+<tr class="memitem:a16dbc64b1db27612373f5d95fe8fe6ed" id="r_a16dbc64b1db27612373f5d95fe8fe6ed"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a16dbc64b1db27612373f5d95fe8fe6ed template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a16dbc64b1db27612373f5d95fe8fe6ed">waitPulseStart</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
+<tr class="memdesc:a16dbc64b1db27612373f5d95fe8fe6ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e.  <br /></td></tr>
+<tr class="memitem:adcd5d98b02d7d70c3dbcd75ab4f117b6" id="r_adcd5d98b02d7d70c3dbcd75ab4f117b6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adcd5d98b02d7d70c3dbcd75ab4f117b6">setTiming</a> (uint32_t delay, uint32_t pulseWidth) noexcept</td></tr>
+<tr class="memdesc:adcd5d98b02d7d70c3dbcd75ab4f117b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the trigger-to-pulse delay and the pulse width.  <br /></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../d2/da8/a05362.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae8333eb56c7104430e0c3202d29c47cb" id="r_ae8333eb56c7104430e0c3202d29c47cb"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae8333eb56c7104430e0c3202d29c47cb">callbackIdToBit</a> (<a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">CallbackID</a> id) noexcept</td></tr>
-<tr class="memdesc:ae8333eb56c7104430e0c3202d29c47cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a HAL callback identifier to a bitmask for event synchronization.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a0a4806d9f5ce4953eb151c8ec4f74cb5" id="r_a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d22/a05546.html#a0a4806d9f5ce4953eb151c8ec4f74cb5">Manager</a></td></tr>
+<tr class="memdesc:a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry routing HAL callbacks to instances.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ac7b1eac52b77847537b732a7e3cd0d2e" id="r_ac7b1eac52b77847537b732a7e3cd0d2e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d22/a05546.html#ac7b1eac52b77847537b732a7e3cd0d2e">bindWorker</a> () noexcept</td></tr>
+<tr class="memdesc:ac7b1eac52b77847537b732a7e3cd0d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the calling task the one woken by hardware events; call before enabling the interrupt.  <br /></td></tr>
+<tr class="memitem:a50fe83a38ed76cc7a5f8cea7dca98f4d" id="r_a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d22/a05546.html#a50fe83a38ed76cc7a5f8cea7dca98f4d">waitEvent</a> (<a class="el" href="../../d1/d22/a05546.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout) const noexcept</td></tr>
+<tr class="memdesc:a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the next hardware event.  <br /></td></tr>
+<tr class="memitem:a96061f4587cc3508811475a8309ab3f0" id="r_a96061f4587cc3508811475a8309ab3f0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d1/d22/a05546.html#a96061f4587cc3508811475a8309ab3f0">notifyWorkerFromISR</a> () noexcept</td></tr>
+<tr class="memdesc:a96061f4587cc3508811475a8309ab3f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the bound task from the HAL callback.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a5e91f9ca8a9abc6255b583f8225f7478" id="r_a5e91f9ca8a9abc6255b583f8225f7478"><td class="memItemLeft">friend&#160;</td><td class="memItemRight"><a class="el" href="#a5e91f9ca8a9abc6255b583f8225f7478">void::HAL_TIM_PWM_PulseFinishedCallback</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *htim)</td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="ab366d4fa77363e661ad71c424eb4faaf" name="ab366d4fa77363e661ad71c424eb4faaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab366d4fa77363e661ad71c424eb4faaf">&#9670;&#160;</a></span>CallbackID</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">Lib::HAL::LPTimer::CallbackID</a> = HAL_LPTIM_CallbackIDTypeDef</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac948323fb2eef4212aaa06df202dfbdc" name="ac948323fb2eef4212aaa06df202dfbdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac948323fb2eef4212aaa06df202dfbdc">&#9670;&#160;</a></span>Handle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Lib::HAL::LPTimer::Handle</a> = LPTIM_HandleTypeDef</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6520e9a177a61a7f1a6cecc9b582e5fc" name="a6520e9a177a61a7f1a6cecc9b582e5fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6520e9a177a61a7f1a6cecc9b582e5fc">&#9670;&#160;</a></span>LPTimer() <span class="overload">[1/3]</span></h2>
+<a id="a0a4806d9f5ce4953eb151c8ec4f74cb5" name="a0a4806d9f5ce4953eb151c8ec4f74cb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4806d9f5ce4953eb151c8ec4f74cb5">&#9670;&#160;</a></span>Manager</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,14 +170,63 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::LPTimer::LPTimer </td>
+          <td class="memname">using <a class="el" href="../../d1/d22/a05546.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> &gt;::Manager</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registry routing HAL callbacks to instances. </p>
+
+</div>
+</div>
+<a id="ad8ef8d64da7b2fb93cca36bca48241bc" name="ad8ef8d64da7b2fb93cca36bca48241bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8ef8d64da7b2fb93cca36bca48241bc">&#9670;&#160;</a></span>TickType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d1/d22/a05546.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> &gt;::TickType</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Scheduler tick count type. </p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae287fccac43cfbccd505d62c3450d886" name="ae287fccac43cfbccd505d62c3450d886"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae287fccac43cfbccd505d62c3450d886">&#9670;&#160;</a></span>TimOnePulse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::Timer::TimOnePulse::TimOnePulse </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Handle</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>timHandle</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>outputChannel</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -206,25 +236,19 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs an LPTimer instance and claims a slot in the handle registry. </p>
+<p>Binds the One-Pulse wrapper directly to a native configuration structure. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Pointer to the HAL LPTIM handle. </td></tr>
-    <tr><td class="paramname">channel</td><td>The specific LPTIM channel to configure. </td></tr>
+    <tr><td class="paramname">timHandle</td><td>Target native hardware TIM descriptor block (e.g., &amp;htim5). </td></tr>
+    <tr><td class="paramname">outputChannel</td><td>Output channel, 'TIM_CHANNEL_1' or 'TIM_CHANNEL_2'; the other one is the trigger. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_a6520e9a177a61a7f1a6cecc9b582e5fc_icgraph.svg" width="534" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="add3250c704445e43eb5798c76d514cd0" name="add3250c704445e43eb5798c76d514cd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add3250c704445e43eb5798c76d514cd0">&#9670;&#160;</a></span>~LPTimer()</h2>
+<a id="a1e04591efe0469a8ca79694006f138e6" name="a1e04591efe0469a8ca79694006f138e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e04591efe0469a8ca79694006f138e6">&#9670;&#160;</a></span>~TimOnePulse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,7 +257,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::LPTimer::~LPTimer </td>
+          <td class="memname">Lib::HAL::Timer::TimOnePulse::~TimOnePulse </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -246,97 +270,13 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the peripheral and releases the registry slot, so no dangling instance is left for the interrupts. </p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_add3250c704445e43eb5798c76d514cd0_cgraph.svg" width="510" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a694916ba4b3b845dc40a55807a3c010a" name="a694916ba4b3b845dc40a55807a3c010a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a694916ba4b3b845dc40a55807a3c010a">&#9670;&#160;</a></span>LPTimer() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::LPTimer::LPTimer </td>
-          <td>(</td>
-          <td class="paramtype">const LPTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copying is deleted: each instance owns a registry slot and an RTOS event group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_a694916ba4b3b845dc40a55807a3c010a_cgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a0151830764f6149bcd064718e12efa9d" name="a0151830764f6149bcd064718e12efa9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0151830764f6149bcd064718e12efa9d">&#9670;&#160;</a></span>LPTimer() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::LPTimer::LPTimer </td>
-          <td>(</td>
-          <td class="paramtype">LPTimer &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moving is deleted: each instance owns a registry slot and an RTOS event group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_a0151830764f6149bcd064718e12efa9d_cgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Stops the timer before the base leaves the DeviceManager registry. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ae8333eb56c7104430e0c3202d29c47cb" name="ae8333eb56c7104430e0c3202d29c47cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8333eb56c7104430e0c3202d29c47cb">&#9670;&#160;</a></span>callbackIdToBit()</h2>
+<a id="ac7b1eac52b77847537b732a7e3cd0d2e" name="ac7b1eac52b77847537b732a7e3cd0d2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7b1eac52b77847537b732a7e3cd0d2e">&#9670;&#160;</a></span>bindWorker()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -345,47 +285,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::HAL::LPTimer::callbackIdToBit </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">CallbackID</a></td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Maps a HAL callback identifier to a bitmask for event synchronization. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The HAL callback ID. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Bitmask representing the callback ID. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_ae8333eb56c7104430e0c3202d29c47cb_icgraph.svg" width="622" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a6295b01535aa1df83366d83b9426ff7d" name="a6295b01535aa1df83366d83b9426ff7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6295b01535aa1df83366d83b9426ff7d">&#9670;&#160;</a></span>close()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::LPTimer::close </td>
+          <td class="memname">void <a class="el" href="../../d1/d22/a05546.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> &gt;::bindWorker </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -393,25 +293,17 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deinitializes the LPTIM peripheral and clears event groups. </p>
-<p>The peripheral is stopped first, so no interrupt can reach the event group while it is being closed.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful, <b>false</b> otherwise. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_a6295b01535aa1df83366d83b9426ff7d_icgraph.svg" width="510" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Makes the calling task the one woken by hardware events; call before enabling the interrupt. </p>
 
 </div>
 </div>
-<a id="a4fc71247da21a5d02602615eb66c4256" name="a4fc71247da21a5d02602615eb66c4256"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fc71247da21a5d02602615eb66c4256">&#9670;&#160;</a></span>getElapsedRtosTicks()</h2>
+<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -420,109 +312,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::HAL::LPTimer::getElapsedRtosTicks </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>armedTimeoutMs</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates elapsed RTOS ticks since the timeout was armed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">armedTimeoutMs</td><td>The timeout duration originally set. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Elapsed ticks. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_a4fc71247da21a5d02602615eb66c4256_cgraph.svg" width="638" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="add82be5171e6f5f28baaba0aea38a0de" name="add82be5171e6f5f28baaba0aea38a0de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add82be5171e6f5f28baaba0aea38a0de">&#9670;&#160;</a></span>getHandle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Handle</a> * Lib::HAL::LPTimer::getHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the native HAL handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the HAL handle. </dd></dl>
-
-</div>
-</div>
-<a id="abaedcebf007dff3863b7fd1eec8fd303" name="abaedcebf007dff3863b7fd1eec8fd303"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abaedcebf007dff3863b7fd1eec8fd303">&#9670;&#160;</a></span>hasExpired()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::LPTimer::hasExpired </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if the timeout event has occurred. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if expired, <b>false</b> otherwise. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_abaedcebf007dff3863b7fd1eec8fd303_icgraph.svg" width="638" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a1a9d936e6ff40316674eb1bb6293d5eb" name="a1a9d936e6ff40316674eb1bb6293d5eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a9d936e6ff40316674eb1bb6293d5eb">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::LPTimer::open </td>
+          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * <a class="el" href="../../d2/da8/a05362.html">Lib::HAL::Device</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a>, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -530,18 +320,18 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the LPTIM peripheral and associated event groups. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successful, <b>false</b> otherwise. </dd></dl>
+<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
 
 </div>
 </div>
-<a id="a3ab3ebd892230fa7165da48b1196d7a5" name="a3ab3ebd892230fa7165da48b1196d7a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ab3ebd892230fa7165da48b1196d7a5">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a96061f4587cc3508811475a8309ab3f0" name="a96061f4587cc3508811475a8309ab3f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96061f4587cc3508811475a8309ab3f0">&#9670;&#160;</a></span>notifyWorkerFromISR()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -550,131 +340,41 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp; Lib::HAL::LPTimer::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy assignment is deleted: each instance owns a registry slot and an RTOS event group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_a3ab3ebd892230fa7165da48b1196d7a5_cgraph.svg" width="534" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac4e8a52cdf24942a7b3ca487f0fa2022" name="ac4e8a52cdf24942a7b3ca487f0fa2022"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4e8a52cdf24942a7b3ca487f0fa2022">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp; Lib::HAL::LPTimer::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move assignment is deleted: each instance owns a registry slot and an RTOS event group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_ac4e8a52cdf24942a7b3ca487f0fa2022_cgraph.svg" width="534" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="af87c45b091cb7b10192ce86953eba07a" name="af87c45b091cb7b10192ce86953eba07a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af87c45b091cb7b10192ce86953eba07a">&#9670;&#160;</a></span>startTimeoutInterrupt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::LPTimer::startTimeoutInterrupt </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeoutMs</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Configures and starts an interrupt-driven timeout. </p>
-<p>The slowest prescaler that still fits the timeout into the 16-bit counter is used; a longer timeout is clamped to the longest one the hardware can count.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeoutMs</td><td>The desired timeout duration in milliseconds. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if successfully armed, <b>false</b> otherwise. </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_af87c45b091cb7b10192ce86953eba07a_cgraph.svg" width="502" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a524f65747a660c2243dfe55d318bb083" name="a524f65747a660c2243dfe55d318bb083"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a524f65747a660c2243dfe55d318bb083">&#9670;&#160;</a></span>stopInterrupt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::HAL::LPTimer::stopInterrupt </td>
+          <td class="memname">void <a class="el" href="../../d1/d22/a05546.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> &gt;::notifyWorkerFromISR </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wakes the bound task from the HAL callback. </p>
+
+</div>
+</div>
+<a id="adcd5d98b02d7d70c3dbcd75ab4f117b6" name="adcd5d98b02d7d70c3dbcd75ab4f117b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcd5d98b02d7d70c3dbcd75ab4f117b6">&#9670;&#160;</a></span>setTiming()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::HAL::Timer::TimOnePulse::setTiming </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>delay</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>pulseWidth</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -684,12 +384,22 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the timeout interrupt. </p>
+<p>Sets the trigger-to-pulse delay and the pulse width. </p>
+<p>In OPM the delay is CCRx and the width is ARR - CCRx + 1, so both registers are written together.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">delay</td><td>Ticks from the trigger to the start of the pulse (CCRx). </td></tr>
+    <tr><td class="paramname">pulseWidth</td><td>Pulse length in ticks, at least 1; 'delay + pulseWidth - 1' must fit the counter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/d2f/a06207.html#a7">Lib::HAL::Timer::TimOnePulse</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a8f6329f1b312d263381f3738aacd64b8" name="a8f6329f1b312d263381f3738aacd64b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f6329f1b312d263381f3738aacd64b8">&#9670;&#160;</a></span>waitForEvent()</h2>
+<a id="a4dd784ca9da4b8c662101a2b232a1f61" name="a4dd784ca9da4b8c662101a2b232a1f61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dd784ca9da4b8c662101a2b232a1f61">&#9670;&#160;</a></span>start()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -698,14 +408,10 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::HAL::LPTimer::waitForEvent </td>
+          <td class="memname">bool Lib::HAL::Timer::TimOnePulse::start </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">CallbackID</a></td>          <td class="paramname"><span class="paramname"><em>eventId</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -715,21 +421,180 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks until a specific timer event is received. </p>
+<p>Arms the timer for trigger events; the calling task becomes the one <a class="el" href="#aeba87dc02428bea360275fd39706fa18" title="waitPulseStart()">waitPulseStart()</a> serves. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware channel activation sequence succeeded. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/d2f/a06207.html#a6">Lib::HAL::Timer::TimOnePulse</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a2ab7da84b6cafce46167eeca602289ac" name="a2ab7da84b6cafce46167eeca602289ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ab7da84b6cafce46167eeca602289ac">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::Timer::TimOnePulse::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disarms the One-Pulse engine and its interrupts. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stopped safely. </dd></dl>
+
+</div>
+</div>
+<a id="a50fe83a38ed76cc7a5f8cea7dca98f4d" name="a50fe83a38ed76cc7a5f8cea7dca98f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50fe83a38ed76cc7a5f8cea7dca98f4d">&#9670;&#160;</a></span>waitEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d1/d22/a05546.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#ae287fccac43cfbccd505d62c3450d886">TimOnePulse</a> &gt;::waitEvent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d22/a05546.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Blocks the calling task until the next hardware event. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">eventId</td><td>The event identifier to wait for. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum wait duration in ticks. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Bitmask of received events. </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if an event arrived, <b>false</b> on timeout. </dd></dl>
+
 </div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d74/a05554_a8f6329f1b312d263381f3738aacd64b8_cgraph.svg" width="622" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<a id="a16dbc64b1db27612373f5d95fe8fe6ed" name="a16dbc64b1db27612373f5d95fe8fe6ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16dbc64b1db27612373f5d95fe8fe6ed">&#9670;&#160;</a></span>waitPulseStart() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::Timer::TimOnePulse::waitPulseStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e. </p>
+<p>the trigger delay has elapsed.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a pulse started, <b>false</b> on timeout. </dd></dl>
+
+</div>
+</div>
+<a id="aeba87dc02428bea360275fd39706fa18" name="aeba87dc02428bea360275fd39706fa18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeba87dc02428bea360275fd39706fa18">&#9670;&#160;</a></span>waitPulseStart() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::Timer::TimOnePulse::waitPulseStart </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d1/d22/a05546.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Blocks the task that called <a class="el" href="#a4dd784ca9da4b8c662101a2b232a1f61" title="start()">start()</a> until the next pulse starts, i.e. </p>
+<p>the trigger delay has elapsed.</p>
+<p>The compare interrupt fires at the start of the pulse; the end of the pulse is the update event.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a pulse started, <b>false</b> on timeout. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/d2f/a06207.html#a8">Lib::HAL::Timer::TimOnePulse</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a5e91f9ca8a9abc6255b583f8225f7478" name="a5e91f9ca8a9abc6255b583f8225f7478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e91f9ca8a9abc6255b583f8225f7478">&#9670;&#160;</a></span>void::HAL_TIM_PWM_PulseFinishedCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void::HAL_TIM_PWM_PulseFinishedCallback </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>htim</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

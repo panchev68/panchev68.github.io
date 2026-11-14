@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::SolarControl::PerturbAndObserve::Measurement</title>
+<title>IAR EWARM Library: Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,63 +91,286 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dbc/a01038.html">SolarControl</a></li><li class="navelem"><a href="../../d0/da6/a06022.html">PerturbAndObserve</a></li><li class="navelem"><a href="../../d4/d80/a06030.html">Measurement</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/dcf/a01031.html">System</a></li><li class="navelem"><a href="../../d4/d80/a06030.html">Parameters</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../db/dc9/a06027.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::SolarControl::PerturbAndObserve::Measurement</div></div>
+  <div class="headertitle"><div class="title">Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>CRTP base class managing a parameter structure in persistent storage with CRC16 integrity validation.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Represents an instantaneous voltage and current measurement from the source. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::SolarControl::PerturbAndObserve::Measurement:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d91/a06028.svg" width="310" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a1e7c41cc6f1e458a928298f16e3913df" id="r_a1e7c41cc6f1e458a928298f16e3913df"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a1e7c41cc6f1e458a928298f16e3913df">voltage</a></td></tr>
-<tr class="memdesc:a1e7c41cc6f1e458a928298f16e3913df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measured voltage in volts.  <br /></td></tr>
-<tr class="memitem:a2e9a3fd94c50f6eec80b37bc5f23f415" id="r_a2e9a3fd94c50f6eec80b37bc5f23f415"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a2e9a3fd94c50f6eec80b37bc5f23f415">current</a></td></tr>
-<tr class="memdesc:a2e9a3fd94c50f6eec80b37bc5f23f415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Measured current in amperes.  <br /></td></tr>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt;<br />
+requires std::is_trivially_copyable_v&lt;T_DATA&gt;<br />
+class Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;</div><p>CRTP base class managing a parameter structure in persistent storage with CRC16 integrity validation. </p>
+<p>The storage image is the raw bytes of 'T_DATA' immediately followed by their CRC16, without padding, and lives inside the object instead of on the heap. The derived class implements 'restoreByDefault()', which fills the bound data structure with default values; it is called when the stored image fails validation. Declare it public, or befriend this base, so the base can reach it.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete parameter class inheriting from this base. </td></tr>
+    <tr><td class="paramname">T_DATA</td><td>Parameter structure; must be trivially copyable, because it is stored byte-wise. </td></tr>
+    <tr><td class="paramname">T_STORAGE</td><td>Concrete storage backend type, derived from 'Storage&lt;T_STORAGE&gt;'. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a335a74b2beee583b06c1cc6a0c928957" id="r_a335a74b2beee583b06c1cc6a0c928957"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564">OK</a>
+, <br />
+&#160;&#160;<a class="el" href="#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a335a74b2beee583b06c1cc6a0c928957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status codes for parameter operations.  <a href="#a335a74b2beee583b06c1cc6a0c928957">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a6c93bc540f4ca328949b18b8364730fc" id="r_a6c93bc540f4ca328949b18b8364730fc"><td class="memItemLeft"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6c93bc540f4ca328949b18b8364730fc">setup</a> () noexcept</td></tr>
+<tr class="memdesc:a6c93bc540f4ca328949b18b8364730fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the stored parameters, restoring and persisting defaults if the image is invalid.  <br /></td></tr>
+<tr class="memitem:ab2a15849ffa63fb1b31e58a50f802faa" id="r_ab2a15849ffa63fb1b31e58a50f802faa"><td class="memItemLeft"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab2a15849ffa63fb1b31e58a50f802faa">write</a> () noexcept</td></tr>
+<tr class="memdesc:ab2a15849ffa63fb1b31e58a50f802faa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Persists the bound data together with a freshly computed CRC.  <br /></td></tr>
+<tr class="memitem:aea6685c90b8a40bf879c93f795cb0d1a" id="r_aea6685c90b8a40bf879c93f795cb0d1a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aea6685c90b8a40bf879c93f795cb0d1a">isValid</a> () const noexcept</td></tr>
+<tr class="memdesc:aea6685c90b8a40bf879c93f795cb0d1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the image last read or written matches its CRC.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a0d2e425ec31b105ced5a1ec414518eb2" id="r_a0d2e425ec31b105ced5a1ec414518eb2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0d2e425ec31b105ced5a1ec414518eb2">Parameters</a> (T_STORAGE &amp;storage, T_DATA &amp;data) noexcept</td></tr>
+<tr class="memdesc:a0d2e425ec31b105ced5a1ec414518eb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the parameter manager to a storage backend and to the data structure it persists.  <br /></td></tr>
+<tr class="memitem:a401c8f010740c371697fba3fa25b559c" id="r_a401c8f010740c371697fba3fa25b559c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a401c8f010740c371697fba3fa25b559c">Parameters</a> (const Parameters &amp;)=delete</td></tr>
+<tr class="memdesc:a401c8f010740c371697fba3fa25b559c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is disabled: a copy would alias the same storage backend and data structure.  <br /></td></tr>
+<tr class="memitem:ab7707d467c6b510fc640db358633fd8b" id="r_ab7707d467c6b510fc640db358633fd8b"><td class="memItemLeft"><a class="el" href="#a0d2e425ec31b105ced5a1ec414518eb2">Parameters</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab7707d467c6b510fc640db358633fd8b">operator=</a> (const <a class="el" href="#a0d2e425ec31b105ced5a1ec414518eb2">Parameters</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ab7707d467c6b510fc640db358633fd8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is disabled: a copy would alias the same storage backend and data structure.  <br /></td></tr>
 </table>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a2e9a3fd94c50f6eec80b37bc5f23f415" name="a2e9a3fd94c50f6eec80b37bc5f23f415"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e9a3fd94c50f6eec80b37bc5f23f415">&#9670;&#160;</a></span>current</h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a335a74b2beee583b06c1cc6a0c928957" name="a335a74b2beee583b06c1cc6a0c928957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a335a74b2beee583b06c1cc6a0c928957">&#9670;&#160;</a></span>Status</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::SolarControl::PerturbAndObserve::Measurement::current</td>
+          <td class="memname">enum class <a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Lib::System::Parameters::Status</a> : uint8_t</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Measured current in amperes. </p>
+<p>Status codes for parameter operations. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564" name="a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5" name="a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"><p>Operation failed. </p>
+</td></tr>
+</table>
 
 </div>
 </div>
-<a id="a1e7c41cc6f1e458a928298f16e3913df" name="a1e7c41cc6f1e458a928298f16e3913df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e7c41cc6f1e458a928298f16e3913df">&#9670;&#160;</a></span>voltage</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0d2e425ec31b105ced5a1ec414518eb2" name="a0d2e425ec31b105ced5a1ec414518eb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d2e425ec31b105ced5a1ec414518eb2">&#9670;&#160;</a></span>Parameters() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::SolarControl::PerturbAndObserve::Measurement::voltage</td>
+          <td class="memname"><a class="el" href="../../d4/d80/a06030.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;::Parameters </td>
+          <td>(</td>
+          <td class="paramtype">T_STORAGE &amp;</td>          <td class="paramname"><span class="paramname"><em>storage</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T_DATA &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Measured voltage in volts. </p>
+<p>Binds the parameter manager to a storage backend and to the data structure it persists. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">storage</td><td>Storage backend; must outlive this object. </td></tr>
+    <tr><td class="paramname">data</td><td>Parameter structure read by <a class="el" href="#a6c93bc540f4ca328949b18b8364730fc" title="setup()">setup()</a> and persisted by <a class="el" href="#ab2a15849ffa63fb1b31e58a50f802faa" title="write()">write()</a>; must outlive this object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a401c8f010740c371697fba3fa25b559c" name="a401c8f010740c371697fba3fa25b559c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a401c8f010740c371697fba3fa25b559c">&#9670;&#160;</a></span>Parameters() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d4/d80/a06030.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;::Parameters </td>
+          <td>(</td>
+          <td class="paramtype">const Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is disabled: a copy would alias the same storage backend and data structure. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aea6685c90b8a40bf879c93f795cb0d1a" name="aea6685c90b8a40bf879c93f795cb0d1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea6685c90b8a40bf879c93f795cb0d1a">&#9670;&#160;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/d80/a06030.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;::isValid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the image last read or written matches its CRC. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the stored CRC matches the data, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ab7707d467c6b510fc640db358633fd8b" name="ab7707d467c6b510fc640db358633fd8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7707d467c6b510fc640db358633fd8b">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0d2e425ec31b105ced5a1ec414518eb2">Parameters</a> &amp; <a class="el" href="../../d4/d80/a06030.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a0d2e425ec31b105ced5a1ec414518eb2">Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is disabled: a copy would alias the same storage backend and data structure. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a6c93bc540f4ca328949b18b8364730fc" name="a6c93bc540f4ca328949b18b8364730fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c93bc540f4ca328949b18b8364730fc">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a> <a class="el" href="../../d4/d80/a06030.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;::setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads the stored parameters, restoring and persisting defaults if the image is invalid. </p>
+<p>Opens the storage, reads the image and checks its CRC. On a mismatch, e.g. on first power-up or after corruption, 'restoreByDefault()' fills the bound data with defaults, which are then written back. On success the bound data holds the validated parameters.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564" title="Status::OK">Status::OK</a> on success, <a class="el" href="#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5" title="Status::ERROR">Status::ERROR</a> if the storage could not be opened, read or written. </dd></dl>
+
+</div>
+</div>
+<a id="ab2a15849ffa63fb1b31e58a50f802faa" name="ab2a15849ffa63fb1b31e58a50f802faa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2a15849ffa63fb1b31e58a50f802faa">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a> <a class="el" href="../../d4/d80/a06030.html">Lib::System::Parameters</a>&lt; T_DERIVED, T_DATA, T_STORAGE &gt;::write </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Persists the bound data together with a freshly computed CRC. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564" title="Status::OK">Status::OK</a> if the write succeeded, <a class="el" href="#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5" title="Status::ERROR">Status::ERROR</a> otherwise. </dd></dl>
 
 </div>
 </div>

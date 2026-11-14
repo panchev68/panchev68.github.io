@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::TickCounter</title>
+<title>IAR EWARM Library: RTOS::Timer</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,44 +92,77 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::TickCounter</div></div>
+  <div class="headertitle"><div class="title">RTOS::Timer</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows reading the tick count, measuring elapsed ticks, and converting between ticks and time units.</p>
-<p>Shows reading the tick count, measuring elapsed ticks, and converting between ticks and time units.Conversions to ticks round up, so a wait is never shorter than requested, and they saturate at 'portMAX_DELAY'. <a class="el" href="../../d7/d4b/a05980.html#a3bd8941116778102907c08b9b5184316" title="RTOS::TickCounter::get()">RTOS::TickCounter::get()</a> asserts task context; from an interrupt use <a class="el" href="../../d7/d4b/a05980.html#af393a988abb6fd04e4b69529d19ba65f" title="RTOS::TickCounter::getFromISR()">RTOS::TickCounter::getFromISR()</a> and <a class="el" href="../../d7/d4b/a05980.html#a26129c317f81ddbd57a1d7ea37d14ed1" title="RTOS::TickCounter::getElapsedTicksSinceFromISR()">RTOS::TickCounter::getElapsedTicksSinceFromISR()</a> instead. All functions are static, so <a class="el" href="../../dd/d78/a06277.html" title="RTOS::TickCounter">RTOS::TickCounter</a> is never instantiated.</p>
+<p>Shows a software timer that runs a callback from the FreeRTOS timer daemon task.</p>
+<p>Shows a software timer that runs a callback from the FreeRTOS timer daemon task.Covers an auto-reload timer that toggles an LED every 500 ms and a one-shot timer that is started on demand. Callbacks run in the timer daemon task context, not in an ISR, so they must not block for long. The timer objects must outlive their callbacks, so they are kept in namespace scope here; destroying a timer stops it.</p>
+<dl class="section warning"><dt>Warning</dt><dd>The callback is stored as a non-owning 'FunctionRef': the function it points to must outlive the timer.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="tickcounter_usage_timing"></a>
-Measure and convert time</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d82/a00920.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d38/a00926.html">Lib/RTOS/FreeRTOS/TickCounter.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timer_usage_blink"></a>
+Auto-reload timer</h3>
+<p><a class="el" href="../../d5/d61/a05982.html#a3570e42c41aad69f4a39549a4f79eb09" title="RTOS::Timer::make()">RTOS::Timer::make()</a> returns an empty optional when the native timer cannot be created.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d19/a00935.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <span class="keywordtype">void</span> toggleLed() {</div>
+<div class="line">        <span class="comment">// Toggle the LED from the timer daemon task.</span></div>
+<div class="line">    }</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> timingTask() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d7/d4b/a05980.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> <a id="_a1" name="_a1"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a> = <a id="a2" name="a2"></a><a class="code hl_function" href="../../d7/d4b/a05980.html#a3bd8941116778102907c08b9b5184316">RTOS::TickCounter::get</a>();</div>
-<div class="line"> </div>
-<div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="../../de/db2/a05948.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a>(150ms);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d7/d4b/a05980.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> elapsed = <a id="a4" name="a4"></a><a class="code hl_function" href="../../d7/d4b/a05980.html#a97f0500abd250ef6ac60226faa35ccfa">RTOS::TickCounter::getElapsedTicksSince</a>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a>);</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a5" name="_a5"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> elapsedTime = <a id="a6" name="a6"></a><a class="code hl_function" href="../../d7/d4b/a05980.html#a9c2f37f5b366ec485302e551cafdb87a">RTOS::TickCounter::toDuration</a>(elapsed);</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d7/d4b/a05980.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> timeoutTicks = <a id="a7" name="a7"></a><a class="code hl_function" href="../../d7/d4b/a05980.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a>(2s);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(elapsedTime);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(timeoutTicks);</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;RTOS::Timer&gt;</a> blink;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00920_html"><div class="ttname"><a href="../../d6/d82/a00920.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
-<div class="ttc" id="aa00926_html"><div class="ttname"><a href="../../d8/d38/a00926.html">TickCounter.hpp</a></div><div class="ttdoc">Converts between scheduler ticks, milliseconds, seconds and std::chrono durations.</div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
-<div class="ttc" id="aa05948_html_a1c0c1a0a57ee9332e741c8422eebbffe"><div class="ttname"><a href="../../de/db2/a05948.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType ticks) noexcept</div><div class="ttdoc">Delays the calling task for the given number of ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:739</div></div>
-<div class="ttc" id="aa05980_html_a3bd8941116778102907c08b9b5184316"><div class="ttname"><a href="../../d7/d4b/a05980.html#a3bd8941116778102907c08b9b5184316">RTOS::TickCounter::get</a></div><div class="ttdeci">static TickType get() noexcept</div><div class="ttdoc">Returns the current scheduler tick count from task context.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:82</div></div>
-<div class="ttc" id="aa05980_html_a97f0500abd250ef6ac60226faa35ccfa"><div class="ttname"><a href="../../d7/d4b/a05980.html#a97f0500abd250ef6ac60226faa35ccfa">RTOS::TickCounter::getElapsedTicksSince</a></div><div class="ttdeci">static TickType getElapsedTicksSince(TickType startTick) noexcept</div><div class="ttdoc">Computes ticks elapsed since a previously captured tick value.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:110</div></div>
-<div class="ttc" id="aa05980_html_a9c2f37f5b366ec485302e551cafdb87a"><div class="ttname"><a href="../../d7/d4b/a05980.html#a9c2f37f5b366ec485302e551cafdb87a">RTOS::TickCounter::toDuration</a></div><div class="ttdeci">static constexpr T_DURATION toDuration(TickType ticks) noexcept</div><div class="ttdoc">Converts a scheduler tick count to a std::chrono duration.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:245</div></div>
-<div class="ttc" id="aa05980_html_ad6656fb17699eab5dc474d46e3e29234"><div class="ttname"><a href="../../d7/d4b/a05980.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a></div><div class="ttdeci">static constexpr TickType toTicks(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Converts a std::chrono duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:234</div></div>
-<div class="ttc" id="aa05980_html_af8b741f7cd6bd8cefd26aae83980fbfd"><div class="ttname"><a href="../../d7/d4b/a05980.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdoc">Scheduler tick count type.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:40</div></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> startBlink() {</div>
+<div class="line">    blink = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d5/d61/a05982.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a>(<a id="_a2" name="_a2"></a><a class="code hl_function" href="../../db/d3a/a05986.html#afffb77404217246e78520eb888dd7afe">RTOS::Timer::Config::fromMs</a>(<span class="stringliteral">&quot;Blink&quot;</span>, &amp;toggleLed, 500U));</div>
+<div class="line">    <span class="keywordflow">if</span> (blink.has_value() &amp;&amp; blink-&gt;start() == <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d5/d61/a05982.html#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c">RTOS::Timer::Status::SUCCESS</a>) {</div>
+<div class="line">        <span class="comment">// Blinking until blink is stopped or destroyed.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa00935_html"><div class="ttname"><a href="../../d8/d19/a00935.html">Timer.hpp</a></div><div class="ttdoc">C++20 RAII wrapper for FreeRTOS Software Timers.</div></div>
+<div class="ttc" id="aa05982_html_a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="../../d5/d61/a05982.html#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c">RTOS::Timer::Status::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">Operation completed successfully.</div><div class="ttdef"><b>Definition</b> Timer.hpp:65</div></div>
+<div class="ttc" id="aa05982_html_a3570e42c41aad69f4a39549a4f79eb09"><div class="ttname"><a href="../../d5/d61/a05982.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a></div><div class="ttdeci">static std::optional&lt; Timer &gt; make(const Config &amp;config) noexcept</div><div class="ttdoc">Attempts to construct a Timer from the given configuration.</div><div class="ttdef"><b>Definition</b> Timer.hpp:223</div></div>
+<div class="ttc" id="aa05986_html_afffb77404217246e78520eb888dd7afe"><div class="ttname"><a href="../../db/d3a/a05986.html#afffb77404217246e78520eb888dd7afe">RTOS::Timer::Config::fromMs</a></div><div class="ttdeci">static Config fromMs(std::string_view name, Callback timerCallback, uint32_t periodMs, Mode timerMode=Mode::AUTO_RELOAD) noexcept</div><div class="ttdoc">Creates a configuration with the period given in milliseconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:178</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timer_usage_oneshot"></a>
+One-shot timer</h3>
+<p>A one-shot timer runs its callback once after each <a class="el" href="../../d5/d61/a05982.html#a1265d75e62308e7d74fbc52532f7c9b4" title="RTOS::Timer::start()">RTOS::Timer::start()</a>. The period is given in seconds here.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d19/a00935.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <span class="keywordtype">void</span> timeoutHandler() {</div>
+<div class="line">        <span class="comment">// Runs once, 3 s after the timer is started.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;RTOS::Timer&gt;</a> <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> startTimeout() {</div>
+<div class="line">    <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a> = <a class="code hl_function" href="../../d5/d61/a05982.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a>(</div>
+<div class="line">        <a id="_a4" name="_a4"></a><a class="code hl_function" href="../../db/d3a/a05986.html#a509c3109c5fe880023442429b1229c81">RTOS::Timer::Config::fromSeconds</a>(<span class="stringliteral">&quot;Timeout&quot;</span>, &amp;timeoutHandler, 3U, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d5/d61/a05982.html#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d">RTOS::Timer::Mode::ONE_SHOT</a>));</div>
+<div class="line">    <span class="keywordflow">if</span> (<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>.has_value()) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>-&gt;start());</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01612_html_gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">cv_status::timeout</a></div><div class="ttdeci">@ timeout</div></div>
+<div class="ttc" id="aa05982_html_a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d"><div class="ttname"><a href="../../d5/d61/a05982.html#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d">RTOS::Timer::Mode::ONE_SHOT</a></div><div class="ttdeci">@ ONE_SHOT</div><div class="ttdoc">Timer runs once and stops.</div><div class="ttdef"><b>Definition</b> Timer.hpp:75</div></div>
+<div class="ttc" id="aa05986_html_a509c3109c5fe880023442429b1229c81"><div class="ttname"><a href="../../db/d3a/a05986.html#a509c3109c5fe880023442429b1229c81">RTOS::Timer::Config::fromSeconds</a></div><div class="ttdeci">static Config fromSeconds(std::string_view name, Callback timerCallback, uint32_t periodSec, Mode timerMode=Mode::AUTO_RELOAD) noexcept</div><div class="ttdoc">Creates a configuration with the period given in seconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:191</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timer_usage_period"></a>
+Changing the period at run time</h3>
+<p><a class="el" href="../../d5/d61/a05982.html#a331c5e9a5b7f5977af306617b8c42cb7" title="RTOS::Timer::setPeriodMs()">RTOS::Timer::setPeriodMs()</a> changes the period of the timer. FreeRTOS also starts a stopped timer as a side effect, so call <a class="el" href="../../d5/d61/a05982.html#a798530d43191f94bd5cd6f8cfea846b3" title="RTOS::Timer::stop()">RTOS::Timer::stop()</a> afterwards if the timer must stay stopped.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d19/a00935.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> blinkFaster(<a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d5/d61/a05982.html">RTOS::Timer</a> &amp; blink) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(blink.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d5/d61/a05982.html#a331c5e9a5b7f5977af306617b8c42cb7">setPeriodMs</a>(250U));</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05982_html"><div class="ttname"><a href="../../d5/d61/a05982.html">RTOS::Timer</a></div><div class="ttdoc">RAII wrapper for managing FreeRTOS software timer resources.</div><div class="ttdef"><b>Definition</b> Timer.hpp:51</div></div>
+<div class="ttc" id="aa05982_html_a331c5e9a5b7f5977af306617b8c42cb7"><div class="ttname"><a href="../../d5/d61/a05982.html#a331c5e9a5b7f5977af306617b8c42cb7">RTOS::Timer::setPeriodMs</a></div><div class="ttdeci">Status setPeriodMs(uint32_t periodMs, TickType blockTime=DEFAULT_BLOCK_TIME) noexcept</div><div class="ttdoc">Sets period in milliseconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:505</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

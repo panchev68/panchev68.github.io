@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::FlashInterface</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,7 +91,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../d0/d12/a05386.html">DACPort&lt; DriverMode::BLOCKING &gt;</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../d0/d12/a05386.html">FlashInterface</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -97,83 +99,46 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../db/d18/a05383.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::FlashInterface<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Stateless facade over the internal Flash controller.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Blocking specialization: start/stop only. </p>
-<p>The STM32 HAL DAC driver raises no interrupt for a direct register write becoming active. With no hardware trigger configured, the written value reaches the output synchronously as part of the write call itself. With a hardware trigger configured, the value is latched on the next trigger edge, which must be observed through the trigger source's own interrupt (e.g. a timer update IRQ) rather than through the DAC peripheral. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d61/a05385.svg" width="350" height="555"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/dec/a05384.svg" width="350" height="555"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
+<div class="textblock"><p>Stateless facade over the internal Flash controller. </p>
+<p>Erasing and programming need the controller unlocked, see unlock(). The HAL calls block until the operation ends. Programming granularity follows the family: a 32-bit word where the HAL offers 'FLASH_TYPEPROGRAM_WORD', a 64-bit doubleword where it offers 'FLASH_TYPEPROGRAM_DOUBLEWORD'. Families with other granularities (for example quad-word) are not supported yet and every programming call returns <b>false</b> there. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d16/a06179.html#_a1">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a639e7e6b8ef7eb47baac27f82712963e" id="r_a639e7e6b8ef7eb47baac27f82712963e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> (DAC_HandleTypeDef *handle, uint32_t channel) noexcept</td></tr>
-<tr class="memdesc:a639e7e6b8ef7eb47baac27f82712963e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block and hardware channel.  <br /></td></tr>
-<tr class="memitem:ac832156b805caf8041f1097ecf576ec2" id="r_ac832156b805caf8041f1097ecf576ec2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac832156b805caf8041f1097ecf576ec2">~DACPort</a> () noexcept</td></tr>
-<tr class="memdesc:ac832156b805caf8041f1097ecf576ec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the channel before the object goes out of scope.  <br /></td></tr>
-<tr class="memitem:ae857dfa99c02206e9c82894b2b5d50c7" id="r_ae857dfa99c02206e9c82894b2b5d50c7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae857dfa99c02206e9c82894b2b5d50c7">DACPort</a> (const DACPort &amp;other)=delete</td></tr>
-<tr class="memdesc:ae857dfa99c02206e9c82894b2b5d50c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a188f7d834b91520e5dc8b255c12e6d7c" id="r_a188f7d834b91520e5dc8b255c12e6d7c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a188f7d834b91520e5dc8b255c12e6d7c">DACPort</a> (DACPort &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a188f7d834b91520e5dc8b255c12e6d7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a5e9177ee33e5a96bb6fcb732f8ea15ef" id="r_a5e9177ee33e5a96bb6fcb732f8ea15ef"><td class="memItemLeft"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5e9177ee33e5a96bb6fcb732f8ea15ef">operator=</a> (const <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a5e9177ee33e5a96bb6fcb732f8ea15ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a947c4407f00f40ef2d244a914699c60e" id="r_a947c4407f00f40ef2d244a914699c60e"><td class="memItemLeft"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a947c4407f00f40ef2d244a914699c60e">operator=</a> (<a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a947c4407f00f40ef2d244a914699c60e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a8931efb843554302b191363c4a0bfa41" id="r_a8931efb843554302b191363c4a0bfa41"><td class="memItemLeft">DAC_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="#a8931efb843554302b191363c4a0bfa41">getHandle</a> () noexcept</td></tr>
-<tr class="memdesc:a8931efb843554302b191363c4a0bfa41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:a6607ca6708888b8278a5fbe1b865e33d" id="r_a6607ca6708888b8278a5fbe1b865e33d"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a6607ca6708888b8278a5fbe1b865e33d">getChannel</a> () const noexcept</td></tr>
-<tr class="memdesc:a6607ca6708888b8278a5fbe1b865e33d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the hardware channel configured for this port instance.  <br /></td></tr>
-<tr class="memitem:a0fb9b03d74076c644c02fd75613c0748" id="r_a0fb9b03d74076c644c02fd75613c0748"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0fb9b03d74076c644c02fd75613c0748">start</a> () noexcept</td></tr>
-<tr class="memdesc:a0fb9b03d74076c644c02fd75613c0748"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the DAC channel for output.  <br /></td></tr>
-<tr class="memitem:aeb4d00954e883a85534eb2da3acd379f" id="r_aeb4d00954e883a85534eb2da3acd379f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aeb4d00954e883a85534eb2da3acd379f">stop</a> () noexcept</td></tr>
-<tr class="memdesc:aeb4d00954e883a85534eb2da3acd379f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the DAC channel.  <br /></td></tr>
-<tr class="memitem:ae527315d8794d0bcdbd7b686839e4630" id="r_ae527315d8794d0bcdbd7b686839e4630"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d9/d61/a05402.html#ae527315d8794d0bcdbd7b686839e4630">open</a> () noexcept</td></tr>
-<tr class="memdesc:ae527315d8794d0bcdbd7b686839e4630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the DAC peripheral.  <br /></td></tr>
-<tr class="memitem:a2c3c1b081f9ff127e0f02cd3db61d4c4" id="r_a2c3c1b081f9ff127e0f02cd3db61d4c4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d9/d61/a05402.html#a2c3c1b081f9ff127e0f02cd3db61d4c4">close</a> () noexcept</td></tr>
-<tr class="memdesc:a2c3c1b081f9ff127e0f02cd3db61d4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the DAC peripheral.  <br /></td></tr>
-<tr class="memitem:a984f15fd9218a6fec1e7ac0d61e04e6d" id="r_a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d9/d61/a05402.html#a984f15fd9218a6fec1e7ac0d61e04e6d">setValue</a> (uint32_t value, <a class="el" href="../../d9/d61/a05402.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a> alignment=DataAlignment::RIGHT_12_BITS) noexcept</td></tr>
-<tr class="memdesc:a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the DAC output value on the bound channel.  <br /></td></tr>
+<tr class="memitem:a8d095be00ec32cc8d562d8de4f5285b9" id="r_a8d095be00ec32cc8d562d8de4f5285b9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> ()=default</td></tr>
+<tr class="memdesc:a8d095be00ec32cc8d562d8de4f5285b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the facade.  <br /></td></tr>
+<tr class="memitem:a21441fdc8ee265dd3125df9d4e9939f1" id="r_a21441fdc8ee265dd3125df9d4e9939f1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a21441fdc8ee265dd3125df9d4e9939f1">~FlashInterface</a> ()=default</td></tr>
+<tr class="memdesc:a21441fdc8ee265dd3125df9d4e9939f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the facade.  <br /></td></tr>
+<tr class="memitem:a3b934e9e562900d0d933cf2628a1f6ff" id="r_a3b934e9e562900d0d933cf2628a1f6ff"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3b934e9e562900d0d933cf2628a1f6ff">FlashInterface</a> (const FlashInterface &amp;other)=delete</td></tr>
+<tr class="memdesc:a3b934e9e562900d0d933cf2628a1f6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a1c805cbd8158ca094182032c42fa8a68" id="r_a1c805cbd8158ca094182032c42fa8a68"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1c805cbd8158ca094182032c42fa8a68">FlashInterface</a> (FlashInterface &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a1c805cbd8158ca094182032c42fa8a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a3d3605babb7dc3b9f118bf52dc3e62c6" id="r_a3d3605babb7dc3b9f118bf52dc3e62c6"><td class="memItemLeft"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3d3605babb7dc3b9f118bf52dc3e62c6">operator=</a> (const <a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a3d3605babb7dc3b9f118bf52dc3e62c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a2e5471c04f3069860252fdf10e53270a" id="r_a2e5471c04f3069860252fdf10e53270a"><td class="memItemLeft"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2e5471c04f3069860252fdf10e53270a">operator=</a> (<a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a2e5471c04f3069860252fdf10e53270a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a0f5c36a802a9b6cf15aacf3d104cb445" id="r_a0f5c36a802a9b6cf15aacf3d104cb445"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a> () noexcept</td></tr>
+<tr class="memdesc:a0f5c36a802a9b6cf15aacf3d104cb445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks the Flash control register so that erase and program operations are accepted.  <br /></td></tr>
+<tr class="memitem:a076081c699cb3dcf3a7f5890c6c4f568" id="r_a076081c699cb3dcf3a7f5890c6c4f568"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a076081c699cb3dcf3a7f5890c6c4f568">lock</a> () noexcept</td></tr>
+<tr class="memdesc:a076081c699cb3dcf3a7f5890c6c4f568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the Flash control register against accidental erase and program operations.  <br /></td></tr>
+<tr class="memitem:a31fec472e71d387e0e9a5ade75e5ae24" id="r_a31fec472e71d387e0e9a5ade75e5ae24"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a31fec472e71d387e0e9a5ade75e5ae24">eraseSector</a> (uint32_t sectorIndex, uint32_t voltageRange) noexcept</td></tr>
+<tr class="memdesc:a31fec472e71d387e0e9a5ade75e5ae24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases one sector (sector-based families) or one page (page-based families).  <br /></td></tr>
+<tr class="memitem:ad771befb1be3db0d319c46507a7896ca" id="r_ad771befb1be3db0d319c46507a7896ca"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad771befb1be3db0d319c46507a7896ca">writeWord</a> (uint32_t address, uint32_t data) noexcept</td></tr>
+<tr class="memdesc:ad771befb1be3db0d319c46507a7896ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Programs one 32-bit word.  <br /></td></tr>
+<tr class="memitem:ae33402652ac23992b9eb28ed57ca35e8" id="r_ae33402652ac23992b9eb28ed57ca35e8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae33402652ac23992b9eb28ed57ca35e8">writeBuffer</a> (uint32_t startAddress, const uint32_t *dataPointer, uint32_t wordLength) noexcept</td></tr>
+<tr class="memdesc:ae33402652ac23992b9eb28ed57ca35e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Programs a buffer of 32-bit words into consecutive flash addresses.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a18b5de83aaec561a43dc24a80e15bd46" name="a18b5de83aaec561a43dc24a80e15bd46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18b5de83aaec561a43dc24a80e15bd46">&#9670;&#160;</a></span>DataAlignment</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="../../d9/d61/a05402.html#a18b5de83aaec561a43dc24a80e15bd46">Lib::HAL::DACPortBase::DataAlignment</a> : uint32_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Output data alignment options for DAC value conversion. </p>
-<p>Mirrors the alignment macros defined by the STM32 HAL DAC driver. </p>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a639e7e6b8ef7eb47baac27f82712963e" name="a639e7e6b8ef7eb47baac27f82712963e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a639e7e6b8ef7eb47baac27f82712963e">&#9670;&#160;</a></span>DACPort() <span class="overload">[1/3]</span></h2>
+<a id="a8d095be00ec32cc8d562d8de4f5285b9" name="a8d095be00ec32cc8d562d8de4f5285b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d095be00ec32cc8d562d8de4f5285b9">&#9670;&#160;</a></span>FlashInterface() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -182,51 +147,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::DACPort </td>
-          <td>(</td>
-          <td class="paramtype">DAC_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Binds the port to a native hardware descriptor block and hardware channel. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
-    <tr><td class="paramname">channel</td><td>Target hardware channel allocation macro (e.g. 'DAC_CHANNEL_1'). </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d12/a05386_a639e7e6b8ef7eb47baac27f82712963e_icgraph.svg" width="726" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac832156b805caf8041f1097ecf576ec2" name="ac832156b805caf8041f1097ecf576ec2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac832156b805caf8041f1097ecf576ec2">&#9670;&#160;</a></span>~DACPort()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::~<a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> </td>
+          <td class="memname">Lib::HAL::FlashInterface::FlashInterface </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -234,23 +155,18 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the channel before the object goes out of scope. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d12/a05386_ac832156b805caf8041f1097ecf576ec2_cgraph.svg" width="790" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Creates the facade. </p>
+<p>No hardware is touched until a method is called. </p>
 
 </div>
 </div>
-<a id="ae857dfa99c02206e9c82894b2b5d50c7" name="ae857dfa99c02206e9c82894b2b5d50c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae857dfa99c02206e9c82894b2b5d50c7">&#9670;&#160;</a></span>DACPort() <span class="overload">[2/3]</span></h2>
+<a id="a21441fdc8ee265dd3125df9d4e9939f1" name="a21441fdc8ee265dd3125df9d4e9939f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21441fdc8ee265dd3125df9d4e9939f1">&#9670;&#160;</a></span>~FlashInterface()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,9 +175,37 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::DACPort </td>
+          <td class="memname">Lib::HAL::FlashInterface::~FlashInterface </td>
           <td>(</td>
-          <td class="paramtype">const DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the facade. </p>
+<p>The controller is left as it is, lock() is not called. </p>
+
+</div>
+</div>
+<a id="a3b934e9e562900d0d933cf2628a1f6ff" name="a3b934e9e562900d0d933cf2628a1f6ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b934e9e562900d0d933cf2628a1f6ff">&#9670;&#160;</a></span>FlashInterface() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::FlashInterface::FlashInterface </td>
+          <td>(</td>
+          <td class="paramtype">const FlashInterface &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -272,24 +216,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: each instance owns a unique native handle binding. </p>
+<p>Copying is deleted: the facade stands for the single process-wide Flash controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d12/a05386_ae857dfa99c02206e9c82894b2b5d50c7_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a188f7d834b91520e5dc8b255c12e6d7c" name="a188f7d834b91520e5dc8b255c12e6d7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a188f7d834b91520e5dc8b255c12e6d7c">&#9670;&#160;</a></span>DACPort() <span class="overload">[3/3]</span></h2>
+<a id="a1c805cbd8158ca094182032c42fa8a68" name="a1c805cbd8158ca094182032c42fa8a68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c805cbd8158ca094182032c42fa8a68">&#9670;&#160;</a></span>FlashInterface() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -298,9 +236,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::DACPort </td>
+          <td class="memname">Lib::HAL::FlashInterface::FlashInterface </td>
           <td>(</td>
-          <td class="paramtype">DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">FlashInterface &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -311,25 +249,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is deleted: each instance owns a unique native handle binding. </p>
+<p>Moving is deleted: the facade stands for the single process-wide Flash controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d12/a05386_a188f7d834b91520e5dc8b255c12e6d7c_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a2c3c1b081f9ff127e0f02cd3db61d4c4" name="a2c3c1b081f9ff127e0f02cd3db61d4c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c3c1b081f9ff127e0f02cd3db61d4c4">&#9670;&#160;</a></span>close()</h2>
+<a id="a31fec472e71d387e0e9a5ade75e5ae24" name="a31fec472e71d387e0e9a5ade75e5ae24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31fec472e71d387e0e9a5ade75e5ae24">&#9670;&#160;</a></span>eraseSector()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -338,229 +270,39 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d61/a05402.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::close </td>
+          <td class="memname">bool Lib::HAL::FlashInterface::eraseSector </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Deinitializes the DAC peripheral. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if deinitialization succeeded, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a6607ca6708888b8278a5fbe1b865e33d" name="a6607ca6708888b8278a5fbe1b865e33d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6607ca6708888b8278a5fbe1b865e33d">&#9670;&#160;</a></span>getChannel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getChannel </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fetches the hardware channel configured for this port instance. </p>
-<dl class="section return"><dt>Returns</dt><dd>Target hardware channel identifier ('DAC_CHANNEL_1' or 'DAC_CHANNEL_2'). </dd></dl>
-
-</div>
-</div>
-<a id="a8931efb843554302b191363c4a0bfa41" name="a8931efb843554302b191363c4a0bfa41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8931efb843554302b191363c4a0bfa41">&#9670;&#160;</a></span>getHandle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">DAC_HandleTypeDef * Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or 'nullptr' if unbound. </dd></dl>
-
-</div>
-</div>
-<a id="ae527315d8794d0bcdbd7b686839e4630" name="ae527315d8794d0bcdbd7b686839e4630"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae527315d8794d0bcdbd7b686839e4630">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d61/a05402.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::open </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initializes the DAC peripheral. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if initialization succeeded, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a5e9177ee33e5a96bb6fcb732f8ea15ef" name="a5e9177ee33e5a96bb6fcb732f8ea15ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e9177ee33e5a96bb6fcb732f8ea15ef">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp; Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy assignment is deleted: each instance owns a unique native handle binding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d12/a05386_a5e9177ee33e5a96bb6fcb732f8ea15ef_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a947c4407f00f40ef2d244a914699c60e" name="a947c4407f00f40ef2d244a914699c60e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a947c4407f00f40ef2d244a914699c60e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a> &amp; Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move assignment is deleted: each instance owns a unique native handle binding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d12/a05386_a947c4407f00f40ef2d244a914699c60e_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a984f15fd9218a6fec1e7ac0d61e04e6d" name="a984f15fd9218a6fec1e7ac0d61e04e6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a984f15fd9218a6fec1e7ac0d61e04e6d">&#9670;&#160;</a></span>setValue()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d9/d61/a05402.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#a639e7e6b8ef7eb47baac27f82712963e">DACPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::setValue </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>sectorIndex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d9/d61/a05402.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a></td>          <td class="paramname"><span class="paramname"><em>alignment</em></span><span class="paramdefsep"> = </span><span class="paramdefval">DataAlignment::RIGHT_12_BITS</span>&#160;)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>voltageRange</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the DAC output value on the bound channel. </p>
+<p>Erases one sector (sector-based families) or one page (page-based families). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Conversion value to write, within the range implied by 'alignment'. </td></tr>
-    <tr><td class="paramname">alignment</td><td>Data alignment applied to 'value'. </td></tr>
+    <tr><td class="paramname">sectorIndex</td><td>Sector or page number to erase (e.g. 'FLASH_SECTOR_5'). </td></tr>
+    <tr><td class="paramname">voltageRange</td><td>Supply voltage range, typically 'FLASH_VOLTAGE_RANGE_3'. Ignored on page-based families. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the write succeeded, <b>false</b> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the erase finished successfully. Always <b>false</b> if the HAL has no sector or page erase. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d16/a06179.html#a3">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a0fb9b03d74076c644c02fd75613c0748" name="a0fb9b03d74076c644c02fd75613c0748"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fb9b03d74076c644c02fd75613c0748">&#9670;&#160;</a></span>start()</h2>
+<a id="a076081c699cb3dcf3a7f5890c6c4f568" name="a076081c699cb3dcf3a7f5890c6c4f568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a076081c699cb3dcf3a7f5890c6c4f568">&#9670;&#160;</a></span>lock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -569,7 +311,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::start </td>
+          <td class="memname">bool Lib::HAL::FlashInterface::lock </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -582,13 +324,15 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Enables the DAC channel for output. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the channel was enabled successfully, <b>false</b> otherwise. </dd></dl>
+<p>Locks the Flash control register against accidental erase and program operations. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the controller is locked. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d16/a06179.html#a6">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="aeb4d00954e883a85534eb2da3acd379f" name="aeb4d00954e883a85534eb2da3acd379f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb4d00954e883a85534eb2da3acd379f">&#9670;&#160;</a></span>stop()</h2>
+<a id="a3d3605babb7dc3b9f118bf52dc3e62c6" name="a3d3605babb7dc3b9f118bf52dc3e62c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d3605babb7dc3b9f118bf52dc3e62c6">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -597,7 +341,75 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::stop </td>
+          <td class="memname"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp; Lib::HAL::FlashInterface::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the facade stands for the single process-wide Flash controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="a2e5471c04f3069860252fdf10e53270a" name="a2e5471c04f3069860252fdf10e53270a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e5471c04f3069860252fdf10e53270a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp; Lib::HAL::FlashInterface::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the facade stands for the single process-wide Flash controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="a0f5c36a802a9b6cf15aacf3d104cb445" name="a0f5c36a802a9b6cf15aacf3d104cb445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f5c36a802a9b6cf15aacf3d104cb445">&#9670;&#160;</a></span>unlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::FlashInterface::unlock </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -610,14 +422,100 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Disables the DAC channel. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the channel was disabled successfully, <b>false</b> otherwise. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+<p>Unlocks the Flash control register so that erase and program operations are accepted. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the controller accepted the unlock sequence. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d16/a06179.html#a2">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
+
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d12/a05386_aeb4d00954e883a85534eb2da3acd379f_icgraph.svg" width="790" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<a id="ae33402652ac23992b9eb28ed57ca35e8" name="ae33402652ac23992b9eb28ed57ca35e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae33402652ac23992b9eb28ed57ca35e8">&#9670;&#160;</a></span>writeBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::FlashInterface::writeBuffer </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>startAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t *</td>          <td class="paramname"><span class="paramname"><em>dataPointer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>wordLength</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Programs a buffer of 32-bit words into consecutive flash addresses. </p>
+<p>On doubleword families the words are paired into full doublewords. An unaligned start or an odd trailing word goes through writeWord(), which preserves the neighbouring half.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startAddress</td><td>Flash address of the first word, 4-byte aligned. </td></tr>
+    <tr><td class="paramname">dataPointer</td><td>Source words. </td></tr>
+    <tr><td class="paramname">wordLength</td><td>Number of 32-bit words to program. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every word was programmed. Always <b>false</b> if the family's program granularity is unsupported. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d16/a06179.html#a5">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ad771befb1be3db0d319c46507a7896ca" name="ad771befb1be3db0d319c46507a7896ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad771befb1be3db0d319c46507a7896ca">&#9670;&#160;</a></span>writeWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::FlashInterface::writeWord </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Programs one 32-bit word. </p>
+<p>On doubleword families the hardware programs 8 bytes at once, so the other half of the doubleword is read back and written unchanged. It must still be erased (all ones) or hold the value already there.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Flash address, 4-byte aligned. </td></tr>
+    <tr><td class="paramname">data</td><td>Value to program. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the word was programmed. Always <b>false</b> if the family's program granularity is unsupported. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d16/a06179.html#a7">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
 
 </div>
 </div>

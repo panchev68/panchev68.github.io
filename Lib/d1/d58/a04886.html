@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Crypto::WolfSSHServerContext</title>
+<title>IAR EWARM Library: Lib::Crypto::WolfSSLChaCha20Poly1305</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,71 +91,111 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../de/def/a01016.html">Crypto</a></li><li class="navelem"><a href="../../d1/d58/a04886.html">WolfSSHServerContext</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../dd/dac/a01008.html">Crypto</a></li><li class="navelem"><a href="../../d1/d58/a04886.html">WolfSSLChaCha20Poly1305</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d6/d48/a04883.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSHServerContext<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSLChaCha20Poly1305<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>ChaCha20-Poly1305 authenticated encryption on wolfCrypt (CubeMX: ChaCha20 / Poly1305 Support).  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Server-side SSH context: host key, banner and password authentication, shared by every session created from it (CubeMX: wolfSSH Core). </p>
-<p>One context normally serves every session of a single derived <a class="el" href="../../d1/d0b/a04890.html" title="WolfSSHServer">WolfSSHServer</a> type (sequential or concurrent); it must outlive every session created from it. Registering a session of a different derived type against the same context overwrites its I/O dispatch, so one context should serve one <a class="el" href="../../d1/d0b/a04890.html" title="WolfSSHServer">WolfSSHServer</a> specialization. Not thread-safe: configure it (host key, banner, auth handler) before any session starts accepting, then treat it as read-only. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Crypto::WolfSSHServerContext:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d32/a04884.svg" width="286" height="296"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
+<div class="textblock"><p>ChaCha20-Poly1305 authenticated encryption on wolfCrypt (CubeMX: ChaCha20 / Poly1305 Support). </p>
+<p>Stateless: every call takes the key, since wolfCrypt offers this cipher only as one-shot functions. Faster than AES-GCM in software on a core without an AES accelerator.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Never reuse a nonce with the same key: it reveals the plaintext and lets an attacker forge tags.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Crypto/WolfSSL.hpp" target="_blank">Source</a> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a01aa89923019ee3bf5249396252577a0" id="r_a01aa89923019ee3bf5249396252577a0"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a01aa89923019ee3bf5249396252577a0">Key</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ac4008236e8ab12e80436fcd9c33d2a32">KEY_SIZE</a>&gt;</td></tr>
+<tr class="memdesc:a01aa89923019ee3bf5249396252577a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cipher key.  <br /></td></tr>
+<tr class="memitem:ae4ce9fb8d76a85f4786b936d4bdb3327" id="r_ae4ce9fb8d76a85f4786b936d4bdb3327"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Nonce</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ad486fdcf9d54ee4a93e364f413abe40e">NONCE_SIZE</a>&gt;</td></tr>
+<tr class="memdesc:ae4ce9fb8d76a85f4786b936d4bdb3327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonce; unique per message for one key.  <br /></td></tr>
+<tr class="memitem:a73ebbac632c0982dc3eeb3880cd7febc" id="r_a73ebbac632c0982dc3eeb3880cd7febc"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Tag</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a6dc704aabffb7770213f90aa42f59f82">TAG_SIZE</a>&gt;</td></tr>
+<tr class="memdesc:a73ebbac632c0982dc3eeb3880cd7febc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authentication tag produced by encrypt().  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad363eed6ea00561564796afb4ef3e3fb" id="r_ad363eed6ea00561564796afb4ef3e3fb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad363eed6ea00561564796afb4ef3e3fb">WolfSSHServerContext</a> () noexcept</td></tr>
-<tr class="memdesc:ad363eed6ea00561564796afb4ef3e3fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the server-side wolfSSH context; call <a class="el" href="#ac06c1bc25be79333ff5cc3edbbd41960" title="usePrivateKey()">usePrivateKey()</a> before accepting a session.  <br /></td></tr>
-<tr class="memitem:a598919e9d94f4f4a862ee7bad3ef19f1" id="r_a598919e9d94f4f4a862ee7bad3ef19f1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a598919e9d94f4f4a862ee7bad3ef19f1">~WolfSSHServerContext</a> () noexcept</td></tr>
-<tr class="memdesc:a598919e9d94f4f4a862ee7bad3ef19f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfSSH context.  <br /></td></tr>
-<tr class="memitem:a2ef7ed72d52c71393f6b994a819e5f61" id="r_a2ef7ed72d52c71393f6b994a819e5f61"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2ef7ed72d52c71393f6b994a819e5f61">WolfSSHServerContext</a> (const WolfSSHServerContext &amp;)=delete</td></tr>
-<tr class="memdesc:a2ef7ed72d52c71393f6b994a819e5f61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: it owns a wolfSSH context.  <br /></td></tr>
-<tr class="memitem:a73bf998848ea5f7e51839651eab2cbdb" id="r_a73bf998848ea5f7e51839651eab2cbdb"><td class="memItemLeft"><a class="el" href="#ad363eed6ea00561564796afb4ef3e3fb">WolfSSHServerContext</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a73bf998848ea5f7e51839651eab2cbdb">operator=</a> (const <a class="el" href="#ad363eed6ea00561564796afb4ef3e3fb">WolfSSHServerContext</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a73bf998848ea5f7e51839651eab2cbdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: it owns a wolfSSH context.  <br /></td></tr>
-<tr class="memitem:a41d71d3b7597c69631a274d39e0fa345" id="r_a41d71d3b7597c69631a274d39e0fa345"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a41d71d3b7597c69631a274d39e0fa345">WolfSSHServerContext</a> (WolfSSHServerContext &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a41d71d3b7597c69631a274d39e0fa345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: it owns a wolfSSH context.  <br /></td></tr>
-<tr class="memitem:ac889915b8b230867843bb316a9bad1fc" id="r_ac889915b8b230867843bb316a9bad1fc"><td class="memItemLeft"><a class="el" href="#ad363eed6ea00561564796afb4ef3e3fb">WolfSSHServerContext</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac889915b8b230867843bb316a9bad1fc">operator=</a> (<a class="el" href="#ad363eed6ea00561564796afb4ef3e3fb">WolfSSHServerContext</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:ac889915b8b230867843bb316a9bad1fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: it owns a wolfSSH context.  <br /></td></tr>
-<tr class="memitem:ac06c1bc25be79333ff5cc3edbbd41960" id="r_ac06c1bc25be79333ff5cc3edbbd41960"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac06c1bc25be79333ff5cc3edbbd41960">usePrivateKey</a> (std::span&lt; const uint8_t &gt; key, <a class="el" href="../../de/def/a01016.html#ac3c925af062f5b22fa21eff3b0af0542">WolfSSHKeyFormat</a> format) noexcept</td></tr>
-<tr class="memdesc:ac06c1bc25be79333ff5cc3edbbd41960"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads the server's host key.  <br /></td></tr>
-<tr class="memitem:ad3ca33a90b311793a3e8b8bef0f99a21" id="r_ad3ca33a90b311793a3e8b8bef0f99a21"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad3ca33a90b311793a3e8b8bef0f99a21">setBanner</a> (const char *banner) noexcept</td></tr>
-<tr class="memdesc:ad3ca33a90b311793a3e8b8bef0f99a21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the banner shown to a client before authentication.  <br /></td></tr>
-<tr class="memitem:a72301d8027efc740d10b7d0d660c198f" id="r_a72301d8027efc740d10b7d0d660c198f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a72301d8027efc740d10b7d0d660c198f">setPasswordAuthHandler</a> (<a class="el" href="#a02da5e559fa4b2c28e3f68e32933f97d">PasswordAuthHandler</a> handler) noexcept</td></tr>
-<tr class="memdesc:a72301d8027efc740d10b7d0d660c198f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs the password-authentication handler for every session created from this context.  <br /></td></tr>
-<tr class="memitem:a188293485b26e63785504b3f63d346fe" id="r_a188293485b26e63785504b3f63d346fe"><td class="memItemLeft">WOLFSSH_CTX *&#160;</td><td class="memItemRight"><a class="el" href="#a188293485b26e63785504b3f63d346fe">native</a> () noexcept</td></tr>
-<tr class="memdesc:a188293485b26e63785504b3f63d346fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the native wolfSSH context handle, for <a class="el" href="../../d1/d0b/a04890.html" title="WolfSSHServer">WolfSSHServer</a> to create a session from.  <br /></td></tr>
+<tr class="memitem:af47892a2a6a403161bf652674b3fbaf8" id="r_af47892a2a6a403161bf652674b3fbaf8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af47892a2a6a403161bf652674b3fbaf8">WolfSSLChaCha20Poly1305</a> ()=delete</td></tr>
+<tr class="memdesc:af47892a2a6a403161bf652674b3fbaf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted: the class is static-only and cannot be constructed.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a45d85fbe3b63ebd2773575cb508d70eb" id="r_a45d85fbe3b63ebd2773575cb508d70eb"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a45d85fbe3b63ebd2773575cb508d70eb">encrypt</a> (const <a class="el" href="#a01aa89923019ee3bf5249396252577a0">Key</a> &amp;key, const <a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Nonce</a> &amp;nonce, std::span&lt; const uint8_t &gt; associatedData, std::span&lt; const uint8_t &gt; plaintext, std::span&lt; uint8_t &gt; ciphertext, <a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Tag</a> &amp;tag) noexcept</td></tr>
+<tr class="memdesc:a45d85fbe3b63ebd2773575cb508d70eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encrypts a plaintext and produces its authentication tag.  <br /></td></tr>
+<tr class="memitem:a83a9b4590d8b55c09801436788209d9f" id="r_a83a9b4590d8b55c09801436788209d9f"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a83a9b4590d8b55c09801436788209d9f">decrypt</a> (const <a class="el" href="#a01aa89923019ee3bf5249396252577a0">Key</a> &amp;key, const <a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Nonce</a> &amp;nonce, std::span&lt; const uint8_t &gt; associatedData, std::span&lt; const uint8_t &gt; ciphertext, const <a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Tag</a> &amp;tag, std::span&lt; uint8_t &gt; plaintext) noexcept</td></tr>
+<tr class="memdesc:a83a9b4590d8b55c09801436788209d9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the authentication tag and decrypts the ciphertext.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ac4008236e8ab12e80436fcd9c33d2a32" id="r_ac4008236e8ab12e80436fcd9c33d2a32"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac4008236e8ab12e80436fcd9c33d2a32">KEY_SIZE</a> = CHACHA20_POLY1305_AEAD_KEYSIZE</td></tr>
+<tr class="memdesc:ac4008236e8ab12e80436fcd9c33d2a32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Key length, in bytes.  <br /></td></tr>
+<tr class="memitem:ad486fdcf9d54ee4a93e364f413abe40e" id="r_ad486fdcf9d54ee4a93e364f413abe40e"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ad486fdcf9d54ee4a93e364f413abe40e">NONCE_SIZE</a> = CHACHA20_POLY1305_AEAD_IV_SIZE</td></tr>
+<tr class="memdesc:ad486fdcf9d54ee4a93e364f413abe40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nonce length, in bytes.  <br /></td></tr>
+<tr class="memitem:a6dc704aabffb7770213f90aa42f59f82" id="r_a6dc704aabffb7770213f90aa42f59f82"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a6dc704aabffb7770213f90aa42f59f82">TAG_SIZE</a> = CHACHA20_POLY1305_AEAD_AUTHTAG_SIZE</td></tr>
+<tr class="memdesc:a6dc704aabffb7770213f90aa42f59f82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authentication tag length, in bytes.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a02da5e559fa4b2c28e3f68e32933f97d" name="a02da5e559fa4b2c28e3f68e32933f97d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02da5e559fa4b2c28e3f68e32933f97d">&#9670;&#160;</a></span>PasswordAuthHandler</h2>
+<a id="a01aa89923019ee3bf5249396252577a0" name="a01aa89923019ee3bf5249396252577a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01aa89923019ee3bf5249396252577a0">&#9670;&#160;</a></span>Key</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a02da5e559fa4b2c28e3f68e32933f97d">Lib::Crypto::WolfSSHServerContext::PasswordAuthHandler</a> = <a class="el" href="../../d2/da7/a04830.html">FunctionRef</a>&lt;bool(std::span&lt;const uint8_t&gt; username, std::span&lt;const uint8_t&gt; password) noexcept&gt;</td>
+          <td class="memname">using <a class="el" href="#a01aa89923019ee3bf5249396252577a0">Lib::Crypto::WolfSSLChaCha20Poly1305::Key</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ac4008236e8ab12e80436fcd9c33d2a32">KEY_SIZE</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Checks a username/password pair presented by a connecting client. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> to accept the credentials, <b>false</b> to reject them. </dd></dl>
+<p>Cipher key. </p>
+
+</div>
+</div>
+<a id="ae4ce9fb8d76a85f4786b936d4bdb3327" name="ae4ce9fb8d76a85f4786b936d4bdb3327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4ce9fb8d76a85f4786b936d4bdb3327">&#9670;&#160;</a></span>Nonce</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Lib::Crypto::WolfSSLChaCha20Poly1305::Nonce</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ad486fdcf9d54ee4a93e364f413abe40e">NONCE_SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Nonce; unique per message for one key. </p>
+
+</div>
+</div>
+<a id="a73ebbac632c0982dc3eeb3880cd7febc" name="a73ebbac632c0982dc3eeb3880cd7febc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73ebbac632c0982dc3eeb3880cd7febc">&#9670;&#160;</a></span>Tag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Lib::Crypto::WolfSSLChaCha20Poly1305::Tag</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a6dc704aabffb7770213f90aa42f59f82">TAG_SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Authentication tag produced by encrypt(). </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad363eed6ea00561564796afb4ef3e3fb" name="ad363eed6ea00561564796afb4ef3e3fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad363eed6ea00561564796afb4ef3e3fb">&#9670;&#160;</a></span>WolfSSHServerContext() <span class="overload">[1/3]</span></h2>
+<a id="af47892a2a6a403161bf652674b3fbaf8" name="af47892a2a6a403161bf652674b3fbaf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af47892a2a6a403161bf652674b3fbaf8">&#9670;&#160;</a></span>WolfSSLChaCha20Poly1305()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,69 +204,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSHServerContext::WolfSSHServerContext </td>
+          <td class="memname">Lib::Crypto::WolfSSLChaCha20Poly1305::WolfSSLChaCha20Poly1305 </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates the server-side wolfSSH context; call <a class="el" href="#ac06c1bc25be79333ff5cc3edbbd41960" title="usePrivateKey()">usePrivateKey()</a> before accepting a session. </p>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d58/a04886_ad363eed6ea00561564796afb4ef3e3fb_icgraph.svg" width="630" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a598919e9d94f4f4a862ee7bad3ef19f1" name="a598919e9d94f4f4a862ee7bad3ef19f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a598919e9d94f4f4a862ee7bad3ef19f1">&#9670;&#160;</a></span>~WolfSSHServerContext()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSHServerContext::~WolfSSHServerContext </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Releases the wolfSSH context. </p>
-
-</div>
-</div>
-<a id="a2ef7ed72d52c71393f6b994a819e5f61" name="a2ef7ed72d52c71393f6b994a819e5f61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ef7ed72d52c71393f6b994a819e5f61">&#9670;&#160;</a></span>WolfSSHServerContext() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSHServerContext::WolfSSHServerContext </td>
-          <td>(</td>
-          <td class="paramtype">const WolfSSHServerContext &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -235,52 +217,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: it owns a wolfSSH context. </p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d58/a04886_a2ef7ed72d52c71393f6b994a819e5f61_cgraph.svg" width="630" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a41d71d3b7597c69631a274d39e0fa345" name="a41d71d3b7597c69631a274d39e0fa345"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41d71d3b7597c69631a274d39e0fa345">&#9670;&#160;</a></span>WolfSSHServerContext() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSHServerContext::WolfSSHServerContext </td>
-          <td>(</td>
-          <td class="paramtype">WolfSSHServerContext &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: it owns a wolfSSH context. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d58/a04886_a41d71d3b7597c69631a274d39e0fa345_cgraph.svg" width="630" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Deleted: the class is static-only and cannot be constructed. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a188293485b26e63785504b3f63d346fe" name="a188293485b26e63785504b3f63d346fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a188293485b26e63785504b3f63d346fe">&#9670;&#160;</a></span>native()</h2>
+<a id="a83a9b4590d8b55c09801436788209d9f" name="a83a9b4590d8b55c09801436788209d9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83a9b4590d8b55c09801436788209d9f">&#9670;&#160;</a></span>decrypt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -289,195 +232,192 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">WOLFSSH_CTX * Lib::Crypto::WolfSSHServerContext::native </td>
+          <td class="memname">bool Lib::Crypto::WolfSSLChaCha20Poly1305::decrypt </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the native wolfSSH context handle, for <a class="el" href="../../d1/d0b/a04890.html" title="WolfSSHServer">WolfSSHServer</a> to create a session from. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the underlying handle, or 'nullptr' if the context failed to open. </dd></dl>
-
-</div>
-</div>
-<a id="a73bf998848ea5f7e51839651eab2cbdb" name="a73bf998848ea5f7e51839651eab2cbdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73bf998848ea5f7e51839651eab2cbdb">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ad363eed6ea00561564796afb4ef3e3fb">WolfSSHServerContext</a> &amp; Lib::Crypto::WolfSSHServerContext::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ad363eed6ea00561564796afb4ef3e3fb">WolfSSHServerContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: it owns a wolfSSH context. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d58/a04886_a73bf998848ea5f7e51839651eab2cbdb_cgraph.svg" width="630" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac889915b8b230867843bb316a9bad1fc" name="ac889915b8b230867843bb316a9bad1fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac889915b8b230867843bb316a9bad1fc">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ad363eed6ea00561564796afb4ef3e3fb">WolfSSHServerContext</a> &amp; Lib::Crypto::WolfSSHServerContext::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ad363eed6ea00561564796afb4ef3e3fb">WolfSSHServerContext</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: it owns a wolfSSH context. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d58/a04886_ac889915b8b230867843bb316a9bad1fc_cgraph.svg" width="630" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ad3ca33a90b311793a3e8b8bef0f99a21" name="ad3ca33a90b311793a3e8b8bef0f99a21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3ca33a90b311793a3e8b8bef0f99a21">&#9670;&#160;</a></span>setBanner()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSHServerContext::setBanner </td>
-          <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>banner</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the banner shown to a client before authentication. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">banner</td><td>NUL-terminated banner text. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to open or wolfSSH reported a failure. </dd></dl>
-
-</div>
-</div>
-<a id="a72301d8027efc740d10b7d0d660c198f" name="a72301d8027efc740d10b7d0d660c198f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a72301d8027efc740d10b7d0d660c198f">&#9670;&#160;</a></span>setPasswordAuthHandler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Crypto::WolfSSHServerContext::setPasswordAuthHandler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a02da5e559fa4b2c28e3f68e32933f97d">PasswordAuthHandler</a></td>          <td class="paramname"><span class="paramname"><em>handler</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Installs the password-authentication handler for every session created from this context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handler</td><td>Handler invoked for each password login attempt; must outlive this context. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ac06c1bc25be79333ff5cc3edbbd41960" name="ac06c1bc25be79333ff5cc3edbbd41960"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac06c1bc25be79333ff5cc3edbbd41960">&#9670;&#160;</a></span>usePrivateKey()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSHServerContext::usePrivateKey </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+          <td class="paramtype">const <a class="el" href="#a01aa89923019ee3bf5249396252577a0">Key</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../de/def/a01016.html#ac3c925af062f5b22fa21eff3b0af0542">WolfSSHKeyFormat</a></td>          <td class="paramname"><span class="paramname"><em>format</em></span>&#160;)</td>
+          <td class="paramtype">const <a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Nonce</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>nonce</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>associatedData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>ciphertext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Tag</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tag</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>plaintext</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Loads the server's host key. </p>
+<p>Verifies the authentication tag and decrypts the ciphertext. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">key</td><td>Encoded private key bytes. </td></tr>
-    <tr><td class="paramname">format</td><td>Encoding of 'key'. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Cipher key. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">nonce</td><td>Nonce of the matching encrypt() call. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">associatedData</td><td>Associated data of the matching encrypt() call; may be empty. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">ciphertext</td><td>Data to decrypt. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">tag</td><td>Authentication tag of the matching encrypt() call. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">plaintext</td><td>Destination; must hold at least 'ciphertext.size()' bytes. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the context failed to open or wolfSSH reported a failure. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the tag verified and decryption succeeded; on <b>false</b> discard <em class="arg">plaintext</em>. </dd></dl>
+
+</div>
+</div>
+<a id="a45d85fbe3b63ebd2773575cb508d70eb" name="a45d85fbe3b63ebd2773575cb508d70eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45d85fbe3b63ebd2773575cb508d70eb">&#9670;&#160;</a></span>encrypt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Crypto::WolfSSLChaCha20Poly1305::encrypt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a01aa89923019ee3bf5249396252577a0">Key</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="#ae4ce9fb8d76a85f4786b936d4bdb3327">Nonce</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>nonce</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>associatedData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>plaintext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>ciphertext</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a73ebbac632c0982dc3eeb3880cd7febc">Tag</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tag</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Encrypts a plaintext and produces its authentication tag. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Cipher key. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">nonce</td><td>Nonce; must be unique for this key. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">associatedData</td><td>Data authenticated but not encrypted, such as a header; may be empty. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">plaintext</td><td>Data to encrypt. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">ciphertext</td><td>Destination; must hold at least 'plaintext.size()' bytes. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">tag</td><td>Authentication tag of this message. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if wolfCrypt reported a failure. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ac4008236e8ab12e80436fcd9c33d2a32" name="ac4008236e8ab12e80436fcd9c33d2a32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4008236e8ab12e80436fcd9c33d2a32">&#9670;&#160;</a></span>KEY_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::Crypto::WolfSSLChaCha20Poly1305::KEY_SIZE = CHACHA20_POLY1305_AEAD_KEYSIZE</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Key length, in bytes. </p>
+
+</div>
+</div>
+<a id="ad486fdcf9d54ee4a93e364f413abe40e" name="ad486fdcf9d54ee4a93e364f413abe40e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad486fdcf9d54ee4a93e364f413abe40e">&#9670;&#160;</a></span>NONCE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::Crypto::WolfSSLChaCha20Poly1305::NONCE_SIZE = CHACHA20_POLY1305_AEAD_IV_SIZE</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Nonce length, in bytes. </p>
+
+</div>
+</div>
+<a id="a6dc704aabffb7770213f90aa42f59f82" name="a6dc704aabffb7770213f90aa42f59f82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dc704aabffb7770213f90aa42f59f82">&#9670;&#160;</a></span>TAG_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::Crypto::WolfSSLChaCha20Poly1305::TAG_SIZE = CHACHA20_POLY1305_AEAD_AUTHTAG_SIZE</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Authentication tag length, in bytes. </p>
 
 </div>
 </div>

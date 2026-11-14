@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: SerialPort.hpp</title>
+<title>IAR EWARM Library: CDCDevice.hpp</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -99,28 +99,31 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
-  <div class="headertitle"><div class="title">SerialPort.hpp</div></div>
+  <div class="headertitle"><div class="title">CDCDevice.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>USB serial port adapter that provides buffered receive and transmit tasks. </p>
-<p>The SerialPort class wraps platform UART objects and an RTOS message buffer to implement a simple USB serial transport. Clients may override handlePostReceivedEvent and handlePostTransmitEvent to react to completed receive and transmit operations.</p>
+<div class="textblock"><p>USB CDC-ACM device (virtual COM port) on top of 'Lib::HAL::USBDevicePort'. </p>
+<p>Answers the standard requests of the enumeration and the CDC class requests (line coding, control line state) in the interrupt of the controller, so a host can open the port without any task running. Data goes through two bulk endpoints: received bytes are collected in a stream buffer that 'read()' empties, and 'write()' sends from the caller's buffer. The bulk OUT endpoint is armed only while the stream buffer has room for a packet, so a slow reader makes the controller answer NAK instead of losing data.</p>
+<p>The class owns no clock, pin or interrupt setup: those stay in the CubeMX code ('HAL_PCD_MspInit()' and the USB interrupt calling 'HAL_PCD_IRQHandler()'). 'HAL_PCD_Start()' connects the device to the bus.</p>
 <dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026-10-13 </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AUSB_3A_3ASerialPort" id="r_Lib_3A_3AUSB_3A_3ASerialPort"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/d00/a06095.html">Lib::USB::SerialPort</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">USB-UART bridge serial port with buffered receive and transmit tasks.  <a href="../../db/d00/a06095.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Lib_3A_3AUSB_3A_3ASerialPort_3A_3AConfig" id="r_Lib_3A_3AUSB_3A_3ASerialPort_3A_3AConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../df/d93/a06099.html">Lib::USB::SerialPort::Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration required to construct a SerialPort instance.  <a href="../../df/d93/a06099.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AUSB_3A_3ACDCDevice" id="r_Lib_3A_3AUSB_3A_3ACDCDevice"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d36/a06074.html">Lib::USB::CDCDevice</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CDC-ACM virtual COM port with a single data interface.  <a href="../../dc/d36/a06074.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AUSB_3A_3ACDCDevice_3A_3AConfig" id="r_Lib_3A_3AUSB_3A_3ACDCDevice_3A_3AConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d26/a06078.html">Lib::USB::CDCDevice::Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameters of the device and its buffers.  <a href="../../d3/d26/a06078.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AUSB_3A_3ACDCDevice_3A_3ALineCoding" id="r_Lib_3A_3AUSB_3A_3ACDCDevice_3A_3ALineCoding"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d02/a06082.html">Lib::USB::CDCDevice::LineCoding</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line coding the host sets with SET_LINE_CODING; it only describes the virtual line, the data is not changed.  <a href="../../d6/d02/a06082.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d2/d4c/a00984.html">Lib</a></td></tr>
-<tr class="memdesc:d2/d4c/a00984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AUSB" id="r_Lib_3A_3AUSB"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/daa/a01029.html">Lib::USB</a></td></tr>
-<tr class="memdesc:d0/daa/a01029"><td class="mdescLeft">&#160;</td><td class="mdescRight">USB serial port abstractions and helpers. <br /></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d21/a00987.html">Lib</a></td></tr>
+<tr class="memdesc:d4/d21/a00987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
+<tr class="memitem:Lib_3A_3AUSB" id="r_Lib_3A_3AUSB"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../df/d89/a01032.html">Lib::USB</a></td></tr>
+<tr class="memdesc:df/d89/a01032"><td class="mdescLeft">&#160;</td><td class="mdescRight">USB serial port abstractions and helpers. <br /></td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->

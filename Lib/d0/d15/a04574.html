@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;</title>
+<title>IAR EWARM Library: Lib::BSP::RFID::MFRC522&lt; T_DERIVED &gt;</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,88 +91,177 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../d0/d15/a04574.html">IS62WV51216</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/d48/a00988.html">BSP</a></li><li class="navelem"><a href="../../de/de2/a00999.html">RFID</a></li><li class="navelem"><a href="../../d0/d15/a04574.html">MFRC522</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="../../d0/dff/a04571.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::RFID::MFRC522&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Driver for the MFRC522 RFID reader connected over SPI, dispatched through CRTP instead of virtual calls.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
-class Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;</div><p>Mutex-guarded byte access to an IS62WV51216 SRAM mapped into the address space by the FSMC/FMC. </p>
-<p>The memory controller is set up outside this class (CubeMX <b>MX_FSMC_Init()</b>); the driver only copies bytes at offsets inside the configured region. After each write the CRTP hook <a class="el" href="#a4b6251a86a54f6053c2b89c00ba6a744" title="onMemoryChanged()">onMemoryChanged()</a> runs under the lock; a derived class may shadow it, keeping it public or befriending the base.</p>
-<dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="#afa482d28208b65335930cb3722de8871" title="open()">open()</a> first: until then every transfer fails rather than touching the region unprotected.</dd></dl>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED = void&gt;<br />
+class Lib::BSP::RFID::MFRC522&lt; T_DERIVED &gt;</div><p>Driver for the MFRC522 RFID reader connected over SPI, dispatched through CRTP instead of virtual calls. </p>
+<p>Runs a background RTOS task that polls for card presence and passes each detected UID to <a class="el" href="#ad22f44d8d54d142fa796406c0f376ff3" title="handleCardDetected()">handleCardDetected()</a>. Its default implementation forwards to the callback bound via <a class="el" href="#a41c3481d58b4e074f2d46ab8b2f1e4d2" title="bindCardDetectionCallback()">bindCardDetectionCallback()</a>. A derived class passes itself as <em class="arg">T_DERIVED</em> and overrides <a class="el" href="#ad22f44d8d54d142fa796406c0f376ff3" title="handleCardDetected()">handleCardDetected()</a>; the CRTP static_cast in <b>taskEntry()</b> selects that override.</p>
+<p>The Interface, Chipset, Mifare and Card layers are plain value members, so a driver instance needs no free-store allocation.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Concrete class; must publicly inherit <a class="el" href="../../d0/d15/a04574.html" title="IS62WV51216">IS62WV51216</a>.</td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete driver overriding <a class="el" href="#ad22f44d8d54d142fa796406c0f376ff3" title="handleCardDetected()">handleCardDetected()</a>, or <em class="arg">void</em> to use <a class="el" href="../../d0/d15/a04574.html" title="MFRC522">MFRC522</a> directly.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a href="https://manualmachine.com/datasheet/is62wv51216all/8417543-datasheet-issi" target="_blank">IS62WV51216ALL/BLL datasheet, Rev B (third-party copy)</a>, check issi.com for the current revision of the exact suffix </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d51/a06177.html#_a0">Lib::BSP::IS62WV51216</a>.</dd>
-</dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d6f/a04572.svg" width="294" height="772"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d8b/a04578.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Location of the mapped SRAM region.  <a href="../../dc/d8b/a04578.html#details">More...</a><br /></td></tr>
+<dl class="section see"><dt>See also</dt><dd><a href="https://nxp.com/docs/en/data-sheet/MFRC522.pdf" target="_blank">MFRC522 datasheet (NXP)</a></dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/RFID/MFRC522.md" target="_blank">Detail Description</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/RFID/MFRC522.hpp" target="_blank">Source</a> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:aaf472166e9d4f2a91e9827210adb0062" id="r_aaf472166e9d4f2a91e9827210adb0062"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#aaf472166e9d4f2a91e9827210adb0062">StatusCode</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#aaf472166e9d4f2a91e9827210adb0062ae0aa021e21dddbd6d8cecec71e9cf564">OK</a>
+, <br />
+&#160;&#160;<a class="el" href="#aaf472166e9d4f2a91e9827210adb0062abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>
+, <br />
+&#160;&#160;<a class="el" href="#aaf472166e9d4f2a91e9827210adb0062afc3ca10632f0c7aa3aaea07a234377db">COLLISION</a>
+, <br />
+&#160;&#160;<a class="el" href="#aaf472166e9d4f2a91e9827210adb0062a070a0fb40f6c308ab544b227660aadff">TIMEOUT</a>
+, <br />
+&#160;&#160;<a class="el" href="#aaf472166e9d4f2a91e9827210adb0062a48117d92ebb4bcb983ec0c001f99b8ea">NO_ROOM</a>
+, <br />
+&#160;&#160;<a class="el" href="#aaf472166e9d4f2a91e9827210adb0062ae8c0c70879b5895c615677261d64a1ee">INTERNAL_ERROR</a>
+, <br />
+&#160;&#160;<a class="el" href="#aaf472166e9d4f2a91e9827210adb0062accc0377a8afbf50e7094f5c23a8af223">INVALID</a>
+, <br />
+&#160;&#160;<a class="el" href="#aaf472166e9d4f2a91e9827210adb0062a3c7323ffec41fe2878b32f6a94c6e17f">CRC_WRONG</a>
+, <br />
+&#160;&#160;<a class="el" href="#aaf472166e9d4f2a91e9827210adb0062a84285d7fe0894b43e2d179fc85e99538">MIFARE_NACK</a> = 0xff
+<br />
+ }</td></tr>
+<tr class="memdesc:aaf472166e9d4f2a91e9827210adb0062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result codes returned by MFRC522 driver operations.  <a href="#aaf472166e9d4f2a91e9827210adb0062">More...</a><br /></td></tr>
+<tr class="memitem:aa2b4f1926fbeb7d392cebb056d89fb3a" id="r_aa2b4f1926fbeb7d392cebb056d89fb3a"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#aa2b4f1926fbeb7d392cebb056d89fb3a">Config</a> = <a class="el" href="../../d6/d1b/a04590.html">MFRC522Config</a></td></tr>
+<tr class="memdesc:aa2b4f1926fbeb7d392cebb056d89fb3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware configuration parameters used to initialize the driver.  <br /></td></tr>
+<tr class="memitem:ab8f303ae41cabb93b41546bbe3eb4b6e" id="r_ab8f303ae41cabb93b41546bbe3eb4b6e"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ab8f303ae41cabb93b41546bbe3eb4b6e">CardDetectedCallback</a> = <a class="el" href="../../d3/d23/a04822.html">FunctionRef</a>&lt;void(std::span&lt;const uint8_t&gt;)&gt;</td></tr>
+<tr class="memdesc:ab8f303ae41cabb93b41546bbe3eb4b6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback signature invoked when a card is detected during polling.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7921fa0f977faf912d2049453fd4c308" id="r_a7921fa0f977faf912d2049453fd4c308"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7921fa0f977faf912d2049453fd4c308">IS62WV51216</a> (const Config &amp;config) noexcept</td></tr>
-<tr class="memdesc:a7921fa0f977faf912d2049453fd4c308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to the mapped region without opening the mutex.  <br /></td></tr>
-<tr class="memitem:afa482d28208b65335930cb3722de8871" id="r_afa482d28208b65335930cb3722de8871"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa482d28208b65335930cb3722de8871">open</a> () noexcept</td></tr>
-<tr class="memdesc:afa482d28208b65335930cb3722de8871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the mutex that guards every transfer.  <br /></td></tr>
-<tr class="memitem:ab7d16cfbd2da4ddbf5fe344a3eace30f" id="r_ab7d16cfbd2da4ddbf5fe344a3eace30f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab7d16cfbd2da4ddbf5fe344a3eace30f">close</a> () noexcept</td></tr>
-<tr class="memdesc:ab7d16cfbd2da4ddbf5fe344a3eace30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the mutex; transfers fail until <a class="el" href="#afa482d28208b65335930cb3722de8871" title="open()">open()</a> is called again.  <br /></td></tr>
-<tr class="memitem:a71a6069370565b21f326cb1f4e446a71" id="r_a71a6069370565b21f326cb1f4e446a71"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a71a6069370565b21f326cb1f4e446a71">read</a> (uint32_t address, void *data, size_t size) noexcept</td></tr>
-<tr class="memdesc:a71a6069370565b21f326cb1f4e446a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies bytes from the SRAM region into a buffer, under the mutex.  <br /></td></tr>
-<tr class="memitem:a2b3f4b448d2b7076918a849936826646" id="r_a2b3f4b448d2b7076918a849936826646"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2b3f4b448d2b7076918a849936826646">read</a> (uint32_t address, std::span&lt; std::byte &gt; data) noexcept</td></tr>
-<tr class="memdesc:a2b3f4b448d2b7076918a849936826646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies bytes from the SRAM region into a span, under the mutex.  <br /></td></tr>
-<tr class="memitem:abb442f01943c59f8ce352f5f92d959b1" id="r_abb442f01943c59f8ce352f5f92d959b1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abb442f01943c59f8ce352f5f92d959b1">write</a> (uint32_t address, const void *data, size_t size) noexcept</td></tr>
-<tr class="memdesc:abb442f01943c59f8ce352f5f92d959b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies bytes from a buffer into the SRAM region, under the mutex.  <br /></td></tr>
-<tr class="memitem:abd6c3b651e745ff59409e2f5cf7acb44" id="r_abd6c3b651e745ff59409e2f5cf7acb44"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abd6c3b651e745ff59409e2f5cf7acb44">write</a> (uint32_t address, std::span&lt; const std::byte &gt; data) noexcept</td></tr>
-<tr class="memdesc:abd6c3b651e745ff59409e2f5cf7acb44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies bytes from a span into the SRAM region, under the mutex.  <br /></td></tr>
-<tr class="memitem:a5d44f7cbee5d1bc849cb54ef47f257a3" id="r_a5d44f7cbee5d1bc849cb54ef47f257a3"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5d44f7cbee5d1bc849cb54ef47f257a3">getSize</a> () const noexcept</td></tr>
-<tr class="memdesc:a5d44f7cbee5d1bc849cb54ef47f257a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the mapped region.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8bbb723bb8da60c1ded7fa4770488e41" id="r_a8bbb723bb8da60c1ded7fa4770488e41"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8bbb723bb8da60c1ded7fa4770488e41">~IS62WV51216</a> () noexcept</td></tr>
-<tr class="memdesc:a8bbb723bb8da60c1ded7fa4770488e41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the mutex.  <br /></td></tr>
-<tr class="memitem:a4b6251a86a54f6053c2b89c00ba6a744" id="r_a4b6251a86a54f6053c2b89c00ba6a744"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4b6251a86a54f6053c2b89c00ba6a744">onMemoryChanged</a> (uintptr_t absoluteAddress, size_t size) noexcept</td></tr>
-<tr class="memdesc:a4b6251a86a54f6053c2b89c00ba6a744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reacts to a completed write; does nothing by default.  <br /></td></tr>
-<tr class="memitem:a627f5ee3afe264e55f1cc04cafae392d" id="r_a627f5ee3afe264e55f1cc04cafae392d"><td class="memItemLeft">uintptr_t&#160;</td><td class="memItemRight"><a class="el" href="#a627f5ee3afe264e55f1cc04cafae392d">toAbsoluteAddress</a> (uint32_t address) const noexcept</td></tr>
-<tr class="memdesc:a627f5ee3afe264e55f1cc04cafae392d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a region-relative offset to an absolute memory address.  <br /></td></tr>
-<tr class="memitem:a1b6c9da4691865cdfa1b28945756e9e5" id="r_a1b6c9da4691865cdfa1b28945756e9e5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1b6c9da4691865cdfa1b28945756e9e5">isRangeValid</a> (uint32_t address, size_t size) const noexcept</td></tr>
-<tr class="memdesc:a1b6c9da4691865cdfa1b28945756e9e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that an access lies within the configured region.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a0d15eea85e078fd1ca516727c0e8ca8a" id="r_a0d15eea85e078fd1ca516727c0e8ca8a"><td class="memItemLeft">const uintptr_t&#160;</td><td class="memItemRight"><a class="el" href="#a0d15eea85e078fd1ca516727c0e8ca8a">baseAddress</a></td></tr>
-<tr class="memdesc:a0d15eea85e078fd1ca516727c0e8ca8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute start address of the mapped region.  <br /></td></tr>
-<tr class="memitem:af112bc4831d358a9018b8a296e932392" id="r_af112bc4831d358a9018b8a296e932392"><td class="memItemLeft">const size_t&#160;</td><td class="memItemRight"><a class="el" href="#af112bc4831d358a9018b8a296e932392">sizeBytes</a></td></tr>
-<tr class="memdesc:af112bc4831d358a9018b8a296e932392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Region size in bytes.  <br /></td></tr>
-<tr class="memitem:a0d53d69589f382b51186fd40078d3d7a" id="r_a0d53d69589f382b51186fd40078d3d7a"><td class="memItemLeft"><a class="el" href="../../df/dc9/a05922.html">RTOS::Mutex</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0d53d69589f382b51186fd40078d3d7a">mutex</a></td></tr>
-<tr class="memdesc:a0d53d69589f382b51186fd40078d3d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes transfers between tasks; no handle until open().  <br /></td></tr>
+<tr class="memitem:ad1434f2513b05706895669a1dbc96bcc" id="r_ad1434f2513b05706895669a1dbc96bcc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad1434f2513b05706895669a1dbc96bcc">MFRC522</a> (const <a class="el" href="#aa2b4f1926fbeb7d392cebb056d89fb3a">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:ad1434f2513b05706895669a1dbc96bcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the driver and its internal helper layers from the given hardware configuration.  <br /></td></tr>
+<tr class="memitem:a73dbf6cc73bf71b562399e9e4faa6f75" id="r_a73dbf6cc73bf71b562399e9e4faa6f75"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a73dbf6cc73bf71b562399e9e4faa6f75">~MFRC522</a> () noexcept</td></tr>
+<tr class="memdesc:a73dbf6cc73bf71b562399e9e4faa6f75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the background polling task, if running.  <br /></td></tr>
+<tr class="memitem:a4c602ecc8a154b75bf0bf0a7814a200b" id="r_a4c602ecc8a154b75bf0bf0a7814a200b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4c602ecc8a154b75bf0bf0a7814a200b">MFRC522</a> (const MFRC522 &amp;)=delete</td></tr>
+<tr class="memdesc:a4c602ecc8a154b75bf0bf0a7814a200b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted: the driver owns a running RTOS task and hardware bound at construction.  <br /></td></tr>
+<tr class="memitem:a8a0fe5e00e7d6b58a17d654abf2d8202" id="r_a8a0fe5e00e7d6b58a17d654abf2d8202"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8a0fe5e00e7d6b58a17d654abf2d8202">MFRC522</a> (MFRC522 &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a8a0fe5e00e7d6b58a17d654abf2d8202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted: the driver owns a running RTOS task and hardware bound at construction.  <br /></td></tr>
+<tr class="memitem:ab85ed1b7da554c36b7a2ad60002b5459" id="r_ab85ed1b7da554c36b7a2ad60002b5459"><td class="memItemLeft"><a class="el" href="#ad1434f2513b05706895669a1dbc96bcc">MFRC522</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab85ed1b7da554c36b7a2ad60002b5459">operator=</a> (const <a class="el" href="#ad1434f2513b05706895669a1dbc96bcc">MFRC522</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ab85ed1b7da554c36b7a2ad60002b5459"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted: the driver owns a running RTOS task and hardware bound at construction.  <br /></td></tr>
+<tr class="memitem:a3a197b33b50a32efc2a86cc9fd2fff3b" id="r_a3a197b33b50a32efc2a86cc9fd2fff3b"><td class="memItemLeft"><a class="el" href="#ad1434f2513b05706895669a1dbc96bcc">MFRC522</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3a197b33b50a32efc2a86cc9fd2fff3b">operator=</a> (<a class="el" href="#ad1434f2513b05706895669a1dbc96bcc">MFRC522</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a3a197b33b50a32efc2a86cc9fd2fff3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted: the driver owns a running RTOS task and hardware bound at construction.  <br /></td></tr>
+<tr class="memitem:a11b78264bc00dce2664d91725cc77981" id="r_a11b78264bc00dce2664d91725cc77981"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a11b78264bc00dce2664d91725cc77981">start</a> () noexcept</td></tr>
+<tr class="memdesc:a11b78264bc00dce2664d91725cc77981"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the hardware and starts the background card-polling task.  <br /></td></tr>
+<tr class="memitem:adb7420c7531d1af868014dbcc01d4e7d" id="r_adb7420c7531d1af868014dbcc01d4e7d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adb7420c7531d1af868014dbcc01d4e7d">stop</a> () noexcept</td></tr>
+<tr class="memdesc:adb7420c7531d1af868014dbcc01d4e7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests the background polling task to stop and disables the antenna.  <br /></td></tr>
+<tr class="memitem:a41c3481d58b4e074f2d46ab8b2f1e4d2" id="r_a41c3481d58b4e074f2d46ab8b2f1e4d2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a41c3481d58b4e074f2d46ab8b2f1e4d2">bindCardDetectionCallback</a> (<a class="el" href="#ab8f303ae41cabb93b41546bbe3eb4b6e">CardDetectedCallback</a> callback) noexcept</td></tr>
+<tr class="memdesc:a41c3481d58b4e074f2d46ab8b2f1e4d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the callback invoked by the default <a class="el" href="#ad22f44d8d54d142fa796406c0f376ff3" title="handleCardDetected()">handleCardDetected()</a> whenever a card is detected.  <br /></td></tr>
+<tr class="memitem:ad22f44d8d54d142fa796406c0f376ff3" id="r_ad22f44d8d54d142fa796406c0f376ff3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad22f44d8d54d142fa796406c0f376ff3">handleCardDetected</a> (std::span&lt; const uint8_t &gt; uid) noexcept</td></tr>
+<tr class="memdesc:ad22f44d8d54d142fa796406c0f376ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a detected card's UID; bound as the polling task's per-card dispatch point.  <br /></td></tr>
 </table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="ab8f303ae41cabb93b41546bbe3eb4b6e" name="ab8f303ae41cabb93b41546bbe3eb4b6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8f303ae41cabb93b41546bbe3eb4b6e">&#9670;&#160;</a></span>CardDetectedCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;::CardDetectedCallback = <a class="el" href="../../d3/d23/a04822.html">FunctionRef</a>&lt;void(std::span&lt;const uint8_t&gt;)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Callback signature invoked when a card is detected during polling. </p>
+<p>The span is valid only for the duration of the call; copy the bytes if they must outlive it. </p>
+
+</div>
+</div>
+<a id="aa2b4f1926fbeb7d392cebb056d89fb3a" name="aa2b4f1926fbeb7d392cebb056d89fb3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2b4f1926fbeb7d392cebb056d89fb3a">&#9670;&#160;</a></span>Config</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;::Config = <a class="el" href="../../d6/d1b/a04590.html">MFRC522Config</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hardware configuration parameters used to initialize the driver. </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="aaf472166e9d4f2a91e9827210adb0062" name="aaf472166e9d4f2a91e9827210adb0062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf472166e9d4f2a91e9827210adb0062">&#9670;&#160;</a></span>StatusCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#aaf472166e9d4f2a91e9827210adb0062">Lib::BSP::RFID::MFRC522::StatusCode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Result codes returned by MFRC522 driver operations. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaf472166e9d4f2a91e9827210adb0062ae0aa021e21dddbd6d8cecec71e9cf564" name="aaf472166e9d4f2a91e9827210adb0062ae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf472166e9d4f2a91e9827210adb0062abb1ca97ec761fc37101737ba0aa2e7c5" name="aaf472166e9d4f2a91e9827210adb0062abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"><p>Generic operation failure. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf472166e9d4f2a91e9827210adb0062afc3ca10632f0c7aa3aaea07a234377db" name="aaf472166e9d4f2a91e9827210adb0062afc3ca10632f0c7aa3aaea07a234377db"></a>COLLISION&#160;</td><td class="fielddoc"><p>A bit collision was detected during communication. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf472166e9d4f2a91e9827210adb0062a070a0fb40f6c308ab544b227660aadff" name="aaf472166e9d4f2a91e9827210adb0062a070a0fb40f6c308ab544b227660aadff"></a>TIMEOUT&#160;</td><td class="fielddoc"><p>The operation did not complete within the expected time. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf472166e9d4f2a91e9827210adb0062a48117d92ebb4bcb983ec0c001f99b8ea" name="aaf472166e9d4f2a91e9827210adb0062a48117d92ebb4bcb983ec0c001f99b8ea"></a>NO_ROOM&#160;</td><td class="fielddoc"><p>Insufficient buffer space for the operation. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf472166e9d4f2a91e9827210adb0062ae8c0c70879b5895c615677261d64a1ee" name="aaf472166e9d4f2a91e9827210adb0062ae8c0c70879b5895c615677261d64a1ee"></a>INTERNAL_ERROR&#160;</td><td class="fielddoc"><p>An internal, unexpected error occurred. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf472166e9d4f2a91e9827210adb0062accc0377a8afbf50e7094f5c23a8af223" name="aaf472166e9d4f2a91e9827210adb0062accc0377a8afbf50e7094f5c23a8af223"></a>INVALID&#160;</td><td class="fielddoc"><p>The operation or its parameters are invalid. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf472166e9d4f2a91e9827210adb0062a3c7323ffec41fe2878b32f6a94c6e17f" name="aaf472166e9d4f2a91e9827210adb0062a3c7323ffec41fe2878b32f6a94c6e17f"></a>CRC_WRONG&#160;</td><td class="fielddoc"><p>The CRC check failed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aaf472166e9d4f2a91e9827210adb0062a84285d7fe0894b43e2d179fc85e99538" name="aaf472166e9d4f2a91e9827210adb0062a84285d7fe0894b43e2d179fc85e99538"></a>MIFARE_NACK&#160;</td><td class="fielddoc"><p>The MIFARE card responded with a NACK. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a7921fa0f977faf912d2049453fd4c308" name="a7921fa0f977faf912d2049453fd4c308"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7921fa0f977faf912d2049453fd4c308">&#9670;&#160;</a></span>IS62WV51216()</h2>
+<a id="ad1434f2513b05706895669a1dbc96bcc" name="ad1434f2513b05706895669a1dbc96bcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1434f2513b05706895669a1dbc96bcc">&#9670;&#160;</a></span>MFRC522() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,33 +272,31 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::IS62WV51216 </td>
+          <td class="memname"><a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;::MFRC522 </td>
           <td>(</td>
-          <td class="paramtype">const Config &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#aa2b4f1926fbeb7d392cebb056d89fb3a">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the driver to the mapped region without opening the mutex. </p>
+<p>Constructs the driver and its internal helper layers from the given hardware configuration. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Location of the mapped SRAM region. </td></tr>
+    <tr><td class="paramname">config</td><td>Hardware configuration used to initialize the SPI interface, chipset and pins. </td></tr>
   </table>
   </dd>
-</dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/d51/a06177.html#a1">Lib::BSP::IS62WV51216</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="a8bbb723bb8da60c1ded7fa4770488e41" name="a8bbb723bb8da60c1ded7fa4770488e41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bbb723bb8da60c1ded7fa4770488e41">&#9670;&#160;</a></span>~IS62WV51216()</h2>
+<a id="a73dbf6cc73bf71b562399e9e4faa6f75" name="a73dbf6cc73bf71b562399e9e4faa6f75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73dbf6cc73bf71b562399e9e4faa6f75">&#9670;&#160;</a></span>~MFRC522()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,7 +307,7 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a7921fa0f977faf912d2049453fd4c308">IS62WV51216</a> </td>
+          <td class="memname"><a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;::~<a class="el" href="#ad1434f2513b05706895669a1dbc96bcc">MFRC522</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -226,38 +315,89 @@ template&lt;typename T_DERIVED&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deletes the mutex. </p>
-<p>Protected and non-virtual: only the derived class destroys the base, so no vtable is needed. </p>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
+<p>Stops the background polling task, if running. </p>
+
 </div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_a8bbb723bb8da60c1ded7fa4770488e41_cgraph.svg" width="1040" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<a id="a4c602ecc8a154b75bf0bf0a7814a200b" name="a4c602ecc8a154b75bf0bf0a7814a200b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c602ecc8a154b75bf0bf0a7814a200b">&#9670;&#160;</a></span>MFRC522() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;::MFRC522 </td>
+          <td>(</td>
+          <td class="paramtype">const MFRC522&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted: the driver owns a running RTOS task and hardware bound at construction. </p>
+
+</div>
+</div>
+<a id="a8a0fe5e00e7d6b58a17d654abf2d8202" name="a8a0fe5e00e7d6b58a17d654abf2d8202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a0fe5e00e7d6b58a17d654abf2d8202">&#9670;&#160;</a></span>MFRC522() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;::MFRC522 </td>
+          <td>(</td>
+          <td class="paramtype">MFRC522&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted: the driver owns a running RTOS task and hardware bound at construction. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ab7d16cfbd2da4ddbf5fe344a3eace30f" name="ab7d16cfbd2da4ddbf5fe344a3eace30f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7d16cfbd2da4ddbf5fe344a3eace30f">&#9670;&#160;</a></span>close()</h2>
+<a id="a41c3481d58b4e074f2d46ab8b2f1e4d2" name="a41c3481d58b4e074f2d46ab8b2f1e4d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41c3481d58b4e074f2d46ab8b2f1e4d2">&#9670;&#160;</a></span>bindCardDetectionCallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
+template&lt;typename T_DERIVED = void&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::close </td>
+          <td class="memname">void <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;::bindCardDetectionCallback </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ab8f303ae41cabb93b41546bbe3eb4b6e">CardDetectedCallback</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -268,145 +408,114 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Deletes the mutex; transfers fail until <a class="el" href="#afa482d28208b65335930cb3722de8871" title="open()">open()</a> is called again. </p>
-<p>The SRAM content is kept. </p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_ab7d16cfbd2da4ddbf5fe344a3eace30f_cgraph.svg" width="691" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_ab7d16cfbd2da4ddbf5fe344a3eace30f_icgraph.svg" width="606" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a5d44f7cbee5d1bc849cb54ef47f257a3" name="a5d44f7cbee5d1bc849cb54ef47f257a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d44f7cbee5d1bc849cb54ef47f257a3">&#9670;&#160;</a></span>getSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::getSize </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the size of the mapped region. </p>
-<dl class="section return"><dt>Returns</dt><dd>Region size in bytes; valid offsets are below it. </dd></dl>
-
-</div>
-</div>
-<a id="a1b6c9da4691865cdfa1b28945756e9e5" name="a1b6c9da4691865cdfa1b28945756e9e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b6c9da4691865cdfa1b28945756e9e5">&#9670;&#160;</a></span>isRangeValid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::isRangeValid </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks that an access lies within the configured region. </p>
-<p>Compares against the remaining space 'sizeBytes - address' instead of 'address + size', so an oversized request cannot wrap around and pass.</p>
+<p>Binds the callback invoked by the default <a class="el" href="#ad22f44d8d54d142fa796406c0f376ff3" title="handleCardDetected()">handleCardDetected()</a> whenever a card is detected. </p>
+<p>May be called from any task, including while the polling task started by <a class="el" href="#a11b78264bc00dce2664d91725cc77981" title="start()">start()</a> runs. Guarded against a concurrent read of <em class="arg">onCardDetected</em> in <a class="el" href="#ad22f44d8d54d142fa796406c0f376ff3" title="handleCardDetected()">handleCardDetected()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>Offset inside the region. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to access. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the whole range is inside the region. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_a1b6c9da4691865cdfa1b28945756e9e5_icgraph.svg" width="899" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4b6251a86a54f6053c2b89c00ba6a744" name="a4b6251a86a54f6053c2b89c00ba6a744"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b6251a86a54f6053c2b89c00ba6a744">&#9670;&#160;</a></span>onMemoryChanged()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::onMemoryChanged </td>
-          <td>(</td>
-          <td class="paramtype">uintptr_t</td>          <td class="paramname"><span class="paramname"><em>absoluteAddress</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reacts to a completed write; does nothing by default. </p>
-<p>Shadow it in the derived class to mark data dirty, notify a consumer or maintain a cache. Runs inside <a class="el" href="#abb442f01943c59f8ce352f5f92d959b1" title="write()">write()</a> with the mutex held, so keep it short.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Calling read() or write() from here deadlocks: the mutex is not recursive.</dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">absoluteAddress</td><td>Absolute memory address where the change began. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes that were changed. </td></tr>
+    <tr><td class="paramname">callback</td><td>Callback to invoke on card detection. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="afa482d28208b65335930cb3722de8871" name="afa482d28208b65335930cb3722de8871"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa482d28208b65335930cb3722de8871">&#9670;&#160;</a></span>open()</h2>
+<a id="ad22f44d8d54d142fa796406c0f376ff3" name="ad22f44d8d54d142fa796406c0f376ff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad22f44d8d54d142fa796406c0f376ff3">&#9670;&#160;</a></span>handleCardDetected()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;::handleCardDetected </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>uid</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles a detected card's UID; bound as the polling task's per-card dispatch point. </p>
+<p>Default: forwards to the callback bound via <a class="el" href="#a41c3481d58b4e074f2d46ab8b2f1e4d2" title="bindCardDetectionCallback()">bindCardDetectionCallback()</a>, if any. <em class="arg">T_DERIVED</em> overrides it to react without the callback. Not meant to be called directly.</p>
+<p>The callback is snapshotted under a critical section, so a concurrent rebind cannot race the read. It is invoked outside the guard, so a long user callback never runs with interrupts disabled.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uid</td><td>Detected UID; valid only for the duration of the call. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab85ed1b7da554c36b7a2ad60002b5459" name="ab85ed1b7da554c36b7a2ad60002b5459"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab85ed1b7da554c36b7a2ad60002b5459">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ad1434f2513b05706895669a1dbc96bcc">MFRC522</a> &amp; <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ad1434f2513b05706895669a1dbc96bcc">MFRC522</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted: the driver owns a running RTOS task and hardware bound at construction. </p>
+
+</div>
+</div>
+<a id="a3a197b33b50a32efc2a86cc9fd2fff3b" name="a3a197b33b50a32efc2a86cc9fd2fff3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a197b33b50a32efc2a86cc9fd2fff3b">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED = void&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ad1434f2513b05706895669a1dbc96bcc">MFRC522</a> &amp; <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ad1434f2513b05706895669a1dbc96bcc">MFRC522</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted: the driver owns a running RTOS task and hardware bound at construction. </p>
+
+</div>
+</div>
+<a id="a11b78264bc00dce2664d91725cc77981" name="a11b78264bc00dce2664d91725cc77981"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11b78264bc00dce2664d91725cc77981">&#9670;&#160;</a></span>start()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -417,7 +526,7 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::open </td>
+          <td class="memname">bool <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;::start </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -425,25 +534,19 @@ template&lt;typename T_DERIVED&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the mutex that guards every transfer. </p>
-<p>Does nothing if already open. Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the driver is open afterwards. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_afa482d28208b65335930cb3722de8871_cgraph.svg" width="675" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Initializes the hardware and starts the background card-polling task. </p>
+<p>Performs a hardware reset, verifies communication with the chip, waits for it to become ready, applies the initial gain, enables the antenna and launches the polling task.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if initialization succeeded and the task was started, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="a2b3f4b448d2b7076918a849936826646" name="a2b3f4b448d2b7076918a849936826646"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b3f4b448d2b7076918a849936826646">&#9670;&#160;</a></span>read() <span class="overload">[1/2]</span></h2>
+<a id="adb7420c7531d1af868014dbcc01d4e7d" name="adb7420c7531d1af868014dbcc01d4e7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb7420c7531d1af868014dbcc01d4e7d">&#9670;&#160;</a></span>stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -454,326 +557,21 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::read </td>
+          <td class="memname">bool <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::RFID::MFRC522</a>&lt; T_DERIVED &gt;::stop </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::span&lt; std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copies bytes from the SRAM region into a span, under the mutex. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">address</td><td>Offset inside the region, not an absolute address. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; its size is the number of bytes read. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on an out-of-range access or a closed driver. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_a2b3f4b448d2b7076918a849936826646_cgraph.svg" width="923" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a71a6069370565b21f326cb1f4e446a71" name="a71a6069370565b21f326cb1f4e446a71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71a6069370565b21f326cb1f4e446a71">&#9670;&#160;</a></span>read() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::read </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies bytes from the SRAM region into a buffer, under the mutex. </p>
-<p>Task context only. A size of 0 copies nothing and only checks the offset.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">address</td><td>Offset inside the region, not an absolute address. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination buffer; must not be nullptr when 'size' is not 0. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a null buffer, an out-of-range access or a closed driver. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_a71a6069370565b21f326cb1f4e446a71_cgraph.svg" width="638" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_a71a6069370565b21f326cb1f4e446a71_icgraph.svg" width="534" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a627f5ee3afe264e55f1cc04cafae392d" name="a627f5ee3afe264e55f1cc04cafae392d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a627f5ee3afe264e55f1cc04cafae392d">&#9670;&#160;</a></span>toAbsoluteAddress()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uintptr_t <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::toAbsoluteAddress </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts a region-relative offset to an absolute memory address. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">address</td><td>Offset inside the mapped SRAM region. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Absolute address corresponding to the given offset. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_a627f5ee3afe264e55f1cc04cafae392d_icgraph.svg" width="939" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="abb442f01943c59f8ce352f5f92d959b1" name="abb442f01943c59f8ce352f5f92d959b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb442f01943c59f8ce352f5f92d959b1">&#9670;&#160;</a></span>write() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies bytes from a buffer into the SRAM region, under the mutex. </p>
-<p>Task context only. Calls <a class="el" href="#a4b6251a86a54f6053c2b89c00ba6a744" title="onMemoryChanged()">onMemoryChanged()</a> after the copy, still holding the lock. A size of 0 copies nothing, calls no hook and only checks the offset.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">address</td><td>Offset inside the region, not an absolute address. </td></tr>
-    <tr><td class="paramname">data</td><td>Source buffer; must not be nullptr when 'size' is not 0. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a null buffer, an out-of-range access or a closed driver. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_abb442f01943c59f8ce352f5f92d959b1_cgraph.svg" width="646" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_abb442f01943c59f8ce352f5f92d959b1_icgraph.svg" width="550" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="abd6c3b651e745ff59409e2f5cf7acb44" name="abd6c3b651e745ff59409e2f5cf7acb44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd6c3b651e745ff59409e2f5cf7acb44">&#9670;&#160;</a></span>write() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; const std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies bytes from a span into the SRAM region, under the mutex. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">address</td><td>Offset inside the region, not an absolute address. </td></tr>
-    <tr><td class="paramname">data</td><td>Bytes to write. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on an out-of-range access or a closed driver. </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d15/a04574_abd6c3b651e745ff59409e2f5cf7acb44_cgraph.svg" width="939" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a0d15eea85e078fd1ca516727c0e8ca8a" name="a0d15eea85e078fd1ca516727c0e8ca8a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d15eea85e078fd1ca516727c0e8ca8a">&#9670;&#160;</a></span>baseAddress</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const uintptr_t <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::baseAddress</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Absolute start address of the mapped region. </p>
-
-</div>
-</div>
-<a id="a0d53d69589f382b51186fd40078d3d7a" name="a0d53d69589f382b51186fd40078d3d7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d53d69589f382b51186fd40078d3d7a">&#9670;&#160;</a></span>mutex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/dc9/a05922.html">RTOS::Mutex</a> <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::mutex</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Serializes transfers between tasks; no handle until open(). </p>
-
-</div>
-</div>
-<a id="af112bc4831d358a9018b8a296e932392" name="af112bc4831d358a9018b8a296e932392"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af112bc4831d358a9018b8a296e932392">&#9670;&#160;</a></span>sizeBytes</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const size_t <a class="el" href="../../d0/d15/a04574.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::sizeBytes</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Region size in bytes. </p>
+<p>Requests the background polling task to stop and disables the antenna. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a running task was stopped, <b>false</b> if no task was running. </dd></dl>
 
 </div>
 </div>

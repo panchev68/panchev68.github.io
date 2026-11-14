@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::EEPROM::I2C::M24C16</title>
+<title>IAR EWARM Library: Lib::BSP::EEPROM::FlashEmulation</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,7 +91,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../d4/dd0/a00994.html">BSP</a></li><li class="navelem"><a href="../../d3/daa/a00996.html">EEPROM</a></li><li class="navelem"><a href="../../d0/d28/a00997.html">I2C</a></li><li class="navelem"><a href="../../df/de5/a04426.html">M24C16</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d6/d48/a00988.html">BSP</a></li><li class="navelem"><a href="../../dd/d7a/a00990.html">EEPROM</a></li><li class="navelem"><a href="../../df/de5/a04426.html">FlashEmulation</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
@@ -97,87 +99,66 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
 <a href="../../d4/da1/a04423.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::EEPROM::I2C::M24C16<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::EEPROM::FlashEmulation<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Stores 16-bit keyed records in two erasable flash pages, appended as a log and compacted when a page fills up.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Concrete M24C16 EEPROM driver implementation. </p>
-<p>The M24C16 is a 2048-byte (16K-bit) EEPROM with a 16-byte page size, addressed with 8-bit word addresses. Address bits 8..10 travel in the slave address, so the chip ignores its E2/E1/E0 pins and the configured strap address must be 0.</p>
-<p>Derives from 'Driver&lt;M24C16&gt;' (CRTP), which provides all transfer validation, page-aligned writing and dispatch. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::BSP::EEPROM::I2C::M24C16:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/db4/a04425.svg" width="334" height="490"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::EEPROM::I2C::M24C16:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d7e/a04424.svg" width="334" height="758"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
+<div class="textblock"><p>Stores 16-bit keyed records in two erasable flash pages, appended as a log and compacted when a page fills up. </p>
+<p>Every record is a 16-byte header followed by its data, padded to a multiple of 16 bytes, because the STM32U5 programs flash in quadwords. The data is written first and the header last, so a power loss leaves an erased header and the record is simply absent. The newest record of a key wins. A page holds a 16-byte page header with a sequence number, written last during compaction, so the page with the higher sequence is the active one. Reads go straight to the memory-mapped flash; writes and erases use the HAL.</p>
+<p>Access is by key, not by address: compaction moves the live records, so an offset would not stay valid. Each key has its own length, from 1 to <a class="el" href="#a6f3e645eda23ddfc91dd077e61f15e95" title="MAX_VALUE_SIZE">MAX_VALUE_SIZE</a> bytes, stored in its record header; a new value of a different length simply replaces the old one. A value equal to the stored one is not written again.</p>
+<p>Each write of a changed value consumes flash space. When the active page is full, the latest value of every key is copied to the other page, and the old page is erased before the next compaction reuses it. The live values of all keys together must fit into one page; dead records do not count, because compaction drops them.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Erasing and programming <b>stall the CPU</b> while code in the same flash bank is fetched. Keep the emulated pages in a bank that holds no code; the two pages of the last sector pair of bank 2 are a suitable choice.</dd>
+<dd>
+Call only from task context: the HAL polls the flash until each operation completes.</dd></dl>
+<dl class="section important"><dt>Important</dt><dd>The linker script must not place code or constants in the emulated pages. Lower the end of the ROM region below the base address, for example '<b>ICFEDIT_region_ROM_end</b> = 0x081FBFFF' for base 0x081FC000.</dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/EEPROM/Internal/FlashEmulation.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/d6e/a06145.html#_a0">Lib::BSP::EEPROM::FlashEmulation</a>.</dd>
+</dl>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a82d789de030a0346864f88543d0512e5" id="r_a82d789de030a0346864f88543d0512e5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> (const <a class="el" href="#a71f90ba5852d744d364d627c9200231e">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a82d789de030a0346864f88543d0512e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to its I2C port with the M24C16 geometry.  <br /></td></tr>
-<tr class="memitem:a0db0fe864ae86e17a1406e2180d119af" id="r_a0db0fe864ae86e17a1406e2180d119af"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0db0fe864ae86e17a1406e2180d119af">~M24C16</a> () noexcept=default</td></tr>
-<tr class="memdesc:a0db0fe864ae86e17a1406e2180d119af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the compiler-generated behavior of the base; the shared port is not closed here.  <br /></td></tr>
-<tr class="memitem:ababf497720b16b51762103ca82e56f49" id="r_ababf497720b16b51762103ca82e56f49"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d74/a04418.html#ababf497720b16b51762103ca82e56f49">open</a> () noexcept</td></tr>
-<tr class="memdesc:ababf497720b16b51762103ca82e56f49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the I2C EEPROM device.  <br /></td></tr>
-<tr class="memitem:a379c6a49e0b3c1c663020582e61d6887" id="r_a379c6a49e0b3c1c663020582e61d6887"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d74/a04418.html#a379c6a49e0b3c1c663020582e61d6887">close</a> () noexcept</td></tr>
-<tr class="memdesc:a379c6a49e0b3c1c663020582e61d6887"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the I2C EEPROM device.  <br /></td></tr>
-<tr class="memitem:a54927e78496718fcd7a9cb0e02767604" id="r_a54927e78496718fcd7a9cb0e02767604"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d74/a04418.html#a54927e78496718fcd7a9cb0e02767604">read</a> (const uint32_t addr, void *const buffer, const size_t size) noexcept</td></tr>
-<tr class="memdesc:a54927e78496718fcd7a9cb0e02767604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from the EEPROM device.  <br /></td></tr>
-<tr class="memitem:a13e5c1d0f2d73fc592f0270be2b3a646" id="r_a13e5c1d0f2d73fc592f0270be2b3a646"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d74/a04418.html#a13e5c1d0f2d73fc592f0270be2b3a646">write</a> (const uint32_t addr, const void *const buffer, const size_t size) noexcept</td></tr>
-<tr class="memdesc:a13e5c1d0f2d73fc592f0270be2b3a646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data to the EEPROM device.  <br /></td></tr>
-<tr class="memitem:a9d4c8832f1bcf188ae0c358a9a363b82" id="r_a9d4c8832f1bcf188ae0c358a9a363b82"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d74/a04418.html#a9d4c8832f1bcf188ae0c358a9a363b82">getChipSize</a> () const noexcept</td></tr>
-<tr class="memdesc:a9d4c8832f1bcf188ae0c358a9a363b82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the total memory capacity of the EEPROM device.  <br /></td></tr>
+<tr class="memitem:a0e75388b44cd284464c96fb9a0c7fc1f" id="r_a0e75388b44cd284464c96fb9a0c7fc1f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> (uint32_t baseAddress) noexcept</td></tr>
+<tr class="memdesc:a0e75388b44cd284464c96fb9a0c7fc1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the emulation to its flash area without touching the flash.  <br /></td></tr>
+<tr class="memitem:af5de4a71fd88ee41e580deb1e4a8b4e1" id="r_af5de4a71fd88ee41e580deb1e4a8b4e1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af5de4a71fd88ee41e580deb1e4a8b4e1">FlashEmulation</a> (const FlashEmulation &amp;other)=delete</td></tr>
+<tr class="memdesc:af5de4a71fd88ee41e580deb1e4a8b4e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:a65b04ccc40b81a011eafa3dd70ccd280" id="r_a65b04ccc40b81a011eafa3dd70ccd280"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a65b04ccc40b81a011eafa3dd70ccd280">FlashEmulation</a> (FlashEmulation &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a65b04ccc40b81a011eafa3dd70ccd280"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:ac176ad5bc133ed1cdbc6b3e8e1e402e4" id="r_ac176ad5bc133ed1cdbc6b3e8e1e402e4"><td class="memItemLeft"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac176ad5bc133ed1cdbc6b3e8e1e402e4">operator=</a> (const <a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:ac176ad5bc133ed1cdbc6b3e8e1e402e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:abd98d1e0a541c569e9a190459fdce6c8" id="r_abd98d1e0a541c569e9a190459fdce6c8"><td class="memItemLeft"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abd98d1e0a541c569e9a190459fdce6c8">operator=</a> (<a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:abd98d1e0a541c569e9a190459fdce6c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:a8947a65dd4bc123a43147aadad6d5328" id="r_a8947a65dd4bc123a43147aadad6d5328"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8947a65dd4bc123a43147aadad6d5328">open</a> () noexcept</td></tr>
+<tr class="memdesc:a8947a65dd4bc123a43147aadad6d5328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the active page, or formats the area if it holds no valid page header.  <br /></td></tr>
+<tr class="memitem:af34a366cd1952a3ba03b96af1976a0f6" id="r_af34a366cd1952a3ba03b96af1976a0f6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af34a366cd1952a3ba03b96af1976a0f6">close</a> () noexcept</td></tr>
+<tr class="memdesc:af34a366cd1952a3ba03b96af1976a0f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the mutex; the stored data stays in flash.  <br /></td></tr>
+<tr class="memitem:ab3c80c5ea91d07003acec0528aeea7af" id="r_ab3c80c5ea91d07003acec0528aeea7af"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab3c80c5ea91d07003acec0528aeea7af">isOpen</a> () const noexcept</td></tr>
+<tr class="memdesc:ab3c80c5ea91d07003acec0528aeea7af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the area is open.  <br /></td></tr>
+<tr class="memitem:a3f58c8364b14419a8582e02eb79e613a" id="r_a3f58c8364b14419a8582e02eb79e613a"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a3f58c8364b14419a8582e02eb79e613a">read</a> (uint16_t key, std::span&lt; uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a3f58c8364b14419a8582e02eb79e613a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the latest value stored for a key.  <br /></td></tr>
+<tr class="memitem:a063c0d9941fea672cb74a10cb66f281e" id="r_a063c0d9941fea672cb74a10cb66f281e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a063c0d9941fea672cb74a10cb66f281e">write</a> (uint16_t key, std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a063c0d9941fea672cb74a10cb66f281e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a value under a key, replacing the previous one.  <br /></td></tr>
+<tr class="memitem:a9edbfceb64b451800f603d97a165a446" id="r_a9edbfceb64b451800f603d97a165a446"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a9edbfceb64b451800f603d97a165a446">getFreeSpace</a> () noexcept</td></tr>
+<tr class="memdesc:a9edbfceb64b451800f603d97a165a446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the bytes that can still be appended to the active page without a compaction.  <br /></td></tr>
+<tr class="memitem:aa1c59b98d1ce881640ce49d0d8b3e3ee" id="r_aa1c59b98d1ce881640ce49d0d8b3e3ee"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aa1c59b98d1ce881640ce49d0d8b3e3ee">getUsedSpace</a> () noexcept</td></tr>
+<tr class="memdesc:aa1c59b98d1ce881640ce49d0d8b3e3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the bytes occupied by records in the active page, including dead ones.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a354aabd2410ef26f85f6adc138c4aceb" id="r_a354aabd2410ef26f85f6adc138c4aceb"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d74/a04418.html#a354aabd2410ef26f85f6adc138c4aceb">I2C_TIMEOUT</a></td></tr>
-<tr class="memdesc:a354aabd2410ef26f85f6adc138c4aceb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout granted to a single I2C transfer.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:aadf54e6d52b72a43d71b1a89c690a385" id="r_aadf54e6d52b72a43d71b1a89c690a385"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d74/a04418.html#aadf54e6d52b72a43d71b1a89c690a385">read8</a> (const uint32_t addr, void *const buffer, const size_t size) noexcept</td></tr>
-<tr class="memdesc:aadf54e6d52b72a43d71b1a89c690a385"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from EEPROM with 8-bit addressing.  <br /></td></tr>
-<tr class="memitem:a41825423769f79dd77cb1e77736e6e2a" id="r_a41825423769f79dd77cb1e77736e6e2a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d74/a04418.html#a41825423769f79dd77cb1e77736e6e2a">read16</a> (const uint32_t addr, void *const buffer, const size_t size) noexcept</td></tr>
-<tr class="memdesc:a41825423769f79dd77cb1e77736e6e2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from EEPROM with 16-bit addressing.  <br /></td></tr>
-<tr class="memitem:a299a926321f0db8d9eac8527198f28fc" id="r_a299a926321f0db8d9eac8527198f28fc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d74/a04418.html#a299a926321f0db8d9eac8527198f28fc">write8</a> (const uint32_t addr, const void *const buffer, const size_t size) noexcept</td></tr>
-<tr class="memdesc:a299a926321f0db8d9eac8527198f28fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data to EEPROM with 8-bit addressing.  <br /></td></tr>
-<tr class="memitem:a1736b59146de0f5cacdb663197cd061e" id="r_a1736b59146de0f5cacdb663197cd061e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d74/a04418.html#a1736b59146de0f5cacdb663197cd061e">write16</a> (const uint32_t addr, const void *const buffer, const size_t size) noexcept</td></tr>
-<tr class="memdesc:a1736b59146de0f5cacdb663197cd061e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data to EEPROM with 16-bit addressing.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:abc7b2f2488b46308e0ee7a50e8b5c26b" id="r_abc7b2f2488b46308e0ee7a50e8b5c26b"><td class="memItemLeft">class&#160;</td><td class="memItemRight"><a class="el" href="#abc7b2f2488b46308e0ee7a50e8b5c26b">Driver&lt; M24C16 &gt;</a></td></tr>
-<tr class="memdesc:abc7b2f2488b46308e0ee7a50e8b5c26b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Grants the CRTP base access to 'readImpl()' and 'writeImpl()'.  <br /></td></tr>
+<tr class="memitem:a3edc6595a737736ff655b35ef469897a" id="r_a3edc6595a737736ff655b35ef469897a"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a3edc6595a737736ff655b35ef469897a">MAX_KEY</a> = 0xFFFEU</td></tr>
+<tr class="memdesc:a3edc6595a737736ff655b35ef469897a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest key; 0xFFFF marks erased flash.  <br /></td></tr>
+<tr class="memitem:a1cc956f86b6660f45d50d2878a7ba181" id="r_a1cc956f86b6660f45d50d2878a7ba181"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a1cc956f86b6660f45d50d2878a7ba181">PAGE_COUNT</a> = 2U</td></tr>
+<tr class="memdesc:a1cc956f86b6660f45d50d2878a7ba181"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flash pages of the emulated area.  <br /></td></tr>
+<tr class="memitem:a6f3e645eda23ddfc91dd077e61f15e95" id="r_a6f3e645eda23ddfc91dd077e61f15e95"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a6f3e645eda23ddfc91dd077e61f15e95">MAX_VALUE_SIZE</a> = FLASH_PAGE_SIZE - 32U</td></tr>
+<tr class="memdesc:a6f3e645eda23ddfc91dd077e61f15e95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest value: one page minus the two headers.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a71f90ba5852d744d364d627c9200231e" name="a71f90ba5852d744d364d627c9200231e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a71f90ba5852d744d364d627c9200231e">&#9670;&#160;</a></span>Config</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a71f90ba5852d744d364d627c9200231e">Lib::BSP::EEPROM::I2C::M24C16::Config</a> = <a class="el" href="../../d3/d74/a04418.html#ad08435e7ab04b1447660c851f626b703">Driver</a>&lt;<a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a>&gt;::Config</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Configuration structure alias. </p>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a82d789de030a0346864f88543d0512e5" name="a82d789de030a0346864f88543d0512e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82d789de030a0346864f88543d0512e5">&#9670;&#160;</a></span>M24C16()</h2>
+<a id="a0e75388b44cd284464c96fb9a0c7fc1f" name="a0e75388b44cd284464c96fb9a0c7fc1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e75388b44cd284464c96fb9a0c7fc1f">&#9670;&#160;</a></span>FlashEmulation() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -186,9 +167,9 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::EEPROM::I2C::M24C16::M24C16 </td>
+          <td class="memname">Lib::BSP::EEPROM::FlashEmulation::FlashEmulation </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a71f90ba5852d744d364d627c9200231e">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>baseAddress</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -199,30 +180,18 @@ Friends</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the driver to its I2C port with the M24C16 geometry. </p>
+<p>Binds the emulation to its flash area without touching the flash. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>I2C port and device address configuration; 'config.addr' must be 0. </td></tr>
+    <tr><td class="paramname">baseAddress</td><td>First byte of the first page; must be aligned to a flash page and leave room for the second page in the same bank. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/de5/a04426_a82d789de030a0346864f88543d0512e5_cgraph.svg" width="774" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/de5/a04426_a82d789de030a0346864f88543d0512e5_icgraph.svg" width="774" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a0db0fe864ae86e17a1406e2180d119af" name="a0db0fe864ae86e17a1406e2180d119af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0db0fe864ae86e17a1406e2180d119af">&#9670;&#160;</a></span>~M24C16()</h2>
+<a id="af5de4a71fd88ee41e580deb1e4a8b4e1" name="af5de4a71fd88ee41e580deb1e4a8b4e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5de4a71fd88ee41e580deb1e4a8b4e1">&#9670;&#160;</a></span>FlashEmulation() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -231,32 +200,65 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::EEPROM::I2C::M24C16::~M24C16 </td>
+          <td class="memname">Lib::BSP::EEPROM::FlashEmulation::FlashEmulation </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const FlashEmulation &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Uses the compiler-generated behavior of the base; the shared port is not closed here. </p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
+<p>Copying is deleted: the instance owns a mutex and the state of one flash area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/de5/a04426_a0db0fe864ae86e17a1406e2180d119af_cgraph.svg" width="774" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<a id="a65b04ccc40b81a011eafa3dd70ccd280" name="a65b04ccc40b81a011eafa3dd70ccd280"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65b04ccc40b81a011eafa3dd70ccd280">&#9670;&#160;</a></span>FlashEmulation() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EEPROM::FlashEmulation::FlashEmulation </td>
+          <td>(</td>
+          <td class="paramtype">FlashEmulation &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the instance owns a mutex and the state of one flash area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a379c6a49e0b3c1c663020582e61d6887" name="a379c6a49e0b3c1c663020582e61d6887"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a379c6a49e0b3c1c663020582e61d6887">&#9670;&#160;</a></span>close()</h2>
+<a id="af34a366cd1952a3ba03b96af1976a0f6" name="af34a366cd1952a3ba03b96af1976a0f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af34a366cd1952a3ba03b96af1976a0f6">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +267,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/d74/a04418.html">Lib::BSP::EEPROM::I2C::Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;::close </td>
+          <td class="memname">void Lib::BSP::EEPROM::FlashEmulation::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -273,19 +275,17 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the I2C EEPROM device. </p>
-<p>Closes the I2C port and marks the device as not ready for further operations.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the underlying I2C port shut down cleanly, <b>false</b> otherwise. </dd></dl>
+<p>Releases the mutex; the stored data stays in flash. </p>
 
 </div>
 </div>
-<a id="a9d4c8832f1bcf188ae0c358a9a363b82" name="a9d4c8832f1bcf188ae0c358a9a363b82"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d4c8832f1bcf188ae0c358a9a363b82">&#9670;&#160;</a></span>getChipSize()</h2>
+<a id="a9edbfceb64b451800f603d97a165a446" name="a9edbfceb64b451800f603d97a165a446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9edbfceb64b451800f603d97a165a446">&#9670;&#160;</a></span>getFreeSpace()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -294,7 +294,65 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d3/d74/a04418.html">Lib::BSP::EEPROM::I2C::Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;::getChipSize </td>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulation::getFreeSpace </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the bytes that can still be appended to the active page without a compaction. </p>
+<p>Dead records are not reclaimed here, so this value only falls until the next compaction. A damaged record at the end of the page makes the page unclean; then the space is reported as 0, because new records are refused until compaction.</p>
+<dl class="section return"><dt>Returns</dt><dd>Free bytes of the active page, or 0 if the area is not open. </dd></dl>
+
+</div>
+</div>
+<a id="aa1c59b98d1ce881640ce49d0d8b3e3ee" name="aa1c59b98d1ce881640ce49d0d8b3e3ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1c59b98d1ce881640ce49d0d8b3e3ee">&#9670;&#160;</a></span>getUsedSpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulation::getUsedSpace </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the bytes occupied by records in the active page, including dead ones. </p>
+<p>The value counts every appended record, so it grows with each changed write until compaction copies the live values to the other page and drops the rest. The live values alone are usually smaller.</p>
+<dl class="section return"><dt>Returns</dt><dd>Used bytes of the active page, or 0 if the area is not open. </dd></dl>
+
+</div>
+</div>
+<a id="ab3c80c5ea91d07003acec0528aeea7af" name="ab3c80c5ea91d07003acec0528aeea7af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3c80c5ea91d07003acec0528aeea7af">&#9670;&#160;</a></span>isOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::EEPROM::FlashEmulation::isOpen </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -302,18 +360,18 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the total memory capacity of the EEPROM device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Total EEPROM memory size, in bytes. </dd></dl>
+<p>Tells whether the area is open. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="#a8947a65dd4bc123a43147aadad6d5328" title="open()">open()</a> and <a class="el" href="#af34a366cd1952a3ba03b96af1976a0f6" title="close()">close()</a>. </dd></dl>
 
 </div>
 </div>
-<a id="ababf497720b16b51762103ca82e56f49" name="ababf497720b16b51762103ca82e56f49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ababf497720b16b51762103ca82e56f49">&#9670;&#160;</a></span>open()</h2>
+<a id="a8947a65dd4bc123a43147aadad6d5328" name="a8947a65dd4bc123a43147aadad6d5328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8947a65dd4bc123a43147aadad6d5328">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -322,7 +380,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/d74/a04418.html">Lib::BSP::EEPROM::I2C::Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;::open </td>
+          <td class="memname">bool Lib::BSP::EEPROM::FlashEmulation::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -330,19 +388,19 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Opens the I2C EEPROM device. </p>
-<p>Opens the I2C port and verifies that the EEPROM device is accessible at the configured slave address. A failed probe leaves the port open, since other devices on the same bus may already be using it.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the device opened and is accessible, <b>false</b> otherwise. </dd></dl>
+<p>Finds the active page, or formats the area if it holds no valid page header. </p>
+<p>Formatting erases both pages, so it discards any data the area held before.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the area is ready for <a class="el" href="#a3f58c8364b14419a8582e02eb79e613a" title="read()">read()</a> and <a class="el" href="#a063c0d9941fea672cb74a10cb66f281e" title="write()">write()</a>. </dd></dl>
 
 </div>
 </div>
-<a id="a54927e78496718fcd7a9cb0e02767604" name="a54927e78496718fcd7a9cb0e02767604"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54927e78496718fcd7a9cb0e02767604">&#9670;&#160;</a></span>read()</h2>
+<a id="ac176ad5bc133ed1cdbc6b3e8e1e402e4" name="ac176ad5bc133ed1cdbc6b3e8e1e402e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac176ad5bc133ed1cdbc6b3e8e1e402e4">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -351,44 +409,32 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/d74/a04418.html">Lib::BSP::EEPROM::I2C::Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;::read </td>
+          <td class="memname"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp; Lib::BSP::EEPROM::FlashEmulation::operator= </td>
           <td>(</td>
-          <td class="paramtype">const uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">void *const</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads data from the EEPROM device. </p>
-<p>Validates the request parameters, then delegates to the derived driver's addressing-width-specific implementation.</p>
+<p>Copy assignment is deleted: the instance owns a mutex and the state of one flash area. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>Starting memory address to read from. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Pointer to the receive buffer for read data. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the read completed successfully, <b>false</b> if validation or the transfer fails. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="a41825423769f79dd77cb1e77736e6e2a" name="a41825423769f79dd77cb1e77736e6e2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a41825423769f79dd77cb1e77736e6e2a">&#9670;&#160;</a></span>read16()</h2>
+<a id="abd98d1e0a541c569e9a190459fdce6c8" name="abd98d1e0a541c569e9a190459fdce6c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd98d1e0a541c569e9a190459fdce6c8">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -397,45 +443,32 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/d74/a04418.html">Lib::BSP::EEPROM::I2C::Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;::read16 </td>
+          <td class="memname"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp; Lib::BSP::EEPROM::FlashEmulation::operator= </td>
           <td>(</td>
-          <td class="paramtype">const uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="#a0e75388b44cd284464c96fb9a0c7fc1f">FlashEmulation</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">void *const</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads data from EEPROM with 16-bit addressing. </p>
-<p>Suitable for larger EEPROM devices requiring two-byte addressing.</p>
+<p>Move assignment is deleted: the instance owns a mutex and the state of one flash area. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>Memory address to read from. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Pointer to the receive buffer for read data. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the read completed successfully, <b>false</b> if the device is not ready.</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>The device is opened and ready. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="aadf54e6d52b72a43d71b1a89c690a385" name="aadf54e6d52b72a43d71b1a89c690a385"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadf54e6d52b72a43d71b1a89c690a385">&#9670;&#160;</a></span>read8()</h2>
+<a id="a3f58c8364b14419a8582e02eb79e613a" name="a3f58c8364b14419a8582e02eb79e613a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f58c8364b14419a8582e02eb79e613a">&#9670;&#160;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -444,51 +477,37 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/d74/a04418.html">Lib::BSP::EEPROM::I2C::Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;::read8 </td>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulation::read </td>
           <td>(</td>
-          <td class="paramtype">const uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">void *const</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads data from EEPROM with 8-bit addressing. </p>
-<p>For chips with a single-byte word address. Address bits 8..10 of larger chips (M24C04 ... M24C16) are sent in the slave address, where they replace the E2/E1/E0 strap bits, so the configured strap address must be 0 for those chips.</p>
+<p>Reads the latest value stored for a key. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>Memory address to read from. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Pointer to the receive buffer for read data. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Record key, 0 to <a class="el" href="#a3edc6595a737736ff655b35ef469897a" title="MAX_KEY">MAX_KEY</a>. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; receives at most its size of the stored bytes. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the read completed successfully, <b>false</b> if the device is not ready.</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>The device is opened and ready. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d74/a04418_aadf54e6d52b72a43d71b1a89c690a385_icgraph.svg" width="774" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd>Length of the stored value, or 0 if the key does not exist or the area is not open. A value longer than the buffer is cut, so compare the result with the buffer size. </dd></dl>
 
 </div>
 </div>
-<a id="a13e5c1d0f2d73fc592f0270be2b3a646" name="a13e5c1d0f2d73fc592f0270be2b3a646"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13e5c1d0f2d73fc592f0270be2b3a646">&#9670;&#160;</a></span>write()</h2>
+<a id="a063c0d9941fea672cb74a10cb66f281e" name="a063c0d9941fea672cb74a10cb66f281e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a063c0d9941fea672cb74a10cb66f281e">&#9670;&#160;</a></span>write()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -497,162 +516,39 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/d74/a04418.html">Lib::BSP::EEPROM::I2C::Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;::write </td>
+          <td class="memname">bool Lib::BSP::EEPROM::FlashEmulation::write </td>
           <td>(</td>
-          <td class="paramtype">const uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const void *const</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes data to the EEPROM device. </p>
-<p>Validates the request parameters, then delegates to the derived driver's addressing-width-specific implementation.</p>
+<p>Stores a value under a key, replacing the previous one. </p>
+<p>A value equal to the stored one is not written again, which saves flash endurance.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>Starting memory address to write to. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Pointer to the data buffer to write. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
+    <tr><td class="paramname">key</td><td>Record key, 0 to <a class="el" href="#a3edc6595a737736ff655b35ef469897a" title="MAX_KEY">MAX_KEY</a>. </td></tr>
+    <tr><td class="paramname">data</td><td>Value to store, 1 to <a class="el" href="#a6f3e645eda23ddfc91dd077e61f15e95" title="MAX_VALUE_SIZE">MAX_VALUE_SIZE</a> bytes. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the write completed successfully, <b>false</b> if validation or the transfer fails. </dd></dl>
-
-</div>
-</div>
-<a id="a1736b59146de0f5cacdb663197cd061e" name="a1736b59146de0f5cacdb663197cd061e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1736b59146de0f5cacdb663197cd061e">&#9670;&#160;</a></span>write16()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d3/d74/a04418.html">Lib::BSP::EEPROM::I2C::Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;::write16 </td>
-          <td>(</td>
-          <td class="paramtype">const uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *const</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes data to EEPROM with 16-bit addressing. </p>
-<p>Uses automatic page-aligned write handling.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addr</td><td>Memory address to write to. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Pointer to the data buffer to write. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the write completed successfully, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a299a926321f0db8d9eac8527198f28fc" name="a299a926321f0db8d9eac8527198f28fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a299a926321f0db8d9eac8527198f28fc">&#9670;&#160;</a></span>write8()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d3/d74/a04418.html">Lib::BSP::EEPROM::I2C::Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;::write8 </td>
-          <td>(</td>
-          <td class="paramtype">const uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *const</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes data to EEPROM with 8-bit addressing. </p>
-<p>Uses automatic page-aligned write handling. Address bits 8..10 are sent in the slave address, see <a class="el" href="../../d3/d74/a04418.html#aadf54e6d52b72a43d71b1a89c690a385" title="read8()">read8()</a>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addr</td><td>Memory address to write to. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Pointer to the data buffer to write. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the write completed successfully, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
-<a id="abc7b2f2488b46308e0ee7a50e8b5c26b" name="abc7b2f2488b46308e0ee7a50e8b5c26b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc7b2f2488b46308e0ee7a50e8b5c26b">&#9670;&#160;</a></span>Driver&lt; M24C16 &gt;</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">friend class <a class="el" href="../../d3/d74/a04418.html#ad08435e7ab04b1447660c851f626b703">Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Grants the CRTP base access to 'readImpl()' and 'writeImpl()'. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the value is stored, or already was; <b>false</b> if the area is not open, the value is too large or the flash failed. </dd></dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a354aabd2410ef26f85f6adc138c4aceb" name="a354aabd2410ef26f85f6adc138c4aceb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a354aabd2410ef26f85f6adc138c4aceb">&#9670;&#160;</a></span>I2C_TIMEOUT</h2>
+<a id="a3edc6595a737736ff655b35ef469897a" name="a3edc6595a737736ff655b35ef469897a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3edc6595a737736ff655b35ef469897a">&#9670;&#160;</a></span>MAX_KEY</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -661,17 +557,65 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="el" href="../../d3/d74/a04418.html">Lib::BSP::EEPROM::I2C::Driver</a>&lt; <a class="el" href="#a82d789de030a0346864f88543d0512e5">M24C16</a> &gt;::I2C_TIMEOUT</td>
+          <td class="memname">uint16_t Lib::BSP::EEPROM::FlashEmulation::MAX_KEY = 0xFFFEU</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Timeout granted to a single I2C transfer. </p>
+<p>Largest key; 0xFFFF marks erased flash. </p>
+
+</div>
+</div>
+<a id="a6f3e645eda23ddfc91dd077e61f15e95" name="a6f3e645eda23ddfc91dd077e61f15e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f3e645eda23ddfc91dd077e61f15e95">&#9670;&#160;</a></span>MAX_VALUE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulation::MAX_VALUE_SIZE = FLASH_PAGE_SIZE - 32U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Largest value: one page minus the two headers. </p>
+
+</div>
+</div>
+<a id="a1cc956f86b6660f45d50d2878a7ba181" name="a1cc956f86b6660f45d50d2878a7ba181"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cc956f86b6660f45d50d2878a7ba181">&#9670;&#160;</a></span>PAGE_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulation::PAGE_COUNT = 2U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flash pages of the emulated area. </p>
 
 </div>
 </div>

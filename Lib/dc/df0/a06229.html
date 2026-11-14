@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::Convert::Bcd</title>
+<title>IAR EWARM Library: Lib::Helper::Convert::HexHelper</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,87 +92,72 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Convert::Bcd</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Convert::HexHelper</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows converting packed BCD values to a string, a single ASCII digit and a numeric decimal value with <a class="el" href="../../dc/df0/a06229.html" title="Lib::Helper::Convert::Bcd">Lib::Helper::Convert::Bcd</a>.</p>
-<p>Shows converting packed BCD values to a string, a single ASCII digit and a numeric decimal value with Lib::Helper::Convert::Bcd.The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs. In debug builds <a class="el" href="../../d1/dcd/a05680.html#a80040dcbd66043680f5816ef3c803548" title="Lib::Helper::Convert::Bcd::toHex()">Lib::Helper::Convert::Bcd::toHex()</a> and <a class="el" href="../../d1/dcd/a05680.html#ac378c88aeb98cda33147af9b58972d59" title="Lib::Helper::Convert::Bcd::toString()">Lib::Helper::Convert::Bcd::toString()</a> assert on a nibble outside 0 to 9. Release builds return <a class="el" href="../../d1/dcd/a05680.html#ac586158913763067b5249cc245ac87c1" title="Lib::Helper::Convert::Bcd::INVALID_VALUE">Lib::Helper::Convert::Bcd::INVALID_VALUE</a> from toHex(), <a class="el" href="../../d1/dcd/a05680.html#a6ae8dbcfa90bb81fb27b4b128b61ba24" title="Lib::Helper::Convert::Bcd::INVALID_CHARACTER">Lib::Helper::Convert::Bcd::INVALID_CHARACTER</a> from toAsc() and an all-NUL buffer from toString(). Check untrusted input with <a class="el" href="../../d1/dcd/a05680.html#a57f48aee3deb0a51f57ffebbf6d931c6" title="Lib::Helper::Convert::Bcd::isValid()">Lib::Helper::Convert::Bcd::isValid()</a> first.</p>
+<p>Shows the lightweight conversion helpers of <a class="el" href="../../dc/df0/a06229.html" title="Lib::Helper::Convert::HexHelper">Lib::Helper::Convert::HexHelper</a>, which turn a nibble into its ASCII hex digit, a value from <b>0</b> to <b>99</b> packed into 8-bit BCD, a decimal value packed into 32-bit BCD, and an ASCII hex digit back to its numeric nibble.</p>
+<p>Shows the lightweight conversion helpers of <a class="el" href="../../dc/df0/a06229.html" title="Lib::Helper::Convert::HexHelper">Lib::Helper::Convert::HexHelper</a>, which turn a nibble into its ASCII hex digit, a value from <b>0</b> to <b>99</b> packed into 8-bit BCD, a decimal value packed into 32-bit BCD, and an ASCII hex digit back to its numeric nibble.The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs. <a class="el" href="../../db/d63/a05686.html#adc4e23573cc8d30952b34baa738a7829" title="Lib::Helper::Convert::HexHelper::toBcd()">Lib::Helper::Convert::HexHelper::toBcd()</a> and <a class="el" href="../../db/d63/a05686.html#a0ff1064b777a7e7bcc333deb8863d171" title="Lib::Helper::Convert::HexHelper::toBcd8()">Lib::Helper::Convert::HexHelper::toBcd8()</a> assert on a value above their capacity in debug builds. <a class="el" href="../../db/d63/a05686.html#ad25faac730a1cf9e48849a2e2c672b18" title="Lib::Helper::Convert::HexHelper::fromAscii()">Lib::Helper::Convert::HexHelper::fromAscii()</a> returns <a class="el" href="../../db/d63/a05686.html#a6bf7a4038d9764ca11bac42597dcc0a7" title="Lib::Helper::Convert::HexHelper::INVALID_NIBBLE">Lib::Helper::Convert::HexHelper::INVALID_NIBBLE</a> for a non-hex character, and asserts on it in debug builds.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_string"></a>
-Digits to string</h3>
-<p><a class="el" href="../../d1/dcd/a05680.html#ac378c88aeb98cda33147af9b58972d59" title="Lib::Helper::Convert::Bcd::toString()">Lib::Helper::Convert::Bcd::toString()</a> returns a fixed, NUL-terminated buffer of <a class="el" href="../../d1/dcd/a05680.html#a6d4a05d6f245e02cf8f764801f23f0fc" title="Lib::Helper::Convert::Bcd::Digits">Lib::Helper::Convert::Bcd::Digits</a>, so the result is printed through 'data()'.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/db8/a00797.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_nibble"></a>
+Nibble to ASCII</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7e/a00809.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printBcdDigits() {</div>
-<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/dcd/a05680.html">Lib::Helper::Convert::Bcd</a>;</div>
+<div class="line"><span class="keywordtype">void</span> printNibbleAsAscii() {</div>
+<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d63/a05686.html">Lib::Helper::Convert::HexHelper</a>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint16_t bcdValue = 0x1234;</div>
-<div class="line">    <span class="keyword">const</span> Bcd::Digits digits = Bcd::toString(bcdValue);</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;toString(0x1234) = &quot;</span> &lt;&lt; digits.data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> c = HexHelper::toAscii(0xAU);</div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Nibble 0xA -&gt; &quot;</span> &lt;&lt; c &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00797_html"><div class="ttname"><a href="../../da/db8/a00797.html">Bcd.hpp</a></div><div class="ttdoc">Binary Coded Decimal (BCD) conversion utilities.</div></div>
+<div class="ttc" id="aa00809_html"><div class="ttname"><a href="../../dd/d7e/a00809.html">HexHelper.hpp</a></div><div class="ttdoc">Hexadecimal and BCD conversion helpers, forwarding the nibble and character mapping to Lib::Helper::C...</div></div>
 <div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
-<div class="ttc" id="aa05680_html"><div class="ttname"><a href="../../d1/dcd/a05680.html">Lib::Helper::Convert::Bcd</a></div><div class="ttdoc">Static helpers that turn 16-bit BCD values into decimal strings, ASCII digits and numeric values.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:35</div></div>
+<div class="ttc" id="aa05686_html"><div class="ttname"><a href="../../db/d63/a05686.html">Lib::Helper::Convert::HexHelper</a></div><div class="ttdoc">Static constexpr conversion utilities between numeric values, ASCII hex characters and packed BCD.</div><div class="ttdef"><b>Definition</b> HexHelper.hpp:29</div></div>
 </div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">toString(0x1234) = 1234</div>
+<div class="fragment"><div class="line">Nibble 0xA -&gt; A</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_ascii"></a>
-Single digit to ASCII</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/db8/a00797.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_bcd"></a>
+Packing decimal values into BCD</h3>
+<p><a class="el" href="../../db/d63/a05686.html#a0ff1064b777a7e7bcc333deb8863d171" title="Lib::Helper::Convert::HexHelper::toBcd8()">Lib::Helper::Convert::HexHelper::toBcd8()</a> packs <b>0</b> to <b>99</b> into one byte, and <a class="el" href="../../db/d63/a05686.html#adc4e23573cc8d30952b34baa738a7829" title="Lib::Helper::Convert::HexHelper::toBcd()">Lib::Helper::Convert::HexHelper::toBcd()</a> packs up to <b>8</b> decimal digits into 32 bits.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7e/a00809.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printBcdDigitAsAscii() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d1/dcd/a05680.html">Lib::Helper::Convert::Bcd</a>;</div>
+<div class="line"><span class="keywordtype">void</span> printPackedBcd() {</div>
+<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../db/d63/a05686.html">Lib::Helper::Convert::HexHelper</a>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> ch = Bcd::toAsc(0x05);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;toAsc(0x05) = &quot;</span> &lt;&lt; ch &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    <span class="keyword">const</span> uint8_t bcd8 = HexHelper::toBcd8(42U);</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;BCD8(42) -&gt; 0x&quot;</span> &lt;&lt; <a id="a2" name="a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex &lt;&lt; static_cast&lt;int&gt;</a>(bcd8) &lt;&lt; <a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> uint32_t bcd32 = HexHelper::toBcd(1234U);</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;BCD32(1234) -&gt; 0x&quot;</span> &lt;&lt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex</a> &lt;&lt; bcd32 &lt;&lt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa01692_html_a0fc906aec6c2cb724b0aad05ee44de0d"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex</a></div><div class="ttdeci">ios_base &amp; hex(ios_base &amp;__base)</div></div>
+<div class="ttc" id="aa01692_html_a8e1042ae25efda13674517f13a10c44c"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a></div><div class="ttdeci">ios_base &amp; dec(ios_base &amp;__base)</div></div>
 </div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line"><a id="a0" name="a0"></a><a class="code hl_function" href="../../d1/dcd/a05680.html#a0040e3e357251de248c5e740c1af493b">toAsc</a>(0x05) = 5</div>
-<div class="ttc" id="aa05680_html_a0040e3e357251de248c5e740c1af493b"><div class="ttname"><a href="../../d1/dcd/a05680.html#a0040e3e357251de248c5e740c1af493b">Lib::Helper::Convert::Bcd::toAsc</a></div><div class="ttdeci">static constexpr char toAsc(uint8_t bcd) noexcept</div><div class="ttdoc">Convert a single BCD digit to its ASCII character.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:103</div></div>
+<div class="fragment"><div class="line">BCD8(42) -&gt; 0x42</div>
+<div class="line">BCD32(1234) -&gt; 0x1234</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_hex"></a>
-BCD to numeric decimal value</h3>
-<p><a class="el" href="../../d1/dcd/a05680.html#a80040dcbd66043680f5816ef3c803548" title="Lib::Helper::Convert::Bcd::toHex()">Lib::Helper::Convert::Bcd::toHex()</a> reads the packed BCD digits as a decimal number, so <b>0x0102</b> yields <b>102</b>.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/db8/a00797.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_parse"></a>
+ASCII to nibble</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7e/a00809.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printBcdAsDecimal() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d1/dcd/a05680.html">Lib::Helper::Convert::Bcd</a>;</div>
+<div class="line"><span class="keywordtype">void</span> printAsciiAsNibble() {</div>
+<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../db/d63/a05686.html">Lib::Helper::Convert::HexHelper</a>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint16_t num = Bcd::toHex(0x0102);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;toHex(0x0102) = &quot;</span> &lt;&lt; num &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line"><a id="a1" name="a1"></a><a class="code hl_function" href="../../d1/dcd/a05680.html#a80040dcbd66043680f5816ef3c803548">toHex</a>(0x0102) = 102</div>
-<div class="ttc" id="aa05680_html_a80040dcbd66043680f5816ef3c803548"><div class="ttname"><a href="../../d1/dcd/a05680.html#a80040dcbd66043680f5816ef3c803548">Lib::Helper::Convert::Bcd::toHex</a></div><div class="ttdeci">static constexpr uint16_t toHex(uint16_t bcd) noexcept</div><div class="ttdoc">Convert a 16-bit BCD value to its numeric value.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:122</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_invalid"></a>
-Rejecting malformed input</h3>
-<p>The nibble <b>0xA</b> is not a decimal digit, so <b>0x12A4</b> is malformed. <a class="el" href="../../d1/dcd/a05680.html#a57f48aee3deb0a51f57ffebbf6d931c6" title="Lib::Helper::Convert::Bcd::isValid()">Lib::Helper::Convert::Bcd::isValid()</a> reports it without side effects, and <a class="el" href="../../d1/dcd/a05680.html#a80040dcbd66043680f5816ef3c803548" title="Lib::Helper::Convert::Bcd::toHex()">Lib::Helper::Convert::Bcd::toHex()</a> should only be called after it returns <b>true</b>.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/db8/a00797.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> acceptBcd(uint16_t raw, uint16_t &amp; decimal) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d1/dcd/a05680.html">Lib::Helper::Convert::Bcd</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!Bcd::isValid(raw)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Bcd::isValid(0x12A4) is false.</span></div>
+<div class="line">    <span class="keyword">const</span> uint8_t nibble = HexHelper::fromAscii(<span class="charliteral">&#39;F&#39;</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (nibble != HexHelper::INVALID_NIBBLE) {</div>
+<div class="line">        <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;&#39;F&#39; -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(nibble) &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    decimal = Bcd::toHex(raw);</div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line"><span class="charliteral">&#39;F&#39;</span> -&gt; 15</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

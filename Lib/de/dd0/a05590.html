@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::StreamSerialPort</title>
+<title>IAR EWARM Library: Lib::HAL::UARTPortAsync&lt; T_DERIVED &gt;</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,367 +91,120 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../de/dd0/a05590.html">StreamSerialPort</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../de/dd0/a05590.html">UARTPortAsync</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="../../dc/d4a/a05587.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::StreamSerialPort<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::UARTPortAsync&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>CRTP foundation for the interrupt-driven UART modes.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>UART port that receives continuously into a stream buffer and transmits by polling. </p>
-<p>'Lib::HAL::UARTPort' receives only into a buffer the caller hands over for one transfer, so bytes arriving between two calls are lost. Devices that send unsolicited data need a receiver that is always armed. This port keeps one byte armed with HAL_UART_Receive_IT() and pushes every received byte into an <a class="el" href="../../d7/d3e/a06285.html" title="RTOS::StreamBuffer">RTOS::StreamBuffer</a> from the interrupt. One task reads it with <a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="read()">read()</a>.</p>
-<p><a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e" title="close()">close()</a> de-initializes the UART, which returns its pins to the analog state, so a powered-down device is not back-fed through TX. <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a> brings it back.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Exactly one task may call <a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="read()">read()</a> and <a class="el" href="#ad313993195f0d6ea829d9c7b61df667f" title="discardInput()">discardInput()</a>; the stream buffer allows a single reader. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/da5/a06173.html#_a2">Lib::BSP::GSM::A7670E</a>, and <a class="el" href="../../db/d98/a06221.html#_a3">Lib::HAL::StreamSerialPort</a>.</dd>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::HAL::UARTPortAsync&lt; T_DERIVED &gt;</div><p>CRTP foundation for the interrupt-driven UART modes. </p>
+<p>Owns the logic both modes would otherwise duplicate: the start-then-wait transfer sequence, abort() and the HAL callbacks. The open/close sequence comes from <a class="el" href="../../d9/da3/a05354.html" title="AsyncPortCore">AsyncPortCore</a>. A mode specialization only supplies the two HAL calls that start a transfer ('startTransmit()' / 'startReceive()'). Transmit and receive use separate event bits, so one task may send while another receives on the same port.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing 'startTransmit(std::span&lt;const uint8_t&gt;)' and 'startReceive(std::span&lt;uint8_t&gt;)', both returning <b>true</b> once the HAL accepted the transfer. </td></tr>
+  </table>
+  </dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::StreamSerialPort:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d38/a05588.svg" width="230" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d3/ddd/a05594.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construction parameters.  <a href="../../d3/ddd/a05594.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a273a38e15bd84ddcb1ab16c18bcb563a" id="r_a273a38e15bd84ddcb1ab16c18bcb563a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> (const <a class="el" href="../../d3/ddd/a05594.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a273a38e15bd84ddcb1ab16c18bcb563a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a CubeMX handle; nothing is touched until <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a>.  <br /></td></tr>
-<tr class="memitem:a82213704bb45f3f325b198dc0eb1ecab" id="r_a82213704bb45f3f325b198dc0eb1ecab"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a82213704bb45f3f325b198dc0eb1ecab">~StreamSerialPort</a> () noexcept</td></tr>
-<tr class="memdesc:a82213704bb45f3f325b198dc0eb1ecab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if it is still open.  <br /></td></tr>
-<tr class="memitem:a4385588b551ca7105aacb5fa1b83da65" id="r_a4385588b551ca7105aacb5fa1b83da65"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4385588b551ca7105aacb5fa1b83da65">StreamSerialPort</a> (const StreamSerialPort &amp;other)=delete</td></tr>
-<tr class="memdesc:a4385588b551ca7105aacb5fa1b83da65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the port is bound to one peripheral and registered with its interrupt.  <br /></td></tr>
-<tr class="memitem:a4dbd8a6587109d4ce29242ec1ddfdec0" id="r_a4dbd8a6587109d4ce29242ec1ddfdec0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4dbd8a6587109d4ce29242ec1ddfdec0">StreamSerialPort</a> (StreamSerialPort &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a4dbd8a6587109d4ce29242ec1ddfdec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the interrupt keeps a pointer to this object.  <br /></td></tr>
-<tr class="memitem:a49b22bf81050b4ee173b0cb712fce161" id="r_a49b22bf81050b4ee173b0cb712fce161"><td class="memItemLeft"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a49b22bf81050b4ee173b0cb712fce161">operator=</a> (const <a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a49b22bf81050b4ee173b0cb712fce161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the port is bound to one peripheral.  <br /></td></tr>
-<tr class="memitem:a5d8430086822b05225d0b3f4372238b2" id="r_a5d8430086822b05225d0b3f4372238b2"><td class="memItemLeft"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5d8430086822b05225d0b3f4372238b2">operator=</a> (<a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a5d8430086822b05225d0b3f4372238b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the interrupt keeps a pointer to this object.  <br /></td></tr>
-<tr class="memitem:a1b052f09718429b991946fea7724f411" id="r_a1b052f09718429b991946fea7724f411"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1b052f09718429b991946fea7724f411">open</a> () noexcept</td></tr>
-<tr class="memdesc:a1b052f09718429b991946fea7724f411"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the UART if needed, empties the stream and starts continuous reception.  <br /></td></tr>
-<tr class="memitem:af4d1dbc5fcd691c510918d277281ee6e" id="r_af4d1dbc5fcd691c510918d277281ee6e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e">close</a> () noexcept</td></tr>
-<tr class="memdesc:af4d1dbc5fcd691c510918d277281ee6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops reception and de-initializes the UART, leaving its pins analog.  <br /></td></tr>
-<tr class="memitem:a6fe88c556292e95190f066d34a6455a9" id="r_a6fe88c556292e95190f066d34a6455a9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6fe88c556292e95190f066d34a6455a9">isOpen</a> () const noexcept</td></tr>
-<tr class="memdesc:a6fe88c556292e95190f066d34a6455a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the port is open.  <br /></td></tr>
-<tr class="memitem:a0a35058ffe6e3bb6d1a5a9fb335c3588" id="r_a0a35058ffe6e3bb6d1a5a9fb335c3588"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0a35058ffe6e3bb6d1a5a9fb335c3588">write</a> (std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
-<tr class="memdesc:a0a35058ffe6e3bb6d1a5a9fb335c3588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits bytes, polling the UART until they are sent.  <br /></td></tr>
-<tr class="memitem:aa11ae6544b3fe4193e42a03891973953" id="r_aa11ae6544b3fe4193e42a03891973953"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa11ae6544b3fe4193e42a03891973953">write</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> text, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
-<tr class="memdesc:aa11ae6544b3fe4193e42a03891973953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits the characters of a string, without a terminator.  <br /></td></tr>
-<tr class="memitem:a6ef7de0de72ebe36f7b4e1c63a4bd00a" id="r_a6ef7de0de72ebe36f7b4e1c63a4bd00a"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a">read</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
-<tr class="memdesc:a6ef7de0de72ebe36f7b4e1c63a4bd00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes received bytes from the stream, waiting until at least one is there or the timeout expires.  <br /></td></tr>
-<tr class="memitem:ad313993195f0d6ea829d9c7b61df667f" id="r_ad313993195f0d6ea829d9c7b61df667f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad313993195f0d6ea829d9c7b61df667f">discardInput</a> () noexcept</td></tr>
-<tr class="memdesc:ad313993195f0d6ea829d9c7b61df667f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops every byte already received.  <br /></td></tr>
-<tr class="memitem:a32276aa918b5679e4f0e8df69175063f" id="r_a32276aa918b5679e4f0e8df69175063f"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a32276aa918b5679e4f0e8df69175063f">getDroppedCount</a> () const noexcept</td></tr>
-<tr class="memdesc:a32276aa918b5679e4f0e8df69175063f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many received bytes were lost because the stream was full.  <br /></td></tr>
+<tr class="memitem:aa6f2b7746c93553e8ba0a2fda3c494bc" id="r_aa6f2b7746c93553e8ba0a2fda3c494bc"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:aa6f2b7746c93553e8ba0a2fda3c494bc template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa6f2b7746c93553e8ba0a2fda3c494bc">send</a> (std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:aa6f2b7746c93553e8ba0a2fda3c494bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits a buffer and waits for completion.  <br /></td></tr>
+<tr class="memitem:a3c10830f8d93936773f64d95201bc7da" id="r_a3c10830f8d93936773f64d95201bc7da"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a3c10830f8d93936773f64d95201bc7da template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3c10830f8d93936773f64d95201bc7da">receive</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a3c10830f8d93936773f64d95201bc7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives exactly 'data.size()' bytes and waits for completion.  <br /></td></tr>
+<tr class="memitem:ac0f3ec8c2a5d8ad83c45e752232f2005" id="r_ac0f3ec8c2a5d8ad83c45e752232f2005"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac0f3ec8c2a5d8ad83c45e752232f2005">abort</a> () noexcept</td></tr>
+<tr class="memdesc:ac0f3ec8c2a5d8ad83c45e752232f2005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts any ongoing transmission and reception immediately.  <br /></td></tr>
+<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d9/da3/a05354.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order.  <br /></td></tr>
+<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d9/da3/a05354.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
+<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
+<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d9/da3/a05354.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
+<tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../d2/da8/a05362.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
+<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../d2/da8/a05362.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
+<tr class="memitem:aa69f87ceff32286dc0ce857ef84e314c" id="r_aa69f87ceff32286dc0ce857ef84e314c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dd/d82/a05598.html#aa69f87ceff32286dc0ce857ef84e314c">setBaudRate</a> (uint32_t baudRate) noexcept</td></tr>
+<tr class="memdesc:aa69f87ceff32286dc0ce857ef84e314c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconfigures the baud rate at runtime.  <br /></td></tr>
+<tr class="memitem:ad81fdaf9c82d0a48e796139d2d6241ea" id="r_ad81fdaf9c82d0a48e796139d2d6241ea"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dd/d82/a05598.html#ad81fdaf9c82d0a48e796139d2d6241ea">isBusy</a> () const noexcept</td></tr>
+<tr class="memdesc:ad81fdaf9c82d0a48e796139d2d6241ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates whether a transfer is in flight in either direction.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:ae3dfd1d49bf2eb3ae572e5482852a106" id="r_ae3dfd1d49bf2eb3ae572e5482852a106"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *handle) noexcept</td></tr>
+<tr class="memdesc:ae3dfd1d49bf2eb3ae572e5482852a106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../d9/da3/a05354.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *handle) noexcept</td></tr>
+<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a HAL handle.  <br /></td></tr>
+<tr class="memitem:af06d4ec7b0ee7c9bf66b862ec812eb28" id="r_af06d4ec7b0ee7c9bf66b862ec812eb28"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="../../dd/d82/a05598.html#af06d4ec7b0ee7c9bf66b862ec812eb28">isValidTransferSize</a> (size_t size) noexcept</td></tr>
+<tr class="memdesc:af06d4ec7b0ee7c9bf66b862ec812eb28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a transfer buffer is non-empty and fits the 16-bit length every HAL UART call takes.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a273a38e15bd84ddcb1ab16c18bcb563a" name="a273a38e15bd84ddcb1ab16c18bcb563a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a273a38e15bd84ddcb1ab16c18bcb563a">&#9670;&#160;</a></span>StreamSerialPort() <span class="overload">[1/3]</span></h2>
+<a id="ae3dfd1d49bf2eb3ae572e5482852a106" name="ae3dfd1d49bf2eb3ae572e5482852a106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3dfd1d49bf2eb3ae572e5482852a106">&#9670;&#160;</a></span>UARTPortAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::StreamSerialPort::StreamSerialPort </td>
+          <td class="memname"><a class="el" href="../../de/dd0/a05590.html">Lib::HAL::UARTPortAsync</a>&lt; T_DERIVED &gt;::UARTPortAsync </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d3/ddd/a05594.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the port to a CubeMX handle; nothing is touched until <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a>. </p>
+<p>Binds the port to its native handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Construction parameters, copied. </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a273a38e15bd84ddcb1ab16c18bcb563a_icgraph.svg" width="1235" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a82213704bb45f3f325b198dc0eb1ecab" name="a82213704bb45f3f325b198dc0eb1ecab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82213704bb45f3f325b198dc0eb1ecab">&#9670;&#160;</a></span>~StreamSerialPort()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::StreamSerialPort::~StreamSerialPort </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Closes the port if it is still open. </p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a82213704bb45f3f325b198dc0eb1ecab_cgraph.svg" width="1147" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4385588b551ca7105aacb5fa1b83da65" name="a4385588b551ca7105aacb5fa1b83da65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4385588b551ca7105aacb5fa1b83da65">&#9670;&#160;</a></span>StreamSerialPort() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::StreamSerialPort::StreamSerialPort </td>
-          <td>(</td>
-          <td class="paramtype">const StreamSerialPort &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copying is deleted: the port is bound to one peripheral and registered with its interrupt. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a4385588b551ca7105aacb5fa1b83da65_cgraph.svg" width="806" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4dbd8a6587109d4ce29242ec1ddfdec0" name="a4dbd8a6587109d4ce29242ec1ddfdec0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4dbd8a6587109d4ce29242ec1ddfdec0">&#9670;&#160;</a></span>StreamSerialPort() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::StreamSerialPort::StreamSerialPort </td>
-          <td>(</td>
-          <td class="paramtype">StreamSerialPort &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moving is deleted: the interrupt keeps a pointer to this object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a4dbd8a6587109d4ce29242ec1ddfdec0_cgraph.svg" width="806" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="af4d1dbc5fcd691c510918d277281ee6e" name="af4d1dbc5fcd691c510918d277281ee6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4d1dbc5fcd691c510918d277281ee6e">&#9670;&#160;</a></span>close()</h2>
+<a id="ac0f3ec8c2a5d8ad83c45e752232f2005" name="ac0f3ec8c2a5d8ad83c45e752232f2005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f3ec8c2a5d8ad83c45e752232f2005">&#9670;&#160;</a></span>abort()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::HAL::StreamSerialPort::close </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops reception and de-initializes the UART, leaving its pins analog. </p>
-<p>Task context only. </p>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_af4d1dbc5fcd691c510918d277281ee6e_cgraph.svg" width="718" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_af4d1dbc5fcd691c510918d277281ee6e_icgraph.svg" width="726" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ad313993195f0d6ea829d9c7b61df667f" name="ad313993195f0d6ea829d9c7b61df667f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad313993195f0d6ea829d9c7b61df667f">&#9670;&#160;</a></span>discardInput()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::HAL::StreamSerialPort::discardInput </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Drops every byte already received. </p>
-<p>The stream is drained rather than reset: a reset fails while the interrupt may be writing. </p>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_ad313993195f0d6ea829d9c7b61df667f_icgraph.svg" width="1107" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a32276aa918b5679e4f0e8df69175063f" name="a32276aa918b5679e4f0e8df69175063f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32276aa918b5679e4f0e8df69175063f">&#9670;&#160;</a></span>getDroppedCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t Lib::HAL::StreamSerialPort::getDroppedCount </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns how many received bytes were lost because the stream was full. </p>
-<dl class="section return"><dt>Returns</dt><dd>Lost byte count since construction. </dd></dl>
-
-</div>
-</div>
-<a id="a6fe88c556292e95190f066d34a6455a9" name="a6fe88c556292e95190f066d34a6455a9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6fe88c556292e95190f066d34a6455a9">&#9670;&#160;</a></span>isOpen()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::StreamSerialPort::isOpen </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Tells whether the port is open. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a> and <a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e" title="close()">close()</a>. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a6fe88c556292e95190f066d34a6455a9_icgraph.svg" width="1059" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a1b052f09718429b991946fea7724f411" name="a1b052f09718429b991946fea7724f411"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b052f09718429b991946fea7724f411">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::StreamSerialPort::open </td>
+          <td class="memname">bool <a class="el" href="../../de/dd0/a05590.html">Lib::HAL::UARTPortAsync</a>&lt; T_DERIVED &gt;::abort </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -462,20 +217,43 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the UART if needed, empties the stream and starts continuous reception. </p>
+<p>Aborts any ongoing transmission and reception immediately. </p>
+<p>Wakes a task blocked in <a class="el" href="#aa6f2b7746c93553e8ba0a2fda3c494bc" title="send()">send()</a> or <a class="el" href="#a3c10830f8d93936773f64d95201bc7da" title="receive()">receive()</a>. Task context only.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stopped processing safely. </dd></dl>
+
+</div>
+</div>
+<a id="a03c62c024b148a264f9a6a0077198302" name="a03c62c024b148a264f9a6a0077198302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c62c024b148a264f9a6a0077198302">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/da3/a05354.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a>, <a class="el" href="../../dd/d82/a05598.html">UARTPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a>&lt; T_DERIVED &gt; &gt;::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group. </p>
 <p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the port is receiving. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a1b052f09718429b991946fea7724f411_cgraph.svg" width="678" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
 
 </div>
 </div>
-<a id="a49b22bf81050b4ee173b0cb712fce161" name="a49b22bf81050b4ee173b0cb712fce161"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49b22bf81050b4ee173b0cb712fce161">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a66f47e9670feddc6fb679436b07a1680" name="a66f47e9670feddc6fb679436b07a1680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66f47e9670feddc6fb679436b07a1680">&#9670;&#160;</a></span>findPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -484,38 +262,32 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp; Lib::HAL::StreamSerialPort::operator= </td>
+          <td class="memname">T_DERIVED * <a class="el" href="../../d9/da3/a05354.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a>, <a class="el" href="../../dd/d82/a05598.html">UARTPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a>&lt; T_DERIVED &gt; &gt;::findPort </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: the port is bound to one peripheral. </p>
+<p>Finds the port that owns a HAL handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a49b22bf81050b4ee173b0cb712fce161_cgraph.svg" width="750" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd>The port, or 'nullptr' if no open port uses the handle. </dd></dl>
 
 </div>
 </div>
-<a id="a5d8430086822b05225d0b3f4372238b2" name="a5d8430086822b05225d0b3f4372238b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d8430086822b05225d0b3f4372238b2">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="af92f93241be20a3c9a32286ed19dc4cf" name="af92f93241be20a3c9a32286ed19dc4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92f93241be20a3c9a32286ed19dc4cf">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -524,38 +296,84 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp; Lib::HAL::StreamSerialPort::operator= </td>
+          <td class="memname">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> * <a class="el" href="../../d2/da8/a05362.html">Lib::HAL::Device</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> &gt;::getHandle </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Const-qualified access to the native microcontroller hardware handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
+
+</div>
+</div>
+<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> * <a class="el" href="../../d2/da8/a05362.html">Lib::HAL::Device</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> &gt;::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: the interrupt keeps a pointer to this object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a5d8430086822b05225d0b3f4372238b2_cgraph.svg" width="750" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or 'nullptr' if uninitialized. </dd></dl>
 
 </div>
 </div>
-<a id="a6ef7de0de72ebe36f7b4e1c63a4bd00a" name="a6ef7de0de72ebe36f7b4e1c63a4bd00a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a">&#9670;&#160;</a></span>read()</h2>
+<a id="ad81fdaf9c82d0a48e796139d2d6241ea" name="ad81fdaf9c82d0a48e796139d2d6241ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad81fdaf9c82d0a48e796139d2d6241ea">&#9670;&#160;</a></span>isBusy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/d82/a05598.html">Lib::HAL::UARTPortBase</a>&lt; T_DERIVED &gt;::isBusy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Evaluates whether a transfer is in flight in either direction. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral is transmitting, receiving, or both. </dd></dl>
+
+</div>
+</div>
+<a id="a8be2d6d39175f6e71f25e4a64e0e2f1b" name="a8be2d6d39175f6e71f25e4a64e0e2f1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be2d6d39175f6e71f25e4a64e0e2f1b">&#9670;&#160;</a></span>isOpened()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -564,14 +382,111 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::HAL::StreamSerialPort::read </td>
+          <td class="memname">bool <a class="el" href="../../d9/da3/a05354.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a>, <a class="el" href="../../dd/d82/a05598.html">UARTPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a>&lt; T_DERIVED &gt; &gt;::isOpened </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the port is open. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="../../d9/da3/a05354.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d9/da3/a05354.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="af06d4ec7b0ee7c9bf66b862ec812eb28" name="af06d4ec7b0ee7c9bf66b862ec812eb28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af06d4ec7b0ee7c9bf66b862ec812eb28">&#9670;&#160;</a></span>isValidTransferSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="../../dd/d82/a05598.html">Lib::HAL::UARTPortBase</a>&lt; T_DERIVED &gt;::isValidTransferSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks that a transfer buffer is non-empty and fits the 16-bit length every HAL UART call takes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Buffer size in bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the size is usable. </dd></dl>
+
+</div>
+</div>
+<a id="a3822bc9b87b9e299982b230e2c029f35" name="a3822bc9b87b9e299982b230e2c029f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3822bc9b87b9e299982b230e2c029f35">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d9/da3/a05354.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a>, <a class="el" href="../../dd/d82/a05598.html">UARTPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a>&lt; T_DERIVED &gt; &gt;::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order. </p>
+<p>Task context only. A failure undoes the earlier steps, so the port stays closed.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
+
+</div>
+</div>
+<a id="a3c10830f8d93936773f64d95201bc7da" name="a3c10830f8d93936773f64d95201bc7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c10830f8d93936773f64d95201bc7da">&#9670;&#160;</a></span>receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../de/dd0/a05590.html">Lib::HAL::UARTPortAsync</a>&lt; T_DERIVED &gt;::receive </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -581,42 +496,49 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Takes received bytes from the stream, waiting until at least one is there or the timeout expires. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; up to its size is copied. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Longest time to wait for the first byte. </td></tr>
+<p>Receives exactly 'data.size()' bytes and waits for completion. </p>
+<p>Task context only.</p>
+<p>On timeout or error the reception is aborted, so the HAL never writes 'data' after this returns.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes copied; 0 on timeout or while closed. </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a6ef7de0de72ebe36f7b4e1c63a4bd00a_icgraph.svg" width="606" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
 
 </div>
 </div>
-<a id="a0a35058ffe6e3bb6d1a5a9fb335c3588" name="a0a35058ffe6e3bb6d1a5a9fb335c3588"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a35058ffe6e3bb6d1a5a9fb335c3588">&#9670;&#160;</a></span>write() <span class="overload">[1/2]</span></h2>
+<a id="aa6f2b7746c93553e8ba0a2fda3c494bc" name="aa6f2b7746c93553e8ba0a2fda3c494bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f2b7746c93553e8ba0a2fda3c494bc">&#9670;&#160;</a></span>send()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::StreamSerialPort::write </td>
+          <td class="memname">bool <a class="el" href="../../de/dd0/a05590.html">Lib::HAL::UARTPortAsync</a>&lt; T_DERIVED &gt;::send </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -626,75 +548,61 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Transmits bytes, polling the UART until they are sent. </p>
+<p>Transmits a buffer and waits for completion. </p>
 <p>Task context only.</p>
-<p>The receive interrupt stays armed meanwhile.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Bytes to send; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Longest time the transmission may take. </td></tr>
+<p>On timeout or error the transmission is aborted, so the HAL never reads 'data' after this returns.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every byte was sent. </dd></dl>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
-</div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a0a35058ffe6e3bb6d1a5a9fb335c3588_cgraph.svg" width="558" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
-</div>
-<div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_a0a35058ffe6e3bb6d1a5a9fb335c3588_icgraph.svg" width="1051" height="119"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
 
 </div>
 </div>
-<a id="aa11ae6544b3fe4193e42a03891973953" name="aa11ae6544b3fe4193e42a03891973953"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa11ae6544b3fe4193e42a03891973953">&#9670;&#160;</a></span>write() <span class="overload">[2/2]</span></h2>
+<a id="aa69f87ceff32286dc0ce857ef84e314c" name="aa69f87ceff32286dc0ce857ef84e314c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa69f87ceff32286dc0ce857ef84e314c">&#9670;&#160;</a></span>setBaudRate()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::StreamSerialPort::write </td>
+          <td class="memname">bool <a class="el" href="../../dd/d82/a05598.html">Lib::HAL::UARTPortBase</a>&lt; T_DERIVED &gt;::setBaudRate </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>baudRate</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Transmits the characters of a string, without a terminator. </p>
-<p>Task context only.</p>
+<p>Reconfigures the baud rate at runtime. </p>
+<p>The HAL exposes no dedicated runtime setter, so the handle's init structure is updated and re-applied through <b>HAL_UART_Init()</b>. Registered HAL callbacks survive the re-initialization. Available in every transfer mode.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">text</td><td>Characters to send; 1 to 65535 characters. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Longest time the transmission may take. </td></tr>
+    <tr><td class="paramname">baudRate</td><td>New baud rate to apply, in bits per second. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every character was sent. </dd></dl>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
-</div>
-<div id="dynsection-15-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/dd0/a05590_aa11ae6544b3fe4193e42a03891973953_cgraph.svg" width="891" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the reconfiguration succeeded; <b>false</b> while a transfer is in flight. </dd></dl>
 
 </div>
 </div>

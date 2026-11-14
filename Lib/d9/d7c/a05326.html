@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::ADCPort&lt; DriverMode::BLOCKING &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::ADCPortBase&lt; Derived &gt;</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,121 +91,140 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../d9/d7c/a05326.html">ADCPort&lt; DriverMode::BLOCKING &gt;</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../d9/d7c/a05326.html">ADCPortBase</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../d6/daf/a05323.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::ADCPort&lt; DriverMode::BLOCKING &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::ADCPortBase&lt; Derived &gt;</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>CRTP foundation for the lifecycle and single-conversion read policy shared by every ADC transfer mode.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Blocking specialization for single conversions. </p>
-<p>A full blocking single-shot read is <a class="el" href="#a1b1e5f9a230b0baaaebe9e34bf3948f1" title="start()">start()</a>, then 'poll(timeout)', then <a class="el" href="#a9ada6411f9d589391a3f4a8396ba87fe" title="stop()">stop()</a>. This matches how a blocking regular-group conversion works on this hardware: <b>HAL_ADC_PollForConversion()</b> spins on the end-of-conversion flag itself rather than waiting on an interrupt. Does not depend on DeviceManager or Device, since a blocking conversion completes inside the poll call and raises no HAL callback to route.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
+class Lib::HAL::ADCPortBase&lt; Derived &gt;</div><p>CRTP foundation for the lifecycle and single-conversion read policy shared by every ADC transfer mode. </p>
+<p>Owns no state of its own, not even the native handle: it reaches the handle through 'derived()-&gt;getHandle()'. Each mode owns its handle storage. <a class="el" href="../../d2/da8/a05362.html" title="Device">Device</a> adds an intrusive DeviceManager list link that only the interrupt-driven and DMA modes use, so the blocking specialization stores the handle directly.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">DriverMode</td><td>Must be <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415" title="DriverMode::BLOCKING">DriverMode::BLOCKING</a>. </td></tr>
+    <tr><td class="paramname">Derived</td><td>High-level concrete driver class owning the native handle. </td></tr>
   </table>
   </dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::ADCPort&lt; DriverMode::BLOCKING &gt;:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/dd6/a05325.svg" width="350" height="578"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::ADCPort&lt; DriverMode::BLOCKING &gt;:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d9d/a05324.svg" width="350" height="578"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad3590b6cb223a01016ad98732fcce676" id="r_ad3590b6cb223a01016ad98732fcce676"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *handle) noexcept</td></tr>
-<tr class="memdesc:ad3590b6cb223a01016ad98732fcce676"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block.  <br /></td></tr>
-<tr class="memitem:a75f470b6bc8c1c091c0bab98709a70d0" id="r_a75f470b6bc8c1c091c0bab98709a70d0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a75f470b6bc8c1c091c0bab98709a70d0">~ADCPort</a> () noexcept</td></tr>
-<tr class="memdesc:a75f470b6bc8c1c091c0bab98709a70d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the conversion before the object goes out of scope.  <br /></td></tr>
-<tr class="memitem:a9e044644fe3be9918072830d224a30df" id="r_a9e044644fe3be9918072830d224a30df"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9e044644fe3be9918072830d224a30df">ADCPort</a> (const ADCPort &amp;other)=delete</td></tr>
-<tr class="memdesc:a9e044644fe3be9918072830d224a30df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:aeaa518b84bd8f90fcef8791a36bf4d5f" id="r_aeaa518b84bd8f90fcef8791a36bf4d5f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aeaa518b84bd8f90fcef8791a36bf4d5f">ADCPort</a> (ADCPort &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:aeaa518b84bd8f90fcef8791a36bf4d5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a583519bd204ed44fa1fe54a2b6f2e024" id="r_a583519bd204ed44fa1fe54a2b6f2e024"><td class="memItemLeft"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a583519bd204ed44fa1fe54a2b6f2e024">operator=</a> (const <a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a583519bd204ed44fa1fe54a2b6f2e024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:ab1c16fcf45ece2edac96b496f440eba5" id="r_ab1c16fcf45ece2edac96b496f440eba5"><td class="memItemLeft"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab1c16fcf45ece2edac96b496f440eba5">operator=</a> (<a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ab1c16fcf45ece2edac96b496f440eba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a67ec812f689c32e443b0f0b0693c358a" id="r_a67ec812f689c32e443b0f0b0693c358a"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a67ec812f689c32e443b0f0b0693c358a">getHandle</a> () noexcept</td></tr>
-<tr class="memdesc:a67ec812f689c32e443b0f0b0693c358a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:a5614da14358698185ca50bab6f0ffb90" id="r_a5614da14358698185ca50bab6f0ffb90"><td class="memItemLeft">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a5614da14358698185ca50bab6f0ffb90">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:a5614da14358698185ca50bab6f0ffb90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
-<tr class="memitem:a1b1e5f9a230b0baaaebe9e34bf3948f1" id="r_a1b1e5f9a230b0baaaebe9e34bf3948f1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1b1e5f9a230b0baaaebe9e34bf3948f1">start</a> () noexcept</td></tr>
-<tr class="memdesc:a1b1e5f9a230b0baaaebe9e34bf3948f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the regular group conversion sequence.  <br /></td></tr>
-<tr class="memitem:a9ada6411f9d589391a3f4a8396ba87fe" id="r_a9ada6411f9d589391a3f4a8396ba87fe"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9ada6411f9d589391a3f4a8396ba87fe">stop</a> () noexcept</td></tr>
-<tr class="memdesc:a9ada6411f9d589391a3f4a8396ba87fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the regular group conversion sequence.  <br /></td></tr>
-<tr class="memitem:a7f4263cc22040a8ca759022ba6097646" id="r_a7f4263cc22040a8ca759022ba6097646"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a7f4263cc22040a8ca759022ba6097646">poll</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
-<tr class="memdesc:a7f4263cc22040a8ca759022ba6097646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until the current regular group conversion completes, then reads the converted value.  <br /></td></tr>
-<tr class="memitem:aed764265c454323ee0b2d718d2f447cb" id="r_aed764265c454323ee0b2d718d2f447cb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d30/a05346.html#aed764265c454323ee0b2d718d2f447cb">open</a> () noexcept</td></tr>
+<tr class="memitem:a4434447d51727d630ac97c35686a4ec0" id="r_a4434447d51727d630ac97c35686a4ec0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> (const ADCPortBase &amp;other)=delete</td></tr>
+<tr class="memdesc:a4434447d51727d630ac97c35686a4ec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
+<tr class="memitem:a0ad5d61e73944a97373bfae0962076a5" id="r_a0ad5d61e73944a97373bfae0962076a5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0ad5d61e73944a97373bfae0962076a5">ADCPortBase</a> (ADCPortBase &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a0ad5d61e73944a97373bfae0962076a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
+<tr class="memitem:a0fcfa429879f8263683b639ed5e74c96" id="r_a0fcfa429879f8263683b639ed5e74c96"><td class="memItemLeft"><a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0fcfa429879f8263683b639ed5e74c96">operator=</a> (const <a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a0fcfa429879f8263683b639ed5e74c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
+<tr class="memitem:a283bca78dae75fbe3786f0ddfcb865f3" id="r_a283bca78dae75fbe3786f0ddfcb865f3"><td class="memItemLeft"><a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a283bca78dae75fbe3786f0ddfcb865f3">operator=</a> (<a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a283bca78dae75fbe3786f0ddfcb865f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique 'Derived' driver instance.  <br /></td></tr>
+<tr class="memitem:aed764265c454323ee0b2d718d2f447cb" id="r_aed764265c454323ee0b2d718d2f447cb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aed764265c454323ee0b2d718d2f447cb">open</a> () noexcept</td></tr>
 <tr class="memdesc:aed764265c454323ee0b2d718d2f447cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Powers up the hardware channel and configures the initial peripheral parameters.  <br /></td></tr>
-<tr class="memitem:a9ea6813ddd5a710a237c3c7d6ddc93ba" id="r_a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d30/a05346.html#a9ea6813ddd5a710a237c3c7d6ddc93ba">close</a> () noexcept</td></tr>
+<tr class="memitem:a9ea6813ddd5a710a237c3c7d6ddc93ba" id="r_a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9ea6813ddd5a710a237c3c7d6ddc93ba">close</a> () noexcept</td></tr>
 <tr class="memdesc:a9ea6813ddd5a710a237c3c7d6ddc93ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the peripheral block and releases its system resources.  <br /></td></tr>
-<tr class="memitem:a2e87465b382640a36ec07e5abd45f434" id="r_a2e87465b382640a36ec07e5abd45f434"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d30/a05346.html#a2e87465b382640a36ec07e5abd45f434">getValue</a> () const noexcept</td></tr>
+<tr class="memitem:a2e87465b382640a36ec07e5abd45f434" id="r_a2e87465b382640a36ec07e5abd45f434"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a2e87465b382640a36ec07e5abd45f434">getValue</a> () const noexcept</td></tr>
 <tr class="memdesc:a2e87465b382640a36ec07e5abd45f434"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the raw digitized value register content from the latest regular group conversion.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a3fd3d8471efb4fa0be2eff201733b1e3" id="r_a3fd3d8471efb4fa0be2eff201733b1e3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3fd3d8471efb4fa0be2eff201733b1e3">ADCPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:a3fd3d8471efb4fa0be2eff201733b1e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the CRTP foundation.  <br /></td></tr>
+<tr class="memitem:a31b7b2e0f7cd281e6a54c42f43cf52cf" id="r_a31b7b2e0f7cd281e6a54c42f43cf52cf"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a31b7b2e0f7cd281e6a54c42f43cf52cf">~ADCPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:a31b7b2e0f7cd281e6a54c42f43cf52cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; owns no state of its own, so there is nothing to release here.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad3590b6cb223a01016ad98732fcce676" name="ad3590b6cb223a01016ad98732fcce676"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3590b6cb223a01016ad98732fcce676">&#9670;&#160;</a></span>ADCPort() <span class="overload">[1/3]</span></h2>
+<a id="a4434447d51727d630ac97c35686a4ec0" name="a4434447d51727d630ac97c35686a4ec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4434447d51727d630ac97c35686a4ec0">&#9670;&#160;</a></span>ADCPortBase() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::ADCPort </td>
+          <td class="memname"><a class="el" href="../../d9/d7c/a05326.html">Lib::HAL::ADCPortBase</a>&lt; Derived &gt;::ADCPortBase </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype">const ADCPortBase&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the port to a native hardware descriptor block. </p>
+<p>Copying is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d7c/a05326_ad3590b6cb223a01016ad98732fcce676_icgraph.svg" width="726" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a75f470b6bc8c1c091c0bab98709a70d0" name="a75f470b6bc8c1c091c0bab98709a70d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75f470b6bc8c1c091c0bab98709a70d0">&#9670;&#160;</a></span>~ADCPort()</h2>
+<a id="a0ad5d61e73944a97373bfae0962076a5" name="a0ad5d61e73944a97373bfae0962076a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ad5d61e73944a97373bfae0962076a5">&#9670;&#160;</a></span>ADCPortBase() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::~<a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> </td>
+          <td class="memname"><a class="el" href="../../d9/d7c/a05326.html">Lib::HAL::ADCPortBase</a>&lt; Derived &gt;::ADCPortBase </td>
+          <td>(</td>
+          <td class="paramtype">ADCPortBase&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3fd3d8471efb4fa0be2eff201733b1e3" name="a3fd3d8471efb4fa0be2eff201733b1e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fd3d8471efb4fa0be2eff201733b1e3">&#9670;&#160;</a></span>ADCPortBase() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d7c/a05326.html">Lib::HAL::ADCPortBase</a>&lt; Derived &gt;::ADCPortBase </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -211,96 +232,44 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the conversion before the object goes out of scope. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d7c/a05326_a75f470b6bc8c1c091c0bab98709a70d0_cgraph.svg" width="790" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Constructs the CRTP foundation. </p>
+<p>Carries no state; the native handle lives on 'Derived'.</p>
+<p>Protected: the base only makes sense as part of a 'Derived' driver. </p>
 
 </div>
 </div>
-<a id="a9e044644fe3be9918072830d224a30df" name="a9e044644fe3be9918072830d224a30df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e044644fe3be9918072830d224a30df">&#9670;&#160;</a></span>ADCPort() <span class="overload">[2/3]</span></h2>
+<a id="a31b7b2e0f7cd281e6a54c42f43cf52cf" name="a31b7b2e0f7cd281e6a54c42f43cf52cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31b7b2e0f7cd281e6a54c42f43cf52cf">&#9670;&#160;</a></span>~ADCPortBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::ADCPort </td>
+          <td class="memname"><a class="el" href="../../d9/d7c/a05326.html">Lib::HAL::ADCPortBase</a>&lt; Derived &gt;::~<a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> </td>
           <td>(</td>
-          <td class="paramtype">const ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: each instance owns a unique native handle binding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d7c/a05326_a9e044644fe3be9918072830d224a30df_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aeaa518b84bd8f90fcef8791a36bf4d5f" name="aeaa518b84bd8f90fcef8791a36bf4d5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaa518b84bd8f90fcef8791a36bf4d5f">&#9670;&#160;</a></span>ADCPort() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::ADCPort </td>
-          <td>(</td>
-          <td class="paramtype">ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moving is deleted: each instance owns a unique native handle binding. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d7c/a05326_aeaa518b84bd8f90fcef8791a36bf4d5f_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Destroys the object; owns no state of its own, so there is nothing to release here. </p>
+<p>Protected and non-virtual: it is never destroyed through a base pointer. </p>
 
 </div>
 </div>
@@ -310,12 +279,14 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d5/d30/a05346.html">Lib::HAL::ADCPortBase</a>&lt; <a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::close </td>
+          <td class="memname">bool <a class="el" href="../../d9/d7c/a05326.html">Lib::HAL::ADCPortBase</a>&lt; Derived &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -323,7 +294,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -333,73 +304,19 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a5614da14358698185ca50bab6f0ffb90" name="a5614da14358698185ca50bab6f0ffb90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5614da14358698185ca50bab6f0ffb90">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> * Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or 'nullptr' if unbound. </dd></dl>
-
-</div>
-</div>
-<a id="a67ec812f689c32e443b0f0b0693c358a" name="a67ec812f689c32e443b0f0b0693c358a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67ec812f689c32e443b0f0b0693c358a">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d35/a01400.html">ADC_HandleTypeDef</a> * Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or 'nullptr' if unbound. </dd></dl>
-
-</div>
-</div>
 <a id="a2e87465b382640a36ec07e5abd45f434" name="a2e87465b382640a36ec07e5abd45f434"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e87465b382640a36ec07e5abd45f434">&#9670;&#160;</a></span>getValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t <a class="el" href="../../d5/d30/a05346.html">Lib::HAL::ADCPortBase</a>&lt; <a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::getValue </td>
+          <td class="memname">uint32_t <a class="el" href="../../d9/d7c/a05326.html">Lib::HAL::ADCPortBase</a>&lt; Derived &gt;::getValue </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -407,19 +324,13 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Extracts the raw digitized value register content from the latest regular group conversion. </p>
 <dl class="section return"><dt>Returns</dt><dd>Captured raw digital data bits from the peripheral data register, or 0 if unopened. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d30/a05346_a2e87465b382640a36ec07e5abd45f434_icgraph.svg" width="758" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -428,12 +339,14 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d5/d30/a05346.html">Lib::HAL::ADCPortBase</a>&lt; <a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::open </td>
+          <td class="memname">bool <a class="el" href="../../d9/d7c/a05326.html">Lib::HAL::ADCPortBase</a>&lt; Derived &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -441,7 +354,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -451,19 +364,21 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab1c16fcf45ece2edac96b496f440eba5" name="ab1c16fcf45ece2edac96b496f440eba5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1c16fcf45ece2edac96b496f440eba5">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a283bca78dae75fbe3786f0ddfcb865f3" name="a283bca78dae75fbe3786f0ddfcb865f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a283bca78dae75fbe3786f0ddfcb865f3">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp; Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname"><a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> &amp; <a class="el" href="../../d9/d7c/a05326.html">Lib::HAL::ADCPortBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a>&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -474,7 +389,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: each instance owns a unique native handle binding. </p>
+<p>Move assignment is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -482,28 +397,24 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d7c/a05326_ab1c16fcf45ece2edac96b496f440eba5_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a583519bd204ed44fa1fe54a2b6f2e024" name="a583519bd204ed44fa1fe54a2b6f2e024"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a583519bd204ed44fa1fe54a2b6f2e024">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a0fcfa429879f8263683b639ed5e74c96" name="a0fcfa429879f8263683b639ed5e74c96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fcfa429879f8263683b639ed5e74c96">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a> &amp; Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname"><a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a> &amp; <a class="el" href="../../d9/d7c/a05326.html">Lib::HAL::ADCPortBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ad3590b6cb223a01016ad98732fcce676">ADCPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a4434447d51727d630ac97c35686a4ec0">ADCPortBase</a>&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -514,7 +425,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: each instance owns a unique native handle binding. </p>
+<p>Copy assignment is deleted: each instance is bound to a unique 'Derived' driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -522,114 +433,6 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d7c/a05326_a583519bd204ed44fa1fe54a2b6f2e024_cgraph.svg" width="726" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a7f4263cc22040a8ca759022ba6097646" name="a7f4263cc22040a8ca759022ba6097646"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f4263cc22040a8ca759022ba6097646">&#9670;&#160;</a></span>poll()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::poll </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Blocks until the current regular group conversion completes, then reads the converted value. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum duration to wait for the conversion to complete. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Captured raw digital data bits, or 0 if the poll failed or timed out. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d7c/a05326_a7f4263cc22040a8ca759022ba6097646_cgraph.svg" width="758" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a1b1e5f9a230b0baaaebe9e34bf3948f1" name="a1b1e5f9a230b0baaaebe9e34bf3948f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b1e5f9a230b0baaaebe9e34bf3948f1">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Starts the regular group conversion sequence. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the conversion sequence was started successfully. </dd></dl>
-
-</div>
-</div>
-<a id="a9ada6411f9d589391a3f4a8396ba87fe" name="a9ada6411f9d589391a3f4a8396ba87fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ada6411f9d589391a3f4a8396ba87fe">&#9670;&#160;</a></span>stop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::ADCPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::stop </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the regular group conversion sequence. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the conversion sequence was stopped successfully. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d7c/a05326_a9ada6411f9d589391a3f4a8396ba87fe_icgraph.svg" width="790" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>

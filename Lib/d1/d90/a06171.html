@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Crypto::SHA256</title>
+<title>IAR EWARM Library: Lib::HAL::BackupRamDomain</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,54 +92,59 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Crypto::SHA256</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::BackupRamDomain</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates hashing a message in one call and in pieces with the portable software engine, and with the STM32 HASH peripheral.</p>
-<p>Demonstrates hashing a message in one call and in pieces with the portable software engine, and with the STM32 HASH peripheral.The software engine needs no hardware and works in every project, so <a class="el" href="../../d1/d90/a06171.html" title="Lib::Crypto::SHA256">Lib::Crypto::SHA256</a> with empty angle brackets is the default choice. The hardware engine needs a device with the HASH peripheral, the module enabled in CubeMX ('HAL_HASH_MODULE_ENABLED') and a caller-owned <b>HASH_HandleTypeDef</b> such as <b>hhash</b>. The engine is never selected automatically, so every declaration names it explicitly. Both engines feed data through Lib::Crypto::SHA256::update() and end with Lib::Crypto::SHA256::finish().</p>
-<dl class="section warning"><dt>Warning</dt><dd>Call the hardware engine only from a task, never from an ISR, and use one instance for the lifetime of one digest: every call is a blocking HAL transaction on a shared peripheral.</dd></dl>
+<p>Keeps small values in the backup data registers, which survive a system reset, with <a class="el" href="../../d1/d90/a06171.html" title="Lib::HAL::BackupRamDomain">Lib::HAL::BackupRamDomain</a>.</p>
+<p>Keeps small values in the backup data registers, which survive a system reset, with Lib::HAL::BackupRamDomain. Lib::HAL::BackupRamDomain::open() opens the write gate of the backup domain, enables the PWR clock and, where the device has one, the backup SRAM clock; <a class="el" href="../../db/d4c/a05330.html#a0e38a00a0e42d1e9718b0e5ab46c9223" title="Lib::HAL::BackupRamDomain::close()">Lib::HAL::BackupRamDomain::close()</a> reverses them. Reads are always allowed, but writes take effect only between open() and close(), so open the gate before calling <a class="el" href="../../db/d4c/a05330.html#acc5002942f221da40872cb7be92706a9" title="Lib::HAL::BackupRamDomain::writeRegister()">Lib::HAL::BackupRamDomain::writeRegister()</a>. The registers keep their content across low-power modes and, with a backup supply, across a power loss.</p>
+<dl class="section important"><dt>Important</dt><dd>The module guard is <em class="arg">HAL_PWR_MODULE_ENABLED</em>, which the project's 'stm32f4xx_hal_conf.h' enables. On the STM32F407xx target the HAL headers define neither <em class="arg">RTC_BKP_NUMBER</em> nor <em class="arg">TAMP_BASE</em>, so the register count is not known here and the index is not range-checked at all. The registers are read from the RTC block, because the device has no TAMP block.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The index is checked only by an assert in debug builds, and on this target there is no check at all. An index beyond the backup registers of the device accesses memory outside the register block, so pass only the indices defined for the target (the STM32F4 has 20 backup registers, 0 to 19, per its reference manual).</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="sha256_usage_software"></a>
-Hashing with the software engine</h3>
-<p>A one-shot call fits a message that is already in one buffer; the streaming form fits a message that arrives in pieces. Do not update a hasher after Lib::Crypto::SHA256::finish().</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dd7/a00362.html">Lib/Crypto/SHA256.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="backup_usage_store"></a>
+Store a value across a reset</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/dae/a00563.html">Lib/HAL/BackupRamDomain/BackupRamDomain.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d0/d56/a01014.html">Lib::Crypto</a>;</div>
-<div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::Digest</a> hashMessage(std::span&lt;const uint8_t&gt; message) { <span class="keywordflow">return</span> <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::hash</a>(message);</div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t BOOT_COUNT_REGISTER = 0U;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::Digest</a> hashPieces(std::span&lt;const uint8_t&gt; header, std::span&lt;const uint8_t&gt; body) { <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;</a> hasher;</div>
-<div class="line">hasher.update(header); hasher.update(body); <span class="keywordflow">return</span> hasher.finish();</div>
+<div class="line">uint32_t incrementBootCount() {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d4c/a05330.html">Lib::HAL::BackupRamDomain</a> backup;</div>
+<div class="line">    <span class="keywordflow">if</span> (!backup.<a id="a1" name="a1"></a><a class="code hl_function" href="../../db/d4c/a05330.html#a75eda4bb9a1e9d88118cacebbb8992a3">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span> 0U;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> uint32_t <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a> = backup.<a id="a3" name="a3"></a><a class="code hl_function" href="../../db/d4c/a05330.html#a90b19ee3b4f06e4874a36f9f25b22ce6">readRegister</a>(BOOT_COUNT_REGISTER) + 1U;</div>
+<div class="line">    backup.<a id="a4" name="a4"></a><a class="code hl_function" href="../../db/d4c/a05330.html#acc5002942f221da40872cb7be92706a9">writeRegister</a>(BOOT_COUNT_REGISTER, <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(backup.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/d4c/a05330.html#a0e38a00a0e42d1e9718b0e5ab46c9223">close</a>());</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00362_html"><div class="ttname"><a href="../../de/dd7/a00362.html">SHA256.hpp</a></div><div class="ttdoc">SHA-256 message digest (FIPS 180-4) with a portable software engine and an STM32 HASH peripheral engi...</div></div>
-<div class="ttc" id="aa01014_html"><div class="ttname"><a href="../../d0/d56/a01014.html">Lib::Crypto</a></div><div class="ttdoc">Cryptographic primitives and optional TLS/SSH client wrappers.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:19</div></div>
-<div class="ttc" id="aa04856_html"><div class="ttname"><a href="../../db/dde/a04856.html">Lib::Crypto::SHA256</a></div><div class="ttdoc">SHA-256 hasher; SHA256Engine lists the available implementations.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:41</div></div>
+<div class="ttc" id="aa00563_html"><div class="ttname"><a href="../../dc/dae/a00563.html">BackupRamDomain.hpp</a></div><div class="ttdoc">Interface to the STM32 backup domain: write-protection gate, Backup SRAM clock and backup data regist...</div></div>
+<div class="ttc" id="aa01627_html_ga5a30c8541e506f4962cb5103a18f1fd1"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a></div><div class="ttdeci">constexpr iterator_traits&lt; _InputIterator &gt;::difference_type count(_InputIterator __first, _InputIterator __last, const _Tp &amp;__value)</div></div>
+<div class="ttc" id="aa05330_html"><div class="ttname"><a href="../../db/d4c/a05330.html">Lib::HAL::BackupRamDomain</a></div><div class="ttdoc">Stateless facade over the backup domain write gate and the backup data registers.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:33</div></div>
+<div class="ttc" id="aa05330_html_a0e38a00a0e42d1e9718b0e5ab46c9223"><div class="ttname"><a href="../../db/d4c/a05330.html#a0e38a00a0e42d1e9718b0e5ab46c9223">Lib::HAL::BackupRamDomain::close</a></div><div class="ttdeci">bool close()</div><div class="ttdoc">Disables the Backup SRAM clock, where the device has one, and closes the write gate to the backup dom...</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:117</div></div>
+<div class="ttc" id="aa05330_html_a75eda4bb9a1e9d88118cacebbb8992a3"><div class="ttname"><a href="../../db/d4c/a05330.html#a75eda4bb9a1e9d88118cacebbb8992a3">Lib::HAL::BackupRamDomain::open</a></div><div class="ttdeci">bool open()</div><div class="ttdoc">Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one...</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:91</div></div>
+<div class="ttc" id="aa05330_html_a90b19ee3b4f06e4874a36f9f25b22ce6"><div class="ttname"><a href="../../db/d4c/a05330.html#a90b19ee3b4f06e4874a36f9f25b22ce6">Lib::HAL::BackupRamDomain::readRegister</a></div><div class="ttdeci">uint32_t readRegister(uint32_t backupRegisterIndex) const</div><div class="ttdoc">Reads a backup data register.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:142</div></div>
+<div class="ttc" id="aa05330_html_acc5002942f221da40872cb7be92706a9"><div class="ttname"><a href="../../db/d4c/a05330.html#acc5002942f221da40872cb7be92706a9">Lib::HAL::BackupRamDomain::writeRegister</a></div><div class="ttdeci">void writeRegister(uint32_t backupRegisterIndex, uint32_t value)</div><div class="ttdoc">Writes a backup data register.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:153</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="sha256_usage_hardware"></a>
-Hashing with the HASH peripheral</h3>
-<p>The peripheral accepts whole 32-bit words mid-stream, so the hasher buffers up to 3 trailing bytes of each update internally; any piece length works. Every step reports a HAL failure, after which the hasher must not be used again.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dd7/a00362.html">Lib/Crypto/SHA256.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="backup_usage_scope"></a>
+Keep the access window short</h3>
+<p>Backup-domain write access stays open between open() and close(), so a stray write from another task or an ISR during that window goes through. Open it, do the accesses, and close it in one task.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/dae/a00563.html">Lib/HAL/BackupRamDomain/BackupRamDomain.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d0/d56/a01014.html">Lib::Crypto</a>;</div>
+<div class="line"><span class="keywordtype">void</span> saveFaultCode(uint32_t faultCode) {</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t FAULT_REGISTER = 1U;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> hashWithPeripheral(HASH_HandleTypeDef * handle, std::span&lt;const uint8_t&gt; message, <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;SHA256Engine::HARDWARE&gt;::Digest</a> &amp;</div>
-<div class="line">digest) { <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;SHA256Engine::HARDWARE&gt;</a> hasher(handle); <span class="keywordflow">if</span> (!hasher.update(message)) { <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    <a class="code hl_class" href="../../db/d4c/a05330.html">Lib::HAL::BackupRamDomain</a> backup;</div>
+<div class="line">    <span class="keywordflow">if</span> (backup.<a class="code hl_function" href="../../db/d4c/a05330.html#a75eda4bb9a1e9d88118cacebbb8992a3">open</a>()) {</div>
+<div class="line">        backup.<a class="code hl_function" href="../../db/d4c/a05330.html#acc5002942f221da40872cb7be92706a9">writeRegister</a>(FAULT_REGISTER, faultCode);</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(backup.<a class="code hl_function" href="../../db/d4c/a05330.html#a0e38a00a0e42d1e9718b0e5ab46c9223">close</a>());</div>
 <div class="line">    }</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> result = hasher.finish();</div>
-<div class="line">    <span class="keywordflow">if</span> (!result) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line">    digest = *result;</div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->

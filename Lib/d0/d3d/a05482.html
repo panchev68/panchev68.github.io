@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::OSPIPort&lt; DriverMode::BLOCKING &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;</title>
+<link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -15,6 +16,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../Font.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -22,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../IAR_PoweredByQt_Logo_Primary_Black.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../doxygen_icon_inverted_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR EWARM Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -89,119 +91,129 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../da/d0a/a00993.html">Lib</a></li><li class="navelem"><a href="../../db/d08/a01028.html">HAL</a></li><li class="navelem"><a href="../../d0/d3d/a05482.html">OSPIPort&lt; DriverMode::BLOCKING &gt;</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../d0/d3d/a05482.html">OSPIPortBase</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../d6/d94/a05479.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::OSPIPort&lt; DriverMode::BLOCKING &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>CRTP base implementing the open/close/busy policy common to every 'OSPIPort' mode.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Blocking specialization. </p>
-<p>Stores the native handle itself rather than going through <a class="el" href="../../d3/d73/a05382.html" title="Device">Device</a>, since that class brings an intrusive DeviceManager list link that only the interrupt- and DMA-driven modes use. A blocking transfer completes inside the HAL call itself, so there is no event group to wait on, no HAL callback to register and nothing to abort afterwards.</p>
-<p>Every timeout is rounded up to whole milliseconds and saturates at 'HAL_MAX_DELAY' (wait forever). </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::OSPIPort&lt; DriverMode::BLOCKING &gt;:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d74/a05481.svg" width="278" height="666"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::OSPIPort&lt; DriverMode::BLOCKING &gt;:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d34/a05480.svg" width="278" height="666"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;</div><p>CRTP base implementing the open/close/busy policy common to every 'OSPIPort' mode. </p>
+<p>Owns no state, not even the native handle: it reaches the handle through 'derived()-&gt;getHandle()'. The blocking mode stores the handle itself, while the IT and DMA modes get it from <a class="el" href="../../d2/da8/a05362.html" title="Device">Device</a> through <a class="el" href="../../df/d07/a05474.html" title="OSPIPortAsync">OSPIPortAsync</a>, since only they need the DeviceManager link that <a class="el" href="../../d2/da8/a05362.html" title="Device">Device</a> carries.</p>
+<p>Not compile-checked in this repository: the STM32F4 target has no OCTOSPI peripheral and its HAL package ships no OCTOSPI driver.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization owning the native handle and the transfer mechanism. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aceebf1ac821b6ccc92b99c1fe0ca7c19" id="r_aceebf1ac821b6ccc92b99c1fe0ca7c19"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a> (OSPI_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:aceebf1ac821b6ccc92b99c1fe0ca7c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the custom communication context to a native configuration structure.  <br /></td></tr>
-<tr class="memitem:a08e56728c9a64f13a22b89d6b482b132" id="r_a08e56728c9a64f13a22b89d6b482b132"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a08e56728c9a64f13a22b89d6b482b132">~OSPIPort</a> () noexcept=default</td></tr>
-<tr class="memdesc:a08e56728c9a64f13a22b89d6b482b132"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; a blocking transfer never outlives the call that started it.  <br /></td></tr>
-<tr class="memitem:a7763cecbfc9f952858e94c3dd31b6ae8" id="r_a7763cecbfc9f952858e94c3dd31b6ae8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7763cecbfc9f952858e94c3dd31b6ae8">OSPIPort</a> (const OSPIPort &amp;)=delete</td></tr>
-<tr class="memdesc:a7763cecbfc9f952858e94c3dd31b6ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a50425950532682614be81eb8bb5216b7" id="r_a50425950532682614be81eb8bb5216b7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a50425950532682614be81eb8bb5216b7">OSPIPort</a> (OSPIPort &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a50425950532682614be81eb8bb5216b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a9a452f1cf8d2d0e3f643f6b82326135b" id="r_a9a452f1cf8d2d0e3f643f6b82326135b"><td class="memItemLeft"><a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a9a452f1cf8d2d0e3f643f6b82326135b">operator=</a> (const <a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a9a452f1cf8d2d0e3f643f6b82326135b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a4d6b81dc8f17c815f4eb18e2cc631e7a" id="r_a4d6b81dc8f17c815f4eb18e2cc631e7a"><td class="memItemLeft"><a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4d6b81dc8f17c815f4eb18e2cc631e7a">operator=</a> (<a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a4d6b81dc8f17c815f4eb18e2cc631e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: each instance owns a unique native handle binding.  <br /></td></tr>
-<tr class="memitem:a9d414342c2936b7023a8cc7ee05c9403" id="r_a9d414342c2936b7023a8cc7ee05c9403"><td class="memItemLeft">OSPI_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="#a9d414342c2936b7023a8cc7ee05c9403">getHandle</a> () noexcept</td></tr>
-<tr class="memdesc:a9d414342c2936b7023a8cc7ee05c9403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:a696d949d69359bb54440fe22e1de963f" id="r_a696d949d69359bb54440fe22e1de963f"><td class="memItemLeft">const OSPI_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="#a696d949d69359bb54440fe22e1de963f">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:a696d949d69359bb54440fe22e1de963f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
-<tr class="memitem:a91b2a335ef6e9723039f123ea3f66e47" id="r_a91b2a335ef6e9723039f123ea3f66e47"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a91b2a335ef6e9723039f123ea3f66e47 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47">command</a> (OSPI_RegularCmdTypeDef &amp;cmd, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a91b2a335ef6e9723039f123ea3f66e47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures and issues a regular command, blocking until complete or timed out.  <br /></td></tr>
-<tr class="memitem:a10d2dc1da9553992110c3752aa39e058" id="r_a10d2dc1da9553992110c3752aa39e058"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a10d2dc1da9553992110c3752aa39e058 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a10d2dc1da9553992110c3752aa39e058">transmit</a> (std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a10d2dc1da9553992110c3752aa39e058"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits the data phase configured by the preceding <a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47" title="command()">command()</a>, blocking until complete or timed out.  <br /></td></tr>
-<tr class="memitem:aef7cf93602718e2d14816e122f15f3be" id="r_aef7cf93602718e2d14816e122f15f3be"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:aef7cf93602718e2d14816e122f15f3be template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aef7cf93602718e2d14816e122f15f3be">receive</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:aef7cf93602718e2d14816e122f15f3be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives the data phase configured by the preceding <a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47" title="command()">command()</a>, blocking until complete or timed out.  <br /></td></tr>
-<tr class="memitem:aeba7a0754d641aad2f60cd34c1585ed6" id="r_aeba7a0754d641aad2f60cd34c1585ed6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dc0/a05502.html#aeba7a0754d641aad2f60cd34c1585ed6">open</a> () noexcept</td></tr>
+<tr class="memitem:a77065b02ae1d32db4828d6e6410ad5bc" id="r_a77065b02ae1d32db4828d6e6410ad5bc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> (const OSPIPortBase &amp;)=delete</td></tr>
+<tr class="memdesc:a77065b02ae1d32db4828d6e6410ad5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: each instance is bound to one 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memitem:acd087ceb0b00ba99edfdc6871179e99f" id="r_acd087ceb0b00ba99edfdc6871179e99f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acd087ceb0b00ba99edfdc6871179e99f">OSPIPortBase</a> (OSPIPortBase &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:acd087ceb0b00ba99edfdc6871179e99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: each instance is bound to one 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memitem:a2eb0cd98ee61ccb3037cf1cdc7828985" id="r_a2eb0cd98ee61ccb3037cf1cdc7828985"><td class="memItemLeft"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2eb0cd98ee61ccb3037cf1cdc7828985">operator=</a> (const <a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a2eb0cd98ee61ccb3037cf1cdc7828985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: each instance is bound to one 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memitem:a87f9efa43d6d385bc0cee9ba8fb521cd" id="r_a87f9efa43d6d385bc0cee9ba8fb521cd"><td class="memItemLeft"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a87f9efa43d6d385bc0cee9ba8fb521cd">operator=</a> (<a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a87f9efa43d6d385bc0cee9ba8fb521cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: each instance is bound to one 'T_DERIVED' driver instance.  <br /></td></tr>
+<tr class="memitem:aeba7a0754d641aad2f60cd34c1585ed6" id="r_aeba7a0754d641aad2f60cd34c1585ed6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aeba7a0754d641aad2f60cd34c1585ed6">open</a> () noexcept</td></tr>
 <tr class="memdesc:aeba7a0754d641aad2f60cd34c1585ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the OCTOSPI peripheral from the configuration held in the native handle.  <br /></td></tr>
-<tr class="memitem:a4e17dc4d8626455726f5809b59b2d4c7" id="r_a4e17dc4d8626455726f5809b59b2d4c7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dc0/a05502.html#a4e17dc4d8626455726f5809b59b2d4c7">close</a> () noexcept</td></tr>
+<tr class="memitem:a4e17dc4d8626455726f5809b59b2d4c7" id="r_a4e17dc4d8626455726f5809b59b2d4c7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4e17dc4d8626455726f5809b59b2d4c7">close</a> () noexcept</td></tr>
 <tr class="memdesc:a4e17dc4d8626455726f5809b59b2d4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the OCTOSPI peripheral and releases its pins and DMA channel.  <br /></td></tr>
-<tr class="memitem:ae5f3e31cd86a68fec68977ed1ab7796d" id="r_ae5f3e31cd86a68fec68977ed1ab7796d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dc0/a05502.html#ae5f3e31cd86a68fec68977ed1ab7796d">isBusy</a> () const noexcept</td></tr>
+<tr class="memitem:ae5f3e31cd86a68fec68977ed1ab7796d" id="r_ae5f3e31cd86a68fec68977ed1ab7796d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae5f3e31cd86a68fec68977ed1ab7796d">isBusy</a> () const noexcept</td></tr>
 <tr class="memdesc:ae5f3e31cd86a68fec68977ed1ab7796d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the peripheral is outside its idle state.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a18048dab4e848ea5529076be672ccc7c" id="r_a18048dab4e848ea5529076be672ccc7c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a18048dab4e848ea5529076be672ccc7c">OSPIPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:a18048dab4e848ea5529076be672ccc7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the stateless CRTP base; only a mode specialization may create one.  <br /></td></tr>
+<tr class="memitem:a24d2016939eff2ab2af9d3a0efd3510a" id="r_a24d2016939eff2ab2af9d3a0efd3510a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a24d2016939eff2ab2af9d3a0efd3510a">~OSPIPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:a24d2016939eff2ab2af9d3a0efd3510a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the base; it owns nothing, and it is protected so no one deletes a mode through a base pointer.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aceebf1ac821b6ccc92b99c1fe0ca7c19" name="aceebf1ac821b6ccc92b99c1fe0ca7c19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">&#9670;&#160;</a></span>OSPIPort() <span class="overload">[1/3]</span></h2>
+<a id="a77065b02ae1d32db4828d6e6410ad5bc" name="a77065b02ae1d32db4828d6e6410ad5bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77065b02ae1d32db4828d6e6410ad5bc">&#9670;&#160;</a></span>OSPIPortBase() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::OSPIPort </td>
+          <td class="memname"><a class="el" href="../../d0/d3d/a05482.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::OSPIPortBase </td>
           <td>(</td>
-          <td class="paramtype">OSPI_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype">const OSPIPortBase&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the custom communication context to a native configuration structure. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d3d/a05482_aceebf1ac821b6ccc92b99c1fe0ca7c19_icgraph.svg" width="614" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Non-copyable: each instance is bound to one 'T_DERIVED' driver instance. </p>
 
 </div>
 </div>
-<a id="a08e56728c9a64f13a22b89d6b482b132" name="a08e56728c9a64f13a22b89d6b482b132"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08e56728c9a64f13a22b89d6b482b132">&#9670;&#160;</a></span>~OSPIPort()</h2>
+<a id="acd087ceb0b00ba99edfdc6871179e99f" name="acd087ceb0b00ba99edfdc6871179e99f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd087ceb0b00ba99edfdc6871179e99f">&#9670;&#160;</a></span>OSPIPortBase() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::~<a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a> </td>
+          <td class="memname"><a class="el" href="../../d0/d3d/a05482.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::OSPIPortBase </td>
+          <td>(</td>
+          <td class="paramtype">OSPIPortBase&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: each instance is bound to one 'T_DERIVED' driver instance. </p>
+
+</div>
+</div>
+<a id="a18048dab4e848ea5529076be672ccc7c" name="a18048dab4e848ea5529076be672ccc7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18048dab4e848ea5529076be672ccc7c">&#9670;&#160;</a></span>OSPIPortBase() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d3d/a05482.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::OSPIPortBase </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -209,78 +221,41 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the object; a blocking transfer never outlives the call that started it. </p>
+<p>Constructs the stateless CRTP base; only a mode specialization may create one. </p>
 
 </div>
 </div>
-<a id="a7763cecbfc9f952858e94c3dd31b6ae8" name="a7763cecbfc9f952858e94c3dd31b6ae8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7763cecbfc9f952858e94c3dd31b6ae8">&#9670;&#160;</a></span>OSPIPort() <span class="overload">[2/3]</span></h2>
+<a id="a24d2016939eff2ab2af9d3a0efd3510a" name="a24d2016939eff2ab2af9d3a0efd3510a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24d2016939eff2ab2af9d3a0efd3510a">&#9670;&#160;</a></span>~OSPIPortBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::OSPIPort </td>
+          <td class="memname"><a class="el" href="../../d0/d3d/a05482.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> </td>
           <td>(</td>
-          <td class="paramtype">const OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: each instance owns a unique native handle binding. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d3d/a05482_a7763cecbfc9f952858e94c3dd31b6ae8_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a50425950532682614be81eb8bb5216b7" name="a50425950532682614be81eb8bb5216b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50425950532682614be81eb8bb5216b7">&#9670;&#160;</a></span>OSPIPort() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::OSPIPort </td>
-          <td>(</td>
-          <td class="paramtype">OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: each instance owns a unique native handle binding. </p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d3d/a05482_a50425950532682614be81eb8bb5216b7_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Destroys the base; it owns nothing, and it is protected so no one deletes a mode through a base pointer. </p>
 
 </div>
 </div>
@@ -290,12 +265,14 @@ Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/dc0/a05502.html">Lib::HAL::OSPIPortBase</a>&lt; <a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::close </td>
+          <td class="memname">bool <a class="el" href="../../d0/d3d/a05482.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -303,7 +280,7 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -313,128 +290,19 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a91b2a335ef6e9723039f123ea3f66e47" name="a91b2a335ef6e9723039f123ea3f66e47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91b2a335ef6e9723039f123ea3f66e47">&#9670;&#160;</a></span>command()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::command </td>
-          <td>(</td>
-          <td class="paramtype">OSPI_RegularCmdTypeDef &amp;</td>          <td class="paramname"><span class="paramname"><em>cmd</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Configures and issues a regular command, blocking until complete or timed out. </p>
-<p>A command with a data phase ('cmd.DataMode' not 'HAL_OSPI_DATA_NONE') must be followed by one matching <a class="el" href="#a10d2dc1da9553992110c3752aa39e058" title="transmit()">transmit()</a> or <a class="el" href="#aef7cf93602718e2d14816e122f15f3be" title="receive()">receive()</a> of exactly 'cmd.NbData' bytes.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cmd</td><td>Fully populated command descriptor. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on error or timeout. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d3d/a05482_a91b2a335ef6e9723039f123ea3f66e47_cgraph.svg" width="739" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a696d949d69359bb54440fe22e1de963f" name="a696d949d69359bb54440fe22e1de963f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a696d949d69359bb54440fe22e1de963f">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const OSPI_HandleTypeDef * Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle. </dd></dl>
-
-</div>
-</div>
-<a id="a9d414342c2936b7023a8cc7ee05c9403" name="a9d414342c2936b7023a8cc7ee05c9403"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d414342c2936b7023a8cc7ee05c9403">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">OSPI_HandleTypeDef * Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::getHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle. </dd></dl>
-
-</div>
-</div>
 <a id="ae5f3e31cd86a68fec68977ed1ab7796d" name="ae5f3e31cd86a68fec68977ed1ab7796d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae5f3e31cd86a68fec68977ed1ab7796d">&#9670;&#160;</a></span>isBusy()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/dc0/a05502.html">Lib::HAL::OSPIPortBase</a>&lt; <a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::isBusy </td>
+          <td class="memname">bool <a class="el" href="../../d0/d3d/a05482.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::isBusy </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -442,7 +310,7 @@ template&lt;typename Rep, typename Period&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -458,12 +326,14 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/dc0/a05502.html">Lib::HAL::OSPIPortBase</a>&lt; <a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &gt;::open </td>
+          <td class="memname">bool <a class="el" href="../../d0/d3d/a05482.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -471,7 +341,7 @@ template&lt;typename Rep, typename Period&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -481,19 +351,21 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 </div>
 </div>
-<a id="a9a452f1cf8d2d0e3f643f6b82326135b" name="a9a452f1cf8d2d0e3f643f6b82326135b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a452f1cf8d2d0e3f643f6b82326135b">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a2eb0cd98ee61ccb3037cf1cdc7828985" name="a2eb0cd98ee61ccb3037cf1cdc7828985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb0cd98ee61ccb3037cf1cdc7828985">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a> &amp; Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp; <a class="el" href="../../d0/d3d/a05482.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -504,30 +376,26 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: each instance owns a unique native handle binding. </p>
+<p>Non-copyable: each instance is bound to one 'T_DERIVED' driver instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d3d/a05482_a9a452f1cf8d2d0e3f643f6b82326135b_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a4d6b81dc8f17c815f4eb18e2cc631e7a" name="a4d6b81dc8f17c815f4eb18e2cc631e7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d6b81dc8f17c815f4eb18e2cc631e7a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a87f9efa43d6d385bc0cee9ba8fb521cd" name="a87f9efa43d6d385bc0cee9ba8fb521cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87f9efa43d6d385bc0cee9ba8fb521cd">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a> &amp; Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp; <a class="el" href="../../d0/d3d/a05482.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#aceebf1ac821b6ccc92b99c1fe0ca7c19">OSPIPort</a>&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -538,122 +406,8 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: each instance owns a unique native handle binding. </p>
+<p>Non-movable: each instance is bound to one 'T_DERIVED' driver instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d3d/a05482_a4d6b81dc8f17c815f4eb18e2cc631e7a_cgraph.svg" width="614" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aef7cf93602718e2d14816e122f15f3be" name="aef7cf93602718e2d14816e122f15f3be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef7cf93602718e2d14816e122f15f3be">&#9670;&#160;</a></span>receive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::receive </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Receives the data phase configured by the preceding <a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47" title="command()">command()</a>, blocking until complete or timed out. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Destination buffer; exactly the 'NbData' passed to <a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47" title="command()">command()</a>. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a size mismatch, error or timeout. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d3d/a05482_aef7cf93602718e2d14816e122f15f3be_cgraph.svg" width="739" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a10d2dc1da9553992110c3752aa39e058" name="a10d2dc1da9553992110c3752aa39e058"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10d2dc1da9553992110c3752aa39e058">&#9670;&#160;</a></span>transmit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::OSPIPort&lt; <a class="el" href="../../db/d08/a01028.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415">DriverMode::BLOCKING</a> &gt;::transmit </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Transmits the data phase configured by the preceding <a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47" title="command()">command()</a>, blocking until complete or timed out. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Source bytes; exactly the 'NbData' passed to <a class="el" href="#a91b2a335ef6e9723039f123ea3f66e47" title="command()">command()</a>. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> on a size mismatch, error or timeout. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d3d/a05482_a10d2dc1da9553992110c3752aa39e058_cgraph.svg" width="739" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
