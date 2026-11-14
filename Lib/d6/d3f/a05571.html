@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Member List</title>
+<title>IAR EWARM Library: Lib::HAL::StreamSerialPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -91,20 +91,523 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../d0/d5e/a05570.html">StreamSerialPort</a></li><li class="navelem"><a href="../../d3/d27/a05574.html">Config</a></li>  </ul>
+<li class="navelem"><a href="../../d4/d21/a00987.html">Lib</a></li><li class="navelem"><a href="../../d0/d43/a01020.html">HAL</a></li><li class="navelem"><a href="../../d6/d3f/a05571.html">StreamSerialPort</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::StreamSerialPort::Config Member List</div></div>
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../db/d7d/a05568.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::HAL::StreamSerialPort<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="../../d3/d27/a05574.html">Lib::HAL::StreamSerialPort::Config</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d3/d27/a05574.html#a565287d190c89dc4ebbd3a819f704e43">bufferSize</a></td><td class="entry"><a class="el" href="../../d3/d27/a05574.html">Lib::HAL::StreamSerialPort::Config</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d3/d27/a05574.html#afcc0548a263d067f4642271c486ed229">handle</a></td><td class="entry"><a class="el" href="../../d3/d27/a05574.html">Lib::HAL::StreamSerialPort::Config</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p>UART port that receives continuously into a stream buffer and transmits by polling.  
+ <a href="#details">More...</a></p>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>UART port that receives continuously into a stream buffer and transmits by polling. </p>
+<p>'Lib::HAL::UARTPort' receives only into a buffer the caller hands over for one transfer, so bytes arriving between two calls are lost. Devices that send unsolicited data need a receiver that is always armed. This port keeps one byte armed with HAL_UART_Receive_IT() and pushes every received byte into an <a class="el" href="../../d3/d12/a06268.html" title="RTOS::StreamBuffer">RTOS::StreamBuffer</a> from the interrupt. One task reads it with <a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="read()">read()</a>.</p>
+<p><a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e" title="close()">close()</a> de-initializes the UART, which returns its pins to the analog state, so a powered-down device is not back-fed through TX. <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a> brings it back.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Exactly one task may call <a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="read()">read()</a> and <a class="el" href="#ad313993195f0d6ea829d9c7b61df667f" title="discardInput()">discardInput()</a>; the stream buffer allows a single reader. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/d33/a06154.html#_a4">Lib::BSP::GSM::A7670E</a>, and <a class="el" href="../../dd/d7d/a06202.html#_a3">Lib::HAL::StreamSerialPort</a>.</dd>
+</dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d5/da0/a05575.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construction parameters.  <a href="../../d5/da0/a05575.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a273a38e15bd84ddcb1ab16c18bcb563a" id="r_a273a38e15bd84ddcb1ab16c18bcb563a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> (const <a class="el" href="../../d5/da0/a05575.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a273a38e15bd84ddcb1ab16c18bcb563a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a CubeMX handle; nothing is touched until <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a>.  <br /></td></tr>
+<tr class="memitem:a82213704bb45f3f325b198dc0eb1ecab" id="r_a82213704bb45f3f325b198dc0eb1ecab"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a82213704bb45f3f325b198dc0eb1ecab">~StreamSerialPort</a> () noexcept</td></tr>
+<tr class="memdesc:a82213704bb45f3f325b198dc0eb1ecab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if it is still open.  <br /></td></tr>
+<tr class="memitem:a4385588b551ca7105aacb5fa1b83da65" id="r_a4385588b551ca7105aacb5fa1b83da65"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4385588b551ca7105aacb5fa1b83da65">StreamSerialPort</a> (const StreamSerialPort &amp;other)=delete</td></tr>
+<tr class="memdesc:a4385588b551ca7105aacb5fa1b83da65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the port is bound to one peripheral and registered with its interrupt.  <br /></td></tr>
+<tr class="memitem:a4dbd8a6587109d4ce29242ec1ddfdec0" id="r_a4dbd8a6587109d4ce29242ec1ddfdec0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4dbd8a6587109d4ce29242ec1ddfdec0">StreamSerialPort</a> (StreamSerialPort &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a4dbd8a6587109d4ce29242ec1ddfdec0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the interrupt keeps a pointer to this object.  <br /></td></tr>
+<tr class="memitem:a49b22bf81050b4ee173b0cb712fce161" id="r_a49b22bf81050b4ee173b0cb712fce161"><td class="memItemLeft"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a49b22bf81050b4ee173b0cb712fce161">operator=</a> (const <a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a49b22bf81050b4ee173b0cb712fce161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the port is bound to one peripheral.  <br /></td></tr>
+<tr class="memitem:a5d8430086822b05225d0b3f4372238b2" id="r_a5d8430086822b05225d0b3f4372238b2"><td class="memItemLeft"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a5d8430086822b05225d0b3f4372238b2">operator=</a> (<a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a5d8430086822b05225d0b3f4372238b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the interrupt keeps a pointer to this object.  <br /></td></tr>
+<tr class="memitem:a1b052f09718429b991946fea7724f411" id="r_a1b052f09718429b991946fea7724f411"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1b052f09718429b991946fea7724f411">open</a> () noexcept</td></tr>
+<tr class="memdesc:a1b052f09718429b991946fea7724f411"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the UART if needed, empties the stream and starts continuous reception.  <br /></td></tr>
+<tr class="memitem:af4d1dbc5fcd691c510918d277281ee6e" id="r_af4d1dbc5fcd691c510918d277281ee6e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e">close</a> () noexcept</td></tr>
+<tr class="memdesc:af4d1dbc5fcd691c510918d277281ee6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops reception and de-initializes the UART, leaving its pins analog.  <br /></td></tr>
+<tr class="memitem:a6fe88c556292e95190f066d34a6455a9" id="r_a6fe88c556292e95190f066d34a6455a9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6fe88c556292e95190f066d34a6455a9">isOpen</a> () const noexcept</td></tr>
+<tr class="memdesc:a6fe88c556292e95190f066d34a6455a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the port is open.  <br /></td></tr>
+<tr class="memitem:a0a35058ffe6e3bb6d1a5a9fb335c3588" id="r_a0a35058ffe6e3bb6d1a5a9fb335c3588"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0a35058ffe6e3bb6d1a5a9fb335c3588">write</a> (std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:a0a35058ffe6e3bb6d1a5a9fb335c3588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits bytes, polling the UART until they are sent.  <br /></td></tr>
+<tr class="memitem:aa11ae6544b3fe4193e42a03891973953" id="r_aa11ae6544b3fe4193e42a03891973953"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa11ae6544b3fe4193e42a03891973953">write</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> text, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:aa11ae6544b3fe4193e42a03891973953"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits the characters of a string, without a terminator.  <br /></td></tr>
+<tr class="memitem:a6ef7de0de72ebe36f7b4e1c63a4bd00a" id="r_a6ef7de0de72ebe36f7b4e1c63a4bd00a"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a">read</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:a6ef7de0de72ebe36f7b4e1c63a4bd00a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes received bytes from the stream, waiting until at least one is there or the timeout expires.  <br /></td></tr>
+<tr class="memitem:ad313993195f0d6ea829d9c7b61df667f" id="r_ad313993195f0d6ea829d9c7b61df667f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad313993195f0d6ea829d9c7b61df667f">discardInput</a> () noexcept</td></tr>
+<tr class="memdesc:ad313993195f0d6ea829d9c7b61df667f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops every byte already received.  <br /></td></tr>
+<tr class="memitem:a32276aa918b5679e4f0e8df69175063f" id="r_a32276aa918b5679e4f0e8df69175063f"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a32276aa918b5679e4f0e8df69175063f">getDroppedCount</a> () const noexcept</td></tr>
+<tr class="memdesc:a32276aa918b5679e4f0e8df69175063f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many received bytes were lost because the stream was full.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a273a38e15bd84ddcb1ab16c18bcb563a" name="a273a38e15bd84ddcb1ab16c18bcb563a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a273a38e15bd84ddcb1ab16c18bcb563a">&#9670;&#160;</a></span>StreamSerialPort() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::StreamSerialPort::StreamSerialPort </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d5/da0/a05575.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds the port to a CubeMX handle; nothing is touched until <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Construction parameters, copied. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a82213704bb45f3f325b198dc0eb1ecab" name="a82213704bb45f3f325b198dc0eb1ecab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82213704bb45f3f325b198dc0eb1ecab">&#9670;&#160;</a></span>~StreamSerialPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::StreamSerialPort::~StreamSerialPort </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Closes the port if it is still open. </p>
+
+</div>
+</div>
+<a id="a4385588b551ca7105aacb5fa1b83da65" name="a4385588b551ca7105aacb5fa1b83da65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4385588b551ca7105aacb5fa1b83da65">&#9670;&#160;</a></span>StreamSerialPort() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::StreamSerialPort::StreamSerialPort </td>
+          <td>(</td>
+          <td class="paramtype">const StreamSerialPort &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the port is bound to one peripheral and registered with its interrupt. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4dbd8a6587109d4ce29242ec1ddfdec0" name="a4dbd8a6587109d4ce29242ec1ddfdec0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dbd8a6587109d4ce29242ec1ddfdec0">&#9670;&#160;</a></span>StreamSerialPort() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::StreamSerialPort::StreamSerialPort </td>
+          <td>(</td>
+          <td class="paramtype">StreamSerialPort &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the interrupt keeps a pointer to this object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="af4d1dbc5fcd691c510918d277281ee6e" name="af4d1dbc5fcd691c510918d277281ee6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4d1dbc5fcd691c510918d277281ee6e">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::HAL::StreamSerialPort::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops reception and de-initializes the UART, leaving its pins analog. </p>
+<p>Task context only. </p>
+
+</div>
+</div>
+<a id="ad313993195f0d6ea829d9c7b61df667f" name="ad313993195f0d6ea829d9c7b61df667f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad313993195f0d6ea829d9c7b61df667f">&#9670;&#160;</a></span>discardInput()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::HAL::StreamSerialPort::discardInput </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Drops every byte already received. </p>
+<p>The stream is drained rather than reset: a reset fails while the interrupt may be writing. </p>
+
+</div>
+</div>
+<a id="a32276aa918b5679e4f0e8df69175063f" name="a32276aa918b5679e4f0e8df69175063f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32276aa918b5679e4f0e8df69175063f">&#9670;&#160;</a></span>getDroppedCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::HAL::StreamSerialPort::getDroppedCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns how many received bytes were lost because the stream was full. </p>
+<dl class="section return"><dt>Returns</dt><dd>Lost byte count since construction. </dd></dl>
+
+</div>
+</div>
+<a id="a6fe88c556292e95190f066d34a6455a9" name="a6fe88c556292e95190f066d34a6455a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fe88c556292e95190f066d34a6455a9">&#9670;&#160;</a></span>isOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::StreamSerialPort::isOpen </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tells whether the port is open. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="#a1b052f09718429b991946fea7724f411" title="open()">open()</a> and <a class="el" href="#af4d1dbc5fcd691c510918d277281ee6e" title="close()">close()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a1b052f09718429b991946fea7724f411" name="a1b052f09718429b991946fea7724f411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b052f09718429b991946fea7724f411">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::StreamSerialPort::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the UART if needed, empties the stream and starts continuous reception. </p>
+<p>Task context only.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the port is receiving. </dd></dl>
+
+</div>
+</div>
+<a id="a49b22bf81050b4ee173b0cb712fce161" name="a49b22bf81050b4ee173b0cb712fce161"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49b22bf81050b4ee173b0cb712fce161">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp; Lib::HAL::StreamSerialPort::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the port is bound to one peripheral. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="a5d8430086822b05225d0b3f4372238b2" name="a5d8430086822b05225d0b3f4372238b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d8430086822b05225d0b3f4372238b2">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp; Lib::HAL::StreamSerialPort::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a273a38e15bd84ddcb1ab16c18bcb563a">StreamSerialPort</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the interrupt keeps a pointer to this object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="a6ef7de0de72ebe36f7b4e1c63a4bd00a" name="a6ef7de0de72ebe36f7b4e1c63a4bd00a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef7de0de72ebe36f7b4e1c63a4bd00a">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::HAL::StreamSerialPort::read </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Takes received bytes from the stream, waiting until at least one is there or the timeout expires. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; up to its size is copied. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Longest time to wait for the first byte. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes copied; 0 on timeout or while closed. </dd></dl>
+
+</div>
+</div>
+<a id="a0a35058ffe6e3bb6d1a5a9fb335c3588" name="a0a35058ffe6e3bb6d1a5a9fb335c3588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a35058ffe6e3bb6d1a5a9fb335c3588">&#9670;&#160;</a></span>write() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::StreamSerialPort::write </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transmits bytes, polling the UART until they are sent. </p>
+<p>Task context only.</p>
+<p>The receive interrupt stays armed meanwhile.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Bytes to send; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Longest time the transmission may take. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every byte was sent. </dd></dl>
+
+</div>
+</div>
+<a id="aa11ae6544b3fe4193e42a03891973953" name="aa11ae6544b3fe4193e42a03891973953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa11ae6544b3fe4193e42a03891973953">&#9670;&#160;</a></span>write() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::StreamSerialPort::write </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>text</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transmits the characters of a string, without a terminator. </p>
+<p>Task context only.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">text</td><td>Characters to send; 1 to 65535 characters. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Longest time the transmission may take. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every character was sent. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

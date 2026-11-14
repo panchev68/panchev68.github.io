@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::IS62WV51216</title>
+<title>IAR EWARM Library: Lib::BSP::GSM::A7670E</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,72 +92,490 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::IS62WV51216</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::GSM::A7670E</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a concrete SRAM class on top of the CRTP base, with a post-write hook, used from a task.</p>
-<p>Demonstrates a concrete SRAM class on top of the CRTP base, with a post-write hook, used from a task.The chip sits on FSMC bank 1, chip select NE3, so it appears at <b>0x68000000</b>. Offsets passed to <a class="el" href="../../d9/d0c/a04563.html#a71a6069370565b21f326cb1f4e446a71" title="Lib::BSP::IS62WV51216::read()">Lib::BSP::IS62WV51216::read()</a> and <a class="el" href="../../d9/d0c/a04563.html#abb442f01943c59f8ce352f5f92d959b1" title="Lib::BSP::IS62WV51216::write()">Lib::BSP::IS62WV51216::write()</a> are relative to that base. The derived class shadows <a class="el" href="../../d9/d0c/a04563.html#a4b6251a86a54f6053c2b89c00ba6a744" title="Lib::BSP::IS62WV51216::onMemoryChanged()">Lib::BSP::IS62WV51216::onMemoryChanged()</a> to count writes and befriends the base so the hook can stay private.</p>
-<dl class="section important"><dt>Important</dt><dd>CubeMX <b>MX_FSMC_Init()</b> must run before the first transfer.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The hook runs with the mutex held and the mutex is not recursive: calling <a class="el" href="../../d9/d0c/a04563.html#a71a6069370565b21f326cb1f4e446a71" title="Lib::BSP::IS62WV51216::read()">Lib::BSP::IS62WV51216::read()</a> or <a class="el" href="../../d9/d0c/a04563.html#abb442f01943c59f8ce352f5f92d959b1" title="Lib::BSP::IS62WV51216::write()">Lib::BSP::IS62WV51216::write()</a> from it deadlocks.</dd></dl>
+<p>Powers the SIMCom A7670E modem on and off, sends an AT command, waits for the network, reads the signal, time and position, sleeps and wakes the modem, and stores files in the modem flash.</p>
+<p>Powers the SIMCom A7670E modem on and off, sends an AT command, waits for the network, reads the signal, time and position, sleeps and wakes the modem, and stores files in the modem flash. The driver does not know the board: the application passes a <a class="el" href="../../dd/d7d/a06202.html" title="Lib::HAL::StreamSerialPort">Lib::HAL::StreamSerialPort</a>, the <em class="arg">PWRKEY</em>, <em class="arg">RESET</em> and <em class="arg">STATUS</em> pins, an optional <em class="arg">DTR</em> pin and a <a class="el" href="../../dc/d55/a06164.html" title="FunctionRef">FunctionRef</a> callback that switches the modem supply, all in one <a class="el" href="../../da/d9b/a04531.html" title="Lib::BSP::GSM::A7670E::Config">Lib::BSP::GSM::A7670E::Config</a>. The functions are grouped: <a class="el" href="../../de/d9c/a04551.html" title="Lib::BSP::GSM::A7670E::Power">Lib::BSP::GSM::A7670E::Power</a> for the supply and sleep, <a class="el" href="../../dc/d65/a04555.html" title="Lib::BSP::GSM::A7670E::Network">Lib::BSP::GSM::A7670E::Network</a> for registration, time and position, and <a class="el" href="../../d9/d0c/a04563.html" title="Lib::BSP::GSM::A7670E::Files">Lib::BSP::GSM::A7670E::Files</a> for whole files. <a class="el" href="../../d1/dce/a04559.html" title="Lib::BSP::GSM::A7670E::File">Lib::BSP::GSM::A7670E::File</a> gives handle-based access for appends and partial transfers.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Use the modem from one task only. The driver is task context only, and only one task may read the serial port.</dd></dl>
+<dl class="section important"><dt>Important</dt><dd>The application's supply callback must switch the modem supply on: the driver calls it with <b>true</b> before powering the modem and with <b>false</b> after a failed power-on or a power-off.</dd>
+<dd>
+The UART handle must be configured with <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em>, because the serial port receives continuously.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="../../d9/d0c/a04563.html#a4c6ad03d6f8d73995700115490d2f279" title="Lib::BSP::GSM::A7670E::Files::write()">Lib::BSP::GSM::A7670E::Files::write()</a> erases and rewrites the whole file in the modem flash, so write only when the content changes.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="is62_usage_frame"></a>
-Write and read back a record from a task</h3>
-<p>The derived class passes its <a class="el" href="../../db/d82/a04567.html" title="Lib::BSP::IS62WV51216::Config">Lib::BSP::IS62WV51216::Config</a> to the base constructor. <a class="el" href="../../d9/d0c/a04563.html#abb442f01943c59f8ce352f5f92d959b1" title="Lib::BSP::IS62WV51216::write()">Lib::BSP::IS62WV51216::write()</a> and <a class="el" href="../../d9/d0c/a04563.html#a71a6069370565b21f326cb1f4e446a71" title="Lib::BSP::IS62WV51216::read()">Lib::BSP::IS62WV51216::read()</a> take a span of bytes; the offset is relative to the base address.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">Lib/BSP/RAM/IS62WV51216.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="a7670e_usage_config"></a>
+Hardware configuration</h3>
+<p>The serial port and the pins are plain objects owned by the application, declared once and referred to by the driver.</p>
+<ul>
+<li>'PIN()' expands to the <em class="arg">_GPIO_Port</em> and <em class="arg">_Pin</em> symbols that CubeMX emits in 'main.h'; the handles must outlive the wrappers that use them, so they are declared as 'constexpr' at namespace scope.</li>
+<li>'DTR' is optional. Passing <em class="arg">nullptr</em> instead of '&amp;dtr' disables UART sleep, and <a class="el" href="../../de/d9c/a04551.html#a3100efc86fbfd79c1db3d66caeda4b3e" title="Lib::BSP::GSM::A7670E::Power::sleep()">Lib::BSP::GSM::A7670E::Power::sleep()</a> then returns <b>false</b>.</li>
+<li><a class="el" href="../../dc/d55/a06164.html" title="FunctionRef">FunctionRef</a> accepts a plain function, so the supply callback can be an ordinary function that drives a regulator enable pin.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">Lib/BSP/GSM/A7670E.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dfa/a00626.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>FrameStore final : <span class="keyword">public</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/d0c/a04563.html">Lib::BSP::IS62WV51216</a>&lt;FrameStore&gt; {</div>
-<div class="line">    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="../../d9/d0c/a04563.html">Lib::BSP::IS62WV51216</a>&lt;FrameStore&gt;; <span class="comment">// The base calls onMemoryChanged().</span></div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart3; <span class="comment">// Generated by CubeMX in &#39;usart.c&#39;.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"><span class="keyword">namespace </span>{</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> Config CONFIG{.baseAddress = 0x68000000U, .sizeBytes = 1024U * 1024U};</div>
+<div class="line">    <span class="keyword">using </span>Modem = <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../df/dd3/a04527.html">Lib::BSP::GSM::A7670E</a>;</div>
 <div class="line"> </div>
-<div class="line">    FrameStore() noexcept :</div>
-<div class="line">        <a id="a1" name="a1"></a><a class="code hl_function" href="../../d9/d0c/a04563.html#a7921fa0f977faf912d2049453fd4c308">IS62WV51216</a>(CONFIG) {</div>
+<div class="line">    <span class="comment">// CubeMX pin labels; each &#39;PIN()&#39; expands to the matching port and pin symbols.</span></div>
+<div class="line">    <span class="keyword">constexpr</span> <a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> POWER_KEY_PIN = <a id="_a3" name="_a3"></a><a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_PWRKEY);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> RESET_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_RESET);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> STATUS_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_STATUS);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> DTR_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_DTR);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> SUPPLY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_SUPPLY_EN);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// The application owns the hardware; the driver only holds references to these objects.</span></div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a> port{{.handle = &amp;huart3, .bufferSize = 512U}};</div>
+<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> powerKey{POWER_KEY_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> reset{RESET_PIN};</div>
+<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../dc/d06/a05407.html">Lib::HAL::GPIO::Input</a> status{STATUS_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> dtr{DTR_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> supplyEnable{SUPPLY_PIN};</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// The driver calls this with &#39;true&#39; before power-on and with &#39;false&#39; when it cuts the supply.</span></div>
+<div class="line">    <span class="keywordtype">void</span> setModemSupply(<span class="keywordtype">bool</span> isOn) {</div>
+<div class="line">        supplyEnable.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d8/d4f/a05411.html#a52416b95040bffe9915b005b33bc3600">write</a>(isOn);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    [[nodiscard]] uint32_t getWriteCount() <span class="keyword">const</span> <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> writeCount;</div>
+<div class="line">    Modem modem{{</div>
+<div class="line">        .port = port,</div>
+<div class="line">        .powerKey = powerKey,</div>
+<div class="line">        .reset = reset,</div>
+<div class="line">        .status = status,</div>
+<div class="line">        .dtr = &amp;dtr,</div>
+<div class="line">        .setSupply = setModemSupply,</div>
+<div class="line">    }};</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace</span></div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa00215_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a></div></div>
+<div class="ttc" id="aa00269_html"><div class="ttname"><a href="../../d5/d42/a00269.html">A7670E.hpp</a></div><div class="ttdoc">Power, AT command and file system control of the SIMCom A7670E LTE Cat-1 modem, header-only,...</div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00617_html_a45dbeff58bd7e046067745552ea8044c"><div class="ttname"><a href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a></div><div class="ttdeci">#define PIN(p)</div><div class="ttdef"><b>Definition</b> Handle.hpp:25</div></div>
+<div class="ttc" id="aa00626_html"><div class="ttname"><a href="../../d6/dfa/a00626.html">GPIO.hpp</a></div><div class="ttdoc">Public convenience aliases for the GPIO subsystem.</div></div>
+<div class="ttc" id="aa00734_html"><div class="ttname"><a href="../../d6/dc0/a00734.html">StreamSerialPort.hpp</a></div><div class="ttdoc">Interrupt-driven UART with a continuous receive stream, for devices that talk without being asked.</div></div>
+<div class="ttc" id="aa01149_html_ga5de4a49eb132735325e706f406c69d6e"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a></div><div class="ttdeci">struct __UART_HandleTypeDef UART_HandleTypeDef</div></div>
+<div class="ttc" id="aa04527_html"><div class="ttname"><a href="../../df/dd3/a04527.html">Lib::BSP::GSM::A7670E</a></div><div class="ttdoc">Driver of the SIMCom A7670E modem: supply and power key, AT command exchange and the file system.</div><div class="ttdef"><b>Definition</b> A7670E.hpp:66</div></div>
+<div class="ttc" id="aa05403_html"><div class="ttname"><a href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a></div><div class="ttdoc">Lightweight wrapper for GPIO pin configuration providing typed access.</div><div class="ttdef"><b>Definition</b> Handle.hpp:50</div></div>
+<div class="ttc" id="aa05407_html"><div class="ttname"><a href="../../dc/d06/a05407.html">Lib::HAL::GPIO::Input</a></div><div class="ttdoc">Represents a discrete hardware input pin mapped to a specific microcontroller port.</div><div class="ttdef"><b>Definition</b> Input.hpp:34</div></div>
+<div class="ttc" id="aa05411_html"><div class="ttname"><a href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a></div><div class="ttdoc">Represents a discrete hardware output pin capable of state driving and active reading.</div><div class="ttdef"><b>Definition</b> Output.hpp:35</div></div>
+<div class="ttc" id="aa05411_html_a52416b95040bffe9915b005b33bc3600"><div class="ttname"><a href="../../d8/d4f/a05411.html#a52416b95040bffe9915b005b33bc3600">Lib::HAL::GPIO::Output::write</a></div><div class="ttdeci">void write(bool state) noexcept</div><div class="ttdoc">Forces the physical line into a specific logical state.</div><div class="ttdef"><b>Definition</b> Output.hpp:101</div></div>
+<div class="ttc" id="aa05571_html"><div class="ttname"><a href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a></div><div class="ttdoc">UART port that receives continuously into a stream buffer and transmits by polling.</div><div class="ttdef"><b>Definition</b> StreamSerialPort.hpp:50</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="a7670e_usage_power"></a>
+Power on and off</h3>
+<p><a class="el" href="../../de/d9c/a04551.html#a9ef3fdbe071a7ca9a6d48b660c068c44" title="Lib::BSP::GSM::A7670E::Power::on()">Lib::BSP::GSM::A7670E::Power::on()</a> drives the supply, pulses <em class="arg">PWRKEY</em> and waits until the modem answers 'AT'. It also turns the command echo off and enables numeric error codes.</p>
+<ul>
+<li>On failure the driver closes the port and cuts the supply again, so the caller only returns.</li>
+<li><a class="el" href="../../de/d9c/a04551.html#a00662a719223d2d8dea3e0567d1cc7a8" title="Lib::BSP::GSM::A7670E::Power::off()">Lib::BSP::GSM::A7670E::Power::off()</a> sends 'AT+CPOF', waits for the shutdown and then cuts the supply. Call it before removing the supply by other means.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">Lib/BSP/GSM/A7670E.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dfa/a00626.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart3; <span class="comment">// Generated by CubeMX in &#39;usart.c&#39;.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">using </span>Modem = <a class="code hl_class" href="../../df/dd3/a04527.html">Lib::BSP::GSM::A7670E</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> POWER_KEY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_PWRKEY);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> RESET_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_RESET);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> STATUS_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_STATUS);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> DTR_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_DTR);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> SUPPLY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_SUPPLY_EN);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a> port{{.handle = &amp;huart3, .bufferSize = 512U}};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> powerKey{POWER_KEY_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> reset{RESET_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../dc/d06/a05407.html">Lib::HAL::GPIO::Input</a> status{STATUS_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> dtr{DTR_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> supplyEnable{SUPPLY_PIN};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> setModemSupply(<span class="keywordtype">bool</span> isOn) {</div>
+<div class="line">        supplyEnable.<a class="code hl_function" href="../../d8/d4f/a05411.html#a52416b95040bffe9915b005b33bc3600">write</a>(isOn);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    Modem modem{{</div>
+<div class="line">        .port = port,</div>
+<div class="line">        .powerKey = powerKey,</div>
+<div class="line">        .reset = reset,</div>
+<div class="line">        .status = status,</div>
+<div class="line">        .dtr = &amp;dtr,</div>
+<div class="line">        .setSupply = setModemSupply,</div>
+<div class="line">    }};</div>
 <div class="line"> </div>
-<div class="line">    uint32_t writeCount{0U};</div>
+<div class="line">} <span class="comment">// namespace</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onMemoryChanged([[maybe_unused]] uintptr_t absoluteAddress, [[maybe_unused]] <span class="keywordtype">size_t</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a>) <span class="keyword">noexcept</span> {</div>
-<div class="line">        ++writeCount; <span class="comment">// Runs with the mutex held: no read()/write() here.</span></div>
+<div class="line"><span class="keywordtype">void</span> powerCycle() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!modem.power().on()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// The modem did not answer in time; the driver has already cut the supply again.</span></div>
 <div class="line">    }</div>
-<div class="line">};</div>
 <div class="line"> </div>
-<div class="line">FrameStore sram;</div>
+<div class="line">    <span class="comment">// The modem is on: the AT channel works and the command echo is off.</span></div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(modem.power().isOn());</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> loggerTask() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!sram.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Out of heap for the mutex.</span></div>
+<div class="line">    modem.power().off(); <span class="comment">// Detaches from the network with &#39;AT+CPOF&#39; if the modem answers, then cuts the supply.</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="a7670e_usage_command"></a>
+AT command</h3>
+<p><a class="el" href="../../df/dd3/a04527.html#aca4a089e7f865511e4a0796c4bd9cf99" title="Lib::BSP::GSM::A7670E::sendCommand()">Lib::BSP::GSM::A7670E::sendCommand()</a> sends one command, waits for the final result and returns it. The command text is given without the carriage return, which the driver adds.</p>
+<ul>
+<li>Pass a buffer of <a class="el" href="../../df/dd3/a04527.html#ad7470a5f36f8540bad2e254ea1a68557" title="Lib::BSP::GSM::A7670E::RESPONSE_SIZE">Lib::BSP::GSM::A7670E::RESPONSE_SIZE</a> bytes to keep the information lines; the buffer is NUL-terminated and separates the lines with '<br  />
+'.</li>
+<li>A command sent while the modem is off or asleep returns <em class="arg">NOT_READY</em> without touching the port.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">Lib/BSP/GSM/A7670E.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dfa/a00626.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart3; <span class="comment">// Generated by CubeMX in &#39;usart.c&#39;.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">using </span>Modem = <a class="code hl_class" href="../../df/dd3/a04527.html">Lib::BSP::GSM::A7670E</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> POWER_KEY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_PWRKEY);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> RESET_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_RESET);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> STATUS_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_STATUS);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> DTR_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_DTR);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> SUPPLY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_SUPPLY_EN);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a> port{{.handle = &amp;huart3, .bufferSize = 512U}};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> powerKey{POWER_KEY_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> reset{RESET_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../dc/d06/a05407.html">Lib::HAL::GPIO::Input</a> status{STATUS_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> dtr{DTR_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> supplyEnable{SUPPLY_PIN};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> setModemSupply(<span class="keywordtype">bool</span> isOn) {</div>
+<div class="line">        supplyEnable.<a class="code hl_function" href="../../d8/d4f/a05411.html#a52416b95040bffe9915b005b33bc3600">write</a>(isOn);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;std::byte, 4&gt;</a> record{std::byte{0xDE}, std::byte{0xAD}, std::byte{0xBE}, std::byte{0xEF}};</div>
-<div class="line">    <span class="keywordflow">if</span> (!sram.write(0x100U, std::span&lt;const std::byte&gt;{record})) {</div>
+<div class="line">    Modem modem{{</div>
+<div class="line">        .port = port,</div>
+<div class="line">        .powerKey = powerKey,</div>
+<div class="line">        .reset = reset,</div>
+<div class="line">        .status = status,</div>
+<div class="line">        .dtr = &amp;dtr,</div>
+<div class="line">        .setSupply = setModemSupply,</div>
+<div class="line">    }};</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> identify() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!modem.power().on()) {</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;std::byte, 4&gt;</a> readBack{};</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sram.read(0x100U, std::span&lt;std::byte&gt;{readBack}));</div>
+<div class="line">    <span class="comment">// The information lines of &#39;ATI&#39; (manufacturer, model, revision) are kept in the buffer.</span></div>
+<div class="line">    <a id="_a8" name="_a8"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;char, Modem::RESPONSE_SIZE&gt;</a> response{};</div>
+<div class="line">    <span class="keywordflow">if</span> (modem.sendCommand(<span class="stringliteral">&quot;ATI&quot;</span>, response, <a id="_a9" name="_a9"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>{1000}) == Modem::Result::OK) {</div>
+<div class="line">        <span class="comment">// &#39;response&#39; now holds the lines, for example to log them or to check the model name.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    modem.power().off();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
-<div class="ttc" id="aa00269_html"><div class="ttname"><a href="../../d5/d42/a00269.html">IS62WV51216.hpp</a></div><div class="ttdoc">Declares the BSP driver template for the IS62WV51216 external SRAM; header-only, no HAL dependency.</div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa01692_html_a86f849fa422e14fa194d390bdcc1d2cd"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a></div><div class="ttdeci">constexpr auto size(const _Container &amp;__cont) noexcept(noexcept(__cont.size())) -&gt; decltype(__cont.size())</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
 <div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa04563_html"><div class="ttname"><a href="../../d9/d0c/a04563.html">Lib::BSP::IS62WV51216</a></div><div class="ttdoc">Mutex-guarded byte access to an IS62WV51216 SRAM mapped into the address space by the FSMC/FMC.</div><div class="ttdef"><b>Definition</b> IS62WV51216.hpp:39</div></div>
-<div class="ttc" id="aa04563_html_a7921fa0f977faf912d2049453fd4c308"><div class="ttname"><a href="../../d9/d0c/a04563.html#a7921fa0f977faf912d2049453fd4c308">Lib::BSP::IS62WV51216::IS62WV51216</a></div><div class="ttdeci">IS62WV51216(const Config &amp;config) noexcept</div><div class="ttdoc">Binds the driver to the mapped region without opening the mutex.</div><div class="ttdef"><b>Definition</b> IS62WV51216.hpp:57</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="a7670e_usage_network"></a>
+Registration, signal, time and location</h3>
+<p>The network group waits for the registration, then reads the signal strength, the clock and the cell position. Each query returns <b>std::nullopt</b> when the modem did not answer.</p>
+<ul>
+<li><a class="el" href="../../dc/d65/a04555.html#af76be66a29575097c7dbf63f65ae68de" title="Lib::BSP::GSM::A7670E::Network::setLTEOnly()">Lib::BSP::GSM::A7670E::Network::setLTEOnly()</a> restricts the radio to LTE, so the attach does not scan 2G and 3G.</li>
+<li><a class="el" href="../../dc/d65/a04555.html#a36029bb551781de86c0674a121c0a8cb" title="Lib::BSP::GSM::A7670E::Network::waitForRegistration()">Lib::BSP::GSM::A7670E::Network::waitForRegistration()</a> returns <b>false</b> early when the network denies the registration.</li>
+<li><a class="el" href="../../dc/d65/a04555.html#aba4491c30df0fb948ede36bb4e1085d3" title="Lib::BSP::GSM::A7670E::Network::getLocation()">Lib::BSP::GSM::A7670E::Network::getLocation()</a> uses a little mobile data and needs an active data context.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">Lib/BSP/GSM/A7670E.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dfa/a00626.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart3; <span class="comment">// Generated by CubeMX in &#39;usart.c&#39;.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">using </span>Modem = <a class="code hl_class" href="../../df/dd3/a04527.html">Lib::BSP::GSM::A7670E</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> POWER_KEY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_PWRKEY);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> RESET_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_RESET);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> STATUS_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_STATUS);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> DTR_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_DTR);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> SUPPLY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_SUPPLY_EN);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a> port{{.handle = &amp;huart3, .bufferSize = 512U}};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> powerKey{POWER_KEY_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> reset{RESET_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../dc/d06/a05407.html">Lib::HAL::GPIO::Input</a> status{STATUS_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> dtr{DTR_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> supplyEnable{SUPPLY_PIN};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> setModemSupply(<span class="keywordtype">bool</span> isOn) {</div>
+<div class="line">        supplyEnable.<a class="code hl_function" href="../../d8/d4f/a05411.html#a52416b95040bffe9915b005b33bc3600">write</a>(isOn);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    Modem modem{{</div>
+<div class="line">        .port = port,</div>
+<div class="line">        .powerKey = powerKey,</div>
+<div class="line">        .reset = reset,</div>
+<div class="line">        .status = status,</div>
+<div class="line">        .dtr = &amp;dtr,</div>
+<div class="line">        .setSupply = setModemSupply,</div>
+<div class="line">    }};</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> readNetwork() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!modem.power().on()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(modem.network().setLTEOnly());</div>
+<div class="line">    <span class="keywordflow">if</span> (modem.network().waitForRegistration(<a id="_a10" name="_a10"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>{60})) {</div>
+<div class="line">        <span class="keyword">const</span> <a id="_a11" name="_a11"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint8_t&gt;</a> signal = modem.network().getSignalQuality(); <span class="comment">// 0..31, see the getter</span></div>
+<div class="line">        <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint32_t&gt;</a> utc = modem.network().getTime();           <span class="comment">// Seconds since 1970 in UTC</span></div>
+<div class="line">        <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;Modem::Location&gt;</a> position = modem.network().getLocation();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (signal &amp;&amp; utc &amp;&amp; position) {</div>
+<div class="line">            <span class="comment">// Use the values here, for example to build the report.</span></div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    modem.power().off();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01610_html_ga2872cfa04b6162d31b737f1e21fefb3b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a></div><div class="ttdeci">duration&lt; int64_t &gt; seconds</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="a7670e_usage_sleep"></a>
+UART sleep and wake</h3>
+<p><a class="el" href="../../de/d9c/a04551.html#a3100efc86fbfd79c1db3d66caeda4b3e" title="Lib::BSP::GSM::A7670E::Power::sleep()">Lib::BSP::GSM::A7670E::Power::sleep()</a> puts the modem into UART sleep and raises <em class="arg">DTR</em>. The modem stays registered on the network, but every command returns <em class="arg">NOT_READY</em> until <a class="el" href="../../de/d9c/a04551.html#aca2cbd553202896c84c23e75d49ddd9e" title="Lib::BSP::GSM::A7670E::Power::wakeUp()">Lib::BSP::GSM::A7670E::Power::wakeUp()</a> drives <em class="arg">DTR</em> low again and confirms the modem answers.</p>
+<ul>
+<li>Sleep needs the <em class="arg">DTR</em> pin in the configuration; without it <a class="el" href="../../de/d9c/a04551.html#a3100efc86fbfd79c1db3d66caeda4b3e" title="Lib::BSP::GSM::A7670E::Power::sleep()">Lib::BSP::GSM::A7670E::Power::sleep()</a> returns <b>false</b>.</li>
+<li><a class="el" href="../../de/d9c/a04551.html#a00662a719223d2d8dea3e0567d1cc7a8" title="Lib::BSP::GSM::A7670E::Power::off()">Lib::BSP::GSM::A7670E::Power::off()</a> wakes a sleeping modem before it detaches.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">Lib/BSP/GSM/A7670E.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dfa/a00626.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart3; <span class="comment">// Generated by CubeMX in &#39;usart.c&#39;.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">using </span>Modem = <a class="code hl_class" href="../../df/dd3/a04527.html">Lib::BSP::GSM::A7670E</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> POWER_KEY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_PWRKEY);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> RESET_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_RESET);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> STATUS_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_STATUS);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> DTR_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_DTR);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> SUPPLY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_SUPPLY_EN);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a> port{{.handle = &amp;huart3, .bufferSize = 512U}};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> powerKey{POWER_KEY_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> reset{RESET_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../dc/d06/a05407.html">Lib::HAL::GPIO::Input</a> status{STATUS_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> dtr{DTR_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> supplyEnable{SUPPLY_PIN};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> setModemSupply(<span class="keywordtype">bool</span> isOn) {</div>
+<div class="line">        supplyEnable.<a class="code hl_function" href="../../d8/d4f/a05411.html#a52416b95040bffe9915b005b33bc3600">write</a>(isOn);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    Modem modem{{</div>
+<div class="line">        .port = port,</div>
+<div class="line">        .powerKey = powerKey,</div>
+<div class="line">        .reset = reset,</div>
+<div class="line">        .status = status,</div>
+<div class="line">        .dtr = &amp;dtr,</div>
+<div class="line">        .setSupply = setModemSupply,</div>
+<div class="line">    }};</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> sleepUntilNextReport() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!modem.power().on()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!modem.power().sleep()) {</div>
+<div class="line">        modem.power().off(); <span class="comment">// Sleep was refused, so the modem stays awake and is simply switched off.</span></div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Wait for the next report period with the application&#39;s own timer; the modem is asleep meanwhile.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!modem.power().wakeUp()) {</div>
+<div class="line">        modem.power().off();</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    modem.power().off();</div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="a7670e_usage_files"></a>
+Whole-file write and read</h3>
+<p><a class="el" href="../../d9/d0c/a04563.html#a4c6ad03d6f8d73995700115490d2f279" title="Lib::BSP::GSM::A7670E::Files::write()">Lib::BSP::GSM::A7670E::Files::write()</a> stores a file under a temporary name and renames it, so a power loss does not lose both copies. <a class="el" href="../../d9/d0c/a04563.html#a784a6d3798784d545630794b0d373972" title="Lib::BSP::GSM::A7670E::Files::read()">Lib::BSP::GSM::A7670E::Files::read()</a> fills a buffer from the start of the file and returns the number of bytes read.</p>
+<ul>
+<li>A missing file makes <a class="el" href="../../d9/d0c/a04563.html#a784a6d3798784d545630794b0d373972" title="Lib::BSP::GSM::A7670E::Files::read()">Lib::BSP::GSM::A7670E::Files::read()</a> return <b>0</b>; <a class="el" href="../../d9/d0c/a04563.html#acdeb9b2ee2aa50ce02467af8f47f6efc" title="Lib::BSP::GSM::A7670E::Files::exists()">Lib::BSP::GSM::A7670E::Files::exists()</a> tells a missing file from a failed query.</li>
+<li>Paths are full, such as 'C:/settings.bin', and the modem refuses wildcards and subdirectories.</li>
+<li>Both calls fail while a <a class="el" href="../../d1/dce/a04559.html" title="Lib::BSP::GSM::A7670E::File">Lib::BSP::GSM::A7670E::File</a> is open, because the modem has one file handle for the driver.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">Lib/BSP/GSM/A7670E.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dfa/a00626.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart3; <span class="comment">// Generated by CubeMX in &#39;usart.c&#39;.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">using </span>Modem = <a class="code hl_class" href="../../df/dd3/a04527.html">Lib::BSP::GSM::A7670E</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> POWER_KEY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_PWRKEY);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> RESET_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_RESET);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> STATUS_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_STATUS);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> DTR_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_DTR);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> SUPPLY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_SUPPLY_EN);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a> port{{.handle = &amp;huart3, .bufferSize = 512U}};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> powerKey{POWER_KEY_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> reset{RESET_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../dc/d06/a05407.html">Lib::HAL::GPIO::Input</a> status{STATUS_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> dtr{DTR_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> supplyEnable{SUPPLY_PIN};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> setModemSupply(<span class="keywordtype">bool</span> isOn) {</div>
+<div class="line">        supplyEnable.<a class="code hl_function" href="../../d8/d4f/a05411.html#a52416b95040bffe9915b005b33bc3600">write</a>(isOn);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    Modem modem{{</div>
+<div class="line">        .port = port,</div>
+<div class="line">        .powerKey = powerKey,</div>
+<div class="line">        .reset = reset,</div>
+<div class="line">        .status = status,</div>
+<div class="line">        .dtr = &amp;dtr,</div>
+<div class="line">        .setSupply = setModemSupply,</div>
+<div class="line">    }};</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> storeSetting() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!modem.power().on()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">constexpr</span> <a id="_a12" name="_a12"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> PATH = <span class="stringliteral">&quot;C:/settings.bin&quot;</span>;</div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> settings{1U, 2U, 3U, 4U};</div>
+<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> stored{};</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Write only when the content differs, because every write wears the modem flash.</span></div>
+<div class="line">    <span class="keywordflow">if</span> ((modem.files().read(PATH, stored) != stored.size()) || (stored != settings)) {</div>
+<div class="line">        <span class="keywordflow">if</span> (!modem.files().write(PATH, settings)) {</div>
+<div class="line">            <span class="comment">// The modem refused the write; keep the setting in RAM for this session.</span></div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    modem.power().off();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa02950_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="a7670e_usage_file"></a>
+Handle-based file access</h3>
+<p><a class="el" href="../../d1/dce/a04559.html" title="Lib::BSP::GSM::A7670E::File">Lib::BSP::GSM::A7670E::File</a> is worth using when a file is too large to hold in RAM or when only part of it changes. It opens with a mode, moves with <a class="el" href="../../d1/dce/a04559.html#a66b6ed3c3e1e592174dc4ff92dfe8cd5" title="Lib::BSP::GSM::A7670E::File::seek()">Lib::BSP::GSM::A7670E::File::seek()</a>, and closes when it goes out of scope.</p>
+<ul>
+<li><a class="el" href="../../d1/dce/a04559.html#ab53db1c5f8ccb661295ce0203e34d7ec" title="Lib::BSP::GSM::A7670E::File::read()">Lib::BSP::GSM::A7670E::File::read()</a> returns <b>0</b> both at the end of the file and on an error.</li>
+<li><em class="arg">APPEND</em> positions the file at its end when it opens, so every write adds a record.</li>
+<li>Only one <a class="el" href="../../d1/dce/a04559.html" title="Lib::BSP::GSM::A7670E::File">Lib::BSP::GSM::A7670E::File</a> can be open at a time.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">Lib/BSP/GSM/A7670E.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dfa/a00626.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart3; <span class="comment">// Generated by CubeMX in &#39;usart.c&#39;.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">using </span>Modem = <a class="code hl_class" href="../../df/dd3/a04527.html">Lib::BSP::GSM::A7670E</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> POWER_KEY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_PWRKEY);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> RESET_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_RESET);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> STATUS_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_STATUS);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> DTR_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_DTR);</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Handle</a> SUPPLY_PIN = <a class="code hl_define" href="../../d4/dc4/a00617.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(MODEM_SUPPLY_EN);</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a> port{{.handle = &amp;huart3, .bufferSize = 512U}};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> powerKey{POWER_KEY_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> reset{RESET_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../dc/d06/a05407.html">Lib::HAL::GPIO::Input</a> status{STATUS_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> dtr{DTR_PIN};</div>
+<div class="line">    <a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Output</a> supplyEnable{SUPPLY_PIN};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> setModemSupply(<span class="keywordtype">bool</span> isOn) {</div>
+<div class="line">        supplyEnable.<a class="code hl_function" href="../../d8/d4f/a05411.html#a52416b95040bffe9915b005b33bc3600">write</a>(isOn);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    Modem modem{{</div>
+<div class="line">        .port = port,</div>
+<div class="line">        .powerKey = powerKey,</div>
+<div class="line">        .reset = reset,</div>
+<div class="line">        .status = status,</div>
+<div class="line">        .dtr = &amp;dtr,</div>
+<div class="line">        .setSupply = setModemSupply,</div>
+<div class="line">    }};</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> logAndReadBack() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!modem.power().on()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Append a record to the end of the log.</span></div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> record{1U, 2U, 3U, 4U};</div>
+<div class="line">    {</div>
+<div class="line">        Modem::File <a id="_a13" name="_a13"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga42f2de63a5c18a149f94b926d4d6bb21">log</a>{modem};</div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga42f2de63a5c18a149f94b926d4d6bb21">log</a>.open(<span class="stringliteral">&quot;C:/log.bin&quot;</span>, Modem::File::Mode::APPEND) &amp;&amp; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga42f2de63a5c18a149f94b926d4d6bb21">log</a>.write(record)) {</div>
+<div class="line">            <span class="comment">// The record is in the modem flash.</span></div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Read 16 bytes starting at offset 4.</span></div>
+<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 16U&gt;</a> buffer{};</div>
+<div class="line">    Modem::File file{modem};</div>
+<div class="line">    <span class="keywordflow">if</span> (file.open(<span class="stringliteral">&quot;C:/log.bin&quot;</span>, Modem::File::Mode::READ) &amp;&amp; file.seek(4, Modem::File::Origin::BEGIN)) {</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a id="_a14" name="_a14"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a> = file.read(buffer); <span class="comment">// 0 at the end of the file or on an error</span></div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    modem.power().off();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01611_html_ga42f2de63a5c18a149f94b926d4d6bb21"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga42f2de63a5c18a149f94b926d4d6bb21">log</a></div><div class="ttdeci">complex&lt; _Tp &gt; log(const complex&lt; _Tp &gt; &amp;)</div></div>
+<div class="ttc" id="aa01627_html_ga5a30c8541e506f4962cb5103a18f1fd1"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a></div><div class="ttdeci">constexpr iterator_traits&lt; _InputIterator &gt;::difference_type count(_InputIterator __first, _InputIterator __last, const _Tp &amp;__value)</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

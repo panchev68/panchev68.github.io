@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::DeviceManager</title>
+<title>IAR EWARM Library: Lib::HAL::CANPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,67 +92,136 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::DeviceManager</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::CANPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Maps a native HAL handle, as seen inside an 'extern "C"' HAL callback, back to the owning C++ object with <a class="el" href="../../d4/d17/a06174.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a>.</p>
-<p>Maps a native HAL handle, as seen inside an 'extern "C"' HAL callback, back to the owning C++ object with <a class="el" href="../../d4/d17/a06174.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a>. The objects derive from <a class="el" href="../../d1/dab/a05359.html" title="Lib::HAL::Device">Lib::HAL::Device</a>, which stores the handle and an intrusive list link.</p>
-<p>This is the HAL-side ISR lookup. It is a different class from <a class="el" href="../../df/d59/a04343.html" title="Lib::BSP::DeviceManager">Lib::BSP::DeviceManager</a>, which holds a periodic timer and a list of BSP drivers; the two share a name but nothing else. The HAL manager is a per-(device type, handle type) singleton, so the template arguments select the instance. <a class="el" href="../../dd/dc9/a05355.html#a20731f8c338ecda6068a2f416c8e9e97" title="Lib::HAL::DeviceManager::registerDevice()">Lib::HAL::DeviceManager::registerDevice()</a> and <a class="el" href="../../dd/dc9/a05355.html#aa1c87169c3e9040cd552e10c08e0eee4" title="Lib::HAL::DeviceManager::unregisterDevice()">Lib::HAL::DeviceManager::unregisterDevice()</a> take an RTOS critical section. <a class="el" href="../../dd/dc9/a05355.html#a44399c0b88c31ab172615c8522506511" title="Lib::HAL::DeviceManager::getDevice()">Lib::HAL::DeviceManager::getDevice()</a> does not, which is what lets an ISR call it. The list is searched linearly, so keep the number of instances per type small.</p>
-<p>The device registers itself in its constructor and must not be destroyed while an ISR may still look it up: unregister it before it goes away. The example below uses a static instance, so that condition holds.</p>
+<p>Sends and receives classic CAN frames through <a class="el" href="../../d4/d17/a06174.html" title="Lib::HAL::CANPort">Lib::HAL::CANPort</a> in 'Lib::HAL::DriverMode::BLOCKING' mode, which polls the mailboxes and FIFOs from the calling task, and in 'Lib::HAL::DriverMode::IT' mode, which blocks on task notifications raised from the CAN interrupts.</p>
+<p>Sends and receives classic CAN frames through <a class="el" href="../../d4/d17/a06174.html" title="Lib::HAL::CANPort">Lib::HAL::CANPort</a> in 'Lib::HAL::DriverMode::BLOCKING' mode, which polls the mailboxes and FIFOs from the calling task, and in 'Lib::HAL::DriverMode::IT' mode, which blocks on task notifications raised from the CAN interrupts. The port wraps a <b>CAN_HandleTypeDef</b> created by CubeMX; the bit timing, the pins and the acceptance filters are set up by CubeMX, and Lib::HAL::CANPort::open() starts the peripheral (in IT mode it also enables the interrupts).</p>
+<p>Both modes share <a class="el" href="../../df/d5e/a05351.html#a65aa681fa591b2d0956e06e67e990b15" title="Lib::HAL::CANPortBase::write()">Lib::HAL::CANPortBase::write()</a> and <a class="el" href="../../df/d5e/a05351.html#a19f3a9f56a84a6b351315710b9aa7cd4" title="Lib::HAL::CANPortBase::read()">Lib::HAL::CANPortBase::read()</a>, which take at most 8 data bytes per frame and never block. The blocking-only helpers Lib::HAL::CANPort::writeBlocking() and Lib::HAL::CANPort::readBlocking() poll with 1 ms task delays and must run in a task, not in an ISR.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="devicemanager_usage_device"></a>
-Derive a device from the base</h3>
-<p>Derive publicly from <a class="el" href="../../d1/dab/a05359.html" title="Lib::HAL::Device">Lib::HAL::Device</a>, pass the native handle to its constructor, and register the object with the manager. <a class="el" href="../../d1/dab/a05359.html#ac39b97fd324efde09c82d0ccfe7fe4e8" title="Lib::HAL::Device::getHandle()">Lib::HAL::Device::getHandle()</a> returns the handle that the lookup compares against.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="codeRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d45/a00011.html">stm32f4xx_hal.h</a>&quot;</span> <span class="comment">// Declares SPI_HandleTypeDef and the HAL driver.</span></div>
+<h3 class="doxsection"><a class="anchor" id="can_usage_hw"></a>
+Hardware assumptions</h3>
+<ul>
+<li>The CAN handle is generated by CubeMX (for example <b>hcan1</b>, declared in 'can.c'), with its transceiver wired to the CAN pins.</li>
+<li>The IT mode needs the CAN interrupt lines enabled in the NVIC by CubeMX, so that the HAL can call its callbacks; the port enables the individual interrupt sources itself in Lib::HAL::CANPort::open().</li>
+<li>The IT mode registers its callbacks with <b>HAL_CAN_RegisterCallback()</b>, which the HAL compiles only when <em class="arg">USE_HAL_CAN_REGISTER_CALLBACKS</em> is set to 1 in the HAL configuration header. The port does not check this macro.</li>
+</ul>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="can_usage_block"></a>
+Blocking send and receive</h3>
+<p>Lib::HAL::CANPort::writeBlocking() waits up to its timeout for a free transmit mailbox, and Lib::HAL::CANPort::readBlocking() waits up to its timeout for a pending frame in the chosen FIFO. Both return <b>false</b> on timeout, which is an expected outcome on a quiet bus.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d3e/a00566.html">Lib/HAL/CAN/CANPort-Block.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00578.html">Lib/HAL/core/Device.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/d2d/a08277.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
-<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> hspi1; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"><span class="keyword">extern</span> CAN_HandleTypeDef hcan1;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>SpiBridge final : <span class="keyword">public</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d1/dab/a05359.html">Lib::HAL::Device</a>&lt;SpiBridge, SPI_HandleTypeDef&gt; {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keyword">explicit</span> SpiBridge(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * spiHandle) noexcept :</div>
-<div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../d1/dab/a05359.html#acdeffbad9eb409804cbc72fa86794a97">Device</a>(spiHandle) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="a3" name="a3"></a><a class="code hl_function" href="../../dd/dc9/a05355.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a4" name="a4"></a><a class="code hl_function" href="../../dd/dc9/a05355.html#a20731f8c338ecda6068a2f416c8e9e97">registerDevice</a>(<span class="keyword">this</span>));</div>
+<div class="line"><span class="keywordtype">void</span> exchangeBlocking() noexcept {</div>
+<div class="line">    Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; can(&amp;hcan1);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!can.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onTransmitComplete() <span class="keyword">noexcept</span> {</div>
-<div class="line">        transmitCount = transmitCount + 1U;</div>
+<div class="line">    <span class="keyword">const</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 2&gt;</a> status{0x01U, 0x02U};</div>
+<div class="line">    <span class="keywordflow">if</span> (!can.writeBlocking(0x123U, status, <a id="_a1" name="_a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(10))) {</div>
+<div class="line">        <span class="comment">// No free mailbox within 10 ms.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d3/d04/a05347.html">Lib::HAL::CANFrame</a> frame{};</div>
+<div class="line">    <span class="keywordflow">if</span> (can.readBlocking(CAN_RX_FIFO0, frame, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
+<div class="line">        <span class="comment">// Use frame.id, frame.data and frame.length.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(can.close());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00566_html"><div class="ttname"><a href="../../d0/d3e/a00566.html">CANPort-Block.hpp</a></div><div class="ttdoc">Blocking specialization of the CAN port.</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="ttc" id="aa05347_html"><div class="ttname"><a href="../../d3/d04/a05347.html">Lib::HAL::CANFrame</a></div><div class="ttdoc">Wraps a received or transmitted classic CAN frame payload.</div><div class="ttdef"><b>Definition</b> CANPortBase.hpp:29</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="can_usage_it"></a>
+Interrupt-driven receive task</h3>
+<p>Lib::HAL::CANPort::open() binds the task that calls it as the notification target, so the task that calls Lib::HAL::CANPort::waitForEvent() must be the one that opened the port. A notification from the CAN interrupts is delivered to that task only.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Only the task that called Lib::HAL::CANPort::open() may call Lib::HAL::CANPort::waitForEvent(); other tasks never receive the CAN events.</dd></dl>
+<p>The timeout of Lib::HAL::CANPort::waitForEvent() is in milliseconds, and the call returns the event bits that fired, or 0 on timeout. The port has no error-code getter, so the example closes and reopens the port when <em class="arg">ERROR</em> is reported.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d9e/a00569.html">Lib/HAL/CAN/CANPort-IT.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d6c/a00977.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> CAN_HandleTypeDef hcan1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>CanTask final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    CanTask() noexcept :</div>
+<div class="line">        can(&amp;hcan1),</div>
+<div class="line">        task(<a id="_a3" name="_a3"></a><a class="code hl_struct" href="../../d0/d22/a05963.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Can&quot;</span>, 512, <a id="_a4" name="_a4"></a><a class="code hl_enumvalue" href="../../d1/d1f/a05947.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    <span class="keyword">volatile</span> uint32_t transmitCount = 0U;</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt; can;</div>
+<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d3/d4c/a05943.html">RTOS::Task</a> task; <span class="comment">// Must stay the last member.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="comment">// open() binds this task, so it must be called here, not from the constructor.</span></div>
+<div class="line">        <span class="keywordflow">if</span> (!can.open()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;CanTask: failed to open CAN&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keyword">const</span> uint32_t events = can.waitForEvent(Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::RX_FIFO0 |</div>
+<div class="line">                                                     Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::ERROR,</div>
+<div class="line">                                                     <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500));</div>
+<div class="line">            <span class="keywordflow">if</span> ((events &amp; Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::RX_FIFO0) != 0U) {</div>
+<div class="line">                <a class="code hl_struct" href="../../d3/d04/a05347.html">Lib::HAL::CANFrame</a> frame{};</div>
+<div class="line">                <span class="comment">// Drain every frame latched in FIFO 0, not just one per notification.</span></div>
+<div class="line">                <span class="keywordflow">while</span> (can.read(CAN_RX_FIFO0, frame)) {</div>
+<div class="line">                    <span class="comment">// Use frame.id, frame.data and frame.length.</span></div>
+<div class="line">                }</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">if</span> ((events &amp; Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::ERROR) != 0U) {</div>
+<div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(can.close());</div>
+<div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(can.open());</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
 <div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">static</span> SpiBridge spiBridge(&amp;hspi1);</div>
-<div class="ttc" id="aa00011_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d45/a00011.html">stm32f4xx_hal.h</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00578_html"><div class="ttname"><a href="../../dd/d5c/a00578.html">Device.hpp</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its link in the DeviceManager registry.</div></div>
-<div class="ttc" id="aa01068_html_gab633e49dd034de2f3a1fe79853d78d18"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a></div><div class="ttdeci">struct __SPI_HandleTypeDef SPI_HandleTypeDef</div></div>
-<div class="ttc" id="aa05355_html_a20731f8c338ecda6068a2f416c8e9e97"><div class="ttname"><a href="../../dd/dc9/a05355.html#a20731f8c338ecda6068a2f416c8e9e97">Lib::HAL::DeviceManager::registerDevice</a></div><div class="ttdeci">bool registerDevice(T_DEVICE *device)</div><div class="ttdoc">Adds a concrete driver to the lookup list.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:52</div></div>
-<div class="ttc" id="aa05355_html_a2832654a46fcf40b5673a27a282e278b"><div class="ttname"><a href="../../dd/dc9/a05355.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager::instance</a></div><div class="ttdeci">static DeviceManager &amp; instance() noexcept</div><div class="ttdoc">Returns the process-wide registry instance.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:39</div></div>
-<div class="ttc" id="aa05359_html"><div class="ttname"><a href="../../d1/dab/a05359.html">Lib::HAL::Device</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its DeviceManager list link.</div><div class="ttdef"><b>Definition</b> Device.hpp:36</div></div>
-<div class="ttc" id="aa05359_html_acdeffbad9eb409804cbc72fa86794a97"><div class="ttname"><a href="../../d1/dab/a05359.html#acdeffbad9eb409804cbc72fa86794a97">Lib::HAL::Device::Device</a></div><div class="ttdeci">Device(T_HANDLE *handle) noexcept</div><div class="ttdoc">Constructs a Device block bound to a native microcontroller peripheral handle.</div><div class="ttdef"><b>Definition</b> Device.hpp:78</div></div>
-<div class="ttc" id="aa08277_html"><div class="ttname"><a href="../../d2/d2d/a08277.html">DeviceManager.hpp</a></div><div class="ttdoc">Registry that routes native HAL handles to the open concrete peripheral drivers.</div></div>
+<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
+<div class="ttc" id="aa00569_html"><div class="ttname"><a href="../../d4/d9e/a00569.html">CANPort-IT.hpp</a></div><div class="ttdoc">Interrupt-driven specialization of the CAN port.</div></div>
+<div class="ttc" id="aa00977_html"><div class="ttname"><a href="../../d5/d6c/a00977.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa05943_html"><div class="ttname"><a href="../../d3/d4c/a05943.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
+<div class="ttc" id="aa05947_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d1/d1f/a05947.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:87</div></div>
+<div class="ttc" id="aa05963_html"><div class="ttname"><a href="../../d0/d22/a05963.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="devicemanager_usage_isr"></a>
-Look up the owner inside a HAL callback</h3>
-<p>The callback is defined once, by the application, and only forwards to the device. Defining it replaces the weak HAL definition of the same name, so it must appear only once in the project. A null result means no instance owns that handle, so the callback must simply return. The class from the previous example is assumed to be in 'SpiBridge.hpp'.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/d2d/a08277.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="can_usage_it_send"></a>
+Transmit with completion</h3>
+<p><a class="el" href="../../df/d5e/a05351.html#a65aa681fa591b2d0956e06e67e990b15" title="Lib::HAL::CANPortBase::write()">Lib::HAL::CANPortBase::write()</a> returns as soon as a mailbox accepts the frame. The bus transmission completes later, which the IT mode reports as Lib::HAL::CANPort::Event::TX_COMPLETE to the task that opened the port.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d9e/a00569.html">Lib/HAL/CAN/CANPort-IT.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;SpiBridge.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a>(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * hspi) {</div>
-<div class="line">    SpiBridge * <span class="keyword">const</span> bridge = <a class="code hl_function" href="../../dd/dc9/a05355.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a6" name="a6"></a><a class="code hl_function" href="../../dd/dc9/a05355.html#a44399c0b88c31ab172615c8522506511">getDevice</a>(hspi);</div>
-<div class="line">    <span class="keywordflow">if</span> (bridge != <span class="keyword">nullptr</span>) {</div>
-<div class="line">        bridge-&gt;onTransmitComplete();</div>
+<div class="line"><span class="keywordtype">void</span> sendWithCompletion(Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; can) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4&gt;</a> payload{0xDEU, 0xADU, 0xBEU, 0xEFU};</div>
+<div class="line">    <span class="keywordflow">if</span> (can.write(0x7FFU, payload)) {</div>
+<div class="line">        <span class="keyword">const</span> uint32_t events = can.waitForEvent(Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::TX_COMPLETE,</div>
+<div class="line">                                                 <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(10));</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa01345_html_ga0a99ab4f6aa6ee7dc2abca5483910dde"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a></div><div class="ttdeci">void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)</div></div>
-<div class="ttc" id="aa05355_html_a44399c0b88c31ab172615c8522506511"><div class="ttname"><a href="../../dd/dc9/a05355.html#a44399c0b88c31ab172615c8522506511">Lib::HAL::DeviceManager::getDevice</a></div><div class="ttdeci">T_DEVICE * getDevice(const T_HANDLE *handle) const</div><div class="ttdoc">Finds the registered device that owns a native handle by a linear search.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:105</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

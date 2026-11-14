@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::FlashInterface</title>
+<title>IAR EWARM Library: Lib::HAL::DACPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,67 +92,152 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::FlashInterface</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::DACPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Unlocks the flash controller, erases a sector and programs words with <a class="el" href="../../de/d5a/a06176.html" title="Lib::HAL::FlashInterface">Lib::HAL::FlashInterface</a>.</p>
-<p>Unlocks the flash controller, erases a sector and programs words with Lib::HAL::FlashInterface.The class is a thin facade over the HAL flash functions and holds no state. Erase and program operations need the controller unlocked, so call <a class="el" href="../../db/d18/a05383.html#a0f5c36a802a9b6cf15aacf3d104cb445" title="Lib::HAL::FlashInterface::unlock()">Lib::HAL::FlashInterface::unlock()</a> first and <a class="el" href="../../db/d18/a05383.html#a076081c699cb3dcf3a7f5890c6c4f568" title="Lib::HAL::FlashInterface::lock()">Lib::HAL::FlashInterface::lock()</a> afterwards. The HAL calls block until the operation ends, so keep them out of interrupt handlers. <a class="el" href="../../db/d18/a05383.html#ae33402652ac23992b9eb28ed57ca35e8" title="Lib::HAL::FlashInterface::writeBuffer()">Lib::HAL::FlashInterface::writeBuffer()</a> programs in order and stops at the first failure; the words written before that failure stay programmed.</p>
-<p>The erase granularity and the programming width are chosen at compile time from the device macros: sectors where <em class="arg">FLASH_TYPEERASE_SECTORS</em> is defined, pages where <em class="arg">FLASH_TYPEERASE_PAGES</em> is defined, and word or doubleword programming where <em class="arg">FLASH_TYPEPROGRAM_WORD</em> or <em class="arg">FLASH_TYPEPROGRAM_DOUBLEWORD</em> is defined. On a device without the macro, the method returns <b>false</b>.</p>
-<dl class="section important"><dt>Important</dt><dd>The module guard is <em class="arg">HAL_FLASH_MODULE_ENABLED</em>, which the project's 'stm32f4xx_hal_conf.h' enables. On the STM32F407xx target the HAL headers define <em class="arg">FLASH_TYPEERASE_SECTORS</em> and <em class="arg">FLASH_TYPEPROGRAM_WORD</em>, so both methods are compiled in.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>An erase destroys the whole sector, including any code or constants stored in it. Never erase the sector that holds the running firmware, and keep the code that erases and programs in RAM, because the CPU cannot execute from flash while the operation runs. Writes can only clear bits, so a word must be erased before it is programmed to a value that sets bits.</dd></dl>
+<p>Drives a DAC output channel through <a class="el" href="../../de/d5a/a06176.html" title="Lib::HAL::DACPort">Lib::HAL::DACPort</a> in three modes: 'Lib::HAL::DriverMode::BLOCKING' sets a static level, 'Lib::HAL::DriverMode::IT' adds the channel underrun interrupt, and 'Lib::HAL::DriverMode::DMA' plays a circular waveform from a caller-owned buffer.</p>
+<p>Drives a DAC output channel through <a class="el" href="../../de/d5a/a06176.html" title="Lib::HAL::DACPort">Lib::HAL::DACPort</a> in three modes: 'Lib::HAL::DriverMode::BLOCKING' sets a static level, 'Lib::HAL::DriverMode::IT' adds the channel underrun interrupt, and 'Lib::HAL::DriverMode::DMA' plays a circular waveform from a caller-owned buffer. The port wraps a <b>DAC_HandleTypeDef</b> created by CubeMX and takes the channel as a constructor argument; the output pin and any hardware trigger are configured by CubeMX.</p>
+<p>The IT and DMA modes need <em class="arg">USE_HAL_DAC_REGISTER_CALLBACKS</em> set to 1 in the HAL configuration header, otherwise the header stops the build with a compile-time error. Their waiting functions, Lib::HAL::DACPort::waitForUnderrun() and Lib::HAL::DACPort::waitForEvent(), block the calling task and must not run in an ISR.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="flash_usage_erase"></a>
-Erase a sector and program a block</h3>
-<p><a class="el" href="../../db/d18/a05383.html#a31fec472e71d387e0e9a5ade75e5ae24" title="Lib::HAL::FlashInterface::eraseSector()">Lib::HAL::FlashInterface::eraseSector()</a> takes the sector index and the voltage range that matches the supply voltage; use the HAL constant <em class="arg">FLASH_VOLTAGE_RANGE_3</em> for 2.7 V to 3.6 V on the STM32F407xx. Program the data only after the erase returns <b>true</b>, and check each step.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d14/a00608.html">Lib/HAL/Flash/FlashInterface.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="dac_usage_hw"></a>
+Hardware assumptions</h3>
+<ul>
+<li>The DAC handle is generated by CubeMX (for example <b>hdac</b>, declared in 'dac.c'); the channel is <em class="arg">DAC_CHANNEL_1</em> or <em class="arg">DAC_CHANNEL_2</em>.</li>
+<li>The IT and DMA modes depend on the interrupts CubeMX assigns: the DAC interrupt forwards to <b>HAL_DAC_IRQHandler()</b> from <b>TIM6_DAC_IRQHandler()</b>, and the DMA stream forwards to <b>HAL_DMA_IRQHandler()</b>.</li>
+<li>With a hardware trigger configured, the value written by <a class="el" href="../../db/d18/a05383.html#a984f15fd9218a6fec1e7ac0d61e04e6d" title="Lib::HAL::DACPortBase::setValue()">Lib::HAL::DACPortBase::setValue()</a> reaches the output on the next trigger edge, not immediately.</li>
+</ul>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="dac_usage_block"></a>
+Static level</h3>
+<p>Lib::HAL::DACPort::start() enables the channel, <a class="el" href="../../db/d18/a05383.html#a984f15fd9218a6fec1e7ac0d61e04e6d" title="Lib::HAL::DACPortBase::setValue()">Lib::HAL::DACPortBase::setValue()</a> writes the output register, and the destructor stops the channel. Without a hardware trigger the value reaches the pin during the call itself.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d25/a00596.html">Lib/HAL/DAC/DACPort-Block.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> DAC_HandleTypeDef hdac;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setLevelBlocking() noexcept {</div>
+<div class="line">    Lib::HAL::DACPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; dac(&amp;hdac, DAC_CHANNEL_1);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!dac.start()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dac.setValue(2048U)); <span class="comment">// Half of the 12-bit range.</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00596_html"><div class="ttname"><a href="../../dc/d25/a00596.html">DACPort-Block.hpp</a></div><div class="ttdoc">Blocking specialization of the DAC port.</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="dac_usage_it"></a>
+Underrun monitoring</h3>
+<p>In the IT mode Lib::HAL::DACPort::start() clears stale underrun events, starts the channel and then enables the underrun interrupt. The DAC reports Lib::HAL::DACPort::Event::UNDERRUN only when a trigger arrives while the previous DMA request was not served; it does not signal that a value reached the output. Lib::HAL::DACPort::waitForUnderrun() returns <b>true</b> when an underrun was reported before the timeout, and consumes the event.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d0a/a00602.html">Lib/HAL/DAC/DACPort-IT.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d6c/a00977.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> DAC_HandleTypeDef hdac;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>DacMonitor final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    DacMonitor() noexcept :</div>
+<div class="line">        dac(&amp;hdac, DAC_CHANNEL_1),</div>
+<div class="line">        task(<a id="_a0" name="_a0"></a><a class="code hl_struct" href="../../d0/d22/a05963.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;DacMon&quot;</span>, 256, <a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../d1/d1f/a05947.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::DACPort&lt;Lib::HAL::DriverMode::IT&gt; dac;</div>
+<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d3/d4c/a05943.html">RTOS::Task</a> task; <span class="comment">// Must stay the last member.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!dac.open() || !dac.start()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;DacMonitor: failed to open or start DAC&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dac.setValue(1024U));</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (dac.waitForUnderrun(<a id="_a3" name="_a3"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500))) {</div>
+<div class="line">                <span class="comment">// Underrun: the trigger outran the DMA request. Log it.</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
+<div class="ttc" id="aa00602_html"><div class="ttname"><a href="../../d5/d0a/a00602.html">DACPort-IT.hpp</a></div><div class="ttdoc">Interrupt-driven specialization of the DAC port.</div></div>
+<div class="ttc" id="aa00977_html"><div class="ttname"><a href="../../d5/d6c/a00977.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa05943_html"><div class="ttname"><a href="../../d3/d4c/a05943.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
+<div class="ttc" id="aa05947_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d1/d1f/a05947.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:87</div></div>
+<div class="ttc" id="aa05963_html"><div class="ttname"><a href="../../d0/d22/a05963.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="dac_usage_dma"></a>
+Circular waveform</h3>
+<p>Lib::HAL::DACPort::start() hands the waveform buffer to DMA, which repeats it until Lib::HAL::DACPort::stop() is called. The buffer must stay valid for that whole time, so keep it static or otherwise outliving the output. Each sample is a 32-bit word whose value is aligned as given by <a class="el" href="../../db/d18/a05383.html#a18b5de83aaec561a43dc24a80e15bd46" title="Lib::HAL::DACPortBase::DataAlignment">Lib::HAL::DACPortBase::DataAlignment</a>. The DMA mode reports Lib::HAL::DACPort::waitForEvent() bits, one per callback ID, such as <em class="arg">HAL_DAC_CH1_COMPLETE_CB_ID</em>.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d8a/a00599.html">Lib/HAL/DAC/DACPort-DMA.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d6c/a00977.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00284.html">cmath</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> storeSettings() noexcept {</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t SETTINGS_SECTOR = 11U;</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t SETTINGS_ADDRESS = 0x080E0000U;</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 4&gt;</a> SETTINGS{0x01U, 0x02U, 0x03U, 0x04U};</div>
+<div class="line"><span class="keyword">extern</span> DAC_HandleTypeDef hdac;</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../db/d18/a05383.html">Lib::HAL::FlashInterface</a> flash;</div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d18/a05383.html#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="keywordtype">void</span> playSineLoop() noexcept {</div>
+<div class="line">    <span class="keyword">static</span> <a id="_a4" name="_a4"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 64&gt;</a> waveform{};</div>
+<div class="line">    <span class="keywordflow">for</span> (std::size_t i = 0; i &lt; waveform.size(); ++i) {</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">float</span> angle = 2.0F * 3.14159265F * <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(i) / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(waveform.size());</div>
+<div class="line">        waveform[i] = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(2048.0F + 2000.0F * <a id="a5" name="a5"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga249915bcbce6563e63f5ffa6d464155a">std::sin</a>(angle));</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> isStored = flash.<a id="a3" name="a3"></a><a class="code hl_function" href="../../db/d18/a05383.html#a31fec472e71d387e0e9a5ade75e5ae24">eraseSector</a>(SETTINGS_SECTOR, <a id="_a4" name="_a4"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d5/d12/a00794.html#ga50950407a789684eec9216f49e0831a0">FLASH_VOLTAGE_RANGE_3</a>) &amp;&amp;</div>
-<div class="line">                    flash.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/d18/a05383.html#ae33402652ac23992b9eb28ed57ca35e8">writeBuffer</a>(SETTINGS_ADDRESS, SETTINGS.data(), <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(SETTINGS.size()));</div>
-<div class="line"> </div>
-<div class="line">    isStored = flash.<a id="a6" name="a6"></a><a class="code hl_function" href="../../db/d18/a05383.html#a076081c699cb3dcf3a7f5890c6c4f568">lock</a>() &amp;&amp; isStored;</div>
-<div class="line">    <span class="keywordflow">return</span> isStored;</div>
+<div class="line">    Lib::HAL::DACPort&lt;Lib::HAL::DriverMode::DMA&gt; dac(&amp;hdac, DAC_CHANNEL_1);</div>
+<div class="line">    <span class="keywordflow">if</span> (!dac.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (dac.start(std::span&lt;const uint32_t&gt;(waveform), Lib::HAL::DACPort&lt;Lib::HAL::DriverMode::DMA&gt;::DataAlignment::RIGHT_12_BITS)) {</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> events = dac.waitForEvent(HAL_DAC_CH1_COMPLETE_CB_ID, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line">        <span class="keywordflow">if</span> (events.any()) {</div>
+<div class="line">            <span class="comment">// One full pass of the waveform was output.</span></div>
+<div class="line">        }</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dac.stop());</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dac.close());</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00608_html"><div class="ttname"><a href="../../d4/d14/a00608.html">FlashInterface.hpp</a></div><div class="ttdoc">Facade over the STM32 internal Flash controller: lock control, sector or page erase and word programm...</div></div>
-<div class="ttc" id="aa00794_html_ga50950407a789684eec9216f49e0831a0"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d5/d12/a00794.html#ga50950407a789684eec9216f49e0831a0">FLASH_VOLTAGE_RANGE_3</a></div><div class="ttdeci">#define FLASH_VOLTAGE_RANGE_3</div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa00284_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00284.html">cmath</a></div></div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
+<div class="ttc" id="aa00599_html"><div class="ttname"><a href="../../d5/d8a/a00599.html">DACPort-DMA.hpp</a></div><div class="ttdoc">DMA-driven specialization of the DAC port.</div></div>
+<div class="ttc" id="aa01611_html_ga249915bcbce6563e63f5ffa6d464155a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01611.html#ga249915bcbce6563e63f5ffa6d464155a">std::sin</a></div><div class="ttdeci">complex&lt; _Tp &gt; sin(const complex&lt; _Tp &gt; &amp;)</div></div>
 <div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa05383_html"><div class="ttname"><a href="../../db/d18/a05383.html">Lib::HAL::FlashInterface</a></div><div class="ttdoc">Stateless facade over the internal Flash controller.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:33</div></div>
-<div class="ttc" id="aa05383_html_a076081c699cb3dcf3a7f5890c6c4f568"><div class="ttname"><a href="../../db/d18/a05383.html#a076081c699cb3dcf3a7f5890c6c4f568">Lib::HAL::FlashInterface::lock</a></div><div class="ttdeci">bool lock() noexcept</div><div class="ttdoc">Locks the Flash control register against accidental erase and program operations.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:100</div></div>
-<div class="ttc" id="aa05383_html_a0f5c36a802a9b6cf15aacf3d104cb445"><div class="ttname"><a href="../../db/d18/a05383.html#a0f5c36a802a9b6cf15aacf3d104cb445">Lib::HAL::FlashInterface::unlock</a></div><div class="ttdeci">bool unlock() noexcept</div><div class="ttdoc">Unlocks the Flash control register so that erase and program operations are accepted.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:91</div></div>
-<div class="ttc" id="aa05383_html_a31fec472e71d387e0e9a5ade75e5ae24"><div class="ttname"><a href="../../db/d18/a05383.html#a31fec472e71d387e0e9a5ade75e5ae24">Lib::HAL::FlashInterface::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t sectorIndex, uint32_t voltageRange) noexcept</div><div class="ttdoc">Erases one sector (sector-based families) or one page (page-based families).</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:115</div></div>
-<div class="ttc" id="aa05383_html_ae33402652ac23992b9eb28ed57ca35e8"><div class="ttname"><a href="../../db/d18/a05383.html#ae33402652ac23992b9eb28ed57ca35e8">Lib::HAL::FlashInterface::writeBuffer</a></div><div class="ttdeci">bool writeBuffer(uint32_t startAddress, const uint32_t *dataPointer, uint32_t wordLength) noexcept</div><div class="ttdoc">Programs a buffer of 32-bit words into consecutive flash addresses.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:181</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="flash_usage_word"></a>
-Program one word</h3>
-<p><a class="el" href="../../db/d18/a05383.html#ad771befb1be3db0d319c46507a7896ca" title="Lib::HAL::FlashInterface::writeWord()">Lib::HAL::FlashInterface::writeWord()</a> asserts that the address is 4-byte aligned. On a doubleword device the hardware programs 8 bytes at once, so the class reads the neighbouring word and programs the pair; that neighbour must still be erased or hold the value it already has.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d14/a00608.html">Lib/HAL/Flash/FlashInterface.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="dac_usage_error"></a>
+Error path</h3>
+<p>In the IT and DMA modes a failed Lib::HAL::DACPort::open() rolls back the steps it already completed, so the port is left closed. Lib::HAL::DACPort::start() and Lib::HAL::DACPort::stop() return <b>false</b> when the HAL call fails. A DMA Lib::HAL::DACPort::start() with an empty buffer, or before Lib::HAL::DACPort::open(), trips an <em class="arg">assert</em> in debug builds, so check the result of open() before starting.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d8a/a00599.html">Lib/HAL/DAC/DACPort-DMA.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> writeOneWord(uint32_t address, uint32_t value) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <a class="code hl_class" href="../../db/d18/a05383.html">Lib::HAL::FlashInterface</a> flash;</div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.<a class="code hl_function" href="../../db/d18/a05383.html#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a>()) {</div>
+<div class="line"><span class="keywordtype">bool</span> startWaveform(Lib::HAL::DACPort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; dac, std::span&lt;const uint32_t&gt; waveform) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (!dac.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// The port is left closed.</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (!dac.start(waveform, Lib::HAL::DACPort&lt;Lib::HAL::DriverMode::DMA&gt;::DataAlignment::RIGHT_12_BITS)) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dac.close());</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> isWritten = flash.<a id="a7" name="a7"></a><a class="code hl_function" href="../../db/d18/a05383.html#ad771befb1be3db0d319c46507a7896ca">writeWord</a>(address, value);</div>
-<div class="line">    <span class="keywordflow">return</span> flash.<a class="code hl_function" href="../../db/d18/a05383.html#a076081c699cb3dcf3a7f5890c6c4f568">lock</a>() &amp;&amp; isWritten;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05383_html_ad771befb1be3db0d319c46507a7896ca"><div class="ttname"><a href="../../db/d18/a05383.html#ad771befb1be3db0d319c46507a7896ca">Lib::HAL::FlashInterface::writeWord</a></div><div class="ttdeci">bool writeWord(uint32_t address, uint32_t data) noexcept</div><div class="ttdoc">Programs one 32-bit word.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:149</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

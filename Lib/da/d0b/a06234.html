@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::TimeZone</title>
+<title>IAR EWARM Library: Lib::Helper::Exception</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,75 +92,40 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::TimeZone</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Exception</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Constructs a <a class="el" href="../../da/d0b/a06234.html" title="Lib::Helper::TimeZone">Lib::Helper::TimeZone</a> and converts local calendar time to UTC minutes since the epoch.</p>
-<p>Constructs a <a class="el" href="../../da/d0b/a06234.html" title="Lib::Helper::TimeZone">Lib::Helper::TimeZone</a> and converts local calendar time to UTC minutes since the epoch.The conversion is calendar arithmetic on the C++20 <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> calendar. It does not depend on the C runtime time zone, is reentrant and is constexpr. <a class="el" href="../../d5/d1a/a05767.html#a479ec4792a22a5b314a497bb01be2047" title="Lib::Helper::TimeZone::convertLocalToUtcMinutes()">Lib::Helper::TimeZone::convertLocalToUtcMinutes()</a> returns <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> for invalid input, such as a bad date or time of day, and when the result does not fit into int32_t. Daylight saving time is resolved separately through <a class="el" href="../../de/dc1/a05771.html" title="Lib::Helper::TimeZone::TimeChangeRule">Lib::Helper::TimeZone::TimeChangeRule</a>.</p>
+<p>Shows installing a terminate handler and reading the message of a <a class="el" href="../../da/d0b/a06234.html" title="Lib::Helper::Exception">Lib::Helper::Exception</a> instance.</p>
+<p>Shows installing a terminate handler and reading the message of a <a class="el" href="../../da/d0b/a06234.html" title="Lib::Helper::Exception">Lib::Helper::Exception</a> instance.The project builds with '&ndash;no_exceptions', so nothing is ever thrown or caught. The class serves as a non-allocating error description and as the access point for the terminate handler (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01632.html#ga2f2f9edd9cd5d903b65cce6ccb977fdd" title="std::terminate_handler">std::terminate_handler</a>), which must never return. The message pointer is stored as is, so pass a string literal.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timezone_usage_convert"></a>
-Local time to UTC minutes</h3>
-<p><em class="arg">offsetSeconds</em> is the number of seconds that the caller's epoch lies after 1970-01-01 00:00 UTC; <b>0</b> counts from the Unix epoch itself.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d4c/a00851.html">Lib/Helper/TimeZone.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="exception_usage_terminate"></a>
+Installing a terminate handler</h3>
+<p><a class="el" href="../../d8/d2e/a05719.html#ae8803b234100fe8e98fb21aa01083805" title="Lib::Helper::Exception::setTerminateHandler()">Lib::Helper::Exception::setTerminateHandler()</a> installs the handler for the whole program. Passing 'nullptr' restores the implementation default.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/d2d/a08277.html">Lib/Helper/Exception.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00320.html">ctime</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> convertCetToUtc() {</div>
-<div class="line">    <span class="comment">// Central European Standard Time, UTC+60 minutes.</span></div>
-<div class="line">    <span class="keyword">constexpr</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d5/d1a/a05767.html">Lib::Helper::TimeZone</a> tz(<span class="stringliteral">&quot;CET&quot;</span>, 60);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Local 2026-01-15 12:00 CET is 11:00 UTC.</span></div>
-<div class="line">    <span class="keyword">constexpr</span> std::time_t epochOffsetSeconds = 0;</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a1" name="_a1"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;int32_t&gt;</a> utcMinutes = tz.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d5/d1a/a05767.html#a479ec4792a22a5b314a497bb01be2047">convertLocalToUtcMinutes</a>(2026, 1, 15, 12, 0, epochOffsetSeconds);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!utcMinutes.has_value()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Invalid date or time of day.</span></div>
+<div class="line">[[noreturn]] <span class="keywordtype">void</span> onTerminate() noexcept {</div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="comment">// Log the fault, then halt here or reset the MCU.</span></div>
 <div class="line">    }</div>
-<div class="line">    <span class="comment">// utcMinutes.value() holds the UTC minutes since the epoch.</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00320_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00320.html">ctime</a></div></div>
-<div class="ttc" id="aa00851_html"><div class="ttname"><a href="../../df/d4c/a00851.html">TimeZone.hpp</a></div><div class="ttdoc">Fixed-offset time zone with a display name and a helper converting local calendar time to UTC minutes...</div></div>
-<div class="ttc" id="aa05767_html"><div class="ttname"><a href="../../d5/d1a/a05767.html">Lib::Helper::TimeZone</a></div><div class="ttdoc">Time zone described by its display name and its fixed offset from UTC.</div><div class="ttdef"><b>Definition</b> TimeZone.hpp:30</div></div>
-<div class="ttc" id="aa05767_html_a479ec4792a22a5b314a497bb01be2047"><div class="ttname"><a href="../../d5/d1a/a05767.html#a479ec4792a22a5b314a497bb01be2047">Lib::Helper::TimeZone::convertLocalToUtcMinutes</a></div><div class="ttdeci">constexpr std::optional&lt; int32_t &gt; convertLocalToUtcMinutes(int32_t year, int32_t month, int32_t day, int32_t hour, int32_t minute, std::time_t offsetSeconds) const noexcept</div><div class="ttdoc">Converts a local calendar date and time in this zone to UTC minutes since a caller-defined epoch.</div><div class="ttdef"><b>Definition</b> TimeZone.hpp:202</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> installTerminateHandler() noexcept {</div>
+<div class="line">    <a id="a0" name="a0"></a><a class="code hl_function" href="../../d8/d2e/a05719.html#ae8803b234100fe8e98fb21aa01083805">Lib::Helper::Exception::setTerminateHandler</a>(onTerminate);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa05719_html_ae8803b234100fe8e98fb21aa01083805"><div class="ttname"><a href="../../d8/d2e/a05719.html#ae8803b234100fe8e98fb21aa01083805">Lib::Helper::Exception::setTerminateHandler</a></div><div class="ttdeci">static void setTerminateHandler(TerminateHandler handler) noexcept</div><div class="ttdoc">Install a new global terminate handler.</div><div class="ttdef"><b>Definition</b> Lib/Helper/Exception.hpp:42</div></div>
+<div class="ttc" id="aa08277_html"><div class="ttname"><a href="../../d2/d2d/a08277.html">Exception.hpp</a></div><div class="ttdoc">Declares a freestanding exception type and terminate-handler helpers for the library.</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timezone_usage_dst"></a>
-Switching to summer time</h3>
-<p>Summer time begins on the last Sunday of March at 02:00 local time and sets the offset from UTC to <b>120</b> minutes from then on. The <a class="el" href="../../de/dc1/a05771.html" title="Lib::Helper::TimeZone::TimeChangeRule">Lib::Helper::TimeZone::TimeChangeRule</a> resolves the local transition instant for a year, and <a class="el" href="../../d5/d1a/a05767.html#a46b717d157e7f9b012a459cf78b723b5" title="Lib::Helper::TimeZone::setName()">Lib::Helper::TimeZone::setName()</a> and <a class="el" href="../../d5/d1a/a05767.html#aedb03e610f976aba921183f41dd10501" title="Lib::Helper::TimeZone::setOffset()">Lib::Helper::TimeZone::setOffset()</a> rename and re-offset a copy of the zone.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d4c/a00851.html">Lib/Helper/TimeZone.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="exception_usage_message"></a>
+Reading the message</h3>
+<p><a class="el" href="../../d8/d2e/a05719.html#ad1278467b92ab31659263c92c3c292e1" title="Lib::Helper::Exception::what()">Lib::Helper::Exception::what()</a> never returns 'nullptr'; a null message passed to the constructor is replaced by <em>Null Exception</em>.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/d2d/a08277.html">Lib/Helper/Exception.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00320.html">ctime</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><span class="keyword">const</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d8/d2e/a05719.html">Lib::Helper::Exception</a> flashError{<span class="stringliteral">&quot;Flash write failed&quot;</span>};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> convertCestToUtc() {</div>
-<div class="line">    <span class="keyword">using </span>Rule = <a id="_a3" name="_a3"></a><a class="code hl_struct" href="../../de/dc1/a05771.html">Lib::Helper::TimeZone::TimeChangeRule</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_class" href="../../d5/d1a/a05767.html">Lib::Helper::TimeZone</a> tz(<span class="stringliteral">&quot;CET&quot;</span>, 60);</div>
-<div class="line">    <span class="keyword">constexpr</span> Rule summerTime{<span class="stringliteral">&quot;CEST&quot;</span>, Rule::LAST_WEEK, 0, 3, 2, 120};</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// 2026-03-29 02:00 local time, the last Sunday of March.</span></div>
-<div class="line">    [[maybe_unused]] <span class="keyword">const</span> std::chrono::local_seconds summerStart = summerTime.getLocalTransition(std::chrono::year{2026});</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="../../d5/d1a/a05767.html">Lib::Helper::TimeZone</a> summerZone = tz;</div>
-<div class="line">    summerZone.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d5/d1a/a05767.html#a46b717d157e7f9b012a459cf78b723b5">setName</a>(summerTime.ruleName);</div>
-<div class="line">    summerZone.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d5/d1a/a05767.html#aedb03e610f976aba921183f41dd10501">setOffset</a>(summerTime.getOffset());</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">constexpr</span> std::time_t epochOffsetSeconds = 0;</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;int32_t&gt;</a> summerUtcMinutes = summerZone.<a class="code hl_function" href="../../d5/d1a/a05767.html#a479ec4792a22a5b314a497bb01be2047">convertLocalToUtcMinutes</a>(2026, 5, 11, 12, 0, epochOffsetSeconds);</div>
-<div class="line">    <span class="keywordflow">if</span> (summerUtcMinutes.has_value()) {</div>
-<div class="line">        <span class="comment">// summerUtcMinutes.value() is 10:00 UTC, expressed in minutes since the epoch.</span></div>
-<div class="line">    }</div>
+<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * describe(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d2e/a05719.html">Lib::Helper::Exception</a> &amp; error) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> error.what();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa05767_html_a46b717d157e7f9b012a459cf78b723b5"><div class="ttname"><a href="../../d5/d1a/a05767.html#a46b717d157e7f9b012a459cf78b723b5">Lib::Helper::TimeZone::setName</a></div><div class="ttdeci">constexpr void setName(std::string_view newName) noexcept</div><div class="ttdoc">Sets the time zone name.</div><div class="ttdef"><b>Definition</b> TimeZone.hpp:139</div></div>
-<div class="ttc" id="aa05767_html_aedb03e610f976aba921183f41dd10501"><div class="ttname"><a href="../../d5/d1a/a05767.html#aedb03e610f976aba921183f41dd10501">Lib::Helper::TimeZone::setOffset</a></div><div class="ttdeci">constexpr void setOffset(std::chrono::minutes newOffset) noexcept</div><div class="ttdoc">Sets the offset from UTC as a typed duration.</div><div class="ttdef"><b>Definition</b> TimeZone.hpp:179</div></div>
-<div class="ttc" id="aa05771_html"><div class="ttname"><a href="../../de/dc1/a05771.html">Lib::Helper::TimeZone::TimeChangeRule</a></div><div class="ttdoc">Rule describing a daylight saving time change, such as &#39;last Sunday of March at 02:00,...</div><div class="ttdef"><b>Definition</b> TimeZone.hpp:39</div></div>
+<div class="ttc" id="aa05719_html"><div class="ttname"><a href="../../d8/d2e/a05719.html">Lib::Helper::Exception</a></div><div class="ttdoc">Lightweight exception that stores a C-string message without allocating.</div><div class="ttdef"><b>Definition</b> Lib/Helper/Exception.hpp:27</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

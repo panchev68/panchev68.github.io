@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: FunctionRef</title>
+<title>IAR EWARM Library: Lib::BSP::SK6812</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,51 +92,57 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">FunctionRef</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::SK6812</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Binds a <a class="el" href="../../d6/de1/a06160.html" title="FunctionRef">FunctionRef</a> to a lambda, to a functor and to a free function, then calls it.</p>
-<p>Binds a <a class="el" href="../../d6/de1/a06160.html" title="FunctionRef">FunctionRef</a> to a lambda, to a functor and to a free function, then calls it.<a class="el" href="../../d6/de1/a06160.html" title="FunctionRef">FunctionRef</a> owns nothing. It stores a capture-less lambda or a free function by value, and also any other callable that is trivially copyable and exactly as wide as a pointer, such as a functor holding one 'int' on this 32-bit target or a lambda capturing only 'this'. Any other callable is referenced, so an lvalue of it must outlive the reference, and a larger temporary is rejected at compile time.</p>
+<p>Demonstrates a ring of 12 SK6812 RGBW LEDs sent out through a PWM timer channel with DMA.</p>
+<p>Demonstrates a ring of 12 SK6812 RGBW LEDs sent out through a PWM timer channel with DMA.TIM3 channel 1 is set up in CubeMX as PWM with a word-sized memory-to-peripheral DMA stream. The DMA completion callback stops the PWM, so the line stays low long enough for the LEDs to latch the frame. Colors are linear: the class gamma corrects them while encoding.</p>
+<dl class="section important"><dt>Important</dt><dd>The TIM3 ARR must be <b>219</b>, which the compare values assume.</dd>
+<dd>
+Start the next frame only after the callback has stopped the PWM.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>A program that also includes 'Lib/HAL/TIM/TimOnePulse.hpp' cannot define this callback, since that header defines it too.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="functionref_usage_rebind"></a>
-Bind and rebind</h3>
-<p>Assigning a new callable to a <a class="el" href="../../d6/de1/a06160.html" title="FunctionRef">FunctionRef</a> rebinds it to that callable.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/de1/a00356.html">Lib/Core/FunctionRef.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">struct </span>Adder {</div>
-<div class="line">    <span class="keywordtype">int</span> base;</div>
-<div class="line">    Adder(<span class="keywordtype">int</span> b) :</div>
-<div class="line">        base(b) {</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordtype">int</span> operator()(<span class="keywordtype">int</span> x)<span class="keyword"> const </span>{</div>
-<div class="line">        <span class="keywordflow">return</span> base + x;</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> functionRefExample() {</div>
-<div class="line">    <span class="comment">// A capture-less lambda is stored by value, so the temporary is fine.</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/d6f/a04819.html">FunctionRef</a>&lt;int(<span class="keywordtype">int</span>)&gt; callable = [](<span class="keywordtype">int</span> x) { <span class="keywordflow">return</span> x * 2; };</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; callable(5) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// A functor as wide as a pointer is stored by value too, so the temporary is fine.</span></div>
-<div class="line">    callable = Adder{3};</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; callable(5) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// A captureless lambda held in an lvalue is also stored by value.</span></div>
-<div class="line">    <span class="keyword">auto</span> square = [](<span class="keywordtype">int</span> v) { <span class="keywordflow">return</span> v * v; };</div>
-<div class="line">    callable = square;</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; callable(4) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<h3 class="doxsection"><a class="anchor" id="sk6812_usage_frame"></a>
+Fill the ring and send one frame</h3>
+<p><a class="el" href="../../de/d12/a04659.html#a31d240cb8095311a4ae5575a19d4dda0" title="Lib::BSP::SK6812::setColor()">Lib::BSP::SK6812::setColor()</a> fills one LED; the <a class="el" href="../../db/da5/a04663.html" title="Lib::BSP::SK6812::Ring">Lib::BSP::SK6812::Ring</a> hands its whole buffer to the PWM DMA start call. The frame is sent when the DMA transfer starts, not when <a class="el" href="../../de/d12/a04659.html#a31d240cb8095311a4ae5575a19d4dda0" title="Lib::BSP::SK6812::setColor()">Lib::BSP::SK6812::setColor()</a> is called.</p>
+<div class="fragment"><div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><span class="preprocessor">#include &quot;main.h&quot;</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
-<div class="ttc" id="aa00356_html"><div class="ttname"><a href="../../d6/de1/a00356.html">FunctionRef.hpp</a></div><div class="ttdoc">Non-owning callable reference modelled on C++26 std::function_ref, without heap, RTTI or virtual disp...</div></div>
-<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
-<div class="ttc" id="aa04819_html"><div class="ttname"><a href="../../d6/d6f/a04819.html">FunctionRef</a></div><div class="ttdoc">Primary template; only the function-signature specializations below are defined.</div><div class="ttdef"><b>Definition</b> FunctionRef.hpp:35</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">10</div>
-<div class="line">8</div>
-<div class="line">16</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d07/a00305.html">Lib/BSP/RGBWLed/SK6812.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> htim3; <span class="comment">// TIM3 CH1 PWM, ARR = 219, DMA memory-to-peripheral, word size.</span></div>
+<div class="line"> </div>
+<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_class" href="../../db/da5/a04663.html">Lib::BSP::SK6812::Ring&lt;12&gt;</a> ring;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/de/df6/a01141.html#ga07e5fc4d223b16bec2fd6bed547cf91d">HAL_TIM_PWM_PulseFinishedCallback</a>(<a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * htim) {</div>
+<div class="line">    <span class="keywordflow">if</span> (htim == &amp;htim3) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d61/a01350.html#gad77367f9b8d8d17842a913f7d6ce274b">HAL_TIM_PWM_Stop_DMA</a>(&amp;htim3, <a id="_a4" name="_a4"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>)); <span class="comment">// Line stays low: reset gap.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> showFrame() {</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> index = 0; index &lt; ring.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/da5/a04663.html#af4a392521ab650682a14d889199c50c1">count</a>(); ++index) {</div>
+<div class="line">        ring[index].setColor(index % 2 == 0 ? <a id="_a6" name="_a6"></a><a class="code hl_variable" href="../../da/d47/a04651.html#aa51ce6120321dbe5f2ba9fac1f5971c5">::Color::SALMON</a> : <a id="_a7" name="_a7"></a><a class="code hl_variable" href="../../da/d47/a04651.html#a2dfa191b025fbc94268dd2261439cca8">::Color::INDIANRED</a>);</div>
+<div class="line">    }</div>
+<div class="line">    ring[0].setColor(0, 0, 0, 255); <span class="comment">// White channel only.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="_a8" name="_a8"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d61/a01350.html#ga3621f6126e33c1abb80cb572499f335c">HAL_TIM_PWM_Start_DMA</a>(&amp;htim3, <a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>, ring.<a id="a9" name="a9"></a><a class="code hl_function" href="../../db/da5/a04663.html#a897e123e376e08a2741c3498d764166d">getData</a>(), <span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(ring.<a id="a10" name="a10"></a><a class="code hl_function" href="../../db/da5/a04663.html#abc62b9f95eec80b7b24f428ecb35349b">getSize</a>())));</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="../../d3/d07/a00305.html">SK6812.hpp</a></div><div class="ttdoc">Declares the BSP SK6812 RGBW LED encoder and its fixed-size ring; header-only, no HAL dependency.</div></div>
+<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
+<div class="ttc" id="aa01141_html_ga07e5fc4d223b16bec2fd6bed547cf91d"><div class="ttname"><a href="https://panchev68.github.io/HALF4/de/df6/a01141.html#ga07e5fc4d223b16bec2fd6bed547cf91d">HAL_TIM_PWM_PulseFinishedCallback</a></div><div class="ttdeci">void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)</div><div class="ttdef"><b>Definition</b> TimOnePulse.hpp:195</div></div>
+<div class="ttc" id="aa01350_html_ga3621f6126e33c1abb80cb572499f335c"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d61/a01350.html#ga3621f6126e33c1abb80cb572499f335c">HAL_TIM_PWM_Start_DMA</a></div><div class="ttdeci">HAL_StatusTypeDef HAL_TIM_PWM_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, const uint32_t *pData, uint16_t Length)</div></div>
+<div class="ttc" id="aa01350_html_gad77367f9b8d8d17842a913f7d6ce274b"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d61/a01350.html#gad77367f9b8d8d17842a913f7d6ce274b">HAL_TIM_PWM_Stop_DMA</a></div><div class="ttdeci">HAL_StatusTypeDef HAL_TIM_PWM_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel)</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa04651_html_a2dfa191b025fbc94268dd2261439cca8"><div class="ttname"><a href="../../da/d47/a04651.html#a2dfa191b025fbc94268dd2261439cca8">Color::INDIANRED</a></div><div class="ttdeci">static const uint32_t INDIANRED</div><div class="ttdoc">Indian red (205, 92, 92).</div><div class="ttdef"><b>Definition</b> Color.hpp:148</div></div>
+<div class="ttc" id="aa04651_html_aa51ce6120321dbe5f2ba9fac1f5971c5"><div class="ttname"><a href="../../da/d47/a04651.html#aa51ce6120321dbe5f2ba9fac1f5971c5">Color::SALMON</a></div><div class="ttdeci">static const uint32_t SALMON</div><div class="ttdoc">Salmon (250, 128, 114).</div><div class="ttdef"><b>Definition</b> Color.hpp:145</div></div>
+<div class="ttc" id="aa04663_html"><div class="ttname"><a href="../../db/da5/a04663.html">Lib::BSP::SK6812::Ring</a></div><div class="ttdoc">Fixed number of SK6812 LEDs sharing one contiguous compare buffer for a single DMA transfer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:200</div></div>
+<div class="ttc" id="aa04663_html_a897e123e376e08a2741c3498d764166d"><div class="ttname"><a href="../../db/da5/a04663.html#a897e123e376e08a2741c3498d764166d">Lib::BSP::SK6812::Ring::getData</a></div><div class="ttdeci">uint32_t * getData() noexcept</div><div class="ttdoc">Gets the compare buffer for the DMA transfer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:278</div></div>
+<div class="ttc" id="aa04663_html_abc62b9f95eec80b7b24f428ecb35349b"><div class="ttname"><a href="../../db/da5/a04663.html#abc62b9f95eec80b7b24f428ecb35349b">Lib::BSP::SK6812::Ring::getSize</a></div><div class="ttdeci">static constexpr size_t getSize() noexcept</div><div class="ttdoc">Gets the length of the compare buffer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:287</div></div>
+<div class="ttc" id="aa04663_html_af4a392521ab650682a14d889199c50c1"><div class="ttname"><a href="../../db/da5/a04663.html#af4a392521ab650682a14d889199c50c1">Lib::BSP::SK6812::Ring::count</a></div><div class="ttdeci">static constexpr size_t count() noexcept</div><div class="ttdoc">Gets the number of LEDs.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:269</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

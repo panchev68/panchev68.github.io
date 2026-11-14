@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::UARTPort</title>
+<title>IAR EWARM Library: Lib::HAL::Timer::TimPwmOutput</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,128 +92,72 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::UARTPort</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimPwmOutput</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Sends and receives bytes with <a class="el" href="../../d8/dae/a06212.html" title="Lib::HAL::UARTPort">Lib::HAL::UARTPort</a> in its three transfer modes, selected by the template argument 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' or 'Lib::HAL::DriverMode::DMA'.</p>
-<p>Sends and receives bytes with <a class="el" href="../../d8/dae/a06212.html" title="Lib::HAL::UARTPort">Lib::HAL::UARTPort</a> in its three transfer modes, selected by the template argument 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' or 'Lib::HAL::DriverMode::DMA'. The port wraps a CubeMX <em class="arg">UART_HandleTypeDef</em> and does not create or configure the pins, clock or NVIC; the CubeMX-generated init code does that.</p>
-<p>The blocking mode polls the HAL until the transfer completes or the timeout expires; it has no RTOS wait. The IT and DMA modes start the transfer and wait on an <a class="el" href="../../d1/d65/a06240.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, so their <a class="el" href="../../dc/d4a/a05587.html#aa6f2b7746c93553e8ba0a2fda3c494bc" title="Lib::HAL::UARTPortAsync::send()">Lib::HAL::UARTPortAsync::send()</a> and <a class="el" href="../../dc/d4a/a05587.html#a3c10830f8d93936773f64d95201bc7da" title="Lib::HAL::UARTPortAsync::receive()">Lib::HAL::UARTPortAsync::receive()</a> are task-only and assert when called from an ISR. The HAL callbacks that report completion run in interrupt context, and the USART interrupt handler (CubeMX <b>USART2_IRQHandler()</b>) must call <b>HAL_UART_IRQHandler()</b> for the handle.</p>
-<dl class="section warning"><dt>Warning</dt><dd>The IT and DMA ports register their own HAL callbacks in <a class="el" href="../../df/d5e/a05351.html#a3822bc9b87b9e299982b230e2c029f35" title="Lib::HAL::AsyncPortCore::open()">Lib::HAL::AsyncPortCore::open()</a>, so the HAL configuration header must set <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> to <b>1</b>; otherwise the build stops with a compile-time error.</dd></dl>
+<p>Drives one PWM channel with <a class="el" href="../../d8/dae/a06212.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a>.</p>
+<p>Drives one PWM channel with <a class="el" href="../../d8/dae/a06212.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a>. The wrapper starts and stops the channel and changes its duty cycle and period through the timer registers. It has no interrupt and no task wait. <a class="el" href="../../d5/d7e/a05563.html#a4db830d0cdfdbd5ab01f959dd0653647" title="Lib::HAL::Timer::TimPwmOutput::setPulse()">Lib::HAL::Timer::TimPwmOutput::setPulse()</a> and <a class="el" href="../../d5/d7e/a05563.html#a3361b7c050046b52d03fbc351fcac5a8" title="Lib::HAL::Timer::TimPwmOutput::setPeriod()">Lib::HAL::Timer::TimPwmOutput::setPeriod()</a> are single register writes, so they can be called from task or ISR context.</p>
+<p>The timer must already be configured by CubeMX in PWM mode on the chosen channel, including the prescaler and period. The wrapper does not call <b>HAL_TIM_PWM_Init()</b> and does not change the prescaler.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="uart_usage_setup"></a>
-Setup and lifecycle</h3>
-<p>The CubeMX init code creates the handle (<b>huart2</b> in the examples below) and the interrupt. The port does not own the handle, so the handle must outlive the port. For the IT and DMA modes, <a class="el" href="../../d6/d66/a05595.html#a55dca0e7725a4f8e8697ba94ce8c1ef7" title="Lib::HAL::UARTPortAsync::open()">Lib::HAL::UARTPortAsync::open()</a> creates the event group, runs <b>HAL_UART_Init()</b>, registers the port with the DeviceManager and registers the HAL callbacks; it returns <b>false</b> on failure and leaves the port closed. <a class="el" href="../../df/d5e/a05351.html#a03c62c024b148a264f9a6a0077198302" title="Lib::HAL::AsyncPortCore::close()">Lib::HAL::AsyncPortCore::close()</a> reverses this and must be called from task context. The destructor of the IT and DMA modes closes an open port.</p>
-<p>The BLOCKING specialization is different: its constructor takes a <a class="el" href="../../d3/ded/a01017.html#a82754326f2fd3bd32ea447c756ec2825" title="Lib::HAL::DriverDataDirection">Lib::HAL::DriverDataDirection</a> tag (<em class="arg">RX</em> or <em class="arg">TX</em>) that only labels the half of a duplex link the instance drives. It has no event group, so it needs no open() before use.</p>
+<h3 class="doxsection"><a class="anchor" id="timpwm_usage_hw"></a>
+Hardware and CubeMX assumptions</h3>
+<ul>
+<li>Timer (here <em class="arg">TIM3</em>) in PWM Generation mode on the channel (<em class="arg">TIM_CHANNEL_1</em>), with the output pin set as alternate function.</li>
+<li>The period (ARR) and prescaler are set in CubeMX; the wrapper only writes ARR through <a class="el" href="../../d5/d7e/a05563.html#a3361b7c050046b52d03fbc351fcac5a8" title="Lib::HAL::Timer::TimPwmOutput::setPeriod()">Lib::HAL::Timer::TimPwmOutput::setPeriod()</a>.</li>
+<li>One <a class="el" href="../../d8/dae/a06212.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a> per channel. The wrapper does not enforce this: two objects on one channel write the same CCR register.</li>
+</ul>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="uart_usage_blocking"></a>
-Blocking transfers</h3>
-<p>The send() and receive() calls of the 'Lib::HAL::DriverMode::BLOCKING' port take a std::span and a timeout in any <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>. The buffer size must be between 1 and 65535 bytes. Both return <b>false</b> on error or timeout.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timpwm_usage_basic"></a>
+Start with a duty cycle</h3>
+<p>The output keeps running after the function returns. The destructor does not stop it, so call <a class="el" href="../../d5/d7e/a05563.html#a3c2e8aa945f04a0c827147f62a2ccb5a" title="Lib::HAL::Timer::TimPwmOutput::close()">Lib::HAL::Timer::TimPwmOutput::close()</a> on the same object to stop the waveform.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d3b/a00728.html">Lib/HAL/TIM/TimPwmOutput.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
+<div class="line"><span class="keywordtype">void</span> startFan(<a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d5/d7e/a05563.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; fan) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="comment">// Pulse width in timer ticks; the duty cycle is pulse / (period + 1).</span></div>
+<div class="line">    fan.setPulse(fan.getPeriod() / 2U);</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> exchangeBlocking() noexcept {</div>
-<div class="line">    Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; txPort(&amp;huart2, <a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../d3/ded/a01017.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49">Lib::HAL::DriverDataDirection::TX</a>);</div>
-<div class="line">    Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; rxPort(&amp;huart2, <a id="_a2" name="_a2"></a><a class="code hl_enumvalue" href="../../d3/ded/a01017.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046">Lib::HAL::DriverDataDirection::RX</a>);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4&gt;</a> request{0x01U, 0x02U, 0x03U, 0x04U};</div>
-<div class="line">    <span class="keywordflow">if</span> (!txPort.send(request, <a id="_a4" name="_a4"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    <span class="keywordflow">if</span> (!fan.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 8&gt;</a> response{};</div>
-<div class="line">    <span class="keywordflow">return</span> rxPort.receive(response, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(200));</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00749_html"><div class="ttname"><a href="../../d5/de8/a00749.html">UART.hpp</a></div><div class="ttdoc">Public umbrella include for the UART subsystem, pulling in every &#39;UARTPort&#39; component.</div></div>
-<div class="ttc" id="aa01017_html_a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49"><div class="ttname"><a href="../../d3/ded/a01017.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49">Lib::HAL::DriverDataDirection::TX</a></div><div class="ttdeci">@ TX</div><div class="ttdoc">Port used for transmission.</div><div class="ttdef"><b>Definition</b> DriverDataDirection.hpp:21</div></div>
-<div class="ttc" id="aa01017_html_a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046"><div class="ttname"><a href="../../d3/ded/a01017.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046">Lib::HAL::DriverDataDirection::RX</a></div><div class="ttdeci">@ RX</div><div class="ttdoc">Port used for reception.</div><div class="ttdef"><b>Definition</b> DriverDataDirection.hpp:20</div></div>
-<div class="ttc" id="aa01149_html_ga5de4a49eb132735325e706f406c69d6e"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a></div><div class="ttdeci">struct __UART_HandleTypeDef UART_HandleTypeDef</div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="ttc" id="aa00728_html"><div class="ttname"><a href="../../df/d3b/a00728.html">TimPwmOutput.hpp</a></div><div class="ttdoc">Configures a hardware PWM output interface using STM32 Timers.</div></div>
+<div class="ttc" id="aa05563_html"><div class="ttname"><a href="../../d5/d7e/a05563.html">Lib::HAL::Timer::TimPwmOutput</a></div><div class="ttdoc">Controls one hardware timer channel configured under a Pulse Width Modulation profile.</div><div class="ttdef"><b>Definition</b> TimPwmOutput.hpp:35</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="uart_usage_it"></a>
-Interrupt-driven transfers</h3>
-<p>Open the port once from a task. The CubeMX <b>USART2_IRQHandler()</b> is the only hook needed: it calls <b>HAL_UART_IRQHandler()</b> with the handle, which in turn fires the callbacks that <a class="el" href="../../df/d5e/a05351.html#a3822bc9b87b9e299982b230e2c029f35" title="Lib::HAL::AsyncPortCore::open()">Lib::HAL::AsyncPortCore::open()</a> registered. Transmit and receive use separate event bits, so one task may send while another receives on the same port.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>SerialLink final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    SerialLink() noexcept :</div>
-<div class="line">        port(&amp;huart2) {</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Call from a task; opens the port and runs HAL_UART_Init().</span></div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> port.open();</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Call from a task only.</span></div>
-<div class="line">    <span class="keywordtype">bool</span> query() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 2&gt;</a> command{0xAAU, 0x55U};</div>
-<div class="line">        <span class="keywordflow">if</span> (!port.send(command, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50))) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> port.receive(reply, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; port;</div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4&gt;</a> reply{};</div>
-<div class="line">};</div>
-<div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="uart_usage_error"></a>
-Error path and abort</h3>
-<p>When a transfer times out or the HAL reports an error, <a class="el" href="../../dc/d4a/a05587.html#aa6f2b7746c93553e8ba0a2fda3c494bc" title="Lib::HAL::UARTPortAsync::send()">Lib::HAL::UARTPortAsync::send()</a> and <a class="el" href="../../dc/d4a/a05587.html#a3c10830f8d93936773f64d95201bc7da" title="Lib::HAL::UARTPortAsync::receive()">Lib::HAL::UARTPortAsync::receive()</a> abort that direction before they return <b>false</b>, so the HAL never touches the caller's buffer afterwards. A task blocked in one of them can be released from another task by <a class="el" href="../../dc/d4a/a05587.html#ac0f3ec8c2a5d8ad83c45e752232f2005" title="Lib::HAL::UARTPortAsync::abort()">Lib::HAL::UARTPortAsync::abort()</a>, which returns <b>false</b> if the hardware did not stop cleanly. <a class="el" href="../../d6/d66/a05595.html#aa69f87ceff32286dc0ce857ef84e314c" title="Lib::HAL::UARTPortBase::setBaudRate()">Lib::HAL::UARTPortBase::setBaudRate()</a> returns <b>false</b> while a transfer is in flight, so abort or wait for the transfer first.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timpwm_usage_update"></a>
+Changing duty cycle and period at run time</h3>
+<p><a class="el" href="../../d5/d7e/a05563.html#a4db830d0cdfdbd5ab01f959dd0653647" title="Lib::HAL::Timer::TimPwmOutput::setPulse()">Lib::HAL::Timer::TimPwmOutput::setPulse()</a> writes the CCRx register directly. Whether a new value takes effect at the next update event depends on the output-compare preload set in CubeMX, which the wrapper does not change.</p>
+<p><a class="el" href="../../d5/d7e/a05563.html#a3361b7c050046b52d03fbc351fcac5a8" title="Lib::HAL::Timer::TimPwmOutput::setPeriod()">Lib::HAL::Timer::TimPwmOutput::setPeriod()</a> writes ARR directly and changes the period of every channel of the timer. Without ARR preload, a value below the running counter lets the counter overshoot to its maximum before it wraps.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d3b/a00728.html">Lib/HAL/TIM/TimPwmOutput.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> recoverAndRetune(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; port) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (!port.setBaudRate(115200U)) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.abort());</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.setBaudRate(115200U));</div>
-<div class="line">    }</div>
+<div class="line"><span class="keywordtype">void</span> setSpeed(<a class="code hl_class" href="../../d5/d7e/a05563.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; fan, uint32_t percent) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">const</span> uint32_t clampedPercent = (percent &gt; 100U) ? 100U : percent;</div>
+<div class="line">    <span class="keyword">const</span> uint64_t periodPlusOne = <span class="keyword">static_cast&lt;</span>uint64_t<span class="keyword">&gt;</span>(fan.getPeriod()) + 1U;</div>
+<div class="line">    fan.setPulse(<span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(periodPlusOne * clampedPercent / 100U));</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> setFrequency(<a class="code hl_class" href="../../d5/d7e/a05563.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; fan, uint32_t periodTicks) <span class="keyword">noexcept</span> {</div>
+<div class="line">    fan.setPeriod(periodTicks);</div>
 <div class="line">}</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="uart_usage_dma"></a>
-DMA transfers</h3>
-<p>The DMA mode has the same API as the IT mode. The CubeMX code must link the UART handle to its DMA handles and enable the DMA interrupts; this header does not check that. The buffer must stay valid until the transfer completes, and it must be reachable by the DMA controller (not CCM RAM): each DMA start asserts on it in a debug build.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timpwm_usage_error"></a>
+Error handling</h3>
+<p><a class="el" href="../../d5/d7e/a05563.html#ab30ea02f742bdd63bde16c03b3f780da" title="Lib::HAL::Timer::TimPwmOutput::open()">Lib::HAL::Timer::TimPwmOutput::open()</a> returns <b>false</b> when the HAL start request fails. The wrapper does not retry; the caller decides what to do next.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d3b/a00728.html">Lib/HAL/TIM/TimPwmOutput.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Static storage in normal RAM, so the DMA controller can reach it.</span></div>
-<div class="line"><span class="keyword">static</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> dmaTxBuffer{};</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> sendDma(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; port, <span class="keywordtype">size_t</span> length) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> port.send(std::span&lt;const uint8_t&gt;(dmaTxBuffer).first(length), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line"><span class="keywordtype">void</span> startOrReport(<a class="code hl_class" href="../../d5/d7e/a05563.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; output) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (!output.open()) {</div>
+<div class="line">        assert(!<span class="stringliteral">&quot;PWM channel failed to start; check CubeMX PWM configuration&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
+<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

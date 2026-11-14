@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::SemaphoreCounting</title>
+<title>IAR EWARM Library: RTOS::Queue</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,58 +92,85 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::SemaphoreCounting</div></div>
+  <div class="headertitle"><div class="title">RTOS::Queue</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows limiting concurrent access to a pool of resources with an <a class="el" href="../../d2/d34/a06260.html" title="RTOS::SemaphoreCounting">RTOS::SemaphoreCounting</a>.</p>
-<p>Shows limiting concurrent access to a pool of resources with an <a class="el" href="../../d2/d34/a06260.html" title="RTOS::SemaphoreCounting">RTOS::SemaphoreCounting</a>. Covers a pool of three buffers guarded by a counting semaphore: a task takes a slot before using a buffer and gives it back afterwards. <a class="el" href="../../d3/d20/a05927.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> and <a class="el" href="../../d3/d20/a05927.html#a5682e0c5d8eb6b2076978634963b4020" title="RTOS::SemaphoreBase::give()">RTOS::SemaphoreBase::give()</a> are task-context only; the FromISR variants serve interrupt handlers. Requires <em class="arg">configUSE_COUNTING_SEMAPHORES</em> set to <b>1</b>.</p>
+<p>Shows passing typed messages between a producer task and a consumer with an <a class="el" href="../../d2/d34/a06260.html" title="RTOS::Queue">RTOS::Queue</a>.</p>
+<p>Shows passing typed messages between a producer task and a consumer with an <a class="el" href="../../d2/d34/a06260.html" title="RTOS::Queue">RTOS::Queue</a>. Covers a queue of eight 32-bit samples with a blocking send and receive that take a timeout, and a latest-value queue of length one that uses <a class="el" href="../../d2/dde/a05923.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe" title="RTOS::Queue::overwrite()">RTOS::Queue::overwrite()</a>. Each element is copied into the queue, so the sender may reuse its variable immediately. Use the FromISR variants for sends and receives inside an interrupt handler.</p>
+<dl class="section important"><dt>Important</dt><dd>Open the queues from task context before any ISR uses them.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_counting_usage_pool"></a>
-Buffer pool</h3>
-<p>The constructor takes the maximum count and the initial count, so both are <b>3</b> here: all slots are free at start.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd1/a00914.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="queue_usage_declare"></a>
+Declaring the queues</h3>
+<p>The second template argument is the length; it defaults to 1.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/d57/a05931.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d2/dde/a05923.html">RTOS::Queue&lt;uint32_t, 8U&gt;</a> samples;</div>
+<div class="line">    <a class="code hl_class" href="../../d2/dde/a05923.html">RTOS::Queue&lt;uint32_t&gt;</a> latestSetpoint; <span class="comment">// Length 1 by default.</span></div>
 <div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> openPool() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> bufferPool.open();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00914_html"><div class="ttname"><a href="../../d3/dd1/a00914.html">SemaphoreCounting.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS counting semaphores.</div></div>
-<div class="ttc" id="aa05931_html"><div class="ttname"><a href="../../d7/d57/a05931.html">RTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting semaphore resource manager for tracking multiple resource instances or queued events.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:41</div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00905_html"><div class="ttname"><a href="../../da/d5b/a00905.html">Queue.hpp</a></div><div class="ttdoc">Type-safe RAII wrapper for FreeRTOS queues.</div></div>
+<div class="ttc" id="aa05923_html"><div class="ttname"><a href="../../d2/dde/a05923.html">RTOS::Queue</a></div><div class="ttdoc">Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type.</div><div class="ttdef"><b>Definition</b> Queue.hpp:55</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_counting_usage_take"></a>
-Taking and returning a slot</h3>
-<p><a class="el" href="../../d3/d20/a05927.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> with an <a class="el" href="../../df/d41/a06270.html" title="RTOS::Timeout">RTOS::Timeout</a> returns <b>false</b> when every slot stays busy for the whole window.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd1/a00914.html">Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d92/a00929.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="queue_usage_producer"></a>
+Producer task</h3>
+<p><a class="el" href="../../d2/dde/a05923.html#ab15322e6aead7ac29c01289b9be388d8" title="RTOS::Queue::send()">RTOS::Queue::send()</a> returns <b>false</b> and does not queue the item when the queue stays full for the whole timeout. <a class="el" href="../../d2/dde/a05923.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe" title="RTOS::Queue::overwrite()">RTOS::Queue::overwrite()</a> never blocks and replaces the single stored value.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../d7/d57/a05931.html">RTOS::SemaphoreCounting</a> bufferPool(3U, 3U);</div>
+<div class="line">    <a class="code hl_class" href="../../d2/dde/a05923.html">RTOS::Queue&lt;uint32_t, 8U&gt;</a> samples;</div>
+<div class="line">    <a class="code hl_class" href="../../d2/dde/a05923.html">RTOS::Queue&lt;uint32_t&gt;</a> latestSetpoint;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> workerTask(<span class="keywordtype">void</span> * parameters) {</div>
+<div class="line"><span class="keywordtype">void</span> producerTask(<span class="keywordtype">void</span> * parameters) {</div>
 <div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!bufferPool.open()) {</div>
+<div class="line">    <span class="keywordflow">if</span> (!samples.open() || !latestSetpoint.open()) {</div>
 <div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (bufferPool.take(<a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d5/dc4/a05975.html">RTOS::Timeout</a>(20ms))) {</div>
-<div class="line">        <span class="comment">// Use the buffer reserved for this task here.</span></div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(bufferPool.give());</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// All buffers were busy for 20 ms.</span></div>
+<div class="line">    uint32_t value = 0U;</div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(samples.send(value++, 10ms));</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(latestSetpoint.overwrite(value));</div>
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00929_html"><div class="ttname"><a href="../../dc/d92/a00929.html">Timeout.hpp</a></div><div class="ttdoc">FreeRTOS-compatible timeout management utility.</div></div>
-<div class="ttc" id="aa05975_html"><div class="ttname"><a href="../../d5/dc4/a05975.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:36</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="queue_usage_consumer"></a>
+Consumer task</h3>
+<p><a class="el" href="../../d2/dde/a05923.html#abe1cd4bde4ff79326492fd1d5c56ffc6" title="RTOS::Queue::receive()">RTOS::Queue::receive()</a> returns <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> when no item arrives within the timeout.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/RTOS/FreeRTOS/Queue.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    <a class="code hl_class" href="../../d2/dde/a05923.html">RTOS::Queue&lt;uint32_t, 8U&gt;</a> samples;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> consumerTask(<span class="keywordtype">void</span> * parameters) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="keywordflow">if</span> (<span class="keyword">const</span> <a id="_a1" name="_a1"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;uint32_t&gt;</a> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01702.html#a483f29861e583496e66e73e420ae7ab8">sample</a> = samples.receive(100ms); <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01702.html#a483f29861e583496e66e73e420ae7ab8">sample</a>.has_value()) {</div>
+<div class="line">            <span class="comment">// Process *sample.</span></div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa01702_html_a483f29861e583496e66e73e420ae7ab8"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01702.html#a483f29861e583496e66e73e420ae7ab8">sample</a></div><div class="ttdeci">_SampleIterator sample(_PopulationIterator __first, _PopulationIterator __last, _SampleIterator __out, _Distance __n, _UniformRandomNumberGenerator &amp;&amp;__g)</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

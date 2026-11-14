@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::EncoderPins</title>
+<title>IAR EWARM Library: Lib::BSP::EEPROM::I2C::Driver</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,73 +92,93 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::EncoderPins</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::EEPROM::I2C::Driver</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a rotary encoder with a push button driving a menu position from a task.</p>
-<p>Demonstrates a rotary encoder with a push button driving a menu position from a task.The example assumes all three pins are EXTI inputs on both edges, named <em class="arg">ENC_CLK</em>, <em class="arg">ENC_DT</em> and <em class="arg">ENC_BTN</em> in CubeMX, so the <em class="arg">PIN()</em> macro can build their handles. The EXTI callback forwards every pin to the encoder through <a class="el" href="../../da/d95/a04435.html#ad2f27a5e62e8b4d2e7c8a2c9439374d7" title="Lib::BSP::EncoderPins::handlePinChangedEvent()">Lib::BSP::EncoderPins::handlePinChangedEvent()</a>, which ignores pins that are not its own. With a divider of <b>2</b> two rotation steps make one CW or CCW event. The example resets the position on a button release after more than one second.</p>
-<dl class="section warning"><dt>Warning</dt><dd>The callback must be the application's own: don't include 'Lib/HAL/GPIO/ExtInterrupt.hpp' or the umbrella 'Lib/HAL/GPIO.hpp' in the same program, since they define <b>HAL_GPIO_EXTI_Callback()</b> too.</dd></dl>
+<p>Demonstrates a ready-made chip driver and a new chip driver built on the CRTP base, both on one I2C bus.</p>
+<p>Demonstrates a ready-made chip driver and a new chip driver built on the CRTP base, both on one I2C bus.A chip driver derives from <a class="el" href="../../d5/db3/a06144.html" title="Lib::BSP::EEPROM::I2C::Driver">Lib::BSP::EEPROM::I2C::Driver</a>, passes its page and chip size to the base, and picks the word address width in <em class="arg">readImpl()</em> and <em class="arg">writeImpl()</em> via the protected <a class="el" href="../../d2/d8a/a04411.html#aadf54e6d52b72a43d71b1a89c690a385" title="Lib::BSP::EEPROM::I2C::Driver::read8()">Lib::BSP::EEPROM::I2C::Driver::read8()</a> or <a class="el" href="../../d2/d8a/a04411.html#a41825423769f79dd77cb1e77736e6e2a" title="Lib::BSP::EEPROM::I2C::Driver::read16()">Lib::BSP::EEPROM::I2C::Driver::read16()</a> primitives (and <a class="el" href="../../d2/d8a/a04411.html#a299a926321f0db8d9eac8527198f28fc" title="Lib::BSP::EEPROM::I2C::Driver::write8()">Lib::BSP::EEPROM::I2C::Driver::write8()</a> or <a class="el" href="../../d2/d8a/a04411.html#a1736b59146de0f5cacdb663197cd061e" title="Lib::BSP::EEPROM::I2C::Driver::write16()">Lib::BSP::EEPROM::I2C::Driver::write16()</a> for writes), keeping both private and befriending the base. <a class="el" href="../../d2/d8a/a04411.html#a54927e78496718fcd7a9cb0e02767604" title="Lib::BSP::EEPROM::I2C::Driver::read()">Lib::BSP::EEPROM::I2C::Driver::read()</a> and <a class="el" href="../../d2/d8a/a04411.html#a13e5c1d0f2d73fc592f0270be2b3a646" title="Lib::BSP::EEPROM::I2C::Driver::write()">Lib::BSP::EEPROM::I2C::Driver::write()</a> take a buffer pointer with a byte address and size, and <a class="el" href="../../d2/d8a/a04411.html#a13e5c1d0f2d73fc592f0270be2b3a646" title="Lib::BSP::EEPROM::I2C::Driver::write()">Lib::BSP::EEPROM::I2C::Driver::write()</a> splits the request into page-aligned chunks with the 5 ms write cycle after each. Each chip needs its own E2/E1/E0 strap value. A failed <a class="el" href="../../d2/d8a/a04411.html#ababf497720b16b51762103ca82e56f49" title="Lib::BSP::EEPROM::I2C::Driver::open()">Lib::BSP::EEPROM::I2C::Driver::open()</a> leaves the shared port open, so a missing chip does not cut off the other devices on the bus.</p>
+<dl class="section important"><dt>Important</dt><dd><a class="el" href="../../d2/d8a/a04411.html#a13e5c1d0f2d73fc592f0270be2b3a646" title="Lib::BSP::EEPROM::I2C::Driver::write()">Lib::BSP::EEPROM::I2C::Driver::write()</a> sleeps through the write cycle, so call it from a task, never from an ISR.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>An 8-bit chip larger than <b>256</b> bytes (M24C04 ... M24C16) needs strap <b>0</b>: its upper address bits use those slave-address bits, so any other strap value addresses the wrong block.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="encpins_usage_menu"></a>
-Menu position from encoder events</h3>
-<p><a class="el" href="../../da/d95/a04435.html#a7173287d816b57b6541368dfbe743659" title="Lib::BSP::EncoderPins::kbdhit()">Lib::BSP::EncoderPins::kbdhit()</a> waits for the next event from the task; <a class="el" href="../../da/d95/a04435.html#ad2f27a5e62e8b4d2e7c8a2c9439374d7" title="Lib::BSP::EncoderPins::handlePinChangedEvent()">Lib::BSP::EncoderPins::handlePinChangedEvent()</a> is called from the EXTI callback for every pin. A <a class="el" href="../../da/d95/a04435.html#a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4" title="Lib::BSP::EncoderPins::EventState::BUT_PULL">Lib::BSP::EncoderPins::EventState::BUT_PULL</a> event carries the hold time in <a class="el" href="../../da/d95/a04435.html#a09d0b1187e255228fc21b499d1ee668a" title="Lib::BSP::EncoderPins::getButtonHoldPeriod()">Lib::BSP::EncoderPins::getButtonHoldPeriod()</a>.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dd7/a00248.html">Lib/BSP/Encoder/EncoderPins.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/d80/a00614.html">Lib/HAL/GPIO/Handle.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="eeprom_usage_bus"></a>
+New chip driver and storage on a shared bus</h3>
+<p><em class="arg">M24C02</em> is a new chip built on the base; <a class="el" href="../../d4/da1/a04423.html" title="Lib::BSP::EEPROM::I2C::M24C64W">Lib::BSP::EEPROM::I2C::M24C64W</a> is the ready-made driver. Both use the same <a class="el" href="../../d4/dc1/a06186.html" title="Lib::HAL::I2CPort">Lib::HAL::I2CPort</a>, each with its own address strap. <a class="el" href="../../d2/d8a/a04411.html#a54927e78496718fcd7a9cb0e02767604" title="Lib::BSP::EEPROM::I2C::Driver::read()">Lib::BSP::EEPROM::I2C::Driver::read()</a> and <a class="el" href="../../d2/d8a/a04411.html#a13e5c1d0f2d73fc592f0270be2b3a646" title="Lib::BSP::EEPROM::I2C::Driver::write()">Lib::BSP::EEPROM::I2C::Driver::write()</a> take the address in bytes, not in pages.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5f/a08298.html">Lib/BSP/EEPROM/I2C/Driver.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d22/a00245.html">Lib/BSP/EEPROM/I2C/M24C64W.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/df2/a00656.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1; <span class="comment">// Generated by CubeMX in main.c.</span></div>
 <div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../da/d95/a04435.html">Lib::BSP::EncoderPins</a> encoder{{</div>
-<div class="line">    .channel1 = <a id="_a1" name="_a1"></a><a class="code hl_define" href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(ENC_CLK),</div>
-<div class="line">    .channel2 = <a class="code hl_define" href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(ENC_DT),</div>
-<div class="line">    .button = <a class="code hl_define" href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(ENC_BTN),</div>
-<div class="line">    .divider = 2,</div>
-<div class="line">}};</div>
+<div class="line"><span class="keyword">namespace </span>EEPROM = <a class="code hl_namespace" href="../../df/d2f/a00991.html">Lib::BSP::EEPROM::I2C</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d8c/a01297.html#ga0cd91fd3a9608559c2a87a8ba6cba55f">HAL_GPIO_EXTI_Callback</a>(uint16_t GPIO_Pin) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(encoder.<a id="a3" name="a3"></a><a class="code hl_function" href="../../da/d95/a04435.html#ad2f27a5e62e8b4d2e7c8a2c9439374d7">handlePinChangedEvent</a>(GPIO_Pin));</div>
-<div class="line">}</div>
+<div class="line"><span class="comment">// New chip on top of the base: M24C02, 256 bytes, 16-byte pages, 8-bit word address.</span></div>
+<div class="line"><span class="keyword">class </span>M24C02 final : <span class="keyword">public</span> EEPROM::Driver&lt;M24C02&gt; {</div>
+<div class="line">    <span class="keyword">friend</span> <span class="keyword">class </span>EEPROM::Driver&lt;M24C02&gt;; <span class="comment">// The base calls readImpl()/writeImpl().</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> menuTask() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!encoder.<a id="a4" name="a4"></a><a class="code hl_function" href="../../da/d95/a04435.html#a2a3bbe4007278e92eca193886d2dfe9a">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">explicit</span> M24C02(<span class="keyword">const</span> Config &amp; config) noexcept :</div>
+<div class="line">        Driver&lt;M24C02&gt;(config, PAGE_SIZE, CHIP_SIZE) {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    int32_t position = 0;</div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="keywordflow">switch</span> (encoder.<a id="a5" name="a5"></a><a class="code hl_function" href="../../da/d95/a04435.html#a7173287d816b57b6541368dfbe743659">kbdhit</a>(100ms)) {</div>
-<div class="line">        <span class="keywordflow">case</span> <a id="_a6" name="_a6"></a><a class="code hl_enumvalue" href="../../da/d95/a04435.html#a04b234ac50c12b687cfe292d1aaae8e9a9af3107a066f6b0defb1cafc0499f6ed">Lib::BSP::EncoderPins::EventState::CW</a>:</div>
-<div class="line">            ++position;</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> <a id="_a7" name="_a7"></a><a class="code hl_enumvalue" href="../../da/d95/a04435.html#a04b234ac50c12b687cfe292d1aaae8e9a59ec5d573abd014f3ae2c26ca962e8cf">Lib::BSP::EncoderPins::EventState::CCW</a>:</div>
-<div class="line">            --position;</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">case</span> <a id="_a8" name="_a8"></a><a class="code hl_enumvalue" href="../../da/d95/a04435.html#a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4">Lib::BSP::EncoderPins::EventState::BUT_PULL</a>:</div>
-<div class="line">            <span class="keywordflow">if</span> (encoder.<a id="a9" name="a9"></a><a class="code hl_function" href="../../da/d95/a04435.html#a09d0b1187e255228fc21b499d1ee668a">getButtonHoldPeriod</a>() &gt;= 1s) {</div>
-<div class="line">                position = 0; <span class="comment">// Long press: reset.</span></div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">break</span>;</div>
-<div class="line">        <span class="keywordflow">default</span>:</div>
-<div class="line">            <span class="keywordflow">break</span>; <span class="comment">// Timeout or BUT_PUSH.</span></div>
-<div class="line">        }</div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint8_t PAGE_SIZE = 16U;</div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> CHIP_SIZE = 256U;</div>
+<div class="line"> </div>
+<div class="line">    [[nodiscard]] <span class="keywordtype">bool</span> readImpl(<span class="keyword">const</span> uint32_t addr, <span class="keywordtype">void</span> * <span class="keyword">const</span> buffer, <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a id="_a1" name="_a1"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a>) <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> read8(addr, buffer, <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a>);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    [[nodiscard]] <span class="keywordtype">bool</span> writeImpl(<span class="keyword">const</span> uint32_t addr, <span class="keyword">const</span> <span class="keywordtype">void</span> * <span class="keyword">const</span> buffer, <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a>) <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> write8(addr, buffer, <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a>);</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>Settings {</div>
+<div class="line">    uint32_t serialNumber;</div>
+<div class="line">    uint16_t brightness;</div>
+<div class="line">    uint16_t crc;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::IT&gt; i2cPort{&amp;hi2c1};</div>
+<div class="line"> </div>
+<div class="line">EEPROM::M24C64W eeprom{{.i2cPort = i2cPort, .addr = 0x00}}; <span class="comment">// E2/E1/E0 tied low.</span></div>
+<div class="line">M24C02 calibration{{.i2cPort = i2cPort, .addr = 0x01}};     <span class="comment">// E0 tied high.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">constexpr</span> uint32_t SETTINGS_ADDRESS = 0x0100U;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> storageTask() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!eeprom.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Port failed to open or the chip did not acknowledge.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    Settings settings{};</div>
+<div class="line">    <span class="keywordflow">if</span> (eeprom.read(SETTINGS_ADDRESS, &amp;settings, <span class="keyword">sizeof</span>(settings))) {</div>
+<div class="line">        settings.brightness = 80U;</div>
+<div class="line">        <span class="comment">// Split into page-aligned writes, each followed by the write-cycle delay.</span></div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(eeprom.write(SETTINGS_ADDRESS, &amp;settings, <span class="keyword">sizeof</span>(settings)));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (calibration.open()) {</div>
+<div class="line">        <a id="_a2" name="_a2"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 32&gt;</a> table{};</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(calibration.read(0x00, table.data(), table.size()));</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00248_html"><div class="ttname"><a href="../../dd/dd7/a00248.html">EncoderPins.hpp</a></div><div class="ttdoc">Declares the BSP rotary encoder driver fed from GPIO interrupts; compiles to nothing without the HAL ...</div></div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00245_html"><div class="ttname"><a href="../../d6/d22/a00245.html">M24C64W.hpp</a></div><div class="ttdoc">M24C64W EEPROM driver specialization.</div></div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00614_html"><div class="ttname"><a href="../../d7/d80/a00614.html">Handle.hpp</a></div><div class="ttdoc">GPIO pin handle wrapper providing typed access to port and pin configuration.</div></div>
-<div class="ttc" id="aa00614_html_a45dbeff58bd7e046067745552ea8044c"><div class="ttname"><a href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a></div><div class="ttdeci">#define PIN(p)</div><div class="ttdef"><b>Definition</b> Handle.hpp:25</div></div>
-<div class="ttc" id="aa01297_html_ga0cd91fd3a9608559c2a87a8ba6cba55f"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dc/d8c/a01297.html#ga0cd91fd3a9608559c2a87a8ba6cba55f">HAL_GPIO_EXTI_Callback</a></div><div class="ttdeci">void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)</div><div class="ttdef"><b>Definition</b> ExtInterrupt.hpp:361</div></div>
-<div class="ttc" id="aa04435_html"><div class="ttname"><a href="../../da/d95/a04435.html">Lib::BSP::EncoderPins</a></div><div class="ttdoc">Rotary encoder with a push button, reporting rotation and button changes as queued events.</div><div class="ttdef"><b>Definition</b> EncoderPins.hpp:46</div></div>
-<div class="ttc" id="aa04435_html_a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4"><div class="ttname"><a href="../../da/d95/a04435.html#a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4">Lib::BSP::EncoderPins::EventState::BUT_PULL</a></div><div class="ttdeci">@ BUT_PULL</div><div class="ttdoc">Button released; the hold time is now in getButtonHoldPeriod().</div><div class="ttdef"><b>Definition</b> EncoderPins.hpp:68</div></div>
-<div class="ttc" id="aa04435_html_a04b234ac50c12b687cfe292d1aaae8e9a59ec5d573abd014f3ae2c26ca962e8cf"><div class="ttname"><a href="../../da/d95/a04435.html#a04b234ac50c12b687cfe292d1aaae8e9a59ec5d573abd014f3ae2c26ca962e8cf">Lib::BSP::EncoderPins::EventState::CCW</a></div><div class="ttdeci">@ CCW</div><div class="ttdoc">Counter-clockwise rotation by one divider step.</div><div class="ttdef"><b>Definition</b> EncoderPins.hpp:66</div></div>
-<div class="ttc" id="aa04435_html_a04b234ac50c12b687cfe292d1aaae8e9a9af3107a066f6b0defb1cafc0499f6ed"><div class="ttname"><a href="../../da/d95/a04435.html#a04b234ac50c12b687cfe292d1aaae8e9a9af3107a066f6b0defb1cafc0499f6ed">Lib::BSP::EncoderPins::EventState::CW</a></div><div class="ttdeci">@ CW</div><div class="ttdoc">Clockwise rotation by one divider step.</div><div class="ttdef"><b>Definition</b> EncoderPins.hpp:65</div></div>
-<div class="ttc" id="aa04435_html_a09d0b1187e255228fc21b499d1ee668a"><div class="ttname"><a href="../../da/d95/a04435.html#a09d0b1187e255228fc21b499d1ee668a">Lib::BSP::EncoderPins::getButtonHoldPeriod</a></div><div class="ttdeci">std::chrono::milliseconds getButtonHoldPeriod() const noexcept</div><div class="ttdoc">Gets how long the button was held during the last completed press.</div><div class="ttdef"><b>Definition</b> EncoderPins.hpp:177</div></div>
-<div class="ttc" id="aa04435_html_a2a3bbe4007278e92eca193886d2dfe9a"><div class="ttname"><a href="../../da/d95/a04435.html#a2a3bbe4007278e92eca193886d2dfe9a">Lib::BSP::EncoderPins::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Opens the event queue; events are dropped until it is open.</div><div class="ttdef"><b>Definition</b> EncoderPins.hpp:139</div></div>
-<div class="ttc" id="aa04435_html_a7173287d816b57b6541368dfbe743659"><div class="ttname"><a href="../../da/d95/a04435.html#a7173287d816b57b6541368dfbe743659">Lib::BSP::EncoderPins::kbdhit</a></div><div class="ttdeci">EventState kbdhit(const std::chrono::milliseconds timeout) noexcept</div><div class="ttdoc">Waits for the next encoder event.</div><div class="ttdef"><b>Definition</b> EncoderPins.hpp:166</div></div>
-<div class="ttc" id="aa04435_html_ad2f27a5e62e8b4d2e7c8a2c9439374d7"><div class="ttname"><a href="../../da/d95/a04435.html#ad2f27a5e62e8b4d2e7c8a2c9439374d7">Lib::BSP::EncoderPins::handlePinChangedEvent</a></div><div class="ttdeci">bool handlePinChangedEvent(const uint16_t pinNumber) noexcept</div><div class="ttdoc">Turns a GPIO pin change into an encoder event.</div><div class="ttdef"><b>Definition</b> EncoderPins.hpp:229</div></div>
+<div class="ttc" id="aa00656_html"><div class="ttname"><a href="../../dc/df2/a00656.html">I2C.hpp</a></div><div class="ttdoc">Public umbrella include for the I2C subsystem, exposing the master-only &#39;I2CPort&#39; in all three modes.</div></div>
+<div class="ttc" id="aa00991_html"><div class="ttname"><a href="../../df/d2f/a00991.html">Lib::BSP::EEPROM::I2C</a></div><div class="ttdoc">I2C EEPROM device drivers.</div><div class="ttdef"><b>Definition</b> EEPROM/I2C/Driver.hpp:34</div></div>
+<div class="ttc" id="aa01452_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01692_html_a86f849fa422e14fa194d390bdcc1d2cd"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a86f849fa422e14fa194d390bdcc1d2cd">size</a></div><div class="ttdeci">constexpr auto size(const _Container &amp;__cont) noexcept(noexcept(__cont.size())) -&gt; decltype(__cont.size())</div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="ttc" id="aa08298_html"><div class="ttname"><a href="../../dd/d5f/a08298.html">Driver.hpp</a></div><div class="ttdoc">I2C EEPROM driver base class (CRTP) shared by the M24Cxx chip drivers.</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

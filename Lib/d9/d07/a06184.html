@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::IndependentWatchdog</title>
+<title>IAR EWARM Library: Lib::HAL::HASHPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,58 +92,87 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::IndependentWatchdog</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::HASHPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Starts the hardware Independent Watchdog (IWDG) with <a class="el" href="../../d9/d07/a06184.html" title="Lib::HAL::IndependentWatchdog">Lib::HAL::IndependentWatchdog</a> and keeps it alive from a task.</p>
-<p>Starts the hardware Independent Watchdog (IWDG) with <a class="el" href="../../d9/d07/a06184.html" title="Lib::HAL::IndependentWatchdog">Lib::HAL::IndependentWatchdog</a> and keeps it alive from a task.The wrapper does not own the CubeMX-generated handle; pass the <b>hiwdg</b> descriptor, which must outlive the instance. The prescaler and reload value are taken from that handle, so configure them in CubeMX before calling open(). refresh() is a single key-register write and is safe from task and ISR context.</p>
-<dl class="section important"><dt>Important</dt><dd>The IWDG is available on every STM32F4xx family, including the STM32F407xx target of this library. The module guard is <em class="arg">HAL_IWDG_MODULE_ENABLED</em>; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so that guard is unverified here, although the STM32Cube template enables it.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Once open() succeeds the watchdog cannot be stopped until the next reset. If refresh() is not called before the configured timeout expires, the MCU resets. Call open() only after the start-up code that must run without a refresh has finished.</dd></dl>
+<p>Computes a SHA-256 digest of a byte buffer with <a class="el" href="../../d9/d07/a06184.html" title="Lib::HAL::HASHPort">Lib::HAL::HASHPort</a>, in its 'Lib::HAL::DriverMode::BLOCKING' and its 'Lib::HAL::DriverMode::IT' specializations.</p>
+<p>Computes a SHA-256 digest of a byte buffer with <a class="el" href="../../d9/d07/a06184.html" title="Lib::HAL::HASHPort">Lib::HAL::HASHPort</a>, in its 'Lib::HAL::DriverMode::BLOCKING' and its 'Lib::HAL::DriverMode::IT' specializations.Both modes share the lifecycle from Lib::HAL::HASHPortBase: open() initializes the HAL handle and close() de-initializes it. The handle is CubeMX-generated, must stay valid for the lifetime of the port, and must use <em class="arg">HASH_DATATYPE_8B</em>, because byte-stream hashing asserts it. The BLOCKING mode polls the peripheral in the calling task. The IT mode waits on an RTOS event group that the HASH ISR sets, so it must be called from task context and needs <em class="arg">USE_HAL_HASH_REGISTER_CALLBACKS</em> set to <b>1</b> in the HAL configuration; the header enforces that with a compile-time error.</p>
+<p>Both modes return the digest as a <a class="el" href="../../d7/d4f/a05431.html#add4d9f33ecf447251492399927b27da5" title="Lib::HAL::HASHPortBase::Sha256Digest">Lib::HAL::HASHPortBase::Sha256Digest</a> (32 big-endian bytes) in a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html" title="std::optional">std::optional</a> that is empty on failure or timeout. The IT mode takes a mutex, so concurrent callers from several tasks are serialized.</p>
+<dl class="section important"><dt>Important</dt><dd>The HASH peripheral is not present on the STM32F407xx device: its CMSIS header defines no <em class="arg">HASH_BASE</em>. The HASH peripheral belongs to other STM32F4 families (for example the STM32F415/F417 and STM32F437/F439). The module guard is <em class="arg">HAL_HASH_MODULE_ENABLED</em>; the STM32Cube template enables it, but the project's 'stm32f4xx_hal_conf.h' is not in the repository, so the guard is unverified here. Do not use this class on the STM32F407xx target.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="iwdg_usage_start"></a>
-Start the watchdog</h3>
-<p>open() returns <b>false</b> only when the HAL initialization or the lock sequence fails. In that case the watchdog is not running, so the firmware decides whether to continue unprotected or to restart.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/df2/a00656.html">Lib/HAL/IWDG/IndependentWatchdog.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d0/d38/a01476.html">IWDG_HandleTypeDef</a> hiwdg; <span class="comment">// Generated by CubeMX.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> startIndependentWatchdog() noexcept {</div>
-<div class="line">    <span class="keyword">static</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d3/dd4/a05455.html">Lib::HAL::IndependentWatchdog</a> watchdog(hiwdg);</div>
-<div class="line">    <span class="keywordflow">return</span> watchdog.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d3/dd4/a05455.html#aefbbf9853d59e4b287ed0df49e5f7cdd">open</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00656_html"><div class="ttname"><a href="../../dc/df2/a00656.html">IndependentWatchdog.hpp</a></div><div class="ttdoc">Independent Watchdog (IWDG) interface.</div></div>
-<div class="ttc" id="aa01476_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d0/d38/a01476.html">IWDG_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa05455_html"><div class="ttname"><a href="../../d3/dd4/a05455.html">Lib::HAL::IndependentWatchdog</a></div><div class="ttdoc">Controls the hardware Independent Watchdog; once started it cannot be stopped until the next reset.</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:29</div></div>
-<div class="ttc" id="aa05455_html_aefbbf9853d59e4b287ed0df49e5f7cdd"><div class="ttname"><a href="../../d3/dd4/a05455.html#aefbbf9853d59e4b287ed0df49e5f7cdd">Lib::HAL::IndependentWatchdog::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes and starts the hardware watchdog timer using the configuration held in the native handle.</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:91</div></div>
+<h3 class="doxsection"><a class="anchor" id="hash_usage_setup"></a>
+Handle setup</h3>
+<div class="fragment"><div class="line"><span class="keyword">extern</span> HASH_HandleTypeDef hhash; <span class="comment">// Generated by CubeMX; Init.DataType must be HASH_DATATYPE_8B.</span></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="iwdg_usage_refresh"></a>
-Refresh from a supervisor task</h3>
-<p>The refresh period must stay well below the timeout that the prescaler and reload value define. A supervisor task that refreshes only after every other task reports healthy keeps the watchdog meaningful; a refresh placed in an unconditional timer ISR would hide a blocked task.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/df2/a00656.html">Lib/HAL/IWDG/IndependentWatchdog.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hash_usage_block"></a>
+Blocking digest</h3>
+<p>The port's open() must succeed before sha256() is called. The timeout bounds the HAL polling loop, so a stalled peripheral returns an empty optional instead of hanging.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/daa/a00638.html">Lib/HAL/HASH.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d0/d38/a01476.html">IWDG_HandleTypeDef</a> hiwdg; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"><span class="keyword">extern</span> HASH_HandleTypeDef hhash; <span class="comment">// Generated by CubeMX.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> supervisorTask(<span class="keywordtype">void</span> *) {</div>
-<div class="line">    <span class="keyword">static</span> <a class="code hl_class" href="../../d3/dd4/a05455.html">Lib::HAL::IndependentWatchdog</a> watchdog(hiwdg);</div>
-<div class="line">    <span class="keywordflow">if</span> (!watchdog.<a class="code hl_function" href="../../d3/dd4/a05455.html#aefbbf9853d59e4b287ed0df49e5f7cdd">open</a>()) {</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::BLOCKING&gt;::Sha256Digest</a>&gt; hashOnce() noexcept {</div>
+<div class="line">    <span class="keyword">constexpr</span> <a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 3&gt;</a> MESSAGE{0x61U, 0x62U, 0x63U};</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; port(&amp;hhash);</div>
+<div class="line">    <span class="keywordflow">if</span> (!port.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <a id="_a2" name="_a2"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html">std::nullopt</a>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> digest = port.sha256(std::span&lt;const uint8_t&gt;(MESSAGE), <a id="_a3" name="_a3"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.close());</div>
+<div class="line">    <span class="keywordflow">return</span> digest;</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00638_html"><div class="ttname"><a href="../../d1/daa/a00638.html">HASH.hpp</a></div><div class="ttdoc">Public umbrella include for the HASH subsystem.</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01662_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html">std::nullopt</a></div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="hash_usage_it"></a>
+Interrupt digest from a task</h3>
+<p>The IT port registers its HAL callbacks in its open() and unregisters them in its close(). A timed-out digest reinitializes the peripheral, so the next call starts from a clean state; a HAL error returns an empty optional without that step.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/daa/a00638.html">Lib/HAL/HASH.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d6c/a00977.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> HASH_HandleTypeDef hhash; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> hashTask(<span class="keywordtype">void</span> *) {</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 3&gt;</a> MESSAGE{0x61U, 0x62U, 0x63U};</div>
+<div class="line">    <span class="keyword">static</span> Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::IT&gt; port(&amp;hhash);</div>
+<div class="line">    <span class="keywordflow">if</span> (!port.open()) {</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="comment">// Refresh only when every monitored task has checked in.</span></div>
-<div class="line">        watchdog.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d3/dd4/a05455.html#ae9f164f43789bd02baa1587a44c30e61">refresh</a>();</div>
-<div class="line">        <a id="a4" name="a4"></a><a class="code hl_function" href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a id="_a5" name="_a5"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> digest = port.sha256(std::span&lt;const uint8_t&gt;(MESSAGE), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line">        <span class="keywordflow">if</span> (digest.has_value()) {</div>
+<div class="line">            <span class="comment">// Use digest.value().</span></div>
+<div class="line">        }</div>
+<div class="line">        <a id="a4" name="a4"></a><a class="code hl_function" href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a id="_a5" name="_a5"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(1));</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00974_html"><div class="ttname"><a href="../../df/dce/a00974.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01026_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa05455_html_ae9f164f43789bd02baa1587a44c30e61"><div class="ttname"><a href="../../d3/dd4/a05455.html#ae9f164f43789bd02baa1587a44c30e61">Lib::HAL::IndependentWatchdog::refresh</a></div><div class="ttdeci">void refresh() noexcept</div><div class="ttdoc">Reloads the independent hardware counter to prevent a system reset.</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:101</div></div>
+<div class="ttc" id="aa00977_html"><div class="ttname"><a href="../../d5/d6c/a00977.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01029_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
+<div class="ttc" id="aa01610_html_ga2872cfa04b6162d31b737f1e21fefb3b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a></div><div class="ttdeci">duration&lt; int64_t &gt; seconds</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

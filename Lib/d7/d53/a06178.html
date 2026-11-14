@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::GPIO::Output</title>
+<title>IAR EWARM Library: Lib::HAL::DeviceManager</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,116 +92,67 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::GPIO::Output</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::DeviceManager</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Drives and reads single pins with <a class="el" href="../../d7/d53/a06178.html" title="Lib::HAL::GPIO::Output">Lib::HAL::GPIO::Output</a>, <a class="el" href="../../d1/d5e/a05403.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and <a class="el" href="../../db/de3/a05387.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a>.</p>
-<p>Drives and reads single pins with <a class="el" href="../../d7/d53/a06178.html" title="Lib::HAL::GPIO::Output">Lib::HAL::GPIO::Output</a>, <a class="el" href="../../d1/d5e/a05403.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and <a class="el" href="../../db/de3/a05387.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a>. Each wrapper is bound to one <a class="el" href="../../dc/daf/a05399.html" title="Lib::HAL::GPIO::Handle">Lib::HAL::GPIO::Handle</a>, built from a CubeMX-generated pin pair through the 'PIN()' macro. None of these classes takes a transfer mode, so there is no <a class="el" href="../../d3/ded/a01017.html#a031c16cd1ba2f466615bbfa2b2832ed0" title="Lib::HAL::DriverMode">Lib::HAL::DriverMode</a> parameter.</p>
-<p>The wrappers do not configure the pin: the mode, speed and pull are set by the CubeMX-generated <b>MX_GPIO_Init()</b>, which must run before any wrapper is used. Output and input calls are plain register accesses and are safe from an ISR. <a class="el" href="../../db/de3/a05387.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> is the exception, see its own subsection.</p>
+<p>Maps a native HAL handle, as seen inside an 'extern "C"' HAL callback, back to the owning C++ object with <a class="el" href="../../d7/d53/a06178.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a>.</p>
+<p>Maps a native HAL handle, as seen inside an 'extern "C"' HAL callback, back to the owning C++ object with <a class="el" href="../../d7/d53/a06178.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a>. The objects derive from <a class="el" href="../../d3/dea/a05363.html" title="Lib::HAL::Device">Lib::HAL::Device</a>, which stores the handle and an intrusive list link.</p>
+<p>This is the HAL-side ISR lookup. It is a different class from <a class="el" href="../../d2/d4f/a04347.html" title="Lib::BSP::DeviceManager">Lib::BSP::DeviceManager</a>, which holds a periodic timer and a list of BSP drivers; the two share a name but nothing else. The HAL manager is a per-(device type, handle type) singleton, so the template arguments select the instance. <a class="el" href="../../d1/dab/a05359.html#a20731f8c338ecda6068a2f416c8e9e97" title="Lib::HAL::DeviceManager::registerDevice()">Lib::HAL::DeviceManager::registerDevice()</a> and <a class="el" href="../../d1/dab/a05359.html#aa1c87169c3e9040cd552e10c08e0eee4" title="Lib::HAL::DeviceManager::unregisterDevice()">Lib::HAL::DeviceManager::unregisterDevice()</a> take an RTOS critical section. <a class="el" href="../../d1/dab/a05359.html#a44399c0b88c31ab172615c8522506511" title="Lib::HAL::DeviceManager::getDevice()">Lib::HAL::DeviceManager::getDevice()</a> does not, which is what lets an ISR call it. The list is searched linearly, so keep the number of instances per type small.</p>
+<p>The device registers itself in its constructor and must not be destroyed while an ISR may still look it up: unregister it before it goes away. The example below uses a static instance, so that condition holds.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_handle"></a>
-Handle and the PIN() macro</h3>
-<p>'PIN(LED)' expands to a <a class="el" href="../../d7/dd1/a05395.html" title="Lib::HAL::GPIO::PinConfig">Lib::HAL::GPIO::PinConfig</a> built from <em class="arg">LED_GPIO_Port</em> and <em class="arg">LED_Pin</em>, the symbols CubeMX emits in 'main.h'. <a class="el" href="../../dc/daf/a05399.html" title="Lib::HAL::GPIO::Handle">Lib::HAL::GPIO::Handle</a> converts implicitly from that value and must outlive every wrapper that refers to it. A default-constructed handle has no port, and the wrapper constructors assert on it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="devicemanager_usage_device"></a>
+Derive a device from the base</h3>
+<p>Derive publicly from <a class="el" href="../../d3/dea/a05363.html" title="Lib::HAL::Device">Lib::HAL::Device</a>, pass the native handle to its constructor, and register the object with the manager. <a class="el" href="../../d3/dea/a05363.html#ac39b97fd324efde09c82d0ccfe7fe4e8" title="Lib::HAL::Device::getHandle()">Lib::HAL::Device::getHandle()</a> returns the handle that the lookup compares against.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="codeRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d45/a00011.html">stm32f4xx_hal.h</a>&quot;</span> <span class="comment">// Declares SPI_HandleTypeDef and the HAL driver.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dc8/a00581.html">Lib/HAL/core/Device.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d63/a08283.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/daf/a05399.html">Lib::HAL::GPIO::Handle</a> LED_HANDLE = <a id="_a1" name="_a1"></a><a class="code hl_define" href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(LED);</div>
-<div class="line"><span class="keyword">constexpr</span> <a class="code hl_class" href="../../dc/daf/a05399.html">Lib::HAL::GPIO::Handle</a> BUTTON_HANDLE = <a class="code hl_define" href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a>(BUTTON);</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="ttc" id="aa00614_html_a45dbeff58bd7e046067745552ea8044c"><div class="ttname"><a href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a></div><div class="ttdeci">#define PIN(p)</div><div class="ttdef"><b>Definition</b> Handle.hpp:25</div></div>
-<div class="ttc" id="aa00623_html"><div class="ttname"><a href="../../df/d6f/a00623.html">GPIO.hpp</a></div><div class="ttdoc">Public convenience aliases for the GPIO subsystem.</div></div>
-<div class="ttc" id="aa05399_html"><div class="ttname"><a href="../../dc/daf/a05399.html">Lib::HAL::GPIO::Handle</a></div><div class="ttdoc">Lightweight wrapper for GPIO pin configuration providing typed access.</div><div class="ttdef"><b>Definition</b> Handle.hpp:50</div></div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> hspi1; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>SpiBridge final : <span class="keyword">public</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d3/dea/a05363.html">Lib::HAL::Device</a>&lt;SpiBridge, SPI_HandleTypeDef&gt; {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">explicit</span> SpiBridge(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * spiHandle) noexcept :</div>
+<div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../d3/dea/a05363.html#acdeffbad9eb409804cbc72fa86794a97">Device</a>(spiHandle) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="a3" name="a3"></a><a class="code hl_function" href="../../d1/dab/a05359.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a4" name="a4"></a><a class="code hl_function" href="../../d1/dab/a05359.html#a20731f8c338ecda6068a2f416c8e9e97">registerDevice</a>(<span class="keyword">this</span>));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> onTransmitComplete() <span class="keyword">noexcept</span> {</div>
+<div class="line">        transmitCount = transmitCount + 1U;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <span class="keyword">volatile</span> uint32_t transmitCount = 0U;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">static</span> SpiBridge spiBridge(&amp;hspi1);</div>
+<div class="ttc" id="aa00011_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d45/a00011.html">stm32f4xx_hal.h</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00581_html"><div class="ttname"><a href="../../d8/dc8/a00581.html">Device.hpp</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its link in the DeviceManager registry.</div></div>
+<div class="ttc" id="aa01068_html_gab633e49dd034de2f3a1fe79853d78d18"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a></div><div class="ttdeci">struct __SPI_HandleTypeDef SPI_HandleTypeDef</div></div>
+<div class="ttc" id="aa05359_html_a20731f8c338ecda6068a2f416c8e9e97"><div class="ttname"><a href="../../d1/dab/a05359.html#a20731f8c338ecda6068a2f416c8e9e97">Lib::HAL::DeviceManager::registerDevice</a></div><div class="ttdeci">bool registerDevice(T_DEVICE *device)</div><div class="ttdoc">Adds a concrete driver to the lookup list.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:52</div></div>
+<div class="ttc" id="aa05359_html_a2832654a46fcf40b5673a27a282e278b"><div class="ttname"><a href="../../d1/dab/a05359.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager::instance</a></div><div class="ttdeci">static DeviceManager &amp; instance() noexcept</div><div class="ttdoc">Returns the process-wide registry instance.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:39</div></div>
+<div class="ttc" id="aa05363_html"><div class="ttname"><a href="../../d3/dea/a05363.html">Lib::HAL::Device</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its DeviceManager list link.</div><div class="ttdef"><b>Definition</b> Device.hpp:36</div></div>
+<div class="ttc" id="aa05363_html_acdeffbad9eb409804cbc72fa86794a97"><div class="ttname"><a href="../../d3/dea/a05363.html#acdeffbad9eb409804cbc72fa86794a97">Lib::HAL::Device::Device</a></div><div class="ttdeci">Device(T_HANDLE *handle) noexcept</div><div class="ttdoc">Constructs a Device block bound to a native microcontroller peripheral handle.</div><div class="ttdef"><b>Definition</b> Device.hpp:78</div></div>
+<div class="ttc" id="aa08283_html"><div class="ttname"><a href="../../dc/d63/a08283.html">DeviceManager.hpp</a></div><div class="ttdoc">Registry that routes native HAL handles to the open concrete peripheral drivers.</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_output"></a>
-Driving an output</h3>
-<p><a class="el" href="../../dc/d06/a05407.html#a52416b95040bffe9915b005b33bc3600" title="Lib::HAL::GPIO::Output::write()">Lib::HAL::GPIO::Output::write()</a> takes the logic level, <a class="el" href="../../dc/d06/a05407.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11" title="Lib::HAL::GPIO::Output::setHigh()">Lib::HAL::GPIO::Output::setHigh()</a> and <a class="el" href="../../dc/d06/a05407.html#a0fc44f31312833d252e8aef8a1c4e361" title="Lib::HAL::GPIO::Output::setLow()">Lib::HAL::GPIO::Output::setLow()</a> are shorthands, and <a class="el" href="../../dc/d06/a05407.html#ad11ab03ddf964b154331b7ffc708e4c2" title="Lib::HAL::GPIO::Output::toggle()">Lib::HAL::GPIO::Output::toggle()</a> inverts the current level. The class is non-copyable and non-movable, so keep it as a long-lived object.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="devicemanager_usage_isr"></a>
+Look up the owner inside a HAL callback</h3>
+<p>The callback is defined once, by the application, and only forwards to the device. Defining it replaces the weak HAL definition of the same name, so it must appear only once in the project. A null result means no instance owns that handle, so the callback must simply return. The class from the previous example is assumed to be in 'SpiBridge.hpp'.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d63/a08283.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line"><span class="preprocessor">#include &quot;SpiBridge.hpp&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><a id="_a2" name="_a2"></a><a class="code hl_class" href="../../dc/d06/a05407.html">Lib::HAL::GPIO::Output</a> led(LED_HANDLE);</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> blinkOnce() noexcept {</div>
-<div class="line">    led.setHigh();</div>
-<div class="line">    led.toggle();    <span class="comment">// Now low.</span></div>
-<div class="line">    led.write(<span class="keyword">true</span>); <span class="comment">// Now high again.</span></div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a>(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * hspi) {</div>
+<div class="line">    SpiBridge * <span class="keyword">const</span> bridge = <a class="code hl_function" href="../../d1/dab/a05359.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a6" name="a6"></a><a class="code hl_function" href="../../d1/dab/a05359.html#a44399c0b88c31ab172615c8522506511">getDevice</a>(hspi);</div>
+<div class="line">    <span class="keywordflow">if</span> (bridge != <span class="keyword">nullptr</span>) {</div>
+<div class="line">        bridge-&gt;onTransmitComplete();</div>
+<div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05407_html"><div class="ttname"><a href="../../dc/d06/a05407.html">Lib::HAL::GPIO::Output</a></div><div class="ttdoc">Represents a discrete hardware output pin capable of state driving and active reading.</div><div class="ttdef"><b>Definition</b> Output.hpp:35</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_input"></a>
-Reading an input</h3>
-<p><a class="el" href="../../d1/d5e/a05403.html#acf9a806f75242814c40947cdc229ed24" title="Lib::HAL::GPIO::Input::read()">Lib::HAL::GPIO::Input::read()</a> returns <b>true</b> when the pin is high, and <a class="el" href="../../d1/d5e/a05403.html#ac4819ceaa799d09422b2441ab37d1bf3" title="Lib::HAL::GPIO::Input::isHigh()">Lib::HAL::GPIO::Input::isHigh()</a> and <a class="el" href="../../d1/d5e/a05403.html#aac45963cf0777027622bcfbd5773ad89" title="Lib::HAL::GPIO::Input::isLow()">Lib::HAL::GPIO::Input::isLow()</a> are named forms of the same read. The explicit conversion to a boolean also reads the pin.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line"><a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Input</a> button(BUTTON_HANDLE);</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> isButtonPressed() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> button.isLow(); <span class="comment">// Active-low button with a pull-up configured by CubeMX.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa05403_html"><div class="ttname"><a href="../../d1/d5e/a05403.html">Lib::HAL::GPIO::Input</a></div><div class="ttdoc">Represents a discrete hardware input pin mapped to a specific microcontroller port.</div><div class="ttdef"><b>Definition</b> Input.hpp:34</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_exti"></a>
-Interrupt on an input pin</h3>
-<p><a class="el" href="../../db/de3/a05387.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> derives from <a class="el" href="../../d1/d5e/a05403.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and registers its pin with a shared dispatcher in its constructor, which asserts if the pin is already registered. The EXTI line and its edge are set by CubeMX, and the header provides the <b>HAL_GPIO_EXTI_Callback()</b> family, so do not define those in user code.</p>
-<p>The bound callback is not run in the interrupt. The HAL callback only signals a shared worker task, which invokes the callback in task context, so the callback may use RTOS calls that are illegal from an ISR. A capturing lambda must be an lvalue that outlives the binding; a capture-less lambda or a function pointer can be passed directly.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Each EXTI line can be claimed by one <a class="el" href="../../db/de3/a05387.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> at a time; a second one on the same pin asserts in its constructor.</dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> onButtonEdge() <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="comment">// Runs in the EXTI worker task, not in the ISR.</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><a id="_a4" name="_a4"></a><a class="code hl_class" href="../../db/de3/a05387.html">Lib::HAL::GPIO::ExtInterrupt</a> button(BUTTON_HANDLE);</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setupButtonInterrupt() noexcept {</div>
-<div class="line">    button.bindCallback(onButtonEdge);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> teardownButtonInterrupt() noexcept {</div>
-<div class="line">    button.unbindCallback();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05387_html"><div class="ttname"><a href="../../db/de3/a05387.html">Lib::HAL::GPIO::ExtInterrupt</a></div><div class="ttdoc">Handles hardware external line interrupts with centralized notification-driven dispatching.</div><div class="ttdef"><b>Definition</b> ExtInterrupt.hpp:50</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="gpio_usage_port"></a>
-Whole-port access</h3>
-<p><a class="el" href="../../d8/d4f/a05411.html" title="Lib::HAL::GPIO::Port">Lib::HAL::GPIO::Port</a> wraps one register block (for example <em class="arg">GPIOD</em>) rather than a single pin. <a class="el" href="../../d8/d4f/a05411.html#a5cbf2a8c7874db91ada4dfec7e22aff1" title="Lib::HAL::GPIO::Port::setup()">Lib::HAL::GPIO::Port::setup()</a> passes a native <em class="arg">GPIO_InitTypeDef</em> to <b>HAL_GPIO_Init()</b>, and <a class="el" href="../../d8/d4f/a05411.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0" title="Lib::HAL::GPIO::Port::write()">Lib::HAL::GPIO::Port::write()</a> and <a class="el" href="../../d8/d4f/a05411.html#adce8df0019ea415a350cf833ac481fc2" title="Lib::HAL::GPIO::Port::read()">Lib::HAL::GPIO::Port::read()</a> access the output and input data registers as one word. Use it only when several pins must change in one bus write; the pin wrappers above are the default.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> initPortDLow4() noexcept {</div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Port</a> port(GPIOD);</div>
-<div class="line"> </div>
-<div class="line">    port.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d8/d4f/a05411.html#a5cbf2a8c7874db91ada4dfec7e22aff1">setup</a>({</div>
-<div class="line">        .Pin = <a id="_a7" name="_a7"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga176efbf43a259b7bb0a85a47401505be">GPIO_PIN_0</a> | <a id="_a8" name="_a8"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6c35af4e75c3cb57bb650feaa7a136b5">GPIO_PIN_1</a> | <a id="_a9" name="_a9"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6eee38b797a7268f04357dfa2759efd2">GPIO_PIN_2</a> | <a id="_a10" name="_a10"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#gadcaf899c018a0dde572b5af783565c62">GPIO_PIN_3</a>,</div>
-<div class="line">        .Mode = <a id="_a11" name="_a11"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d7/d4f/a00819.html#ga1013838a64cec2f8c88f079c449d1982">GPIO_MODE_OUTPUT_PP</a>,</div>
-<div class="line">        .Pull = <a id="_a12" name="_a12"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d8b/a00821.html#ga5c2862579882c1cc64e36d38fbd07a4c">GPIO_NOPULL</a>,</div>
-<div class="line">        .Speed = <a id="_a13" name="_a13"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d00/a00820.html#gab7916c4265bfa1b26a5205ea9c1caa4e">GPIO_SPEED_FREQ_LOW</a>,</div>
-<div class="line">        .Alternate = 0,</div>
-<div class="line">    });</div>
-<div class="line"> </div>
-<div class="line">    port.<a id="a14" name="a14"></a><a class="code hl_function" href="../../d8/d4f/a05411.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0">write</a>(0x0AU); <span class="comment">// Drives PD1 and PD3 high, PD0 and PD2 low.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa00818_html_ga176efbf43a259b7bb0a85a47401505be"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga176efbf43a259b7bb0a85a47401505be">GPIO_PIN_0</a></div><div class="ttdeci">#define GPIO_PIN_0</div></div>
-<div class="ttc" id="aa00818_html_ga6c35af4e75c3cb57bb650feaa7a136b5"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6c35af4e75c3cb57bb650feaa7a136b5">GPIO_PIN_1</a></div><div class="ttdeci">#define GPIO_PIN_1</div></div>
-<div class="ttc" id="aa00818_html_ga6eee38b797a7268f04357dfa2759efd2"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#ga6eee38b797a7268f04357dfa2759efd2">GPIO_PIN_2</a></div><div class="ttdeci">#define GPIO_PIN_2</div></div>
-<div class="ttc" id="aa00818_html_gadcaf899c018a0dde572b5af783565c62"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d3/d60/a00818.html#gadcaf899c018a0dde572b5af783565c62">GPIO_PIN_3</a></div><div class="ttdeci">#define GPIO_PIN_3</div></div>
-<div class="ttc" id="aa00819_html_ga1013838a64cec2f8c88f079c449d1982"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d7/d4f/a00819.html#ga1013838a64cec2f8c88f079c449d1982">GPIO_MODE_OUTPUT_PP</a></div><div class="ttdeci">#define GPIO_MODE_OUTPUT_PP</div></div>
-<div class="ttc" id="aa00820_html_gab7916c4265bfa1b26a5205ea9c1caa4e"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dc/d00/a00820.html#gab7916c4265bfa1b26a5205ea9c1caa4e">GPIO_SPEED_FREQ_LOW</a></div><div class="ttdeci">#define GPIO_SPEED_FREQ_LOW</div></div>
-<div class="ttc" id="aa00821_html_ga5c2862579882c1cc64e36d38fbd07a4c"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d8b/a00821.html#ga5c2862579882c1cc64e36d38fbd07a4c">GPIO_NOPULL</a></div><div class="ttdeci">#define GPIO_NOPULL</div></div>
-<div class="ttc" id="aa05411_html"><div class="ttname"><a href="../../d8/d4f/a05411.html">Lib::HAL::GPIO::Port</a></div><div class="ttdoc">Discrete hardware port controller wrapping peripheral register blocks.</div><div class="ttdef"><b>Definition</b> HAL/GPIO/Port.hpp:31</div></div>
-<div class="ttc" id="aa05411_html_a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0"><div class="ttname"><a href="../../d8/d4f/a05411.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0">Lib::HAL::GPIO::Port::write</a></div><div class="ttdeci">void write(uint32_t value) noexcept</div><div class="ttdoc">Writes a bitmask to all output lines of the port in a single store.</div><div class="ttdef"><b>Definition</b> HAL/GPIO/Port.hpp:113</div></div>
-<div class="ttc" id="aa05411_html_a5cbf2a8c7874db91ada4dfec7e22aff1"><div class="ttname"><a href="../../d8/d4f/a05411.html#a5cbf2a8c7874db91ada4dfec7e22aff1">Lib::HAL::GPIO::Port::setup</a></div><div class="ttdeci">void setup(Config config) noexcept</div><div class="ttdoc">Initializes the selected pins of the port from a HAL descriptor.</div><div class="ttdef"><b>Definition</b> HAL/GPIO/Port.hpp:144</div></div>
+<div class="ttc" id="aa01345_html_ga0a99ab4f6aa6ee7dc2abca5483910dde"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a></div><div class="ttdeci">void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)</div></div>
+<div class="ttc" id="aa05359_html_a44399c0b88c31ab172615c8522506511"><div class="ttname"><a href="../../d1/dab/a05359.html#a44399c0b88c31ab172615c8522506511">Lib::HAL::DeviceManager::getDevice</a></div><div class="ttdeci">T_DEVICE * getDevice(const T_HANDLE *handle) const</div><div class="ttdoc">Finds the registered device that owns a native handle by a linear search.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:105</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

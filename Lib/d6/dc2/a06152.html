@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::INA219</title>
+<title>IAR EWARM Library: Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,88 +92,81 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::INA219</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates two <a class="el" href="../../d6/dc2/a06152.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.</p>
-<p>Demonstrates two <a class="el" href="../../d6/dc2/a06152.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.The battery channel reports signed current, so power turns negative while charging. The motor channel uses <a class="el" href="../../de/d68/a04331.html#a12dbe47287cc8ea3e6057097e7679d5baab6c31432785221bae58327ef5f6ea58" title="Lib::BSP::INA219::Polarity::POSITIVE">Lib::BSP::INA219::Polarity::POSITIVE</a> with a 20 mA offset to hide noise around zero. A reading comes back as <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on a bus failure or when the shunt ADC saturates. Both monitors are initialized before the task starts and then used only from that task, since the driver is not thread-safe. With 128-sample averaging each result takes tens of milliseconds, so polling faster than a few times per second gains nothing.</p>
+<p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.</p>
+<p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.The driver takes a shared Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; by reference and does not own it. Addresses are byte addresses within the 16 MB chip, and <a class="el" href="../../db/dd8/a04495.html#aff869cb6bde4f4f94493097c4c7e2da6" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()</a> works on 4 KB sectors, so a write must be preceded by an erase of the sector it touches.</p>
+<dl class="section important"><dt>Important</dt><dd>Target: a part with OCTOSPI, such as STM32U5. The class is compiled only when <em class="arg">HAL_OSPI_MODULE_ENABLED</em> is defined; on STM32F407 the whole class compiles to nothing.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Erasing and writing block the calling task while the chip is busy, which can take milliseconds. Do not call them from an ISR.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="ina219_usage_task"></a>
-Battery and motor channels polled from one task</h3>
-<p><a class="el" href="../../de/d68/a04331.html#a1b96174980d4785dbabfcaa110656cbe" title="Lib::BSP::INA219::init()">Lib::BSP::INA219::init()</a> configures both monitors before the task starts. <a class="el" href="../../de/d68/a04331.html#a1aa8cad61e1ccdb3899c6929726963fd" title="Lib::BSP::INA219::readVoltage()">Lib::BSP::INA219::readVoltage()</a> and <a class="el" href="../../de/d68/a04331.html#abb224ceec2374ac08e8ea58d3c898ab6" title="Lib::BSP::INA219::readCurrent()">Lib::BSP::INA219::readCurrent()</a> each return <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html" title="std::optional">std::optional</a>, so check for a value before using it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd5/a00215.html">Lib/BSP/CurrentAndPowerMonitor/INA219.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/ddd/a00653.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d82/a00920.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_open"></a>
+Open and identify</h3>
+<p><a class="el" href="../../db/dd8/a04495.html#acc5fbed9faca7400c7d70130fbb74131" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()</a> powers the chip up, resets it and reads the JEDEC ID; the driver is present only for the 16 MB part. <a class="el" href="../../db/dd8/a04495.html#a40a9ef783ecafece7202ae4ec39d4939" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()</a> reports the cached result without touching the bus.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d43/a08328.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/de4/a00677.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><span class="comment">// OCTOSPI port configured in the application (CubeMX) and shared with other consumers; defined outside this file.</span></div>
+<div class="line"><span class="keyword">extern</span> Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; ospiPort;</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1; <span class="comment">// Generated by CubeMX in main.c.</span></div>
+<div class="line"><span class="keyword">namespace </span>{</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/dd8/a04495.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> flash({.ospi = ospiPort});</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>PowerMonitor final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">} <span class="comment">// namespace</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">using </span>Monitor = <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../de/d68/a04331.html">Lib::BSP::INA219&lt;Lib::HAL::DriverMode::BLOCKING&gt;</a>;</div>
+<div class="line"><span class="keywordtype">bool</span> openFlash() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Chip did not answer or the JEDEC ID is unexpected.</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> flash.<a id="a1" name="a1"></a><a class="code hl_function" href="../../db/dd8/a04495.html#a40a9ef783ecafece7202ae4ec39d4939">isPresent</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00677_html"><div class="ttname"><a href="../../dc/de4/a00677.html">OSPI.hpp</a></div><div class="ttdoc">Public umbrella include for the OCTOSPI subsystem.</div></div>
+<div class="ttc" id="aa04495_html"><div class="ttname"><a href="../../db/dd8/a04495.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a></div><div class="ttdoc">Quad-SPI (OCTOSPI) device driver for the Winbond W25Q128JVSIQ.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:82</div></div>
+<div class="ttc" id="aa04495_html_a40a9ef783ecafece7202ae4ec39d4939"><div class="ttname"><a href="../../db/dd8/a04495.html#a40a9ef783ecafece7202ae4ec39d4939">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent</a></div><div class="ttdeci">bool isPresent() const noexcept</div><div class="ttdoc">Checks whether the device is present and initialized.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:236</div></div>
+<div class="ttc" id="aa08328_html"><div class="ttname"><a href="../../dc/d43/a08328.html">W25Q128JVSIQ.hpp</a></div><div class="ttdoc">Quad-SPI (OCTOSPI) driver for the Winbond W25Q128JVSIQ 128 Mbit device.</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_rw"></a>
+Read and write</h3>
+<p><a class="el" href="../../db/dd8/a04495.html#a48fee6a63474b5ad43a51157fcd0129a" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()</a> programs pages of <b>256</b> bytes. The sector must be erased first, because programming can only clear bits.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d43/a08328.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!battery.init() || !motor.init()) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        task.setup({<span class="stringliteral">&quot;Power&quot;</span>, 256, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d3/d4c/a05943.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a>});</div>
-<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> storeRecord(<a class="code hl_class" href="../../db/dd8/a04495.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> &amp; flash) {</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t RECORD_ADDRESS = 0x000000U;</div>
+<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> record{0x12U, 0x34U, 0x56U, 0x78U};</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a3" name="a3"></a><a class="code hl_function" href="../../db/dd8/a04495.html#aff869cb6bde4f4f94493097c4c7e2da6">eraseSector</a>(RECORD_ADDRESS)) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a4" name="a4"></a><a class="code hl_function" href="../../db/dd8/a04495.html#a48fee6a63474b5ad43a51157fcd0129a">write</a>(RECORD_ADDRESS, record.data(), record.size())) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> readBack{};</div>
+<div class="line">    <span class="keywordflow">return</span> flash.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/dd8/a04495.html#abb4813e3ca50641c3bc3d1a367927ab8">read</a>(RECORD_ADDRESS, readBack.data(), readBack.size()) &amp;&amp; readBack == record;</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="ttc" id="aa04495_html_a48fee6a63474b5ad43a51157fcd0129a"><div class="ttname"><a href="../../db/dd8/a04495.html#a48fee6a63474b5ad43a51157fcd0129a">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write</a></div><div class="ttdeci">bool write(uint32_t addr, const void *data, size_t size) noexcept</div><div class="ttdoc">Writes size bytes from data to the device starting at addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:287</div></div>
+<div class="ttc" id="aa04495_html_abb4813e3ca50641c3bc3d1a367927ab8"><div class="ttname"><a href="../../db/dd8/a04495.html#abb4813e3ca50641c3bc3d1a367927ab8">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::read</a></div><div class="ttdeci">bool read(uint32_t addr, void *buffer, size_t size) noexcept</div><div class="ttdoc">Reads size bytes from the device starting at addr into buffer.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:252</div></div>
+<div class="ttc" id="aa04495_html_aff869cb6bde4f4f94493097c4c7e2da6"><div class="ttname"><a href="../../db/dd8/a04495.html#aff869cb6bde4f4f94493097c4c7e2da6">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t addr) noexcept</div><div class="ttdoc">Erases the 4 KB sector that contains addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:330</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_power"></a>
+Power down</h3>
+<p><a class="el" href="../../db/dd8/a04495.html#a8a0d94550896c7062f6594cd0e532007" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()</a> lowers the standby current between accesses. Call <a class="el" href="../../db/dd8/a04495.html#a686c0c59ab4f223b15aefeeab43ca2bd" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()</a> before the next access.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d43/a08328.html">Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; i2cPort{&amp;hi2c1}; <span class="comment">///&lt; Bus shared by both monitors.</span></div>
-<div class="line"> </div>
-<div class="line">    Monitor battery{{</div>
-<div class="line">        .i2cPort = i2cPort,</div>
-<div class="line">        .i2cAddr = 0x40,</div>
-<div class="line">        .shuntResistorOhms = 0.1F,</div>
-<div class="line">    }}; <span class="comment">///&lt; Charge and discharge: signed current.</span></div>
-<div class="line"> </div>
-<div class="line">    Monitor motor{{</div>
-<div class="line">        .i2cPort = i2cPort,</div>
-<div class="line">        .i2cAddr = 0x41,</div>
-<div class="line">        .shuntResistorOhms = 0.01F,</div>
-<div class="line">        .correction = {.polarity = Monitor::Polarity::POSITIVE, .offsetAmperes = 0.02F},</div>
-<div class="line">    }}; <span class="comment">///&lt; Load only: magnitude above a 20 mA noise floor.</span></div>
-<div class="line"> </div>
-<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../dd/d7b/a05939.html">RTOS::Task</a> task;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keyword">const</span> <a id="_a5" name="_a5"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> volts = battery.readVoltage();</div>
-<div class="line">            <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> amperes = battery.readCurrent();</div>
-<div class="line">            <span class="keywordflow">if</span> (volts &amp;&amp; amperes) {</div>
-<div class="line">                [[maybe_unused]] <span class="keyword">const</span> <span class="keywordtype">float</span> watts = *volts * *amperes; <span class="comment">// Negative while charging.</span></div>
-<div class="line">            }</div>
-<div class="line"> </div>
-<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> motorAmperes = motor.readCurrent(); !motorAmperes) {</div>
-<div class="line">                <span class="comment">// Bus failure or shunt saturated: the true current is above the +-320 mV range.</span></div>
-<div class="line">            }</div>
-<div class="line"> </div>
-<div class="line">            <a id="a6" name="a6"></a><a class="code hl_function" href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(250ms);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa00215_html"><div class="ttname"><a href="../../d3/dd5/a00215.html">INA219.hpp</a></div><div class="ttdoc">Declares the BSP driver template for the INA219 current and power monitor on a HAL I2C port.</div></div>
-<div class="ttc" id="aa00653_html"><div class="ttname"><a href="../../de/ddd/a00653.html">I2C.hpp</a></div><div class="ttdoc">Public umbrella include for the I2C subsystem, exposing the master-only &#39;I2CPort&#39; in all three modes.</div></div>
-<div class="ttc" id="aa00884_html"><div class="ttname"><a href="../../dd/d08/a00884.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
-<div class="ttc" id="aa00920_html"><div class="ttname"><a href="../../d6/d82/a00920.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
-<div class="ttc" id="aa01026_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
-<div class="ttc" id="aa01452_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
-<div class="ttc" id="aa04331_html"><div class="ttname"><a href="../../de/d68/a04331.html">Lib::BSP::INA219</a></div><div class="ttdoc">Driver for the INA219 high-side current and power monitor.</div><div class="ttdef"><b>Definition</b> INA219.hpp:36</div></div>
-<div class="ttc" id="aa05939_html"><div class="ttname"><a href="../../dd/d7b/a05939.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
-<div class="ttc" id="aa05943_html_a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a"><div class="ttname"><a href="../../d3/d4c/a05943.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a></div><div class="ttdeci">@ LOW</div><div class="ttdoc">Low priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:86</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+<div class="line"><span class="keywordtype">void</span> idleFlash(<a class="code hl_class" href="../../db/dd8/a04495.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a> &amp; flash) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(flash.<a id="a6" name="a6"></a><a class="code hl_function" href="../../db/dd8/a04495.html#a8a0d94550896c7062f6594cd0e532007">enterPowerDown</a>());</div>
+<div class="line">    <span class="comment">// ... long idle period ...</span></div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(flash.<a id="a7" name="a7"></a><a class="code hl_function" href="../../db/dd8/a04495.html#a686c0c59ab4f223b15aefeeab43ca2bd">releasePowerDown</a>());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa04495_html_a686c0c59ab4f223b15aefeeab43ca2bd"><div class="ttname"><a href="../../db/dd8/a04495.html#a686c0c59ab4f223b15aefeeab43ca2bd">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown</a></div><div class="ttdeci">bool releasePowerDown() noexcept</div><div class="ttdoc">Wakes the device from deep power-down; call before any access after enterPowerDown().</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:214</div></div>
+<div class="ttc" id="aa04495_html_a8a0d94550896c7062f6594cd0e532007"><div class="ttname"><a href="../../db/dd8/a04495.html#a8a0d94550896c7062f6594cd0e532007">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown</a></div><div class="ttdeci">bool enterPowerDown() noexcept</div><div class="ttdoc">Puts an opened device into deep power-down between accesses; the port stays open.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:205</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

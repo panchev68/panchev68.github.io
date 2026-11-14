@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Crypto::SHA256</title>
+<title>IAR EWARM Library: Lib::BSP::Ultrasonic::PGA460TPWRQ1</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,62 +92,110 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Crypto::SHA256</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Ultrasonic::PGA460TPWRQ1</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates hashing a message in one call and in pieces with the software engine, and with the STM32 HASH peripheral.</p>
-<p>Demonstrates hashing a message in one call and in pieces with the software engine, and with the STM32 HASH peripheral.The software engine needs no hardware and is available in every project, so <a class="el" href="../../d4/d3a/a06162.html" title="Lib::Crypto::SHA256">Lib::Crypto::SHA256</a> with empty angle brackets selects it. The hardware engine, 'SHA256&lt;SHA256Engine::HARDWARE&gt;', needs a device with the HASH peripheral, the module enabled in 'stm32f4xx_hal_conf.h' ('HAL_HASH_MODULE_ENABLED') and a caller-owned <b>HASH_HandleTypeDef</b> such as <b>hhash</b>. The STM32F407xx has no HASH peripheral (its CMSIS device header defines no HASH registers), and this project's 'stm32f4xx_hal_conf.h' has the module commented out, so on this target the hardware engine is compiled out and the hardware example below does not build. The engine is never selected automatically, so every declaration names it explicitly. Both engines feed data through Lib::Crypto::SHA256::update() and end with Lib::Crypto::SHA256::finish().</p>
-<dl class="section warning"><dt>Warning</dt><dd>Call the hardware engine only from a task, never from an ISR, and use one instance for the lifetime of one digest: every call is a blocking HAL transaction on a shared peripheral.</dd></dl>
+<p>Reads the distance from a PGA460 ultrasonic sensor with <a class="el" href="../../d4/d3a/a06162.html" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a> in <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> mode.</p>
+<p>Reads the distance from a PGA460 ultrasonic sensor with <a class="el" href="../../d4/d3a/a06162.html" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a> in <a class="el" href="../../d0/d43/a01020.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> mode.The driver does not own the UART port; pass the 'Lib::HAL::UARTPort' wired to the PGA460 RXD/TXD pins. 'readDistance()' blocks the calling task for about the listen duration plus two UART transfers and yields via <a class="el" href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021" title="RTOS::delay()">RTOS::delay()</a>, so call it from a task, never from an ISR. The driver is not thread-safe: use one instance from a single task, or guard it with a mutex.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="sha256_usage_software"></a>
-Hashing with the software engine</h3>
-<p>A one-shot call fits a message that is already in one buffer; the streaming form fits a message that arrives in pieces. Do not update a hasher after Lib::Crypto::SHA256::finish().</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dd7/a00362.html">Lib/Crypto/SHA256.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="pga460_usage_hw"></a>
+Hardware assumptions</h3>
+<ul>
+<li>Two-wire UART on RXD/TXD; the IO pin is unused (pulled up), so transmitted bytes are not echoed back.</li>
+<li>TEST pin tied to GND at power-up, so the digital I/O runs at 3.3 V.</li>
+<li>Factory 'UART_ADDR' of <b>0</b>; set <a class="el" href="../../dc/d6b/a04731.html#a07cd324da0adf0baf2262a0b33404164" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1::Config::uartAddress">Lib::BSP::Ultrasonic::PGA460TPWRQ1::Config::uartAddress</a> only if the EEPROM address was reprogrammed.</li>
+</ul>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="pga460_usage_basic"></a>
+Single measurement</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d23/a00326.html">Lib/BSP/Ultrasonic/PGA460TPWRQ1.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"><span class="keywordtype">void</span> measureOnce(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; uartPort) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d43/a04727.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor({</div>
+<div class="line">        .uart = uartPort,</div>
+<div class="line">        .timeout = <a id="a1" name="a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
+<div class="line">        .listenDuration = <a id="a2" name="a2"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
+<div class="line">        .ambientTemperatureCelsius = 22.0F,</div>
+<div class="line">    });</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d7/d06/a01005.html">Lib::Crypto</a>;</div>
+<div class="line">    <span class="keywordflow">if</span> (!sensor.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
 <div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dd/dca/a04847.html">SHA256&lt;&gt;::Digest</a> hashMessage(std::span&lt;const uint8_t&gt; message) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code hl_class" href="../../dd/dca/a04847.html">SHA256&lt;&gt;::hash</a>(message);</div>
+<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> distanceMeters = sensor.readDistance(); distanceMeters.has_value()) {</div>
+<div class="line">        <span class="comment">// Use *distanceMeters.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sensor.close());</div>
 <div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><a class="code hl_class" href="../../dd/dca/a04847.html">SHA256&lt;&gt;::Digest</a> hashPieces(std::span&lt;const uint8_t&gt; header, std::span&lt;const uint8_t&gt; body) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <a class="code hl_class" href="../../dd/dca/a04847.html">SHA256&lt;&gt;</a> hasher;</div>
-<div class="line">    hasher.update(header);</div>
-<div class="line">    hasher.update(body);</div>
-<div class="line">    <span class="keywordflow">return</span> hasher.finish();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00362_html"><div class="ttname"><a href="../../de/dd7/a00362.html">SHA256.hpp</a></div><div class="ttdoc">Declares Lib::Crypto::SHA256, the SHA-256 message digest (FIPS 180-4) with a portable software engine...</div></div>
-<div class="ttc" id="aa01005_html"><div class="ttname"><a href="../../d7/d06/a01005.html">Lib::Crypto</a></div><div class="ttdoc">Cryptographic primitives and optional TLS/SSH client wrappers.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:20</div></div>
-<div class="ttc" id="aa04847_html"><div class="ttname"><a href="../../dd/dca/a04847.html">Lib::Crypto::SHA256</a></div><div class="ttdoc">SHA-256 hasher; SHA256Engine lists the available implementations.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:44</div></div>
+<div class="ttc" id="aa00326_html"><div class="ttname"><a href="../../d8/d23/a00326.html">PGA460TPWRQ1.hpp</a></div><div class="ttdoc">UART driver for the Texas Instruments PGA460 ultrasonic signal processor, reading distance and transd...</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01610_html_ga5688b0ad006994a28a4bb5c2fd1a715d"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a></div><div class="ttdeci">duration&lt; int64_t, micro &gt; microseconds</div></div>
+<div class="ttc" id="aa04727_html"><div class="ttname"><a href="../../dc/d43/a04727.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a></div><div class="ttdoc">Reads the current distance from a PGA460 ultrasonic sensor connected over UART.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:59</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="sha256_usage_hardware"></a>
-Hashing with the HASH peripheral</h3>
-<p>This subsection applies only to a device with the HASH peripheral, see the lead. The peripheral accepts whole 32-bit words mid-stream, so the hasher buffers up to 3 trailing bytes of each update internally; any piece length works. A HAL failure in Lib::Crypto::SHA256::update() means the hasher must not be used again. Lib::Crypto::SHA256::finish() returns no value on a HAL failure. The class also offers a one-shot static 'hash(handle, data)' for a message held in one buffer.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dd7/a00362.html">Lib/Crypto/SHA256.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="pga460_usage_task"></a>
+Periodic measurement task</h3>
+<p>The first reading after power-up may be rejected because the diagnostic byte still carries a stale error flag; treat an empty result as a skipped sample, not a fatal error.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d23/a00326.html">Lib/BSP/Ultrasonic/PGA460TPWRQ1.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d6c/a00977.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d7/d06/a01005.html">Lib::Crypto</a>;</div>
+<div class="line"><span class="keyword">class </span>LevelMonitor final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> hashWithPeripheral(HASH_HandleTypeDef * handle, std::span&lt;const uint8_t&gt; message, <a class="code hl_class" href="../../dd/dca/a04847.html">SHA256&lt;SHA256Engine::HARDWARE&gt;::Digest</a> &amp; digest) {</div>
-<div class="line">    <a class="code hl_class" href="../../dd/dca/a04847.html">SHA256&lt;SHA256Engine::HARDWARE&gt;</a> hasher(handle);</div>
-<div class="line">    <span class="keywordflow">if</span> (!hasher.update(message)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    <span class="keyword">explicit</span> LevelMonitor(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; uartPort) noexcept :</div>
+<div class="line">        sensor({</div>
+<div class="line">            .uart = uartPort,</div>
+<div class="line">            .timeout = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
+<div class="line">            .listenDuration = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
+<div class="line">        }),</div>
+<div class="line">        task(<a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../d0/d22/a05963.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Level&quot;</span>, 512, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d1/d1f/a05947.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> result = hasher.finish();</div>
-<div class="line">    <span class="keywordflow">if</span> (!result) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> PERIOD{1000};</div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t MAX_CONSECUTIVE_FAILURES = 5;</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_class" href="../../dc/d43/a04727.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor; <span class="comment">// Constructed before the task starts using it.</span></div>
+<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d3/d4c/a05943.html">RTOS::Task</a> task;          <span class="comment">// Must stay the last member.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!sensor.<a id="a7" name="a7"></a><a class="code hl_function" href="../../dc/d43/a04727.html#a50accfabb3897779a4b26e4c6b8e7566">open</a>()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;LevelMonitor: failed to open sensor UART&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        uint32_t failures = 0;</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> distanceMeters = sensor.<a id="a8" name="a8"></a><a class="code hl_function" href="../../dc/d43/a04727.html#ab5b14fe14cfea3451683b86f1cc54952">readDistance</a>(); distanceMeters.has_value()) {</div>
+<div class="line">                failures = 0;</div>
+<div class="line">                <span class="comment">// Publish *distanceMeters.</span></div>
+<div class="line">            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (++failures &gt;= MAX_CONSECUTIVE_FAILURES) {</div>
+<div class="line">                failures = 0;</div>
+<div class="line">                <span class="comment">// Report a sensor fault.</span></div>
+<div class="line">            }</div>
+<div class="line">            <a id="a9" name="a9"></a><a class="code hl_function" href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(PERIOD);</div>
+<div class="line">        }</div>
 <div class="line">    }</div>
-<div class="line">    digest = *result;</div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">}</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00977_html"><div class="ttname"><a href="../../d5/d6c/a00977.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01029_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d0/daa/a01029.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
+<div class="ttc" id="aa04727_html_a50accfabb3897779a4b26e4c6b8e7566"><div class="ttname"><a href="../../dc/d43/a04727.html#a50accfabb3897779a4b26e4c6b8e7566">Lib::BSP::Ultrasonic::PGA460TPWRQ1::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes the underlying UART peripheral.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:144</div></div>
+<div class="ttc" id="aa04727_html_ab5b14fe14cfea3451683b86f1cc54952"><div class="ttname"><a href="../../dc/d43/a04727.html#ab5b14fe14cfea3451683b86f1cc54952">Lib::BSP::Ultrasonic::PGA460TPWRQ1::readDistance</a></div><div class="ttdeci">std::optional&lt; float &gt; readDistance() noexcept</div><div class="ttdoc">Triggers a measurement and reads back the distance to the closest detected object.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:168</div></div>
+<div class="ttc" id="aa05943_html"><div class="ttname"><a href="../../d3/d4c/a05943.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
+<div class="ttc" id="aa05947_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d1/d1f/a05947.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:87</div></div>
+<div class="ttc" id="aa05963_html"><div class="ttname"><a href="../../d0/d22/a05963.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="pga460_usage_address"></a>
+Non-default UART address</h3>
+<div class="fragment"><div class="line"><a class="code hl_class" href="../../dc/d43/a04727.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor({</div>
+<div class="line">    .uart = uartPort,</div>
+<div class="line">    .timeout = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
+<div class="line">    .listenDuration = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
+<div class="line">    .uartAddress = 3, <span class="comment">// Must match UART_ADDR programmed in the device EEPROM.</span></div>
+<div class="line">});</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

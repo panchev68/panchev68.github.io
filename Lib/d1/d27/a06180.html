@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::HASHPort</title>
+<title>IAR EWARM Library: Lib::HAL::FlashInterface</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,87 +92,67 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::HASHPort</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::FlashInterface</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Computes a SHA-256 digest of a byte buffer with <a class="el" href="../../d1/d27/a06180.html" title="Lib::HAL::HASHPort">Lib::HAL::HASHPort</a>, in its 'Lib::HAL::DriverMode::BLOCKING' and its 'Lib::HAL::DriverMode::IT' specializations.</p>
-<p>Computes a SHA-256 digest of a byte buffer with <a class="el" href="../../d1/d27/a06180.html" title="Lib::HAL::HASHPort">Lib::HAL::HASHPort</a>, in its 'Lib::HAL::DriverMode::BLOCKING' and its 'Lib::HAL::DriverMode::IT' specializations.Both modes share the lifecycle from Lib::HAL::HASHPortBase: open() initializes the HAL handle and close() de-initializes it. The handle is CubeMX-generated, must stay valid for the lifetime of the port, and must use <em class="arg">HASH_DATATYPE_8B</em>, because byte-stream hashing asserts it. The BLOCKING mode polls the peripheral in the calling task. The IT mode waits on an RTOS event group that the HASH ISR sets, so it must be called from task context and needs <em class="arg">USE_HAL_HASH_REGISTER_CALLBACKS</em> set to <b>1</b> in the HAL configuration; the header enforces that with a compile-time error.</p>
-<p>Both modes return the digest as a <a class="el" href="../../d7/d41/a05427.html#add4d9f33ecf447251492399927b27da5" title="Lib::HAL::HASHPortBase::Sha256Digest">Lib::HAL::HASHPortBase::Sha256Digest</a> (32 big-endian bytes) in a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html" title="std::optional">std::optional</a> that is empty on failure or timeout. The IT mode takes a mutex, so concurrent callers from several tasks are serialized.</p>
-<dl class="section important"><dt>Important</dt><dd>The HASH peripheral is not present on the STM32F407xx device: its CMSIS header defines no <em class="arg">HASH_BASE</em>. The HASH peripheral belongs to other STM32F4 families (for example the STM32F415/F417 and STM32F437/F439). The module guard is <em class="arg">HAL_HASH_MODULE_ENABLED</em>; the STM32Cube template enables it, but the project's 'stm32f4xx_hal_conf.h' is not in the repository, so the guard is unverified here. Do not use this class on the STM32F407xx target.</dd></dl>
+<p>Unlocks the flash controller, erases a sector and programs words with <a class="el" href="../../d1/d27/a06180.html" title="Lib::HAL::FlashInterface">Lib::HAL::FlashInterface</a>.</p>
+<p>Unlocks the flash controller, erases a sector and programs words with Lib::HAL::FlashInterface.The class is a thin facade over the HAL flash functions and holds no state. Erase and program operations need the controller unlocked, so call <a class="el" href="../../db/de3/a05387.html#a0f5c36a802a9b6cf15aacf3d104cb445" title="Lib::HAL::FlashInterface::unlock()">Lib::HAL::FlashInterface::unlock()</a> first and <a class="el" href="../../db/de3/a05387.html#a076081c699cb3dcf3a7f5890c6c4f568" title="Lib::HAL::FlashInterface::lock()">Lib::HAL::FlashInterface::lock()</a> afterwards. The HAL calls block until the operation ends, so keep them out of interrupt handlers. <a class="el" href="../../db/de3/a05387.html#ae33402652ac23992b9eb28ed57ca35e8" title="Lib::HAL::FlashInterface::writeBuffer()">Lib::HAL::FlashInterface::writeBuffer()</a> programs in order and stops at the first failure; the words written before that failure stay programmed.</p>
+<p>The erase granularity and the programming width are chosen at compile time from the device macros: sectors where <em class="arg">FLASH_TYPEERASE_SECTORS</em> is defined, pages where <em class="arg">FLASH_TYPEERASE_PAGES</em> is defined, and word or doubleword programming where <em class="arg">FLASH_TYPEPROGRAM_WORD</em> or <em class="arg">FLASH_TYPEPROGRAM_DOUBLEWORD</em> is defined. On a device without the macro, the method returns <b>false</b>.</p>
+<dl class="section important"><dt>Important</dt><dd>The module guard is <em class="arg">HAL_FLASH_MODULE_ENABLED</em>, which the project's 'stm32f4xx_hal_conf.h' enables. On the STM32F407xx target the HAL headers define <em class="arg">FLASH_TYPEERASE_SECTORS</em> and <em class="arg">FLASH_TYPEPROGRAM_WORD</em>, so both methods are compiled in.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>An erase destroys the whole sector, including any code or constants stored in it. Never erase the sector that holds the running firmware, and keep the code that erases and programs in RAM, because the CPU cannot execute from flash while the operation runs. Writes can only clear bits, so a word must be erased before it is programmed to a value that sets bits.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="hash_usage_setup"></a>
-Handle setup</h3>
-<div class="fragment"><div class="line"><span class="keyword">extern</span> HASH_HandleTypeDef hhash; <span class="comment">// Generated by CubeMX; Init.DataType must be HASH_DATATYPE_8B.</span></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="hash_usage_block"></a>
-Blocking digest</h3>
-<p>The port's open() must succeed before sha256() is called. The timeout bounds the HAL polling loop, so a stalled peripheral returns an empty optional instead of hanging.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d10/a00635.html">Lib/HAL/HASH.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="flash_usage_erase"></a>
+Erase a sector and program a block</h3>
+<p><a class="el" href="../../db/de3/a05387.html#a31fec472e71d387e0e9a5ade75e5ae24" title="Lib::HAL::FlashInterface::eraseSector()">Lib::HAL::FlashInterface::eraseSector()</a> takes the sector index and the voltage range that matches the supply voltage; use the HAL constant <em class="arg">FLASH_VOLTAGE_RANGE_3</em> for 2.7 V to 3.6 V on the STM32F407xx. Program the data only after the erase returns <b>true</b>, and check each step.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dc0/a00611.html">Lib/HAL/Flash/FlashInterface.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> HASH_HandleTypeDef hhash; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"><span class="keywordtype">bool</span> storeSettings() noexcept {</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t SETTINGS_SECTOR = 11U;</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t SETTINGS_ADDRESS = 0x080E0000U;</div>
+<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 4&gt;</a> SETTINGS{0x01U, 0x02U, 0x03U, 0x04U};</div>
 <div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::BLOCKING&gt;::Sha256Digest</a>&gt; hashOnce() noexcept {</div>
-<div class="line">    <span class="keyword">constexpr</span> <a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 3&gt;</a> MESSAGE{0x61U, 0x62U, 0x63U};</div>
-<div class="line"> </div>
-<div class="line">    Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; port(&amp;hhash);</div>
-<div class="line">    <span class="keywordflow">if</span> (!port.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <a id="_a2" name="_a2"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html">std::nullopt</a>;</div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../db/de3/a05387.html">Lib::HAL::FlashInterface</a> flash;</div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a2" name="a2"></a><a class="code hl_function" href="../../db/de3/a05387.html#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> digest = port.sha256(std::span&lt;const uint8_t&gt;(MESSAGE), <a id="_a3" name="_a3"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.close());</div>
-<div class="line">    <span class="keywordflow">return</span> digest;</div>
+<div class="line">    <span class="keywordtype">bool</span> isStored = flash.<a id="a3" name="a3"></a><a class="code hl_function" href="../../db/de3/a05387.html#a31fec472e71d387e0e9a5ade75e5ae24">eraseSector</a>(SETTINGS_SECTOR, <a id="_a4" name="_a4"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d5/d12/a00794.html#ga50950407a789684eec9216f49e0831a0">FLASH_VOLTAGE_RANGE_3</a>) &amp;&amp;</div>
+<div class="line">                    flash.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/de3/a05387.html#ae33402652ac23992b9eb28ed57ca35e8">writeBuffer</a>(SETTINGS_ADDRESS, SETTINGS.data(), <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(SETTINGS.size()));</div>
+<div class="line"> </div>
+<div class="line">    isStored = flash.<a id="a6" name="a6"></a><a class="code hl_function" href="../../db/de3/a05387.html#a076081c699cb3dcf3a7f5890c6c4f568">lock</a>() &amp;&amp; isStored;</div>
+<div class="line">    <span class="keywordflow">return</span> isStored;</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00635_html"><div class="ttname"><a href="../../d4/d10/a00635.html">HASH.hpp</a></div><div class="ttdoc">Public umbrella include for the HASH subsystem.</div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01662_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html">std::nullopt</a></div></div>
+<div class="ttc" id="aa00611_html"><div class="ttname"><a href="../../dd/dc0/a00611.html">FlashInterface.hpp</a></div><div class="ttdoc">Facade over the STM32 internal Flash controller: lock control, sector or page erase and word programm...</div></div>
+<div class="ttc" id="aa00794_html_ga50950407a789684eec9216f49e0831a0"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d5/d12/a00794.html#ga50950407a789684eec9216f49e0831a0">FLASH_VOLTAGE_RANGE_3</a></div><div class="ttdeci">#define FLASH_VOLTAGE_RANGE_3</div></div>
 <div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+<div class="ttc" id="aa05387_html"><div class="ttname"><a href="../../db/de3/a05387.html">Lib::HAL::FlashInterface</a></div><div class="ttdoc">Stateless facade over the internal Flash controller.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:33</div></div>
+<div class="ttc" id="aa05387_html_a076081c699cb3dcf3a7f5890c6c4f568"><div class="ttname"><a href="../../db/de3/a05387.html#a076081c699cb3dcf3a7f5890c6c4f568">Lib::HAL::FlashInterface::lock</a></div><div class="ttdeci">bool lock() noexcept</div><div class="ttdoc">Locks the Flash control register against accidental erase and program operations.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:100</div></div>
+<div class="ttc" id="aa05387_html_a0f5c36a802a9b6cf15aacf3d104cb445"><div class="ttname"><a href="../../db/de3/a05387.html#a0f5c36a802a9b6cf15aacf3d104cb445">Lib::HAL::FlashInterface::unlock</a></div><div class="ttdeci">bool unlock() noexcept</div><div class="ttdoc">Unlocks the Flash control register so that erase and program operations are accepted.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:91</div></div>
+<div class="ttc" id="aa05387_html_a31fec472e71d387e0e9a5ade75e5ae24"><div class="ttname"><a href="../../db/de3/a05387.html#a31fec472e71d387e0e9a5ade75e5ae24">Lib::HAL::FlashInterface::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t sectorIndex, uint32_t voltageRange) noexcept</div><div class="ttdoc">Erases one sector (sector-based families) or one page (page-based families).</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:115</div></div>
+<div class="ttc" id="aa05387_html_ae33402652ac23992b9eb28ed57ca35e8"><div class="ttname"><a href="../../db/de3/a05387.html#ae33402652ac23992b9eb28ed57ca35e8">Lib::HAL::FlashInterface::writeBuffer</a></div><div class="ttdeci">bool writeBuffer(uint32_t startAddress, const uint32_t *dataPointer, uint32_t wordLength) noexcept</div><div class="ttdoc">Programs a buffer of 32-bit words into consecutive flash addresses.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:181</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="hash_usage_it"></a>
-Interrupt digest from a task</h3>
-<p>The IT port registers its HAL callbacks in its open() and unregisters them in its close(). A timed-out digest reinitializes the peripheral, so the next call starts from a clean state; a HAL error returns an empty optional without that step.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d10/a00635.html">Lib/HAL/HASH.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="flash_usage_word"></a>
+Program one word</h3>
+<p><a class="el" href="../../db/de3/a05387.html#ad771befb1be3db0d319c46507a7896ca" title="Lib::HAL::FlashInterface::writeWord()">Lib::HAL::FlashInterface::writeWord()</a> asserts that the address is 4-byte aligned. On a doubleword device the hardware programs 8 bytes at once, so the class reads the neighbouring word and programs the pair; that neighbour must still be erased or hold the value it already has.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dc0/a00611.html">Lib/HAL/Flash/FlashInterface.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> HASH_HandleTypeDef hhash; <span class="comment">// Generated by CubeMX.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> hashTask(<span class="keywordtype">void</span> *) {</div>
-<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 3&gt;</a> MESSAGE{0x61U, 0x62U, 0x63U};</div>
-<div class="line">    <span class="keyword">static</span> Lib::HAL::HASHPort&lt;Lib::HAL::DriverMode::IT&gt; port(&amp;hhash);</div>
-<div class="line">    <span class="keywordflow">if</span> (!port.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="keywordtype">bool</span> writeOneWord(uint32_t address, uint32_t value) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <a class="code hl_class" href="../../db/de3/a05387.html">Lib::HAL::FlashInterface</a> flash;</div>
+<div class="line">    <span class="keywordflow">if</span> (!flash.<a class="code hl_function" href="../../db/de3/a05387.html#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> digest = port.sha256(std::span&lt;const uint8_t&gt;(MESSAGE), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
-<div class="line">        <span class="keywordflow">if</span> (digest.has_value()) {</div>
-<div class="line">            <span class="comment">// Use digest.value().</span></div>
-<div class="line">        }</div>
-<div class="line">        <a id="a4" name="a4"></a><a class="code hl_function" href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a id="_a5" name="_a5"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(1));</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> isWritten = flash.<a id="a7" name="a7"></a><a class="code hl_function" href="../../db/de3/a05387.html#ad771befb1be3db0d319c46507a7896ca">writeWord</a>(address, value);</div>
+<div class="line">    <span class="keywordflow">return</span> flash.<a class="code hl_function" href="../../db/de3/a05387.html#a076081c699cb3dcf3a7f5890c6c4f568">lock</a>() &amp;&amp; isWritten;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00974_html"><div class="ttname"><a href="../../df/dce/a00974.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01026_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d02/a01026.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:605</div></div>
-<div class="ttc" id="aa01610_html_ga2872cfa04b6162d31b737f1e21fefb3b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a></div><div class="ttdeci">duration&lt; int64_t &gt; seconds</div></div>
+<div class="ttc" id="aa05387_html_ad771befb1be3db0d319c46507a7896ca"><div class="ttname"><a href="../../db/de3/a05387.html#ad771befb1be3db0d319c46507a7896ca">Lib::HAL::FlashInterface::writeWord</a></div><div class="ttdeci">bool writeWord(uint32_t address, uint32_t data) noexcept</div><div class="ttdoc">Programs one 32-bit word.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:149</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

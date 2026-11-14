@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Timer</title>
+<title>IAR EWARM Library: RTOS::TickClient</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,77 +92,60 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Timer</div></div>
+  <div class="headertitle"><div class="title">RTOS::TickClient</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows a software timer that runs a callback from the FreeRTOS timer daemon task.</p>
-<p>Shows a software timer that runs a callback from the FreeRTOS timer daemon task.Covers an auto-reload timer that toggles an LED every 500 ms and a one-shot timer that is started on demand. Callbacks run in the timer daemon task context, not in an ISR, so they must not block for long. The timer objects must outlive their callbacks, so they are kept in namespace scope here; destroying a timer stops it.</p>
-<dl class="section warning"><dt>Warning</dt><dd>The callback is stored as a non-owning 'FunctionRef': the function it points to must outlive the timer.</dd></dl>
+<p>Shows a periodic task built on <a class="el" href="../../d7/dd5/a06272.html" title="RTOS::TickClient">RTOS::TickClient</a>, which calls the <em class="arg">handleTickEvent()</em> of its derived class on every timer expiry.</p>
+<p>Shows a periodic task built on <a class="el" href="../../d7/dd5/a06272.html" title="RTOS::TickClient">RTOS::TickClient</a>, which calls the <em class="arg">handleTickEvent()</em> of its derived class on every timer expiry.Covers a class that inherits <a class="el" href="../../d7/dd5/a06272.html" title="RTOS::TickClient">RTOS::TickClient</a> with itself as the template argument and implements <em class="arg">handleTickEvent()</em>. The callback runs in the FreeRTOS timer service task, so it must not block.</p>
+<dl class="section important"><dt>Important</dt><dd><em class="arg">handleTickEvent()</em> must be public or the base must be befriended, because the base calls it.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timer_usage_blink"></a>
-Auto-reload timer</h3>
-<p><a class="el" href="../../d6/d0c/a05979.html#a3570e42c41aad69f4a39549a4f79eb09" title="RTOS::Timer::make()">RTOS::Timer::make()</a> returns an empty optional when the native timer cannot be created.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="tick_client_usage_class"></a>
+Derived class</h3>
+<p>The period is given in scheduler ticks. <a class="el" href="../../d3/d67/a05971.html#ab55e2272bf479804d0a0d2f1e6e5bed4" title="RTOS::TickClient::Config::autoStart">RTOS::TickClient::Config::autoStart</a> is <b>false</b>, so the timer waits for an explicit <a class="el" href="../../dd/d3d/a05967.html#a59730ccf7ef04d00837d566cd5184305" title="RTOS::TickClient::start()">RTOS::TickClient::start()</a>.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d38/a00926.html">Lib/RTOS/FreeRTOS/TickClient.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><span class="keyword">class </span>Sampler final : <span class="keyword">public</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dd/d3d/a05967.html">RTOS::TickClient</a>&lt;Sampler&gt; {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <span class="keywordtype">void</span> toggleLed() {</div>
-<div class="line">        <span class="comment">// Toggle the LED from the timer daemon task.</span></div>
+<div class="line">    Sampler() noexcept :</div>
+<div class="line">        <a id="a1" name="a1"></a><a class="code hl_function" href="../../dd/d3d/a05967.html#a3e885923e858b4dbbb6896a511cb5166">TickClient</a>(Config{.period = 100U, .autoStart = <span class="keyword">false</span>, .name = <span class="stringliteral">&quot;Sampler&quot;</span>}) {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;RTOS::Timer&gt;</a> blink;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startBlink() {</div>
-<div class="line">    blink = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/d0c/a05979.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a>(<a id="_a2" name="_a2"></a><a class="code hl_function" href="../../d3/d1f/a05983.html#afffb77404217246e78520eb888dd7afe">RTOS::Timer::Config::fromMs</a>(<span class="stringliteral">&quot;Blink&quot;</span>, &amp;toggleLed, 500U));</div>
-<div class="line">    <span class="keywordflow">if</span> (blink.has_value() &amp;&amp; blink-&gt;start() == <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d6/d0c/a05979.html#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c">RTOS::Timer::Status::SUCCESS</a>) {</div>
-<div class="line">        <span class="comment">// Blinking until blink is stopped or destroyed.</span></div>
+<div class="line">    <span class="keywordtype">void</span> handleTickEvent() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="comment">// Read the sensor; runs every 100 ticks, in the timer service task.</span></div>
 <div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa00932_html"><div class="ttname"><a href="../../d8/dbb/a00932.html">Timer.hpp</a></div><div class="ttdoc">C++20 RAII wrapper for FreeRTOS Software Timers.</div></div>
-<div class="ttc" id="aa05979_html_a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="../../d6/d0c/a05979.html#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c">RTOS::Timer::Status::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">Operation completed successfully.</div><div class="ttdef"><b>Definition</b> Timer.hpp:65</div></div>
-<div class="ttc" id="aa05979_html_a3570e42c41aad69f4a39549a4f79eb09"><div class="ttname"><a href="../../d6/d0c/a05979.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a></div><div class="ttdeci">static std::optional&lt; Timer &gt; make(const Config &amp;config) noexcept</div><div class="ttdoc">Attempts to construct a Timer from the given configuration.</div><div class="ttdef"><b>Definition</b> Timer.hpp:223</div></div>
-<div class="ttc" id="aa05983_html_afffb77404217246e78520eb888dd7afe"><div class="ttname"><a href="../../d3/d1f/a05983.html#afffb77404217246e78520eb888dd7afe">RTOS::Timer::Config::fromMs</a></div><div class="ttdeci">static Config fromMs(std::string_view name, Callback timerCallback, uint32_t periodMs, Mode timerMode=Mode::AUTO_RELOAD) noexcept</div><div class="ttdoc">Creates a configuration with the period given in milliseconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:178</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+<div class="line">};</div>
+<div class="ttc" id="aa00926_html"><div class="ttname"><a href="../../d8/d38/a00926.html">TickClient.hpp</a></div><div class="ttdoc">CRTP base driving periodic work from a FreeRTOS software timer.</div></div>
+<div class="ttc" id="aa05967_html"><div class="ttname"><a href="../../dd/d3d/a05967.html">RTOS::TickClient</a></div><div class="ttdoc">RAII owner of a periodic FreeRTOS software timer that calls handleTickEvent() of the derived class on...</div><div class="ttdef"><b>Definition</b> TickClient.hpp:40</div></div>
+<div class="ttc" id="aa05967_html_a3e885923e858b4dbbb6896a511cb5166"><div class="ttname"><a href="../../dd/d3d/a05967.html#a3e885923e858b4dbbb6896a511cb5166">RTOS::TickClient::TickClient</a></div><div class="ttdeci">TickClient(const Config &amp;config) noexcept</div><div class="ttdoc">Initializes a new tick client and creates the underlying timer; check isValid() for the outcome.</div><div class="ttdef"><b>Definition</b> TickClient.hpp:64</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timer_usage_oneshot"></a>
-One-shot timer</h3>
-<p>A one-shot timer runs its callback once after each <a class="el" href="../../d6/d0c/a05979.html#a1265d75e62308e7d74fbc52532f7c9b4" title="RTOS::Timer::start()">RTOS::Timer::start()</a>. The period is given in seconds here.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="tick_client_usage_run"></a>
+Starting and stopping</h3>
+<p>Check <a class="el" href="../../dd/d3d/a05967.html#a408eb1aee05259b64d9d520fecbad54f" title="RTOS::TickClient::isValid()">RTOS::TickClient::isValid()</a> after construction, because a failed timer creation leaves the object unusable.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d38/a00926.html">Lib/RTOS/FreeRTOS/TickClient.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><span class="keyword">class </span>Sampler final : <span class="keyword">public</span> <a class="code hl_class" href="../../dd/d3d/a05967.html">RTOS::TickClient</a>&lt;Sampler&gt; {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <span class="keywordtype">void</span> timeoutHandler() {</div>
-<div class="line">        <span class="comment">// Runs once, 3 s after the timer is started.</span></div>
+<div class="line">    Sampler() noexcept :</div>
+<div class="line">        <a class="code hl_function" href="../../dd/d3d/a05967.html#a3e885923e858b4dbbb6896a511cb5166">TickClient</a>(Config{.period = 100U, .autoStart = <span class="keyword">false</span>, .name = <span class="stringliteral">&quot;Sampler&quot;</span>}) {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;RTOS::Timer&gt;</a> <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startTimeout() {</div>
-<div class="line">    <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a> = <a class="code hl_function" href="../../d6/d0c/a05979.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a>(</div>
-<div class="line">        <a id="_a4" name="_a4"></a><a class="code hl_function" href="../../d3/d1f/a05983.html#a509c3109c5fe880023442429b1229c81">RTOS::Timer::Config::fromSeconds</a>(<span class="stringliteral">&quot;Timeout&quot;</span>, &amp;timeoutHandler, 3U, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d6/d0c/a05979.html#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d">RTOS::Timer::Mode::ONE_SHOT</a>));</div>
-<div class="line">    <span class="keywordflow">if</span> (<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>.has_value()) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>-&gt;start());</div>
+<div class="line">    <span class="keywordtype">void</span> handleTickEvent() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="comment">// Read the sensor.</span></div>
 <div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa01612_html_gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">cv_status::timeout</a></div><div class="ttdeci">@ timeout</div></div>
-<div class="ttc" id="aa05979_html_a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d"><div class="ttname"><a href="../../d6/d0c/a05979.html#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d">RTOS::Timer::Mode::ONE_SHOT</a></div><div class="ttdeci">@ ONE_SHOT</div><div class="ttdoc">Timer runs once and stops.</div><div class="ttdef"><b>Definition</b> Timer.hpp:75</div></div>
-<div class="ttc" id="aa05983_html_a509c3109c5fe880023442429b1229c81"><div class="ttname"><a href="../../d3/d1f/a05983.html#a509c3109c5fe880023442429b1229c81">RTOS::Timer::Config::fromSeconds</a></div><div class="ttdeci">static Config fromSeconds(std::string_view name, Callback timerCallback, uint32_t periodSec, Mode timerMode=Mode::AUTO_RELOAD) noexcept</div><div class="ttdoc">Creates a configuration with the period given in seconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:191</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timer_usage_period"></a>
-Changing the period at run time</h3>
-<p><a class="el" href="../../d6/d0c/a05979.html#a331c5e9a5b7f5977af306617b8c42cb7" title="RTOS::Timer::setPeriodMs()">RTOS::Timer::setPeriodMs()</a> changes the period of the timer. FreeRTOS also starts a stopped timer as a side effect, so call <a class="el" href="../../d6/d0c/a05979.html#a798530d43191f94bd5cd6f8cfea846b3" title="RTOS::Timer::stop()">RTOS::Timer::stop()</a> afterwards if the timer must stay stopped.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dbb/a00932.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
+<div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> blinkFaster(<a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d6/d0c/a05979.html">RTOS::Timer</a> &amp; blink) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(blink.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d6/d0c/a05979.html#a331c5e9a5b7f5977af306617b8c42cb7">setPeriodMs</a>(250U));</div>
+<div class="line"><span class="keywordtype">void</span> exampleTask() noexcept {</div>
+<div class="line">    Sampler sampler;</div>
+<div class="line">    <span class="keywordflow">if</span> (!sampler.isValid()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Timer creation failed.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sampler.start()); <span class="comment">// Starts periodic calls to handleTickEvent().</span></div>
+<div class="line">    <span class="comment">// ...</span></div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sampler.stop());</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05979_html"><div class="ttname"><a href="../../d6/d0c/a05979.html">RTOS::Timer</a></div><div class="ttdoc">RAII wrapper for managing FreeRTOS software timer resources.</div><div class="ttdef"><b>Definition</b> Timer.hpp:51</div></div>
-<div class="ttc" id="aa05979_html_a331c5e9a5b7f5977af306617b8c42cb7"><div class="ttname"><a href="../../d6/d0c/a05979.html#a331c5e9a5b7f5977af306617b8c42cb7">RTOS::Timer::setPeriodMs</a></div><div class="ttdeci">Status setPeriodMs(uint32_t periodMs, TickType blockTime=DEFAULT_BLOCK_TIME) noexcept</div><div class="ttdoc">Sets period in milliseconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:505</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

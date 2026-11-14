@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Timer::TimInputCapture</title>
+<title>IAR EWARM Library: Lib::HAL::StreamSerialPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,86 +92,91 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimInputCapture</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::StreamSerialPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Measures the time of input edges with <a class="el" href="../../dd/d7d/a06202.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a>.</p>
-<p>Measures the time of input edges with <a class="el" href="../../dd/d7d/a06202.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a>. The capture interrupt wakes the task blocked in <a class="el" href="../../da/dfb/a05547.html#a2732cd4549f6b1ca08da0cbcb462f404" title="Lib::HAL::Timer::TimInputCapture::waitCapture()">Lib::HAL::Timer::TimInputCapture::waitCapture()</a>, and the task reads the captured counter value with <a class="el" href="../../da/dfb/a05547.html#ac7f8fd84985b45a4db579b480aaf5251" title="Lib::HAL::Timer::TimInputCapture::getCapture()">Lib::HAL::Timer::TimInputCapture::getCapture()</a>. Call <a class="el" href="../../da/dfb/a05547.html#add28b2f0b32350281b1f47c4e4e25e84" title="Lib::HAL::Timer::TimInputCapture::start()">Lib::HAL::Timer::TimInputCapture::start()</a> from that task, because it binds the task that will wait.</p>
-<p>The header defines the HAL callback <b>HAL_TIM_IC_CaptureCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; all reading and processing happen in the task, never in the ISR.</p>
+<p>Reads a UART byte stream with <a class="el" href="../../dd/d7d/a06202.html" title="Lib::HAL::StreamSerialPort">Lib::HAL::StreamSerialPort</a>, which receives one byte at a time in an interrupt and pushes it into an <a class="el" href="../../d3/d12/a06268.html" title="RTOS::StreamBuffer">RTOS::StreamBuffer</a> that one task reads.</p>
+<p>Reads a UART byte stream with <a class="el" href="../../dd/d7d/a06202.html" title="Lib::HAL::StreamSerialPort">Lib::HAL::StreamSerialPort</a>, which receives one byte at a time in an interrupt and pushes it into an <a class="el" href="../../d3/d12/a06268.html" title="RTOS::StreamBuffer">RTOS::StreamBuffer</a> that one task reads. Writes are blocking and run in task context. The port wraps a CubeMX <em class="arg">UART_HandleTypeDef</em>. Its <a class="el" href="../../d6/d3f/a05571.html#a1b052f09718429b991946fea7724f411" title="Lib::HAL::StreamSerialPort::open()">Lib::HAL::StreamSerialPort::open()</a> calls only <b>HAL_UART_Init()</b>; the pins and the clock come from the CubeMX MSP init code.</p>
+<p>Only one task may call <a class="el" href="../../d6/d3f/a05571.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="Lib::HAL::StreamSerialPort::read()">Lib::HAL::StreamSerialPort::read()</a> and <a class="el" href="../../d6/d3f/a05571.html#ad313993195f0d6ea829d9c7b61df667f" title="Lib::HAL::StreamSerialPort::discardInput()">Lib::HAL::StreamSerialPort::discardInput()</a>; the stream buffer has a single reader. Up to four ports can be open at once, because the interrupt finds the owning port by its handle in a table of four entries.</p>
+<dl class="section important"><dt>Important</dt><dd>The class is compiled only when <em class="arg">HAL_UART_MODULE_ENABLED</em> is defined. The project's 'EWARM/Core/Inc/stm32f4xx_hal_conf.h' defines it, together with <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> set to <b>1</b>.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timic_usage_hw"></a>
-Hardware and CubeMX assumptions</h3>
-<ul>
-<li>Timer channel (here <em class="arg">TIM2</em>, <em class="arg">TIM_CHANNEL_1</em>) set to <em>Input Capture direct mode</em>, with the capture interrupt enabled in the NVIC.</li>
-<li>Input filter and edge polarity are set in CubeMX. The wrapper does not change them.</li>
-<li>One <a class="el" href="../../dd/d7d/a06202.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a> per timer handle.</li>
-</ul>
+<h3 class="doxsection"><a class="anchor" id="stream_usage_config"></a>
+Construction and lifecycle</h3>
+<p>The <a class="el" href="../../d5/da0/a05575.html" title="Lib::HAL::StreamSerialPort::Config">Lib::HAL::StreamSerialPort::Config</a> struct takes the CubeMX handle and the receive capacity in bytes. The constructor does not touch the hardware; <a class="el" href="../../d6/d3f/a05571.html#a1b052f09718429b991946fea7724f411" title="Lib::HAL::StreamSerialPort::open()">Lib::HAL::StreamSerialPort::open()</a> initializes the UART when it is still in the reset state, allocates the stream once, and arms the first one-byte reception. It returns <b>true</b> when the port is already open. <a class="el" href="../../d6/d3f/a05571.html#af4d1dbc5fcd691c510918d277281ee6e" title="Lib::HAL::StreamSerialPort::close()">Lib::HAL::StreamSerialPort::close()</a> aborts the reception and de-initializes the UART, so its pins return to the analog state and a powered-down device is not back-fed through TX. The destructor closes an open port.</p>
+<p>The CubeMX init must set <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> to <b>1</b>, because the port registers its own RX-complete and error callbacks.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timic_usage_measure"></a>
-Measuring edge timing in a task</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/d94/a00716.html">Lib/HAL/TIM/TimInputCapture.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="stream_usage_isr"></a>
+Interrupt hook</h3>
+<p>No application code runs in the interrupt. The CubeMX <b>USART2_IRQHandler()</b> must call <b>HAL_UART_IRQHandler()</b> for the handle, which fires the callbacks registered by <a class="el" href="../../d6/d3f/a05571.html#a1b052f09718429b991946fea7724f411" title="Lib::HAL::StreamSerialPort::open()">Lib::HAL::StreamSerialPort::open()</a>. Each received byte is sent to the stream from the interrupt context, and a yield is requested when a higher-priority task woke up. A byte that does not fit is counted and can be read back with <a class="el" href="../../d6/d3f/a05571.html#a32276aa918b5679e4f0e8df69175063f" title="Lib::HAL::StreamSerialPort::getDroppedCount()">Lib::HAL::StreamSerialPort::getDroppedCount()</a>.</p>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="stream_usage_read"></a>
+Reading a frame</h3>
+<p><a class="el" href="../../d6/d3f/a05571.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="Lib::HAL::StreamSerialPort::read()">Lib::HAL::StreamSerialPort::read()</a> copies up to the size of the span and returns the number of bytes received. It returns 0 on timeout or while the port is closed, so a caller that expects a frame loops until it has collected enough bytes or a deadline has passed.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>EdgeMeter final {</div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>ModemReader final {</div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">explicit</span> EdgeMeter(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
-<div class="line">        capture(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>),</div>
-<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d8/d33/a05959.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;EdgeMeter&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d3/d4c/a05943.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
+<div class="line">    ModemReader() noexcept :</div>
+<div class="line">        port({</div>
+<div class="line">            .handle = &amp;huart2,</div>
+<div class="line">            .bufferSize = 256U,</div>
+<div class="line">        }) {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from the single reader task.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a1" name="_a1"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> port.open();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from the single reader task only; returns the number of bytes stored in &#39;frame&#39;.</span></div>
+<div class="line">    <span class="keywordtype">size_t</span> readFrame(std::span&lt;uint8_t&gt; frame) <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordtype">size_t</span> total = 0U;</div>
+<div class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> deadline = std::chrono::steady_clock::now() + <a id="a2" name="a2"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500);</div>
+<div class="line">        <span class="keywordflow">while</span> ((total &lt; frame.size()) &amp;&amp; (std::chrono::steady_clock::now() &lt; deadline)) {</div>
+<div class="line">            total += port.read(frame.subspan(total), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(20));</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> total;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">private</span>:</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../da/dfb/a05547.html">Lib::HAL::Timer::TimInputCapture</a> capture; <span class="comment">// Constructed before the task starts using it.</span></div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../dd/d7b/a05939.html">RTOS::Task</a> task;                          <span class="comment">// Must stay the last member.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!capture.<a id="a6" name="a6"></a><a class="code hl_function" href="../../da/dfb/a05547.html#add28b2f0b32350281b1f47c4e4e25e84">start</a>()) {</div>
-<div class="line">            assert(!<span class="stringliteral">&quot;EdgeMeter: input capture failed to start&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        uint32_t previous = 0U;</div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keywordflow">if</span> (!capture.<a id="a7" name="a7"></a><a class="code hl_function" href="../../da/dfb/a05547.html#a2732cd4549f6b1ca08da0cbcb462f404">waitCapture</a>(<a id="_a8" name="_a8"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
-<div class="line">                previous = 0U; <span class="comment">// No edge within 100 ms; restart the interval.</span></div>
-<div class="line">                <span class="keywordflow">continue</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keyword">const</span> uint32_t current = capture.<a id="a9" name="a9"></a><a class="code hl_function" href="../../da/dfb/a05547.html#ac7f8fd84985b45a4db579b480aaf5251">getCapture</a>();</div>
-<div class="line">            <span class="keyword">const</span> uint32_t interval = current - previous; <span class="comment">// Unsigned subtraction handles counter wrap-around.</span></div>
-<div class="line">            previous = current;</div>
-<div class="line">            <span class="comment">// Use interval (in timer ticks).</span></div>
-<div class="line">        }</div>
-<div class="line">    }</div>
+<div class="line">    <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a> port;</div>
 <div class="line">};</div>
+<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00716_html"><div class="ttname"><a href="../../d2/d94/a00716.html">TimInputCapture.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware Input Capture interface using STM32 Timers.</div></div>
-<div class="ttc" id="aa00974_html"><div class="ttname"><a href="../../df/dce/a00974.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
-<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa00734_html"><div class="ttname"><a href="../../d6/dc0/a00734.html">StreamSerialPort.hpp</a></div><div class="ttdoc">Interrupt-driven UART with a continuous receive stream, for devices that talk without being asked.</div></div>
+<div class="ttc" id="aa01149_html_ga5de4a49eb132735325e706f406c69d6e"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a></div><div class="ttdeci">struct __UART_HandleTypeDef UART_HandleTypeDef</div></div>
 <div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa05547_html"><div class="ttname"><a href="../../da/dfb/a05547.html">Lib::HAL::Timer::TimInputCapture</a></div><div class="ttdoc">Controls one hardware timer channel configured under an active Input Capture profile.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:38</div></div>
-<div class="ttc" id="aa05547_html_a2732cd4549f6b1ca08da0cbcb462f404"><div class="ttname"><a href="../../da/dfb/a05547.html#a2732cd4549f6b1ca08da0cbcb462f404">Lib::HAL::Timer::TimInputCapture::waitCapture</a></div><div class="ttdeci">bool waitCapture(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the next edge is captured.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:109</div></div>
-<div class="ttc" id="aa05547_html_ac7f8fd84985b45a4db579b480aaf5251"><div class="ttname"><a href="../../da/dfb/a05547.html#ac7f8fd84985b45a4db579b480aaf5251">Lib::HAL::Timer::TimInputCapture::getCapture</a></div><div class="ttdeci">uint32_t getCapture() const noexcept</div><div class="ttdoc">Reads the counter value latched at the last captured edge.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:134</div></div>
-<div class="ttc" id="aa05547_html_add28b2f0b32350281b1f47c4e4e25e84"><div class="ttname"><a href="../../da/dfb/a05547.html#add28b2f0b32350281b1f47c4e4e25e84">Lib::HAL::Timer::TimInputCapture::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the channel with its capture interrupt; the calling task becomes the one waitCapture() serves.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:75</div></div>
-<div class="ttc" id="aa05939_html"><div class="ttname"><a href="../../dd/d7b/a05939.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
-<div class="ttc" id="aa05943_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d3/d4c/a05943.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:87</div></div>
-<div class="ttc" id="aa05959_html"><div class="ttname"><a href="../../d8/d33/a05959.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
+<div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
+<div class="ttc" id="aa05571_html"><div class="ttname"><a href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a></div><div class="ttdoc">UART port that receives continuously into a stream buffer and transmits by polling.</div><div class="ttdef"><b>Definition</b> StreamSerialPort.hpp:50</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timic_usage_stop"></a>
-Stopping capture</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/d94/a00716.html">Lib/HAL/TIM/TimInputCapture.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="stream_usage_write"></a>
+Writing and resynchronizing</h3>
+<p><a class="el" href="../../d6/d3f/a05571.html#a0a35058ffe6e3bb6d1a5a9fb335c3588" title="Lib::HAL::StreamSerialPort::write()">Lib::HAL::StreamSerialPort::write()</a> accepts a byte span or a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html" title="std::string_view">std::string_view</a> and returns <b>true</b> only when every byte was sent. Before a new exchange, <a class="el" href="../../d6/d3f/a05571.html#ad313993195f0d6ea829d9c7b61df667f" title="Lib::HAL::StreamSerialPort::discardInput()">Lib::HAL::StreamSerialPort::discardInput()</a> drops bytes left from an earlier, unanswered message. Like <a class="el" href="../../d6/d3f/a05571.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="Lib::HAL::StreamSerialPort::read()">Lib::HAL::StreamSerialPort::read()</a>, it belongs to the single reader task.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> stopMeasuring(<a class="code hl_class" href="../../da/dfb/a05547.html">Lib::HAL::Timer::TimInputCapture</a> &amp; capture) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(capture.stop());</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Call from the single reader task only.</span></div>
+<div class="line"><span class="keywordtype">bool</span> sendCommand(<a class="code hl_class" href="../../d6/d3f/a05571.html">Lib::HAL::StreamSerialPort</a> &amp; port) <span class="keyword">noexcept</span> {</div>
+<div class="line">    port.discardInput();</div>
+<div class="line">    <span class="keywordflow">return</span> port.write(<a id="_a4" name="_a4"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>(<span class="stringliteral">&quot;AT\r\n&quot;</span>), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00215_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00215.html">string_view</a></div></div>
+<div class="ttc" id="aa02950_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
