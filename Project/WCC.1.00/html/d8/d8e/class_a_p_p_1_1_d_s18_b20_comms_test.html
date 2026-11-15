@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>DS18B20 1-Wire link self-test singleton: presence pulse, ROM identity and CRC-checked temperature reads. </p>
-<p><b>TEST ONLY:</b> opens the sensor through <a class="el" href="../../d1/dc4/class_b_s_p_1_1_d_s18_b20.html#abb2516ce61ac4bdf09f335c038f560cd" title="BSP::DS18B20::instance()">BSP::DS18B20::instance()</a> like <a class="el" href="../../d6/d63/class_a_p_p_1_1_external_thermometer.html" title="APP::ExternalThermometer">APP::ExternalThermometer</a> does, retrying every 2 s and checking the device identity on every retry. Then every 5 s it checks the presence pulse and reads the temperature (<em class="arg">readTemperatureCelsius()</em>: reset, Skip ROM, Convert T, scratchpad read with CRC-8 check), so a successful read already proves the 1-Wire timing and the pull-up. It also flags a reading outside -55..125 C and counts the +85.0 C power-on default (a read before the conversion finished).</p>
-<p>The result and the counters are published in the Live Watch structure <b>APP::ds18b20CommsWatch</b>. A failed attempt stops at an assert naming it, a good read at '__BKPT(1)' (debug build).</p>
+<p><b>TEST ONLY:</b> opens the sensor through <a class="el" href="../../d1/dc4/class_b_s_p_1_1_d_s18_b20.html#abb2516ce61ac4bdf09f335c038f560cd" title="BSP::DS18B20::instance()">BSP::DS18B20::instance()</a> like <a class="el" href="../../d6/d63/class_a_p_p_1_1_external_thermometer.html" title="APP::ExternalThermometer">APP::ExternalThermometer</a> does, retrying every 2 s and checking the device identity on every retry. Then every 5 s it checks the presence pulse and reads the temperature (<em class="arg">readTemperatureCelsius()</em>: reset, Skip ROM, Convert T, scratchpad read with CRC-8 check), so a successful read already proves the 1-Wire timing and the pull-up. It also flags a reading outside -55..125°C and counts the +85.0°C power-on default (a read before the conversion finished).</p>
+<p>The result and the counters are published in the Live Watch structure <b>APP::ds18b20CommsWatch</b>. A failed attempt stops at an assert naming it, a good read at <em class="arg">__BKPT(1)</em> (debug build).</p>
 <dl class="section important"><dt>Important</dt><dd><a class="el" href="../../d6/d63/class_a_p_p_1_1_external_thermometer.html" title="APP::ExternalThermometer">APP::ExternalThermometer</a> must be disabled while this runs: both use the same pin.</dd></dl>
 <hr  />
  <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/WCC-Firmware/blob/main/Project/Tests/doc/DS18B20CommsTest.md">Detail Description</a> </dd>
@@ -157,7 +157,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a60d278262782e3c3408466bcdbb07da3" id="r_a60d278262782e3c3408466bcdbb07da3"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a60d278262782e3c3408466bcdbb07da3">getReadFailures</a> () const noexcept</td></tr>
 <tr class="memdesc:a60d278262782e3c3408466bcdbb07da3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of attempts with a missing or CRC-invalid scratchpad.  <br /></td></tr>
 <tr class="memitem:abc4516c59ca30b002253276f0c591539" id="r_abc4516c59ca30b002253276f0c591539"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#abc4516c59ca30b002253276f0c591539">getPowerOnDefaultCount</a> () const noexcept</td></tr>
-<tr class="memdesc:abc4516c59ca30b002253276f0c591539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of valid, CRC-correct readings exactly at the DS18B20 power-on default (+85.0 C).  <br /></td></tr>
+<tr class="memdesc:abc4516c59ca30b002253276f0c591539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of valid, CRC-correct readings exactly at the DS18B20 power-on default (+85.0°C).  <br /></td></tr>
 <tr class="memitem:a13f8d337a128f74237c25413c12c19fe" id="r_a13f8d337a128f74237c25413c12c19fe"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a13f8d337a128f74237c25413c12c19fe">getRomCheckValid</a> () const noexcept</td></tr>
 <tr class="memdesc:a13f8d337a128f74237c25413c12c19fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns whether the latest device-identity check passed (presence, CRC-8 and family code all matched).  <br /></td></tr>
 </table><table class="memberdecls">
@@ -199,7 +199,7 @@ Static Public Member Functions</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="af1f47ec2dcef1f9ae1ead2660f65b786a82fbe87835b941addda10c26ff6e98d6" name="af1f47ec2dcef1f9ae1ead2660f65b786a82fbe87835b941addda10c26ff6e98d6"></a>READ_FAILED&#160;</td><td class="fielddoc"><p>Presence seen, but no scratchpad came back or its CRC-8 did not match. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="af1f47ec2dcef1f9ae1ead2660f65b786a6feaf66704b269610cff9431d5519cad" name="af1f47ec2dcef1f9ae1ead2660f65b786a6feaf66704b269610cff9431d5519cad"></a>OUT_OF_RANGE&#160;</td><td class="fielddoc"><p>A valid, CRC-correct reading outside -55..125 C. </p>
+<tr><td class="fieldname"><a id="af1f47ec2dcef1f9ae1ead2660f65b786a6feaf66704b269610cff9431d5519cad" name="af1f47ec2dcef1f9ae1ead2660f65b786a6feaf66704b269610cff9431d5519cad"></a>OUT_OF_RANGE&#160;</td><td class="fielddoc"><p>A valid, CRC-correct reading outside -55..125°C. </p>
 </td></tr>
 </table>
 
@@ -260,7 +260,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the last temperature read, regardless of plausibility. </p>
-<dl class="section return"><dt>Returns</dt><dd>Degrees Celsius; <b>0</b> before the first successful read. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>°C; <b>0</b> before the first successful read. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#ae01a3c21f3f61eb56f224665b77446c3">getLastTemperature()</a>.</p>
 
@@ -289,7 +289,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of valid, CRC-correct readings exactly at the DS18B20 power-on default (+85.0 C). </p>
+<p>Returns the number of valid, CRC-correct readings exactly at the DS18B20 power-on default (+85.0°C). </p>
 <dl class="section return"><dt>Returns</dt><dd>Count since start; a non-zero value hints at a read before the conversion finished. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#abc4516c59ca30b002253276f0c591539">getPowerOnDefaultCount()</a>.</p>
