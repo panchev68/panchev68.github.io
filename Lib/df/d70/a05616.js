@@ -1,18 +1,15 @@
 var a05616 =
 [
-    [ "DateString", "df/d70/a05616.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
-    [ "Date", "df/d70/a05616.html#a93def70969fc16974f55e56219a01b0f", null ],
-    [ "Date", "df/d70/a05616.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
-    [ "getDayOfWeek", "df/d70/a05616.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
-    [ "getDayOfYear", "df/d70/a05616.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
-    [ "isValid", "df/d70/a05616.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
-    [ "operator<=>", "df/d70/a05616.html#a7a7ccaefa33e38ba99be918a93731119", null ],
-    [ "operator==", "df/d70/a05616.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
-    [ "toString", "df/d70/a05616.html#a70ecfff686d88d444a44393965b296e5", null ],
-    [ "toSysDays", "df/d70/a05616.html#a59f67718a1b057bca29012a393547479", null ],
-    [ "toYearMonthDay", "df/d70/a05616.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
-    [ "DateTime", "df/d70/a05616.html#ae3d4a8787eced68c65a23f5906c11add", null ],
-    [ "day", "df/d70/a05616.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
-    [ "month", "df/d70/a05616.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
-    [ "year", "df/d70/a05616.html#a1026d89f27e48fd23eccde7a9850b302", null ]
+    [ "I2CPort", "df/d70/a05616.html#a5ed7014d6c1bb4669c90ada1b61bbffe", null ],
+    [ "~I2CPort", "df/d70/a05616.html#a28d64cb04bd2cd5f1648ac33b94bf4ec", null ],
+    [ "abort", "df/d70/a05616.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "close", "df/d70/a05616.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "df/d70/a05616.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "df/d70/a05616.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "df/d70/a05616.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "masterMemRead", "df/d70/a05616.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "df/d70/a05616.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "df/d70/a05616.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "df/d70/a05616.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "df/d70/a05616.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

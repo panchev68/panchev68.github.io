@@ -1,14 +1,12 @@
 var a04452 =
 [
-    [ "Mifare", "d7/d79/a04452.html#a32c5c26548db5a62c135d462408f7eb8", null ],
-    [ "~Mifare", "d7/d79/a04452.html#ab9292dbd07d2f2f0a579729beadce81a", null ],
-    [ "adjustValue", "d7/d79/a04452.html#ae63c40816081c83b32237540fa351d20", null ],
-    [ "authenticate", "d7/d79/a04452.html#a646ed2b83f740acca2902cf2bd94584a", null ],
-    [ "decrement", "d7/d79/a04452.html#ad4aef0d4dd5dd87530916fd4e7899410", null ],
-    [ "formatValueBlock", "d7/d79/a04452.html#ae321e9f7437818d3481f77afa3da63ec", null ],
-    [ "increment", "d7/d79/a04452.html#a419ae2e457e93dfb3ad77a301758f796", null ],
-    [ "readBlock", "d7/d79/a04452.html#ac2dfd03cabc019b9f3bf484f8affa113", null ],
-    [ "restore", "d7/d79/a04452.html#a7dee5ed9db810229e38b0299ec1ed31a", null ],
-    [ "transfer", "d7/d79/a04452.html#a7eac216ac4049cd65471896003a0d925", null ],
-    [ "writeBlock", "d7/d79/a04452.html#a602509a99b488ae6354b4c75e9335610", null ]
+    [ "Inputs", "d7/d79/a04452.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
+    [ "getChangesCounter", "d7/d79/a04452.html#a02a156f7de35ad87391858c4284826ce", null ],
+    [ "getSpiHandle", "d7/d79/a04452.html#afb55a694371e388292f94be2800d26b6", null ],
+    [ "getValue", "d7/d79/a04452.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
+    [ "postUpdateCallback", "d7/d79/a04452.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
+    [ "preUpdateCallback", "d7/d79/a04452.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
+    [ "setup", "d7/d79/a04452.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
+    [ "update", "d7/d79/a04452.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
+    [ "onValueChanged", "d7/d79/a04452.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
 ];

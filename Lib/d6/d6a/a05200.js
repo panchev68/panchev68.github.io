@@ -1,10 +1,9 @@
 var a05200 =
 [
-    [ "Network", "d6/d6a/a05200.html#a8a79b18c344e852b7407c0494a82adbd", null ],
-    [ "getLocation", "d6/d6a/a05200.html#ae9cf143ddf2ac77a89fc8c55a4ad2d9a", null ],
-    [ "getRegistration", "d6/d6a/a05200.html#a0ba5a1946fdef5898098ae433c7bbc7e", null ],
-    [ "getSignalQuality", "d6/d6a/a05200.html#a7b216bf9beb5eb9b492df275322bf91d", null ],
-    [ "getTime", "d6/d6a/a05200.html#aa9ea33855abc5d4e08af811d8fb170bf", null ],
-    [ "setLTEOnly", "d6/d6a/a05200.html#a037d7f7905180a50e7c67ccb4b32340a", null ],
-    [ "waitForRegistration", "d6/d6a/a05200.html#a7b0d5756f219ac0622081018e2667b81", null ]
+    [ "writeTo", "d6/d6a/a05200.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
+    [ "atCommand", "d6/d6a/a05200.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
+    [ "dstAddr", "d6/d6a/a05200.html#a15159440eb1dacb4ae4b49aa36144863", null ],
+    [ "frameId", "d6/d6a/a05200.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
+    [ "parameters", "d6/d6a/a05200.html#a69a8b0f293677febe578417b21dbba6b", null ],
+    [ "remoteCommandOption", "d6/d6a/a05200.html#ae4922577edd7679e2964fb14f35bc919", null ]
 ];

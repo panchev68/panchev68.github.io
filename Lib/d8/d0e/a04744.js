@@ -1,11 +1,8 @@
 var a04744 =
 [
-    [ "WolfSSLRandom", "d8/d0e/a04744.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
-    [ "~WolfSSLRandom", "d8/d0e/a04744.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
-    [ "WolfSSLRandom", "d8/d0e/a04744.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
-    [ "WolfSSLRandom", "d8/d0e/a04744.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
-    [ "generate", "d8/d0e/a04744.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
-    [ "native", "d8/d0e/a04744.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
-    [ "operator=", "d8/d0e/a04744.html#a2b57fbc329feeb209aa7f41b29608488", null ],
-    [ "operator=", "d8/d0e/a04744.html#a61facc5365a377d384371cb51442e897", null ]
+    [ "operator==", "d8/d0e/a04744.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
+    [ "blue", "d8/d0e/a04744.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
+    [ "green", "d8/d0e/a04744.html#aaac4b49f8ced6f8a10842162f110217d", null ],
+    [ "red", "d8/d0e/a04744.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
+    [ "white", "d8/d0e/a04744.html#a272f822cae4bd3b8e993080e2317636e", null ]
 ];

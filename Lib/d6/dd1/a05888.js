@@ -1,8 +1,7 @@
 var a05888 =
 [
-    [ "Config", "d6/dd1/a05888.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
-    [ "callback", "d6/dd1/a05888.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
-    [ "mode", "d6/dd1/a05888.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
-    [ "name", "d6/dd1/a05888.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
-    [ "period", "d6/dd1/a05888.html#ae81cad8de025f71497b5b241c41da1eb", null ]
+    [ "Delay", "d6/dd1/a05888.html#ae05989164bd1c17d9508a274c9c8efc6", null ],
+    [ "~Delay", "d6/dd1/a05888.html#abab8b5337f9a0a494dc33f550b7d898b", null ],
+    [ "Delay", "d6/dd1/a05888.html#a1cb3786f2784e6c6c42979b9860a5c4b", null ],
+    [ "operator=", "d6/dd1/a05888.html#a62e0ff423d0e589d0757d35725eaf0b2", null ]
 ];

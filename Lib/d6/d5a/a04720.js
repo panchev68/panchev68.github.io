@@ -1,7 +1,6 @@
 var a04720 =
 [
-    [ "Digest", "d6/d5a/a04720.html#a177e084473b0593a7a7d9bf1e0dce133", null ],
-    [ "SHA256", "d6/d5a/a04720.html#a495e4d841b6752aecbcdaa9d1c805420", null ],
-    [ "finish", "d6/d5a/a04720.html#abcfe6df3f9c2f8197fd365f99e07551f", null ],
-    [ "update", "d6/d5a/a04720.html#a79e12cbf01846349b78a18c75338c38e", null ]
+    [ "operator==", "d6/d5a/a04720.html#aaffc1273857ce092dc8ef57f2f569797", null ],
+    [ "address", "d6/d5a/a04720.html#ad4d0d62f304ebdd08f759f363dd3932a", null ],
+    [ "value", "d6/d5a/a04720.html#ac1e3de78a37a7229dfb525e2b82a1b4b", null ]
 ];

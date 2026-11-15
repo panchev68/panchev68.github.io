@@ -1,5 +1,6 @@
 var a05152 =
 [
-    [ "rxMessageCounter", "d5/d9c/a05152.html#ae09c04483f8353c553a966fcfd32c214", null ],
-    [ "txMessageCounter", "d5/d9c/a05152.html#a4286c02031295ce311297c75eee43398", null ]
+    [ "lengthLSB", "d5/d9c/a05152.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
+    [ "lengthMSB", "d5/d9c/a05152.html#a975df99244301d7a71b2c326555ba6fd", null ],
+    [ "startDelimiter", "d5/d9c/a05152.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
 ];

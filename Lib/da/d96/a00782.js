@@ -1,4 +1,4 @@
 var a00782 =
 [
-    [ "Lib::HAL::WindowWatchdog", "d2/d44/a05675.html", "d2/d44/a05675" ]
+    [ "Lib::HAL::LPTimer", "d2/d02/a05708.html", "d2/d02/a05708" ]
 ];

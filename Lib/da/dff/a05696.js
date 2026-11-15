@@ -1,13 +1,16 @@
 var a05696 =
 [
-    [ "WolfSSLTransport", "da/dff/a05696.html#a902fc980deaff7372065ac354e424bd7", null ],
-    [ "~WolfSSLTransport", "da/dff/a05696.html#a1af1ec7c8459af557cecf30e2fce9851", null ],
-    [ "WolfSSLTransport", "da/dff/a05696.html#ac66ebbbe5867fdc9e41b120f0703afd9", null ],
-    [ "WolfSSLTransport", "da/dff/a05696.html#aee33a9d5d619aea80630e5c113bc940c", null ],
-    [ "close", "da/dff/a05696.html#afc96144cd745fe9fc116e7fa03ea0c00", null ],
-    [ "open", "da/dff/a05696.html#a34b1d6a735d69895b3381e71a3d7b24f", null ],
-    [ "operator=", "da/dff/a05696.html#a65c79de2e76f70c00d2a7117462aef12", null ],
-    [ "operator=", "da/dff/a05696.html#ac0b3753689c57f39a30e72868cac2919", null ],
-    [ "receive", "da/dff/a05696.html#a665163ec5d248c6f5f86737aec8901e8", null ],
-    [ "send", "da/dff/a05696.html#a609db5ba4b95a1e99a742291477e322b", null ]
+    [ "SPIPortAsync", "da/dff/a05696.html#abce1f805b84c4710a11d7e558b87de55", null ],
+    [ "abort", "da/dff/a05696.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
+    [ "bindBeginTransactionFunc", "da/dff/a05696.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "da/dff/a05696.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "da/dff/a05696.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "da/dff/a05696.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "da/dff/a05696.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isBusy", "da/dff/a05696.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "isOpened", "da/dff/a05696.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "da/dff/a05696.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "da/dff/a05696.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "da/dff/a05696.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "da/dff/a05696.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

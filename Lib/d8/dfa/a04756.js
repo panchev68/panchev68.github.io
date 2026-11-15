@@ -1,14 +1,15 @@
 var a04756 =
 [
-    [ "SharedSecret", "d8/dfa/a04756.html#a7fbb5355ccfc526d83b2d67eadb425c8", null ],
-    [ "WolfSSLEcc", "d8/dfa/a04756.html#a19debb4d33bed3fade556263320330f7", null ],
-    [ "~WolfSSLEcc", "d8/dfa/a04756.html#ab882988b2ec1b1494dbe8f30062bd13e", null ],
-    [ "WolfSSLEcc", "d8/dfa/a04756.html#acfed6fbd26a4fb663e7aec5f8408e3f4", null ],
-    [ "WolfSSLEcc", "d8/dfa/a04756.html#ab7483aff9567983a99ff831e7bfcf284", null ],
-    [ "generateKey", "d8/dfa/a04756.html#a17edfaa1f02adf3fdd3a15dacc409b5d", null ],
-    [ "operator=", "d8/dfa/a04756.html#a3309d37d1e7115e7a81b80cee385c0f3", null ],
-    [ "operator=", "d8/dfa/a04756.html#a251a0fe821d569d4e0f785056ced42d7", null ],
-    [ "sharedSecret", "d8/dfa/a04756.html#a6c37442161fbe64b4d931ffc6a6f8997", null ],
-    [ "sign", "d8/dfa/a04756.html#ad2b17e604dc8ee9188ffc9a54dc87b46", null ],
-    [ "verify", "d8/dfa/a04756.html#a22a3ef4290390aa55282ade89d4bd8e4", null ]
+    [ "TimerHandler", "db/dc8/a04760.html", "db/dc8/a04760" ],
+    [ "Config", "da/deb/a04764.html", "da/deb/a04764" ],
+    [ "PinHandle", "d8/dfa/a04756.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
+    [ "Base", "d8/dfa/a04756.html#af14f0b64c88d8857e32beeba9d6c6493", null ],
+    [ "~Base", "d8/dfa/a04756.html#a07a6568f25502674c91a864497867548", null ],
+    [ "beginReceiveData", "d8/dfa/a04756.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
+    [ "endReceivedData", "d8/dfa/a04756.html#a63785a9b88d7556f54e1e71118a760d4", null ],
+    [ "start", "d8/dfa/a04756.html#a5413ce6c3ea6e0e7f1a36a6835ca9247", null ],
+    [ "startupImpulse", "d8/dfa/a04756.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
+    [ "waitForComplete", "d8/dfa/a04756.html#a9b5b96a6106c15c974463750529471d0", null ],
+    [ "writePinState", "d8/dfa/a04756.html#a049430e063b46db8f7e7401c0af75df7", null ],
+    [ "config", "d8/dfa/a04756.html#a3b31347dab82ede045f6e076046e5762", null ]
 ];

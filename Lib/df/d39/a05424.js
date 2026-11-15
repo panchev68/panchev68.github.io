@@ -1,11 +1,17 @@
 var a05424 =
 [
-    [ "SPIPort", "df/d39/a05424.html#a6887b333ef818d3bd80112c8ce57998d", null ],
-    [ "~SPIPort", "df/d39/a05424.html#ad6c6de84d5713ce3f16ae3047ec949a1", null ],
-    [ "abort", "df/d39/a05424.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
-    [ "close", "df/d39/a05424.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "df/d39/a05424.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "df/d39/a05424.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "df/d39/a05424.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "df/d39/a05424.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "PrecodeItem", "d4/d98/a05428.html", "d4/d98/a05428" ],
+    [ "Font", "df/d39/a05424.html#ab546b7da624d6c86565f7c20b42f2555", null ],
+    [ "~Font", "df/d39/a05424.html#a94034ca5fe0aab333dd01da14d4ddee9", null ],
+    [ "getCharWidth", "df/d39/a05424.html#a33c1d39d566b28e82f6ca32b4bc684ce", null ],
+    [ "getData", "df/d39/a05424.html#a99ea2802576602c250cdbabbba9b27ae", null ],
+    [ "getGlyph", "df/d39/a05424.html#a24911467c5fccc4051001287cd06860f", null ],
+    [ "getHeight", "df/d39/a05424.html#a1ec0552af57b37b1bde20157e32bab54", null ],
+    [ "getTextWidth", "df/d39/a05424.html#a6903b22b3b35bff094d26621af9ad58a", null ],
+    [ "getWidth", "df/d39/a05424.html#a5971065d766686d697a9719c6ca4097c", null ],
+    [ "hasGlyph", "df/d39/a05424.html#aad495337768e7e7e3b90a56afa5a2256", null ],
+    [ "isProportional", "df/d39/a05424.html#a9f8d70d11705336e56c58981312f4645", null ],
+    [ "resolve", "df/d39/a05424.html#a3acdc6e622f1a03a8ee7c4ae4ba1e1a9", null ],
+    [ "setPrecodeTable", "df/d39/a05424.html#a779d22d721622afa8b6162faa6ae7751", null ],
+    [ "translate", "df/d39/a05424.html#afa76af5b7694e0c495dcad485fc559db", null ]
 ];

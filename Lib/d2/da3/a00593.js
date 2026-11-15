@@ -1,4 +1,5 @@
 var a00593 =
 [
-    [ "Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;", "d0/d12/a05386.html", "d0/d12/a05386" ]
+    [ "Lib::GUI::Font", "df/d39/a05424.html", "df/d39/a05424" ],
+    [ "Lib::GUI::Font::PrecodeItem", "d4/d98/a05428.html", "d4/d98/a05428" ]
 ];

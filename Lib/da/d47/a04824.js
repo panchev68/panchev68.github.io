@@ -1,5 +1,5 @@
 var a04824 =
 [
-    [ "firmwareVersion", "da/d47/a04824.html#a8a213038d3ef462ae46b408da218a1eb", null ],
-    [ "hardwareVersion", "da/d47/a04824.html#adfbefffe4f1c4d33955752b2c3cd85e5", null ]
+    [ "decayPeriodMicroseconds", "da/d47/a04824.html#a12e79efa3a5a899b1e64d25ff5a0fdb3", null ],
+    [ "frequencyHz", "da/d47/a04824.html#a50257a628ef439fb965df1ee908f3e5e", null ]
 ];

@@ -1,7 +1,12 @@
 var a05948 =
 [
-    [ "firmwareSubversion", "de/db2/a05948.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
-    [ "firmwareVersionString", "de/db2/a05948.html#a6b83c53d998379f08471d89aead2818e", null ],
-    [ "hardwareSubversion", "de/db2/a05948.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
-    [ "hardwareVersionString", "de/db2/a05948.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
+    [ "getLocalTransition", "de/db2/a05948.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
+    [ "getOffset", "de/db2/a05948.html#a5b83c2cf38318866e23774caee880570", null ],
+    [ "isValid", "de/db2/a05948.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
+    [ "dayOfWeek", "de/db2/a05948.html#a71011003fee57e0e6420889a983146f2", null ],
+    [ "hour", "de/db2/a05948.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
+    [ "month", "de/db2/a05948.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
+    [ "offsetMinutes", "de/db2/a05948.html#ade82abb20d81fccacc264075f09a1667", null ],
+    [ "ruleName", "de/db2/a05948.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
+    [ "weekOfMonth", "de/db2/a05948.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
 ];

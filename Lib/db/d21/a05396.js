@@ -1,13 +1,9 @@
 var a05396 =
 [
-    [ "State", "db/d21/a05396.html#ae9f0fa1c20664b577fc615da59211d91", [
-      [ "UNKNOWN", "db/d21/a05396.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "POWER_ON", "db/d21/a05396.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
-      [ "BROWNOUT", "db/d21/a05396.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
-      [ "PIN", "db/d21/a05396.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
-      [ "SOFTWARE", "db/d21/a05396.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
-      [ "INDEPENDENT_WATCHDOG", "db/d21/a05396.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
-      [ "WINDOW_WATCHDOG", "db/d21/a05396.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
-      [ "LOW_POWER", "db/d21/a05396.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
-    ] ]
+    [ "FontScope", "db/d21/a05396.html#afb51acf5f900afa24daddd98d53a4f16", null ],
+    [ "~FontScope", "db/d21/a05396.html#a7ba17ca2985cf1fd5ee2c2cba69cae96", null ],
+    [ "FontScope", "db/d21/a05396.html#ae2ac273810904a0e55683d3f687a075e", null ],
+    [ "FontScope", "db/d21/a05396.html#abfadcacb673353bcec5428ce22f232fe", null ],
+    [ "operator=", "db/d21/a05396.html#adc1fb9cebc3b57c497930841e36c23ce", null ],
+    [ "operator=", "db/d21/a05396.html#a14b3211ff5f705efaa52316e61ec4faa", null ]
 ];

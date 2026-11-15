@@ -1,18 +1,9 @@
 var a04392 =
 [
-    [ "Command", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726", [
-      [ "WRITE_ENABLE", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "READ_STATUS_REGISTER1", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "QUAD_PAGE_PROGRAM", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
-      [ "FAST_READ_QUAD_IO", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
-      [ "SECTOR_ERASE", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "dd/d8e/a04392.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "dimmerMaxValue", "dd/d8e/a04392.html#a4f8b7a66b8c7a9f4517dade719803f4b", null ],
+    [ "dimmerMinValue", "dd/d8e/a04392.html#af51bd0ae2fb6abc537b29f613ed0b1ad", null ],
+    [ "fadeStep", "dd/d8e/a04392.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
+    [ "sleepTimeout", "dd/d8e/a04392.html#a7da153a96dbc9b64a78b1e5fc7e6691e", null ],
+    [ "timChannel", "dd/d8e/a04392.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
+    [ "timHandle", "dd/d8e/a04392.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
 ];

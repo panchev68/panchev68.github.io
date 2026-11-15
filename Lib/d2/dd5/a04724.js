@@ -1,11 +1,8 @@
 var a04724 =
 [
-    [ "Digest", "d2/dd5/a04724.html#a64f2dc888ae92e9d62a6cb46920ecbfc", null ],
-    [ "SHA256", "d2/dd5/a04724.html#ae261512ec5be0bfb16ede1ff9b2265d0", null ],
-    [ "SHA256", "d2/dd5/a04724.html#a03a051c073cce9b452a28fb40f911e88", null ],
-    [ "SHA256", "d2/dd5/a04724.html#a9bab9e477aeea4a1eb3091299eddc9c6", null ],
-    [ "finish", "d2/dd5/a04724.html#a5cd0fa14a06cde89274eea1d00a22c46", null ],
-    [ "operator=", "d2/dd5/a04724.html#ad5bdebc14ab4ffb181a07e57b3f42abc", null ],
-    [ "operator=", "d2/dd5/a04724.html#a7114367adabcd60f21fa613f649f47a3", null ],
-    [ "update", "d2/dd5/a04724.html#a12912b60a4fe22b09e7a961671550704", null ]
+    [ "operator==", "d2/dd5/a04724.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
+    [ "inPhaseMax", "d2/dd5/a04724.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
+    [ "inPhaseMin", "d2/dd5/a04724.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
+    [ "quadratureMax", "d2/dd5/a04724.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
+    [ "quadratureMin", "d2/dd5/a04724.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
 ];

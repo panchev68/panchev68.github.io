@@ -1,19 +1,15 @@
 var a05316 =
 [
-    [ "Output", "d8/df6/a05316.html#a1281e0a7881e9bbc4c5ab50eff8991a3", null ],
-    [ "~Output", "d8/df6/a05316.html#aa9c1a46117aa84b973279d61e591a610", null ],
-    [ "Output", "d8/df6/a05316.html#a2e5b8d5672d2476d29d0474439f58c30", null ],
-    [ "Output", "d8/df6/a05316.html#ab0a0cbf5fea7eaa9a5c04405b63cd798", null ],
-    [ "isHigh", "d8/df6/a05316.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d8/df6/a05316.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d8/df6/a05316.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "d8/df6/a05316.html#a8ee7e17225987004c3c73099e78d8b78", null ],
-    [ "operator=", "d8/df6/a05316.html#a3187afa0ce2671083228b6b536d45d4b", null ],
-    [ "operator=", "d8/df6/a05316.html#a13bc8e6bba332c350095666b72e568aa", null ],
-    [ "read", "d8/df6/a05316.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "setHigh", "d8/df6/a05316.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11", null ],
-    [ "setLow", "d8/df6/a05316.html#a0fc44f31312833d252e8aef8a1c4e361", null ],
-    [ "toggle", "d8/df6/a05316.html#ad11ab03ddf964b154331b7ffc708e4c2", null ],
-    [ "write", "d8/df6/a05316.html#a52416b95040bffe9915b005b33bc3600", null ],
-    [ "handle", "d8/df6/a05316.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "Error", "d8/df6/a05316.html#a9d7546738e259f57d9e431d88a39ac23", null ],
+    [ "Handlers", "d8/df6/a05316.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
+    [ "FoE", "d8/df6/a05316.html#ad7dd21bafde30794cef6a653baacc862", null ],
+    [ "~FoE", "d8/df6/a05316.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
+    [ "FoE", "d8/df6/a05316.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
+    [ "FoE", "d8/df6/a05316.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
+    [ "handle", "d8/df6/a05316.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
+    [ "isBusy", "d8/df6/a05316.html#a4463e44a62dae7598614225dc069e03c", null ],
+    [ "operator=", "d8/df6/a05316.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
+    [ "operator=", "d8/df6/a05316.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
+    [ "reset", "d8/df6/a05316.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
+    [ "setHandlers", "d8/df6/a05316.html#a39b767747ef43947171f73021ee9dd76", null ]
 ];

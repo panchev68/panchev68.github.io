@@ -1,7 +1,16 @@
 var a05620 =
 [
-    [ "Delay", "d3/d9a/a05620.html#ae05989164bd1c17d9508a274c9c8efc6", null ],
-    [ "~Delay", "d3/d9a/a05620.html#abab8b5337f9a0a494dc33f550b7d898b", null ],
-    [ "Delay", "d3/d9a/a05620.html#a1cb3786f2784e6c6c42979b9860a5c4b", null ],
-    [ "operator=", "d3/d9a/a05620.html#a62e0ff423d0e589d0757d35725eaf0b2", null ]
+    [ "I2CPortAsync", "d3/d9a/a05620.html#a97738073feff35b79d6bb11c9bd2f351", null ],
+    [ "abort", "d3/d9a/a05620.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "close", "d3/d9a/a05620.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d3/d9a/a05620.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d3/d9a/a05620.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isBusy", "d3/d9a/a05620.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isOpened", "d3/d9a/a05620.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "isReady", "d3/d9a/a05620.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "masterMemRead", "d3/d9a/a05620.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d3/d9a/a05620.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d3/d9a/a05620.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d3/d9a/a05620.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "d3/d9a/a05620.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

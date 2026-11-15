@@ -1,10 +1,14 @@
 var a04492 =
 [
-    [ "operator==", "d1/dc3/a04492.html#a76f4384c25c5a26bc057858df3c55875", null ],
-    [ "inPhaseAdc", "d1/dc3/a04492.html#ae284e93d7297470825441d553589ac6f", null ],
-    [ "inPhaseCalibration", "d1/dc3/a04492.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
-    [ "inPhaseReference", "d1/dc3/a04492.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
-    [ "quadratureAdc", "d1/dc3/a04492.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
-    [ "quadratureCalibration", "d1/dc3/a04492.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
-    [ "quadratureReference", "d1/dc3/a04492.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
+    [ "Config", "d1/d55/a04496.html", "d1/d55/a04496" ],
+    [ "TouchGFX_BW", "d1/dc3/a04492.html#a629c49ad3c29b04fe4667d8ef8409bc2", null ],
+    [ "~TouchGFX_BW", "d1/dc3/a04492.html#ac9a06a946e2693f723ed5521164d5370", null ],
+    [ "TouchGFX_BW", "d1/dc3/a04492.html#ab6069b983398128553bdf718bcf716e1", null ],
+    [ "TouchGFX_BW", "d1/dc3/a04492.html#aca7757926274df17a33250ddf8b75db7", null ],
+    [ "operator=", "d1/dc3/a04492.html#ab5b07ecfc9ff3420466ee1f075b7ef88", null ],
+    [ "operator=", "d1/dc3/a04492.html#a7261fe75da21d4043526149b813ea1b4", null ],
+    [ "start", "d1/dc3/a04492.html#a211165ae608dd89ad3920d9e042a5614", null ],
+    [ "stop", "d1/dc3/a04492.html#a4b7643e2769c427994de2c06fe67b113", null ],
+    [ "update", "d1/dc3/a04492.html#a954a747230bf0b9cbc0a41961c137743", null ],
+    [ "update", "d1/dc3/a04492.html#abd5c93f4750e9f09e727afd842f07987", null ]
 ];

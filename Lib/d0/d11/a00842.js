@@ -1,4 +1,4 @@
 var a00842 =
 [
-    [ "Lib::Helper::Sunset", "d9/dc9/a05774.html", "d9/dc9/a05774" ]
+    [ "Lib::HAL::USBHostPort&lt; DriverMode::DMA &gt;", "d0/d5d/a05800.html", "d0/d5d/a05800" ]
 ];

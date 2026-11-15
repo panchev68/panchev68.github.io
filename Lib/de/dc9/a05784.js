@@ -1,9 +1,31 @@
 var a05784 =
 [
-    [ "Lock", "d0/d9e/a05788.html", "d0/d9e/a05788" ],
-    [ "State", "de/dc9/a05784.html#a329f49803f7880dc5d4e70b422ef08ff", [
-      [ "SUSPENDED", "de/dc9/a05784.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
-      [ "NOT_STARTED", "de/dc9/a05784.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
-      [ "RUNNING", "de/dc9/a05784.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
-    ] ]
+    [ "EventHandler", "de/dc9/a05784.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
+    [ "USBDevicePortAsync", "de/dc9/a05784.html#a7465ed7b476e55cd6f1554dacb53e15f", null ],
+    [ "abort", "de/dc9/a05784.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
+    [ "clearStall", "de/dc9/a05784.html#a50fbc4a2665b215a95effd62660a0ac2", null ],
+    [ "close", "de/dc9/a05784.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "closeEndpoint", "de/dc9/a05784.html#a6ba2ed0453c274b531cb8b9d33a80db6", null ],
+    [ "connect", "de/dc9/a05784.html#aefd6500600303402511786eeaaf2b8fe", null ],
+    [ "disconnect", "de/dc9/a05784.html#a60749424c147e3347e02018c72910511", null ],
+    [ "flushEndpoint", "de/dc9/a05784.html#adb7c8a870ff66d6b2e5ba779b536c22c", null ],
+    [ "getHandle", "de/dc9/a05784.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "de/dc9/a05784.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getReceivedCount", "de/dc9/a05784.html#a39ec41ba413955481a2c57a076e433de", null ],
+    [ "getSetupPacket", "de/dc9/a05784.html#a1d83533b43ad863b76211ee532686a9b", null ],
+    [ "isOpened", "de/dc9/a05784.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "de/dc9/a05784.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "openEndpoint", "de/dc9/a05784.html#a514cb29eb2bdba3f9de5ad8685671285", null ],
+    [ "receive", "de/dc9/a05784.html#add4fb8ab17eac13116050ae3c8237acf", null ],
+    [ "send", "de/dc9/a05784.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
+    [ "setAddress", "de/dc9/a05784.html#a13f6d0f8f8693765b9e38b93a9316b7c", null ],
+    [ "setEventHandler", "de/dc9/a05784.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
+    [ "setRxFifo", "de/dc9/a05784.html#a8243db6e1f57194b390dc675419a65ae", null ],
+    [ "setTxFifo", "de/dc9/a05784.html#abbe2ea9718784caab5c210d61c582e87", null ],
+    [ "stallEndpoint", "de/dc9/a05784.html#a6af92c35c4cfa77a15f20a4bf55698ea", null ],
+    [ "start", "de/dc9/a05784.html#a1f538f3e7aec739023c189ee6fe3550b", null ],
+    [ "stop", "de/dc9/a05784.html#a920b0e6cfe3123e61804850a3420975e", null ],
+    [ "submitReceive", "de/dc9/a05784.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
+    [ "submitSend", "de/dc9/a05784.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
+    [ "waitForEvent", "de/dc9/a05784.html#ac98dece292bb17828882e8d61e803880", null ]
 ];

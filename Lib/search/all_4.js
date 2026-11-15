@@ -291,7 +291,7 @@ var searchData=
   ['block_5ferase_5f32k_288',['BLOCK_ERASE_32K',['../dc/d0d/a04588.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63',1,'Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register::BLOCK_ERASE_32K'],['../d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63',1,'Lib::BSP::W25Q128JVSIQ::Register::BLOCK_ERASE_32K']]],
   ['block_5ferase_5f64k_289',['BLOCK_ERASE_64K',['../dc/d0d/a04588.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1',1,'Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register::BLOCK_ERASE_64K'],['../d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1',1,'Lib::BSP::W25Q128JVSIQ::Register::BLOCK_ERASE_64K']]],
   ['block_5fread_5fsize_290',['BLOCK_READ_SIZE',['../dd/d03/a04604.html#a4aa1833571d2dad003a04249cdb45aa2',1,'Lib::BSP::W25Q128JVSIQ']]],
-  ['block_5fsize_291',['BLOCK_SIZE',['../d5/d91/a04516.html#ad06a1e92c8862b181cbf69bcc98779e4',1,'Lib::BSP::EEPROM::FlashEmulation::BLOCK_SIZE'],['../da/d94/a04940.html#a40a860803a494d53743ad3fe6fe138c0',1,'Lib::Crypto::SHA256&lt; SHA256Engine::SOFTWARE &gt;::BLOCK_SIZE']]],
+  ['block_5fsize_291',['BLOCK_SIZE',['../da/d94/a04940.html#a40a860803a494d53743ad3fe6fe138c0',1,'Lib::Crypto::SHA256&lt; SHA256Engine::SOFTWARE &gt;']]],
   ['blocked_292',['BLOCKED',['../dc/d15/a06124.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14',1,'RTOS::Task::State']]],
   ['blocking_293',['BLOCKING',['../de/d1c/a01093.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415',1,'Lib::HAL']]],
   ['blocking_20command_20and_20data_20phase_294',['Blocking command and data phase',['../X:/Lib/IAR/Project/Examples/Lib_HAL_OSPI.dox#ospi_usage_blocking',1,'']]],

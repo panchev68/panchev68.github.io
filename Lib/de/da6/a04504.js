@@ -1,12 +1,5 @@
 var a04504 =
 [
-    [ "Data", "dd/d8c/a04508.html", "dd/d8c/a04508" ],
-    [ "Color", "de/da6/a04504.html#a50992f4d62f0c135ac06fb09295272a9", null ],
-    [ "Color", "de/da6/a04504.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
-    [ "Color", "de/da6/a04504.html#a484309c52934f9c23460c4fe57f45530", null ],
-    [ "clear", "de/da6/a04504.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
-    [ "get", "de/da6/a04504.html#a4ad28e997f34f1873bf233a5d004e340", null ],
-    [ "getPacked", "de/da6/a04504.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
-    [ "set", "de/da6/a04504.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
-    [ "set", "de/da6/a04504.html#ac8926773deb153f9281f4e235896e4a0", null ]
+    [ "addr", "de/da6/a04504.html#a52b4f081e411d6f6b400f02e266252f3", null ],
+    [ "i2cPort", "de/da6/a04504.html#a0f7a92fa8726a2ef6dff8cac74b5e421", null ]
 ];

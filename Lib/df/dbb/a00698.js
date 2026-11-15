@@ -1,4 +1,4 @@
 var a00698 =
 [
-    [ "Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;", "da/d41/a05550.html", "da/d41/a05550" ]
+    [ "Lib::HAL::GPIO::Output", "da/d9f/a05584.html", "da/d9f/a05584" ]
 ];

@@ -1,11 +1,9 @@
 var a05968 =
 [
-    [ "FirmwareString", "dd/d44/a05968.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "VersionString", "dd/d44/a05968.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Firmware", "dd/d44/a05968.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "getSubVersion", "dd/d44/a05968.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator FirmwareString", "dd/d44/a05968.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "dd/d44/a05968.html#a7dcca38967251869c5bf305173fc13ee", null ],
-    [ "operator VersionString", "dd/d44/a05968.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "dd/d44/a05968.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "Config", "d1/d4e/a05972.html", "d1/d4e/a05972" ],
+    [ "Kalman", "dd/d44/a05968.html#a3e7cb33fc02e4a9f5cfd0b36a190e1cb", null ],
+    [ "~Kalman", "dd/d44/a05968.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
+    [ "operator()", "dd/d44/a05968.html#a58b5b7eb34e36d03a11115994cbea0cb", null ],
+    [ "reset", "dd/d44/a05968.html#a677e8869d39da510437c9dd8adf43848", null ],
+    [ "setParam", "dd/d44/a05968.html#a086aa45da9c828d66507b2a2ce2c2f09", null ]
 ];

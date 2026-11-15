@@ -1,15 +1,16 @@
 var a04512 =
 [
-    [ "Ring", "d5/d91/a04516.html", "d5/d91/a04516" ],
-    [ "Slice", "d1/def/a04512.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
-    [ "SK6812", "d1/def/a04512.html#a713fbeedeb85ff82f1097b206afd7918", null ],
-    [ "SK6812", "d1/def/a04512.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
-    [ "SK6812", "d1/def/a04512.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
-    [ "clear", "d1/def/a04512.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
-    [ "getColor", "d1/def/a04512.html#a1a0907fe121161268c1b859d90232628", null ],
-    [ "operator=", "d1/def/a04512.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
-    [ "operator=", "d1/def/a04512.html#aa21ec5517b393c1649c2045e822978e7", null ],
-    [ "setColor", "d1/def/a04512.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
-    [ "setColor", "d1/def/a04512.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
-    [ "setColor", "d1/def/a04512.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
+    [ "Config", "d1/def/a04512.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
+    [ "M24C64W", "d1/def/a04512.html#a961e9014542ac6f768bd548fa1d15598", null ],
+    [ "~M24C64W", "d1/def/a04512.html#a786bcea2331bd895b693fa1cf2fb0e6b", null ],
+    [ "close", "d1/def/a04512.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "d1/def/a04512.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "d1/def/a04512.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "read", "d1/def/a04512.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "d1/def/a04512.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "d1/def/a04512.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "d1/def/a04512.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "d1/def/a04512.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "d1/def/a04512.html#a299a926321f0db8d9eac8527198f28fc", null ],
+    [ "Driver< M24C64W >", "d1/def/a04512.html#a389c035ca7d606c8426542af2e4b7d70", null ]
 ];

@@ -1,5 +1,4 @@
 var a01025 =
 [
-    [ "addr", "db/d23/a01025.html#a52b4f081e411d6f6b400f02e266252f3", null ],
-    [ "i2cPort", "db/d23/a01025.html#a0f7a92fa8726a2ef6dff8cac74b5e421", null ]
+    [ "Lib::System::HardwareVersion", "dc/de5/a06196.html", "dc/de5/a06196" ]
 ];

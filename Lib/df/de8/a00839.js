@@ -1,4 +1,4 @@
 var a00839 =
 [
-    [ "Lib::Helper::StringHelper", "d2/d90/a05770.html", null ]
+    [ "Lib::HAL::USBDevicePortBase&lt; T_DERIVED &gt;", "d3/dcf/a05796.html", "d3/dcf/a05796" ]
 ];

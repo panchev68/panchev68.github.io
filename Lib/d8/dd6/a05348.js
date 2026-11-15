@@ -1,15 +1,10 @@
 var a05348 =
 [
-    [ "I2CPort", "d8/dd6/a05348.html#a5ed7014d6c1bb4669c90ada1b61bbffe", null ],
-    [ "~I2CPort", "d8/dd6/a05348.html#a28d64cb04bd2cd5f1648ac33b94bf4ec", null ],
-    [ "abort", "d8/dd6/a05348.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "d8/dd6/a05348.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d8/dd6/a05348.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d8/dd6/a05348.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d8/dd6/a05348.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "masterMemRead", "d8/dd6/a05348.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "d8/dd6/a05348.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "d8/dd6/a05348.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "d8/dd6/a05348.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "d8/dd6/a05348.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "MacString", "d8/dd6/a05348.html#a8d2931e8aadff5cd62c7538659cd0b5f", null ],
+    [ "MacAddress", "d8/dd6/a05348.html#a1f0169e55ffd6342fdac1722c1a5a969", null ],
+    [ "MacAddress", "d8/dd6/a05348.html#aa300b2a042efd76f66f61db709b5b736", null ],
+    [ "data", "d8/dd6/a05348.html#ab4ba32f79afc750e8e1702d652a14ed4", null ],
+    [ "operator[]", "d8/dd6/a05348.html#a85452ad134f85dbeb0c8bcced1916eeb", null ],
+    [ "size", "d8/dd6/a05348.html#a64f89fcca5dea4f1c032848f71589c3a", null ],
+    [ "toString", "d8/dd6/a05348.html#a83b7f1a52401d479dea270cbe112b88c", null ]
 ];

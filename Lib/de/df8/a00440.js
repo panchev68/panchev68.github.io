@@ -1,4 +1,4 @@
 var a00440 =
 [
-    [ "Lib::Digi::Core::Module", "db/da9/a05110.html", "db/da9/a05110" ]
+    [ "Lib::Digi::Core::Checksum", "d0/d7d/a05120.html", "d0/d7d/a05120" ]
 ];

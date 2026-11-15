@@ -1,8 +1,9 @@
 var a05004 =
 [
-    [ "Frame0x81", "d7/d8a/a05004.html#ab6c2582c9c22d8b4b3e34d5c6e73e8b8", null ],
-    [ "option", "d7/d8a/a05004.html#a9514d0309e3844c8659d92c660c71a2b", null ],
-    [ "rfData", "d7/d8a/a05004.html#a17639b9161591eee69ff2916356f4f5f", null ],
-    [ "rssi", "d7/d8a/a05004.html#af6b4d51bb9e62729e45af3c4c973f0f4", null ],
-    [ "srcAddr16", "d7/d8a/a05004.html#a44c2e0a72745be88823b58901a37b73b", null ]
+    [ "State", "d7/d8a/a05004.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
+    [ "State", "d7/d8a/a05004.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
+    [ "isConnected", "d7/d8a/a05004.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
+    [ "operator uint32_t", "d7/d8a/a05004.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
+    [ "operator=", "d7/d8a/a05004.html#a74040294aacf89a661c876eb5aadc081", null ],
+    [ "onConnectionChanged", "d7/d8a/a05004.html#af29d5ac1eff410a6876b1be865601ca8", null ]
 ];

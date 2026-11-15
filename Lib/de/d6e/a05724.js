@@ -1,14 +1,17 @@
 var a05724 =
 [
-    [ "Point", "d8/dcc/a05728.html", "d8/dcc/a05728" ],
-    [ "LinearInterpolation", "de/d6e/a05724.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
-    [ "LinearInterpolation", "de/d6e/a05724.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
-    [ "addPoint", "de/d6e/a05724.html#afdd4b894d0803bc604d379fa4629d483", null ],
-    [ "addPoint", "de/d6e/a05724.html#a74376103d2a68f503d4edeac77bcb80c", null ],
-    [ "clear", "de/d6e/a05724.html#aab5168233071bba85d5f5119cecdc12f", null ],
-    [ "getPoint", "de/d6e/a05724.html#a96708d1e4a7701724f4770d48a1b4661", null ],
-    [ "getPointCount", "de/d6e/a05724.html#aff35d714c8d5e1859adca0de1f902a34", null ],
-    [ "interpolate", "de/d6e/a05724.html#a15ad2325a927ddfead159579c0d375aa", null ],
-    [ "isEmpty", "de/d6e/a05724.html#a297a3b5b4a94c75ad444983025829924", null ],
-    [ "sortPoints", "de/d6e/a05724.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
+    [ "Manager", "de/d6e/a05724.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "de/d6e/a05724.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimInputCapture", "de/d6e/a05724.html#abfe70b316d617c0b779207aebafd9fb9", null ],
+    [ "~TimInputCapture", "de/d6e/a05724.html#a3b3c0bd5c909651c9a4de95e888d86da", null ],
+    [ "bindWorker", "de/d6e/a05724.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getCapture", "de/d6e/a05724.html#ac7f8fd84985b45a4db579b480aaf5251", null ],
+    [ "getHandle", "de/d6e/a05724.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "de/d6e/a05724.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "start", "de/d6e/a05724.html#add28b2f0b32350281b1f47c4e4e25e84", null ],
+    [ "stop", "de/d6e/a05724.html#a6d1e0aa45356b048a97c7390802d142a", null ],
+    [ "waitCapture", "de/d6e/a05724.html#a1fc8b61efbe101b5e3e019e16d73f707", null ],
+    [ "waitCapture", "de/d6e/a05724.html#a2732cd4549f6b1ca08da0cbcb462f404", null ],
+    [ "waitEvent", "de/d6e/a05724.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "void::HAL_TIM_IC_CaptureCallback", "de/d6e/a05724.html#a4e452b46ec2394148f37767c37e5b374", null ]
 ];

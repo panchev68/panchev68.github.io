@@ -1,36 +1,18 @@
 var a05744 =
 [
     [ "Config", "db/d37/a05748.html", "db/d37/a05748" ],
-    [ "Command", "d5/d12/a05744.html#ac6a1f18dc094880e53169a7e884cc0cf", [
-      [ "OFF", "d5/d12/a05744.html#ac6a1f18dc094880e53169a7e884cc0cfa88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "d5/d12/a05744.html#ac6a1f18dc094880e53169a7e884cc0cfa90651ebea9a35ec4e018c8157492e17c", null ]
-    ] ],
-    [ "Error", "d5/d12/a05744.html#a9e4cc2264975fb90820378e04641c518", [
-      [ "NONE", "d5/d12/a05744.html#a9e4cc2264975fb90820378e04641c518ab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "TIMEOUT_ON", "d5/d12/a05744.html#a9e4cc2264975fb90820378e04641c518a5dbb3ccc1d669d4795a0132d6fed5d3a", null ],
-      [ "TIMEOUT_OFF", "d5/d12/a05744.html#a9e4cc2264975fb90820378e04641c518a81a5a7f809ca6aaefe5685dbf5503ef8", null ],
-      [ "UNCOMMANDED_ON", "d5/d12/a05744.html#a9e4cc2264975fb90820378e04641c518a91f2b697900d216110382c0902b17e25", null ],
-      [ "UNCOMMANDED_OFF", "d5/d12/a05744.html#a9e4cc2264975fb90820378e04641c518a3c05ea266a6f2e3d7ce10c09bc0db0ff", null ]
-    ] ],
-    [ "Status", "d5/d12/a05744.html#a7273a3341799aff5527818d9cf88b2b3", [
-      [ "UNKNOWN", "d5/d12/a05744.html#a7273a3341799aff5527818d9cf88b2b3a696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "IS_OFF", "d5/d12/a05744.html#a7273a3341799aff5527818d9cf88b2b3a5b47312014964c5843fdd0002c86e46d", null ],
-      [ "IS_ON", "d5/d12/a05744.html#a7273a3341799aff5527818d9cf88b2b3a93829aa602d1d42d28fc6821d0e0083b", null ],
-      [ "IN_MOTION", "d5/d12/a05744.html#a7273a3341799aff5527818d9cf88b2b3a229051669055140f5d0bbafd5ea64412", null ],
-      [ "IS_ERROR", "d5/d12/a05744.html#a7273a3341799aff5527818d9cf88b2b3a08d9808c0d90af039e7ccffc802e5232", null ]
-    ] ],
-    [ "Cylinder", "d5/d12/a05744.html#a4a14559353a95200e26e6fdd1b2c5373", null ],
-    [ "Cylinder", "d5/d12/a05744.html#a0cdf7a1264200218792c3ac743ebd3ee", null ],
-    [ "canClearError", "d5/d12/a05744.html#a3380b7e3e9cd1ad5d89182f78c7c2e10", null ],
-    [ "clearError", "d5/d12/a05744.html#aef222ad4de0b20041057d6cbb158da56", null ],
-    [ "command", "d5/d12/a05744.html#a4da495987bbb4e5916779c867b023761", null ],
-    [ "getError", "d5/d12/a05744.html#aabb2b9b76a6bd30cd4d5131f9590d1ea", null ],
-    [ "getName", "d5/d12/a05744.html#ac8f6f212de3f12f2462517ec4d946aff", null ],
-    [ "getStatus", "d5/d12/a05744.html#ae77dd637f0aa88053b8603aef39a1cd5", null ],
-    [ "isOff", "d5/d12/a05744.html#a4f802a332f1c0e7364f5b50359abe6c0", null ],
-    [ "isOn", "d5/d12/a05744.html#a022b42d80b8a6250e056669900b6f3c2", null ],
-    [ "operator=", "d5/d12/a05744.html#a600ee7c6b32fb9f0609c9a4056d053c5", null ],
-    [ "setup", "d5/d12/a05744.html#a5f7bd85024efefa8864d447204703865", null ],
-    [ "update", "d5/d12/a05744.html#adf02fbd43f1b7d0e8bbd5222bf46f8a7", null ],
-    [ "onError", "d5/d12/a05744.html#ac7f6d7a7759ce31dd9914dcb444cb0de", null ]
+    [ "StreamSerialPort", "d5/d12/a05744.html#a273a38e15bd84ddcb1ab16c18bcb563a", null ],
+    [ "~StreamSerialPort", "d5/d12/a05744.html#a82213704bb45f3f325b198dc0eb1ecab", null ],
+    [ "StreamSerialPort", "d5/d12/a05744.html#a4385588b551ca7105aacb5fa1b83da65", null ],
+    [ "StreamSerialPort", "d5/d12/a05744.html#a4dbd8a6587109d4ce29242ec1ddfdec0", null ],
+    [ "close", "d5/d12/a05744.html#af4d1dbc5fcd691c510918d277281ee6e", null ],
+    [ "discardInput", "d5/d12/a05744.html#ad313993195f0d6ea829d9c7b61df667f", null ],
+    [ "getDroppedCount", "d5/d12/a05744.html#a32276aa918b5679e4f0e8df69175063f", null ],
+    [ "isOpen", "d5/d12/a05744.html#a6fe88c556292e95190f066d34a6455a9", null ],
+    [ "open", "d5/d12/a05744.html#a1b052f09718429b991946fea7724f411", null ],
+    [ "operator=", "d5/d12/a05744.html#a49b22bf81050b4ee173b0cb712fce161", null ],
+    [ "operator=", "d5/d12/a05744.html#a5d8430086822b05225d0b3f4372238b2", null ],
+    [ "read", "d5/d12/a05744.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a", null ],
+    [ "write", "d5/d12/a05744.html#a0a35058ffe6e3bb6d1a5a9fb335c3588", null ],
+    [ "write", "d5/d12/a05744.html#aa11ae6544b3fe4193e42a03891973953", null ]
 ];

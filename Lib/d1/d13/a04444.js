@@ -1,8 +1,8 @@
 var a04444 =
 [
-    [ "chipSelectPin", "d1/d13/a04444.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
-    [ "irqPin", "d1/d13/a04444.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
-    [ "resetPin", "d1/d13/a04444.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
-    [ "rxGain", "d1/d13/a04444.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
-    [ "spiHandle", "d1/d13/a04444.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
+    [ "mappingFields", "d1/d13/a04444.html#a11dd2076fb88f533f185c4b3036c605c", null ],
+    [ "nssPin", "d1/d13/a04444.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
+    [ "oePin", "d1/d13/a04444.html#ad65334adb3ad809e06b272cedcb59224", null ],
+    [ "pinCount", "d1/d13/a04444.html#a85d8e563810275243c4b75899e92dab3", null ],
+    [ "spiPort", "d1/d13/a04444.html#aff796faea898891c8271e1b1dba76858", null ]
 ];

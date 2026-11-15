@@ -1,6 +1,14 @@
 var a04932 =
 [
-    [ "lengthLSB", "d5/df2/a04932.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
-    [ "lengthMSB", "d5/df2/a04932.html#a975df99244301d7a71b2c326555ba6fd", null ],
-    [ "startDelimiter", "d5/df2/a04932.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
+    [ "Subscriber", "d5/df2/a04932.html#a3f40221ae5736ac688a612345a14a8e4", null ],
+    [ "MulticastDelegate", "d5/df2/a04932.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
+    [ "add", "d5/df2/a04932.html#a7b2551280da180b1f1dda5c6981737cd", null ],
+    [ "clear", "d5/df2/a04932.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
+    [ "invoke", "d5/df2/a04932.html#abfd30810b143472b8393b53f898dbcd5", null ],
+    [ "isEmpty", "d5/df2/a04932.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
+    [ "operator()", "d5/df2/a04932.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
+    [ "operator+=", "d5/df2/a04932.html#a6dbac05fdf70d7b6ea7c1223f90eb0f3", null ],
+    [ "operator-=", "d5/df2/a04932.html#abf65efccd32893eb2f7b5adfc53f8536", null ],
+    [ "remove", "d5/df2/a04932.html#adb01252450a4c8f5a57794062eef97da", null ],
+    [ "size", "d5/df2/a04932.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
 ];

@@ -1,10 +1,9 @@
 var a05364 =
 [
-    [ "IndependentWatchdog", "d7/ded/a05364.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
-    [ "IndependentWatchdog", "d7/ded/a05364.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
-    [ "IndependentWatchdog", "d7/ded/a05364.html#aabfa4830743c87632886a0e095af6dba", null ],
-    [ "open", "d7/ded/a05364.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
-    [ "operator=", "d7/ded/a05364.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
-    [ "operator=", "d7/ded/a05364.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
-    [ "refresh", "d7/ded/a05364.html#ae9f164f43789bd02baa1587a44c30e61", null ]
+    [ "command", "d7/ded/a05364.html#af08112845cd66edc31d068ebd37b83ca", null ],
+    [ "delimiter", "d7/ded/a05364.html#a4a5572bd4e22f6a1de87a3ad3d4ebad8", null ],
+    [ "id", "d7/ded/a05364.html#a38a95e9ff32ffbe026a54b59e0133d60", null ],
+    [ "length", "d7/ded/a05364.html#a8d832b6579b4ecbc8f9555ab3e14aa21", null ],
+    [ "option", "d7/ded/a05364.html#afef42cfd87d0013b3e3ff843a1cc5d36", null ],
+    [ "timestamp", "d7/ded/a05364.html#a3665c6cb45f55219bf365da4619f7ab9", null ]
 ];

@@ -1,14 +1,7 @@
 var a05312 =
 [
-    [ "Input", "d7/d32/a05312.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
-    [ "~Input", "d7/d32/a05312.html#a95f707a268014333f78d7378dd579ea4", null ],
-    [ "Input", "d7/d32/a05312.html#aba23478206e067c578a2081a0ba4d1ee", null ],
-    [ "Input", "d7/d32/a05312.html#a01d95887913602ed10325b5b07f8cef5", null ],
-    [ "isHigh", "d7/d32/a05312.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d7/d32/a05312.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d7/d32/a05312.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "d7/d32/a05312.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
-    [ "operator=", "d7/d32/a05312.html#aac4da8195bb51d393df961046635bfc0", null ],
-    [ "read", "d7/d32/a05312.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "handle", "d7/d32/a05312.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "close", "d7/d32/a05312.html#ab9d284c5cdff31383f99dea75c7f9e89", null ],
+    [ "open", "d7/d32/a05312.html#a2f27b571e2674aeb90f9773efe5d47c5", null ],
+    [ "read", "d7/d32/a05312.html#a53a2f54f254565a80c92924936564fb0", null ],
+    [ "write", "d7/d32/a05312.html#ae649720e51a2f29cd3f226e0c91e40f4", null ]
 ];

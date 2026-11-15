@@ -1,8 +1,16 @@
 var a05252 =
 [
-    [ "data", "d9/df0/a05252.html#a251018af6590442834ab27f31949ac0c", null ],
-    [ "frameType", "d9/df0/a05252.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
-    [ "id", "d9/df0/a05252.html#ac603c73011aa584e9a004fabd2239743", null ],
-    [ "idType", "d9/df0/a05252.html#ac4029cba49776e6f2942debd3ed78f58", null ],
-    [ "length", "d9/df0/a05252.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
+    [ "Container", "d9/df0/a05252.html#aee7408e236983dfe716699922a20e848", null ],
+    [ "Status", "d9/df0/a05252.html#abfa34fca2a40d9f990c238a66f2611aa", [
+      [ "STATUS_CHANGED", "d9/df0/a05252.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "d9/df0/a05252.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "BasicDispatcher", "d9/df0/a05252.html#a8888661e1979a2b522e456f3e143e065", null ],
+    [ "BasicDispatcher", "d9/df0/a05252.html#add10f2d01f474243d9fa895cff993e07", null ],
+    [ "createError", "d9/df0/a05252.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
+    [ "operator=", "d9/df0/a05252.html#a663a1359b4c59113e160a2da62046222", null ],
+    [ "operator=", "d9/df0/a05252.html#a45f56f6db82a8095e39231ccf05639dc", null ],
+    [ "start", "d9/df0/a05252.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
+    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "d9/df0/a05252.html#a650ea0ef5048343da33f94d14c44e548", null ],
+    [ "statusChangedHook", "d9/df0/a05252.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
 ];

@@ -1,18 +1,19 @@
 var a04608 =
 [
-    [ "RxMessage", "d7/dc4/a04612.html", "d7/dc4/a04612" ],
-    [ "Node", "de/dfb/a04616.html", "de/dfb/a04616" ],
-    [ "Diagnostic", "d2/dfe/a04620.html", "d2/dfe/a04620" ],
-    [ "ServiceBase", "d3/dba/a04608.html#acbfceb92cefef5281785b7d5db81df5d", null ],
-    [ "~ServiceBase", "d3/dba/a04608.html#a6594894f460fcebe7b8705a3ebca6938", null ],
-    [ "errorCallback", "d3/dba/a04608.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
-    [ "getDiagnostic", "d3/dba/a04608.html#aa6e2069cd0ca82608d533788d367dddf", null ],
-    [ "messageReceivedCallback", "d3/dba/a04608.html#abe37221a89d42b0ec836894d481128b4", null ],
-    [ "receive", "d3/dba/a04608.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "d3/dba/a04608.html#a9e61e58322c0a574320d57ad9da13966", null ],
-    [ "send", "d3/dba/a04608.html#ae9698dff358c5494704ad558fcf82d22", null ],
-    [ "send", "d3/dba/a04608.html#a26cd3541d7c850c5151fe7281e917a94", null ],
-    [ "start", "d3/dba/a04608.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
-    [ "stop", "d3/dba/a04608.html#a3d0252842f197249fff9649618458fee", null ],
-    [ "taskFn", "d3/dba/a04608.html#a3f461c3e0f637c2be89463249c736b46", null ]
+    [ "Command", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10", [
+      [ "WRITE_ENABLE", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "WRITE_DISABLE", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
+      [ "READ_STATUS_REGISTER1", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "READ_DATA", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
+      [ "PAGE_PROGRAM", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
+      [ "SECTOR_ERASE", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d3/dba/a04608.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

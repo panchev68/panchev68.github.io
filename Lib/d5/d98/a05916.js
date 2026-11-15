@@ -1,14 +1,22 @@
 var a05916 =
 [
-    [ "Bitset", "d5/d98/a05916.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "d5/d98/a05916.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "d5/d98/a05916.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d5/d98/a05916.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "Date", "d5/d98/a05916.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
+    [ "Phase", "d5/d98/a05916.html#a5567988b4297dec26d3237506884f6a5", [
+      [ "NEW_MOON", "d5/d98/a05916.html#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446", null ],
+      [ "WAXING_CRESCENT", "d5/d98/a05916.html#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd", null ],
+      [ "FIRST_QUARTER", "d5/d98/a05916.html#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404", null ],
+      [ "WAXING_GIBBOUS", "d5/d98/a05916.html#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651", null ],
+      [ "FULL_MOON", "d5/d98/a05916.html#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1", null ],
+      [ "WANING_GIBBOUS", "d5/d98/a05916.html#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6", null ],
+      [ "LAST_QUARTER", "d5/d98/a05916.html#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18", null ],
+      [ "WANING_CRESCENT", "d5/d98/a05916.html#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39", null ]
     ] ],
-    [ "Configuration", "d5/d98/a05916.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "d5/d98/a05916.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "d5/d98/a05916.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "d5/d98/a05916.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "d5/d98/a05916.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "d5/d98/a05916.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "MoonPhase", "d5/d98/a05916.html#ac58c9ddf6d8f37e3f317e4f702ac00a5", null ],
+    [ "MoonPhase", "d5/d98/a05916.html#acd603bf923907f139f3479a3fe0c6723", null ],
+    [ "calculate", "d5/d98/a05916.html#a47ac4868563998363835de249a5814a9", null ],
+    [ "index", "d5/d98/a05916.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
+    [ "name", "d5/d98/a05916.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
+    [ "operator std::string_view", "d5/d98/a05916.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
+    [ "operator uint32_t", "d5/d98/a05916.html#a64022e97a09da5fcaa242d39634aafbf", null ],
+    [ "phase", "d5/d98/a05916.html#a6ddb8be8e68814a16313e0824662b5c9", null ]
 ];

@@ -1,19 +1,13 @@
 var a05296 =
 [
-    [ "ExtInterrupt", "d0/d27/a05296.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
-    [ "~ExtInterrupt", "d0/d27/a05296.html#a0500efb3e0dbde6f95fd02948060723b", null ],
-    [ "ExtInterrupt", "d0/d27/a05296.html#a0896646faa35c4149a6fb3f8360da15b", null ],
-    [ "ExtInterrupt", "d0/d27/a05296.html#af65b4789b35500d9539e56a75d90c71c", null ],
-    [ "bindCallback", "d0/d27/a05296.html#a716641ce172d66ad1226056de77e00f3", null ],
-    [ "isHigh", "d0/d27/a05296.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d0/d27/a05296.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d0/d27/a05296.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "d0/d27/a05296.html#a89f184dfbf150b77ab08f3bf7a9078ca", null ],
-    [ "operator=", "d0/d27/a05296.html#a29b2dfe4158fc5f27e352ab72f1a11fe", null ],
-    [ "read", "d0/d27/a05296.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "unbindCallback", "d0/d27/a05296.html#a436fbfef93e09cd205ebb36284da5374", null ],
-    [ "void::HAL_GPIO_EXTI_Callback", "d0/d27/a05296.html#a7b34f0451fb5f0d0f5077ea7594eb5bb", null ],
-    [ "void::HAL_GPIO_EXTI_Falling_Callback", "d0/d27/a05296.html#a608244a38c1095888d60a17b77ae5ed4", null ],
-    [ "void::HAL_GPIO_EXTI_Rising_Callback", "d0/d27/a05296.html#aa8068c433729122f23f40e6bfa77659f", null ],
-    [ "handle", "d0/d27/a05296.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "Handlers", "d0/d27/a05296.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
+    [ "EepromEmulation", "d0/d27/a05296.html#a1146daff507a230799851b6c5f9ee835", null ],
+    [ "~EepromEmulation", "d0/d27/a05296.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
+    [ "EepromEmulation", "d0/d27/a05296.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
+    [ "EepromEmulation", "d0/d27/a05296.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
+    [ "operator=", "d0/d27/a05296.html#ac18054ff925ab9ff88d05d79a8674626", null ],
+    [ "operator=", "d0/d27/a05296.html#a8a0057afb82e294f720a93b50ad87908", null ],
+    [ "process", "d0/d27/a05296.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
+    [ "setHandlers", "d0/d27/a05296.html#a070225a3de178cf14fb35d7a18f183e0", null ],
+    [ "setReadSize", "d0/d27/a05296.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
 ];

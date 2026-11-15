@@ -1,14 +1,13 @@
 var a05760 =
 [
-    [ "Config", "d3/da4/a05764.html", "d3/da4/a05764" ],
-    [ "State", "d1/d47/a05760.html#a7063555b30fb75832750a0361328040e", [
-      [ "ACTIVE", "d1/d47/a05760.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "INACTIVE", "d1/d47/a05760.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
-      [ "DISABLED", "d1/d47/a05760.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
-    ] ],
-    [ "Sensor", "d1/d47/a05760.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
-    [ "getName", "d1/d47/a05760.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
-    [ "isActive", "d1/d47/a05760.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
-    [ "isPresent", "d1/d47/a05760.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
-    [ "read", "d1/d47/a05760.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
+    [ "UARTPort", "d1/d47/a05760.html#a074ec6b19b1073304ca2513d11d43247", null ],
+    [ "~UARTPort", "d1/d47/a05760.html#a864254902b1d7b3afa27a66ccd465c69", null ],
+    [ "abort", "d1/d47/a05760.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
+    [ "close", "d1/d47/a05760.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d1/d47/a05760.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d1/d47/a05760.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d1/d47/a05760.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d1/d47/a05760.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d1/d47/a05760.html#a3c10830f8d93936773f64d95201bc7da", null ],
+    [ "send", "d1/d47/a05760.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
 ];

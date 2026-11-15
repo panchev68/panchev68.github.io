@@ -1,4 +1,4 @@
 var a00671 =
 [
-    [ "Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;", "d3/dc0/a05502.html", "d3/dc0/a05502" ]
+    [ "Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;", "d9/df0/a05540.html", "d9/df0/a05540" ]
 ];

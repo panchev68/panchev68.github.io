@@ -1,4 +1,4 @@
 var a00527 =
 [
-    [ "Lib::Ethernet::MacAddress", "d6/d45/a05282.html", "d6/d45/a05282" ]
+    [ "Lib::Digi::Core::isElapsed", "da/d93/a01084.html#a3d546e5b9af6a0406bc510721f8621ec", null ]
 ];

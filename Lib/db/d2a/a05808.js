@@ -1,15 +1,21 @@
 var a05808 =
 [
-    [ "MutexGuard", "db/d2a/a05808.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
-    [ "MutexGuard", "db/d2a/a05808.html#a06d66e08a55ebf1440edb711e6886307", null ],
-    [ "MutexGuard", "db/d2a/a05808.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
-    [ "MutexGuard", "db/d2a/a05808.html#a21aba9e001a6afec8742ff355b845ede", null ],
-    [ "~MutexGuard", "db/d2a/a05808.html#a35526aab46b7a21b967df7060f8d6747", null ],
-    [ "MutexGuard", "db/d2a/a05808.html#a271282f741f6a7c1dcebff1616c9916e", null ],
-    [ "MutexGuard", "db/d2a/a05808.html#a66f7b610af22e97faef98e233dbd46d5", null ],
-    [ "isLocked", "db/d2a/a05808.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
-    [ "operator bool", "db/d2a/a05808.html#af9126f464f900d7777d9bb069a13265b", null ],
-    [ "operator=", "db/d2a/a05808.html#ada341f5a3644025a9b57e448e023d88b", null ],
-    [ "operator=", "db/d2a/a05808.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
-    [ "unlock", "db/d2a/a05808.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
+    [ "EventHandler", "db/d2a/a05808.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPortAsync", "db/d2a/a05808.html#a0eb76333730406f2b4eb1c25a840e786", null ],
+    [ "close", "db/d2a/a05808.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "closeChannel", "db/d2a/a05808.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
+    [ "getFrame", "db/d2a/a05808.html#aa5a82053bf356261f139d027918f7a98", null ],
+    [ "getHandle", "db/d2a/a05808.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "db/d2a/a05808.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getSpeed", "db/d2a/a05808.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
+    [ "getTransferCount", "db/d2a/a05808.html#aeafad19d337548bb5ef919dd44723b5f", null ],
+    [ "isOpened", "db/d2a/a05808.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "db/d2a/a05808.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "openChannel", "db/d2a/a05808.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
+    [ "resetPort", "db/d2a/a05808.html#a4be20887571f3bd3694a79bb349979f8", null ],
+    [ "setEventHandler", "db/d2a/a05808.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "start", "db/d2a/a05808.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
+    [ "stop", "db/d2a/a05808.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ],
+    [ "transfer", "db/d2a/a05808.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "db/d2a/a05808.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

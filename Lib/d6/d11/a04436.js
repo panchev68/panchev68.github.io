@@ -1,6 +1,7 @@
 var a04436 =
 [
-    [ "sak", "d6/d11/a04436.html#a0a660971905a4d13ec801be99827ad26", null ],
-    [ "size", "d6/d11/a04436.html#ae19abed0f3be0cc580838b351a256404", null ],
-    [ "uidByte", "d6/d11/a04436.html#a8daf36157ed2f3632e9be6ec8b278293", null ]
+    [ "Inputs", "dc/dc7/a04440.html", "dc/dc7/a04440" ],
+    [ "Outputs", "d1/d13/a04444.html", "d1/d13/a04444" ],
+    [ "inputs", "d6/d11/a04436.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "d6/d11/a04436.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];

@@ -1,12 +1,10 @@
 var a05892 =
 [
-    [ "ReferenceParameters", "d5/dd4/a05896.html", "d5/dd4/a05896" ],
-    [ "Measurement", "d3/d9b/a05900.html", "d3/d9b/a05900" ],
-    [ "MaxPowerEstimator", "d3/da5/a05892.html#a434bc885ae98e175c94cc0274463e3e5", null ],
-    [ "MPPT", "d3/da5/a05892.html#aedf986308c8dd799d4771f32d446ee01", null ],
-    [ "getIrradianceCoefficient", "d3/da5/a05892.html#a55a3b7a18c79deb5568e627889f76b86", null ],
-    [ "getTolerance", "d3/da5/a05892.html#a0ac8d81cbc06a7045f43424b16871253", null ],
-    [ "getVoltageSetpoint", "d3/da5/a05892.html#a455584e52b5677fe4bce93e58e80ca38", null ],
-    [ "setMaxPowerEstimationFunction", "d3/da5/a05892.html#abc619561c7180e6c69b8282c58157857", null ],
-    [ "update", "d3/da5/a05892.html#a15ca43314cd95e5cf3d7c302a9db56af", null ]
+    [ "TerminateHandler", "d3/da5/a05892.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
+    [ "Exception", "d3/da5/a05892.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
+    [ "Exception", "d3/da5/a05892.html#a25551a21318cf9b33efd57e954f91490", null ],
+    [ "Exception", "d3/da5/a05892.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
+    [ "~Exception", "d3/da5/a05892.html#aab05c0efba4581a5739c344c1d848c87", null ],
+    [ "operator=", "d3/da5/a05892.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
+    [ "what", "d3/da5/a05892.html#ad1278467b92ab31659263c92c3c292e1", null ]
 ];

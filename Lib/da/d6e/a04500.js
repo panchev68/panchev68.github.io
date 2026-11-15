@@ -1,11 +1,19 @@
 var a04500 =
 [
-    [ "operator==", "da/d6e/a04500.html#a6d55cf519f280eb9c0e3a26e175a07f1", null ],
-    [ "fifoStatus1", "da/d6e/a04500.html#a8d4064983272456f2bb02cc0e9f0c920", null ],
-    [ "irqStatus1", "da/d6e/a04500.html#aa768730607ddfadbd98e83d9e2dad318", null ],
-    [ "irqStatus2", "da/d6e/a04500.html#adac7641fc9718f5eadda0e0b4ab2ed71", null ],
-    [ "operation", "da/d6e/a04500.html#a5b9150d2c316bf04c90a8e926eaf8f81", null ],
-    [ "protocol", "da/d6e/a04500.html#a7057ac56ad3d604ce1fcb392d89f6e1c", null ],
-    [ "protocolRx1", "da/d6e/a04500.html#a3286298ea7c4dc967dd97d575455c368", null ],
-    [ "status", "da/d6e/a04500.html#afd9a8486968b9512fd0de55e3d549edf", null ]
+    [ "Config", "de/da6/a04504.html", "de/da6/a04504" ],
+    [ "Driver", "da/d6e/a04500.html#ad08435e7ab04b1447660c851f626b703", null ],
+    [ "~Driver", "da/d6e/a04500.html#aa6102b0396341784835c07a1ce9a127a", null ],
+    [ "Driver", "da/d6e/a04500.html#af6f8c45fa76cc4cdc69a8d3131ee043d", null ],
+    [ "Driver", "da/d6e/a04500.html#a7768b7b6fa2ec552019ebed7d7728e4c", null ],
+    [ "close", "da/d6e/a04500.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "da/d6e/a04500.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "da/d6e/a04500.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "operator=", "da/d6e/a04500.html#afe0439b5fd16b15fa6196111c14e70ef", null ],
+    [ "operator=", "da/d6e/a04500.html#aa79821ce37ce3fca38aaaa91e94ddf75", null ],
+    [ "read", "da/d6e/a04500.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "da/d6e/a04500.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "da/d6e/a04500.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "da/d6e/a04500.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "da/d6e/a04500.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "da/d6e/a04500.html#a299a926321f0db8d9eac8527198f28fc", null ]
 ];

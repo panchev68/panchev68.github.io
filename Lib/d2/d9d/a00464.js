@@ -1,4 +1,4 @@
 var a00464 =
 [
-    [ "Lib::Digi::Core::RemoteAtCommand", "d2/d3d/a05146.html", "d2/d3d/a05146" ]
+    [ "Lib::Digi::Core::LocalAtCommand", "d9/dab/a05164.html", "d9/dab/a05164" ]
 ];

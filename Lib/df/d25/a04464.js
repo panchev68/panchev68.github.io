@@ -1,18 +1,11 @@
 var a04464 =
 [
-    [ "anticollisionTimeoutCount", "df/d25/a04464.html#a4d95a6bbb4d079d8bebedbf9b8ee8fa1", null ],
-    [ "cardActivatedCount", "df/d25/a04464.html#ac30dad467ffa48919576e8a5431a4a2b", null ],
-    [ "cardDetectedCount", "df/d25/a04464.html#aab85c176a71d381e5691bc1819f7e0f7", null ],
-    [ "lastTimeout", "df/d25/a04464.html#a15be1ad50b46f4fe74d830fd5dd5380f", null ],
-    [ "postTransmitIrqStatus1", "df/d25/a04464.html#a40166692a25986bd12544ffb546c499d", null ],
-    [ "postTransmitIrqStatus2", "df/d25/a04464.html#a21142618b9524d09ba5f29b9c81d45a8", null ],
-    [ "postTransmitStatus", "df/d25/a04464.html#ad91c2db0d45e9677759d63979315ed24", null ],
-    [ "postTxRxOnStatus", "df/d25/a04464.html#a794df80db631bc66fa479aa99fc0927f", null ],
-    [ "preTransmitFifoStatus1", "df/d25/a04464.html#a41d5ce61c5cef34fac6065d36b07a07d", null ],
-    [ "readFailureCount", "df/d25/a04464.html#aa594bb3892a314d5bae571485028c1f6", null ],
-    [ "reqaPollStatusBits", "df/d25/a04464.html#a144c567d53c9d9fb36969c7e0a96d4f7", null ],
-    [ "reqaTimeoutCount", "df/d25/a04464.html#a985da4fadf54931272c8b4013511c43a", null ],
-    [ "selectTimeoutCount", "df/d25/a04464.html#a87c463babfda8c7c065f6a30250dd1e1", null ],
-    [ "unsupportedUidCount", "df/d25/a04464.html#a6e9a133ac2b92dc90de4a93eee54e810", null ],
-    [ "writeFailureCount", "df/d25/a04464.html#a96a8716efd8affbfbc401fcaba040259", null ]
+    [ "Config", "dd/d3b/a04468.html", "dd/d3b/a04468" ],
+    [ "Driver", "df/d25/a04464.html#a1485030ad4d5221083358bb976d4f6a9", null ],
+    [ "~Driver", "df/d25/a04464.html#a02b3a6700a07d6ec290c3b84098c3389", null ],
+    [ "handleTransferCompleteEvent", "df/d25/a04464.html#a16f81d6e044e814af3071d70b3bfd029", null ],
+    [ "setBacklight", "df/d25/a04464.html#a5c3019cb4ef6b0af87fb89c9b1e25ca4", null ],
+    [ "setRotation", "df/d25/a04464.html#aa82bca6d7225f8fb51714daaa7b44ee1", null ],
+    [ "setup", "df/d25/a04464.html#ae80e1a0a03b141829f376e2309e65a30", null ],
+    [ "transmitBlock", "df/d25/a04464.html#a7c3b10e802400c9d45d7467ee59a7562", null ]
 ];

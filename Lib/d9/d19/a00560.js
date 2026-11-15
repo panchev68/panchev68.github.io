@@ -1,4 +1,4 @@
 var a00560 =
 [
-    [ "Lib::HAL::BackupRamDomain", "d7/d24/a05350.html", "d7/d24/a05350" ]
+    [ "Lib::Ethernet::MacAddress", "d8/dd6/a05348.html", "d8/dd6/a05348" ]
 ];

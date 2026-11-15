@@ -1,18 +1,19 @@
 var a05512 =
 [
-    [ "EventHandler", "d9/ddd/a05512.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
-    [ "USBDevicePort", "d9/ddd/a05512.html#a73135119d83dd3a80c4b81f5bbe8fd61", null ],
-    [ "~USBDevicePort", "d9/ddd/a05512.html#a0a313f5efd10221e16714eece65dda0f", null ],
-    [ "abort", "d9/ddd/a05512.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
-    [ "close", "d9/ddd/a05512.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "Event", "d3/dd7/a05516.html", null ],
+    [ "CANPort", "d9/ddd/a05512.html#a4477b4c95db49ce0b556d568b2d879a0", null ],
+    [ "~CANPort", "d9/ddd/a05512.html#a6f6a6f1c91dc26fef9f74ef07f013b2c", null ],
+    [ "CANPort", "d9/ddd/a05512.html#abe29825ceeac4153d36a08a6cb3adf7f", null ],
+    [ "CANPort", "d9/ddd/a05512.html#af568e7e4043e0b195db174dab37c5dc9", null ],
+    [ "close", "d9/ddd/a05512.html#a4ec7ae44fe2e374d256f3fd66767dbc7", null ],
+    [ "getFreeTxMailboxCount", "d9/ddd/a05512.html#ac88a1857130f01ccafcb72baae483a84", null ],
     [ "getHandle", "d9/ddd/a05512.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d9/ddd/a05512.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d9/ddd/a05512.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d9/ddd/a05512.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d9/ddd/a05512.html#add4fb8ab17eac13116050ae3c8237acf", null ],
-    [ "send", "d9/ddd/a05512.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
-    [ "setEventHandler", "d9/ddd/a05512.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
-    [ "submitReceive", "d9/ddd/a05512.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
-    [ "submitSend", "d9/ddd/a05512.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
-    [ "waitForEvent", "d9/ddd/a05512.html#ac98dece292bb17828882e8d61e803880", null ]
+    [ "getRxFifoFillLevel", "d9/ddd/a05512.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
+    [ "open", "d9/ddd/a05512.html#a591e40ed78afa5d73704475e00c55060", null ],
+    [ "operator=", "d9/ddd/a05512.html#aa58c9c3ab70cdf4e842716686aaa8c40", null ],
+    [ "operator=", "d9/ddd/a05512.html#a8edeb615d6ad0c65bcf55d3d8f8fdce0", null ],
+    [ "read", "d9/ddd/a05512.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
+    [ "waitForEvent", "d9/ddd/a05512.html#a1c4fcd17767b405bdecda984747567ed", null ],
+    [ "write", "d9/ddd/a05512.html#a65aa681fa591b2d0956e06e67e990b15", null ]
 ];

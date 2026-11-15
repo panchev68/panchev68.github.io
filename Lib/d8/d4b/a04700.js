@@ -1,12 +1,18 @@
 var a04700 =
 [
-    [ "FreeFunctionPointer", "d8/d4b/a04700.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d8/d4b/a04700.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d8/d4b/a04700.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "d8/d4b/a04700.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d8/d4b/a04700.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d8/d4b/a04700.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d8/d4b/a04700.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d8/d4b/a04700.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d8/d4b/a04700.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "anticollisionTimeoutCount", "d8/d4b/a04700.html#a4d95a6bbb4d079d8bebedbf9b8ee8fa1", null ],
+    [ "cardActivatedCount", "d8/d4b/a04700.html#ac30dad467ffa48919576e8a5431a4a2b", null ],
+    [ "cardDetectedCount", "d8/d4b/a04700.html#aab85c176a71d381e5691bc1819f7e0f7", null ],
+    [ "lastTimeout", "d8/d4b/a04700.html#a15be1ad50b46f4fe74d830fd5dd5380f", null ],
+    [ "postTransmitIrqStatus1", "d8/d4b/a04700.html#a40166692a25986bd12544ffb546c499d", null ],
+    [ "postTransmitIrqStatus2", "d8/d4b/a04700.html#a21142618b9524d09ba5f29b9c81d45a8", null ],
+    [ "postTransmitStatus", "d8/d4b/a04700.html#ad91c2db0d45e9677759d63979315ed24", null ],
+    [ "postTxRxOnStatus", "d8/d4b/a04700.html#a794df80db631bc66fa479aa99fc0927f", null ],
+    [ "preTransmitFifoStatus1", "d8/d4b/a04700.html#a41d5ce61c5cef34fac6065d36b07a07d", null ],
+    [ "readFailureCount", "d8/d4b/a04700.html#aa594bb3892a314d5bae571485028c1f6", null ],
+    [ "reqaPollStatusBits", "d8/d4b/a04700.html#a144c567d53c9d9fb36969c7e0a96d4f7", null ],
+    [ "reqaTimeoutCount", "d8/d4b/a04700.html#a985da4fadf54931272c8b4013511c43a", null ],
+    [ "selectTimeoutCount", "d8/d4b/a04700.html#a87c463babfda8c7c065f6a30250dd1e1", null ],
+    [ "unsupportedUidCount", "d8/d4b/a04700.html#a6e9a133ac2b92dc90de4a93eee54e810", null ],
+    [ "writeFailureCount", "d8/d4b/a04700.html#a96a8716efd8affbfbc401fcaba040259", null ]
 ];

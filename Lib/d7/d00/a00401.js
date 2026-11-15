@@ -1,8 +1,11 @@
 var a00401 =
 [
-    [ "Lib::Digi::Core::ApiMode", "d0/d43/a01020.html#a90113324d5ba519fcc76387893bb17ed", [
-      [ "Lib::Digi::Core::ApiMode::TRANSPARENT", "d0/d43/a01020.html#a90113324d5ba519fcc76387893bb17eda6dbf1b8bc39b4ed513395a18b554979f", null ],
-      [ "Lib::Digi::Core::ApiMode::API1", "d0/d43/a01020.html#a90113324d5ba519fcc76387893bb17eda7e8d092d9c015707dedc7a3b8173f6b5", null ],
-      [ "Lib::Digi::Core::ApiMode::API2", "d0/d43/a01020.html#a90113324d5ba519fcc76387893bb17eda51dfa65dc2042cfa662ff3a4cd76c968", null ]
-    ] ]
+    [ "Lib::Crypto::WolfSSLSHA256", "d6/d0f/a04960.html", "d6/d0f/a04960" ],
+    [ "Lib::Crypto::WolfSSLRandom", "d1/dc6/a04964.html", "d1/dc6/a04964" ],
+    [ "Lib::Crypto::WolfSSLAesGcm", "d5/d64/a04968.html", "d5/d64/a04968" ],
+    [ "Lib::Crypto::WolfSSLChaCha20Poly1305", "d3/d49/a04972.html", "d3/d49/a04972" ],
+    [ "Lib::Crypto::WolfSSLEcc", "d8/dbe/a04976.html", "d8/dbe/a04976" ],
+    [ "Lib::Crypto::WolfSSLRsa", "da/d4c/a04980.html", "da/d4c/a04980" ],
+    [ "Lib::Crypto::WolfSSLDh", "d8/d36/a04984.html", "d8/d36/a04984" ],
+    [ "Lib::Crypto::WolfSSLDh::Config", "d5/d6e/a04988.html", "d5/d6e/a04988" ]
 ];

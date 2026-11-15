@@ -1,14 +1,8 @@
 var a05468 =
 [
-    [ "TimPwmOutput", "d1/d06/a05468.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
-    [ "~TimPwmOutput", "d1/d06/a05468.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
-    [ "TimPwmOutput", "d1/d06/a05468.html#a422a9009ca77380721da2502794a00a0", null ],
-    [ "TimPwmOutput", "d1/d06/a05468.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
-    [ "close", "d1/d06/a05468.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
-    [ "getPeriod", "d1/d06/a05468.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
-    [ "open", "d1/d06/a05468.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
-    [ "operator=", "d1/d06/a05468.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
-    [ "operator=", "d1/d06/a05468.html#a686c13d106e6d8d754e3020b7107d262", null ],
-    [ "setPeriod", "d1/d06/a05468.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
-    [ "setPulse", "d1/d06/a05468.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
+    [ "height", "d1/d06/a05468.html#ad603dcefe826331cc2665717b89cbfef", null ],
+    [ "maxValue", "d1/d06/a05468.html#a4058a3baf4bdcce1e7d87c621d69d11a", null ],
+    [ "width", "d1/d06/a05468.html#a48beeef162ec50e89370be0735a2f6f2", null ],
+    [ "x", "d1/d06/a05468.html#a1154e88149043fd03ff26f92c28b753b", null ],
+    [ "y", "d1/d06/a05468.html#a1cd410dfa37a05eef3aecaa37e0c7368", null ]
 ];

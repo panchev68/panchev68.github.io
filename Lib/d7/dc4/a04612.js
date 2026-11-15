@@ -1,10 +1,9 @@
 var a04612 =
 [
-    [ "RxMessage", "d7/dc4/a04612.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
-    [ "RxMessage", "d7/dc4/a04612.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
-    [ "getData", "d7/dc4/a04612.html#a211378ed57e780728a164371a88e9913", null ],
-    [ "getId", "d7/dc4/a04612.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
-    [ "data", "d7/dc4/a04612.html#ad7fd7612128273e1c546b6344e7410b3", null ],
-    [ "id", "d7/dc4/a04612.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
-    [ "length", "d7/dc4/a04612.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
+    [ "chipManufacturer", "d7/dc4/a04612.html#a0699528d9734e0f26fa0ba87d7132204", null ],
+    [ "memoryCapacity", "d7/dc4/a04612.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
+    [ "pagePerSector", "d7/dc4/a04612.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
+    [ "pageSize", "d7/dc4/a04612.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
+    [ "sectorCount", "d7/dc4/a04612.html#a8e623c67b780e827d65e722809156e96", null ],
+    [ "sectorSize", "d7/dc4/a04612.html#a61bb395a7747150174a9b64ececfb178", null ]
 ];

@@ -1,6 +1,6 @@
 var a00320 =
 [
-    [ "Lib::BSP::XPT2046", "d1/d13/a04714.html", "d1/d13/a04714" ],
-    [ "Lib::BSP::XPT2046::Config", "d9/d82/a04718.html", "d9/d82/a04718" ],
-    [ "Lib::BSP::XPT2046::Parameters", "de/d18/a04722.html", "de/d18/a04722" ]
+    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;", "d9/dcf/a04692.html", "d9/dcf/a04692" ],
+    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Config", "d7/d11/a04696.html", "d7/d11/a04696" ],
+    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Diagnostics", "d8/d4b/a04700.html", "d8/d4b/a04700" ]
 ];

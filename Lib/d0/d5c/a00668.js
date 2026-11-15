@@ -1,4 +1,4 @@
 var a00668 =
 [
-    [ "Lib::HAL::OSPIPortAsync&lt; T_DERIVED &gt;", "d5/d90/a05494.html", "d5/d90/a05494" ]
+    [ "Lib::HAL::toHalTimeout", "de/d1c/a01093.html#a55be7e95dba53e09a7b9b5e29bcc3840", null ]
 ];

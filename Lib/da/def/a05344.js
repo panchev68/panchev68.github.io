@@ -1,15 +1,19 @@
 var a05344 =
 [
-    [ "I2CPort", "da/def/a05344.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
-    [ "~I2CPort", "da/def/a05344.html#aa13047282a809658f54818a9b352d7bf", null ],
-    [ "abort", "da/def/a05344.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "da/def/a05344.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "da/def/a05344.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "da/def/a05344.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "da/def/a05344.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "masterMemRead", "da/def/a05344.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "da/def/a05344.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "da/def/a05344.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "da/def/a05344.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "da/def/a05344.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "AddressString", "da/def/a05344.html#a4bd1cdcefe0490f36b31a3dd12dbb8c9", null ],
+    [ "IpAddress", "da/def/a05344.html#a14871d2fd0997a7192dbfa9efb391866", null ],
+    [ "IpAddress", "da/def/a05344.html#ad2648b0f73ef692addbd78f8b6a89e83", null ],
+    [ "IpAddress", "da/def/a05344.html#a969426d705b94a3bb6a04bc46e2194e5", null ],
+    [ "IpAddress", "da/def/a05344.html#ac1bc670d3fdcf3a73cde02df85874f9a", null ],
+    [ "~IpAddress", "da/def/a05344.html#a91c1c230613abcd87e0e6e643231cdac", null ],
+    [ "IpAddress", "da/def/a05344.html#a121d3d9a5d1d5288d582bbf6c925f23a", null ],
+    [ "data", "da/def/a05344.html#a4c0fc88456d713ebc87705c39a7a5fa2", null ],
+    [ "fromString", "da/def/a05344.html#aa8258817877631b9f96b9e16451a4027", null ],
+    [ "get", "da/def/a05344.html#a5407112eb57277910f2696486f34d87b", null ],
+    [ "operator[]", "da/def/a05344.html#a008326accb852006dc00f15e9ea5fb02", null ],
+    [ "set", "da/def/a05344.html#a3b95e7ad2bf59d4967e7a741aea271a5", null ],
+    [ "set", "da/def/a05344.html#a95fd8cae114a9d4e9f160927f60a7880", null ],
+    [ "set", "da/def/a05344.html#ac055a400e34b3e1927421c0243ba509d", null ],
+    [ "size", "da/def/a05344.html#a18a251f6c463c27b3f0de2c9316a54c2", null ],
+    [ "toString", "da/def/a05344.html#adc079b389a5a25b969af193bd5c9ad4a", null ]
 ];

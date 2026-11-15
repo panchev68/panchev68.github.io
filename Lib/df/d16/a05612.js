@@ -1,12 +1,15 @@
 var a05612 =
 [
-    [ "Time", "df/d16/a05612.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "df/d16/a05612.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "df/d16/a05612.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "df/d16/a05612.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "df/d16/a05612.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "df/d16/a05612.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "df/d16/a05612.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "df/d16/a05612.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "df/d16/a05612.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "I2CPort", "df/d16/a05612.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
+    [ "~I2CPort", "df/d16/a05612.html#aa13047282a809658f54818a9b352d7bf", null ],
+    [ "abort", "df/d16/a05612.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "close", "df/d16/a05612.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "df/d16/a05612.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "df/d16/a05612.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "df/d16/a05612.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "masterMemRead", "df/d16/a05612.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "df/d16/a05612.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "df/d16/a05612.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "df/d16/a05612.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "df/d16/a05612.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

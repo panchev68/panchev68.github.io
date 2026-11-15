@@ -1,5 +1,8 @@
 var a05184 =
 [
-    [ "total", "dc/ded/a05184.html#a2c49f7ab0ebfb506507ad99502ec3889", null ],
-    [ "used", "dc/ded/a05184.html#a2e2c2a1528ada9e70dca6788258f4285", null ]
+    [ "writeTo", "dc/ded/a05184.html#a4b67abe71dc0cda3271d558cf7dc8567", null ],
+    [ "dstAddress", "dc/ded/a05184.html#a9969bce892ba39508a48daebcde56b75", null ],
+    [ "frameId", "dc/ded/a05184.html#ae540c1fa3f4c9c108127455e8ac5b127", null ],
+    [ "options", "dc/ded/a05184.html#a61fadbd6372692084aabcea329f5f1ab", null ],
+    [ "rfData", "dc/ded/a05184.html#a99cf3d6eb6a15b6b82e1f552a57c54af", null ]
 ];

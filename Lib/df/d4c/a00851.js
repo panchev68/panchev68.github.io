@@ -1,5 +1,4 @@
 var a00851 =
 [
-    [ "Lib::Helper::TimeZone", "d3/d09/a05790.html", "d3/d09/a05790" ],
-    [ "Lib::Helper::TimeZone::TimeChangeRule", "d4/dc2/a05794.html", "d4/dc2/a05794" ]
+    [ "Lib::HAL::USBHostPortBase&lt; T_DERIVED &gt;", "d9/d0b/a05820.html", "d9/d0b/a05820" ]
 ];

@@ -1,9 +1,13 @@
 var a05964 =
 [
-    [ "VersionString", "dc/d76/a05964.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Hardware", "dc/d76/a05964.html#a5df26239c512941c15b1473b41fd41e6", null ],
-    [ "getSubVersion", "dc/d76/a05964.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "dc/d76/a05964.html#ad9b45ee76c12709fe9ef566466c9f721", null ],
-    [ "operator VersionString", "dc/d76/a05964.html#a9e770d09f97bafa86fcc361a02339e2b", null ],
-    [ "subVersion", "dc/d76/a05964.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "WolfSSLTransport", "dc/d76/a05964.html#a902fc980deaff7372065ac354e424bd7", null ],
+    [ "~WolfSSLTransport", "dc/d76/a05964.html#a1af1ec7c8459af557cecf30e2fce9851", null ],
+    [ "WolfSSLTransport", "dc/d76/a05964.html#ac66ebbbe5867fdc9e41b120f0703afd9", null ],
+    [ "WolfSSLTransport", "dc/d76/a05964.html#aee33a9d5d619aea80630e5c113bc940c", null ],
+    [ "close", "dc/d76/a05964.html#afc96144cd745fe9fc116e7fa03ea0c00", null ],
+    [ "open", "dc/d76/a05964.html#a34b1d6a735d69895b3381e71a3d7b24f", null ],
+    [ "operator=", "dc/d76/a05964.html#a65c79de2e76f70c00d2a7117462aef12", null ],
+    [ "operator=", "dc/d76/a05964.html#ac0b3753689c57f39a30e72868cac2919", null ],
+    [ "receive", "dc/d76/a05964.html#a665163ec5d248c6f5f86737aec8901e8", null ],
+    [ "send", "dc/d76/a05964.html#a609db5ba4b95a1e99a742291477e322b", null ]
 ];

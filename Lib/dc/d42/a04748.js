@@ -1,13 +1,15 @@
 var a04748 =
 [
-    [ "Tag", "dc/d42/a04748.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
-    [ "WolfSSLAesGcm", "dc/d42/a04748.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
-    [ "~WolfSSLAesGcm", "dc/d42/a04748.html#a032c38854a99ed5c5a281809583c4bad", null ],
-    [ "WolfSSLAesGcm", "dc/d42/a04748.html#a0948de3456c47ec4fcfdda7f14014566", null ],
-    [ "WolfSSLAesGcm", "dc/d42/a04748.html#ae6206c63d09568b82e1efae3379c82d7", null ],
-    [ "decrypt", "dc/d42/a04748.html#a70889db1697fa4212becb3acfb87a2a4", null ],
-    [ "encrypt", "dc/d42/a04748.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
-    [ "open", "dc/d42/a04748.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
-    [ "operator=", "dc/d42/a04748.html#ab46183fdc3c915e95383d1216aac9109", null ],
-    [ "operator=", "dc/d42/a04748.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
+    [ "Ring", "da/d0e/a04752.html", "da/d0e/a04752" ],
+    [ "Slice", "dc/d42/a04748.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
+    [ "SK6812", "dc/d42/a04748.html#a713fbeedeb85ff82f1097b206afd7918", null ],
+    [ "SK6812", "dc/d42/a04748.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
+    [ "SK6812", "dc/d42/a04748.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
+    [ "clear", "dc/d42/a04748.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
+    [ "getColor", "dc/d42/a04748.html#a1a0907fe121161268c1b859d90232628", null ],
+    [ "operator=", "dc/d42/a04748.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
+    [ "operator=", "dc/d42/a04748.html#aa21ec5517b393c1649c2045e822978e7", null ],
+    [ "setColor", "dc/d42/a04748.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
+    [ "setColor", "dc/d42/a04748.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
+    [ "setColor", "dc/d42/a04748.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
 ];

@@ -1,15 +1,19 @@
 var a05672 =
 [
-    [ "TickType", "d7/da9/a05672.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
-    [ "TimePeriod", "d7/da9/a05672.html#a096466d88bfa78ef18f074937a43f63f", null ],
-    [ "elapsed", "d7/da9/a05672.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
-    [ "elapsedFromISR", "d7/da9/a05672.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
-    [ "elapsedTime", "d7/da9/a05672.html#aea37e1feea05928a3dfd98f79e82c449", null ],
-    [ "elapsedTimeFromISR", "d7/da9/a05672.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
-    [ "isRunning", "d7/da9/a05672.html#aa4477fa15b16c620396b69b2935bf2de", null ],
-    [ "reset", "d7/da9/a05672.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
-    [ "start", "d7/da9/a05672.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
-    [ "startFromISR", "d7/da9/a05672.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
-    [ "stop", "d7/da9/a05672.html#a12059cd59e97f3575d46ed98120763a2", null ],
-    [ "stopFromISR", "d7/da9/a05672.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
+    [ "Date", "d6/d0e/a05676.html", "d6/d0e/a05676" ],
+    [ "Time", "d1/dcd/a05680.html", "d1/dcd/a05680" ],
+    [ "Callback", "d7/da9/a05672.html#a0a60ddd5d190a0aaa1bbe1c7e6d62c59", null ],
+    [ "RTCDevice", "d7/da9/a05672.html#aef59f39cbffc698a357982cd0194a7f9", null ],
+    [ "~RTCDevice", "d7/da9/a05672.html#a892362d24be775443627005ea8724b38", null ],
+    [ "RTCDevice", "d7/da9/a05672.html#a0a276a7a9c7f0c70b9f23ff4d33f5e42", null ],
+    [ "RTCDevice", "d7/da9/a05672.html#a6c8a82665278c72edbd09c517d929e67", null ],
+    [ "getDateTime", "d7/da9/a05672.html#ad950fdd81c82bb7ecbe2f6f0a896c573", null ],
+    [ "getHandle", "d7/da9/a05672.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isTickServiceRunning", "d7/da9/a05672.html#a17d53ca66d3c3868cf28aea0df5922dc", null ],
+    [ "operator=", "d7/da9/a05672.html#a97370a531742ca95f9bbb03daefd9919", null ],
+    [ "operator=", "d7/da9/a05672.html#a9b9f7c009be9bbae886ca7082a302099", null ],
+    [ "setDateTime", "d7/da9/a05672.html#a9911cafdfc9189dd93f7eb0494ffd54a", null ],
+    [ "startTickService", "d7/da9/a05672.html#a653f2f434ecec9a018b72fd9101db1d0", null ],
+    [ "stopTickService", "d7/da9/a05672.html#acdd2b9c31ba35c63f5873309d8f0130e", null ],
+    [ "void::HAL_RTC_AlarmAEventCallback", "d7/da9/a05672.html#a292bc50e5b612af91527952bbffe57e9", null ]
 ];

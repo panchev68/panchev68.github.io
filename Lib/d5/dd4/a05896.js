@@ -1,10 +1,10 @@
 var a05896 =
 [
-    [ "maxPowerRef", "d5/dd4/a05896.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
-    [ "mppCurrentRef", "d5/dd4/a05896.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
-    [ "mppVoltageRef", "d5/dd4/a05896.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
-    [ "referenceIrradiance", "d5/dd4/a05896.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
-    [ "temperatureCoefficient", "d5/dd4/a05896.html#a199180804d52f432b3f8a4861146f827", null ],
-    [ "toleranceFactor", "d5/dd4/a05896.html#a94dbf0194f1c0097467e34c0605131d4", null ],
-    [ "updateInterval", "d5/dd4/a05896.html#a9a72ac9a78c42013979d67300e60de6d", null ]
+    [ "PeakInfo", "d3/d9b/a05900.html", "d3/d9b/a05900" ],
+    [ "FindPeaks", "d5/dd4/a05896.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
+    [ "addSample", "d5/dd4/a05896.html#af68c408bdc213c13c758fceb90fdf51e", null ],
+    [ "getCount", "d5/dd4/a05896.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
+    [ "getFallingPeak", "d5/dd4/a05896.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
+    [ "getRisingPeak", "d5/dd4/a05896.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
+    [ "reset", "d5/dd4/a05896.html#a176df2aab4c0e044fe550ca813f88168", null ]
 ];

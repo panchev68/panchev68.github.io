@@ -1,5 +1,8 @@
 var a04480 =
 [
-    [ "onCardDetect", "df/d3d/a04480.html#a4e7561f8d775ae05de344bf44f2cbc7f", null ],
-    [ "spiPort", "df/d3d/a04480.html#a67ad4df5e15c12584fe20e638078eab3", null ]
+    [ "bl", "df/d3d/a04480.html#a93656f94c882ca996c98bd294a4f268f", null ],
+    [ "dc", "df/d3d/a04480.html#a0a1a1de131448f5f9259510a9df8905e", null ],
+    [ "nrst", "df/d3d/a04480.html#a5f67207441de783f78571e1d72e2ad0e", null ],
+    [ "nss", "df/d3d/a04480.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
+    [ "spi", "df/d3d/a04480.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
 ];

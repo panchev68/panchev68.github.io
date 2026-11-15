@@ -1,12 +1,13 @@
 var a04704 =
 [
-    [ "FreeFunctionPointer", "d2/d88/a04704.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d2/d88/a04704.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d2/d88/a04704.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "d2/d88/a04704.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d2/d88/a04704.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d2/d88/a04704.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d2/d88/a04704.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d2/d88/a04704.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d2/d88/a04704.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "Bytes", "d2/d88/a04704.html#aaa924b52936a11a36f991b92270eb1b6", null ],
+    [ "Digest", "d2/d88/a04704.html#a97d15161e3e4d29994672b77e28ea856", null ],
+    [ "Message", "d2/d88/a04704.html#a8ba002cb2db8c1b57b6534f88d77e2ab", null ],
+    [ "Uid", "d2/d88/a04704.html#ab823c89537a28891f90d448eeb6122c1", null ],
+    [ "Result", "d2/d88/a04704.html#ae690657e7ab3cf073f0d03abc2ee488b", [
+      [ "VALID", "d2/d88/a04704.html#ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea", null ],
+      [ "BAD_FORMAT", "d2/d88/a04704.html#ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a", null ],
+      [ "UNKNOWN_KEY", "d2/d88/a04704.html#ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb", null ],
+      [ "BAD_SIGNATURE", "d2/d88/a04704.html#ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a", null ]
+    ] ]
 ];

@@ -1,16 +1,14 @@
 var a05944 =
 [
-    [ "Config", "de/db2/a05948.html", "de/db2/a05948" ],
-    [ "DataMap", "db/d0b/a05952.html", "db/d0b/a05952" ],
-    [ "LastResetState", "df/d42/a05944.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
-    [ "System", "df/d42/a05944.html#af4fce1b946378e3b68e2dab8e562134f", null ],
-    [ "System", "df/d42/a05944.html#a5ea26b055ba2f74bfb770c90aea5ed2e", null ],
-    [ "operator=", "df/d42/a05944.html#af9936cf8ce134998481d3b63473f909b", null ],
-    [ "configuration", "df/d42/a05944.html#a97e928b4c78a8a3e74760b983ea17573", null ],
-    [ "firmwareVersion", "df/d42/a05944.html#a6b544bb551e83fc1c464e0e9572f48ab", null ],
-    [ "hardwareVersion", "df/d42/a05944.html#a6d884054d36dd9f4b62aed86e5830d9b", null ],
-    [ "lastResetState", "df/d42/a05944.html#add4f1e84db40b8862ab63a06766ae439", null ],
-    [ "produceDate", "df/d42/a05944.html#a542e9245a4b9791006636abac56b2574", null ],
-    [ "saleDate", "df/d42/a05944.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
-    [ "serialNumber", "df/d42/a05944.html#a2a1eff5a3c2fc68cb2d853d61065a903", null ]
+    [ "TimeChangeRule", "de/db2/a05948.html", "de/db2/a05948" ],
+    [ "TimeZone", "df/d42/a05944.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
+    [ "TimeZone", "df/d42/a05944.html#a0edb02c779df5ea86747377d1413c3d8", null ],
+    [ "TimeZone", "df/d42/a05944.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
+    [ "convertLocalToUtcMinutes", "df/d42/a05944.html#a479ec4792a22a5b314a497bb01be2047", null ],
+    [ "getName", "df/d42/a05944.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
+    [ "getOffset", "df/d42/a05944.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
+    [ "getOffsetMinutes", "df/d42/a05944.html#a85aeda7715611b5af76b28bdc266c545", null ],
+    [ "setName", "df/d42/a05944.html#a46b717d157e7f9b012a459cf78b723b5", null ],
+    [ "setOffset", "df/d42/a05944.html#aedb03e610f976aba921183f41dd10501", null ],
+    [ "setOffsetMinutes", "df/d42/a05944.html#a57128a66ae77de2e6d60521056cb33db", null ]
 ];

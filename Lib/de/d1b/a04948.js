@@ -1,11 +1,10 @@
 var a04948 =
 [
-    [ "Message", "de/d1b/a04948.html#adf2fad29193213811e051ef8d5f227a7", null ],
-    [ "Message", "de/d1b/a04948.html#a68d2a5b54227d976281ef2c06d063d87", null ],
-    [ "Message", "de/d1b/a04948.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
-    [ "data", "de/d1b/a04948.html#abc7d722b3924f3002a908d282429e590", null ],
-    [ "empty", "de/d1b/a04948.html#a09e2a403173178d77de083ae66a831fe", null ],
-    [ "operator std::vector< uint8_t >", "de/d1b/a04948.html#aa265929307138945bf4e16749958a7f8", null ],
-    [ "size", "de/d1b/a04948.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
-    [ "view", "de/d1b/a04948.html#a99d9247c3097add390da201d0083e524", null ]
+    [ "WolfSSH", "de/d1b/a04948.html#acda587d771e0b88270bdf9263d156fd0", null ],
+    [ "~WolfSSH", "de/d1b/a04948.html#ad07d509cc2a825d9165ab30739d84515", null ],
+    [ "WolfSSH", "de/d1b/a04948.html#ab03771dcd75546ec452cb768b0a29da5", null ],
+    [ "WolfSSH", "de/d1b/a04948.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
+    [ "isOpen", "de/d1b/a04948.html#aac3ff36b57e422860d83792bb84c84f3", null ],
+    [ "operator=", "de/d1b/a04948.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
+    [ "operator=", "de/d1b/a04948.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
 ];

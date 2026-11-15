@@ -1,19 +1,13 @@
 var a05124 =
 [
-    [ "AddressString", "d0/dbf/a05124.html#a4bd1cdcefe0490f36b31a3dd12dbb8c9", null ],
-    [ "IpAddress", "d0/dbf/a05124.html#a14871d2fd0997a7192dbfa9efb391866", null ],
-    [ "IpAddress", "d0/dbf/a05124.html#ad2648b0f73ef692addbd78f8b6a89e83", null ],
-    [ "IpAddress", "d0/dbf/a05124.html#a969426d705b94a3bb6a04bc46e2194e5", null ],
-    [ "IpAddress", "d0/dbf/a05124.html#ac1bc670d3fdcf3a73cde02df85874f9a", null ],
-    [ "~IpAddress", "d0/dbf/a05124.html#a91c1c230613abcd87e0e6e643231cdac", null ],
-    [ "IpAddress", "d0/dbf/a05124.html#a121d3d9a5d1d5288d582bbf6c925f23a", null ],
-    [ "data", "d0/dbf/a05124.html#a4c0fc88456d713ebc87705c39a7a5fa2", null ],
-    [ "fromString", "d0/dbf/a05124.html#aa8258817877631b9f96b9e16451a4027", null ],
-    [ "get", "d0/dbf/a05124.html#a5407112eb57277910f2696486f34d87b", null ],
-    [ "operator[]", "d0/dbf/a05124.html#a008326accb852006dc00f15e9ea5fb02", null ],
-    [ "set", "d0/dbf/a05124.html#a3b95e7ad2bf59d4967e7a741aea271a5", null ],
-    [ "set", "d0/dbf/a05124.html#a95fd8cae114a9d4e9f160927f60a7880", null ],
-    [ "set", "d0/dbf/a05124.html#ac055a400e34b3e1927421c0243ba509d", null ],
-    [ "size", "d0/dbf/a05124.html#a18a251f6c463c27b3f0de2c9316a54c2", null ],
-    [ "toString", "d0/dbf/a05124.html#adc079b389a5a25b969af193bd5c9ad4a", null ]
+    [ "Config", "d8/d2c/a05128.html", "d8/d2c/a05128" ],
+    [ "ComDriver", "d0/dbf/a05124.html#ababf68659e9af31a588761f3b7019ee4", null ],
+    [ "ComDriver", "d0/dbf/a05124.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
+    [ "~ComDriver", "d0/dbf/a05124.html#ac84fd480c15423c989d3f9f367f99045", null ],
+    [ "init", "d0/dbf/a05124.html#a43649d6474cd7c536e4e76c7a3374725", null ],
+    [ "operator=", "d0/dbf/a05124.html#a39956162d031d237c8741f20d1de0b4d", null ],
+    [ "reset", "d0/dbf/a05124.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
+    [ "send", "d0/dbf/a05124.html#adb3898389cd892854bac73d239b647fc", null ],
+    [ "diagnostic", "d0/dbf/a05124.html#a567a1a6ed97de4267cfec4531f60a373", null ],
+    [ "xrst", "d0/dbf/a05124.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
 ];

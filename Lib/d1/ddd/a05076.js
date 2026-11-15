@@ -1,13 +1,13 @@
 var a05076 =
 [
-    [ "Handlers", "d1/ddd/a05076.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
-    [ "EepromEmulation", "d1/ddd/a05076.html#a1146daff507a230799851b6c5f9ee835", null ],
-    [ "~EepromEmulation", "d1/ddd/a05076.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
-    [ "EepromEmulation", "d1/ddd/a05076.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
-    [ "EepromEmulation", "d1/ddd/a05076.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
-    [ "operator=", "d1/ddd/a05076.html#ac18054ff925ab9ff88d05d79a8674626", null ],
-    [ "operator=", "d1/ddd/a05076.html#a8a0057afb82e294f720a93b50ad87908", null ],
-    [ "process", "d1/ddd/a05076.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
-    [ "setHandlers", "d1/ddd/a05076.html#a070225a3de178cf14fb35d7a18f183e0", null ],
-    [ "setReadSize", "d1/ddd/a05076.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
+    [ "Config", "de/d0b/a05080.html", "de/d0b/a05080" ],
+    [ "Params", "d1/ddd/a05076.html#aa0a4f2bbe579882088ad1235acfe6fd9", null ],
+    [ "PairService", "d1/ddd/a05076.html#a5a54bddc9780ee25cf4d3807f36e1f12", null ],
+    [ "PairService", "d1/ddd/a05076.html#a469a4f643d4fa5a75c530cb6d7ec49d5", null ],
+    [ "close", "d1/ddd/a05076.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
+    [ "isRunning", "d1/ddd/a05076.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "d1/ddd/a05076.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "d1/ddd/a05076.html#a115a3537a0189cfcd83c231d716c0bb5", null ],
+    [ "process", "d1/ddd/a05076.html#a0747f885e5a9feba10647c760353f395", null ],
+    [ "update", "d1/ddd/a05076.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
 ];

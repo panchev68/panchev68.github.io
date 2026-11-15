@@ -1,6 +1,5 @@
 var a05952 =
 [
-    [ "configuration", "db/d0b/a05952.html#a207811e42d707051b821430532e14dca", null ],
-    [ "produceDate", "db/d0b/a05952.html#a15a774d40f9912978af06fa0b55e5e6a", null ],
-    [ "saleDate", "db/d0b/a05952.html#ae15be586be491076f57ec2f103f5ed81", null ]
+    [ "body", "db/d0b/a05952.html#aec3889bdd99fa05f2af29dfcb56c5ace", null ],
+    [ "statusCode", "db/d0b/a05952.html#a5c7bf28c88b7a994c33f96fecbd5b4a3", null ]
 ];

@@ -1,14 +1,19 @@
 var a05608 =
 [
-    [ "Time", "df/d16/a05612.html", "df/d16/a05612" ],
-    [ "Date", "df/d70/a05616.html", "df/d70/a05616" ],
-    [ "DateTime", "d8/d10/a05608.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "d8/d10/a05608.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "d8/d10/a05608.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "d8/d10/a05608.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "d8/d10/a05608.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "d8/d10/a05608.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "d8/d10/a05608.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "d8/d10/a05608.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "d8/d10/a05608.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "I2CPort", "d8/d10/a05608.html#a70dc562f520726340c2c942ee7753b17", null ],
+    [ "~I2CPort", "d8/d10/a05608.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
+    [ "I2CPort", "d8/d10/a05608.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
+    [ "I2CPort", "d8/d10/a05608.html#a6c227decd7ea7b8ff23e032025761259", null ],
+    [ "close", "d8/d10/a05608.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "getHandle", "d8/d10/a05608.html#a57df6990634d2cba4b86d8cf193f4050", null ],
+    [ "getHandle", "d8/d10/a05608.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
+    [ "isBusy", "d8/d10/a05608.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "d8/d10/a05608.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "masterMemRead", "d8/d10/a05608.html#aff45c6ae44d78ac3f07f800383374359", null ],
+    [ "masterMemWrite", "d8/d10/a05608.html#ae89e0f492119ac05671af0cdca2b90de", null ],
+    [ "masterReceive", "d8/d10/a05608.html#a165d3958b26f38d4c513160a447bcfaf", null ],
+    [ "masterTransmit", "d8/d10/a05608.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
+    [ "open", "d8/d10/a05608.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "d8/d10/a05608.html#aae592f22809df591ac07e2cd47f3969b", null ],
+    [ "operator=", "d8/d10/a05608.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
 ];

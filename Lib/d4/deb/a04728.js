@@ -1,10 +1,10 @@
 var a04728 =
 [
-    [ "WolfSSH", "d4/deb/a04728.html#acda587d771e0b88270bdf9263d156fd0", null ],
-    [ "~WolfSSH", "d4/deb/a04728.html#ad07d509cc2a825d9165ab30739d84515", null ],
-    [ "WolfSSH", "d4/deb/a04728.html#ab03771dcd75546ec452cb768b0a29da5", null ],
-    [ "WolfSSH", "d4/deb/a04728.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
-    [ "isOpen", "d4/deb/a04728.html#aac3ff36b57e422860d83792bb84c84f3", null ],
-    [ "operator=", "d4/deb/a04728.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
-    [ "operator=", "d4/deb/a04728.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
+    [ "operator==", "d4/deb/a04728.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "d4/deb/a04728.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "d4/deb/a04728.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "d4/deb/a04728.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "d4/deb/a04728.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "d4/deb/a04728.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "d4/deb/a04728.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

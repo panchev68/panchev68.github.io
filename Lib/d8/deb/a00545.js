@@ -1,4 +1,5 @@
 var a00545 =
 [
-    [ "Lib::HAL::ADCPort&lt; DriverMode::BLOCKING &gt;", "d6/daf/a05323.html", "d6/daf/a05323" ]
+    [ "Lib::Ethercat::SOES::EepromHandlers", "dc/d2f/a05292.html", "dc/d2f/a05292" ],
+    [ "Lib::Ethercat::SOES::EepromEmulation", "d0/d27/a05296.html", "d0/d27/a05296" ]
 ];

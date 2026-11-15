@@ -1,9 +1,7 @@
 var a04416 =
 [
-    [ "chipManufacturer", "dd/db3/a04416.html#a0699528d9734e0f26fa0ba87d7132204", null ],
-    [ "memoryCapacity", "dd/db3/a04416.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
-    [ "pagePerSector", "dd/db3/a04416.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
-    [ "pageSize", "dd/db3/a04416.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
-    [ "sectorCount", "dd/db3/a04416.html#a8e623c67b780e827d65e722809156e96", null ],
-    [ "sectorSize", "dd/db3/a04416.html#a61bb395a7747150174a9b64ececfb178", null ]
+    [ "correction", "dd/db3/a04416.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
+    [ "i2cAddr", "dd/db3/a04416.html#ae3266da82296416f02f68de0c610a2f9", null ],
+    [ "i2cPort", "dd/db3/a04416.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
+    [ "shuntResistorOhms", "dd/db3/a04416.html#a9808e99c30c4516f65cdae3a889ec038", null ]
 ];

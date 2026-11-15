@@ -1,13 +1,13 @@
 var a05504 =
 [
-    [ "UARTPortBase", "d2/d81/a05504.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
-    [ "UARTPortBase", "d2/d81/a05504.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
-    [ "UARTPortBase", "d2/d81/a05504.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
-    [ "~UARTPortBase", "d2/d81/a05504.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
-    [ "close", "d2/d81/a05504.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
-    [ "isBusy", "d2/d81/a05504.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
-    [ "open", "d2/d81/a05504.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
-    [ "operator=", "d2/d81/a05504.html#ad0321a4f1297088a60c64e263c8c6816", null ],
-    [ "operator=", "d2/d81/a05504.html#af29977f244357cb79e8203dbd192840c", null ],
-    [ "setBaudRate", "d2/d81/a05504.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
+    [ "BackupRamDomain", "d2/d81/a05504.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "d2/d81/a05504.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "d2/d81/a05504.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "d2/d81/a05504.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "d2/d81/a05504.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "d2/d81/a05504.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "d2/d81/a05504.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "d2/d81/a05504.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "d2/d81/a05504.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "d2/d81/a05504.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

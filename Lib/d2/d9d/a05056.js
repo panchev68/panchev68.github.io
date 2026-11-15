@@ -1,12 +1,20 @@
 var a05056 =
 [
-    [ "size", "d2/d9d/a05056.html#a7306fdc8fa82a6f3d142e23b25af606d", null ],
-    [ "access", "d2/d9d/a05056.html#a689087c28b07b550c6eae081e7594f72", null ],
-    [ "bitLength", "d2/d9d/a05056.html#a9720d19e5c0b0e8f1be49ac104234370", null ],
-    [ "dataType", "d2/d9d/a05056.html#a0f18ed5e1c01a3298b9a235b433b363a", null ],
-    [ "index", "d2/d9d/a05056.html#ab2f3134366cf4e85eb20119de70393e3", null ],
-    [ "name", "d2/d9d/a05056.html#a2497e7c2ce49cc0f0fe4601dd78aba7b", null ],
-    [ "readData", "d2/d9d/a05056.html#abb1278c8d325465c3e21817c2e559f7f", null ],
-    [ "subIndex", "d2/d9d/a05056.html#a5e7dc405b23d4a2c9c30824dbd1aa348", null ],
-    [ "writeData", "d2/d9d/a05056.html#ac54a16495fbb3e297360ce4281c1420f", null ]
+    [ "Config", "d2/d9d/a05056.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
+    [ "State", "d2/d9d/a05056.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
+    [ "ServerBase", "d2/d9d/a05056.html#a024c8654b0689cd8af2775cba7efc9ca", null ],
+    [ "~ServerBase", "d2/d9d/a05056.html#a7f9293f66a2b9cd19fb019f38e743049", null ],
+    [ "getModuleInstance", "d2/d9d/a05056.html#af8063d3ad104519c1331b65494eea01b", null ],
+    [ "getModulePresent", "d2/d9d/a05056.html#abefa9599b01a774884c7f5f1a8578084", null ],
+    [ "getState", "d2/d9d/a05056.html#a569078f4b1701fb0579efd9d8e10655d", null ],
+    [ "pause", "d2/d9d/a05056.html#a069f63d8ece09ad92a97696e558290b3", null ],
+    [ "resume", "d2/d9d/a05056.html#abbf1050f972e12e9f892cbb50f712298", null ],
+    [ "start", "d2/d9d/a05056.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
+    [ "channelScanner", "d2/d9d/a05056.html#abcae86ac3f99158551b91f88f0c88de7", null ],
+    [ "connection", "d2/d9d/a05056.html#a6cc363b4c00520c96b5d228aab8301b8", null ],
+    [ "diagnostic", "d2/d9d/a05056.html#a6d0f2ae6cd2c2076945ec0be3c66436c", null ],
+    [ "modemStatus", "d2/d9d/a05056.html#a3aed113d4e636bcad17894b64f1e5734", null ],
+    [ "networkDiscovery", "d2/d9d/a05056.html#a1936fa3a20798013fd230a5b9ae5a651", null ],
+    [ "parameters", "d2/d9d/a05056.html#a3a40ec0220eb721e07f56c02a206f485", null ],
+    [ "spectrumAnalyzer", "d2/d9d/a05056.html#a94172a0bb6588a8bad00411e1e6ce038", null ]
 ];

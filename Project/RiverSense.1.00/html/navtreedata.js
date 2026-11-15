@@ -24,8 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "River Sense Control Firmware", "index.html", [
-    [ "RiverSense firmware", "index.html", null ],
+  [ "River Sense", "index.html", [
+    [ "River Sense firmware project", "index.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "__bit_allocate", "http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01700.html#a640233135dbc1e51bb74dfb544f14b94", null ],
       [ "__bit_free", "http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01700.html#a3e2acc7616a7961ec478ebdbdc1ab2eb", null ],
@@ -247,16 +247,15 @@ var NAVTREE =
       ] ],
       [ "applyResult", "d5/dae/namespace_a_p_p_1_1_diagnostics.html#a2071ceb4926274eb770f0ee9c531090d", null ],
       [ "ALL_DEVICES", "d5/dae/namespace_a_p_p_1_1_diagnostics.html#a1bc6c8fdddbf6587885c76551da4c863", null ],
-      [ "pack", "https://panchev68.github.io/Lib/d6/d8d/a01007.html#ad8d403e5fc6766109d53890ca071caf2", null ],
-      [ "delay", "https://panchev68.github.io/Lib/d2/d41/a01037.html#a0960b26725ee8ac0c2798f5d3036b37a", null ],
-      [ "delay", "https://panchev68.github.io/Lib/d2/d41/a01037.html#a9457a17b234e2e6b6336f69c9f756021", null ],
-      [ "delayUntil", "https://panchev68.github.io/Lib/d2/d41/a01037.html#a071ed92c20109dd07c3785eb87914136", null ],
-      [ "delayUntil", "https://panchev68.github.io/Lib/d2/d41/a01037.html#aeaddd65089a8190241b5922399d6168c", null ],
-      [ "durationToTicks", "https://panchev68.github.io/Lib/d2/d41/a01037.html#ab892d206cb79c31e373b3631e023b644", null ],
-      [ "getTickCount", "https://panchev68.github.io/Lib/d2/d41/a01037.html#aa54eb7aeffc794961e60ade51c195480", null ],
-      [ "getTickCountFromISR", "https://panchev68.github.io/Lib/d2/d41/a01037.html#a80d033e9ce70fec78bacaa61cc1221bf", null ],
-      [ "inISR", "https://panchev68.github.io/Lib/d2/d41/a01037.html#a974867cff953c89df2c50da604d4b606", null ],
-      [ "millisecondsToTicks", "https://panchev68.github.io/Lib/d2/d41/a01037.html#a5c21e23f0bba6fde645ac808660b30f8", null ],
+      [ "delay", "https://panchev68.github.io/Lib/d4/da7/a01102.html#a0960b26725ee8ac0c2798f5d3036b37a", null ],
+      [ "delay", "https://panchev68.github.io/Lib/d4/da7/a01102.html#a9457a17b234e2e6b6336f69c9f756021", null ],
+      [ "delayUntil", "https://panchev68.github.io/Lib/d4/da7/a01102.html#a071ed92c20109dd07c3785eb87914136", null ],
+      [ "delayUntil", "https://panchev68.github.io/Lib/d4/da7/a01102.html#aeaddd65089a8190241b5922399d6168c", null ],
+      [ "durationToTicks", "https://panchev68.github.io/Lib/d4/da7/a01102.html#ab892d206cb79c31e373b3631e023b644", null ],
+      [ "getTickCount", "https://panchev68.github.io/Lib/d4/da7/a01102.html#aa54eb7aeffc794961e60ade51c195480", null ],
+      [ "getTickCountFromISR", "https://panchev68.github.io/Lib/d4/da7/a01102.html#a80d033e9ce70fec78bacaa61cc1221bf", null ],
+      [ "inISR", "https://panchev68.github.io/Lib/d4/da7/a01102.html#a974867cff953c89df2c50da604d4b606", null ],
+      [ "millisecondsToTicks", "https://panchev68.github.io/Lib/d4/da7/a01102.html#a5c21e23f0bba6fde645ac808660b30f8", null ],
       [ "swap", "http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01734.html#a9f4d5ac9d6926c4a0e2d97179887cb6c", null ],
       [ "_Opcode", "http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01638.html#ga120dd4593bf78fa33d97a55b8f5ff393", null ],
       [ "_Opcode", "http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01638.html#ga120dd4593bf78fa33d97a55b8f5ff393", null ],
@@ -1964,19 +1963,14 @@ var NAVTREE =
       [ "wcout", "http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a2f5fc307ed84f0ecfbc36d2cda322040", null ],
       [ "wcout", "http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a2f5fc307ed84f0ecfbc36d2cda322040", null ]
     ] ],
-    [ "Classes", "annotated.html", [
-      [ "List", "annotated.html", "annotated_dup" ]
-    ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
-    ] ]
+    [ "Classes", "annotated.html", null ],
+    [ "Files", "files.html", null ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"dc/dd4/class_a_p_p_1_1_command_interpreter.html#aa709593d2295acc37dd1b82b7bde42d6"
+"index.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

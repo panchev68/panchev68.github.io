@@ -1,12 +1,12 @@
 var a04740 =
 [
-    [ "Digest", "d9/dda/a04740.html#ae6533eeb24732d598c786e990b0ce82b", null ],
-    [ "WolfSSLSHA256", "d9/dda/a04740.html#a8f2c459bcc74bbdc491240db0f521ccd", null ],
-    [ "~WolfSSLSHA256", "d9/dda/a04740.html#a620161254dd9ca7e42a2f0b9798f8183", null ],
-    [ "WolfSSLSHA256", "d9/dda/a04740.html#ac39e90d775c56d5a9b1687171716062b", null ],
-    [ "WolfSSLSHA256", "d9/dda/a04740.html#a22497c39de4e0ee61b131f66c1b5eba4", null ],
-    [ "finish", "d9/dda/a04740.html#a895fb7dee0bfd3914e319bc385f61a00", null ],
-    [ "operator=", "d9/dda/a04740.html#a74d113ca6e8dc2b3fb10b5c6ec2f561e", null ],
-    [ "operator=", "d9/dda/a04740.html#a72a5c7983a98133e879c4dc9e7bf1680", null ],
-    [ "update", "d9/dda/a04740.html#a01e3e0e3e2d58bdd234797c040bc8321", null ]
+    [ "Data", "d8/d0e/a04744.html", "d8/d0e/a04744" ],
+    [ "Color", "d9/dda/a04740.html#a50992f4d62f0c135ac06fb09295272a9", null ],
+    [ "Color", "d9/dda/a04740.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
+    [ "Color", "d9/dda/a04740.html#a484309c52934f9c23460c4fe57f45530", null ],
+    [ "clear", "d9/dda/a04740.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
+    [ "get", "d9/dda/a04740.html#a4ad28e997f34f1873bf233a5d004e340", null ],
+    [ "getPacked", "d9/dda/a04740.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
+    [ "set", "d9/dda/a04740.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
+    [ "set", "d9/dda/a04740.html#ac8926773deb153f9281f4e235896e4a0", null ]
 ];

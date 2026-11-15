@@ -1,4 +1,4 @@
 var a00914 =
 [
-    [ "RTOS::SemaphoreCounting", "d9/d23/a05954.html", "d9/d23/a05954" ]
+    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "db/dbf/a05920.html", "db/dbf/a05920" ]
 ];

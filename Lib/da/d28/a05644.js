@@ -1,14 +1,14 @@
 var a05644 =
 [
-    [ "JaggedArrayBase", "da/d28/a05644.html#ae79ec88b260154126e7ec280a136c14a", null ],
-    [ "addItem", "da/d28/a05644.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
-    [ "addItems", "da/d28/a05644.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
-    [ "clearItems", "da/d28/a05644.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
-    [ "getElements", "da/d28/a05644.html#a428409a8385b8547bfa65d04a71565b1", null ],
-    [ "getElements", "da/d28/a05644.html#a718f7db994c254bce01246ea32b1d653", null ],
-    [ "getSize", "da/d28/a05644.html#afca6ed09d7865e2bac45430fda768aae", null ],
-    [ "operator[]", "da/d28/a05644.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
-    [ "operator[]", "da/d28/a05644.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
-    [ "removeItem", "da/d28/a05644.html#a819041f4264ebfce07665c548d5dd7bc", null ],
-    [ "elementList", "da/d28/a05644.html#a319cd6aae084f711db14582ed55929a5", null ]
+    [ "OSPIPort", "da/d28/a05644.html#a14ccf4bafc49e1e7c3810bc249cc5748", null ],
+    [ "~OSPIPort", "da/d28/a05644.html#a50dab62adbe482ae17aa805e97c7f3ce", null ],
+    [ "abort", "da/d28/a05644.html#a12a734c939e90c6c90510ba2c323dec0", null ],
+    [ "close", "da/d28/a05644.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "command", "da/d28/a05644.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "getHandle", "da/d28/a05644.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "da/d28/a05644.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "da/d28/a05644.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "da/d28/a05644.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "da/d28/a05644.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "da/d28/a05644.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

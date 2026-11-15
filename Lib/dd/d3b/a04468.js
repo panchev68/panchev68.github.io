@@ -1,13 +1,7 @@
 var a04468 =
 [
-    [ "Bytes", "dd/d3b/a04468.html#aaa924b52936a11a36f991b92270eb1b6", null ],
-    [ "Digest", "dd/d3b/a04468.html#a97d15161e3e4d29994672b77e28ea856", null ],
-    [ "Message", "dd/d3b/a04468.html#a8ba002cb2db8c1b57b6534f88d77e2ab", null ],
-    [ "Uid", "dd/d3b/a04468.html#ab823c89537a28891f90d448eeb6122c1", null ],
-    [ "Result", "dd/d3b/a04468.html#ae690657e7ab3cf073f0d03abc2ee488b", [
-      [ "VALID", "dd/d3b/a04468.html#ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea", null ],
-      [ "BAD_FORMAT", "dd/d3b/a04468.html#ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a", null ],
-      [ "UNKNOWN_KEY", "dd/d3b/a04468.html#ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb", null ],
-      [ "BAD_SIGNATURE", "dd/d3b/a04468.html#ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a", null ]
-    ] ]
+    [ "diPinHandle", "dd/d3b/a04468.html#ac1b56409fb324181fdf949402d46b876", null ],
+    [ "nrstPinHandle", "dd/d3b/a04468.html#af72580eea93e2646b3f6eb5efbbce47f", null ],
+    [ "nssPinHandle", "dd/d3b/a04468.html#a8dc8520c47e27de48c5b73a8870cda54", null ],
+    [ "spiHandle", "dd/d3b/a04468.html#ab178d2536db34733af537ae7bec2353c", null ]
 ];

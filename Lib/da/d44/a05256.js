@@ -1,15 +1,29 @@
 var a05256 =
 [
-    [ "CANPortBase", "da/d44/a05256.html#a49874a4fadbeed6acb5df1cd34d8b425", null ],
-    [ "CANPortBase", "da/d44/a05256.html#a36fdf7b60492dfecc0b7bba144d57de0", null ],
-    [ "CANPortBase", "da/d44/a05256.html#a3758c35d87fdeafd08f0cc9845888bea", null ],
-    [ "~CANPortBase", "da/d44/a05256.html#afe0c3c29da222264a12b2ade136c866c", null ],
-    [ "close", "da/d44/a05256.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
-    [ "getFreeTxMailboxCount", "da/d44/a05256.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getRxFifoFillLevel", "da/d44/a05256.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "da/d44/a05256.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
-    [ "operator=", "da/d44/a05256.html#a9d5120e2646e18222b7569d1caeda00e", null ],
-    [ "operator=", "da/d44/a05256.html#a472090855651f87bac97104e8a80dee6", null ],
-    [ "read", "da/d44/a05256.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "write", "da/d44/a05256.html#a65aa681fa591b2d0956e06e67e990b15", null ]
+    [ "State", "da/d44/a05256.html#acba02689f37ee7af40ec736d996ed858", [
+      [ "DISABLE", "da/d44/a05256.html#acba02689f37ee7af40ec736d996ed858afc93ea58f6d27ffed2b6518ffecf3e4e", null ],
+      [ "NO_INIT", "da/d44/a05256.html#acba02689f37ee7af40ec736d996ed858a72144f138e8a9f73854d58b59deca26d", null ],
+      [ "NO_ERROR", "da/d44/a05256.html#acba02689f37ee7af40ec736d996ed858ad306b6fdee05fe87455110ddf6501e6c", null ],
+      [ "ACTIVE", "da/d44/a05256.html#acba02689f37ee7af40ec736d996ed858a18ff74f43da410c5529f7d6fca84f115", null ],
+      [ "CLEARED", "da/d44/a05256.html#acba02689f37ee7af40ec736d996ed858a62574ee27e6c5f985a6bc1dc344e7438", null ]
+    ] ],
+    [ "ErrorBase", "da/d44/a05256.html#abdf93e8f5f32fa9b729cc71b9523c14f", null ],
+    [ "ErrorBase", "da/d44/a05256.html#a5f30c8f5d578b776ab5e16ad57b228a3", null ],
+    [ "ErrorBase", "da/d44/a05256.html#a3a70d75a9dcb7b18c3f1f954f161401d", null ],
+    [ "ErrorBase", "da/d44/a05256.html#aec1f3f7b342750d0cebbd3a693408410", null ],
+    [ "~ErrorBase", "da/d44/a05256.html#a252258e08d1386fbf80757f0e8ad5da6", null ],
+    [ "clear", "da/d44/a05256.html#a1aac17dcab7e7de289d1190bd6c4cb80", null ],
+    [ "disable", "da/d44/a05256.html#a6535402a86612bd7117d0383414f5a01", null ],
+    [ "enable", "da/d44/a05256.html#a3b5c2f67fac7cbb39994045f7de8863b", null ],
+    [ "getCaption", "da/d44/a05256.html#af1685a17adc3751bc34f0f22ff53ddba", null ],
+    [ "getGroup", "da/d44/a05256.html#a566049e949c9212023d51dfa7fb70b7f", null ],
+    [ "getId", "da/d44/a05256.html#afa412b5b49489692123f5dc185407e34", null ],
+    [ "getState", "da/d44/a05256.html#af79e723798e9e9755726cf1fbca0d106", null ],
+    [ "operator bool", "da/d44/a05256.html#a095c4c29588c57c181f2267c655a4598", null ],
+    [ "operator=", "da/d44/a05256.html#a9168a73abd4e665ad013370c9b4fa544", null ],
+    [ "operator=", "da/d44/a05256.html#a8ca5c212c74ca32c10e44ea15eb466f7", null ],
+    [ "reset", "da/d44/a05256.html#ac98111e75aa81293363c0c065d7ea081", null ],
+    [ "set", "da/d44/a05256.html#aee7745fbda0bc6847c210fb9f4fe41f1", null ],
+    [ "setGroup", "da/d44/a05256.html#aba45829de28bb9571253018340fa606b", null ],
+    [ "BasicDispatcher", "da/d44/a05256.html#a060ae75c87b3adbafa835f181f4d19c5", null ]
 ];

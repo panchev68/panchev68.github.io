@@ -1,4 +1,4 @@
 var a00659 =
 [
-    [ "Lib::HAL::OSPIPort&lt; DriverMode::BLOCKING &gt;", "d0/d3d/a05482.html", "d0/d3d/a05482" ]
+    [ "Lib::HAL::isDmaReachable", "de/d1c/a01093.html#a6d025716096ef0a5098ff9db2688b2da", null ]
 ];

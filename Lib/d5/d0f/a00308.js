@@ -1,4 +1,4 @@
 var a00308 =
 [
-    [ "Lib::BSP::Thermometer::DTH::Parm", "d8/d12/a04694.html", null ]
+    [ "Lib::BSP::RFID::Chipset", "d5/def/a04676.html", "d5/def/a04676" ]
 ];

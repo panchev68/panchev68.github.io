@@ -1,4 +1,4 @@
 var a00230 =
 [
-    [ "Lib::BSP::Display::ILI9341", "d7/d76/a00992.html#a62bc20ecfb713696b3f744fc5833d417", null ]
+    [ "Lib::Exception", "d2/d7a/a04384.html", "d2/d7a/a04384" ]
 ];

@@ -1,4 +1,4 @@
 var a00275 =
 [
-    [ "Lib::BSP::RFID::Chipset", "d0/d7e/a04594.html", "d0/d7e/a04594" ]
+    [ "Lib::BSP::EEPROM::I2C::M24C64W", "d1/def/a04512.html", "d1/def/a04512" ]
 ];

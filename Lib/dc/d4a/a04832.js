@@ -1,5 +1,6 @@
 var a04832 =
 [
-    [ "ascFailureCount", "dc/d4a/a04832.html#a1e6fa3ed0ff87b537b8ec7aed53093bb", null ],
-    [ "ccaFailureCount", "dc/d4a/a04832.html#a20afcf39b211e185e969b8d770f99017", null ]
+    [ "adc", "dc/d4a/a04832.html#ae24f670ce2f09cfb8b26a173364eaefb", null ],
+    [ "channel", "dc/d4a/a04832.html#a50bc9c3fb0cbb385eca0784f32858280", null ],
+    [ "periodMs", "dc/d4a/a04832.html#ad839d16fe06238279ff23042e3761f0c", null ]
 ];

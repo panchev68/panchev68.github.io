@@ -1,6 +1,9 @@
 var a05064 =
 [
-    [ "afterWrite", "d2/d8c/a05064.html#a53e4f89f1542245add410f8b0f52b0bd", null ],
-    [ "beforeRead", "d2/d8c/a05064.html#a214b45de3b2b1b03564e40ad91392018", null ],
-    [ "beforeWrite", "d2/d8c/a05064.html#a19848fcaef19f48fd52d8d89e26be851", null ]
+    [ "Channel", "d2/d8c/a05064.html#a22027e4571b9cc2d46357b22bd28e66f", null ],
+    [ "Channel", "d2/d8c/a05064.html#a5e50f722347f9ed9f0522656753bf4c9", null ],
+    [ "getConnectionQuality", "d2/d8c/a05064.html#a9c351291c3bb7c963270eae54a16597d", null ],
+    [ "operator uint8_t", "d2/d8c/a05064.html#ae2502b1dd2b99b51b8fbf42035379fd5", null ],
+    [ "operator=", "d2/d8c/a05064.html#a3ca558416faa66aa9c8c1957512b8f2c", null ],
+    [ "setConnectionQuality", "d2/d8c/a05064.html#af7e5e84d1697e43122a6e086007d9789", null ]
 ];

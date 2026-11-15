@@ -1,7 +1,7 @@
 var a04972 =
 [
-    [ "writeTo", "d3/d49/a04972.html#a0fbf65ec7ca7d7ad1b75517bab647edd", null ],
-    [ "atCommand", "d3/d49/a04972.html#a270978a96cccd4b3ef127d536cde4a6d", null ],
-    [ "frameId", "d3/d49/a04972.html#a714c8902b6e8cc0a5f0265f4f1af9c84", null ],
-    [ "parameters", "d3/d49/a04972.html#aaf51e64f47cc8a54064df71903a793bb", null ]
+    [ "Key", "d3/d49/a04972.html#a01aa89923019ee3bf5249396252577a0", null ],
+    [ "Nonce", "d3/d49/a04972.html#ae4ce9fb8d76a85f4786b936d4bdb3327", null ],
+    [ "Tag", "d3/d49/a04972.html#a73ebbac632c0982dc3eeb3880cd7febc", null ],
+    [ "WolfSSLChaCha20Poly1305", "d3/d49/a04972.html#af47892a2a6a403161bf652674b3fbaf8", null ]
 ];

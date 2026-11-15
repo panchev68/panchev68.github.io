@@ -1,6 +1,10 @@
 var a05632 =
 [
-    [ "operator==", "dd/da7/a05632.html#a0384dbed539af8588014927e2cc2611e", null ],
-    [ "position", "dd/da7/a05632.html#a1e9e29c6bb250746612836ecee4e0f57", null ],
-    [ "value", "dd/da7/a05632.html#a036bbd4435de7509f8854ca2adf96d41", null ]
+    [ "IndependentWatchdog", "dd/da7/a05632.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
+    [ "IndependentWatchdog", "dd/da7/a05632.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
+    [ "IndependentWatchdog", "dd/da7/a05632.html#aabfa4830743c87632886a0e095af6dba", null ],
+    [ "open", "dd/da7/a05632.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
+    [ "operator=", "dd/da7/a05632.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
+    [ "operator=", "dd/da7/a05632.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
+    [ "refresh", "dd/da7/a05632.html#ae9f164f43789bd02baa1587a44c30e61", null ]
 ];

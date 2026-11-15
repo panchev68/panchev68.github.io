@@ -1,4 +1,4 @@
 var a00848 =
 [
-    [ "Lib::Helper::TimePeriod", "d5/d95/a05786.html", "d5/d95/a05786" ]
+    [ "Lib::HAL::USBHostPortAsync&lt; T_DERIVED &gt;", "db/d2a/a05808.html", "db/d2a/a05808" ]
 ];

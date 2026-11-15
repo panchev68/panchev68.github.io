@@ -1,13 +1,13 @@
 var a05772 =
 [
-    [ "CriticalSectionFromISR", "d7/d3c/a05776.html", "d7/d3c/a05776" ],
-    [ "CriticalSection", "d6/d3b/a05780.html", "d6/d3b/a05780" ],
-    [ "Scheduler", "de/dc9/a05784.html", "de/dc9/a05784" ],
-    [ "MemoryInfo", "d8/dde/a05792.html", "d8/dde/a05792" ],
-    [ "InterruptMask", "d7/d32/a05772.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
-    [ "TaskCount", "d7/d32/a05772.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
-    [ "TickDuration", "d7/d32/a05772.html#ab8efa244b2762e143dbfc23e170ed0e1", null ],
-    [ "TickType", "d7/d32/a05772.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
-    [ "Kernel", "d7/d32/a05772.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
-    [ "~Kernel", "d7/d32/a05772.html#a002477130b9e5bd7adc19142c1516c08", null ]
+    [ "UARTPortBase", "d7/d32/a05772.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
+    [ "UARTPortBase", "d7/d32/a05772.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
+    [ "UARTPortBase", "d7/d32/a05772.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
+    [ "~UARTPortBase", "d7/d32/a05772.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
+    [ "close", "d7/d32/a05772.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
+    [ "isBusy", "d7/d32/a05772.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "open", "d7/d32/a05772.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
+    [ "operator=", "d7/d32/a05772.html#ad0321a4f1297088a60c64e263c8c6816", null ],
+    [ "operator=", "d7/d32/a05772.html#af29977f244357cb79e8203dbd192840c", null ],
+    [ "setBaudRate", "d7/d32/a05772.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

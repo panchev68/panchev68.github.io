@@ -1,16 +1,8 @@
 var a04800 =
 [
-    [ "Period", "dd/df4/a04800.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
-    [ "Period", "dd/df4/a04800.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
-    [ "beginMeasurement", "dd/df4/a04800.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
-    [ "clearMinMax", "dd/df4/a04800.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
-    [ "endMeasurement", "dd/df4/a04800.html#a764b89843884696c66a1e499e466bb51", null ],
-    [ "getMaximum", "dd/df4/a04800.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
-    [ "getMinimum", "dd/df4/a04800.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
-    [ "getRawValue", "dd/df4/a04800.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
-    [ "getValue", "dd/df4/a04800.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
-    [ "operator uint32_t", "dd/df4/a04800.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
-    [ "operator=", "dd/df4/a04800.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
-    [ "reset", "dd/df4/a04800.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
-    [ "stopMeasurement", "dd/df4/a04800.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
+    [ "miso", "dd/df4/a04800.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
+    [ "mosi", "dd/df4/a04800.html#a25f143d2f7674576d969696bb116ccd0", null ],
+    [ "nirq", "dd/df4/a04800.html#a910a59f08ad5274a68776e743dbaedee", null ],
+    [ "nss", "dd/df4/a04800.html#ab28458323220459a7d7310bc64b538a2", null ],
+    [ "sck", "dd/df4/a04800.html#a2bddcf040cbe86554ab6027c20f10236", null ]
 ];

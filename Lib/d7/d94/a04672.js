@@ -1,9 +1,6 @@
 var a04672 =
 [
-    [ "Address", "d7/d94/a04672.html#acd001c62e8048465f6e3775f8c914bed", null ],
-    [ "FunctionCode", "d7/d94/a04672.html#aa422425db306dc5abb9819fd3a3489aa", null ],
-    [ "close", "d7/d94/a04672.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
-    [ "handleReceivedFrame", "d7/d94/a04672.html#a089411b3f62f689799fb09666cfe1ac9", null ],
-    [ "open", "d7/d94/a04672.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
-    [ "setup", "d7/d94/a04672.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
+    [ "sak", "d7/d94/a04672.html#a0a660971905a4d13ec801be99827ad26", null ],
+    [ "size", "d7/d94/a04672.html#ae19abed0f3be0cc580838b351a256404", null ],
+    [ "uidByte", "d7/d94/a04672.html#a8daf36157ed2f3632e9be6ec8b278293", null ]
 ];

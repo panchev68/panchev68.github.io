@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -11,12 +12,30 @@
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -45,17 +64,22 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": false,
+  "generateTreeView": true,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": true
+  "fullSidebar": false
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -71,6 +95,21 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/dec/a06204.html','../../','dd/dae/a06201'); });
+</script>
+<div id="container">
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -89,50 +128,28 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a href="../../d0/d90/a01059.html">Lib</a></li><li class="navelem"><a href="../../dd/dcb/a01104.html">System</a></li><li class="navelem"><a href="../../d1/dec/a06204.html">Parameters</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../dd/dae/a06201.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>CRTP base class managing a parameter structure in persistent storage with CRC16 integrity validation.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt;<br />
 requires std::is_trivially_copyable_v&lt;T_DATA&gt;<br />
 class Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;</div><p>CRTP base class managing a parameter structure in persistent storage with CRC16 integrity validation. </p>
-<p>The storage image is the raw bytes of <em class="arg">T_DATA</em> immediately followed by their CRC16, without padding, and lives inside the object instead of on the heap. The derived class implements <em class="arg">restoreByDefault()</em>, which fills the bound data structure with default values; it is called when the stored image fails validation. Declare it public, or befriend this base, so the base can reach it.</p>
+<p>The storage image is the raw bytes of 'T_DATA' immediately followed by their CRC16, without padding, and lives inside the object instead of on the heap. The derived class implements 'restoreByDefault()', which fills the bound data structure with default values; it is called when the stored image fails validation. Declare it public, or befriend this base, so the base can reach it.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T_DERIVED</td><td>Concrete parameter class inheriting from this base. </td></tr>
     <tr><td class="paramname">T_DATA</td><td>Parameter structure; must be trivially copyable, because it is stored byte-wise. </td></tr>
-    <tr><td class="paramname">T_STORAGE</td><td>Concrete storage backend type, derived from <a class="el" href="../../d0/d97/a06200.html" title="Lib::System::Storage">Lib::System::Storage</a>.</td></tr>
+    <tr><td class="paramname">T_STORAGE</td><td>Concrete storage backend type, derived from 'Storage&lt;T_STORAGE&gt;'. </td></tr>
   </table>
   </dd>
 </dl>
-<hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/System/Parameters.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a335a74b2beee583b06c1cc6a0c928957" id="r_a335a74b2beee583b06c1cc6a0c928957"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564">OK</a>
-, <br />
-&#160;&#160;<a class="el" href="#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5">ERROR</a>
-<br />
- }</td></tr>
-<tr class="memdesc:a335a74b2beee583b06c1cc6a0c928957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Outcome of a parameter operation.  <a href="#a335a74b2beee583b06c1cc6a0c928957">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6c93bc540f4ca328949b18b8364730fc" id="r_a6c93bc540f4ca328949b18b8364730fc"><td class="memItemLeft"><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6c93bc540f4ca328949b18b8364730fc">setup</a> () noexcept</td></tr>
@@ -174,7 +191,7 @@ template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div
 </table>
 </div><div class="memdoc">
 
-<p>Outcome of a parameter operation. </p>
+<p>Status codes for parameter operations. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564" name="a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
 </td></tr>
@@ -281,7 +298,7 @@ template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div
 </div><div class="memdoc">
 
 <p>Checks whether the image last read or written matches its CRC. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the stored CRC matches the data, <b>false</b> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the stored CRC matches the data, <em class="arg">false</em> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -341,7 +358,7 @@ template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div
 </div><div class="memdoc">
 
 <p>Reads the stored parameters, restoring and persisting defaults if the image is invalid. </p>
-<p>Opens the storage, reads the image and checks its CRC. On a mismatch, e.g. on first power-up or after corruption, <em class="arg">restoreByDefault()</em> fills the bound data with defaults, which are then written back. On success the bound data holds the validated parameters.</p>
+<p>Opens the storage, reads the image and checks its CRC. On a mismatch, e.g. on first power-up or after corruption, 'restoreByDefault()' fills the bound data with defaults, which are then written back. On success the bound data holds the validated parameters.</p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564" title="Status::OK">Status::OK</a> on success, <a class="el" href="#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5" title="Status::ERROR">Status::ERROR</a> if the storage could not be opened, read or written. </dd></dl>
 
 </div>
@@ -377,12 +394,16 @@ template&lt;typename T_DERIVED, typename T_DATA, StorageLike T_STORAGE&gt; </div
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
-</small></address>
-</div><!-- doc-content -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../d0/d90/a01059.html">Lib</a></li><li class="navelem"><a href="../../dd/dcb/a01104.html">System</a></li><li class="navelem"><a href="../../d1/dec/a06204.html">Parameters</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
 <script type="text/javascript">
 // Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
 document.addEventListener('DOMContentLoaded', function () {

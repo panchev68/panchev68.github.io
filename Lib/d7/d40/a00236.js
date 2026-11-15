@@ -1,4 +1,5 @@
 var a00236 =
 [
-    [ "Lib::BSP::Display::ST7789", "dd/d48/a00995.html#a65945dd063f1bdba63771905189c1761", null ]
+    [ "Lib::BSP::Beep", "d0/dd0/a04400.html", "d0/dd0/a04400" ],
+    [ "Lib::BSP::Beep::Config", "d8/dab/a04404.html", "d8/dab/a04404" ]
 ];

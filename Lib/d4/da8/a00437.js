@@ -1,4 +1,4 @@
 var a00437 =
 [
-    [ "Lib::Digi::Core::ModemStatus", "d1/ddb/a05106.html", "d1/ddb/a05106" ]
+    [ "Lib::Digi::Core::AtCommandString", "db/dbc/a05116.html", "db/dbc/a05116" ]
 ];

@@ -1,7 +1,7 @@
 var a00611 =
 [
-    [ "Lib::HAL::GPIO::ExtInterrupt", "d3/d53/a05410.html", "d3/d53/a05410" ],
-    [ "HAL_GPIO_EXTI_Callback", "dd/dc0/a00611.html#af02d5f52d29caba0ba168f5c53539c8f", null ],
-    [ "HAL_GPIO_EXTI_Falling_Callback", "dd/dc0/a00611.html#a7088bd2852f337d068757b9779e01ca2", null ],
-    [ "HAL_GPIO_EXTI_Rising_Callback", "dd/dc0/a00611.html#a1b34b49712495210a4de76520345e0a7", null ]
+    [ "Lib::GUI::PixelMode", "de/d9c/a01092.html#a0adec646edfb59fdc790acdb7887577a", [
+      [ "Lib::GUI::PixelMode::NORMAL", "de/d9c/a01092.html#a0adec646edfb59fdc790acdb7887577aa1e23852820b9154316c7c06e2b7ba051", null ],
+      [ "Lib::GUI::PixelMode::INVERT", "de/d9c/a01092.html#a0adec646edfb59fdc790acdb7887577aaa2727ae72447eea06d4cc0ef67187280", null ]
+    ] ]
 ];

@@ -1,4 +1,5 @@
 var a00422 =
 [
-    [ "Lib::Digi::Core::Frame::Data", "db/df6/a05082.html", "db/df6/a05082" ]
+    [ "Lib::Digi::API::Service::PairService", "d1/ddd/a05076.html", "d1/ddd/a05076" ],
+    [ "Lib::Digi::API::Service::PairService::Config", "de/d0b/a05080.html", "de/d0b/a05080" ]
 ];

@@ -1,4 +1,4 @@
 var a00404 =
 [
-    [ "Lib::Digi::Core::AtCommandString", "da/df4/a05050.html", "da/df4/a05050" ]
+    [ "Lib::Digi::API::ApplicationBase&lt; Derived &gt;", "db/d04/a04992.html", "db/d04/a04992" ]
 ];

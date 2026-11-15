@@ -1,11 +1,11 @@
 var a05688 =
 [
-    [ "Client", "db/daf/a05688.html#afbf556ac8abd6b5e8b12958b7b7e8e87", null ],
-    [ "Client", "db/daf/a05688.html#a893ac5643ef917f5ca701fabbe75a429", null ],
-    [ "Client", "db/daf/a05688.html#a207055b9f6a7daac509985f971a0e14f", null ],
-    [ "get", "db/daf/a05688.html#aabf7e35c74111468fdd296e6931b047f", null ],
-    [ "operator=", "db/daf/a05688.html#a19375415236ef7e6b214f897791eeb09", null ],
-    [ "operator=", "db/daf/a05688.html#a3b9c27f75842a31365c97eaaa607d452", null ],
-    [ "post", "db/daf/a05688.html#aee5955fa4ffad931d4418d2f59af2880", null ],
-    [ "request", "db/daf/a05688.html#aff0df8d671c191feb30e91ba3a1053a7", null ]
+    [ "SPIPort", "db/daf/a05688.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
+    [ "~SPIPort", "db/daf/a05688.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ],
+    [ "abort", "db/daf/a05688.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
+    [ "close", "db/daf/a05688.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "db/daf/a05688.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "db/daf/a05688.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "db/daf/a05688.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "db/daf/a05688.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

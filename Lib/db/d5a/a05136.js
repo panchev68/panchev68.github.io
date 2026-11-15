@@ -1,14 +1,11 @@
 var a05136 =
 [
-    [ "PortString", "db/d5a/a05136.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
-    [ "Port", "db/d5a/a05136.html#a0cdcdcee9376806af5c6778670685c80", null ],
-    [ "Port", "db/d5a/a05136.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
-    [ "fromString", "db/d5a/a05136.html#af096519c074646658fc5d42017770060", null ],
-    [ "get", "db/d5a/a05136.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
-    [ "get", "db/d5a/a05136.html#a74efeaeccbeb41630891ddb4725470a5", null ],
-    [ "operator uint16_t", "db/d5a/a05136.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
-    [ "operator<=>", "db/d5a/a05136.html#a5db32af54d9bdde977000618e7b6d476", null ],
-    [ "operator=", "db/d5a/a05136.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
-    [ "set", "db/d5a/a05136.html#a1de553c3b996aee8be2112632f45ee1b", null ],
-    [ "toString", "db/d5a/a05136.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
+    [ "ignoredMessagesByTimeout", "db/d5a/a05136.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "db/d5a/a05136.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "db/d5a/a05136.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "db/d5a/a05136.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "db/d5a/a05136.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "db/d5a/a05136.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "db/d5a/a05136.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "db/d5a/a05136.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

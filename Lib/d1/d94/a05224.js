@@ -1,19 +1,8 @@
 var a05224 =
 [
-    [ "Event", "d6/dd5/a05228.html", null ],
-    [ "ADCPort", "d1/d94/a05224.html#a4367ca9803f69b785980f81032d2b4e5", null ],
-    [ "~ADCPort", "d1/d94/a05224.html#aef75242b0f88129467c7f469f87adbdd", null ],
-    [ "ADCPort", "d1/d94/a05224.html#a0c76f40278dd8828f6c5d929122ab108", null ],
-    [ "ADCPort", "d1/d94/a05224.html#a3defd155b3695109fe259c5ab8b702ba", null ],
-    [ "close", "d1/d94/a05224.html#a5701c9da4db47e937bec19f3d29c9855", null ],
-    [ "getHandle", "d1/d94/a05224.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d1/d94/a05224.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "getValue", "d1/d94/a05224.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "d1/d94/a05224.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
-    [ "operator=", "d1/d94/a05224.html#a3a51d3196eaa9489df8eda029877ee83", null ],
-    [ "operator=", "d1/d94/a05224.html#abebb56cf09bf035f43b898c284835ccd", null ],
-    [ "read", "d1/d94/a05224.html#ada05318e458485bb7ae8564156216202", null ],
-    [ "start", "d1/d94/a05224.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
-    [ "stop", "d1/d94/a05224.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
-    [ "waitForEvent", "d1/d94/a05224.html#a780888659faa909e3e3228c427e5969e", null ]
+    [ "Frame0x81", "d1/d94/a05224.html#ab6c2582c9c22d8b4b3e34d5c6e73e8b8", null ],
+    [ "option", "d1/d94/a05224.html#a9514d0309e3844c8659d92c660c71a2b", null ],
+    [ "rfData", "d1/d94/a05224.html#a17639b9161591eee69ff2916356f4f5f", null ],
+    [ "rssi", "d1/d94/a05224.html#af6b4d51bb9e62729e45af3c4c973f0f4", null ],
+    [ "srcAddr16", "d1/d94/a05224.html#a44c2e0a72745be88823b58901a37b73b", null ]
 ];

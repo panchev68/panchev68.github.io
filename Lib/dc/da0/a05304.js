@@ -1,5 +1,6 @@
 var a05304 =
 [
-    [ "pin", "dc/da0/a05304.html#a9f0aedb5f20c40ce4048a6a1b863ae63", null ],
-    [ "port", "dc/da0/a05304.html#a331d935a90423faf4580a7e95c531ba6", null ]
+    [ "frameReceived", "dc/da0/a05304.html#ac8bfe015a954f64ad27486a7f7b82059", null ],
+    [ "getParameters", "dc/da0/a05304.html#af5c689938685464a5e8331e943afbf47", null ],
+    [ "setParameters", "dc/da0/a05304.html#a4dbee9575ed5dc6f641f59c022b6b4d3", null ]
 ];

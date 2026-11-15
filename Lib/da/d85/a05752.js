@@ -1,23 +1,18 @@
 var a05752 =
 [
-    [ "Config", "dc/ddc/a05756.html", "dc/ddc/a05756" ],
-    [ "Command", "da/d85/a05752.html#a0b7ad8b7773fc15de07047754f3794f9", [
-      [ "OFF", "da/d85/a05752.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "da/d85/a05752.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
-    ] ],
-    [ "Status", "da/d85/a05752.html#a9f826713fcf7511db5c43ef6f27173af", [
-      [ "IS_OFF", "da/d85/a05752.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
-      [ "IS_ON", "da/d85/a05752.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
-      [ "IN_MOTION", "da/d85/a05752.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
-    ] ],
-    [ "RotationCylinder", "da/d85/a05752.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
-    [ "RotationCylinder", "da/d85/a05752.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
-    [ "command", "da/d85/a05752.html#a8ca6acca72dbe8c542856371e956e058", null ],
-    [ "getName", "da/d85/a05752.html#a480be139cc8704be72afb69d2456281f", null ],
-    [ "getStatus", "da/d85/a05752.html#aba16d8727149fd2debf8b51fff5438bd", null ],
-    [ "isOff", "da/d85/a05752.html#a90f1e56010dee19b0f66350351127712", null ],
-    [ "isOn", "da/d85/a05752.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
-    [ "operator=", "da/d85/a05752.html#a44c71110f315e89203746b05fd4ab10a", null ],
-    [ "setup", "da/d85/a05752.html#a659c7989f745a79aeecb1c24004acba6", null ],
-    [ "update", "da/d85/a05752.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
+    [ "UARTPort", "da/d85/a05752.html#a066a22aae400d51f9a8552f6b1757c30", null ],
+    [ "~UARTPort", "da/d85/a05752.html#ae57a4a21992efbdd20a759373b79c5de", null ],
+    [ "UARTPort", "da/d85/a05752.html#a727c4f59d0a03dd2884faf4f6a36928f", null ],
+    [ "UARTPort", "da/d85/a05752.html#a3356806008458666dc1ede53fc85db70", null ],
+    [ "close", "da/d85/a05752.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
+    [ "getDirection", "da/d85/a05752.html#abc3c117eef840882dd94aee07d684a11", null ],
+    [ "getHandle", "da/d85/a05752.html#a1a803a307b6fe9ff6e9e595f15c66de8", null ],
+    [ "getHandle", "da/d85/a05752.html#a4d6a362058e35bbfc0c72a9c5f1a46a5", null ],
+    [ "isBusy", "da/d85/a05752.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "open", "da/d85/a05752.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
+    [ "operator=", "da/d85/a05752.html#aebdaa74531eaac591e9bc7c474cdb302", null ],
+    [ "operator=", "da/d85/a05752.html#a700d1ad959852be2e5140408dbde5ab4", null ],
+    [ "receive", "da/d85/a05752.html#a2ac76b4dc3247a959deab8ec3f4403a4", null ],
+    [ "send", "da/d85/a05752.html#abdc90f4e574528b9dcd4c9e2c749dea8", null ],
+    [ "setBaudRate", "da/d85/a05752.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

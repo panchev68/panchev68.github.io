@@ -1,12 +1,13 @@
 var a04956 =
 [
-    [ "Config", "d7/de6/a04956.html#a9b9fb43457649e59ca4afc679738e4a1", null ],
-    [ "Module", "d7/de6/a04956.html#a254c8c718d7faf592b274708db07db8d", null ],
-    [ "~Module", "d7/de6/a04956.html#a3e8be6962f855fba474c3c0e0366a256", null ],
-    [ "init", "d7/de6/a04956.html#a45140156f7c70b779d773237bed74b50", null ],
-    [ "reset", "d7/de6/a04956.html#ad12e07277c8b5e96fea25af2c6cd5b09", null ],
-    [ "send", "d7/de6/a04956.html#adb8dd809dcd7a22dee2718819616b947", null ],
-    [ "onMessageReceive", "d7/de6/a04956.html#a7f2e8faef33f497245aea8cfbba53c3e", null ],
-    [ "onMessageSend", "d7/de6/a04956.html#a5f37bfbb2382a13b955a6063fc31bc2e", null ],
-    [ "responseEvents", "d7/de6/a04956.html#ac2585942261cabaa51522f461c64816b", null ]
+    [ "WolfSSHServer", "d7/de6/a04956.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
+    [ "~WolfSSHServer", "d7/de6/a04956.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
+    [ "WolfSSHServer", "d7/de6/a04956.html#ad8f53deb42abb7890bd933f530e30e99", null ],
+    [ "WolfSSHServer", "d7/de6/a04956.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
+    [ "accept", "d7/de6/a04956.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
+    [ "operator=", "d7/de6/a04956.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
+    [ "operator=", "d7/de6/a04956.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
+    [ "read", "d7/de6/a04956.html#ac07508d68f41b64e463fdd58db57558b", null ],
+    [ "send", "d7/de6/a04956.html#a034957692d48053e848ee6d77605fe2f", null ],
+    [ "shutdown", "d7/de6/a04956.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
 ];

@@ -1,4 +1,5 @@
 var a00953 =
 [
-    [ "Lib::System::SerialNumber", "d4/db5/a06058.html", "d4/db5/a06058" ]
+    [ "Lib::Pneumatics::RotationCylinder", "df/d9b/a06024.html", "df/d9b/a06024" ],
+    [ "Lib::Pneumatics::RotationCylinder::Config", "d4/d91/a06028.html", "d4/d91/a06028" ]
 ];

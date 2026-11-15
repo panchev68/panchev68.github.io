@@ -1,5 +1,14 @@
 var a05912 =
 [
-    [ "current", "d3/d4c/a05912.html#a2e9a3fd94c50f6eec80b37bc5f23f415", null ],
-    [ "voltage", "d3/d4c/a05912.html#a1e7c41cc6f1e458a928298f16e3913df", null ]
+    [ "JaggedArrayBase", "d3/d4c/a05912.html#ae79ec88b260154126e7ec280a136c14a", null ],
+    [ "addItem", "d3/d4c/a05912.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
+    [ "addItems", "d3/d4c/a05912.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
+    [ "clearItems", "d3/d4c/a05912.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
+    [ "getElements", "d3/d4c/a05912.html#a428409a8385b8547bfa65d04a71565b1", null ],
+    [ "getElements", "d3/d4c/a05912.html#a718f7db994c254bce01246ea32b1d653", null ],
+    [ "getSize", "d3/d4c/a05912.html#afca6ed09d7865e2bac45430fda768aae", null ],
+    [ "operator[]", "d3/d4c/a05912.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
+    [ "operator[]", "d3/d4c/a05912.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
+    [ "removeItem", "d3/d4c/a05912.html#a819041f4264ebfce07665c548d5dd7bc", null ],
+    [ "elementList", "d3/d4c/a05912.html#a319cd6aae084f711db14582ed55929a5", null ]
 ];

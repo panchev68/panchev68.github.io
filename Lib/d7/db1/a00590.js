@@ -1,4 +1,6 @@
 var a00590 =
 [
-    [ "Lib::HAL::toHalTimeout", "db/d08/a01028.html#a55be7e95dba53e09a7b9b5e29bcc3840", null ]
+    [ "Lib::GUI::Display", "d8/d73/a05412.html", "d8/d73/a05412" ],
+    [ "Lib::GUI::Display::Config", "d3/d7f/a05416.html", "d3/d7f/a05416" ],
+    [ "Lib::GUI::Display::Viewport", "dd/d1f/a05420.html", "dd/d1f/a05420" ]
 ];

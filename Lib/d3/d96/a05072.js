@@ -1,5 +1,8 @@
 var a05072 =
 [
-    [ "read", "d3/d96/a05072.html#a1d185c9a891facac570cbbdaa2157fa4", null ],
-    [ "write", "d3/d96/a05072.html#a26af4517707f2496ad3f4ab6f5e51719", null ]
+    [ "Node", "d3/d96/a05072.html#ae77243ef5154f0127b188cb07ee7b730", null ],
+    [ "Node", "d3/d96/a05072.html#ade2b76a4bad3907d0779b98753dbe88b", null ],
+    [ "macAddress", "d3/d96/a05072.html#ab4f01a998762165160e1c5f287e33b36", null ],
+    [ "nodeAddr16", "d3/d96/a05072.html#a047c25d839ad49f40c973b610050fa18", null ],
+    [ "nodeIdentifier", "d3/d96/a05072.html#a66f046134b60cff03864ca23d0ff54fa", null ]
 ];

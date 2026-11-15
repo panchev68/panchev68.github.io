@@ -1,27 +1,17 @@
 var a04456 =
 [
-    [ "Config", "d0/ddf/a04460.html", "d0/ddf/a04460" ],
-    [ "Diagnostics", "df/d25/a04464.html", "df/d25/a04464" ],
-    [ "CardActivatedCallback", "d4/d45/a04456.html#aaa9dd3ae634e7a69d4f917e7bd454305", null ],
-    [ "ReadBuffer", "d4/d45/a04456.html#a5f65acf300f17deb99c963ab374432b3", null ],
-    [ "Reader", "d4/d45/a04456.html#a6701c6a8809d64b58d6f2572a5d5e3db", null ],
-    [ "SignatureBuffer", "d4/d45/a04456.html#afea6f0e2a71e2700aba290c8c12dcbcc", null ],
-    [ "State", "d4/d45/a04456.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9c", [
-      [ "IDLE", "d4/d45/a04456.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5daf7f2ebbba4975d61dab1c40188c7", null ],
-      [ "POLL_REQA", "d4/d45/a04456.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca85c5b813825733ffaddba38ff01013d9", null ],
-      [ "POLL_ANTICOL", "d4/d45/a04456.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9cad5dc3be53612bd06503c0bbfad204df3", null ],
-      [ "POLL_SELECT", "d4/d45/a04456.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4", null ],
-      [ "CARD_ACTIVATED", "d4/d45/a04456.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11", null ]
-    ] ],
-    [ "NfcManager", "d4/d45/a04456.html#a4e43b591f0d6680b5fdacd85a2858caf", null ],
-    [ "~NfcManager", "d4/d45/a04456.html#a99dc2c6cf10e46e8158d7e15504f0cc5", null ],
-    [ "getDiagnostics", "d4/d45/a04456.html#a0fc17fc5e17c79eac24ad7d9d6fb72ab", null ],
-    [ "getState", "d4/d45/a04456.html#a3b2d0421ba5761b21a2c806ae6480bbf", null ],
-    [ "getWakeupADCRange", "d4/d45/a04456.html#a2c7d71eee5f6187585aba0f69b39c3f6", null ],
-    [ "readPages", "d4/d45/a04456.html#a4c81d15f935d8e1c2dd13d993975f940", null ],
-    [ "readSignature", "d4/d45/a04456.html#abdbd4ef43ac6798f86fb0f05d695d011", null ],
-    [ "resetWakeupADCRange", "d4/d45/a04456.html#aca5c8406388ff9e1c1f7808fd7c5b4c4", null ],
-    [ "start", "d4/d45/a04456.html#a347e0188a1c8207e8d11268d607aa763", null ],
-    [ "stop", "d4/d45/a04456.html#ae7bf77d346d29fc8a4da4226fc32e640", null ],
-    [ "writePage", "d4/d45/a04456.html#aa61c13d6b4df75e3243f862a1e8af3d5", null ]
+    [ "Outputs", "d4/d45/a04456.html#a247cd7c1b9224f24326b3776838b272f", null ],
+    [ "getChangesCounter", "d4/d45/a04456.html#a20ce1721d96d5e27bdd04a0e1952f3fb", null ],
+    [ "getSpiHandle", "d4/d45/a04456.html#a95099752d786b9afd12743cfed8e8f39", null ],
+    [ "getStatus", "d4/d45/a04456.html#a5390728a76821a9b72e0bf604b09462e", null ],
+    [ "getValue", "d4/d45/a04456.html#adfeabb3ecc2b63a7d2fdaef8972422d2", null ],
+    [ "hasSpiError", "d4/d45/a04456.html#a577114566b65889dd42c95c3e3350b1a", null ],
+    [ "postUpdateCallback", "d4/d45/a04456.html#a369ec8b311dd4871503593f3fd91e103", null ],
+    [ "preUpdateCallback", "d4/d45/a04456.html#a785e5cd7daaf7419e296aaa67f4d785c", null ],
+    [ "setup", "d4/d45/a04456.html#aeee2211d23c7dfc940b0d3f16ff4e531", null ],
+    [ "setValue", "d4/d45/a04456.html#a6a6877af80563061eddc23c9bb71746d", null ],
+    [ "update", "d4/d45/a04456.html#aae51811f331f09bf179cc6f2d9c2b974", null ],
+    [ "onSpiError", "d4/d45/a04456.html#ac1712a00bda5093ed106f6f7924d6c54", null ],
+    [ "onStatusChanged", "d4/d45/a04456.html#a931c2b178d43f30e3aad9ebdabe094d9", null ],
+    [ "onValueChanged", "d4/d45/a04456.html#aeeff5cb2652ef6ff0541b09d96f4579c", null ]
 ];

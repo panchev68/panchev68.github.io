@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -11,12 +12,30 @@
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
 <script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
 <script type="text/javascript" src="../../cookie.js"></script>
 <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -45,17 +64,22 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <script type="application/json" id="doxygen-config">
 {
   "relPath": "../../",
-  "generateTreeView": false,
+  "generateTreeView": true,
   "searchEngine": true,
   "serverBasedSearch": false,
   "disableIndex": false,
   "dynamicMenus": true,
-  "fullSidebar": true
+  "fullSidebar": false
 }
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
 <script type="text/javascript" src="../../menu.js"></script>
 <div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1"></span>
+</div>
 </div><!-- main-nav-mobile -->
 <div id="main-nav">
   <ul class="sm sm-dox" id="main-menu">
@@ -71,6 +95,21 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/df6/a05316.html','../../','d3/dd2/a05313'); });
+</script>
+<div id="container">
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -89,35 +128,18 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a href="../../d0/d90/a01059.html">Lib</a></li><li class="navelem"><a href="../../da/db7/a01088.html">Ethercat</a></li><li class="navelem"><a href="../../d3/dc4/a01089.html">SOES</a></li><li class="navelem"><a href="../../d8/df6/a05316.html">FoE</a></li>  </ul>
-</div>
-</div><!-- top -->
-<div id="doc-content">
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../d3/dd2/a05313.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Lib::Ethercat::SOES::FoE<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>File access over EtherCAT (FoE): the file server of an EtherCAT slave.  
- <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>File access over EtherCAT (FoE): the file server of an EtherCAT slave. </p>
 <p>Lets the master write a file to the slave (a firmware image, a configuration) and read a file from it, over the mailbox, in packets of the size the mailbox allows. The class runs the protocol (request, data packets with their numbers, acknowledgements, errors, busy) and leaves the files to the application: it asks a handler to open a file by name and password, to take the data of a write, to give the data of a read and to finish a write.</p>
 <p>Use it from the mailbox handler of a 'Slave': pass every message to <a class="el" href="#a89eda74e421aaa19c4a146f169dee6d6" title="handle()">handle()</a>. FoE is allowed in PRE-OP, SAFE-OP, OP and BOOTSTRAP; the AL state is passed to the open handler, which can refuse a file in a state (a firmware image is usually accepted only in BOOTSTRAP). </p>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a9d7546738e259f57d9e431d88a39ac23" id="r_a9d7546738e259f57d9e431d88a39ac23"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a9d7546738e259f57d9e431d88a39ac23">Error</a> = <a class="el" href="../../d3/dc4/a01089.html#a058e47e5398a583fd14a446b7b2dbdb4">FoEError</a></td></tr>
-<tr class="memdesc:a9d7546738e259f57d9e431d88a39ac23"><td class="mdescLeft">&#160;</td><td class="mdescRight">FoE error codes.  <br /></td></tr>
-<tr class="memitem:a0cc369eea636a2b7334c4fcb151bacdb" id="r_a0cc369eea636a2b7334c4fcb151bacdb"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a0cc369eea636a2b7334c4fcb151bacdb">Handlers</a> = <a class="el" href="../../d7/d32/a05312.html">FoEHandlers</a></td></tr>
-<tr class="memdesc:a0cc369eea636a2b7334c4fcb151bacdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The files of the slave.  <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad7dd21bafde30794cef6a653baacc862" id="r_ad7dd21bafde30794cef6a653baacc862"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> () noexcept=default</td></tr>
@@ -515,12 +537,16 @@ template&lt;typename T_MAILBOX&gt; </div>
 </div>
 </div>
 </div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0
-</small></address>
-</div><!-- doc-content -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../d0/d90/a01059.html">Lib</a></li><li class="navelem"><a href="../../da/db7/a01088.html">Ethercat</a></li><li class="navelem"><a href="../../d3/dc4/a01089.html">SOES</a></li><li class="navelem"><a href="../../d8/df6/a05316.html">FoE</a></li>
+    <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+  </ul>
+</div>
 <script type="text/javascript">
 // Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
 document.addEventListener('DOMContentLoaded', function () {

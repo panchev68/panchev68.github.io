@@ -1,16 +1,8 @@
 var a05352 =
 [
-    [ "I2CPortAsync", "dd/d2f/a05352.html#a97738073feff35b79d6bb11c9bd2f351", null ],
-    [ "abort", "dd/d2f/a05352.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "dd/d2f/a05352.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "dd/d2f/a05352.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "dd/d2f/a05352.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "dd/d2f/a05352.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
-    [ "isOpened", "dd/d2f/a05352.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "isReady", "dd/d2f/a05352.html#a14c943a270b82f4b76faffc2822e1408", null ],
-    [ "masterMemRead", "dd/d2f/a05352.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "dd/d2f/a05352.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "dd/d2f/a05352.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "dd/d2f/a05352.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "dd/d2f/a05352.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "Node", "dd/d2f/a05352.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
+    [ "Node", "dd/d2f/a05352.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
+    [ "set", "dd/d2f/a05352.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
+    [ "ip", "dd/d2f/a05352.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
+    [ "port", "dd/d2f/a05352.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
 ];

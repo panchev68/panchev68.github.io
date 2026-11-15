@@ -1,4 +1,4 @@
 var a00311 =
 [
-    [ "Lib::BSP::Thermometer::DTH::DTH22", "d7/ded/a01009.html#ac925b6863b7c23b83aa215b6588e2487", null ]
+    [ "Lib::BSP::RFID::MFRC522Config", "d5/dfd/a04680.html", "d5/dfd/a04680" ]
 ];

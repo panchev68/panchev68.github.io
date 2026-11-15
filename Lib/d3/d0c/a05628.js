@@ -1,10 +1,13 @@
 var a05628 =
 [
-    [ "PeakInfo", "dd/da7/a05632.html", "dd/da7/a05632" ],
-    [ "FindPeaks", "d3/d0c/a05628.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
-    [ "addSample", "d3/d0c/a05628.html#af68c408bdc213c13c758fceb90fdf51e", null ],
-    [ "getCount", "d3/d0c/a05628.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
-    [ "getFallingPeak", "d3/d0c/a05628.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
-    [ "getRisingPeak", "d3/d0c/a05628.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
-    [ "reset", "d3/d0c/a05628.html#a176df2aab4c0e044fe550ca813f88168", null ]
+    [ "I2CPortBase", "d3/d0c/a05628.html#aa4e4d14ed487d0a4f07d43f83937e8cf", null ],
+    [ "I2CPortBase", "d3/d0c/a05628.html#abb555787d1c67ffeb59851d309d7e32f", null ],
+    [ "I2CPortBase", "d3/d0c/a05628.html#ad9dd4358cc01cee75cd8f731f9f0fe5e", null ],
+    [ "~I2CPortBase", "d3/d0c/a05628.html#a4d69d746f11c95220372f8f0a62397b1", null ],
+    [ "close", "d3/d0c/a05628.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "isBusy", "d3/d0c/a05628.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "d3/d0c/a05628.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "open", "d3/d0c/a05628.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "d3/d0c/a05628.html#a31bad4fe08fe0a3ffbb5585f42ab9b69", null ],
+    [ "operator=", "d3/d0c/a05628.html#a847aa761811d4ff5a26e8ccaaef3bffe", null ]
 ];

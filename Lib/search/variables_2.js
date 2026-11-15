@@ -27,7 +27,7 @@ var searchData=
   ['black_24',['BLACK',['../d9/dda/a04740.html#a48f290a8c025a73b9007b9ae38237041',1,'Color']]],
   ['blanchedalmond_25',['BLANCHEDALMOND',['../d9/dda/a04740.html#a96d70ed86406102804eddd7df6d22a38',1,'Color']]],
   ['block_5fread_5fsize_26',['BLOCK_READ_SIZE',['../dd/d03/a04604.html#a4aa1833571d2dad003a04249cdb45aa2',1,'Lib::BSP::W25Q128JVSIQ']]],
-  ['block_5fsize_27',['BLOCK_SIZE',['../d5/d91/a04516.html#ad06a1e92c8862b181cbf69bcc98779e4',1,'Lib::BSP::EEPROM::FlashEmulation::BLOCK_SIZE'],['../da/d94/a04940.html#a40a860803a494d53743ad3fe6fe138c0',1,'Lib::Crypto::SHA256&lt; SHA256Engine::SOFTWARE &gt;::BLOCK_SIZE']]],
+  ['block_5fsize_27',['BLOCK_SIZE',['../da/d94/a04940.html#a40a860803a494d53743ad3fe6fe138c0',1,'Lib::Crypto::SHA256&lt; SHA256Engine::SOFTWARE &gt;']]],
   ['blue_28',['BLUE',['../d9/dda/a04740.html#aa556231651b87074f71d8a947648a3c9',1,'Color']]],
   ['blue_29',['blue',['../d8/d0e/a04744.html#ac389cd1dee46b5cb8d25573b3d3906b2',1,'Color::Data']]],
   ['blueviolet_30',['BLUEVIOLET',['../d9/dda/a04740.html#ae0271bcba14c9e7647cd492b2d044055',1,'Color']]],

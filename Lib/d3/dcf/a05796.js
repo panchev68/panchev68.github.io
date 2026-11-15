@@ -1,15 +1,25 @@
 var a05796 =
 [
-    [ "Status", "d3/dcf/a05796.html#a12545d9824f6613ee89191861f120584", [
-      [ "SUCCESS", "d3/dcf/a05796.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "INVALID_SIZE", "d3/dcf/a05796.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
-      [ "OUT_OF_MEMORY", "d3/dcf/a05796.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
-      [ "SIZE_TOO_LARGE", "d3/dcf/a05796.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
-    ] ],
-    [ "MemoryManager", "d3/dcf/a05796.html#a11985e607e9d0df1a66531314e37b38b", null ],
-    [ "~MemoryManager", "d3/dcf/a05796.html#a71e750b42ae7c18640c58654a6e54687", null ],
-    [ "MemoryManager", "d3/dcf/a05796.html#a7045943a317adab019e38e7c6bf2de73", null ],
-    [ "MemoryManager", "d3/dcf/a05796.html#a89bca016476ef966223eb6841d5cc034", null ],
-    [ "operator=", "d3/dcf/a05796.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
-    [ "operator=", "d3/dcf/a05796.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
+    [ "USBDevicePortBase", "d3/dcf/a05796.html#a10cff571345e912dd5e479bcb022425b", null ],
+    [ "USBDevicePortBase", "d3/dcf/a05796.html#aeaf1da4a57b4c99a4ef7f4ad797515bc", null ],
+    [ "USBDevicePortBase", "d3/dcf/a05796.html#a02b2cedb47ee415e471fdc2ad69a8fd9", null ],
+    [ "~USBDevicePortBase", "d3/dcf/a05796.html#ae2ed4b2a4a2f0bc75d1224ee7ff9129f", null ],
+    [ "clearStall", "d3/dcf/a05796.html#a50fbc4a2665b215a95effd62660a0ac2", null ],
+    [ "close", "d3/dcf/a05796.html#a70556d7766ff4f275a730a0cfb515505", null ],
+    [ "closeEndpoint", "d3/dcf/a05796.html#a6ba2ed0453c274b531cb8b9d33a80db6", null ],
+    [ "connect", "d3/dcf/a05796.html#aefd6500600303402511786eeaaf2b8fe", null ],
+    [ "disconnect", "d3/dcf/a05796.html#a60749424c147e3347e02018c72910511", null ],
+    [ "flushEndpoint", "d3/dcf/a05796.html#adb7c8a870ff66d6b2e5ba779b536c22c", null ],
+    [ "getReceivedCount", "d3/dcf/a05796.html#a39ec41ba413955481a2c57a076e433de", null ],
+    [ "getSetupPacket", "d3/dcf/a05796.html#a1d83533b43ad863b76211ee532686a9b", null ],
+    [ "open", "d3/dcf/a05796.html#afc2ac672b83340d54497b6ebc58299e0", null ],
+    [ "openEndpoint", "d3/dcf/a05796.html#a514cb29eb2bdba3f9de5ad8685671285", null ],
+    [ "operator=", "d3/dcf/a05796.html#a3e1f1a0c646bd223fef467533055fe6e", null ],
+    [ "operator=", "d3/dcf/a05796.html#a348e2a3d03d95db75c367dedbe49844c", null ],
+    [ "setAddress", "d3/dcf/a05796.html#a13f6d0f8f8693765b9e38b93a9316b7c", null ],
+    [ "setRxFifo", "d3/dcf/a05796.html#a8243db6e1f57194b390dc675419a65ae", null ],
+    [ "setTxFifo", "d3/dcf/a05796.html#abbe2ea9718784caab5c210d61c582e87", null ],
+    [ "stallEndpoint", "d3/dcf/a05796.html#a6af92c35c4cfa77a15f20a4bf55698ea", null ],
+    [ "start", "d3/dcf/a05796.html#a1f538f3e7aec739023c189ee6fe3550b", null ],
+    [ "stop", "d3/dcf/a05796.html#a920b0e6cfe3123e61804850a3420975e", null ]
 ];

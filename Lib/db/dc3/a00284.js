@@ -1,4 +1,5 @@
 var a00284 =
 [
-    [ "Lib::BSP::RFID::MFRC522&lt; T_DERIVED &gt;", "d5/d03/a04582.html", "d5/d03/a04582" ]
+    [ "Lib::BSP::EncoderTimer", "d6/dad/a04540.html", "d6/dad/a04540" ],
+    [ "Lib::BSP::EncoderTimer::Config", "d1/d56/a04544.html", "d1/d56/a04544" ]
 ];

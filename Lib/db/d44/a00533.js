@@ -1,6 +1,6 @@
 var a00533 =
 [
-    [ "Lib::Ethernet::Wiznet::Socket", "d3/dac/a05307.html", "d3/dac/a05307" ],
-    [ "Lib::Ethernet::Wiznet::operator&", "d4/dc5/a01024.html#acb74339821d97e8e11b2409c1dd2a413", null ],
-    [ "Lib::Ethernet::Wiznet::operator|", "d4/dc5/a01024.html#aa7f2f28683a1a310a51a07e5e63cde01", null ]
+    [ "Lib::Errors::ErrorBase&lt; Derived &gt;", "da/d44/a05256.html", "da/d44/a05256" ],
+    [ "Lib::Errors::Error", "d3/dc5/a05260.html", "d3/dc5/a05260" ],
+    [ "Lib::Errors::Detail::errorIdCounter", "d0/d1f/a01087.html#a4aa716a71feabe9eb092678479bdfa78", null ]
 ];

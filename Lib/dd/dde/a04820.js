@@ -1,6 +1,8 @@
 var a04820 =
 [
-    [ "getIdentifier", "dd/dde/a04820.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
-    [ "setIdentifier", "dd/dde/a04820.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
-    [ "identifier", "dd/dde/a04820.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
+    [ "ambientTemperatureCelsius", "dd/dde/a04820.html#afe46178f50e25346cca90112dc708790", null ],
+    [ "listenDuration", "dd/dde/a04820.html#aed97102995a3a032b9524b1e47731f17", null ],
+    [ "timeout", "dd/dde/a04820.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
+    [ "uart", "dd/dde/a04820.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
+    [ "uartAddress", "dd/dde/a04820.html#a07cd324da0adf0baf2262a0b33404164", null ]
 ];
