@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['to_20start_0',['Where to start',['../index.html#main_start',1,'']]]
+  ['sense_20firmware_20project_0',['River Sense firmware project',['../index.html',1,'']]]
 ];

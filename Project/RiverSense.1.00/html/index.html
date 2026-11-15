@@ -135,20 +135,33 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
 <div class="textblock"><p><b>Version</b> 1.00 | <b>Updated</b> 2026-11-14</p>
 <p><a href="https://github.com/panchev68-Senstate/RiverSense-Firmware">Source code</a></p>
 <hr  />
+<h1 class="doxsection"><a class="anchor" id="hardware"></a>
+Hardware</h1>
 <p>Firmware of an autonomous river-level monitoring node on an <b>STM32U575VGT6</b> (<b>Cortex-M33</b>, FreeRTOS). The node measures the distance to the water surface with an <b>A02YYUW</b> ultrasonic sensor and the water temperature with a <b>DS18B20</b>, and reports both to the cloud over HTTPS through an <b>A7670E</b> 4G modem that is wired directly to the MCU; TLS runs inside the modem.</p>
 <p>A 6 V gel accumulator charged from a solar panel powers the node. The charger is the MPPT design of the WasteContainerControl project, as on its board hw2.00. Every external device is powered only while it is used, and the processor sleeps in STOP1 between measurements.</p>
+<h1 class="doxsection"><a class="anchor" id="cycle"></a>
+Measurement cycle</h1>
 <p>The measurement cycle measures every 15 minutes and reports every 60 minutes. After a rapid level change it measures every 2 minutes and reports every 10 minutes for a while; it also reports at once on a move of 100 mm or more. All periods are stretched four times while the accumulator is low. The modem is powered off completely after each report. Once the modem has registered, the RTC is set from the network time and the installation position is fetched for the charger's night window. The cloud answers with a JSON command that the node runs. Faults are collected at run time and sent with each report.</p>
+<h1 class="doxsection"><a class="anchor" id="pending"></a>
+Pending work</h1>
 <p>The final payload format and the device identity are still pending the ESP32 client, and the concrete cloud commands are not defined yet; the report body is a provisional JSON. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
-</div><!-- contents -->
 </div><!-- doc-content -->
+</div><!-- contents -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on <span class="timestamp"></span> for River Sense by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
+    <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>
 <script type="text/javascript">
