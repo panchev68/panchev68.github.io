@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['ili9341registers_0',['ILI9341Registers',['https://panchev68.github.io/Lib/df/d59/a01001.html#aa079b641f0d5c91c7219aa446879acf2',1,'Lib::BSP::Display']]],
-  ['io_5ferrc_1',['io_errc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2',1,'std']]],
-  ['iso14443acommand_2',['ISO14443aCommand',['https://panchev68.github.io/Lib/d5/d6d/a04635.html#a7996965fa533471e96aa8021791dd7e6',1,'Lib::BSP::RFID::ST25R100']]]
+  ['launch_0',['launch',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga6f4ad125d364f01560e2ed20a3c8bb5b',1,'std::launch'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga6f4ad125d364f01560e2ed20a3c8bb5b',1,'std::launch']]],
+  ['linestyle_1',['LineStyle',['https://panchev68.github.io/Lib/de/d9c/a01092.html#a66c91585008a33f06f6d4531c915a3c0',1,'Lib::GUI']]]
 ];
