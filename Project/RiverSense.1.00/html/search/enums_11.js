@@ -1,5 +1,10 @@
 var searchData=
 [
-  ['transfermode_0',['TransferMode',['https://panchev68.github.io/Lib/d9/dd4/a05755.html#aa23cc1803af6341d29a2fd130530914c',1,'Lib::Helper::RingBuffer']]],
-  ['type_1',['Type',['https://panchev68.github.io/Lib/d7/db9/a04591.html#a3b1a6a37fd9a89b9dca69aa2728daf7a',1,'Lib::BSP::RFID::Card::Type'],['https://panchev68.github.io/Lib/db/da7/a05911.html#a32944cdf5acfc817c79a3b60e03bbc38',1,'RTOS::Mutex::Type'],['https://panchev68.github.io/Lib/db/d23/a01025.html#a28e123f246098db8d8570511c8c739f4',1,'Lib::Digi::Core::Frame::Type']]]
+  ['usbdeviceevent_0',['USBDeviceEvent',['https://panchev68.github.io/Lib/da/d93/a01084.html#a5d499d7d2a344d0473d62dcf724d9a12',1,'Lib::HAL']]],
+  ['usbdirection_1',['USBDirection',['https://panchev68.github.io/Lib/da/d93/a01084.html#a0feace7a2249d65bd2313f48bf07ba0b',1,'Lib::HAL']]],
+  ['usbendpointtype_2',['USBEndpointType',['https://panchev68.github.io/Lib/da/d93/a01084.html#ae1783f3c88baf78f222c313659cf4a98',1,'Lib::HAL']]],
+  ['usbhostevent_3',['USBHostEvent',['https://panchev68.github.io/Lib/da/d93/a01084.html#a53f17b15be5eab9c94b2c21a10f050fd',1,'Lib::HAL']]],
+  ['usbhosttransferresult_4',['USBHostTransferResult',['https://panchev68.github.io/Lib/da/d93/a01084.html#a62152c846403f6b93d0f2e9ff14adafe',1,'Lib::HAL']]],
+  ['usbrole_5',['USBRole',['https://panchev68.github.io/Lib/da/d93/a01084.html#ada24ea1dfe0720a6a56871f1392f9955',1,'Lib::HAL']]],
+  ['usbspeed_6',['USBSpeed',['https://panchev68.github.io/Lib/da/d93/a01084.html#a8cde9e5e92df1421df294fcb1a50b4e7',1,'Lib::HAL']]]
 ];

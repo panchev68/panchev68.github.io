@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Singleton of the 6 V GEL accumulator: its INA219 monitor, charge limits and published voltage. </p>
-<p>The INA219 at 0x41 sits on the charger output. It is driven by the task of <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a> only; I2C1 is shared, so other tasks read the voltage through <a class="el" href="#a999d69f78099c28acdc3022d9b34d088" title="getVoltage()">getVoltage()</a>, which that task keeps up to date: every MPPT step while charging and every idle poll (<a class="el" href="#a3629546acbae48ad97492de40c844e68" title="measureFromSleep()">measureFromSleep()</a>) while the charger waits for the day or for light.</p>
+<p>The INA219 at 0x41 sits on the charger output. It is driven by the task of <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a> only; I²C1 is shared, so other tasks read the voltage through <a class="el" href="#a999d69f78099c28acdc3022d9b34d088" title="BSP::Accumulator::getVoltage()">BSP::Accumulator::getVoltage()</a>, which that task keeps up to date: every MPPT step while charging and every idle poll (<a class="el" href="#a3629546acbae48ad97492de40c844e68" title="BSP::Accumulator::measureFromSleep()">BSP::Accumulator::measureFromSleep()</a>) while the charger waits for the day or for light.</p>
 <hr  />
  <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/RiverSense-Firmware/blob/main/Project/BSP/Accumulator.cpp">Source</a> </dd>
 <dd>
@@ -123,8 +123,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a9c3339d9df9643d01298d523bf42cb4d" id="r_a9c3339d9df9643d01298d523bf42cb4d"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a9c3339d9df9643d01298d523bf42cb4d">Monitor</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d2/d4f/a04347.html">Lib::BSP::INA219</a>&lt;Lib::HAL::DriverMode::IT&gt;</td></tr>
-<tr class="memdesc:a9c3339d9df9643d01298d523bf42cb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared INA219 driver on the interrupt-driven I2C port.  <br /></td></tr>
+<tr class="memitem:a9c3339d9df9643d01298d523bf42cb4d" id="r_a9c3339d9df9643d01298d523bf42cb4d"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a9c3339d9df9643d01298d523bf42cb4d">Monitor</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d1/d71/a04399.html">Lib::BSP::INA219</a>&lt;Lib::HAL::DriverMode::IT&gt;</td></tr>
+<tr class="memdesc:a9c3339d9df9643d01298d523bf42cb4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shared INA219 driver on the interrupt-driven I²C port.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -153,7 +153,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:ac106b90b3f5c652036e3219564c63807" id="r_ac106b90b3f5c652036e3219564c63807"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ac106b90b3f5c652036e3219564c63807">ADDRESS</a> = 0x41U</td></tr>
-<tr class="memdesc:ac106b90b3f5c652036e3219564c63807"><td class="mdescLeft">&#160;</td><td class="mdescRight">7-bit I2C address of the monitor.  <br /></td></tr>
+<tr class="memdesc:ac106b90b3f5c652036e3219564c63807"><td class="mdescLeft">&#160;</td><td class="mdescRight">7-bit I²C address of the monitor.  <br /></td></tr>
 <tr class="memitem:a61a1f9d337aa6b7b9022b515eb395655" id="r_a61a1f9d337aa6b7b9022b515eb395655"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a61a1f9d337aa6b7b9022b515eb395655">SHUNT_OHMS</a> = 0.020F</td></tr>
 <tr class="memdesc:a61a1f9d337aa6b7b9022b515eb395655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sense resistor R9 on the charger output (WCC hw2.00).  <br /></td></tr>
 <tr class="memitem:a3f561c4b71a4d48bffe29231eb3cb89d" id="r_a3f561c4b71a4d48bffe29231eb3cb89d"><td class="memItemLeft">static constexpr Monitor::CurrentCorrection&#160;</td><td class="memItemRight"><a class="el" href="#a3f561c4b71a4d48bffe29231eb3cb89d">CORRECTION</a> {Monitor::Polarity::NEGATIVE, 0.0204F}</td></tr>
@@ -165,13 +165,13 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:a7635357d34b72fddfaec42620824b5c8" id="r_a7635357d34b72fddfaec42620824b5c8"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a7635357d34b72fddfaec42620824b5c8">MAX_CHARGE_LIMIT</a> = 7.5F</td></tr>
 <tr class="memdesc:a7635357d34b72fddfaec42620824b5c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Highest temperature-compensated charge limit (datasheet charge range).  <br /></td></tr>
 <tr class="memitem:a710b4879df2e1f2b6afd51d5735cb10b" id="r_a710b4879df2e1f2b6afd51d5735cb10b"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a710b4879df2e1f2b6afd51d5735cb10b">TEMPERATURE_COEFFICIENT</a> = -0.009F</td></tr>
-<tr class="memdesc:a710b4879df2e1f2b6afd51d5735cb10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge limit change per degree Celsius (3 cells x -3 mV, client spec).  <br /></td></tr>
+<tr class="memdesc:a710b4879df2e1f2b6afd51d5735cb10b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Charge limit change per °C (3 cells x -3 mV, client spec).  <br /></td></tr>
 <tr class="memitem:aeae7f48e7e626a09886033907e75303b" id="r_aeae7f48e7e626a09886033907e75303b"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#aeae7f48e7e626a09886033907e75303b">REFERENCE_TEMPERATURE</a> = 25.0F</td></tr>
-<tr class="memdesc:aeae7f48e7e626a09886033907e75303b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature of <a class="el" href="#a084004c0b7ac9e7b65a0aef5b3353401" title="CHARGE_VOLTAGE">CHARGE_VOLTAGE</a>, degrees Celsius.  <br /></td></tr>
+<tr class="memdesc:aeae7f48e7e626a09886033907e75303b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Temperature of <a class="el" href="#a084004c0b7ac9e7b65a0aef5b3353401" title="BSP::Accumulator::CHARGE_VOLTAGE">BSP::Accumulator::CHARGE_VOLTAGE</a>, in °C.  <br /></td></tr>
 <tr class="memitem:a3047fb8f6044c21e4d03027bf6806df1" id="r_a3047fb8f6044c21e4d03027bf6806df1"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a3047fb8f6044c21e4d03027bf6806df1">MAX_CHARGE_CURRENT</a> = 3.6F</td></tr>
-<tr class="memdesc:a3047fb8f6044c21e4d03027bf6806df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Highest charge current, amperes (typical 6 V 12 Ah GEL, 0.3 C).  <br /></td></tr>
+<tr class="memdesc:a3047fb8f6044c21e4d03027bf6806df1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Highest charge current, in A (typical 6 V 12 Ah GEL, 0.3 C).  <br /></td></tr>
 <tr class="memitem:a398ecd41fb7de6b4fe8014c221a85d0a" id="r_a398ecd41fb7de6b4fe8014c221a85d0a"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a398ecd41fb7de6b4fe8014c221a85d0a">LOW_VOLTAGE</a> = 6.0F</td></tr>
-<tr class="memdesc:a398ecd41fb7de6b4fe8014c221a85d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Below this the accumulator is nearly empty (about 10 % of a 6 V GEL).  <br /></td></tr>
+<tr class="memdesc:a398ecd41fb7de6b4fe8014c221a85d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Below this the accumulator is nearly empty (about 10% of a 6 V GEL).  <br /></td></tr>
 <tr class="memitem:a793a8a951cff583dbfd3152f87a70a3b" id="r_a793a8a951cff583dbfd3152f87a70a3b"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a793a8a951cff583dbfd3152f87a70a3b">WAKE_CONVERSION_TIME</a> {150}</td></tr>
 <tr class="memdesc:a793a8a951cff583dbfd3152f87a70a3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait after waking the monitor for a fresh conversion.  <br /></td></tr>
 </table>
@@ -183,12 +183,12 @@ Static Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a9c3339d9df9643d01298d523bf42cb4d">BSP::Accumulator::Monitor</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d2/d4f/a04347.html">Lib::BSP::INA219</a>&lt;Lib::HAL::DriverMode::IT&gt;</td>
+          <td class="memname">using <a class="el" href="#a9c3339d9df9643d01298d523bf42cb4d">BSP::Accumulator::Monitor</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d1/d71/a04399.html">Lib::BSP::INA219</a>&lt;Lib::HAL::DriverMode::IT&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Shared INA219 driver on the interrupt-driven I2C port. </p>
+<p>Shared INA219 driver on the interrupt-driven I²C port. </p>
 
 </div>
 </div>
@@ -219,11 +219,11 @@ Static Public Attributes</h2></td></tr>
 <p>Returns the charge limit compensated for temperature, kept inside the datasheet charge range. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">temperature</td><td>Temperature near the accumulator, degrees Celsius. </td></tr>
+    <tr><td class="paramname">temperature</td><td>Temperature near the accumulator, in °C. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Charge limit, volts. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Charge limit, in V. </dd></dl>
 
 </div>
 </div>
@@ -251,7 +251,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the last measured voltage; any task. </p>
-<dl class="section return"><dt>Returns</dt><dd>Accumulator voltage, volts; <b>0</b> until the first measurement. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Accumulator voltage, in V; <b>0</b> until the first measurement. </dd></dl>
 
 </div>
 </div>
@@ -335,7 +335,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Tells whether the accumulator is nearly empty; any task. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a measured voltage is below <a class="el" href="#a398ecd41fb7de6b4fe8014c221a85d0a" title="LOW_VOLTAGE">LOW_VOLTAGE</a>; <b>false</b> before the first measurement. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a measured voltage is below <a class="el" href="#a398ecd41fb7de6b4fe8014c221a85d0a" title="BSP::Accumulator::LOW_VOLTAGE">BSP::Accumulator::LOW_VOLTAGE</a>; <b>false</b> before the first measurement. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#afdd99b8afbe1a7c9a062dc6e2ae9b5c0">isLow()</a>.</p>
 
@@ -428,7 +428,7 @@ Static Public Attributes</h2></td></tr>
 <p>Publishes a voltage measured by the charger task. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">voltage</td><td>Accumulator voltage, volts. </td></tr>
+    <tr><td class="paramname">voltage</td><td>Accumulator voltage, in V. </td></tr>
   </table>
   </dd>
 </dl>
@@ -486,7 +486,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>7-bit I2C address of the monitor. </p>
+<p>7-bit I²C address of the monitor. </p>
 
 </div>
 </div>
@@ -560,7 +560,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Below this the accumulator is nearly empty (about 10 % of a 6 V GEL). </p>
+<p>Below this the accumulator is nearly empty (about 10% of a 6 V GEL). </p>
 
 </div>
 </div>
@@ -584,7 +584,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Highest charge current, amperes (typical 6 V 12 Ah GEL, 0.3 C). </p>
+<p>Highest charge current, in A (typical 6 V 12 Ah GEL, 0.3 C). </p>
 
 </div>
 </div>
@@ -660,7 +660,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Temperature of <a class="el" href="#a084004c0b7ac9e7b65a0aef5b3353401" title="CHARGE_VOLTAGE">CHARGE_VOLTAGE</a>, degrees Celsius. </p>
+<p>Temperature of <a class="el" href="#a084004c0b7ac9e7b65a0aef5b3353401" title="BSP::Accumulator::CHARGE_VOLTAGE">BSP::Accumulator::CHARGE_VOLTAGE</a>, in °C. </p>
 
 <p class="reference">Referenced by <a class="el" href="#aa94053573b96b90646a9c2503589ca4f">getChargeLimit()</a>.</p>
 
@@ -710,7 +710,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Charge limit change per degree Celsius (3 cells x -3 mV, client spec). </p>
+<p>Charge limit change per °C (3 cells x -3 mV, client spec). </p>
 
 <p class="reference">Referenced by <a class="el" href="#aa94053573b96b90646a9c2503589ca4f">getChargeLimit()</a>.</p>
 

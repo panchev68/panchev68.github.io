@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Singleton checking every device once at start-up and showing the result on the LEDs. </p>
-<p><a class="el" href="#a4ed6532ac7ccdf5bcf570297a4cbf522" title="run()">run()</a> works before <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a> and <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a> own the hardware: both INA219 monitors and the TMP102 on I2C1, the DS18B20 and the A02YYUW on the <a class="el" href="../../db/daf/class_b_s_p_1_1_power_switches.html#a7aed9e767b8b9ce35fef19d60ed462c4a3f9d1c3652820e6c9716f628c6f0b5af" title="BSP::PowerSwitches::Channel::SENSORS">BSP::PowerSwitches::Channel::SENSORS</a> rail and the A7670E modem (power-up and AT answer). A device that does not answer does not stop the boot; the result goes to <a class="el" href="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime.html" title="Runtime">Runtime</a>, so the first report already carries it, and <a class="el" href="#a70c3b117599cad2ace38d7b7fa21a56f" title="indicate()">indicate()</a> shows it.</p>
-<p>The LEDs and the private checks live in <b>Impl</b> in the '.cpp'.</p>
+<p><a class="el" href="#a4ed6532ac7ccdf5bcf570297a4cbf522" title="APP::Diagnostics::Boot::run()">APP::Diagnostics::Boot::run()</a> works before <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a> and <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a> own the hardware: both INA219 monitors and the TMP102 on I²C1, the DS18B20 and the A02YYUW on the <a class="el" href="../../db/daf/class_b_s_p_1_1_power_switches.html#a7aed9e767b8b9ce35fef19d60ed462c4a3f9d1c3652820e6c9716f628c6f0b5af" title="BSP::PowerSwitches::Channel::SENSORS">BSP::PowerSwitches::Channel::SENSORS</a> rail and the A7670E modem (power-up and AT answer). A device that does not answer does not stop the boot; the result goes to <a class="el" href="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime.html" title="APP::Diagnostics::Runtime">APP::Diagnostics::Runtime</a>, so the first report already carries it, and <a class="el" href="#a70c3b117599cad2ace38d7b7fa21a56f" title="APP::Diagnostics::Boot::indicate()">APP::Diagnostics::Boot::indicate()</a> shows it.</p>
+<p>The LEDs and the private checks live in <b>Impl</b>, defined in <em class="arg"></em>.cpp.</p>
 <dl class="section warning"><dt>Warning</dt><dd><b>Task context only</b>, from <b>startup()</b> alone: it drives the devices without the owners' coordination.</dd></dl>
 <hr  />
  <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/RiverSense-Firmware/blob/main/Project/APP/Diagnostics/Boot.cpp">Source</a> </dd>
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4ed6532ac7ccdf5bcf570297a4cbf522" id="r_a4ed6532ac7ccdf5bcf570297a4cbf522"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a4ed6532ac7ccdf5bcf570297a4cbf522">run</a> () noexcept</td></tr>
-<tr class="memdesc:a4ed6532ac7ccdf5bcf570297a4cbf522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks every device once and publishes each result to <a class="el" href="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime.html" title="Runtime">Runtime</a>.  <br /></td></tr>
+<tr class="memdesc:a4ed6532ac7ccdf5bcf570297a4cbf522"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks every device once and publishes each result to <a class="el" href="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime.html" title="APP::Diagnostics::Runtime">APP::Diagnostics::Runtime</a>.  <br /></td></tr>
 <tr class="memitem:a70c3b117599cad2ace38d7b7fa21a56f" id="r_a70c3b117599cad2ace38d7b7fa21a56f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a70c3b117599cad2ace38d7b7fa21a56f">indicate</a> (uint8_t mask) noexcept</td></tr>
 <tr class="memdesc:a70c3b117599cad2ace38d7b7fa21a56f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows a fault mask on the LEDs: one red blink per failed device, or one green blink if all passed.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -161,7 +161,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Blocking for a few seconds.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mask</td><td>Fault mask to show, normally the result of <a class="el" href="#a4ed6532ac7ccdf5bcf570297a4cbf522" title="run()">run()</a>. </td></tr>
+    <tr><td class="paramname">mask</td><td>Fault mask to show, normally the result of <a class="el" href="#a4ed6532ac7ccdf5bcf570297a4cbf522" title="APP::Diagnostics::Boot::run()">APP::Diagnostics::Boot::run()</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -221,8 +221,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks every device once and publishes each result to <a class="el" href="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime.html" title="Runtime">Runtime</a>. </p>
-<p>Takes up to about <a class="elRef" href="https://panchev68.github.io/Lib/d0/d3d/a04539.html#aeda44ecbef0e7c18f38f84147f66daf6" title="Lib::BSP::GSM::A7670E::BOOT_TIMEOUT">Lib::BSP::GSM::A7670E::BOOT_TIMEOUT</a> because of the modem.</p>
+<p>Checks every device once and publishes each result to <a class="el" href="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime.html" title="APP::Diagnostics::Runtime">APP::Diagnostics::Runtime</a>. </p>
+<p>Takes up to about "Lib::BSP::GSM::A7670E::BOOT_TIMEOUT" because of the modem.</p>
 <dl class="section return"><dt>Returns</dt><dd>Fault mask of this run; <b>0</b> if every device answered. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a4ed6532ac7ccdf5bcf570297a4cbf522">run()</a>.</p>

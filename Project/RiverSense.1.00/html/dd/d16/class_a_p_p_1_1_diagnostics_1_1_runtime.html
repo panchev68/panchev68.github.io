@@ -113,8 +113,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Singleton holding the two fault masks that go to the cloud with every report: the current one and the latched one. </p>
-<p>Unlike WCC there is no diagnostic task: the node sleeps between measurements, and the sensor rail, the modem and the single-reader UART streams belong to <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a>, so a second task probing them would collide with it. The runtime pass is the measurement cycle itself. The modules that own the devices report every result they get with <a class="el" href="#af59850d1f1ac256dc070a9fcf0bef9b0" title="update()">update()</a>: <a class="el" href="../../d9/d25/class_a_p_p_1_1_diagnostics_1_1_boot.html" title="Boot">Boot</a> once at start-up, <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a> after each measurement (both sensors, plus the I2C mirror, once per measurement period) and each modem session. The I2C sensors are mirrored from <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html#a1519cc8b2fe5798dcf0db9a81dbfef29" title="APP::PowerSupply::getIsSensorsOk()">APP::PowerSupply::getIsSensorsOk()</a> by <a class="el" href="#a23f68e218dee29c37a66256a803900c8" title="refreshPowerSensors()">refreshPowerSensors()</a>.</p>
-<p>Thread-safe: both masks are atomic bytes in an <b>Impl</b> in the '.cpp'.</p>
+<p>Unlike WCC there is no diagnostic task: the node sleeps between measurements, and the sensor rail, the modem and the single-reader UART streams belong to <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a>, so a second task probing them would collide with it. The runtime pass is the measurement cycle itself. The modules that own the devices report every result they get with <a class="el" href="#af59850d1f1ac256dc070a9fcf0bef9b0" title="APP::Diagnostics::Runtime::update()">APP::Diagnostics::Runtime::update()</a>: <a class="el" href="../../d9/d25/class_a_p_p_1_1_diagnostics_1_1_boot.html" title="APP::Diagnostics::Boot">APP::Diagnostics::Boot</a> once at start-up, <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a> after each measurement (both sensors, plus the I²C mirror, once per measurement period) and each modem session. The I²C sensors are mirrored from <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html#a1519cc8b2fe5798dcf0db9a81dbfef29" title="APP::PowerSupply::getIsSensorsOk()">APP::PowerSupply::getIsSensorsOk()</a> by <a class="el" href="#a23f68e218dee29c37a66256a803900c8" title="APP::Diagnostics::Runtime::refreshPowerSensors()">APP::Diagnostics::Runtime::refreshPowerSensors()</a>.</p>
+<p>Thread-safe: both masks are atomic bytes in <b>Impl</b>, defined in <em class="arg"></em>.cpp.</p>
 <hr  />
  <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/RiverSense-Firmware/blob/main/Project/APP/Diagnostics/Runtime.cpp">Source</a> </dd>
 <dd>
@@ -125,7 +125,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af59850d1f1ac256dc070a9fcf0bef9b0" id="r_af59850d1f1ac256dc070a9fcf0bef9b0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af59850d1f1ac256dc070a9fcf0bef9b0">update</a> (<a class="el" href="../../d5/dae/namespace_a_p_p_1_1_diagnostics.html#ac98c96de312e353c1a0eccd825e78a7c">Device</a> device, bool isOk) noexcept</td></tr>
 <tr class="memdesc:af59850d1f1ac256dc070a9fcf0bef9b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publishes the result of a device check made by the module that owns the device; any task.  <br /></td></tr>
 <tr class="memitem:a23f68e218dee29c37a66256a803900c8" id="r_a23f68e218dee29c37a66256a803900c8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a23f68e218dee29c37a66256a803900c8">refreshPowerSensors</a> () noexcept</td></tr>
-<tr class="memdesc:a23f68e218dee29c37a66256a803900c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mirrors the I2C sensors (both INA219 and the TMP102) from the state published by <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>.  <br /></td></tr>
+<tr class="memdesc:a23f68e218dee29c37a66256a803900c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mirrors the I²C sensors (both INA219 and the TMP102) from the state published by <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>.  <br /></td></tr>
 <tr class="memitem:aabb5adb04c418eb59483b7eaeb073c79" id="r_aabb5adb04c418eb59483b7eaeb073c79"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aabb5adb04c418eb59483b7eaeb073c79">getFaultMask</a> () const noexcept</td></tr>
 <tr class="memdesc:aabb5adb04c418eb59483b7eaeb073c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current fault mask, from the last check of each device; any task.  <br /></td></tr>
 <tr class="memitem:af4cb6320f2e818f30483ffe03fc1bf11" id="r_af4cb6320f2e818f30483ffe03fc1bf11"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#af4cb6320f2e818f30483ffe03fc1bf11">getLatchedMask</a> () const noexcept</td></tr>
@@ -165,7 +165,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Clears the latched bits that were sent in a successful upload; bits set after the snapshot stay; any task. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">sentMask</td><td>Latched mask that the upload carried, as returned by <a class="el" href="#af4cb6320f2e818f30483ffe03fc1bf11" title="getLatchedMask()">getLatchedMask()</a>. </td></tr>
+    <tr><td class="paramname">sentMask</td><td>Latched mask that the upload carried, as returned by <a class="el" href="#af4cb6320f2e818f30483ffe03fc1bf11" title="APP::Diagnostics::Runtime::getLatchedMask()">APP::Diagnostics::Runtime::getLatchedMask()</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -198,7 +198,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the current fault mask, from the last check of each device; any task. </p>
-<dl class="section return"><dt>Returns</dt><dd>One <a class="el" href="../../d5/dae/namespace_a_p_p_1_1_diagnostics.html#ac98c96de312e353c1a0eccd825e78a7c" title="Device">Device</a> bit per device that failed its last check; <b>0</b> if all passed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>One <a class="el" href="../../d5/dae/namespace_a_p_p_1_1_diagnostics.html#ac98c96de312e353c1a0eccd825e78a7c" title="APP::Diagnostics::Device">APP::Diagnostics::Device</a> bit per device that failed its last check; <b>0</b> if all passed. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#aabb5adb04c418eb59483b7eaeb073c79">getFaultMask()</a>.</p>
 
@@ -228,7 +228,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the latched fault mask: every device that failed since the last successful upload; any task. </p>
-<dl class="section return"><dt>Returns</dt><dd>One <a class="el" href="../../d5/dae/namespace_a_p_p_1_1_diagnostics.html#ac98c96de312e353c1a0eccd825e78a7c" title="Device">Device</a> bit per device that failed since the last <a class="el" href="#a8965761e771ef2cdea88f2e355ba58df" title="acknowledge()">acknowledge()</a>; <b>0</b> if none did. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>One <a class="el" href="../../d5/dae/namespace_a_p_p_1_1_diagnostics.html#ac98c96de312e353c1a0eccd825e78a7c" title="APP::Diagnostics::Device">APP::Diagnostics::Device</a> bit per device that failed since the last <a class="el" href="#a8965761e771ef2cdea88f2e355ba58df" title="APP::Diagnostics::Runtime::acknowledge()">APP::Diagnostics::Runtime::acknowledge()</a>; <b>0</b> if none did. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#af4cb6320f2e818f30483ffe03fc1bf11">getLatchedMask()</a>.</p>
 
@@ -285,8 +285,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Mirrors the I2C sensors (both INA219 and the TMP102) from the state published by <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>. </p>
-<p>Does not touch the I2C1 bus that the MPPT loop uses. </p>
+<p>Mirrors the I²C sensors (both INA219 and the TMP102) from the state published by <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>. </p>
+<p>Does not touch the I²C1 bus that the MPPT loop uses. </p>
 
 <p class="reference">Referenced by <a class="el" href="#a23f68e218dee29c37a66256a803900c8">refreshPowerSensors()</a>.</p>
 
@@ -320,7 +320,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Publishes the result of a device check made by the module that owns the device; any task. </p>
-<p>A failure also sets the device bit in the latched mask, which stays set until <a class="el" href="#a8965761e771ef2cdea88f2e355ba58df" title="acknowledge()">acknowledge()</a>.</p>
+<p>A failure also sets the device bit in the latched mask, which stays set until <a class="el" href="#a8965761e771ef2cdea88f2e355ba58df" title="APP::Diagnostics::Runtime::acknowledge()">APP::Diagnostics::Runtime::acknowledge()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">device</td><td>Checked device. </td></tr>

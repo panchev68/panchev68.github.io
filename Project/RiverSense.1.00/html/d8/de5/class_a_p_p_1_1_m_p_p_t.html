@@ -114,11 +114,11 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Cascaded MPPT controller of the solar accumulator charger, driving the LMR14030 buck charger. </p>
-<p>The outer loop (library MPPT, every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> steps) computes the panel voltage setpoint; the inner loop (every <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call) moves the DAC_OUT voltage injected into the buck feedback node until the measured panel voltage reaches that setpoint.</p>
-<p>The DAC current is summed into the FB node through R13 + R14, so a higher DAC voltage lowers the buck output voltage, unloads the panel and lets its voltage rise. Panel irradiance is not measured; it is estimated from the panel current relative to the MPP reference current. Divider of the WCC board hw2.00 (R15 from the output after the R9 shunt, R11 + R12 to GND through Q4, R13 + R14 from DAC_OUT):</p>
+<p>The outer loop (library MPPT, every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="APP::MPPT::OUTER_LOOP_DIVIDER">APP::MPPT::OUTER_LOOP_DIVIDER</a> steps) computes the panel voltage setpoint; the inner loop (every <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="APP::MPPT::step()">APP::MPPT::step()</a> call) moves the <em class="arg">DAC_OUT</em> voltage injected into the buck feedback node until the measured panel voltage reaches that setpoint.</p>
+<p>The DAC current is summed into the FB node through R13 + R14, so a higher DAC voltage lowers the buck output voltage, unloads the panel and lets its voltage rise. Panel irradiance is not measured; it is estimated from the panel current relative to the MPP reference current. Divider of the WCC board hw2.00 (R15 from the output after the R9 shunt, R11 + R12 to GND through Q4, R13 + R14 from <em class="arg">DAC_OUT</em>):</p>
 <div class="fragment"><div class="line">Vout = Vfb * (1 + R15 / (R11 + R12) + R15 / (R13 + R14)) - Vdac * R15 / (R13 + R14)  ~  7.82 V - 1.32 * Vdac</div>
-</div><!-- fragment --><p><b>Singleton:</b> the charger has one buck, one DAC and one enable pin. The state, the hardware constants and the private helpers live in an <b>Impl</b> defined in the '.cpp', reached through <b>impl()</b> (function-local static, no heap).</p>
-<dl class="section warning"><dt>Warning</dt><dd>Not thread-safe: <a class="el" href="#a1a0589375b746214f96bd8f5331faaf2" title="init()">init()</a>, <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> and <a class="el" href="#a409d1aeb10fed97156d6dcf2c540d99d" title="disable()">disable()</a> must all run in the power supply task.</dd></dl>
+</div><!-- fragment --><p><b>Singleton:</b> the charger has one buck, one DAC and one enable pin. The state, the hardware constants and the private helpers live in an <b>Impl</b> defined in the <em class="arg"></em>.cpp file, reached through <b>impl()</b> (function-local static, no heap).</p>
+<dl class="section warning"><dt>Warning</dt><dd>Not thread-safe: <a class="el" href="#a1a0589375b746214f96bd8f5331faaf2" title="APP::MPPT::init()">APP::MPPT::init()</a>, <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="APP::MPPT::step()">APP::MPPT::step()</a> and <a class="el" href="#a409d1aeb10fed97156d6dcf2c540d99d" title="APP::MPPT::disable()">APP::MPPT::disable()</a> must all run in the power supply task.</dd></dl>
 <hr  />
  <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Senstate/RiverSense-Firmware/blob/main/Project/APP/PowerSupply/MPPT.cpp">Source</a> </dd>
 <dd>
@@ -131,17 +131,17 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a409d1aeb10fed97156d6dcf2c540d99d" id="r_a409d1aeb10fed97156d6dcf2c540d99d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a409d1aeb10fed97156d6dcf2c540d99d">disable</a> () noexcept</td></tr>
 <tr class="memdesc:a409d1aeb10fed97156d6dcf2c540d99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the charger and drives the DAC to the lowest charge voltage.  <br /></td></tr>
 <tr class="memitem:ab19c72f917c1832fb96af81fd7097291" id="r_ab19c72f917c1832fb96af81fd7097291"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab19c72f917c1832fb96af81fd7097291">step</a> () noexcept</td></tr>
-<tr class="memdesc:ab19c72f917c1832fb96af81fd7097291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs one inner-loop iteration and, every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> calls, one MPPT update.  <br /></td></tr>
+<tr class="memdesc:ab19c72f917c1832fb96af81fd7097291"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs one inner-loop iteration and, every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="APP::MPPT::OUTER_LOOP_DIVIDER">APP::MPPT::OUTER_LOOP_DIVIDER</a> calls, one MPPT update.  <br /></td></tr>
 <tr class="memitem:a9851c5668b9e71368448d26a04332fef" id="r_a9851c5668b9e71368448d26a04332fef"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a9851c5668b9e71368448d26a04332fef">getPanelVoltageSetpoint</a> () const noexcept</td></tr>
 <tr class="memdesc:a9851c5668b9e71368448d26a04332fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the panel voltage setpoint computed by the outer loop.  <br /></td></tr>
 <tr class="memitem:aea9692314c55f40667e4dff40d5b17d2" id="r_aea9692314c55f40667e4dff40d5b17d2"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aea9692314c55f40667e4dff40d5b17d2">getPanelVoltage</a> () const noexcept</td></tr>
-<tr class="memdesc:aea9692314c55f40667e4dff40d5b17d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the panel voltage measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call.  <br /></td></tr>
+<tr class="memdesc:aea9692314c55f40667e4dff40d5b17d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the panel voltage measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="APP::MPPT::step()">APP::MPPT::step()</a> call.  <br /></td></tr>
 <tr class="memitem:aa859ff5c96eacc46c73e261897b6f0a8" id="r_aa859ff5c96eacc46c73e261897b6f0a8"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aa859ff5c96eacc46c73e261897b6f0a8">getAccumulatorVoltage</a> () const noexcept</td></tr>
-<tr class="memdesc:aa859ff5c96eacc46c73e261897b6f0a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the accumulator voltage measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call.  <br /></td></tr>
+<tr class="memdesc:aa859ff5c96eacc46c73e261897b6f0a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the accumulator voltage measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="APP::MPPT::step()">APP::MPPT::step()</a> call.  <br /></td></tr>
 <tr class="memitem:aa092bb90bc6f3e0e6ce94c8ace478779" id="r_aa092bb90bc6f3e0e6ce94c8ace478779"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aa092bb90bc6f3e0e6ce94c8ace478779">getPanelCurrent</a> () const noexcept</td></tr>
-<tr class="memdesc:aa092bb90bc6f3e0e6ce94c8ace478779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the panel current measured by the last MPPT update (every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> steps).  <br /></td></tr>
+<tr class="memdesc:aa092bb90bc6f3e0e6ce94c8ace478779"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the panel current measured by the last MPPT update (every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="APP::MPPT::OUTER_LOOP_DIVIDER">APP::MPPT::OUTER_LOOP_DIVIDER</a> steps).  <br /></td></tr>
 <tr class="memitem:ad90ad04665d229315f1e0c7630db9730" id="r_ad90ad04665d229315f1e0c7630db9730"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ad90ad04665d229315f1e0c7630db9730">getChargerCurrent</a> () const noexcept</td></tr>
-<tr class="memdesc:ad90ad04665d229315f1e0c7630db9730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the charger output current measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call.  <br /></td></tr>
+<tr class="memdesc:ad90ad04665d229315f1e0c7630db9730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the charger output current measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="APP::MPPT::step()">APP::MPPT::step()</a> call.  <br /></td></tr>
 <tr class="memitem:af1ec8b04ceacead590589ea633d1fc1d" id="r_af1ec8b04ceacead590589ea633d1fc1d"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#af1ec8b04ceacead590589ea633d1fc1d">getChargeVoltage</a> () const noexcept</td></tr>
 <tr class="memdesc:af1ec8b04ceacead590589ea633d1fc1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the buck output voltage currently commanded through the DAC.  <br /></td></tr>
 <tr class="memitem:af01fe5bdd4be040548b1a588adccdac6" id="r_af01fe5bdd4be040548b1a588adccdac6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af01fe5bdd4be040548b1a588adccdac6">getIsEnabled</a> () const noexcept</td></tr>
@@ -155,7 +155,7 @@ Static Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a4dfaa47ad7a8a240bdc8e91a714de227" id="r_a4dfaa47ad7a8a240bdc8e91a714de227"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a4dfaa47ad7a8a240bdc8e91a714de227">STEP_PERIOD_MS</a> = 100U</td></tr>
-<tr class="memdesc:a4dfaa47ad7a8a240bdc8e91a714de227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recommended period between <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> calls.  <br /></td></tr>
+<tr class="memdesc:a4dfaa47ad7a8a240bdc8e91a714de227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recommended period between <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="APP::MPPT::step()">APP::MPPT::step()</a> calls.  <br /></td></tr>
 <tr class="memitem:a428ad7acfea610955ce3a7c190800fc2" id="r_a428ad7acfea610955ce3a7c190800fc2"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a428ad7acfea610955ce3a7c190800fc2">OUTER_LOOP_DIVIDER</a> = 10U</td></tr>
 <tr class="memdesc:a428ad7acfea610955ce3a7c190800fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inner-loop steps per MPPT (outer loop) update.  <br /></td></tr>
 </table>
@@ -212,7 +212,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the accumulator voltage measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call. </p>
+<p>Returns the accumulator voltage measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="APP::MPPT::step()">APP::MPPT::step()</a> call. </p>
 <p>It is read by the same step that limits the charge, so the caller needs no second read of the sensor.</p>
 <dl class="section return"><dt>Returns</dt><dd>Accumulator voltage, in volts; <b>0</b> until the first successful read. </dd></dl>
 
@@ -243,7 +243,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the charger output current measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call. </p>
+<p>Returns the charger output current measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="APP::MPPT::step()">APP::MPPT::step()</a> call. </p>
 <p>The 0x41 monitor's shunt R9 sits between the charger diode D2 and the 6 V rail, so this is the current the charger feeds into the loads plus the accumulator; the accumulator's own discharge does not pass it.</p>
 <dl class="section return"><dt>Returns</dt><dd>Charger output current, in amperes; never positive (calibration sign), <b>0</b> until the first update. </dd></dl>
 
@@ -334,7 +334,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the panel current measured by the last MPPT update (every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> steps). </p>
+<p>Returns the panel current measured by the last MPPT update (every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="APP::MPPT::OUTER_LOOP_DIVIDER">APP::MPPT::OUTER_LOOP_DIVIDER</a> steps). </p>
 <dl class="section return"><dt>Returns</dt><dd>Panel current, in amperes; <b>0</b> until the first update. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#aa092bb90bc6f3e0e6ce94c8ace478779">getPanelCurrent()</a>.</p>
@@ -364,7 +364,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the panel voltage measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call. </p>
+<p>Returns the panel voltage measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="APP::MPPT::step()">APP::MPPT::step()</a> call. </p>
 <dl class="section return"><dt>Returns</dt><dd>Panel voltage, in volts. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#aea9692314c55f40667e4dff40d5b17d2">getPanelVoltage()</a>.</p>
@@ -480,8 +480,8 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Runs one inner-loop iteration and, every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> calls, one MPPT update. </p>
-<p>Call every <a class="el" href="#a4dfaa47ad7a8a240bdc8e91a714de227" title="STEP_PERIOD_MS">STEP_PERIOD_MS</a> milliseconds. The accumulator charge voltage and charge current limits override the MPPT setpoint.</p>
+<p>Runs one inner-loop iteration and, every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="APP::MPPT::OUTER_LOOP_DIVIDER">APP::MPPT::OUTER_LOOP_DIVIDER</a> calls, one MPPT update. </p>
+<p>Call every <a class="el" href="#a4dfaa47ad7a8a240bdc8e91a714de227" title="APP::MPPT::STEP_PERIOD_MS">APP::MPPT::STEP_PERIOD_MS</a> milliseconds. The accumulator charge voltage and charge current limits override the MPPT setpoint.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>false</b> if a sensor read or the DAC write failed; the charger then keeps its last DAC value. </dd></dl>
 
 </div>
@@ -531,7 +531,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Recommended period between <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> calls. </p>
+<p>Recommended period between <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="APP::MPPT::step()">APP::MPPT::step()</a> calls. </p>
 
 </div>
 </div>
