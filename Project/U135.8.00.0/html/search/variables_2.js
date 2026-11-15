@@ -29,7 +29,7 @@ var searchData=
   ['ble_5funlock_5frequest_26',['BLE_UNLOCK_REQUEST',['https://panchev68.github.io/Lib/d2/df3/a01085.html#a28e123f246098db8d8570511c8c739f4a9212ccf8bc772579006a4011adf958a2',1,'Lib::Digi::Core::Frame']]],
   ['ble_5funlock_5fresponse_27',['BLE_UNLOCK_RESPONSE',['https://panchev68.github.io/Lib/d2/df3/a01085.html#a28e123f246098db8d8570511c8c739f4af0380f025c94a21739192b273df7cd7a',1,'Lib::Digi::Core::Frame']]],
   ['block_5fread_5fsize_28',['BLOCK_READ_SIZE',['https://panchev68.github.io/Lib/dd/d03/a04604.html#a4aa1833571d2dad003a04249cdb45aa2',1,'Lib::BSP::W25Q128JVSIQ']]],
-  ['block_5fsize_29',['BLOCK_SIZE',['https://panchev68.github.io/Lib/d5/d91/a04516.html#ad06a1e92c8862b181cbf69bcc98779e4',1,'Lib::BSP::EEPROM::FlashEmulation::BLOCK_SIZE'],['https://panchev68.github.io/Lib/da/d94/a04940.html#a40a860803a494d53743ad3fe6fe138c0',1,'Lib::Crypto::SHA256&lt; SHA256Engine::SOFTWARE &gt;::BLOCK_SIZE']]],
+  ['block_5fsize_29',['BLOCK_SIZE',['https://panchev68.github.io/Lib/da/d94/a04940.html#a40a860803a494d53743ad3fe6fe138c0',1,'Lib::Crypto::SHA256&lt; SHA256Engine::SOFTWARE &gt;']]],
   ['blue_30',['BLUE',['https://panchev68.github.io/Lib/d9/dda/a04740.html#aa556231651b87074f71d8a947648a3c9',1,'Color']]],
   ['blue_31',['blue',['https://panchev68.github.io/Lib/d8/d0e/a04744.html#ac389cd1dee46b5cb8d25573b3d3906b2',1,'Color::Data']]],
   ['blueviolet_32',['BLUEVIOLET',['https://panchev68.github.io/Lib/d9/dda/a04740.html#ae0271bcba14c9e7647cd492b2d044055',1,'Color']]],
