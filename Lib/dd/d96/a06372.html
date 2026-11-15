@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Timer::TimPwmOutput</title>
+<title>IAR EWARM Library: Lib::HAL::OSPIPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,72 +92,109 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimPwmOutput</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::OSPIPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Drives one PWM channel with <a class="el" href="../../dd/d96/a06372.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a>.</p>
-<p>Drives one PWM channel with <a class="el" href="../../dd/d96/a06372.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a>. The wrapper starts and stops the channel and changes its duty cycle and period through the timer registers. It has no interrupt and no task wait. <a class="el" href="../../d8/d2e/a05719.html#a4db830d0cdfdbd5ab01f959dd0653647" title="Lib::HAL::Timer::TimPwmOutput::setPulse()">Lib::HAL::Timer::TimPwmOutput::setPulse()</a> and <a class="el" href="../../d8/d2e/a05719.html#a3361b7c050046b52d03fbc351fcac5a8" title="Lib::HAL::Timer::TimPwmOutput::setPeriod()">Lib::HAL::Timer::TimPwmOutput::setPeriod()</a> are single register writes, so they can be called from task or ISR context.</p>
-<p>The timer must already be configured by CubeMX in PWM mode on the chosen channel, including the prescaler and period. The wrapper does not call <b>HAL_TIM_PWM_Init()</b> and does not change the prescaler.</p>
+<p>Runs a command with a data phase on the Octo-SPI controller through <a class="el" href="../../dd/d96/a06372.html" title="Lib::HAL::OSPIPort">Lib::HAL::OSPIPort</a> in its three transfer modes: 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' and 'Lib::HAL::DriverMode::DMA'.</p>
+<p>Runs a command with a data phase on the Octo-SPI controller through <a class="el" href="../../dd/d96/a06372.html" title="Lib::HAL::OSPIPort">Lib::HAL::OSPIPort</a> in its three transfer modes: 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' and 'Lib::HAL::DriverMode::DMA'. The port wraps a CubeMX <em class="arg">OSPI_HandleTypeDef</em> and does not configure the pins, clock or memory-mapped mode.</p>
+<p>Each transfer is two steps: Lib::HAL::OSPIPort::command() sends the instruction, address, alternate-byte and dummy phases described by a HAL <em class="arg">OSPI_RegularCmdTypeDef</em>, and the following Lib::HAL::OSPIPort::transmit() or Lib::HAL::OSPIPort::receive() moves the data phase. The size of the buffer must equal the <em class="arg">NbData</em> of that command. The BLOCKING mode completes inside the HAL calls and works from any context. The IT and DMA modes are task-only and assert when called from an ISR; they wait on an <a class="el" href="../../de/dbc/a06436.html" title="RTOS::EventGroup">RTOS::EventGroup</a> for the data phase and for a command without one, while a command with a data phase is issued through the polling HAL call. The OCTOSPI interrupt handler must call <b>HAL_OSPI_IRQHandler()</b> for the handle.</p>
+<dl class="section important"><dt>Important</dt><dd>The OCTOSPI controller is not on the STM32F407 used by this library (F7, H7 and L4+ only), so the <em class="arg">HAL_OSPI_MODULE_ENABLED</em> guard of this class has nothing to enable there. On that target the header compiles to nothing, so the example below applies only to a target with an OCTOSPI peripheral.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The IT and DMA modes register their own HAL callbacks in open(), so the HAL configuration header must set <em class="arg">USE_HAL_OSPI_REGISTER_CALLBACKS</em> to <b>1</b>.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timpwm_usage_hw"></a>
-Hardware and CubeMX assumptions</h3>
-<ul>
-<li>Timer (here <em class="arg">TIM3</em>) in PWM Generation mode on the channel (<em class="arg">TIM_CHANNEL_1</em>), with the output pin set as alternate function.</li>
-<li>The period (ARR) and prescaler are set in CubeMX; the wrapper only writes ARR through <a class="el" href="../../d8/d2e/a05719.html#a3361b7c050046b52d03fbc351fcac5a8" title="Lib::HAL::Timer::TimPwmOutput::setPeriod()">Lib::HAL::Timer::TimPwmOutput::setPeriod()</a>.</li>
-<li>One <a class="el" href="../../dd/d96/a06372.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a> per channel. The wrapper does not enforce this: two objects on one channel write the same CCR register.</li>
-</ul>
+<h3 class="doxsection"><a class="anchor" id="ospi_usage_setup"></a>
+Setup and lifecycle</h3>
+<p>The CubeMX init code creates and configures the handle, including the flash size and the clock. open() runs <b>HAL_OSPI_Init()</b>; for the IT and DMA modes it also registers the callbacks and creates the event group. close() reverses this from task context. The port does not own the handle.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timpwm_usage_basic"></a>
-Start with a duty cycle</h3>
-<p>The output keeps running after the function returns. The destructor does not stop it, so call <a class="el" href="../../d8/d2e/a05719.html#a3c2e8aa945f04a0c827147f62a2ccb5a" title="Lib::HAL::Timer::TimPwmOutput::close()">Lib::HAL::Timer::TimPwmOutput::close()</a> on the same object to stop the waveform.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d12/a00794.html">Lib/HAL/TIM/TimPwmOutput.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="ospi_usage_blocking"></a>
+Blocking command and data phase</h3>
+<p>The timeouts are <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> durations. The example reads a block with the Quad I/O fast read opcode <b>0xEB</b> of a serial flash; the instruction, address and dummy values are device-specific, and every field not set stays zero.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00752.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startFan(<a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d8/d2e/a05719.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; fan) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="comment">// Pulse width in timer ticks; the duty cycle is pulse / (period + 1).</span></div>
-<div class="line">    fan.setPulse(fan.getPeriod() / 2U);</div>
+<div class="line"><span class="keyword">extern</span> OSPI_HandleTypeDef hospi1;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!fan.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="keywordtype">bool</span> readQuad(Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; &amp; port, uint32_t address, std::span&lt;uint8_t&gt; <a id="_a0" name="_a0"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>) <span class="keyword">noexcept</span> {</div>
+<div class="line">    OSPI_RegularCmdTypeDef cmd{};</div>
+<div class="line">    cmd.OperationType = HAL_OSPI_OPTYPE_COMMON_CFG;</div>
+<div class="line">    cmd.FlashId = HAL_OSPI_FLASH_ID_1;</div>
+<div class="line">    cmd.Instruction = 0xEBU;</div>
+<div class="line">    cmd.InstructionMode = HAL_OSPI_INSTRUCTION_1_LINE;</div>
+<div class="line">    cmd.InstructionSize = HAL_OSPI_INSTRUCTION_8_BITS;</div>
+<div class="line">    cmd.Address = address;</div>
+<div class="line">    cmd.AddressMode = HAL_OSPI_ADDRESS_4_LINES;</div>
+<div class="line">    cmd.AddressSize = HAL_OSPI_ADDRESS_24_BITS;</div>
+<div class="line">    cmd.DataMode = HAL_OSPI_DATA_4_LINES;</div>
+<div class="line">    cmd.NbData = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>.size());</div>
+<div class="line">    cmd.DummyCycles = 6U;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!port.command(cmd, <a id="_a1" name="_a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> port.receive(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00794_html"><div class="ttname"><a href="../../d5/d12/a00794.html">TimPwmOutput.hpp</a></div><div class="ttdoc">Configures a hardware PWM output interface using STM32 Timers.</div></div>
-<div class="ttc" id="aa05719_html"><div class="ttname"><a href="../../d8/d2e/a05719.html">Lib::HAL::Timer::TimPwmOutput</a></div><div class="ttdoc">Controls one hardware timer channel configured under a pulse width modulation profile.</div><div class="ttdef"><b>Definition</b> TimPwmOutput.hpp:37</div></div>
+<div class="ttc" id="aa00752_html"><div class="ttname"><a href="../../dd/d5c/a00752.html">OSPI.hpp</a></div><div class="ttdoc">Public umbrella include for the OCTOSPI subsystem.</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01692_html_aba9b31054eec50310ef02c998663e27b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a></div><div class="ttdeci">constexpr auto data(_Container &amp;__cont) noexcept(noexcept(__cont.data())) -&gt; decltype(__cont.data())</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timpwm_usage_update"></a>
-Changing duty cycle and period at run time</h3>
-<p><a class="el" href="../../d8/d2e/a05719.html#a4db830d0cdfdbd5ab01f959dd0653647" title="Lib::HAL::Timer::TimPwmOutput::setPulse()">Lib::HAL::Timer::TimPwmOutput::setPulse()</a> writes the CCRx register directly. Whether a new value takes effect at the next update event depends on the output-compare preload set in CubeMX, which the wrapper does not change.</p>
-<p><a class="el" href="../../d8/d2e/a05719.html#a3361b7c050046b52d03fbc351fcac5a8" title="Lib::HAL::Timer::TimPwmOutput::setPeriod()">Lib::HAL::Timer::TimPwmOutput::setPeriod()</a> writes ARR directly and changes the period of every channel of the timer. Without ARR preload, a value below the running counter lets the counter overshoot to its maximum before it wraps.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d12/a00794.html">Lib/HAL/TIM/TimPwmOutput.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="ospi_usage_it"></a>
+Interrupt-driven transfer</h3>
+<p>The IT mode uses the same two calls from a task. The OCTOSPI handler is the only interrupt hook: the CubeMX <b>OCTOSPI1_IRQHandler()</b> calls <b>HAL_OSPI_IRQHandler(&amp;hospi1)</b>, which fires the callbacks that open() registered. A command without a data phase completes through the same event group.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00752.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setSpeed(<a class="code hl_class" href="../../d8/d2e/a05719.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; fan, uint32_t percent) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">const</span> uint32_t clampedPercent = (percent &gt; 100U) ? 100U : percent;</div>
-<div class="line">    <span class="keyword">const</span> uint64_t periodPlusOne = <span class="keyword">static_cast&lt;</span>uint64_t<span class="keyword">&gt;</span>(fan.getPeriod()) + 1U;</div>
-<div class="line">    fan.setPulse(<span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(periodPlusOne * clampedPercent / 100U));</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">extern</span> OSPI_HandleTypeDef hospi1;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setFrequency(<a class="code hl_class" href="../../d8/d2e/a05719.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; fan, uint32_t periodTicks) <span class="keyword">noexcept</span> {</div>
-<div class="line">    fan.setPeriod(periodTicks);</div>
-<div class="line">}</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timpwm_usage_error"></a>
-Error handling</h3>
-<p><a class="el" href="../../d8/d2e/a05719.html#ab30ea02f742bdd63bde16c03b3f780da" title="Lib::HAL::Timer::TimPwmOutput::open()">Lib::HAL::Timer::TimPwmOutput::open()</a> returns <em class="arg">false</em> when the HAL start request fails. The wrapper does not retry; the caller decides what to do next.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d12/a00794.html">Lib/HAL/TIM/TimPwmOutput.hpp</a>&gt;</span></div>
+<div class="line"><span class="keyword">class </span>FlashRegisterAccess final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startOrReport(<a class="code hl_class" href="../../d8/d2e/a05719.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; output) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (!output.open()) {</div>
-<div class="line">        assert(!<span class="stringliteral">&quot;PWM channel failed to start; check CubeMX PWM configuration&quot;</span>);</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    FlashRegisterAccess() noexcept :</div>
+<div class="line">        port(&amp;hospi1) {</div>
 <div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from a task.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> port.open();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from a task only; reads one status byte with a single-line data phase.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> readStatus(uint8_t &amp; status) <span class="keyword">noexcept</span> {</div>
+<div class="line">        OSPI_RegularCmdTypeDef cmd{};</div>
+<div class="line">        cmd.OperationType = HAL_OSPI_OPTYPE_COMMON_CFG;</div>
+<div class="line">        cmd.FlashId = HAL_OSPI_FLASH_ID_1;</div>
+<div class="line">        cmd.Instruction = 0x05U;</div>
+<div class="line">        cmd.InstructionMode = HAL_OSPI_INSTRUCTION_1_LINE;</div>
+<div class="line">        cmd.InstructionSize = HAL_OSPI_INSTRUCTION_8_BITS;</div>
+<div class="line">        cmd.AddressMode = HAL_OSPI_ADDRESS_NONE;</div>
+<div class="line">        cmd.DataMode = HAL_OSPI_DATA_1_LINE;</div>
+<div class="line">        cmd.NbData = 1U;</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">const</span> std::span&lt;uint8_t&gt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>(&amp;status, 1U);</div>
+<div class="line">        <span class="keywordflow">return</span> port.command(cmd, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50)) &amp;&amp; port.receive(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; port;</div>
+<div class="line">};</div>
+<div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="ospi_usage_error"></a>
+Error path and abort</h3>
+<p>A timed-out or failed phase returns <em class="arg">false</em> and the port stops its transfer, so the caller may issue the next command. If a task must release a blocked transfer from outside, Lib::HAL::OSPIPort::abort() stops the controller and wakes the waiting task; it is called from task context. The DMA mode requires the buffer to be reachable by the DMA controller; the port asserts on a CCM RAM buffer in a debug build.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00752.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> cancelPending(Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; port) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.abort());</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

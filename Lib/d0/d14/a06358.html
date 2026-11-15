@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::RTCDevice</title>
+<title>IAR EWARM Library: Lib::HAL::DeviceManager</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,73 +92,67 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::RTCDevice</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::DeviceManager</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Reads and sets the real-time clock with <a class="el" href="../../d0/d14/a06358.html" title="Lib::HAL::RTCDevice">Lib::HAL::RTCDevice</a> and delivers a once-per-second tick to an observer from a worker task.</p>
-<p>Reads and sets the real-time clock with <a class="el" href="../../d0/d14/a06358.html" title="Lib::HAL::RTCDevice">Lib::HAL::RTCDevice</a> and delivers a once-per-second tick to an observer from a worker task.The device registers itself with <a class="el" href="../../da/da4/a06338.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a> on construction, so the HAL alarm callback can map the native handle back to the instance. startTickService() creates an RTOS task and arms Alarm A; the observer is a non-owning <a class="el" href="../../dc/d03/a05655.html#a0a60ddd5d190a0aaa1bbe1c7e6d62c59" title="Lib::HAL::RTCDevice::Callback">Lib::HAL::RTCDevice::Callback</a>, so the function it refers to must outlive the service.</p>
-<p>The header defines the C-linkage <b>HAL_RTC_AlarmAEventCallback()</b> itself. Do not define that callback in CubeMX user code or anywhere else, or the link fails with a duplicate symbol.</p>
-<dl class="section important"><dt>Important</dt><dd>The RTC is available on every STM32F4xx family, including the STM32F407xx target of this library. The module guard is <em class="arg">HAL_RTC_MODULE_ENABLED</em>; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so that guard is unverified here, although the STM32Cube template enables it.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="../../dc/d03/a05655.html#a9911cafdfc9189dd93f7eb0494ffd54a" title="Lib::HAL::RTCDevice::setDateTime()">Lib::HAL::RTCDevice::setDateTime()</a> and <a class="el" href="../../dc/d03/a05655.html#a653f2f434ecec9a018b72fd9101db1d0" title="Lib::HAL::RTCDevice::startTickService()">Lib::HAL::RTCDevice::startTickService()</a> assert that they run in task context, not in an ISR. <a class="el" href="../../dc/d03/a05655.html#acdd2b9c31ba35c63f5873309d8f0130e" title="Lib::HAL::RTCDevice::stopTickService()">Lib::HAL::RTCDevice::stopTickService()</a> blocks until the worker task exits. Called from the tick observer itself, it only requests the stop and must not wait on the worker, so the observer must return.</dd></dl>
+<p>Maps a native HAL handle, as seen inside an 'extern "C"' HAL callback, back to the owning C++ object with <a class="el" href="../../d0/d14/a06358.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a>.</p>
+<p>Maps a native HAL handle, as seen inside an 'extern "C"' HAL callback, back to the owning C++ object with <a class="el" href="../../d0/d14/a06358.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a>. The objects derive from <a class="el" href="../../d8/d58/a05536.html" title="Lib::HAL::Device">Lib::HAL::Device</a>, which stores the handle and an intrusive list link.</p>
+<p>This is the HAL-side ISR lookup. It is a different class from <a class="el" href="../../d9/d51/a04420.html" title="Lib::BSP::DeviceManager">Lib::BSP::DeviceManager</a>, which holds a periodic timer and a list of BSP drivers; the two share a name but nothing else. The HAL manager is a per-(device type, handle type) singleton, so the template arguments select the instance. <a class="el" href="../../d4/de3/a05532.html#a20731f8c338ecda6068a2f416c8e9e97" title="Lib::HAL::DeviceManager::registerDevice()">Lib::HAL::DeviceManager::registerDevice()</a> and <a class="el" href="../../d4/de3/a05532.html#aa1c87169c3e9040cd552e10c08e0eee4" title="Lib::HAL::DeviceManager::unregisterDevice()">Lib::HAL::DeviceManager::unregisterDevice()</a> take an RTOS critical section. <a class="el" href="../../d4/de3/a05532.html#a44399c0b88c31ab172615c8522506511" title="Lib::HAL::DeviceManager::getDevice()">Lib::HAL::DeviceManager::getDevice()</a> does not, which is what lets an ISR call it. The list is searched linearly, so keep the number of instances per type small.</p>
+<p>The device registers itself in its constructor and must not be destroyed while an ISR may still look it up: unregister it before it goes away. The example below uses a static instance, so that condition holds.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="rtc_usage_read"></a>
-Read and set date and time</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00752.html">Lib/HAL/RTC/RTCDevice.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="devicemanager_usage_device"></a>
+Derive a device from the base</h3>
+<p>Derive publicly from <a class="el" href="../../d8/d58/a05536.html" title="Lib::HAL::Device">Lib::HAL::Device</a>, pass the native handle to its constructor, and register the object with the manager. <a class="el" href="../../d8/d58/a05536.html#ac39b97fd324efde09c82d0ccfe7fe4e8" title="Lib::HAL::Device::getHandle()">Lib::HAL::Device::getHandle()</a> returns the handle that the lookup compares against.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="codeRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d45/a00011.html">stm32f4xx_hal.h</a>&quot;</span> <span class="comment">// Declares SPI_HandleTypeDef and the HAL driver.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a> hrtc; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/df2/a00656.html">Lib/HAL/core/Device.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d3d/a08497.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">static</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../dc/d03/a05655.html">Lib::HAL::RTCDevice</a> rtcDevice(&amp;hrtc);</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> setInitialClock() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../da/dde/a05663.html">Lib::HAL::RTCDevice::Time</a> time{.hours = 12U, .minutes = 30U, .seconds = 0U};</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_struct" href="../../d7/d33/a05659.html">Lib::HAL::RTCDevice::Date</a> date{.year = 26U, .month = 11U, .day = 13U, .weekDay = <a id="_a4" name="_a4"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d4/d95/a00989.html#ga3755707d628f4664c30d02fd2a2f0182">RTC_WEEKDAY_FRIDAY</a>};</div>
-<div class="line">    <span class="keywordflow">if</span> (!rtcDevice.setDateTime(time, date)) {</div>
-<div class="line">        <span class="comment">// The HAL refused the write; the clock keeps its previous value.</span></div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> hspi1; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>SpiBridge final : <span class="keyword">public</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d8/d58/a05536.html">Lib::HAL::Device</a>&lt;SpiBridge, SPI_HandleTypeDef&gt; {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">explicit</span> SpiBridge(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * spiHandle) noexcept :</div>
+<div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../d8/d58/a05536.html#acdeffbad9eb409804cbc72fa86794a97">Device</a>(spiHandle) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="a3" name="a3"></a><a class="code hl_function" href="../../d4/de3/a05532.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a4" name="a4"></a><a class="code hl_function" href="../../d4/de3/a05532.html#a20731f8c338ecda6068a2f416c8e9e97">registerDevice</a>(<span class="keyword">this</span>));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> onTransmitComplete() <span class="keyword">noexcept</span> {</div>
+<div class="line">        transmitCount = transmitCount + 1U;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <span class="keyword">volatile</span> uint32_t transmitCount = 0U;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">static</span> SpiBridge spiBridge(&amp;hspi1);</div>
+<div class="ttc" id="aa00011_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d45/a00011.html">stm32f4xx_hal.h</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00656_html"><div class="ttname"><a href="../../dc/df2/a00656.html">Device.hpp</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its link in the DeviceManager registry.</div></div>
+<div class="ttc" id="aa01068_html_gab633e49dd034de2f3a1fe79853d78d18"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a></div><div class="ttdeci">struct __SPI_HandleTypeDef SPI_HandleTypeDef</div></div>
+<div class="ttc" id="aa05532_html_a20731f8c338ecda6068a2f416c8e9e97"><div class="ttname"><a href="../../d4/de3/a05532.html#a20731f8c338ecda6068a2f416c8e9e97">Lib::HAL::DeviceManager::registerDevice</a></div><div class="ttdeci">bool registerDevice(T_DEVICE *device)</div><div class="ttdoc">Adds a concrete driver to the lookup list.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:58</div></div>
+<div class="ttc" id="aa05532_html_a2832654a46fcf40b5673a27a282e278b"><div class="ttname"><a href="../../d4/de3/a05532.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager::instance</a></div><div class="ttdeci">static DeviceManager &amp; instance() noexcept</div><div class="ttdoc">Returns the process-wide registry instance.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:42</div></div>
+<div class="ttc" id="aa05536_html"><div class="ttname"><a href="../../d8/d58/a05536.html">Lib::HAL::Device</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its DeviceManager list link.</div><div class="ttdef"><b>Definition</b> Device.hpp:38</div></div>
+<div class="ttc" id="aa05536_html_acdeffbad9eb409804cbc72fa86794a97"><div class="ttname"><a href="../../d8/d58/a05536.html#acdeffbad9eb409804cbc72fa86794a97">Lib::HAL::Device::Device</a></div><div class="ttdeci">Device(T_HANDLE *handle) noexcept</div><div class="ttdoc">Constructs a Device block bound to a native microcontroller peripheral handle.</div><div class="ttdef"><b>Definition</b> Device.hpp:79</div></div>
+<div class="ttc" id="aa08497_html"><div class="ttname"><a href="../../dd/d3d/a08497.html">DeviceManager.hpp</a></div><div class="ttdoc">Registry that routes native HAL handles to the open concrete peripheral drivers.</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="devicemanager_usage_isr"></a>
+Look up the owner inside a HAL callback</h3>
+<p>The callback is defined once, by the application, and only forwards to the device. Defining it replaces the weak HAL definition of the same name, so it must appear only once in the project. A null result means no instance owns that handle, so the callback must simply return. The class from the previous example is assumed to be in 'SpiBridge.hpp'.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d3d/a08497.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;SpiBridge.hpp&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a>(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * hspi) {</div>
+<div class="line">    SpiBridge * <span class="keyword">const</span> bridge = <a class="code hl_function" href="../../d4/de3/a05532.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a6" name="a6"></a><a class="code hl_function" href="../../d4/de3/a05532.html#a44399c0b88c31ab172615c8522506511">getDevice</a>(hspi);</div>
+<div class="line">    <span class="keywordflow">if</span> (bridge != <span class="keyword">nullptr</span>) {</div>
+<div class="line">        bridge-&gt;onTransmitComplete();</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00752_html"><div class="ttname"><a href="../../dd/d5c/a00752.html">RTCDevice.hpp</a></div><div class="ttdoc">Event-driven interface to the STM32 Real-Time Clock peripheral.</div></div>
-<div class="ttc" id="aa00989_html_ga3755707d628f4664c30d02fd2a2f0182"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d4/d95/a00989.html#ga3755707d628f4664c30d02fd2a2f0182">RTC_WEEKDAY_FRIDAY</a></div><div class="ttdeci">#define RTC_WEEKDAY_FRIDAY</div></div>
-<div class="ttc" id="aa01512_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa05655_html"><div class="ttname"><a href="../../dc/d03/a05655.html">Lib::HAL::RTCDevice</a></div><div class="ttdoc">Controls the microcontroller Real-Time Clock calendar structures with event notifications.</div><div class="ttdef"><b>Definition</b> RTCDevice.hpp:50</div></div>
-<div class="ttc" id="aa05659_html"><div class="ttname"><a href="../../d7/d33/a05659.html">Lib::HAL::RTCDevice::Date</a></div><div class="ttdoc">Calendar date fields in the HAL binary format.</div><div class="ttdef"><b>Definition</b> RTCDevice.hpp:63</div></div>
-<div class="ttc" id="aa05663_html"><div class="ttname"><a href="../../da/dde/a05663.html">Lib::HAL::RTCDevice::Time</a></div><div class="ttdoc">Time-of-day fields in the HAL binary format.</div><div class="ttdef"><b>Definition</b> RTCDevice.hpp:73</div></div>
-</div><!-- fragment --><p>The weekday must agree with the day of the month; <a class="el" href="../../dc/d03/a05655.html#a9911cafdfc9189dd93f7eb0494ffd54a" title="Lib::HAL::RTCDevice::setDateTime()">Lib::HAL::RTCDevice::setDateTime()</a> checks only that it lies between <em class="arg">RTC_WEEKDAY_MONDAY</em> and <em class="arg">RTC_WEEKDAY_SUNDAY</em>.</p>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="rtc_usage_tick"></a>
-Per-second tick observer</h3>
-<p>The observer runs in the worker task, so it may call RTOS services, but it must not block for longer than one second or the next tick is delayed.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00752.html">Lib/HAL/RTC/RTCDevice.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a> hrtc; <span class="comment">// Generated by CubeMX.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">static</span> <a class="code hl_class" href="../../dc/d03/a05655.html">Lib::HAL::RTCDevice</a> rtcDevice(&amp;hrtc);</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> onTick(<span class="keyword">const</span> <a class="code hl_struct" href="../../da/dde/a05663.html">Lib::HAL::RTCDevice::Time</a> &amp; time, <span class="keyword">const</span> <a class="code hl_struct" href="../../d7/d33/a05659.html">Lib::HAL::RTCDevice::Date</a> &amp; date) {</div>
-<div class="line">    <span class="comment">// Update the display or log the time. Keep it short.</span></div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(time);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(date);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> startClockTicks() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> rtcDevice.startTickService(onTick);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> stopClockTicks() noexcept {</div>
-<div class="line">    rtcDevice.stopTickService();</div>
-<div class="line">}</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="rtc_usage_error"></a>
-Error path</h3>
-<p><a class="el" href="../../dc/d03/a05655.html#a653f2f434ecec9a018b72fd9101db1d0" title="Lib::HAL::RTCDevice::startTickService()">Lib::HAL::RTCDevice::startTickService()</a> returns <em class="arg">false</em> when the service already runs, and also when the observer is unbound (which asserts in a debug build), when the worker task cannot be created, or when the Alarm A configuration is refused. In the last two cases the service is left stopped, so a retry is safe. <a class="el" href="../../dc/d03/a05655.html#ad950fdd81c82bb7ecbe2f6f0a896c573" title="Lib::HAL::RTCDevice::getDateTime()">Lib::HAL::RTCDevice::getDateTime()</a> returns <em class="arg">false</em> when either HAL read fails; the output parameters are then not written and must not be used.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00752.html">Lib/HAL/RTC/RTCDevice.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a> hrtc; <span class="comment">// Generated by CubeMX.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">static</span> <a class="code hl_class" href="../../dc/d03/a05655.html">Lib::HAL::RTCDevice</a> rtcDevice(&amp;hrtc);</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> readClock(<a class="code hl_struct" href="../../da/dde/a05663.html">Lib::HAL::RTCDevice::Time</a> &amp; time, <a class="code hl_struct" href="../../d7/d33/a05659.html">Lib::HAL::RTCDevice::Date</a> &amp; date) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> rtcDevice.getDateTime(time, date);</div>
-<div class="line">}</div>
+<div class="ttc" id="aa01345_html_ga0a99ab4f6aa6ee7dc2abca5483910dde"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a></div><div class="ttdeci">void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)</div></div>
+<div class="ttc" id="aa05532_html_a44399c0b88c31ab172615c8522506511"><div class="ttname"><a href="../../d4/de3/a05532.html#a44399c0b88c31ab172615c8522506511">Lib::HAL::DeviceManager::getDevice</a></div><div class="ttdeci">T_DEVICE * getDevice(const T_HANDLE *handle) const</div><div class="ttdoc">Finds the registered device that owns a native handle by a linear search.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:115</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

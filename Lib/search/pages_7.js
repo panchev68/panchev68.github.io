@@ -16,7 +16,7 @@ var searchData=
   ['heap_20statistics_20and_20yielding_13',['Heap statistics and yielding',['../X:/Lib/IAR/Project/Examples/RTOS_Kernel.dox#kernel_usage_heap',1,'']]],
   ['heap_20usage_14',['Checking heap usage',['../X:/Lib/IAR/Project/Examples/RTOS_MemoryManager.dox#memory_manager_usage_usage',1,'']]],
   ['hex_20digit_20conversion_15',['Hex digit conversion',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_Ascii.dox#ascii_usage_hex',1,'']]],
-  ['hook_16',['Interrupt hook',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_isr',1,'']]],
+  ['hook_16',['hook',['../X:/Lib/IAR/Project/Examples/Lib_HAL_StreamSerialPort.dox#stream_usage_isr',1,'Interrupt hook'],['../X:/Lib/IAR/Project/Examples/Lib_BSP_Display_TouchGFX_BW.dox#touchgfx_usage_hal',1,'The flush hook']]],
   ['hooks_17',['Begin and end transaction hooks',['../X:/Lib/IAR/Project/Examples/Lib_HAL_SPI.dox#spi_usage_hooks',1,'']]],
   ['host_20role_18',['Host role',['../X:/Lib/IAR/Project/Examples/Lib_HAL_USB.dox#usbdeviceport_usage_host',1,'']]],
   ['http_20get_20over_20the_20modem_19',['HTTPS POST and plain HTTP GET over the modem',['../X:/Lib/IAR/Project/Examples/Lib_HTTP_Client.dox#client_usage_telemetry',1,'']]],

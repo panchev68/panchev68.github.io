@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::RingBuffer</title>
+<title>IAR EWARM Library: Lib::HAL::UARTPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,114 +92,128 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::RingBuffer</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::UARTPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Passes samples from a producer context to a consumer context with <a class="el" href="../../d8/d31/a06396.html" title="Lib::Helper::RingBuffer">Lib::Helper::RingBuffer</a>.</p>
-<p>Passes samples from a producer context to a consumer context with <a class="el" href="../../d8/d31/a06396.html" title="Lib::Helper::RingBuffer">Lib::Helper::RingBuffer</a>. The buffer is lock-free and safe only with one producer (for example an interrupt handler) and one consumer (for example a task). <a class="el" href="../../db/d12/a05903.html#ab0835299e7ff3714143b1196743a174f" title="Lib::Helper::RingBuffer::overwrite()">Lib::Helper::RingBuffer::overwrite()</a> advances the read side and must not run concurrently with <a class="el" href="../../db/d12/a05903.html#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Lib::Helper::RingBuffer::pop()">Lib::Helper::RingBuffer::pop()</a> or with consumer-side reads.</p>
+<p>Sends and receives bytes with <a class="el" href="../../d8/d31/a06396.html" title="Lib::HAL::UARTPort">Lib::HAL::UARTPort</a> in its three transfer modes, selected by the template argument 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' or 'Lib::HAL::DriverMode::DMA'.</p>
+<p>Sends and receives bytes with <a class="el" href="../../d8/d31/a06396.html" title="Lib::HAL::UARTPort">Lib::HAL::UARTPort</a> in its three transfer modes, selected by the template argument 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' or 'Lib::HAL::DriverMode::DMA'. The port wraps a CubeMX <em class="arg">UART_HandleTypeDef</em> and does not create or configure the pins, clock or NVIC; the CubeMX-generated init code does that.</p>
+<p>The blocking mode polls the HAL until the transfer completes or the timeout expires; it has no RTOS wait. The IT and DMA modes start the transfer and wait on an <a class="el" href="../../de/dbc/a06436.html" title="RTOS::EventGroup">RTOS::EventGroup</a>, so their <a class="el" href="../../d3/da4/a05764.html#aa6f2b7746c93553e8ba0a2fda3c494bc" title="Lib::HAL::UARTPortAsync::send()">Lib::HAL::UARTPortAsync::send()</a> and <a class="el" href="../../d3/da4/a05764.html#a3c10830f8d93936773f64d95201bc7da" title="Lib::HAL::UARTPortAsync::receive()">Lib::HAL::UARTPortAsync::receive()</a> are task-only and assert when called from an ISR. The HAL callbacks that report completion run in interrupt context, and the USART interrupt handler (CubeMX <b>USART2_IRQHandler()</b>) must call <b>HAL_UART_IRQHandler()</b> for the handle.</p>
+<dl class="section warning"><dt>Warning</dt><dd>The IT and DMA ports register their own HAL callbacks in <a class="el" href="../../df/d63/a05528.html#a3822bc9b87b9e299982b230e2c029f35" title="Lib::HAL::AsyncPortCore::open()">Lib::HAL::AsyncPortCore::open()</a>, so the HAL configuration header must set <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> to <b>1</b>; otherwise the build stops with a compile-time error.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="ringbuffer_usage_single"></a>
-Single element transfer</h3>
-<p>The producer calls <a class="el" href="../../db/d12/a05903.html#a15a0e34223bfa6bb69410c75ff946f0c" title="Lib::Helper::RingBuffer::push()">Lib::Helper::RingBuffer::push()</a> from the interrupt handler and the consumer calls <a class="el" href="../../db/d12/a05903.html#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Lib::Helper::RingBuffer::pop()">Lib::Helper::RingBuffer::pop()</a> from a task. A full buffer makes <a class="el" href="../../db/d12/a05903.html#a15a0e34223bfa6bb69410c75ff946f0c" title="Lib::Helper::RingBuffer::push()">Lib::Helper::RingBuffer::push()</a> return <em class="arg">false</em>, so the sample is dropped and the caller decides what to do with it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/Helper/RingBuffer.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d12/a05903.html">Lib::Helper::RingBuffer&lt;uint16_t, 32U&gt;</a> samples;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Producer: called from the ADC conversion-complete interrupt.</span></div>
-<div class="line"><span class="keywordtype">void</span> onSample(uint16_t value) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">if</span> (!samples.<a id="a1" name="a1"></a><a class="code hl_function" href="../../db/d12/a05903.html#a15a0e34223bfa6bb69410c75ff946f0c">push</a>(value)) {</div>
-<div class="line">        <span class="comment">// Buffer full: the newest sample is dropped.</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Consumer: called from a task.</span></div>
-<div class="line"><span class="keywordtype">void</span> consumeOne() noexcept {</div>
-<div class="line">    uint16_t value = 0U;</div>
-<div class="line">    <span class="keywordflow">if</span> (samples.<a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d12/a05903.html#a8355cafc3456b4a8c5f5122ea38ca0d8">pop</a>(value)) {</div>
-<div class="line">        <span class="comment">// Use value.</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00905_html"><div class="ttname"><a href="../../da/d5b/a00905.html">RingBuffer.hpp</a></div><div class="ttdoc">Fixed-size, lock-free single-producer/single-consumer ring buffer (circular FIFO) for elements of typ...</div></div>
-<div class="ttc" id="aa05903_html"><div class="ttname"><a href="../../db/d12/a05903.html">Lib::Helper::RingBuffer</a></div><div class="ttdoc">Fixed-capacity FIFO container with lock-free single-producer/single-consumer semantics.</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:57</div></div>
-<div class="ttc" id="aa05903_html_a15a0e34223bfa6bb69410c75ff946f0c"><div class="ttname"><a href="../../db/d12/a05903.html#a15a0e34223bfa6bb69410c75ff946f0c">Lib::Helper::RingBuffer::push</a></div><div class="ttdeci">bool push(const T &amp;value) noexcept</div><div class="ttdoc">Appends a copy of value if space is available (producer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:147</div></div>
-<div class="ttc" id="aa05903_html_a8355cafc3456b4a8c5f5122ea38ca0d8"><div class="ttname"><a href="../../db/d12/a05903.html#a8355cafc3456b4a8c5f5122ea38ca0d8">Lib::Helper::RingBuffer::pop</a></div><div class="ttdeci">bool pop(T &amp;value) noexcept</div><div class="ttdoc">Removes the oldest element and moves it into value (consumer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:167</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="ringbuffer_usage_bulk"></a>
-Bulk transfer with a transfer mode</h3>
-<p><a class="el" href="../../db/d12/a05903.html#a4eb0599938edcdc26882c4a3b9ba7d98" title="Lib::Helper::RingBuffer::write()">Lib::Helper::RingBuffer::write()</a> and <a class="el" href="../../db/d12/a05903.html#a03a48e3cd8a1b0b70db7a640e62a3bd7" title="Lib::Helper::RingBuffer::read()">Lib::Helper::RingBuffer::read()</a> move several elements at once. <a class="el" href="../../db/d12/a05903.html#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19" title="Lib::Helper::RingBuffer::TransferMode::PARTIAL">Lib::Helper::RingBuffer::TransferMode::PARTIAL</a> transfers as many elements as fit or are available; <a class="el" href="../../db/d12/a05903.html#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d" title="Lib::Helper::RingBuffer::TransferMode::ALL">Lib::Helper::RingBuffer::TransferMode::ALL</a> transfers nothing unless the whole request can be served.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/Helper/RingBuffer.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="uart_usage_setup"></a>
+Setup and lifecycle</h3>
+<p>The CubeMX init code creates the handle (<b>huart2</b> in the examples below) and the interrupt. The port does not own the handle, so the handle must outlive the port. For the IT and DMA modes, <a class="el" href="../../d7/d32/a05772.html#a55dca0e7725a4f8e8697ba94ce8c1ef7" title="Lib::HAL::UARTPortAsync::open()">Lib::HAL::UARTPortAsync::open()</a> creates the event group, runs <b>HAL_UART_Init()</b>, registers the port with the DeviceManager and registers the HAL callbacks; it returns <em class="arg">false</em> on failure and leaves the port closed. <a class="el" href="../../df/d63/a05528.html#a03c62c024b148a264f9a6a0077198302" title="Lib::HAL::AsyncPortCore::close()">Lib::HAL::AsyncPortCore::close()</a> reverses this and must be called from task context. The destructor of the IT and DMA modes closes an open port.</p>
+<p>The BLOCKING specialization is different: its constructor takes a <a class="el" href="../../de/d1c/a01093.html#a82754326f2fd3bd32ea447c756ec2825" title="Lib::HAL::DriverDataDirection">Lib::HAL::DriverDataDirection</a> tag (<em class="arg">RX</em> or <em class="arg">TX</em>) that only labels the half of a duplex link the instance drives. It has no event group, so it needs no open() before use.</p>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="uart_usage_blocking"></a>
+Blocking transfers</h3>
+<p>The send() and receive() calls of the 'Lib::HAL::DriverMode::BLOCKING' port take a std::span and a timeout in any <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a>. The buffer size must be between 1 and 65535 bytes. Both return <em class="arg">false</em> on error or timeout.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d1b/a00827.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_class" href="../../db/d12/a05903.html">Lib::Helper::RingBuffer&lt;uint8_t, 64U&gt;</a> rxBuffer;</div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> bulkExample() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4U&gt;</a> frame{0x01U, 0x02U, 0x03U, 0x04U};</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> written = rxBuffer.<a id="a4" name="a4"></a><a class="code hl_function" href="../../db/d12/a05903.html#a4eb0599938edcdc26882c4a3b9ba7d98">write</a>(frame, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../db/d12/a05903.html#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d">Lib::Helper::RingBuffer&lt;uint8_t, 64U&gt;::TransferMode::ALL</a>);</div>
-<div class="line">    <span class="keywordflow">if</span> (written == 0U) {</div>
-<div class="line">        <span class="comment">// Not enough free space for the whole frame; nothing was written.</span></div>
+<div class="line"><span class="keywordtype">bool</span> exchangeBlocking() noexcept {</div>
+<div class="line">    Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; txPort(&amp;huart2, <a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../de/d1c/a01093.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49">Lib::HAL::DriverDataDirection::TX</a>);</div>
+<div class="line">    Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; rxPort(&amp;huart2, <a id="_a2" name="_a2"></a><a class="code hl_enumvalue" href="../../de/d1c/a01093.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046">Lib::HAL::DriverDataDirection::RX</a>);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4&gt;</a> request{0x01U, 0x02U, 0x03U, 0x04U};</div>
+<div class="line">    <span class="keywordflow">if</span> (!txPort.send(request, <a id="_a4" name="_a4"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 16U&gt;</a> chunk{};</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> readCount = rxBuffer.<a id="a6" name="a6"></a><a class="code hl_function" href="../../db/d12/a05903.html#a03a48e3cd8a1b0b70db7a640e62a3bd7">read</a>(chunk, <a id="_a7" name="_a7"></a><a class="code hl_enumvalue" href="../../db/d12/a05903.html#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">Lib::Helper::RingBuffer&lt;uint8_t, 64U&gt;::TransferMode::PARTIAL</a>);</div>
-<div class="line">    [[maybe_unused]] <span class="keyword">const</span> std::span&lt;const uint8_t&gt; received(chunk.data(), readCount);</div>
+<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 8&gt;</a> response{};</div>
+<div class="line">    <span class="keywordflow">return</span> rxPort.receive(response, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(200));</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
 <div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00827_html"><div class="ttname"><a href="../../dc/d1b/a00827.html">UART.hpp</a></div><div class="ttdoc">Public umbrella include for the UART subsystem, pulling in every Lib::HAL::UARTPort component.</div></div>
+<div class="ttc" id="aa01093_html_a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49"><div class="ttname"><a href="../../de/d1c/a01093.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49">Lib::HAL::DriverDataDirection::TX</a></div><div class="ttdeci">@ TX</div><div class="ttdoc">Port used for transmission.</div><div class="ttdef"><b>Definition</b> DriverDataDirection.hpp:24</div></div>
+<div class="ttc" id="aa01093_html_a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046"><div class="ttname"><a href="../../de/d1c/a01093.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046">Lib::HAL::DriverDataDirection::RX</a></div><div class="ttdeci">@ RX</div><div class="ttdoc">Port used for reception.</div><div class="ttdef"><b>Definition</b> DriverDataDirection.hpp:23</div></div>
+<div class="ttc" id="aa01149_html_ga5de4a49eb132735325e706f406c69d6e"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a></div><div class="ttdeci">struct __UART_HandleTypeDef UART_HandleTypeDef</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
 <div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa05903_html_a03a48e3cd8a1b0b70db7a640e62a3bd7"><div class="ttname"><a href="../../db/d12/a05903.html#a03a48e3cd8a1b0b70db7a640e62a3bd7">Lib::Helper::RingBuffer::read</a></div><div class="ttdeci">size_t read(std::span&lt; T &gt; data, TransferMode mode=TransferMode::PARTIAL) noexcept</div><div class="ttdoc">Copies as many stored elements into data as fit, removing them from the buffer (consumer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:216</div></div>
-<div class="ttc" id="aa05903_html_a4eb0599938edcdc26882c4a3b9ba7d98"><div class="ttname"><a href="../../db/d12/a05903.html#a4eb0599938edcdc26882c4a3b9ba7d98">Lib::Helper::RingBuffer::write</a></div><div class="ttdeci">size_t write(std::span&lt; const T &gt; data, TransferMode mode=TransferMode::PARTIAL) noexcept</div><div class="ttdoc">Copies as many elements of data as fit into the buffer (producer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:191</div></div>
-<div class="ttc" id="aa05903_html_aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d"><div class="ttname"><a href="../../db/d12/a05903.html#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d">Lib::Helper::RingBuffer::TransferMode::ALL</a></div><div class="ttdeci">@ ALL</div><div class="ttdoc">Transfers nothing unless the whole request fits/is available.</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:67</div></div>
-<div class="ttc" id="aa05903_html_aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19"><div class="ttname"><a href="../../db/d12/a05903.html#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">Lib::Helper::RingBuffer::TransferMode::PARTIAL</a></div><div class="ttdeci">@ PARTIAL</div><div class="ttdoc">Transfers as many elements as fit/are available.</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:66</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">write(frame, ALL) returns 4 when at least 4 slots are free, and 0 otherwise.</div>
-<div class="line">read(chunk, PARTIAL) returns the number of bytes stored, up to 16.</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="ringbuffer_usage_dma"></a>
-Direct access for DMA</h3>
-<p>A DMA controller can write into the free span returned by <a class="el" href="../../db/d12/a05903.html#a7c67da9354083f337c51e4e0c60c3938" title="Lib::Helper::RingBuffer::getLinearWriteBlock()">Lib::Helper::RingBuffer::getLinearWriteBlock()</a> and read from the stored span returned by <a class="el" href="../../db/d12/a05903.html#ad539c026bf02e5545168b2182f0a89f3" title="Lib::Helper::RingBuffer::getLinearReadBlock()">Lib::Helper::RingBuffer::getLinearReadBlock()</a>. The caller publishes the elements afterwards with <a class="el" href="../../db/d12/a05903.html#a18fc2b9e414d300e7fba07ffb189c7e2" title="Lib::Helper::RingBuffer::advance()">Lib::Helper::RingBuffer::advance()</a> and <a class="el" href="../../db/d12/a05903.html#a5c9a29852441fa6ed23a28ce0ec0c8db" title="Lib::Helper::RingBuffer::skip()">Lib::Helper::RingBuffer::skip()</a>. Each span may be shorter than the total free or stored space when the data wraps past the end of the storage, so call again to reach the remainder.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/Helper/RingBuffer.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><a class="code hl_class" href="../../db/d12/a05903.html">Lib::Helper::RingBuffer&lt;uint8_t, 256U&gt;</a> dmaBuffer;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> dmaReceiveDone(<span class="keywordtype">size_t</span> receivedBytes) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="comment">// The DMA wrote into the span returned by getLinearWriteBlock() before this call.</span></div>
-<div class="line">    [[maybe_unused]] <span class="keyword">const</span> <span class="keywordtype">size_t</span> published = dmaBuffer.<a id="a8" name="a8"></a><a class="code hl_function" href="../../db/d12/a05903.html#a18fc2b9e414d300e7fba07ffb189c7e2">advance</a>(receivedBytes);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> dmaTransmitFrom() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> std::span&lt;const uint8_t&gt; <a class="code hl_namespace" href="../../d5/d17/a01098.html">block</a> = dmaBuffer.<a id="a9" name="a9"></a><a class="code hl_function" href="../../db/d12/a05903.html#ad539c026bf02e5545168b2182f0a89f3">getLinearReadBlock</a>();</div>
-<div class="line">    <span class="comment">// Start a DMA transfer from block.data() with block.size() bytes, then call skip() when it completes.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa01098_html"><div class="ttname"><a href="../../d5/d17/a01098.html">block</a></div><div class="ttdoc">per library namespace.</div></div>
-<div class="ttc" id="aa05903_html_a18fc2b9e414d300e7fba07ffb189c7e2"><div class="ttname"><a href="../../db/d12/a05903.html#a18fc2b9e414d300e7fba07ffb189c7e2">Lib::Helper::RingBuffer::advance</a></div><div class="ttdeci">size_t advance(size_t count) noexcept</div><div class="ttdoc">Publishes elements already written into the span from getLinearWriteBlock() (producer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:285</div></div>
-<div class="ttc" id="aa05903_html_ad539c026bf02e5545168b2182f0a89f3"><div class="ttname"><a href="../../db/d12/a05903.html#ad539c026bf02e5545168b2182f0a89f3">Lib::Helper::RingBuffer::getLinearReadBlock</a></div><div class="ttdeci">std::span&lt; const T &gt; getLinearReadBlock() const noexcept</div><div class="ttdoc">Returns the longest contiguous stored span starting at the read position (consumer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:304</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="ringbuffer_usage_latest"></a>
-Keeping the latest samples</h3>
-<p>When only the most recent samples matter, <a class="el" href="../../db/d12/a05903.html#ab0835299e7ff3714143b1196743a174f" title="Lib::Helper::RingBuffer::overwrite()">Lib::Helper::RingBuffer::overwrite()</a> discards the oldest elements to make room. Call it only from the producer side and only when no consumer reads at the same time.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/Helper/RingBuffer.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="uart_usage_it"></a>
+Interrupt-driven transfers</h3>
+<p>Open the port once from a task. The CubeMX <b>USART2_IRQHandler()</b> is the only hook needed: it calls <b>HAL_UART_IRQHandler()</b> with the handle, which in turn fires the callbacks that <a class="el" href="../../df/d63/a05528.html#a3822bc9b87b9e299982b230e2c029f35" title="Lib::HAL::AsyncPortCore::open()">Lib::HAL::AsyncPortCore::open()</a> registered. Transmit and receive use separate event bits, so one task may send while another receives on the same port.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d1b/a00827.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_class" href="../../db/d12/a05903.html">Lib::Helper::RingBuffer&lt;int16_t, 8U&gt;</a> window;</div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> keepLatest() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;int16_t, 3U&gt;</a> batch{10, 20, 30};</div>
-<div class="line">    [[maybe_unused]] <span class="keyword">const</span> <span class="keywordtype">size_t</span> accepted = window.<a id="a10" name="a10"></a><a class="code hl_function" href="../../db/d12/a05903.html#ab0835299e7ff3714143b1196743a174f">overwrite</a>(batch);</div>
-<div class="line">    <span class="comment">// The window now holds the newest elements, at most CAPACITY of them.</span></div>
+<div class="line"><span class="keyword">class </span>SerialLink final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    SerialLink() noexcept :</div>
+<div class="line">        port(&amp;huart2) {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from a task; opens the port and runs HAL_UART_Init().</span></div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> port.open();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from a task only.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> query() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 2&gt;</a> command{0xAAU, 0x55U};</div>
+<div class="line">        <span class="keywordflow">if</span> (!port.send(command, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50))) {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> port.receive(reply, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; port;</div>
+<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4&gt;</a> reply{};</div>
+<div class="line">};</div>
+<div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="uart_usage_error"></a>
+Error path and abort</h3>
+<p>When a transfer times out or the HAL reports an error, <a class="el" href="../../d3/da4/a05764.html#aa6f2b7746c93553e8ba0a2fda3c494bc" title="Lib::HAL::UARTPortAsync::send()">Lib::HAL::UARTPortAsync::send()</a> and <a class="el" href="../../d3/da4/a05764.html#a3c10830f8d93936773f64d95201bc7da" title="Lib::HAL::UARTPortAsync::receive()">Lib::HAL::UARTPortAsync::receive()</a> abort that direction before they return <em class="arg">false</em>, so the HAL never touches the caller's buffer afterwards. A task blocked in one of them can be released from another task by <a class="el" href="../../d3/da4/a05764.html#ac0f3ec8c2a5d8ad83c45e752232f2005" title="Lib::HAL::UARTPortAsync::abort()">Lib::HAL::UARTPortAsync::abort()</a>, which returns <em class="arg">false</em> if the hardware did not stop cleanly. <a class="el" href="../../d7/d32/a05772.html#aa69f87ceff32286dc0ce857ef84e314c" title="Lib::HAL::UARTPortBase::setBaudRate()">Lib::HAL::UARTPortBase::setBaudRate()</a> returns <em class="arg">false</em> while a transfer is in flight, so abort or wait for the transfer first.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d1b/a00827.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> recoverAndRetune(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; port) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (!port.setBaudRate(115200U)) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.abort());</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.setBaudRate(115200U));</div>
+<div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05903_html_ab0835299e7ff3714143b1196743a174f"><div class="ttname"><a href="../../db/d12/a05903.html#ab0835299e7ff3714143b1196743a174f">Lib::Helper::RingBuffer::overwrite</a></div><div class="ttdeci">size_t overwrite(std::span&lt; const T &gt; data) noexcept</div><div class="ttdoc">Copies data in, discarding the oldest elements to make room if needed (producer side).</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:241</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="uart_usage_dma"></a>
+DMA transfers</h3>
+<p>The DMA mode has the same API as the IT mode. The CubeMX code must link the UART handle to its DMA handles and enable the DMA interrupts; this header does not check that. The buffer must stay valid until the transfer completes, and it must be reachable by the DMA controller (not CCM RAM): each DMA start asserts on it in a debug build.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d1b/a00827.html">Lib/HAL/UART.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> huart2;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Static storage in normal RAM, so the DMA controller can reach it.</span></div>
+<div class="line"><span class="keyword">static</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> dmaTxBuffer{};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> sendDma(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; port, <span class="keywordtype">size_t</span> length) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> port.send(std::span&lt;const uint8_t&gt;(dmaTxBuffer).first(length), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

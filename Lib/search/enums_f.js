@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['register_0',['Register',['../de/d12/a04659.html#ae4ff26d8e2b68bd7157659eaaddd1c91',1,'Lib::BSP::RFID::Chipset::Register'],['../de/db5/a04695.html#a388f97dc38869ed6cd60f3fde259bd0d',1,'Lib::BSP::RFID::ST25R100::Register']]],
-  ['registration_1',['Registration',['../d2/de5/a04599.html#aa10dc32a4e35d259562a9eee6dd0d997',1,'Lib::BSP::GSM::A7670E']]],
-  ['resolution_2',['Resolution',['../de/d5f/a04763.html#ada95ddee88d18f2cd77e60f7ed6a5173',1,'Lib::BSP::Thermometer::OneWire::DS18B20']]],
-  ['result_3',['Result',['../d2/de5/a04599.html#a8bd217b253ad48d4079b7116fa4fbcc3',1,'Lib::BSP::GSM::A7670E::Result'],['../d2/ddb/a04687.html#ae690657e7ab3cf073f0d03abc2ee488b',1,'Lib::BSP::RFID::NTAG21x::CardRecord::Result']]],
-  ['rotation_4',['Rotation',['../d4/deb/a04779.html#af8a3b5e266b12d8f829d1e5c4858f36f',1,'Lib::BSP::XPT2046']]]
+  ['register_0',['Register',['../d5/def/a04676.html#ae4ff26d8e2b68bd7157659eaaddd1c91',1,'Lib::BSP::RFID::Chipset::Register'],['../db/dcc/a04712.html#a388f97dc38869ed6cd60f3fde259bd0d',1,'Lib::BSP::RFID::ST25R100::Register']]],
+  ['registration_1',['Registration',['../de/dfb/a04616.html#aa10dc32a4e35d259562a9eee6dd0d997',1,'Lib::BSP::GSM::A7670E']]],
+  ['resolution_2',['Resolution',['../d6/db2/a04780.html#ada95ddee88d18f2cd77e60f7ed6a5173',1,'Lib::BSP::Thermometer::OneWire::DS18B20']]],
+  ['result_3',['Result',['../de/dfb/a04616.html#a8bd217b253ad48d4079b7116fa4fbcc3',1,'Lib::BSP::GSM::A7670E::Result'],['../d2/d88/a04704.html#ae690657e7ab3cf073f0d03abc2ee488b',1,'Lib::BSP::RFID::NTAG21x::CardRecord::Result']]],
+  ['rotation_4',['Rotation',['../d8/dc6/a04796.html#af8a3b5e266b12d8f829d1e5c4858f36f',1,'Lib::BSP::XPT2046']]]
 ];

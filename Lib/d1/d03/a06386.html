@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::Convert::dBM</title>
+<title>IAR EWARM Library: Lib::HAL::Timer::TimInputCapture</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,65 +92,86 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Convert::dBM</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimInputCapture</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows converting dBm-like values and discrete indices to percentage values with <a class="el" href="../../d1/d03/a06386.html" title="Lib::Helper::Convert::dBM">Lib::Helper::Convert::dBM</a>.</p>
-<p>Shows converting dBm-like values and discrete indices to percentage values with <a class="el" href="../../d1/d03/a06386.html" title="Lib::Helper::Convert::dBM">Lib::Helper::Convert::dBM</a>. Both helpers return a UI-ready percentage: <a class="el" href="../../df/d51/a05835.html#a643096dbb5a2bac8d85b0d97ec12c6b5" title="Lib::Helper::Convert::dBM::toPercent()">Lib::Helper::Convert::dBM::toPercent()</a> yields <b>0</b> to <b>100</b>, and <a class="el" href="../../df/d51/a05835.html#a6c54cf4a3250b0b2bbe743da81560081" title="Lib::Helper::Convert::dBM::toDigiPercent()">Lib::Helper::Convert::dBM::toDigiPercent()</a> yields <b>1</b> to <b>100</b>.</p>
-<p>The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs.</p>
+<p>Measures the time of input edges with <a class="el" href="../../d1/d03/a06386.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a>.</p>
+<p>Measures the time of input edges with <a class="el" href="../../d1/d03/a06386.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a>. The capture interrupt wakes the task blocked in <a class="el" href="../../de/d6e/a05724.html#a2732cd4549f6b1ca08da0cbcb462f404" title="Lib::HAL::Timer::TimInputCapture::waitCapture()">Lib::HAL::Timer::TimInputCapture::waitCapture()</a>, and the task reads the captured counter value with <a class="el" href="../../de/d6e/a05724.html#ac7f8fd84985b45a4db579b480aaf5251" title="Lib::HAL::Timer::TimInputCapture::getCapture()">Lib::HAL::Timer::TimInputCapture::getCapture()</a>. Call <a class="el" href="../../de/d6e/a05724.html#add28b2f0b32350281b1f47c4e4e25e84" title="Lib::HAL::Timer::TimInputCapture::start()">Lib::HAL::Timer::TimInputCapture::start()</a> from that task, because it binds the task that will wait.</p>
+<p>The header defines the HAL callback <b>HAL_TIM_IC_CaptureCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; all reading and processing happen in the task, never in the ISR.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="dbm_usage_percent"></a>
-Floating dBm-like value to percentage</h3>
-<p><a class="el" href="../../df/d51/a05835.html#a643096dbb5a2bac8d85b0d97ec12c6b5" title="Lib::Helper::Convert::dBM::toPercent()">Lib::Helper::Convert::dBM::toPercent()</a> maps values at or below <b>-100</b> to <b>0</b>, values at or above <b>0</b> to <b>100</b>, and every value in between to <b>100</b> plus the value.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/db2/a00869.html">Lib/Helper/Convert/dBM.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timic_usage_hw"></a>
+Hardware and CubeMX assumptions</h3>
+<ul>
+<li>Timer channel (here <em class="arg">TIM2</em>, <em class="arg">TIM_CHANNEL_1</em>) set to <em>Input Capture direct mode</em>, with the capture interrupt enabled in the NVIC.</li>
+<li>Input filter and edge polarity are set in CubeMX. The wrapper does not change them.</li>
+<li>One <a class="el" href="../../d1/d03/a06386.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a> per timer handle.</li>
+</ul>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timic_usage_measure"></a>
+Measuring edge timing in a task</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d12/a00794.html">Lib/HAL/TIM/TimInputCapture.hpp</a>&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d22/a01049.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printDbmAsPercent() {</div>
-<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../df/d51/a05835.html">Lib::Helper::Convert::dBM</a>;</div>
+<div class="line"><span class="keyword">class </span>EdgeMeter final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> dbmValue = -45.0;</div>
-<div class="line">    <span class="keyword">const</span> uint8_t percent = dBM::toPercent(dbmValue);</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;dBm &quot;</span> &lt;&lt; dbmValue &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(percent) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;</div>
+<div class="line">    <span class="keyword">explicit</span> EdgeMeter(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
+<div class="line">        capture(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>),</div>
+<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d3/da4/a06136.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;EdgeMeter&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d6/d09/a06120.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
+<div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;dBm -120 -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dBM::toPercent(-120.0)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;dBm 0 -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dBM::toPercent(0.0)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../de/d6e/a05724.html">Lib::HAL::Timer::TimInputCapture</a> capture; <span class="comment">// Constructed before the task starts using it.</span></div>
+<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../da/de4/a06116.html">RTOS::Task</a> task;                          <span class="comment">// Must stay the last member.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!capture.<a id="a6" name="a6"></a><a class="code hl_function" href="../../de/d6e/a05724.html#add28b2f0b32350281b1f47c4e4e25e84">start</a>()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;EdgeMeter: input capture failed to start&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        uint32_t previous = 0U;</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (!capture.<a id="a7" name="a7"></a><a class="code hl_function" href="../../de/d6e/a05724.html#a2732cd4549f6b1ca08da0cbcb462f404">waitCapture</a>(<a id="_a8" name="_a8"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
+<div class="line">                previous = 0U; <span class="comment">// No edge within 100 ms; restart the interval.</span></div>
+<div class="line">                <span class="keywordflow">continue</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keyword">const</span> uint32_t current = capture.<a id="a9" name="a9"></a><a class="code hl_function" href="../../de/d6e/a05724.html#ac7f8fd84985b45a4db579b480aaf5251">getCapture</a>();</div>
+<div class="line">            <span class="keyword">const</span> uint32_t interval = current - previous; <span class="comment">// Unsigned subtraction handles counter wrap-around.</span></div>
+<div class="line">            previous = current;</div>
+<div class="line">            <span class="comment">// Use interval (in timer ticks).</span></div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00869_html"><div class="ttname"><a href="../../d3/db2/a00869.html">dBM.hpp</a></div><div class="ttdoc">Helper utilities to convert dBm-like values or discrete indices into percentage values suitable for U...</div></div>
-<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
-<div class="ttc" id="aa05835_html"><div class="ttname"><a href="../../df/d51/a05835.html">Lib::Helper::Convert::dBM</a></div><div class="ttdoc">Converts dBm-like values and discrete signal indices to percentages for UI presentation.</div><div class="ttdef"><b>Definition</b> dBM.hpp:31</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">dBm -45 -&gt; 55%</div>
-<div class="line">dBm -120 -&gt; 0%</div>
-<div class="line">dBm 0 -&gt; 100%</div>
+<div class="ttc" id="aa00794_html"><div class="ttname"><a href="../../d5/d12/a00794.html">TimInputCapture.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware Input Capture interface using STM32 Timers.</div></div>
+<div class="ttc" id="aa01049_html"><div class="ttname"><a href="../../d0/d22/a01049.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa05724_html"><div class="ttname"><a href="../../de/d6e/a05724.html">Lib::HAL::Timer::TimInputCapture</a></div><div class="ttdoc">Controls one hardware timer channel configured under an active input capture profile.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:40</div></div>
+<div class="ttc" id="aa05724_html_a2732cd4549f6b1ca08da0cbcb462f404"><div class="ttname"><a href="../../de/d6e/a05724.html#a2732cd4549f6b1ca08da0cbcb462f404">Lib::HAL::Timer::TimInputCapture::waitCapture</a></div><div class="ttdeci">bool waitCapture(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the next edge is captured.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:117</div></div>
+<div class="ttc" id="aa05724_html_ac7f8fd84985b45a4db579b480aaf5251"><div class="ttname"><a href="../../de/d6e/a05724.html#ac7f8fd84985b45a4db579b480aaf5251">Lib::HAL::Timer::TimInputCapture::getCapture</a></div><div class="ttdeci">uint32_t getCapture() const noexcept</div><div class="ttdoc">Reads the counter value latched at the last captured edge.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:146</div></div>
+<div class="ttc" id="aa05724_html_add28b2f0b32350281b1f47c4e4e25e84"><div class="ttname"><a href="../../de/d6e/a05724.html#add28b2f0b32350281b1f47c4e4e25e84">Lib::HAL::Timer::TimInputCapture::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the channel with its capture interrupt; the calling task becomes the one waitCapture() serves.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:81</div></div>
+<div class="ttc" id="aa06116_html"><div class="ttname"><a href="../../da/de4/a06116.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:53</div></div>
+<div class="ttc" id="aa06120_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d6/d09/a06120.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:86</div></div>
+<div class="ttc" id="aa06136_html"><div class="ttname"><a href="../../d3/da4/a06136.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:631</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="dbm_usage_index"></a>
-Discrete index to percentage</h3>
-<p><a class="el" href="../../df/d51/a05835.html#a6c54cf4a3250b0b2bbe743da81560081" title="Lib::Helper::Convert::dBM::toDigiPercent()">Lib::Helper::Convert::dBM::toDigiPercent()</a> reads a lookup table of <b>100</b> entries. A negative index yields <b>100</b>, and an index of <b>100</b> or more yields <b>1</b>. Any integer type other than 'bool' and 'char' is accepted.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/db2/a00869.html">Lib/Helper/Convert/dBM.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timic_usage_stop"></a>
+Stopping capture</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d12/a00794.html">Lib/HAL/TIM/TimInputCapture.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printIndexAsPercent() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../df/d51/a05835.html">Lib::Helper::Convert::dBM</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint8_t index = 40;</div>
-<div class="line">    <span class="keyword">const</span> uint8_t lookupPercent = dBM::toDigiPercent(index);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;index &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(index) &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(lookupPercent) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;index -1 -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dBM::toDigiPercent(-1)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;index 100 -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dBM::toDigiPercent(100)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;index 200 -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dBM::toDigiPercent(<span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(200))) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;</div>
+<div class="line"><span class="keywordtype">void</span> stopMeasuring(<a class="code hl_class" href="../../de/d6e/a05724.html">Lib::HAL::Timer::TimInputCapture</a> &amp; capture) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(capture.stop());</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">index 40 -&gt; 88%</div>
-<div class="line">index -1 -&gt; 100%</div>
-<div class="line">index 100 -&gt; 1%</div>
-<div class="line">index 200 -&gt; 1%</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

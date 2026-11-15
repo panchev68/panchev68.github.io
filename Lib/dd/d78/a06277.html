@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::PowerManager</title>
+<title>IAR EWARM Library: Member List</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -71,8 +71,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
     </li>
   </ul>
 </div><!-- main-nav -->
-</div><!-- top -->
-<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow">
 </div>
@@ -91,82 +89,46 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="../../d0/d90/a01059.html">Lib</a></li><li class="navelem"><a href="../../de/d1d/a01105.html">USB</a></li><li class="navelem"><a href="../../d8/d0b/a06280.html">SerialPortRepeaterBase</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::PowerManager</div></div>
+  <div class="headertitle"><div class="title">Lib::USB::SerialPortRepeaterBase Member List</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows enabling tickless low-power idle with <a class="el" href="../../dd/d78/a06277.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, registering peripheral callbacks around deep sleep and holding a deep-sleep lock while a peripheral is busy.</p>
-<p>Shows enabling tickless low-power idle with <a class="el" href="../../dd/d78/a06277.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, registering peripheral callbacks around deep sleep and holding a deep-sleep lock while a peripheral is busy.The manager puts the MCU into STOP1 deep sleep when the expected idle time is long enough, and into light sleep (plain <b>__WFI()</b>) otherwise. It needs a low-power timer to wake the scheduler, and it is a singleton, so <a class="el" href="../../da/dc6/a05919.html#af76fc6de7d330151f7765c0ff6149226" title="RTOS::PowerManager::instance()">RTOS::PowerManager::instance()</a> is used everywhere.</p>
-<dl class="section important"><dt>Important</dt><dd>The class is compiled only when 'FREERTOS_LOW_POWER_SUPPORT', 'HAL_LPTIM_MODULE_ENABLED' and 'LPTIM1' are defined, 'main.h' and 'FreeRTOS.h' are on the include path, and 'USE_HAL_LPTIM_REGISTER_CALLBACKS' is 1. 'configUSE_TICKLESS_IDLE' must be 1 or 2 in 'FreeRTOSConfig.h'. On a target where these are absent the whole class compiles to nothing.</dd>
-<dd>
-Define 'RTOS_POWER_MANAGER_IMPLEMENTATION' in exactly one '.cpp' file before including the header. That file emits the kernel hook 'vPortSuppressTicksAndSleep()'; without it the port's own weak implementation runs.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Deep sleep is withheld while a debugger is attached. Stop mode can make SWD and Live Watch lose the connection, so the manager checks <a class="el" href="../../da/dc6/a05919.html#ac35887bd479a4425729b40a4b3114f52" title="RTOS::PowerManager::isDebuggerAttached()">RTOS::PowerManager::isDebuggerAttached()</a> first.</dd></dl>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="power_manager_usage_setup"></a>
-Setup and sleep callbacks</h3>
-<p><a class="el" href="../../da/dc6/a05919.html#a565502e655a008546ced2e18d0fc7b22" title="RTOS::PowerManager::setup()">RTOS::PowerManager::setup()</a> binds the <a class="el" href="../../d9/d57/a06199.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> that wakes the scheduler; the timer must be opened first. The callbacks run only around each STOP1 entry, not around light sleep, so they should save and restore only the peripheral state that Stop mode loses.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d7c/a00722.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/ddc/a00917.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// CubeMX-generated LPTIM handle, declared at global scope so it links to the definition in the CubeMX sources.</span></div>
-<div class="line"><span class="keyword">extern</span> LPTIM_HandleTypeDef hlptim1;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/d0f/a05543.html">Lib::HAL::LPTimer</a> lowPowerTimer(&amp;hlptim1, LPTIM_CHANNEL_1); <span class="comment">// The LPTIM channel the wrapper configures.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> uartPreSleep() {</div>
-<div class="line">        <span class="comment">// Save the UART state and gate its clock.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> uartPostSleep() {</div>
-<div class="line">        <span class="comment">// Restore the UART clock and state.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> setupLowPower() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!lowPowerTimer.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">auto</span> &amp; manager = <a id="a1" name="a1"></a><a class="code hl_function" href="../../da/dc6/a05919.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a>();</div>
-<div class="line">    <span class="keywordflow">if</span> (!manager.setup(lowPowerTimer)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> manager.registerPreSleepCallback(&amp;uartPreSleep) &amp;&amp; manager.registerPostSleepCallback(&amp;uartPostSleep);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00722_html"><div class="ttname"><a href="../../db/d7c/a00722.html">LPTimer.hpp</a></div><div class="ttdoc">Low-power timer peripheral driver for STM32 architectures.</div></div>
-<div class="ttc" id="aa00917_html"><div class="ttname"><a href="../../d4/ddc/a00917.html">PowerManager.hpp</a></div><div class="ttdoc">Power management component providing low-power mode transitions for FreeRTOS tickless idle.</div></div>
-<div class="ttc" id="aa05543_html"><div class="ttname"><a href="../../d1/d0f/a05543.html">Lib::HAL::LPTimer</a></div><div class="ttdoc">Manages LPTIM peripheral configuration and interrupt-driven timeout events.</div><div class="ttdef"><b>Definition</b> LPTimer.hpp:50</div></div>
-<div class="ttc" id="aa05919_html_af76fc6de7d330151f7765c0ff6149226"><div class="ttname"><a href="../../da/dc6/a05919.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a></div><div class="ttdeci">static PowerManager &amp; instance() noexcept</div><div class="ttdoc">Gets the singleton manager.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:196</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="power_manager_usage_lock"></a>
-Deep-sleep lock</h3>
-<p>A <a class="el" href="../../d3/d20/a05927.html" title="RTOS::PowerManager::DeepSleepLock">RTOS::PowerManager::DeepSleepLock</a> blocks Stop mode for its lifetime. The guard is released at the end of the scope, so the peripheral must finish its transfer inside it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/ddc/a00917.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> transferWithClock() {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d3/d20/a05927.html">RTOS::PowerManager::DeepSleepLock</a> <a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01641.html#ga82fa606b1427f731ac64bb8ac49221f3">lock</a>; <span class="comment">// Blocks Stop mode until the end of this scope.</span></div>
-<div class="line">    <span class="comment">// Run the transfer that needs the peripheral clock.</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa01641_html_ga82fa606b1427f731ac64bb8ac49221f3"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01641.html#ga82fa606b1427f731ac64bb8ac49221f3">lock</a></div><div class="ttdeci">void lock(_L1 &amp;__l1, _L2 &amp;__l2, _L3 &amp;... __l3)</div></div>
-<div class="ttc" id="aa05927_html"><div class="ttname"><a href="../../d3/d20/a05927.html">RTOS::PowerManager::DeepSleepLock</a></div><div class="ttdoc">RAII guard that blocks deep sleep for its lifetime, e.g.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:131</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="power_manager_usage_stats"></a>
-Checking statistics</h3>
-<p><a class="el" href="../../da/dc6/a05919.html#a0bae4d059d5136a3f1a01b190a524c37" title="RTOS::PowerManager::getStatistics()">RTOS::PowerManager::getStatistics()</a> returns a snapshot of how often each sleep mode was entered. A deep-sleep count that stays at zero usually means a debugger is attached or a lock is held.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/ddc/a00917.html">Lib/RTOS/FreeRTOS/PowerManager.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> deepSleepSeen() {</div>
-<div class="line">    <span class="keyword">const</span> <a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../d2/dde/a05923.html">RTOS::PowerManager::Statistics</a> stats = <a class="code hl_function" href="../../da/dc6/a05919.html#af76fc6de7d330151f7765c0ff6149226">RTOS::PowerManager::instance</a>().<a id="a5" name="a5"></a><a class="code hl_function" href="../../da/dc6/a05919.html#a0bae4d059d5136a3f1a01b190a524c37">getStatistics</a>();</div>
-<div class="line">    <span class="keywordflow">return</span> stats.<a id="a6" name="a6"></a><a class="code hl_variable" href="../../d2/dde/a05923.html#ae80981e088a11d9e03983df5989a0c57">deepSleepCount</a> &gt; 0U;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05919_html_a0bae4d059d5136a3f1a01b190a524c37"><div class="ttname"><a href="../../da/dc6/a05919.html#a0bae4d059d5136a3f1a01b190a524c37">RTOS::PowerManager::getStatistics</a></div><div class="ttdeci">Statistics getStatistics() const noexcept</div><div class="ttdoc">Reads the sleep counters as one consistent snapshot.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:431</div></div>
-<div class="ttc" id="aa05923_html"><div class="ttname"><a href="../../d2/dde/a05923.html">RTOS::PowerManager::Statistics</a></div><div class="ttdoc">Sleep counters collected by the idle hook, for power profiling.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:119</div></div>
-<div class="ttc" id="aa05923_html_ae80981e088a11d9e03983df5989a0c57"><div class="ttname"><a href="../../d2/dde/a05923.html#ae80981e088a11d9e03983df5989a0c57">RTOS::PowerManager::Statistics::deepSleepCount</a></div><div class="ttdeci">uint32_t deepSleepCount</div><div class="ttdoc">Number of completed STOP1 entries.</div><div class="ttdef"><b>Definition</b> PowerManager.hpp:120</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+
+<p>This is the complete list of members for <a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#adbee3abb5c99ee9cf98632fd71e8a1df">close</a>() override</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#adc7fac7fb29a13eea289322a26425397">enableUSBPort</a>(bool value)</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#a369b78a9d6f52d4076e777b8d96a25f0">handlePostReceivedEvent</a>(std::span&lt; const uint8_t &gt; data) override</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#ad6ef51bd1c8018d7ee0e8576d7f51b06">handlePostTransmitEvent</a>() override</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#ac6a20178fbb9fa9edd7182cfdb8368e5">isConnected</a>() const noexcept</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#ad681efdf3e8eaee1fa0f7f44c1352481">isPoweredByUSB</a>() const</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#a452bd0a884b3a32c8b09df66688e14b2">onConnected</a></td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#a9869e02a625d87d244bb9fa24407a398">open</a>() override</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#ade6e8c09bc7602c46fabd0b5bc38b0a2">operator=</a>(const SerialPortRepeaterBase &amp;)=delete</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d7/dd5/a06272.html#a91db90b93d921f24baf5b96ce0aa578c">Lib::USB::SerialPort::operator=</a>(const SerialPort &amp;)=delete</td><td class="entry"><a class="el" href="../../d7/dd5/a06272.html">Lib::USB::SerialPort</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/dd5/a06272.html#a484a85d98faebe518ae3b89b6e0cf5d0">send</a>(std::span&lt; const uint8_t &gt; data)</td><td class="entry"><a class="el" href="../../d7/dd5/a06272.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d7/dd5/a06272.html#a0ad3de935e20dec9db20515d75bf4f0a">send</a>(const uint8_t *data, size_t length)</td><td class="entry"><a class="el" href="../../d7/dd5/a06272.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/dd5/a06272.html#a598e18433429c3e9aa74a063852aaccd">SerialPort</a>(const Config &amp;config)</td><td class="entry"><a class="el" href="../../d7/dd5/a06272.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d7/dd5/a06272.html#aa66d3cdfabe12244a2c6c1b5554058d3">SerialPort</a>(const SerialPort &amp;)=delete</td><td class="entry"><a class="el" href="../../d7/dd5/a06272.html">Lib::USB::SerialPort</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#abc48d5df5532ace88e0b869d74c9402d">SerialPortRepeaterBase</a>(const Config &amp;config)</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#a80538ec6535fc978efc92d1dd3755b12">SerialPortRepeaterBase</a>(const SerialPortRepeaterBase &amp;)=delete</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/dd5/a06272.html#aaf6c85e6f10e0756e438bf61460c7563">setBaudRate</a>(uint32_t baudRate)</td><td class="entry"><a class="el" href="../../d7/dd5/a06272.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#acf3b15d8b0fe17fd8341b16e38284202">setModuleResetPin</a>(bool value)</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/dd5/a06272.html#a0abe8e602336b586b790df6ea81b4ab0">setResetPin</a>(bool value)</td><td class="entry"><a class="el" href="../../d7/dd5/a06272.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#a6bbbdcd4be7e1c161148e5a4064f799c">signalReceivedBegin</a>()</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#ae7e6f9868883bcb06e6f214b24192c10">signalReceivedEnd</a>()</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#acdc6aba10abfdf39b35e51b9654d779b">signalTransmitBegin</a>()</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#ac5a426dc66dbabe1f6884132060811c7">signalTransmitEnd</a>()</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#a02700dee6676fa9bcb527b7187e2813e">Status</a> typedef</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d7/dd5/a06272.html#afded1dc48b51225406bff4ec53c93689">~SerialPort</a>()=default</td><td class="entry"><a class="el" href="../../d7/dd5/a06272.html">Lib::USB::SerialPort</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d8/d0b/a06280.html#a58fa656cbf94ed6c21c195f984d6d174">~SerialPortRepeaterBase</a>() override=default</td><td class="entry"><a class="el" href="../../d8/d0b/a06280.html">Lib::USB::SerialPortRepeaterBase</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

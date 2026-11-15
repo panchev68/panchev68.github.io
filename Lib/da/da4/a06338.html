@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::DeviceManager</title>
+<title>IAR EWARM Library: Lib::BSP::SK6812</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -92,67 +92,58 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::DeviceManager</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::SK6812</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Maps a native HAL handle, as seen inside an 'extern "C"' HAL callback, back to the owning C++ object with <a class="el" href="../../da/da4/a06338.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a>.</p>
-<p>Maps a native HAL handle, as seen inside an 'extern "C"' HAL callback, back to the owning C++ object with <a class="el" href="../../da/da4/a06338.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a>. The objects derive from <a class="el" href="../../de/d01/a05519.html" title="Lib::HAL::Device">Lib::HAL::Device</a>, which stores the handle and an intrusive list link.</p>
-<p>This is the HAL-side ISR lookup. It is a different class from <a class="el" href="../../d2/d8a/a04411.html" title="Lib::BSP::DeviceManager">Lib::BSP::DeviceManager</a>, which holds a periodic timer and a list of BSP drivers; the two share a name but nothing else. The HAL manager is a per-(device type, handle type) singleton, so the template arguments select the instance. <a class="el" href="../../d1/dab/a05515.html#a20731f8c338ecda6068a2f416c8e9e97" title="Lib::HAL::DeviceManager::registerDevice()">Lib::HAL::DeviceManager::registerDevice()</a> and <a class="el" href="../../d1/dab/a05515.html#aa1c87169c3e9040cd552e10c08e0eee4" title="Lib::HAL::DeviceManager::unregisterDevice()">Lib::HAL::DeviceManager::unregisterDevice()</a> take an RTOS critical section. <a class="el" href="../../d1/dab/a05515.html#a44399c0b88c31ab172615c8522506511" title="Lib::HAL::DeviceManager::getDevice()">Lib::HAL::DeviceManager::getDevice()</a> does not, which is what lets an ISR call it. The list is searched linearly, so keep the number of instances per type small.</p>
-<p>The device registers itself in its constructor and must not be destroyed while an ISR may still look it up: unregister it before it goes away. The example below uses a static instance, so that condition holds.</p>
+<p>Demonstrates a ring of 12 SK6812 RGBW LEDs sent out through a PWM timer channel with DMA.</p>
+<p>Demonstrates a ring of 12 SK6812 RGBW LEDs sent out through a PWM timer channel with DMA.TIM3 channel 1 is set up in CubeMX as PWM with a word-sized memory-to-peripheral DMA stream. The DMA completion callback stops the PWM, so the line stays low long enough for the LEDs to latch the frame. Colors are linear: the class gamma corrects them while encoding.</p>
+<dl class="section important"><dt>Important</dt><dd>The TIM3 ARR must be <b>219</b>, which the compare values assume.</dd>
+<dd>
+Start the next frame only after the callback has stopped the PWM.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>A program that also includes 'Lib/HAL/TIM/TimOnePulse.hpp' cannot define this callback, since that header defines it too.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="devicemanager_usage_device"></a>
-Derive a device from the base</h3>
-<p>Derive publicly from <a class="el" href="../../de/d01/a05519.html" title="Lib::HAL::Device">Lib::HAL::Device</a>, pass the native handle to its constructor, and register the object with the manager. <a class="el" href="../../de/d01/a05519.html#ac39b97fd324efde09c82d0ccfe7fe4e8" title="Lib::HAL::Device::getHandle()">Lib::HAL::Device::getHandle()</a> returns the handle that the lookup compares against.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="codeRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d45/a00011.html">stm32f4xx_hal.h</a>&quot;</span> <span class="comment">// Declares SPI_HandleTypeDef and the HAL driver.</span></div>
+<h3 class="doxsection"><a class="anchor" id="sk6812_usage_frame"></a>
+Fill the ring and send one frame</h3>
+<p><a class="el" href="../../dc/d42/a04748.html#a31d240cb8095311a4ae5575a19d4dda0" title="Lib::BSP::SK6812::setColor()">Lib::BSP::SK6812::setColor()</a> fills one LED; the <a class="el" href="../../da/d0e/a04752.html" title="Lib::BSP::SK6812::Ring">Lib::BSP::SK6812::Ring</a> hands its whole buffer to the PWM DMA start call. The frame is sent when the DMA transfer starts, not when <a class="el" href="../../dc/d42/a04748.html#a31d240cb8095311a4ae5575a19d4dda0" title="Lib::BSP::SK6812::setColor()">Lib::BSP::SK6812::setColor()</a> is called.</p>
+<div class="fragment"><div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><span class="preprocessor">#include &quot;main.h&quot;</span></div>
+<div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8e/a00647.html">Lib/HAL/core/Device.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/d01/a08473.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d91/a00335.html">Lib/BSP/RGBWLed/SK6812.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> hspi1; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> htim3; <span class="comment">// TIM3 CH1 PWM, ARR = 219, DMA memory-to-peripheral, word size.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>SpiBridge final : <span class="keyword">public</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../de/d01/a05519.html">Lib::HAL::Device</a>&lt;SpiBridge, SPI_HandleTypeDef&gt; {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keyword">explicit</span> SpiBridge(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * spiHandle) noexcept :</div>
-<div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d01/a05519.html#acdeffbad9eb409804cbc72fa86794a97">Device</a>(spiHandle) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="a3" name="a3"></a><a class="code hl_function" href="../../d1/dab/a05515.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a4" name="a4"></a><a class="code hl_function" href="../../d1/dab/a05515.html#a20731f8c338ecda6068a2f416c8e9e97">registerDevice</a>(<span class="keyword">this</span>));</div>
-<div class="line">    }</div>
+<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_class" href="../../da/d0e/a04752.html">Lib::BSP::SK6812::Ring&lt;12&gt;</a> ring;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> onTransmitComplete() <span class="keyword">noexcept</span> {</div>
-<div class="line">        transmitCount = transmitCount + 1U;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    <span class="keyword">volatile</span> uint32_t transmitCount = 0U;</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">static</span> SpiBridge spiBridge(&amp;hspi1);</div>
-<div class="ttc" id="aa00011_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d45/a00011.html">stm32f4xx_hal.h</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00647_html"><div class="ttname"><a href="../../d3/d8e/a00647.html">Device.hpp</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its link in the DeviceManager registry.</div></div>
-<div class="ttc" id="aa01068_html_gab633e49dd034de2f3a1fe79853d78d18"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a></div><div class="ttdeci">struct __SPI_HandleTypeDef SPI_HandleTypeDef</div></div>
-<div class="ttc" id="aa05515_html_a20731f8c338ecda6068a2f416c8e9e97"><div class="ttname"><a href="../../d1/dab/a05515.html#a20731f8c338ecda6068a2f416c8e9e97">Lib::HAL::DeviceManager::registerDevice</a></div><div class="ttdeci">bool registerDevice(T_DEVICE *device)</div><div class="ttdoc">Adds a concrete driver to the lookup list.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:58</div></div>
-<div class="ttc" id="aa05515_html_a2832654a46fcf40b5673a27a282e278b"><div class="ttname"><a href="../../d1/dab/a05515.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager::instance</a></div><div class="ttdeci">static DeviceManager &amp; instance() noexcept</div><div class="ttdoc">Returns the process-wide registry instance.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:42</div></div>
-<div class="ttc" id="aa05519_html"><div class="ttname"><a href="../../de/d01/a05519.html">Lib::HAL::Device</a></div><div class="ttdoc">CRTP base that stores a driver&#39;s native handle and its DeviceManager list link.</div><div class="ttdef"><b>Definition</b> Device.hpp:38</div></div>
-<div class="ttc" id="aa05519_html_acdeffbad9eb409804cbc72fa86794a97"><div class="ttname"><a href="../../de/d01/a05519.html#acdeffbad9eb409804cbc72fa86794a97">Lib::HAL::Device::Device</a></div><div class="ttdeci">Device(T_HANDLE *handle) noexcept</div><div class="ttdoc">Constructs a Device block bound to a native microcontroller peripheral handle.</div><div class="ttdef"><b>Definition</b> Device.hpp:79</div></div>
-<div class="ttc" id="aa08473_html"><div class="ttname"><a href="../../d1/d01/a08473.html">DeviceManager.hpp</a></div><div class="ttdoc">Registry that routes native HAL handles to the open concrete peripheral drivers.</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="devicemanager_usage_isr"></a>
-Look up the owner inside a HAL callback</h3>
-<p>The callback is defined once, by the application, and only forwards to the device. Defining it replaces the weak HAL definition of the same name, so it must appear only once in the project. A null result means no instance owns that handle, so the callback must simply return. The class from the previous example is assumed to be in 'SpiBridge.hpp'.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/d01/a08473.html">Lib/HAL/core/DeviceManager.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;SpiBridge.hpp&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a5" name="_a5"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a>(<a class="code hl_typedefRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * hspi) {</div>
-<div class="line">    SpiBridge * <span class="keyword">const</span> bridge = <a class="code hl_function" href="../../d1/dab/a05515.html#a2832654a46fcf40b5673a27a282e278b">Lib::HAL::DeviceManager&lt;SpiBridge, SPI_HandleTypeDef&gt;::instance</a>().<a id="a6" name="a6"></a><a class="code hl_function" href="../../d1/dab/a05515.html#a44399c0b88c31ab172615c8522506511">getDevice</a>(hspi);</div>
-<div class="line">    <span class="keywordflow">if</span> (bridge != <span class="keyword">nullptr</span>) {</div>
-<div class="line">        bridge-&gt;onTransmitComplete();</div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/de/df6/a01141.html#ga07e5fc4d223b16bec2fd6bed547cf91d">HAL_TIM_PWM_PulseFinishedCallback</a>(<a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * htim) {</div>
+<div class="line">    <span class="keywordflow">if</span> (htim == &amp;htim3) {</div>
+<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d61/a01350.html#gad77367f9b8d8d17842a913f7d6ce274b">HAL_TIM_PWM_Stop_DMA</a>(&amp;htim3, <a id="_a4" name="_a4"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>)); <span class="comment">// Line stays low: reset gap.</span></div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa01345_html_ga0a99ab4f6aa6ee7dc2abca5483910dde"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde">HAL_SPI_TxCpltCallback</a></div><div class="ttdeci">void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)</div></div>
-<div class="ttc" id="aa05515_html_a44399c0b88c31ab172615c8522506511"><div class="ttname"><a href="../../d1/dab/a05515.html#a44399c0b88c31ab172615c8522506511">Lib::HAL::DeviceManager::getDevice</a></div><div class="ttdeci">T_DEVICE * getDevice(const T_HANDLE *handle) const</div><div class="ttdoc">Finds the registered device that owns a native handle by a linear search.</div><div class="ttdef"><b>Definition</b> HAL/core/DeviceManager.hpp:115</div></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> showFrame() {</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> index = 0; index &lt; ring.<a id="a5" name="a5"></a><a class="code hl_function" href="../../da/d0e/a04752.html#af4a392521ab650682a14d889199c50c1">count</a>(); ++index) {</div>
+<div class="line">        ring[index].setColor(index % 2 == 0 ? <a id="_a6" name="_a6"></a><a class="code hl_variable" href="../../d9/dda/a04740.html#aa51ce6120321dbe5f2ba9fac1f5971c5">::Color::SALMON</a> : <a id="_a7" name="_a7"></a><a class="code hl_variable" href="../../d9/dda/a04740.html#a2dfa191b025fbc94268dd2261439cca8">::Color::INDIANRED</a>);</div>
+<div class="line">    }</div>
+<div class="line">    ring[0].setColor(0, 0, 0, 255); <span class="comment">// White channel only.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a id="_a8" name="_a8"></a><a class="code hl_functionRef" target="_blank" href="https://panchev68.github.io/HALF4/da/d61/a01350.html#ga3621f6126e33c1abb80cb572499f335c">HAL_TIM_PWM_Start_DMA</a>(&amp;htim3, <a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>, ring.<a id="a9" name="a9"></a><a class="code hl_function" href="../../da/d0e/a04752.html#a897e123e376e08a2741c3498d764166d">getData</a>(), <span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(ring.<a id="a10" name="a10"></a><a class="code hl_function" href="../../da/d0e/a04752.html#abc62b9f95eec80b7b24f428ecb35349b">getSize</a>())));</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00335_html"><div class="ttname"><a href="../../df/d91/a00335.html">SK6812.hpp</a></div><div class="ttdoc">Declares the BSP SK6812 RGBW LED encoder and its fixed-size ring; header-only, no HAL dependency.</div></div>
+<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
+<div class="ttc" id="aa01141_html_ga07e5fc4d223b16bec2fd6bed547cf91d"><div class="ttname"><a href="https://panchev68.github.io/HALF4/de/df6/a01141.html#ga07e5fc4d223b16bec2fd6bed547cf91d">HAL_TIM_PWM_PulseFinishedCallback</a></div><div class="ttdeci">void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)</div><div class="ttdef"><b>Definition</b> TimOnePulse.hpp:210</div></div>
+<div class="ttc" id="aa01350_html_ga3621f6126e33c1abb80cb572499f335c"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d61/a01350.html#ga3621f6126e33c1abb80cb572499f335c">HAL_TIM_PWM_Start_DMA</a></div><div class="ttdeci">HAL_StatusTypeDef HAL_TIM_PWM_Start_DMA(TIM_HandleTypeDef *htim, uint32_t Channel, const uint32_t *pData, uint16_t Length)</div></div>
+<div class="ttc" id="aa01350_html_gad77367f9b8d8d17842a913f7d6ce274b"><div class="ttname"><a href="https://panchev68.github.io/HALF4/da/d61/a01350.html#gad77367f9b8d8d17842a913f7d6ce274b">HAL_TIM_PWM_Stop_DMA</a></div><div class="ttdeci">HAL_StatusTypeDef HAL_TIM_PWM_Stop_DMA(TIM_HandleTypeDef *htim, uint32_t Channel)</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa04740_html_a2dfa191b025fbc94268dd2261439cca8"><div class="ttname"><a href="../../d9/dda/a04740.html#a2dfa191b025fbc94268dd2261439cca8">Color::INDIANRED</a></div><div class="ttdeci">static const uint32_t INDIANRED</div><div class="ttdoc">Indian red (205, 92, 92).</div><div class="ttdef"><b>Definition</b> Color.hpp:148</div></div>
+<div class="ttc" id="aa04740_html_aa51ce6120321dbe5f2ba9fac1f5971c5"><div class="ttname"><a href="../../d9/dda/a04740.html#aa51ce6120321dbe5f2ba9fac1f5971c5">Color::SALMON</a></div><div class="ttdeci">static const uint32_t SALMON</div><div class="ttdoc">Salmon (250, 128, 114).</div><div class="ttdef"><b>Definition</b> Color.hpp:145</div></div>
+<div class="ttc" id="aa04752_html"><div class="ttname"><a href="../../da/d0e/a04752.html">Lib::BSP::SK6812::Ring</a></div><div class="ttdoc">Fixed number of SK6812 LEDs sharing one contiguous compare buffer for a single DMA transfer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:201</div></div>
+<div class="ttc" id="aa04752_html_a897e123e376e08a2741c3498d764166d"><div class="ttname"><a href="../../da/d0e/a04752.html#a897e123e376e08a2741c3498d764166d">Lib::BSP::SK6812::Ring::getData</a></div><div class="ttdeci">uint32_t * getData() noexcept</div><div class="ttdoc">Gets the compare buffer for the DMA transfer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:279</div></div>
+<div class="ttc" id="aa04752_html_abc62b9f95eec80b7b24f428ecb35349b"><div class="ttname"><a href="../../da/d0e/a04752.html#abc62b9f95eec80b7b24f428ecb35349b">Lib::BSP::SK6812::Ring::getSize</a></div><div class="ttdeci">static constexpr size_t getSize() noexcept</div><div class="ttdoc">Gets the length of the compare buffer.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:288</div></div>
+<div class="ttc" id="aa04752_html_af4a392521ab650682a14d889199c50c1"><div class="ttname"><a href="../../da/d0e/a04752.html#af4a392521ab650682a14d889199c50c1">Lib::BSP::SK6812::Ring::count</a></div><div class="ttdeci">static constexpr size_t count() noexcept</div><div class="ttdoc">Gets the number of LEDs.</div><div class="ttdef"><b>Definition</b> SK6812.hpp:270</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->

@@ -64,5 +64,6 @@ var searchData=
   ['stuck_20transfer_61',['Aborting a stuck transfer',['../X:/Lib/IAR/Project/Examples/Lib_HAL_I2C.dox#i2c_usage_abort',1,'']]],
   ['summer_20time_62',['Switching to summer time',['../X:/Lib/IAR/Project/Examples/Lib_Helper_TimeZone.dox#timezone_usage_dst',1,'']]],
   ['supervisor_20task_63',['Refresh from a supervisor task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_IndependentWatchdog.dox#iwdg_usage_refresh',1,'']]],
-  ['switching_20to_20summer_20time_64',['Switching to summer time',['../X:/Lib/IAR/Project/Examples/Lib_Helper_TimeZone.dox#timezone_usage_dst',1,'']]]
+  ['switching_20to_20summer_20time_64',['Switching to summer time',['../X:/Lib/IAR/Project/Examples/Lib_Helper_TimeZone.dox#timezone_usage_dst',1,'']]],
+  ['sync_20and_20touchgfx_20task_65',['Display, sync and TouchGFX task',['../X:/Lib/IAR/Project/Examples/Lib_BSP_Display_TouchGFX_BW.dox#touchgfx_usage_init',1,'']]]
 ];
