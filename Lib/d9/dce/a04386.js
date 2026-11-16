@@ -1,12 +1,12 @@
 var a04386 =
 [
-    [ "Inputs", "d9/dce/a04386.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
-    [ "getChangesCounter", "d9/dce/a04386.html#a02a156f7de35ad87391858c4284826ce", null ],
-    [ "getSpiHandle", "d9/dce/a04386.html#afb55a694371e388292f94be2800d26b6", null ],
-    [ "getValue", "d9/dce/a04386.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
-    [ "postUpdateCallback", "d9/dce/a04386.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
-    [ "preUpdateCallback", "d9/dce/a04386.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
-    [ "setup", "d9/dce/a04386.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
-    [ "update", "d9/dce/a04386.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
-    [ "onValueChanged", "d9/dce/a04386.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
+    [ "Exception", "d9/dce/a04386.html#aea3a4f2e3ac0fdc3bcbba62b440134e6", null ],
+    [ "Exception", "d9/dce/a04386.html#ada1a40e8146dca7f06683f974831e44d", null ],
+    [ "Exception", "d9/dce/a04386.html#a63de97c0739c68f7745ec994e3ec0c51", null ],
+    [ "Exception", "d9/dce/a04386.html#a4c22f469903f067ad7b15fa76082f358", null ],
+    [ "Exception", "d9/dce/a04386.html#ae9019bdc0095794f48311d32bd33ad5e", null ],
+    [ "~Exception", "d9/dce/a04386.html#aa3a45fe08c05da8c6fdaafe89f7401ab", null ],
+    [ "operator=", "d9/dce/a04386.html#a05558ab8ce05f641652a1d9fcaff94a5", null ],
+    [ "operator=", "d9/dce/a04386.html#ae65a0f7a6e55392a1bac092f2d8daa2d", null ],
+    [ "what", "d9/dce/a04386.html#a1fb3b55b5d4f4b46281215e9754f45a1", null ]
 ];

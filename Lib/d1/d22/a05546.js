@@ -1,19 +1,17 @@
 var a05546 =
 [
-    [ "USBHostPortBase", "d1/d22/a05546.html#ac0f4ceb9b0f8b8a506fd172cb3ce4566", null ],
-    [ "USBHostPortBase", "d1/d22/a05546.html#aa89066f8aa5102a47badafbc732bf444", null ],
-    [ "USBHostPortBase", "d1/d22/a05546.html#a6ab4021b54519845f9f116d64637e8b3", null ],
-    [ "~USBHostPortBase", "d1/d22/a05546.html#a78ed9071852127d2096ce7ef2b2a5f8e", null ],
-    [ "close", "d1/d22/a05546.html#aff332f8bc49d112c37f829db7d9b78c1", null ],
-    [ "closeChannel", "d1/d22/a05546.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
-    [ "getFrame", "d1/d22/a05546.html#aa5a82053bf356261f139d027918f7a98", null ],
-    [ "getSpeed", "d1/d22/a05546.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
-    [ "getTransferCount", "d1/d22/a05546.html#aeafad19d337548bb5ef919dd44723b5f", null ],
-    [ "open", "d1/d22/a05546.html#ab20db0d8a9ceb5b527bc5b4ff065717f", null ],
-    [ "openChannel", "d1/d22/a05546.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
-    [ "operator=", "d1/d22/a05546.html#a58f84861a9e04f0260bf39e31c926931", null ],
-    [ "operator=", "d1/d22/a05546.html#a9dea26483778c8eacb80952819421b30", null ],
-    [ "resetPort", "d1/d22/a05546.html#a4be20887571f3bd3694a79bb349979f8", null ],
-    [ "start", "d1/d22/a05546.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
-    [ "stop", "d1/d22/a05546.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ]
+    [ "DataAlignment", "d1/d22/a05546.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "d1/d22/a05546.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
+    [ "~DACPort", "d1/d22/a05546.html#ac832156b805caf8041f1097ecf576ec2", null ],
+    [ "DACPort", "d1/d22/a05546.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
+    [ "DACPort", "d1/d22/a05546.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
+    [ "close", "d1/d22/a05546.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "getChannel", "d1/d22/a05546.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
+    [ "getHandle", "d1/d22/a05546.html#a8931efb843554302b191363c4a0bfa41", null ],
+    [ "open", "d1/d22/a05546.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "d1/d22/a05546.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
+    [ "operator=", "d1/d22/a05546.html#a947c4407f00f40ef2d244a914699c60e", null ],
+    [ "setValue", "d1/d22/a05546.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "d1/d22/a05546.html#a0fb9b03d74076c644c02fd75613c0748", null ],
+    [ "stop", "d1/d22/a05546.html#aeb4d00954e883a85534eb2da3acd379f", null ]
 ];

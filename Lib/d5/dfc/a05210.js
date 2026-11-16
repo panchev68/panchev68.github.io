@@ -1,12 +1,7 @@
 var a05210 =
 [
-    [ "size", "d5/dfc/a05210.html#a7306fdc8fa82a6f3d142e23b25af606d", null ],
-    [ "access", "d5/dfc/a05210.html#a689087c28b07b550c6eae081e7594f72", null ],
-    [ "bitLength", "d5/dfc/a05210.html#a9720d19e5c0b0e8f1be49ac104234370", null ],
-    [ "dataType", "d5/dfc/a05210.html#a0f18ed5e1c01a3298b9a235b433b363a", null ],
-    [ "index", "d5/dfc/a05210.html#ab2f3134366cf4e85eb20119de70393e3", null ],
-    [ "name", "d5/dfc/a05210.html#a2497e7c2ce49cc0f0fe4601dd78aba7b", null ],
-    [ "readData", "d5/dfc/a05210.html#abb1278c8d325465c3e21817c2e559f7f", null ],
-    [ "subIndex", "d5/dfc/a05210.html#a5e7dc405b23d4a2c9c30824dbd1aa348", null ],
-    [ "writeData", "d5/dfc/a05210.html#ac54a16495fbb3e297360ce4281c1420f", null ]
+    [ "operator std::vector< uint8_t >", "d5/dfc/a05210.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
+    [ "view", "d5/dfc/a05210.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
+    [ "data", "d5/dfc/a05210.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
+    [ "size", "d5/dfc/a05210.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
 ];

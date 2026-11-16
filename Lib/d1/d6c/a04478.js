@@ -1,6 +1,9 @@
 var a04478 =
 [
-    [ "operator==", "d1/d6c/a04478.html#aaffc1273857ce092dc8ef57f2f569797", null ],
-    [ "address", "d1/d6c/a04478.html#ad4d0d62f304ebdd08f759f363dd3932a", null ],
-    [ "value", "d1/d6c/a04478.html#ac1e3de78a37a7229dfb525e2b82a1b4b", null ]
+    [ "Config", "d7/d2e/a04482.html", "d7/d2e/a04482" ],
+    [ "Driver", "d1/d6c/a04478.html#a1d8e503b6726e6008abf411810b2191d", null ],
+    [ "~Driver", "d1/d6c/a04478.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
+    [ "handleTransferCompleteEvent", "d1/d6c/a04478.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
+    [ "setup", "d1/d6c/a04478.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
+    [ "transmitBlock", "d1/d6c/a04478.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
 ];

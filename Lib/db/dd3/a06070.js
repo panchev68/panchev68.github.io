@@ -1,6 +1,8 @@
 var a06070 =
 [
-    [ "configuration", "db/dd3/a06070.html#a207811e42d707051b821430532e14dca", null ],
-    [ "produceDate", "db/dd3/a06070.html#a15a774d40f9912978af06fa0b55e5e6a", null ],
-    [ "saleDate", "db/dd3/a06070.html#ae15be586be491076f57ec2f103f5ed81", null ]
+    [ "allocations", "db/dd3/a06070.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
+    [ "freeHeap", "db/dd3/a06070.html#a944d10ce32d8114a8a1349e2582022bd", null ],
+    [ "frees", "db/dd3/a06070.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
+    [ "minimumFreeHeap", "db/dd3/a06070.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
+    [ "totalHeap", "db/dd3/a06070.html#a83580325c3df5098f79f23bd212fb20a", null ]
 ];

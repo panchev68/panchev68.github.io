@@ -1,14 +1,12 @@
 var a05838 =
 [
-    [ "Point", "d2/d70/a05842.html", "d2/d70/a05842" ],
-    [ "LinearInterpolation", "dd/d9e/a05838.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
-    [ "LinearInterpolation", "dd/d9e/a05838.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
-    [ "addPoint", "dd/d9e/a05838.html#afdd4b894d0803bc604d379fa4629d483", null ],
-    [ "addPoint", "dd/d9e/a05838.html#a74376103d2a68f503d4edeac77bcb80c", null ],
-    [ "clear", "dd/d9e/a05838.html#aab5168233071bba85d5f5119cecdc12f", null ],
-    [ "getPoint", "dd/d9e/a05838.html#a96708d1e4a7701724f4770d48a1b4661", null ],
-    [ "getPointCount", "dd/d9e/a05838.html#aff35d714c8d5e1859adca0de1f902a34", null ],
-    [ "interpolate", "dd/d9e/a05838.html#a15ad2325a927ddfead159579c0d375aa", null ],
-    [ "isEmpty", "dd/d9e/a05838.html#a297a3b5b4a94c75ad444983025829924", null ],
-    [ "sortPoints", "dd/d9e/a05838.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
+    [ "WindowWatchdog", "dd/d9e/a05838.html#aedbc081389ab6197c5a334fcff249dc9", null ],
+    [ "~WindowWatchdog", "dd/d9e/a05838.html#abf0355eeac54b8e2df2436417ae430c8", null ],
+    [ "WindowWatchdog", "dd/d9e/a05838.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
+    [ "WindowWatchdog", "dd/d9e/a05838.html#a94de72071a208a3a396313415af9df3a", null ],
+    [ "open", "dd/d9e/a05838.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
+    [ "operator=", "dd/d9e/a05838.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
+    [ "operator=", "dd/d9e/a05838.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
+    [ "refresh", "dd/d9e/a05838.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
+    [ "setWindow", "dd/d9e/a05838.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
 ];

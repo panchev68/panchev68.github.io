@@ -1,12 +1,14 @@
 var a04934 =
 [
-    [ "State", "d4/d47/a04938.html", "d4/d47/a04938" ],
-    [ "Quality", "da/d88/a04942.html", "da/d88/a04942" ],
-    [ "Info", "d5/d41/a04946.html", "d5/d41/a04946" ],
-    [ "Connection", "d9/d75/a04934.html#ac3f7cec3bac26ebbbdfd93dc9d339f48", null ],
-    [ "Connection", "d9/d75/a04934.html#afaa8af957c71adc2bf6b63d902caedf2", null ],
-    [ "operator=", "d9/d75/a04934.html#a6bed4ce5a085f4b0a9bbeb1131272236", null ],
-    [ "info", "d9/d75/a04934.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
-    [ "quality", "d9/d75/a04934.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
-    [ "state", "d9/d75/a04934.html#a79f4aecc9bd038f5938e6373412ed099", null ]
+    [ "Subscriber", "d9/d75/a04934.html#a3f40221ae5736ac688a612345a14a8e4", null ],
+    [ "MulticastDelegate", "d9/d75/a04934.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
+    [ "add", "d9/d75/a04934.html#a7b2551280da180b1f1dda5c6981737cd", null ],
+    [ "clear", "d9/d75/a04934.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
+    [ "invoke", "d9/d75/a04934.html#abfd30810b143472b8393b53f898dbcd5", null ],
+    [ "isEmpty", "d9/d75/a04934.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
+    [ "operator()", "d9/d75/a04934.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
+    [ "operator+=", "d9/d75/a04934.html#a6dbac05fdf70d7b6ea7c1223f90eb0f3", null ],
+    [ "operator-=", "d9/d75/a04934.html#abf65efccd32893eb2f7b5adfc53f8536", null ],
+    [ "remove", "d9/d75/a04934.html#adb01252450a4c8f5a57794062eef97da", null ],
+    [ "size", "d9/d75/a04934.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
 ];

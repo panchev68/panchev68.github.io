@@ -1,14 +1,17 @@
 var a05562 =
 [
-    [ "TimEncoder", "d0/db7/a05562.html#a865f1c850a27e5a21c65997eddc230e6", null ],
-    [ "~TimEncoder", "d0/db7/a05562.html#a75c39486905ce140625f8ede68cf6b1c", null ],
-    [ "TimEncoder", "d0/db7/a05562.html#ab1d7d4c14ddad06846dbb8f3f39f57e2", null ],
-    [ "TimEncoder", "d0/db7/a05562.html#a6ac1197149221d77d1967fbc9bf30371", null ],
-    [ "close", "d0/db7/a05562.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
-    [ "isClockwise", "d0/db7/a05562.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
-    [ "open", "d0/db7/a05562.html#a0332945ce02a55fb6e624309d4613697", null ],
-    [ "operator=", "d0/db7/a05562.html#a5f081d643e5f193b16d632bca48547f3", null ],
-    [ "operator=", "d0/db7/a05562.html#a65f9304f38d0afcedc9c8bcaeae935c7", null ],
-    [ "read", "d0/db7/a05562.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
-    [ "write", "d0/db7/a05562.html#aa31e675a06e5e104834e47423daa2b5f", null ]
+    [ "DataAlignment", "d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46", [
+      [ "RIGHT_12_BITS", "d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
+      [ "LEFT_12_BITS", "d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
+      [ "RIGHT_8_BITS", "d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
+    ] ],
+    [ "DACPortBase", "d0/db7/a05562.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
+    [ "DACPortBase", "d0/db7/a05562.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
+    [ "DACPortBase", "d0/db7/a05562.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
+    [ "~DACPortBase", "d0/db7/a05562.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
+    [ "close", "d0/db7/a05562.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "open", "d0/db7/a05562.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "d0/db7/a05562.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
+    [ "operator=", "d0/db7/a05562.html#abfba06342b098e48cbd2ecf0d159497c", null ],
+    [ "setValue", "d0/db7/a05562.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
 ];

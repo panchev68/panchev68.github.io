@@ -1,13 +1,20 @@
 var a05690 =
 [
-    [ "WolfSSLTransport", "d3/d04/a05690.html#a902fc980deaff7372065ac354e424bd7", null ],
-    [ "~WolfSSLTransport", "d3/d04/a05690.html#a1af1ec7c8459af557cecf30e2fce9851", null ],
-    [ "WolfSSLTransport", "d3/d04/a05690.html#ac66ebbbe5867fdc9e41b120f0703afd9", null ],
-    [ "WolfSSLTransport", "d3/d04/a05690.html#aee33a9d5d619aea80630e5c113bc940c", null ],
-    [ "close", "d3/d04/a05690.html#afc96144cd745fe9fc116e7fa03ea0c00", null ],
-    [ "open", "d3/d04/a05690.html#a34b1d6a735d69895b3381e71a3d7b24f", null ],
-    [ "operator=", "d3/d04/a05690.html#a65c79de2e76f70c00d2a7117462aef12", null ],
-    [ "operator=", "d3/d04/a05690.html#ac0b3753689c57f39a30e72868cac2919", null ],
-    [ "receive", "d3/d04/a05690.html#a665163ec5d248c6f5f86737aec8901e8", null ],
-    [ "send", "d3/d04/a05690.html#a609db5ba4b95a1e99a742291477e322b", null ]
+    [ "Timeout", "d3/d04/a05690.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
+    [ "SPIPort", "d3/d04/a05690.html#a903be3f889b13683ab1e357df5e48ddb", null ],
+    [ "~SPIPort", "d3/d04/a05690.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
+    [ "SPIPort", "d3/d04/a05690.html#a8335bc7cd53354957b5b059adfa4a702", null ],
+    [ "SPIPort", "d3/d04/a05690.html#ab03e262f43c766b37a67b48c85bff815", null ],
+    [ "bindBeginTransactionFunc", "d3/d04/a05690.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "d3/d04/a05690.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "d3/d04/a05690.html#ab6529e241d0728159eb3f60c7621b666", null ],
+    [ "getHandle", "d3/d04/a05690.html#a177a320faf7a48d1692b081641399447", null ],
+    [ "getHandle", "d3/d04/a05690.html#a88e71252a873f0d8d5051292a08b1336", null ],
+    [ "isBusy", "d3/d04/a05690.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "open", "d3/d04/a05690.html#af039716c9cb01db958d77f8c581627cf", null ],
+    [ "operator=", "d3/d04/a05690.html#a7ac0642f801168b819d2f19789bd9d15", null ],
+    [ "operator=", "d3/d04/a05690.html#ae10f073f8753cb6161429d0e321dfd92", null ],
+    [ "receive", "d3/d04/a05690.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "d3/d04/a05690.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "d3/d04/a05690.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

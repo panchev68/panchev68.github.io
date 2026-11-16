@@ -1,20 +1,15 @@
 var a04758 =
 [
-    [ "Diagnostic", "de/df1/a04758.html#a74fdde35a787cd13d6069871c0ff8976", null ],
-    [ "Node", "de/df1/a04758.html#ab091b12fa34f220a5e75b16695a26a92", null ],
-    [ "RxMessage", "de/df1/a04758.html#aee877c41a31b08b00ee86c56bdd9cd28", null ],
-    [ "Service", "de/df1/a04758.html#a34d4fbaded08b287de47655b7713556a", null ],
-    [ "~Service", "de/df1/a04758.html#aa70d5f9fd723805cc64c383864a55d17", null ],
-    [ "errorCallback", "de/df1/a04758.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
-    [ "getDiagnostic", "de/df1/a04758.html#a568458f9461115a1ea8f443f2dfde355", null ],
-    [ "messageReceivedCallback", "de/df1/a04758.html#a42b0a1623b22a41e003e2abafd67c9f2", null ],
-    [ "postScanCallback", "de/df1/a04758.html#a41b59ad5c5b3ad1f6a7220fbbb325c88", null ],
-    [ "receive", "de/df1/a04758.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "de/df1/a04758.html#a2e0c631d402e3175044158dded2de545", null ],
-    [ "send", "de/df1/a04758.html#a58523c22bcfd875e9c77077eb5f3e24c", null ],
-    [ "send", "de/df1/a04758.html#a5249db04ea2b2e64223f6656ddd774dc", null ],
-    [ "start", "de/df1/a04758.html#a93223c3fff4c00dc1af2fb2189a857ee", null ],
-    [ "start", "de/df1/a04758.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
-    [ "stop", "de/df1/a04758.html#a7ddbb1abfc9d0f93b2d9e809819651cb", null ],
-    [ "taskFn", "de/df1/a04758.html#ada9602bb96ff9a1d8ef9d91580113505", null ]
+    [ "TimerHandler", "d9/d08/a04762.html", "d9/d08/a04762" ],
+    [ "Config", "d3/d1e/a04766.html", "d3/d1e/a04766" ],
+    [ "PinHandle", "de/df1/a04758.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
+    [ "Base", "de/df1/a04758.html#af14f0b64c88d8857e32beeba9d6c6493", null ],
+    [ "~Base", "de/df1/a04758.html#a07a6568f25502674c91a864497867548", null ],
+    [ "beginReceiveData", "de/df1/a04758.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
+    [ "endReceivedData", "de/df1/a04758.html#a63785a9b88d7556f54e1e71118a760d4", null ],
+    [ "start", "de/df1/a04758.html#a5413ce6c3ea6e0e7f1a36a6835ca9247", null ],
+    [ "startupImpulse", "de/df1/a04758.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
+    [ "waitForComplete", "de/df1/a04758.html#a9b5b96a6106c15c974463750529471d0", null ],
+    [ "writePinState", "de/df1/a04758.html#a049430e063b46db8f7e7401c0af75df7", null ],
+    [ "config", "de/df1/a04758.html#a3b31347dab82ede045f6e076046e5762", null ]
 ];

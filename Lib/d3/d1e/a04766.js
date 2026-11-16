@@ -1,10 +1,6 @@
 var a04766 =
 [
-    [ "RxMessage", "d3/d1e/a04766.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
-    [ "RxMessage", "d3/d1e/a04766.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
-    [ "getData", "d3/d1e/a04766.html#a211378ed57e780728a164371a88e9913", null ],
-    [ "getId", "d3/d1e/a04766.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
-    [ "data", "d3/d1e/a04766.html#ad7fd7612128273e1c546b6344e7410b3", null ],
-    [ "id", "d3/d1e/a04766.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
-    [ "length", "d3/d1e/a04766.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
+    [ "pinHandle", "d3/d1e/a04766.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
+    [ "timerHandler", "d3/d1e/a04766.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
+    [ "updatePeriod", "d3/d1e/a04766.html#a08c430ab4ab176b490c190835f89b3b0", null ]
 ];

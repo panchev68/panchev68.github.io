@@ -4,7 +4,7 @@ var searchData=
   ['networkdiscovery_2ehpp_1',['NetworkDiscovery.hpp',['../d3/d29/a00419.html',1,'']]],
   ['new_2',['new',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00035.html',0,'']]],
   ['nfcmanager_2ehpp_3',['NfcManager.hpp',['../dd/de2/a00320.html',1,'']]],
-  ['node_2ehpp_4',['Node.hpp',['../dc/dae/a00563.html',1,'']]],
+  ['node_2ehpp_4',['Node.hpp',['../d0/d3e/a00566.html',1,'']]],
   ['node_5fhandle_2eh_5',['node_handle.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00626.html',0,'']]],
   ['nodeinfo_2ehpp_6',['NodeInfo.hpp',['../d8/d91/a00410.html',1,'']]],
   ['null_5fnode_5fmetadata_2ehpp_7',['null_node_metadata.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01370.html',0,'']]],

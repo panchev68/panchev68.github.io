@@ -1,7 +1,11 @@
 var a05698 =
 [
-    [ "estimatedError", "db/d48/a05698.html#aa627467e596e97925629cac77c51da24", null ],
-    [ "processNoise", "db/d48/a05698.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
-    [ "sensorNoise", "db/d48/a05698.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
-    [ "value", "db/d48/a05698.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
+    [ "SPIPort", "db/d48/a05698.html#a6887b333ef818d3bd80112c8ce57998d", null ],
+    [ "~SPIPort", "db/d48/a05698.html#ad6c6de84d5713ce3f16ae3047ec949a1", null ],
+    [ "abort", "db/d48/a05698.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
+    [ "close", "db/d48/a05698.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "db/d48/a05698.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "db/d48/a05698.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "db/d48/a05698.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "db/d48/a05698.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

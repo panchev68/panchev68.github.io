@@ -1,9 +1,18 @@
 var a05782 =
 [
-    [ "Lock", "d4/d98/a05782.html#a79915981fe481334533677f3c4691e1f", null ],
-    [ "~Lock", "d4/d98/a05782.html#acca996da9f16704d9247d8d2f0bab3e1", null ],
-    [ "Lock", "d4/d98/a05782.html#a7da060988728f2b1731d04e7b4465ffb", null ],
-    [ "Lock", "d4/d98/a05782.html#a73e4ec26337a86b9060fbfd8356a083c", null ],
-    [ "operator=", "d4/d98/a05782.html#a58e51b984954b6ea0275dd7b48479bb2", null ],
-    [ "operator=", "d4/d98/a05782.html#a2af1d07230d3a75aee8b72daf7ec73bf", null ]
+    [ "EventHandler", "d4/d98/a05782.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
+    [ "USBDevicePort", "d4/d98/a05782.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
+    [ "~USBDevicePort", "d4/d98/a05782.html#a380acfe834fbf265a2fdfe8e26550867", null ],
+    [ "abort", "d4/d98/a05782.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
+    [ "close", "d4/d98/a05782.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d4/d98/a05782.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d4/d98/a05782.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d4/d98/a05782.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d4/d98/a05782.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d4/d98/a05782.html#add4fb8ab17eac13116050ae3c8237acf", null ],
+    [ "send", "d4/d98/a05782.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
+    [ "setEventHandler", "d4/d98/a05782.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
+    [ "submitReceive", "d4/d98/a05782.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
+    [ "submitSend", "d4/d98/a05782.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
+    [ "waitForEvent", "d4/d98/a05782.html#ac98dece292bb17828882e8d61e803880", null ]
 ];

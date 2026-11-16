@@ -1,13 +1,19 @@
 var a05498 =
 [
-    [ "UARTPortBase", "d6/dca/a05498.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
-    [ "UARTPortBase", "d6/dca/a05498.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
-    [ "UARTPortBase", "d6/dca/a05498.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
-    [ "~UARTPortBase", "d6/dca/a05498.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
-    [ "close", "d6/dca/a05498.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
-    [ "isBusy", "d6/dca/a05498.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
-    [ "open", "d6/dca/a05498.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
-    [ "operator=", "d6/dca/a05498.html#ad0321a4f1297088a60c64e263c8c6816", null ],
-    [ "operator=", "d6/dca/a05498.html#af29977f244357cb79e8203dbd192840c", null ],
-    [ "setBaudRate", "d6/dca/a05498.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
+    [ "Event", "d3/dc0/a05502.html", null ],
+    [ "ADCPort", "d6/dca/a05498.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "d6/dca/a05498.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "d6/dca/a05498.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "d6/dca/a05498.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "d6/dca/a05498.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "getHandle", "d6/dca/a05498.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d6/dca/a05498.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getValue", "d6/dca/a05498.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d6/dca/a05498.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "d6/dca/a05498.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "d6/dca/a05498.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "d6/dca/a05498.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "d6/dca/a05498.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "d6/dca/a05498.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "d6/dca/a05498.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

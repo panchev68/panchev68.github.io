@@ -1,6 +1,5 @@
 var a00587 =
 [
-    [ "Lib::GUI::Context", "d1/d5e/a05403.html", "d1/d5e/a05403" ],
-    [ "Lib::GUI::Context::Config", "dc/d06/a05407.html", "dc/d06/a05407" ],
-    [ "Lib::GUI::Context::ViewportScope", "d8/d4f/a05411.html", "d8/d4f/a05411" ]
+    [ "Lib::GUI::Canvas", "df/d45/a05398.html", "df/d45/a05398" ],
+    [ "Lib::GUI::Canvas::FontScope", "d9/d61/a05402.html", "d9/d61/a05402" ]
 ];

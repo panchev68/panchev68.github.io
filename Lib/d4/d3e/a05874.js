@@ -1,6 +1,8 @@
 var a05874 =
 [
-    [ "name", "d4/d3e/a05874.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
-    [ "output", "d4/d3e/a05874.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
-    [ "rotateTime", "d4/d3e/a05874.html#aad96d287e9891431e5a7c99935482563", null ]
+    [ "crc16", "d4/d3e/a05874.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
+    [ "crc16", "d4/d3e/a05874.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
+    [ "crc16", "d4/d3e/a05874.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
+    [ "crc16", "d4/d3e/a05874.html#abac152733a66bebdb4f969523dc9dbe1", null ],
+    [ "operator uint16_t", "d4/d3e/a05874.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
 ];

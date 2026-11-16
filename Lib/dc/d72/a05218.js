@@ -1,6 +1,11 @@
 var a05218 =
 [
-    [ "afterWrite", "dc/d72/a05218.html#a53e4f89f1542245add410f8b0f52b0bd", null ],
-    [ "beforeRead", "dc/d72/a05218.html#a214b45de3b2b1b03564e40ad91392018", null ],
-    [ "beforeWrite", "dc/d72/a05218.html#a19848fcaef19f48fd52d8d89e26be851", null ]
+    [ "onExtendedTransmitStatusChanged", "dc/d72/a05218.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
+    [ "onLocalAtCommand", "dc/d72/a05218.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
+    [ "onModemStatusChanged", "dc/d72/a05218.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
+    [ "onPacketReceived", "dc/d72/a05218.html#a850cfb32fb4c250ebb5d07029d996133", null ],
+    [ "onReceivePacket16bit", "dc/d72/a05218.html#a30dd6aca5f04efa028541965da0f724f", null ],
+    [ "onReceivePacket64bit", "dc/d72/a05218.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
+    [ "onRemoteATCommand", "dc/d72/a05218.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
+    [ "onTransmitStatus", "dc/d72/a05218.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
 ];

@@ -1,15 +1,18 @@
 var a05786 =
 [
-    [ "TickType", "d5/d95/a05786.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
-    [ "TimePeriod", "d5/d95/a05786.html#a096466d88bfa78ef18f074937a43f63f", null ],
-    [ "elapsed", "d5/d95/a05786.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
-    [ "elapsedFromISR", "d5/d95/a05786.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
-    [ "elapsedTime", "d5/d95/a05786.html#aea37e1feea05928a3dfd98f79e82c449", null ],
-    [ "elapsedTimeFromISR", "d5/d95/a05786.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
-    [ "isRunning", "d5/d95/a05786.html#aa4477fa15b16c620396b69b2935bf2de", null ],
-    [ "reset", "d5/d95/a05786.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
-    [ "start", "d5/d95/a05786.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
-    [ "startFromISR", "d5/d95/a05786.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
-    [ "stop", "d5/d95/a05786.html#a12059cd59e97f3575d46ed98120763a2", null ],
-    [ "stopFromISR", "d5/d95/a05786.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
+    [ "EventHandler", "d5/d95/a05786.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
+    [ "USBDevicePort", "d5/d95/a05786.html#a73135119d83dd3a80c4b81f5bbe8fd61", null ],
+    [ "~USBDevicePort", "d5/d95/a05786.html#a0a313f5efd10221e16714eece65dda0f", null ],
+    [ "abort", "d5/d95/a05786.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
+    [ "close", "d5/d95/a05786.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d5/d95/a05786.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d5/d95/a05786.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d5/d95/a05786.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d5/d95/a05786.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d5/d95/a05786.html#add4fb8ab17eac13116050ae3c8237acf", null ],
+    [ "send", "d5/d95/a05786.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
+    [ "setEventHandler", "d5/d95/a05786.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
+    [ "submitReceive", "d5/d95/a05786.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
+    [ "submitSend", "d5/d95/a05786.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
+    [ "waitForEvent", "d5/d95/a05786.html#ac98dece292bb17828882e8d61e803880", null ]
 ];

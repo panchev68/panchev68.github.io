@@ -1,8 +1,10 @@
 var a05910 =
 [
-    [ "allocations", "d7/d6f/a05910.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "d7/d6f/a05910.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "d7/d6f/a05910.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "d7/d6f/a05910.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "d7/d6f/a05910.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "Integrator", "d7/d6f/a05910.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
+    [ "addValue", "d7/d6f/a05910.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
+    [ "computeResult", "d7/d6f/a05910.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
+    [ "isWindowFull", "d7/d6f/a05910.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
+    [ "operator()", "d7/d6f/a05910.html#a97085ec2f9a9f65920181fffae409662", null ],
+    [ "processValue", "d7/d6f/a05910.html#ab31a92d828aeae207fd9641101c217f5", null ],
+    [ "resetWindow", "d7/d6f/a05910.html#a78e088ee416a676679fe227ceb71b1b0", null ]
 ];

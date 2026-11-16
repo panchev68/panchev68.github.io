@@ -1,14 +1,18 @@
 var a05758 =
 [
-    [ "JaggedArrayBase", "d0/df9/a05758.html#ae79ec88b260154126e7ec280a136c14a", null ],
-    [ "addItem", "d0/df9/a05758.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
-    [ "addItems", "d0/df9/a05758.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
-    [ "clearItems", "d0/df9/a05758.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
-    [ "getElements", "d0/df9/a05758.html#a428409a8385b8547bfa65d04a71565b1", null ],
-    [ "getElements", "d0/df9/a05758.html#a718f7db994c254bce01246ea32b1d653", null ],
-    [ "getSize", "d0/df9/a05758.html#afca6ed09d7865e2bac45430fda768aae", null ],
-    [ "operator[]", "d0/df9/a05758.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
-    [ "operator[]", "d0/df9/a05758.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
-    [ "removeItem", "d0/df9/a05758.html#a819041f4264ebfce07665c548d5dd7bc", null ],
-    [ "elementList", "d0/df9/a05758.html#a319cd6aae084f711db14582ed55929a5", null ]
+    [ "UARTPort", "d0/df9/a05758.html#a066a22aae400d51f9a8552f6b1757c30", null ],
+    [ "~UARTPort", "d0/df9/a05758.html#ae57a4a21992efbdd20a759373b79c5de", null ],
+    [ "UARTPort", "d0/df9/a05758.html#a727c4f59d0a03dd2884faf4f6a36928f", null ],
+    [ "UARTPort", "d0/df9/a05758.html#a3356806008458666dc1ede53fc85db70", null ],
+    [ "close", "d0/df9/a05758.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
+    [ "getDirection", "d0/df9/a05758.html#abc3c117eef840882dd94aee07d684a11", null ],
+    [ "getHandle", "d0/df9/a05758.html#a1a803a307b6fe9ff6e9e595f15c66de8", null ],
+    [ "getHandle", "d0/df9/a05758.html#a4d6a362058e35bbfc0c72a9c5f1a46a5", null ],
+    [ "isBusy", "d0/df9/a05758.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "open", "d0/df9/a05758.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
+    [ "operator=", "d0/df9/a05758.html#aebdaa74531eaac591e9bc7c474cdb302", null ],
+    [ "operator=", "d0/df9/a05758.html#a700d1ad959852be2e5140408dbde5ab4", null ],
+    [ "receive", "d0/df9/a05758.html#a2ac76b4dc3247a959deab8ec3f4403a4", null ],
+    [ "send", "d0/df9/a05758.html#abdc90f4e574528b9dcd4c9e2c749dea8", null ],
+    [ "setBaudRate", "d0/df9/a05758.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

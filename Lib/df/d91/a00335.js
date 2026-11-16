@@ -1,5 +1,5 @@
 var a00335 =
 [
-    [ "Lib::BSP::SK6812", "d7/d1c/a04747.html", "d7/d1c/a04747" ],
-    [ "Lib::BSP::SK6812::Ring&lt; T_COUNT &gt;", "da/d9d/a04751.html", "da/d9d/a04751" ]
+    [ "Lib::BSP::SK6812", "dc/d64/a04750.html", "dc/d64/a04750" ],
+    [ "Lib::BSP::SK6812::Ring&lt; T_COUNT &gt;", "d2/d6c/a04754.html", "d2/d6c/a04754" ]
 ];

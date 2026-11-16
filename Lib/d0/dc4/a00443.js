@@ -1,5 +1,5 @@
 var a00443 =
 [
-    [ "Lib::Digi::Core::ComDriver&lt; T_DERIVED &gt;", "d0/d9d/a05123.html", "d0/d9d/a05123" ],
-    [ "Lib::Digi::Core::ComDriver&lt; T_DERIVED &gt;::Config", "d0/d42/a05127.html", "d0/d42/a05127" ]
+    [ "Lib::Digi::Core::ComDriver&lt; T_DERIVED &gt;", "dc/de6/a05126.html", "dc/de6/a05126" ],
+    [ "Lib::Digi::Core::ComDriver&lt; T_DERIVED &gt;::Config", "d5/d8c/a05130.html", "d5/d8c/a05130" ]
 ];

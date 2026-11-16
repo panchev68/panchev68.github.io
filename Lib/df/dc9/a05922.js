@@ -1,29 +1,22 @@
 var a05922 =
 [
-    [ "TickType", "df/dc9/a05922.html#adc2e1b449462bfc5e02a4ee323b012e5", null ],
-    [ "Type", "df/dc9/a05922.html#a32944cdf5acfc817c79a3b60e03bbc38", [
-      [ "NORMAL", "df/dc9/a05922.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051", null ],
-      [ "RECURSIVE", "df/dc9/a05922.html#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638", null ]
+    [ "Date", "df/dc9/a05922.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
+    [ "Phase", "df/dc9/a05922.html#a5567988b4297dec26d3237506884f6a5", [
+      [ "NEW_MOON", "df/dc9/a05922.html#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446", null ],
+      [ "WAXING_CRESCENT", "df/dc9/a05922.html#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd", null ],
+      [ "FIRST_QUARTER", "df/dc9/a05922.html#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404", null ],
+      [ "WAXING_GIBBOUS", "df/dc9/a05922.html#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651", null ],
+      [ "FULL_MOON", "df/dc9/a05922.html#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1", null ],
+      [ "WANING_GIBBOUS", "df/dc9/a05922.html#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6", null ],
+      [ "LAST_QUARTER", "df/dc9/a05922.html#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18", null ],
+      [ "WANING_CRESCENT", "df/dc9/a05922.html#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39", null ]
     ] ],
-    [ "Mutex", "df/dc9/a05922.html#a85140f0dfb31c3d5a8a27ce01e98fdc6", null ],
-    [ "Mutex", "df/dc9/a05922.html#a301698c6b87d5cd81fda2792e6f14b4c", null ],
-    [ "~Mutex", "df/dc9/a05922.html#a032031894c38dfb5861f1be4a7e247dd", null ],
-    [ "Mutex", "df/dc9/a05922.html#acce47428aedbea4c3597ab4b07a0dc16", null ],
-    [ "close", "df/dc9/a05922.html#acae6fb03115a857672d114638e6da0cb", null ],
-    [ "createStatic", "df/dc9/a05922.html#a4a72a94370a00b530eb26b466ed373bc", null ],
-    [ "getHolder", "df/dc9/a05922.html#a616ca3c51747ccb7932dab4363b40ef5", null ],
-    [ "getHolderFromISR", "df/dc9/a05922.html#a4442eb3b200cdfba2f9780f45b293ee4", null ],
-    [ "getNativeHandle", "df/dc9/a05922.html#a38014af85379eee8f59569c75f075995", null ],
-    [ "getType", "df/dc9/a05922.html#a4625bbff147fffc8861b3478c8430f94", null ],
-    [ "isLocked", "df/dc9/a05922.html#a7797096bb17dedbd7f2dc83952a87ad0", null ],
-    [ "isOwnedByCurrentTask", "df/dc9/a05922.html#a0fe980766d5bb3fb9f27336981430a6f", null ],
-    [ "isValid", "df/dc9/a05922.html#a2a35fb03473deda78f602d516fb9b09c", null ],
-    [ "lock", "df/dc9/a05922.html#a80b2989f05e4378994f3eb8e811d9a2b", null ],
-    [ "lock", "df/dc9/a05922.html#a9249f5e17ed3dc3621afb504a94f51c4", null ],
-    [ "lock", "df/dc9/a05922.html#a2b2c30777cc3c44739df34e98fc05d0f", null ],
-    [ "open", "df/dc9/a05922.html#a9f2abf5c8b3442dd741bac7c15e5726a", null ],
-    [ "operator=", "df/dc9/a05922.html#a1e606324a490dacaed78d56b0f2e463f", null ],
-    [ "operator=", "df/dc9/a05922.html#aa0480ec896a8ce6959a8fe0069fc4a0f", null ],
-    [ "tryLock", "df/dc9/a05922.html#a18a279e5ed19c174389ad7be7fb2264d", null ],
-    [ "unlock", "df/dc9/a05922.html#a55031b1cdaf584950893279ceac8ff93", null ]
+    [ "MoonPhase", "df/dc9/a05922.html#ac58c9ddf6d8f37e3f317e4f702ac00a5", null ],
+    [ "MoonPhase", "df/dc9/a05922.html#acd603bf923907f139f3479a3fe0c6723", null ],
+    [ "calculate", "df/dc9/a05922.html#a47ac4868563998363835de249a5814a9", null ],
+    [ "index", "df/dc9/a05922.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
+    [ "name", "df/dc9/a05922.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
+    [ "operator std::string_view", "df/dc9/a05922.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
+    [ "operator uint32_t", "df/dc9/a05922.html#a64022e97a09da5fcaa242d39634aafbf", null ],
+    [ "phase", "df/dc9/a05922.html#a6ddb8be8e68814a16313e0824662b5c9", null ]
 ];

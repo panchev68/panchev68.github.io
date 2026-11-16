@@ -1,13 +1,9 @@
 var a06054 =
 [
-    [ "Date", "d8/d89/a06054.html#af06cc8ba2f87935c0445acf20bda3349", null ],
-    [ "DateTime", "d8/d89/a06054.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "Status", "d8/d89/a06054.html#ac1982c11ab6f79a7929a9d6d3a81784a", [
-      [ "OK", "d8/d89/a06054.html#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d8/d89/a06054.html#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "ProduceDate", "d8/d89/a06054.html#a35243148dd7247b4f7926b4aed02485a", null ],
-    [ "isEmpty", "d8/d89/a06054.html#a3a766915dafa66af64cd53f1c59eab9f", null ],
-    [ "read", "d8/d89/a06054.html#aad534282cedf19b97f1bd45ca1a84da8", null ],
-    [ "write", "d8/d89/a06054.html#a64c5c6d83cf80a34ec3561d61f1f93f9", null ]
+    [ "CriticalSectionFromISR", "d8/d89/a06054.html#a94cda37183a61f5455dc5e641bcb5109", null ],
+    [ "~CriticalSectionFromISR", "d8/d89/a06054.html#a54e463ae72e1238776194c4cb941357b", null ],
+    [ "CriticalSectionFromISR", "d8/d89/a06054.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
+    [ "CriticalSectionFromISR", "d8/d89/a06054.html#a9d04ea07249455e75c39ce5450c33028", null ],
+    [ "operator=", "d8/d89/a06054.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
+    [ "operator=", "d8/d89/a06054.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
 ];

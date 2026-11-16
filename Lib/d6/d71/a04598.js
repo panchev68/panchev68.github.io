@@ -1,8 +1,11 @@
 var a04598 =
 [
-    [ "chipSelectPin", "d6/d71/a04598.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
-    [ "irqPin", "d6/d71/a04598.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
-    [ "resetPin", "d6/d71/a04598.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
-    [ "rxGain", "d6/d71/a04598.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
-    [ "spiHandle", "d6/d71/a04598.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
+    [ "capacityBytes", "d6/d71/a04598.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
+    [ "chipId", "d6/d71/a04598.html#a51f97ba3d60d343706487241e08e252e", null ],
+    [ "manufacturerId", "d6/d71/a04598.html#a5c3278897e2a6732479c70a4efed141c", null ],
+    [ "pageCount", "d6/d71/a04598.html#af9ad76ca92b33af38466c11344584476", null ],
+    [ "pageSize", "d6/d71/a04598.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
+    [ "pagesPerSector", "d6/d71/a04598.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
+    [ "sectorCount", "d6/d71/a04598.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
+    [ "sectorSize", "d6/d71/a04598.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
 ];

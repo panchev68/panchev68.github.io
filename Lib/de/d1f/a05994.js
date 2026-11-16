@@ -1,9 +1,7 @@
 var a05994 =
 [
-    [ "Tick", "de/d1f/a05994.html#a73acf8fc8b1cd8e08ae680600c7644ed", null ],
-    [ "TickType", "de/d1f/a05994.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
-    [ "TickCounter", "de/d1f/a05994.html#a2e4f16891a303abf7194b28efe452c4b", null ],
-    [ "~TickCounter", "de/d1f/a05994.html#a82caaf97a995139e4dc974230659be08", null ],
-    [ "TickCounter", "de/d1f/a05994.html#a06b8da334970d2eee58bc03a57c34687", null ],
-    [ "operator=", "de/d1f/a05994.html#ab51f397146bf8a3184476a1b302318e4", null ]
+    [ "Point", "de/d1f/a05994.html#aa0cad5391a5d7e73a9bf3d406fac8f27", null ],
+    [ "Point", "de/d1f/a05994.html#a624baf33318a709ecf62eb5a8b11169b", null ],
+    [ "x", "de/d1f/a05994.html#a5c0770c52f3794c74f1e05a140cb3c1c", null ],
+    [ "y", "de/d1f/a05994.html#af5bf7bc951e336b3552ed2a36f6d9056", null ]
 ];

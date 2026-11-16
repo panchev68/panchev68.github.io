@@ -1,14 +1,17 @@
 var a05486 =
 [
-    [ "OSPIPort", "dd/d2c/a05486.html#a8c1f23febaf9293e008f91a9d6ad5b17", null ],
-    [ "~OSPIPort", "dd/d2c/a05486.html#a88592dfaa7cbb4efa05747483c911d6f", null ],
-    [ "abort", "dd/d2c/a05486.html#a12a734c939e90c6c90510ba2c323dec0", null ],
-    [ "close", "dd/d2c/a05486.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "command", "dd/d2c/a05486.html#ab13d30c818279bf38505328181fa1409", null ],
-    [ "getHandle", "dd/d2c/a05486.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "dd/d2c/a05486.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "dd/d2c/a05486.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "dd/d2c/a05486.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "dd/d2c/a05486.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
-    [ "transmit", "dd/d2c/a05486.html#a2f58a3412364e7819ba973859d2389a7", null ]
+    [ "ADCPort", "dd/d2c/a05486.html#ad3590b6cb223a01016ad98732fcce676", null ],
+    [ "~ADCPort", "dd/d2c/a05486.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
+    [ "ADCPort", "dd/d2c/a05486.html#a9e044644fe3be9918072830d224a30df", null ],
+    [ "ADCPort", "dd/d2c/a05486.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
+    [ "close", "dd/d2c/a05486.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getHandle", "dd/d2c/a05486.html#a5614da14358698185ca50bab6f0ffb90", null ],
+    [ "getHandle", "dd/d2c/a05486.html#a67ec812f689c32e443b0f0b0693c358a", null ],
+    [ "getValue", "dd/d2c/a05486.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "dd/d2c/a05486.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "dd/d2c/a05486.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
+    [ "operator=", "dd/d2c/a05486.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
+    [ "poll", "dd/d2c/a05486.html#a7f4263cc22040a8ca759022ba6097646", null ],
+    [ "start", "dd/d2c/a05486.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
+    [ "stop", "dd/d2c/a05486.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
 ];

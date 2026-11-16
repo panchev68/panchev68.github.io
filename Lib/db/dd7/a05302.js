@@ -1,22 +1,13 @@
 var a05302 =
 [
-    [ "Diagnostic", "d2/d63/a05306.html", "d2/d63/a05306" ],
-    [ "ConnectionState", "db/dd7/a05302.html#a56cd12ff82e971645f7a23734b80bbf0", null ],
-    [ "ClientBase", "db/dd7/a05302.html#a2ee9814fe7b1bdf67ee96cc783454230", null ],
-    [ "~ClientBase", "db/dd7/a05302.html#aa64fe42414f52a9ddcf73265f7aaa32e", null ],
-    [ "ClientBase", "db/dd7/a05302.html#a171d0ee214534d948c4d955355ab7bf3", null ],
-    [ "ClientBase", "db/dd7/a05302.html#a9ad742e1649a2f2423837da9974e4140", null ],
-    [ "getConnectionState", "db/dd7/a05302.html#a0ba4737991369ec358f11bf82c4392df", null ],
-    [ "getDiagnostic", "db/dd7/a05302.html#acddaa0b3fe21bf41d5c49971e4833fb8", null ],
-    [ "getRemoteNode", "db/dd7/a05302.html#a0d9ed09b6ed483d84196c3617fdd854d", null ],
-    [ "handleApplicationProcess", "db/dd7/a05302.html#a00422437a5ab35fa114a370d21d55678", null ],
-    [ "operator=", "db/dd7/a05302.html#a878f98b5d415e7a8e2821d7c2b7c398e", null ],
-    [ "operator=", "db/dd7/a05302.html#ae1ba6598652355c62f04b855d15e0ee4", null ],
-    [ "readLinkState", "db/dd7/a05302.html#a1509f9ad6bf5e3766269bbdec6103779", null ],
-    [ "send", "db/dd7/a05302.html#a75056b314ce6ce19807888e9fd56cb2c", null ],
-    [ "setConnectionState", "db/dd7/a05302.html#a7936da086b583d8438bc492bd1423181", null ],
-    [ "setRemoteNode", "db/dd7/a05302.html#aca3bfc7a7ae808b71533018ec7f30382", null ],
-    [ "start", "db/dd7/a05302.html#a590e03d72003060be01839884fdd0b26", null ],
-    [ "updateRxLedCallback", "db/dd7/a05302.html#af2915b8806cc5b5c86f344d441dc28c2", null ],
-    [ "updateTxLedCallback", "db/dd7/a05302.html#ac2aebcf3601efce658d06d2be4f7f06c", null ]
+    [ "Handlers", "db/dd7/a05302.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
+    [ "EepromEmulation", "db/dd7/a05302.html#a1146daff507a230799851b6c5f9ee835", null ],
+    [ "~EepromEmulation", "db/dd7/a05302.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
+    [ "EepromEmulation", "db/dd7/a05302.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
+    [ "EepromEmulation", "db/dd7/a05302.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
+    [ "operator=", "db/dd7/a05302.html#ac18054ff925ab9ff88d05d79a8674626", null ],
+    [ "operator=", "db/dd7/a05302.html#a8a0057afb82e294f720a93b50ad87908", null ],
+    [ "process", "db/dd7/a05302.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
+    [ "setHandlers", "db/dd7/a05302.html#a070225a3de178cf14fb35d7a18f183e0", null ],
+    [ "setReadSize", "db/dd7/a05302.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
 ];

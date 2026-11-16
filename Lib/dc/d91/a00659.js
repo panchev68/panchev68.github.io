@@ -1,4 +1,4 @@
 var a00659 =
 [
-    [ "Lib::HAL::isDmaReachable", "de/d9c/a01092.html#a6d025716096ef0a5098ff9db2688b2da", null ]
+    [ "Lib::HAL::Device&lt; T_DEVICE, T_HANDLE &gt;", "dc/df9/a05542.html", "dc/df9/a05542" ]
 ];

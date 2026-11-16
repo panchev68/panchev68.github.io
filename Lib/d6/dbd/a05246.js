@@ -1,7 +1,8 @@
 var a05246 =
 [
-    [ "close", "d6/dbd/a05246.html#ab9d284c5cdff31383f99dea75c7f9e89", null ],
-    [ "open", "d6/dbd/a05246.html#a2f27b571e2674aeb90f9773efe5d47c5", null ],
-    [ "read", "d6/dbd/a05246.html#a53a2f54f254565a80c92924936564fb0", null ],
-    [ "write", "d6/dbd/a05246.html#ae649720e51a2f29cd3f226e0c91e40f4", null ]
+    [ "Frame0x90", "d6/dbd/a05246.html#a22052cd3212328570ef5c6d06ef34390", null ],
+    [ "options", "d6/dbd/a05246.html#a5c602af5052ef25f33461908061ad07f", null ],
+    [ "rfData", "d6/dbd/a05246.html#a0a12c77e30ed809310066e0b8ca02ef4", null ],
+    [ "srcAddr16", "d6/dbd/a05246.html#a6bca75cd72e3dbbce9c1bc53b4723b78", null ],
+    [ "srcAddr64", "d6/dbd/a05246.html#a8c9867ba7149b30c68d2c80449ece42a", null ]
 ];

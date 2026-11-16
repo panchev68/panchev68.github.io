@@ -1,5 +1,4 @@
 var a08609 =
 [
-    [ "Lib::Ethernet::UserProtocol&lt; T_DERIVED &gt;", "d3/dea/a05363.html", "d3/dea/a05363" ],
-    [ "Lib::Ethernet::UserProtocol&lt; T_DERIVED &gt;::MessageHeader", "db/da4/a05367.html", "db/da4/a05367" ]
+    [ "Lib::Digi::API::UserProtocol&lt; Derived &gt;", "d5/d80/a05114.html", "d5/d80/a05114" ]
 ];

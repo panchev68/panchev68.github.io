@@ -1,9 +1,10 @@
 var a05898 =
 [
-    [ "CriticalSection", "d2/ddb/a05898.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
-    [ "~CriticalSection", "d2/ddb/a05898.html#a4a507b226238920b8fae903a5bd87776", null ],
-    [ "CriticalSection", "d2/ddb/a05898.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
-    [ "CriticalSection", "d2/ddb/a05898.html#a9de7a81409af7b28d1da974ded4a7688", null ],
-    [ "operator=", "d2/ddb/a05898.html#aabac4732503c72da02f8e49754bbc736", null ],
-    [ "operator=", "d2/ddb/a05898.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
+    [ "TerminateHandler", "d2/ddb/a05898.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
+    [ "Exception", "d2/ddb/a05898.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
+    [ "Exception", "d2/ddb/a05898.html#a25551a21318cf9b33efd57e954f91490", null ],
+    [ "Exception", "d2/ddb/a05898.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
+    [ "~Exception", "d2/ddb/a05898.html#aab05c0efba4581a5739c344c1d848c87", null ],
+    [ "operator=", "d2/ddb/a05898.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
+    [ "what", "d2/ddb/a05898.html#ad1278467b92ab31659263c92c3c292e1", null ]
 ];

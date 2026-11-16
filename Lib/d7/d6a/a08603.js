@@ -1,5 +1,6 @@
 var a08603 =
 [
-    [ "Lib::System::Storage&lt; T_DERIVED &gt;", "d4/d7a/a06203.html", "d4/d7a/a06203" ],
-    [ "Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;", "d3/d2f/a06207.html", "d3/d2f/a06207" ]
+    [ "Lib::Digi::API::Service::Parameters", "d2/d69/a05086.html", "d2/d69/a05086" ],
+    [ "Lib::Digi::API::Service::Parameters::Data", "dd/dbd/a05090.html", "dd/dbd/a05090" ],
+    [ "Lib::Digi::API::Service::Parameters::Data::SerialNumber", "dc/d78/a05094.html", "dc/d78/a05094" ]
 ];

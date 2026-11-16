@@ -1,11 +1,9 @@
 var a05414 =
 [
-    [ "SPIPort", "dd/d15/a05414.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
-    [ "~SPIPort", "dd/d15/a05414.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ],
-    [ "abort", "dd/d15/a05414.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
-    [ "close", "dd/d15/a05414.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "dd/d15/a05414.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "dd/d15/a05414.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "dd/d15/a05414.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "dd/d15/a05414.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "ViewportScope", "dd/d15/a05414.html#ae54cbe4588aab0c0a335d639dc5481e0", null ],
+    [ "~ViewportScope", "dd/d15/a05414.html#aaf5cd0f72a813a9af4725b2d0551c63c", null ],
+    [ "ViewportScope", "dd/d15/a05414.html#a9785684a6080200fc8a3833d435d9318", null ],
+    [ "ViewportScope", "dd/d15/a05414.html#a78ef751d8b19d0a9ae832c294bb97dc6", null ],
+    [ "operator=", "dd/d15/a05414.html#ac87d8f95c234d6bca25d78ada6802967", null ],
+    [ "operator=", "dd/d15/a05414.html#a58ce60c0531280d49e3cb0eb465ac003", null ]
 ];

@@ -1,6 +1,7 @@
 var a04974 =
 [
-    [ "getIdentifier", "d3/d64/a04974.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
-    [ "setIdentifier", "d3/d64/a04974.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
-    [ "identifier", "d3/d64/a04974.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
+    [ "Key", "d3/d64/a04974.html#a01aa89923019ee3bf5249396252577a0", null ],
+    [ "Nonce", "d3/d64/a04974.html#ae4ce9fb8d76a85f4786b936d4bdb3327", null ],
+    [ "Tag", "d3/d64/a04974.html#a73ebbac632c0982dc3eeb3880cd7febc", null ],
+    [ "WolfSSLChaCha20Poly1305", "d3/d64/a04974.html#af47892a2a6a403161bf652674b3fbaf8", null ]
 ];

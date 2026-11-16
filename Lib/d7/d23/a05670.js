@@ -1,14 +1,13 @@
 var a05670 =
 [
-    [ "USBOtgPort", "d7/d23/a05670.html#a94591d5e8c2febc4e287510cbbe8fdd3", null ],
-    [ "~USBOtgPort", "d7/d23/a05670.html#a277068fa3df6459bf52aac65457f31d6", null ],
-    [ "USBOtgPort", "d7/d23/a05670.html#a996c0c11f55b66f27d118a91eb700a30", null ],
-    [ "USBOtgPort", "d7/d23/a05670.html#ab276be300ebf7d87066609fd80b78336", null ],
-    [ "getDevice", "d7/d23/a05670.html#a023ac50c5d201c51c5b288f17fc86ec9", null ],
-    [ "getHost", "d7/d23/a05670.html#a5e5a4a2c6e79efb76f4ef3bbd18fbdfa", null ],
-    [ "getRole", "d7/d23/a05670.html#a1bcb32f40cc65b5e6e7e2103f39f683f", null ],
-    [ "operator=", "d7/d23/a05670.html#a78acf6354843aa38ea86734991fe89b2", null ],
-    [ "operator=", "d7/d23/a05670.html#ab1fe3b9f1189d474ddf9fe136989041e", null ],
-    [ "release", "d7/d23/a05670.html#ae01129b71b69271e84ae03dfd2b17bb1", null ],
-    [ "setRole", "d7/d23/a05670.html#aec9af265280bdd162bad2fc3ab471564", null ]
+    [ "State", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91", [
+      [ "UNKNOWN", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "POWER_ON", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
+      [ "BROWNOUT", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
+      [ "PIN", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
+      [ "SOFTWARE", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
+      [ "INDEPENDENT_WATCHDOG", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
+      [ "WINDOW_WATCHDOG", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
+      [ "LOW_POWER", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
+    ] ]
 ];

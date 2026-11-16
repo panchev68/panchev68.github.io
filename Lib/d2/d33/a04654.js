@@ -1,11 +1,11 @@
 var a04654 =
 [
-    [ "operator==", "d2/d33/a04654.html#a6d55cf519f280eb9c0e3a26e175a07f1", null ],
-    [ "fifoStatus1", "d2/d33/a04654.html#a8d4064983272456f2bb02cc0e9f0c920", null ],
-    [ "irqStatus1", "d2/d33/a04654.html#aa768730607ddfadbd98e83d9e2dad318", null ],
-    [ "irqStatus2", "d2/d33/a04654.html#adac7641fc9718f5eadda0e0b4ab2ed71", null ],
-    [ "operation", "d2/d33/a04654.html#a5b9150d2c316bf04c90a8e926eaf8f81", null ],
-    [ "protocol", "d2/d33/a04654.html#a7057ac56ad3d604ce1fcb392d89f6e1c", null ],
-    [ "protocolRx1", "d2/d33/a04654.html#a3286298ea7c4dc967dd97d575455c368", null ],
-    [ "status", "d2/d33/a04654.html#afd9a8486968b9512fd0de55e3d549edf", null ]
+    [ "Files", "d2/d33/a04654.html#a32bb043cb678f854f5dc82cba11ce9b5", null ],
+    [ "exists", "d2/d33/a04654.html#acdeb9b2ee2aa50ce02467af8f47f6efc", null ],
+    [ "getFreeSpace", "d2/d33/a04654.html#a42a3c07dbf7258cf065d87c71b70789e", null ],
+    [ "getSize", "d2/d33/a04654.html#a55ba36349934ad39c2b7a49be4d94d9d", null ],
+    [ "getStorage", "d2/d33/a04654.html#aaec7f88b45cdde1197ee733af3b68a87", null ],
+    [ "read", "d2/d33/a04654.html#a784a6d3798784d545630794b0d373972", null ],
+    [ "remove", "d2/d33/a04654.html#a4b8b47fe473b142b38344e359b9c2f6b", null ],
+    [ "write", "d2/d33/a04654.html#a4c6ad03d6f8d73995700115490d2f279", null ]
 ];

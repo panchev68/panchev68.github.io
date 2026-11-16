@@ -1,6 +1,5 @@
 var a05050 =
 [
-    [ "AtCommandString", "da/df4/a05050.html#aececd161348c75d93c06ea6da2f4cd23", null ],
-    [ "AtCommandString", "da/df4/a05050.html#aeda6a28d5f8d19ea98ec29f1795507be", null ],
-    [ "operator uint16_t", "da/df4/a05050.html#a5bfb355d92f981a786da2146384333c5", null ]
+    [ "temperatureValue", "da/df4/a05050.html#ad352c7bba31cc229e106eea4aef94299", null ],
+    [ "voltageValue", "da/df4/a05050.html#a8dfb3d30a434e5346c20ac691dfe3595", null ]
 ];

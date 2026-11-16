@@ -1,16 +1,14 @@
 var a04954 =
 [
-    [ "Period", "d2/d68/a04954.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
-    [ "Period", "d2/d68/a04954.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
-    [ "beginMeasurement", "d2/d68/a04954.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
-    [ "clearMinMax", "d2/d68/a04954.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
-    [ "endMeasurement", "d2/d68/a04954.html#a764b89843884696c66a1e499e466bb51", null ],
-    [ "getMaximum", "d2/d68/a04954.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
-    [ "getMinimum", "d2/d68/a04954.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
-    [ "getRawValue", "d2/d68/a04954.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
-    [ "getValue", "d2/d68/a04954.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
-    [ "operator uint32_t", "d2/d68/a04954.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
-    [ "operator=", "d2/d68/a04954.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
-    [ "reset", "d2/d68/a04954.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
-    [ "stopMeasurement", "d2/d68/a04954.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
+    [ "PasswordAuthHandler", "d2/d68/a04954.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
+    [ "WolfSSHServerContext", "d2/d68/a04954.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
+    [ "~WolfSSHServerContext", "d2/d68/a04954.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
+    [ "WolfSSHServerContext", "d2/d68/a04954.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
+    [ "WolfSSHServerContext", "d2/d68/a04954.html#a41d71d3b7597c69631a274d39e0fa345", null ],
+    [ "native", "d2/d68/a04954.html#a188293485b26e63785504b3f63d346fe", null ],
+    [ "operator=", "d2/d68/a04954.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
+    [ "operator=", "d2/d68/a04954.html#ac889915b8b230867843bb316a9bad1fc", null ],
+    [ "setBanner", "d2/d68/a04954.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
+    [ "setPasswordAuthHandler", "d2/d68/a04954.html#a72301d8027efc740d10b7d0d660c198f", null ],
+    [ "usePrivateKey", "d2/d68/a04954.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
 ];

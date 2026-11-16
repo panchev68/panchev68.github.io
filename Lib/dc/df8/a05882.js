@@ -1,7 +1,14 @@
 var a05882 =
 [
-    [ "isInverted", "dc/df8/a05882.html#a527ce99ad9135c5ee638b478e35031de", null ],
-    [ "isPresent", "dc/df8/a05882.html#adeb1badd28d6911fa7c0422e5278feef", null ],
-    [ "name", "dc/df8/a05882.html#aa93f171d58ca1b53c5c589d81d12bf17", null ],
-    [ "source", "dc/df8/a05882.html#a13e98c772a216681f6a95506ba77144a", null ]
+    [ "Time", "d8/d1d/a05886.html", "d8/d1d/a05886" ],
+    [ "Date", "d7/d86/a05890.html", "d7/d86/a05890" ],
+    [ "DateTime", "dc/df8/a05882.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
+    [ "DateTime", "dc/df8/a05882.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
+    [ "isValid", "dc/df8/a05882.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
+    [ "operator<=>", "dc/df8/a05882.html#a768cad764174be4d63763ddda26b9f67", null ],
+    [ "operator==", "dc/df8/a05882.html#a3d983b842fee71216375379ddc6be3ce", null ],
+    [ "to_tm", "dc/df8/a05882.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
+    [ "toSysSeconds", "dc/df8/a05882.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
+    [ "date", "dc/df8/a05882.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
+    [ "time", "dc/df8/a05882.html#a99c6886879b06c9396a2df8bd08ce997", null ]
 ];

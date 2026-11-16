@@ -1,9 +1,13 @@
 var a04790 =
 [
-    [ "Counter", "d6/d56/a04790.html#a979dd53107c70679957a49b352e309e4", null ],
-    [ "Counter", "d6/d56/a04790.html#aa0fcdac4118821433a18e704d608605d", null ],
-    [ "clear", "d6/d56/a04790.html#a5f4c68779359a4681b48228f57296c09", null ],
-    [ "operator uint32_t", "d6/d56/a04790.html#a32d48ad9be69d1fb44852223025c4efe", null ],
-    [ "operator++", "d6/d56/a04790.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
-    [ "operator=", "d6/d56/a04790.html#aebee6561b906ea1271070b47c2610fe2", null ]
+    [ "Config", "de/d4c/a04794.html", "de/d4c/a04794" ],
+    [ "TMP102", "d6/d56/a04790.html#a949aef107b50c3194360a1211fc77380", null ],
+    [ "configureAlert", "d6/d56/a04790.html#ad9a264b10f99d9f65ad8c08b872fb4fb", null ],
+    [ "enterSleepMode", "d6/d56/a04790.html#aaf751d7c9bc24731e6fe8347ec8772ce", null ],
+    [ "exitSleepMode", "d6/d56/a04790.html#ac7ab933572bb11b6d0193a5e9ab370e9", null ],
+    [ "init", "d6/d56/a04790.html#aad208b4242276623b58c7e690d0be566", null ],
+    [ "readTemperature", "d6/d56/a04790.html#a8bad032159a78dfb379d94fd21f9a14e", null ],
+    [ "setTHigh", "d6/d56/a04790.html#a31909d75566cc264aeee9cc68c96c6a8", null ],
+    [ "setTLow", "d6/d56/a04790.html#abe3ff96789b3357515f28158f06aa714", null ],
+    [ "triggerOneShot", "d6/d56/a04790.html#a911c4aa4ba809f4461cd5d1c2586670c", null ]
 ];

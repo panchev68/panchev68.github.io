@@ -1,5 +1,5 @@
 var a00797 =
 [
-    [ "Lib::HAL::Timer::TimOnePulse", "d9/d52/a05731.html", "d9/d52/a05731" ],
-    [ "HAL_TIM_PWM_PulseFinishedCallback", "da/db8/a00797.html#a07e5fc4d223b16bec2fd6bed547cf91d", null ]
+    [ "Lib::HAL::Timer::TimInputCapture", "db/dd1/a05730.html", "db/dd1/a05730" ],
+    [ "HAL_TIM_IC_CaptureCallback", "da/db8/a00797.html#a77a2401a35ddd9bd0b8fc28331b81381", null ]
 ];

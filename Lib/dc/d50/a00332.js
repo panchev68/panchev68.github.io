@@ -1,5 +1,5 @@
 var a00332 =
 [
-    [ "Color", "d5/d13/a04739.html", "d5/d13/a04739" ],
-    [ "Color::Data", "dd/d07/a04743.html", "dd/d07/a04743" ]
+    [ "Color", "d4/dc9/a04742.html", "d4/dc9/a04742" ],
+    [ "Color::Data", "d1/d86/a04746.html", "d1/d86/a04746" ]
 ];

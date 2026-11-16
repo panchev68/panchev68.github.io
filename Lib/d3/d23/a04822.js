@@ -1,12 +1,8 @@
 var a04822 =
 [
-    [ "SerialPortBase", "d3/d23/a04822.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
-    [ "~SerialPortBase", "d3/d23/a04822.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
-    [ "close", "d3/d23/a04822.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
-    [ "isOpen", "d3/d23/a04822.html#a8a52c63b043300492be23bf0b0138f86", null ],
-    [ "open", "d3/d23/a04822.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
-    [ "send", "d3/d23/a04822.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
-    [ "Master", "d3/d23/a04822.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d3/d23/a04822.html#af2d503cce06191d01441adbba146c9f5", null ],
-    [ "onBufferReceive", "d3/d23/a04822.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
+    [ "ambientTemperatureCelsius", "d3/d23/a04822.html#afe46178f50e25346cca90112dc708790", null ],
+    [ "listenDuration", "d3/d23/a04822.html#aed97102995a3a032b9524b1e47731f17", null ],
+    [ "timeout", "d3/d23/a04822.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
+    [ "uart", "d3/d23/a04822.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
+    [ "uartAddress", "d3/d23/a04822.html#a07cd324da0adf0baf2262a0b33404164", null ]
 ];

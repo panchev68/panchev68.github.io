@@ -1,18 +1,12 @@
 var a05002 =
 [
-    [ "Node", "d5/dc0/a05006.html", "d5/dc0/a05006" ],
-    [ "NetworkDiscovery", "d7/daf/a05002.html#acd0e3f3866a3ca66b7f3e542776da665", null ],
-    [ "NetworkDiscovery", "d7/daf/a05002.html#ab9ffde2714e24e2870cdc93c23495f03", null ],
-    [ "close", "d7/daf/a05002.html#a1315fb9cad5a91c5e451bf64e521ea96", null ],
-    [ "getNodeCount", "d7/daf/a05002.html#a5ff67a6679624bd114c6dcf093a2e5ca", null ],
-    [ "getNodes", "d7/daf/a05002.html#a1bb3ae3971de79ceadc4598cb0e980fb", null ],
-    [ "hasNodes", "d7/daf/a05002.html#aff5f6c6f0f6bea3102ddff447677796f", null ],
-    [ "initialize", "d7/daf/a05002.html#a6329c58c641c134db59a8f37a9637dea", null ],
-    [ "isRunning", "d7/daf/a05002.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d7/daf/a05002.html#a1a3ede33b94a0d0f532e9e6d3b599dce", null ],
-    [ "operator=", "d7/daf/a05002.html#a56fe4df6f329a5e18e8f8132ec5f5c7b", null ],
-    [ "process", "d7/daf/a05002.html#a0747f885e5a9feba10647c760353f395", null ],
-    [ "start", "d7/daf/a05002.html#a959b5480dd22f8a82c83f45f689a5f47", null ],
-    [ "tearDown", "d7/daf/a05002.html#a433b1176b2ec86cafe98bb73425d401b", null ],
-    [ "update", "d7/daf/a05002.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "State", "d5/dc0/a05006.html", "d5/dc0/a05006" ],
+    [ "Quality", "d8/d79/a05010.html", "d8/d79/a05010" ],
+    [ "Info", "dc/d66/a05014.html", "dc/d66/a05014" ],
+    [ "Connection", "d7/daf/a05002.html#ac3f7cec3bac26ebbbdfd93dc9d339f48", null ],
+    [ "Connection", "d7/daf/a05002.html#afaa8af957c71adc2bf6b63d902caedf2", null ],
+    [ "operator=", "d7/daf/a05002.html#a6bed4ce5a085f4b0a9bbeb1131272236", null ],
+    [ "info", "d7/daf/a05002.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
+    [ "quality", "d7/daf/a05002.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
+    [ "state", "d7/daf/a05002.html#a79f4aecc9bd038f5938e6373412ed099", null ]
 ];

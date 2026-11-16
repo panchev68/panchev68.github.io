@@ -1,4 +1,4 @@
 var a00974 =
 [
-    [ "RTOS::MutexGuard", "d8/d7a/a06083.html", "d8/d7a/a06083" ]
+    [ "RTOS::Mutex", "d6/d02/a06082.html", "d6/d02/a06082" ]
 ];

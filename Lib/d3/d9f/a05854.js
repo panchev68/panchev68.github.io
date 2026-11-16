@@ -1,11 +1,4 @@
 var a05854 =
 [
-    [ "Parameters", "d3/d9f/a05854.html#a24b8a679899e0a92f683ab16239f32df", null ],
-    [ "Parameters", "d3/d9f/a05854.html#a4e23b99119d652c7a97a2b5047722d75", null ],
-    [ "kd", "d3/d9f/a05854.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d3/d9f/a05854.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d3/d9f/a05854.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d3/d9f/a05854.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d3/d9f/a05854.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d3/d9f/a05854.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "Digits", "d3/d9f/a05854.html#a6d4a05d6f245e02cf8f764801f23f0fc", null ]
 ];

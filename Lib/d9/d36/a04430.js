@@ -1,16 +1,20 @@
 var a04430 =
 [
-    [ "Config", "d9/d36/a04430.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
-    [ "M24C64W", "d9/d36/a04430.html#a961e9014542ac6f768bd548fa1d15598", null ],
-    [ "~M24C64W", "d9/d36/a04430.html#a786bcea2331bd895b693fa1cf2fb0e6b", null ],
-    [ "close", "d9/d36/a04430.html#a379c6a49e0b3c1c663020582e61d6887", null ],
-    [ "getChipSize", "d9/d36/a04430.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
-    [ "open", "d9/d36/a04430.html#ababf497720b16b51762103ca82e56f49", null ],
-    [ "read", "d9/d36/a04430.html#a54927e78496718fcd7a9cb0e02767604", null ],
-    [ "read16", "d9/d36/a04430.html#a41825423769f79dd77cb1e77736e6e2a", null ],
-    [ "read8", "d9/d36/a04430.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
-    [ "write", "d9/d36/a04430.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
-    [ "write16", "d9/d36/a04430.html#a1736b59146de0f5cacdb663197cd061e", null ],
-    [ "write8", "d9/d36/a04430.html#a299a926321f0db8d9eac8527198f28fc", null ],
-    [ "Driver< M24C64W >", "d9/d36/a04430.html#a389c035ca7d606c8426542af2e4b7d70", null ]
+    [ "MapField", "dd/d10/a04434.html", "dd/d10/a04434" ],
+    [ "Config", "d7/dad/a04438.html", "d7/dad/a04438" ],
+    [ "PortBase", "d8/d1f/a04450.html", "d8/d1f/a04450" ],
+    [ "Inputs", "de/d70/a04454.html", "de/d70/a04454" ],
+    [ "Outputs", "d8/df5/a04458.html", "d8/df5/a04458" ],
+    [ "SpiPort", "d9/d36/a04430.html#a8e662cafaa683ac82c0b60d7b4da8fdc", null ],
+    [ "UpdateMode", "d9/d36/a04430.html#a50419179ec3a60e3ac3b5036b3b284eb", [
+      [ "SEQUENTIAL", "d9/d36/a04430.html#a50419179ec3a60e3ac3b5036b3b284eba39403cd282d944abcd4f14996cb71bcb", null ],
+      [ "PARALLEL", "d9/d36/a04430.html#a50419179ec3a60e3ac3b5036b3b284ebadf13a99b035d6f0bce4f44ab18eec8eb", null ]
+    ] ],
+    [ "DigitalPeripheralBase", "d9/d36/a04430.html#ace067a52b4d9576bd3ade495aa11e352", null ],
+    [ "~DigitalPeripheralBase", "d9/d36/a04430.html#a9d019d0d0be1f110d76abf5f5ab11e4e", null ],
+    [ "getInputs", "d9/d36/a04430.html#ae1add73078ebd967252d4864e16de016", null ],
+    [ "getOutputs", "d9/d36/a04430.html#ad664d141e8c0b66fbd109f6397914af6", null ],
+    [ "handlePostUpdateEvent", "d9/d36/a04430.html#a9b56e97a372ad140ce2ef0b8b348a7c5", null ],
+    [ "handlePreUpdateEvent", "d9/d36/a04430.html#a2953eba2059d60debecac4c3d1d3e1d2", null ],
+    [ "setup", "d9/d36/a04430.html#ae9523074ebe5ad81c27aacd0f7c38c7f", null ]
 ];

@@ -1,9 +1,5 @@
 var a04826 =
 [
-    [ "Address", "d6/df5/a04826.html#acd001c62e8048465f6e3775f8c914bed", null ],
-    [ "FunctionCode", "d6/df5/a04826.html#aa422425db306dc5abb9819fd3a3489aa", null ],
-    [ "close", "d6/df5/a04826.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
-    [ "handleReceivedFrame", "d6/df5/a04826.html#a089411b3f62f689799fb09666cfe1ac9", null ],
-    [ "open", "d6/df5/a04826.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
-    [ "setup", "d6/df5/a04826.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
+    [ "decayPeriodMicroseconds", "d6/df5/a04826.html#a12e79efa3a5a899b1e64d25ff5a0fdb3", null ],
+    [ "frequencyHz", "d6/df5/a04826.html#a50257a628ef439fb965df1ee908f3e5e", null ]
 ];

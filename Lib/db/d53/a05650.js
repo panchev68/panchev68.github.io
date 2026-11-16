@@ -1,14 +1,14 @@
 var a05650 =
 [
-    [ "EventHandler", "db/d53/a05650.html#a10761412c20341dee385767eac673248", null ],
-    [ "USBHostPort", "db/d53/a05650.html#a91ab9877db9cf87b15fe9118bf39ed92", null ],
-    [ "~USBHostPort", "db/d53/a05650.html#a4c01d7a9aa859df6f11e05b804af766d", null ],
+    [ "OSPIPort", "db/d53/a05650.html#a14ccf4bafc49e1e7c3810bc249cc5748", null ],
+    [ "~OSPIPort", "db/d53/a05650.html#a50dab62adbe482ae17aa805e97c7f3ce", null ],
+    [ "abort", "db/d53/a05650.html#a12a734c939e90c6c90510ba2c323dec0", null ],
     [ "close", "db/d53/a05650.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "command", "db/d53/a05650.html#ab13d30c818279bf38505328181fa1409", null ],
     [ "getHandle", "db/d53/a05650.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "db/d53/a05650.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
     [ "isOpened", "db/d53/a05650.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
     [ "open", "db/d53/a05650.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "setEventHandler", "db/d53/a05650.html#a031aa9b48caa98516825b7f35468b627", null ],
-    [ "transfer", "db/d53/a05650.html#a3bcff372802df7955ce5761f4e32e420", null ],
-    [ "waitForEvent", "db/d53/a05650.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
+    [ "receive", "db/d53/a05650.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "db/d53/a05650.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

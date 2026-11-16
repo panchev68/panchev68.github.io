@@ -1,13 +1,7 @@
 var a05206 =
 [
-    [ "Observer", "d4/d56/a05206.html#abdcd46d6d928709efb45c4092a509ad3", null ],
-    [ "Observer", "d4/d56/a05206.html#a4cc93d46146ee3fcd380f341b24126ad", null ],
-    [ "Observer", "d4/d56/a05206.html#a285dcb5567493b45b23d25b24004e9b9", null ],
-    [ "check", "d4/d56/a05206.html#ac245a085bf28b893f98cbc8943c50939", null ],
-    [ "forEach", "d4/d56/a05206.html#a6dcac43dde13eaf06dff704610eb7f8f", null ],
-    [ "getGroup", "d4/d56/a05206.html#a2973edaf7f9a66d9900fe3adf841146c", null ],
-    [ "matches", "d4/d56/a05206.html#abc1b7f5285e87adc24a4969a47113543", null ],
-    [ "number", "d4/d56/a05206.html#a446e9c28defc96197acdcd260d4706f6", null ],
-    [ "operator const Group *", "d4/d56/a05206.html#a68975b48ce0a7e2e846ed67f6851be04", null ],
-    [ "read", "d4/d56/a05206.html#ae9c2b90078fb4baacc77df620dd6affc", null ]
+    [ "FrameWriter", "d4/d56/a05206.html#a59412dd23cc927bfec3c14e563ce00ac", null ],
+    [ "put", "d4/d56/a05206.html#a08ff6a358e2a048f64a0d79be8a77a3a", null ],
+    [ "put", "d4/d56/a05206.html#afa16c8a90132f75fc0ca2fec2864fc19", null ],
+    [ "put", "d4/d56/a05206.html#abb5db27849ce33eefe7c66d078a1372b", null ]
 ];

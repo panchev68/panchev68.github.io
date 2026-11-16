@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::CANPort</title>
+<title>IAR EWARM Library: Lib::GUI::Context</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,136 +129,177 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/df9/a06354.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::CANPort</div></div>
+  <div class="headertitle"><div class="title">Lib::GUI::Context</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Sends and receives classic CAN frames through <a class="el" href="../../dc/df9/a06354.html" title="Lib::HAL::CANPort">Lib::HAL::CANPort</a> in 'Lib::HAL::DriverMode::BLOCKING' mode, which polls the mailboxes and FIFOs from the calling task, and in 'Lib::HAL::DriverMode::IT' mode, which blocks on task notifications raised from the CAN interrupts.</p>
-<p>Sends and receives classic CAN frames through <a class="el" href="../../dc/df9/a06354.html" title="Lib::HAL::CANPort">Lib::HAL::CANPort</a> in 'Lib::HAL::DriverMode::BLOCKING' mode, which polls the mailboxes and FIFOs from the calling task, and in 'Lib::HAL::DriverMode::IT' mode, which blocks on task notifications raised from the CAN interrupts. The port wraps a <b>CAN_HandleTypeDef</b> created by CubeMX; the bit timing, the pins and the acceptance filters are set up by CubeMX, and Lib::HAL::CANPort::open() starts the peripheral (in IT mode it also enables the interrupts).</p>
-<p>Both modes share <a class="el" href="../../d7/d66/a05524.html#a65aa681fa591b2d0956e06e67e990b15" title="Lib::HAL::CANPortBase::write()">Lib::HAL::CANPortBase::write()</a> and <a class="el" href="../../d7/d66/a05524.html#a19f3a9f56a84a6b351315710b9aa7cd4" title="Lib::HAL::CANPortBase::read()">Lib::HAL::CANPortBase::read()</a>, which take at most 8 data bytes per frame and never block. The blocking-only helpers Lib::HAL::CANPort::writeBlocking() and Lib::HAL::CANPort::readBlocking() poll with 1 ms task delays and must run in a task, not in an ISR.</p>
+<p>Draws text, shapes and widgets on a 128 x 64 SSD1306 OLED with the <a class="el" href="../../d6/dea/a01094.html" title="Lib::GUI">Lib::GUI</a> layer.</p>
+<p>Draws text, shapes and widgets on a 128 x 64 SSD1306 OLED with the <a class="el" href="../../d6/dea/a01094.html" title="Lib::GUI">Lib::GUI</a> layer.The GUI classes know no driver. <a class="el" href="../../dc/df9/a06354.html" title="Lib::GUI::Context">Lib::GUI::Context</a> is the one singleton that holds the whole configuration of the display: its size, the default font, and inside it the <a class="el" href="../../d9/d54/a05418.html" title="Lib::GUI::Display">Lib::GUI::Display</a>, the <a class="el" href="../../d3/d1e/a05462.html" title="Lib::GUI::Primitives">Lib::GUI::Primitives</a> for shapes and the <a class="el" href="../../df/d45/a05398.html" title="Lib::GUI::Canvas">Lib::GUI::Canvas</a> for text, already connected. The application describes the display once with <a class="el" href="../../d5/d43/a05406.html#a48271a82a8ee7fb036692180987ef703" title="Lib::GUI::Context::setup()">Lib::GUI::Context::setup()</a>, binds the driver with <a class="el" href="../../d5/d43/a05406.html#ab97e6f8f2b368533fe0a40ad5c353f2c" title="Lib::GUI::Context::bind()">Lib::GUI::Context::bind()</a>, and from then on every widget draws with <em class="arg">draw()</em> and no argument, taking what it needs from the context. Nothing is shown before <a class="el" href="../../d5/d43/a05406.html#a7beed38f320353f422e70d9a209c4c5c" title="Lib::GUI::Context::flush()">Lib::GUI::Context::flush()</a>, which sends the whole frame buffer over I2C and blocks, so call it from a task, never from an ISR. One display is drawn from one task; the classes are not thread-safe.</p>
+<dl class="section important"><dt>Important</dt><dd>The font has to be an export of the LCD Vision font editor kept as a constant array. Change the generated <em class="arg">flash</em> <em class="arg">unsigned</em> <em class="arg">char</em> to <em class="arg">const</em> <em class="arg">uint8_t</em> and keep one of the two data blocks: the one before <em class="arg">else</em> for <a class="el" href="../../d6/dea/a01094.html#ace52ba374752881b284966b4aa2f15e2a027b2007ad9dddabea80e89e1856ab38" title="Lib::GUI::FontLayout::HORIZONTAL_ROWS">Lib::GUI::FontLayout::HORIZONTAL_ROWS</a>, the one after it for <a class="el" href="../../d6/dea/a01094.html#ace52ba374752881b284966b4aa2f15e2ab34e8e89eab8a1125a37023dfc5de06d" title="Lib::GUI::FontLayout::VERTICAL_ROWS">Lib::GUI::FontLayout::VERTICAL_ROWS</a>.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="can_usage_hw"></a>
-Hardware assumptions</h3>
-<ul>
-<li>The CAN handle is generated by CubeMX (for example <b>hcan1</b>, declared in 'can.c'), with its transceiver wired to the CAN pins.</li>
-<li>The IT mode needs the CAN interrupt lines enabled in the NVIC by CubeMX, so that the HAL can call its callbacks; the port enables the individual interrupt sources itself in Lib::HAL::CANPort::open().</li>
-<li>The IT mode registers its callbacks with <b>HAL_CAN_RegisterCallback()</b>, which the HAL compiles only when <em class="arg">USE_HAL_CAN_REGISTER_CALLBACKS</em> is set to 1 in the HAL configuration header. The port does not check this macro.</li>
-</ul>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="can_usage_block"></a>
-Blocking send and receive</h3>
-<p>Lib::HAL::CANPort::writeBlocking() waits up to its timeout for a free transmit mailbox, and Lib::HAL::CANPort::readBlocking() waits up to its timeout for a pending frame in the chosen FIFO. Both return <em class="arg">false</em> on timeout, which is an expected outcome on a quiet bus.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d3a/a00641.html">Lib/HAL/CAN/CANPort-Block.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="gui_usage_setup"></a>
+Setting up the display</h3>
+<p>The configuration is written once. <a class="el" href="../../de/dc0/a05446.html#a1e6d59bf0d54725ecd12204eec216c75" title="Lib::GUI::LcdVision::parse()">Lib::GUI::LcdVision::parse()</a> reads the font array without copying it, so the array has to outlive the font data. A glyph of an LCD Vision font already contains the space to the next one, so the canvas adds none; use <a class="el" href="../../df/d45/a05398.html#afbfda345cbd7b4882c40132f0db0214a" title="Lib::GUI::Canvas::setGlyphSpacing()">Lib::GUI::Canvas::setGlyphSpacing()</a> on <a class="el" href="../../d5/d43/a05406.html#a25647b80401b91267564b71671e479fa" title="Lib::GUI::Context::getCanvas()">Lib::GUI::Context::getCanvas()</a> to add some.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/da9/a00263.html">Lib/BSP/Display/SSD1306.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/db1/a00590.html">Lib/GUI/Context.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d14/a00608.html">Lib/GUI/LcdVision.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dc0/a00734.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;ContinuumMediumBold.hpp&quot;</span> <span class="comment">// LCD Vision export of the font &#39;continuum_medium_bold&#39;.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1; <span class="comment">// Generated by CubeMX in main.c.</span></div>
+<div class="line"> </div>
+<div class="line">Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::IT&gt; i2cPort{&amp;hi2c1};</div>
+<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_class" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306&lt;128, 64&gt;</a> oled{{.i2cPort = i2cPort}}; <span class="comment">// The driver; SA0 pin low.</span></div>
+<div class="line"><span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../da/d86/a05438.html">Lib::GUI::FontData</a> font = <a id="a3" name="a3"></a><a class="code hl_function" href="../../de/dc0/a05446.html#a1e6d59bf0d54725ecd12204eec216c75">Lib::GUI::LcdVision::parse</a>(continuum_medium_bold, <a id="_a4" name="_a4"></a><a class="code hl_enumvalue" href="../../d6/dea/a01094.html#ace52ba374752881b284966b4aa2f15e2a027b2007ad9dddabea80e89e1856ab38">Lib::GUI::FontLayout::HORIZONTAL_ROWS</a>);</div>
+<div class="line"> </div>
+<div class="line">[[nodiscard]] <span class="keywordtype">bool</span> openDisplay() noexcept {</div>
+<div class="line">    <span class="keywordflow">if</span> (!oled.<a id="a5" name="a5"></a><a class="code hl_function" href="../../df/dd2/a04486.html#ae77696c6301f7d64ab392726dc732210">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Port failed to open or the display did not acknowledge.</span></div>
+<div class="line">    }</div>
+<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d5/d43/a05406.html">Lib::GUI::Context</a> &amp; gui = <a id="a7" name="a7"></a><a class="code hl_function" href="../../d5/d43/a05406.html#aeeb552543645af9a768454825165e480">Lib::GUI::Context::instance</a>();</div>
+<div class="line">    gui.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d5/d43/a05406.html#a48271a82a8ee7fb036692180987ef703">setup</a>({.width = 128, .height = 64, .font = font}); <span class="comment">// The whole GUI configuration.</span></div>
+<div class="line">    gui.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d5/d43/a05406.html#ab97e6f8f2b368533fe0a40ad5c353f2c">bind</a>(oled);                                        <span class="comment">// Binds setPixel(), clear() and flush() of the driver.</span></div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00263_html"><div class="ttname"><a href="../../df/da9/a00263.html">SSD1306.hpp</a></div><div class="ttdoc">Declares Lib::BSP::Display::SSD1306, the monochrome OLED driver over I2C; compiles to nothing without...</div></div>
+<div class="ttc" id="aa00590_html"><div class="ttname"><a href="../../d7/db1/a00590.html">Context.hpp</a></div><div class="ttdoc">Declares Lib::GUI::Context, the singleton that holds the whole configuration of the GUI layer.</div></div>
+<div class="ttc" id="aa00608_html"><div class="ttname"><a href="../../d4/d14/a00608.html">LcdVision.hpp</a></div><div class="ttdoc">Declares Lib::GUI::LcdVision, which turns a font exported by the LCD Vision editor into a Lib::GUI::F...</div></div>
+<div class="ttc" id="aa00734_html"><div class="ttname"><a href="../../d6/dc0/a00734.html">I2C.hpp</a></div><div class="ttdoc">Public umbrella include for the I2C subsystem, exposing the master-only Lib::HAL::I2CPort in all thre...</div></div>
+<div class="ttc" id="aa01094_html_ace52ba374752881b284966b4aa2f15e2a027b2007ad9dddabea80e89e1856ab38"><div class="ttname"><a href="../../d6/dea/a01094.html#ace52ba374752881b284966b4aa2f15e2a027b2007ad9dddabea80e89e1856ab38">Lib::GUI::FontLayout::HORIZONTAL_ROWS</a></div><div class="ttdeci">@ HORIZONTAL_ROWS</div><div class="ttdoc">Row by row; the bytes of one row follow each other, from the left.</div><div class="ttdef"><b>Definition</b> FontLayout.hpp:29</div></div>
+<div class="ttc" id="aa01452_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa04486_html"><div class="ttname"><a href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a></div><div class="ttdoc">Monochrome OLED display driven by an SSD1306 controller over I2C, drawn into a RAM frame buffer.</div><div class="ttdef"><b>Definition</b> SSD1306.hpp:54</div></div>
+<div class="ttc" id="aa04486_html_ae77696c6301f7d64ab392726dc732210"><div class="ttname"><a href="../../df/dd2/a04486.html#ae77696c6301f7d64ab392726dc732210">Lib::BSP::Display::SSD1306::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Opens the I2C port, initializes the controller and shows a blank screen.</div><div class="ttdef"><b>Definition</b> SSD1306.hpp:139</div></div>
+<div class="ttc" id="aa05406_html"><div class="ttname"><a href="../../d5/d43/a05406.html">Lib::GUI::Context</a></div><div class="ttdoc">The one GUI of the program: the size of the display, its driver functions, the shape drawing,...</div><div class="ttdef"><b>Definition</b> Context.hpp:39</div></div>
+<div class="ttc" id="aa05406_html_a48271a82a8ee7fb036692180987ef703"><div class="ttname"><a href="../../d5/d43/a05406.html#a48271a82a8ee7fb036692180987ef703">Lib::GUI::Context::setup</a></div><div class="ttdeci">void setup(const Config &amp;config) noexcept</div><div class="ttdoc">Describes the display: its size and the default font.</div><div class="ttdef"><b>Definition</b> Context.hpp:136</div></div>
+<div class="ttc" id="aa05406_html_ab97e6f8f2b368533fe0a40ad5c353f2c"><div class="ttname"><a href="../../d5/d43/a05406.html#ab97e6f8f2b368533fe0a40ad5c353f2c">Lib::GUI::Context::bind</a></div><div class="ttdeci">void bind(T_DRIVER &amp;driver) noexcept</div><div class="ttdoc">Binds the pixel, clear and flush functions of a display driver such as Lib::BSP::Display::SSD1306.</div><div class="ttdef"><b>Definition</b> Context.hpp:147</div></div>
+<div class="ttc" id="aa05406_html_aeeb552543645af9a768454825165e480"><div class="ttname"><a href="../../d5/d43/a05406.html#aeeb552543645af9a768454825165e480">Lib::GUI::Context::instance</a></div><div class="ttdeci">static Context &amp; instance() noexcept</div><div class="ttdoc">Gets the singleton, created on first use.</div><div class="ttdef"><b>Definition</b> Context.hpp:120</div></div>
+<div class="ttc" id="aa05438_html"><div class="ttname"><a href="../../da/d86/a05438.html">Lib::GUI::FontData</a></div><div class="ttdoc">Bitmap font data, fixed or proportional width, in any of the layouts of Lib::GUI::FontLayout.</div><div class="ttdef"><b>Definition</b> FontData.hpp:33</div></div>
+<div class="ttc" id="aa05446_html_a1e6d59bf0d54725ecd12204eec216c75"><div class="ttname"><a href="../../de/dc0/a05446.html#a1e6d59bf0d54725ecd12204eec216c75">Lib::GUI::LcdVision::parse</a></div><div class="ttdeci">static FontData parse(const std::span&lt; const uint8_t &gt; raw, const FontLayout layout) noexcept</div><div class="ttdoc">Reads the array that the LCD Vision font editor exports and describes it as font data.</div><div class="ttdef"><b>Definition</b> LcdVision.hpp:50</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="gui_usage_draw"></a>
+Text and shapes</h3>
+<p>Text and shapes take a <a class="el" href="../../de/d5f/a05458.html" title="Lib::GUI::Position">Lib::GUI::Position</a>, the top-left corner counted in pixels, and anything outside the drawing area is clipped. <a class="el" href="../../d3/d1e/a05462.html#a5551a9bcfc4ff190df315da708080739" title="Lib::GUI::Primitives::lineByAngle()">Lib::GUI::Primitives::lineByAngle()</a> counts the angle counter-clockwise from the right, as on a drawing.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> drawSplash() noexcept {</div>
+<div class="line">    <a class="code hl_class" href="../../d5/d43/a05406.html">Lib::GUI::Context</a> &amp; gui = <a class="code hl_function" href="../../d5/d43/a05406.html#aeeb552543645af9a768454825165e480">Lib::GUI::Context::instance</a>();</div>
+<div class="line">    <a id="_a10" name="_a10"></a><a class="code hl_class" href="../../d3/d1e/a05462.html">Lib::GUI::Primitives</a> &amp; primitives = gui.<a id="a11" name="a11"></a><a class="code hl_function" href="../../d5/d43/a05406.html#a4d9f5800faa647f6ddfb8a0c95223d58">getPrimitives</a>();</div>
+<div class="line">    <a id="_a12" name="_a12"></a><a class="code hl_class" href="../../df/d45/a05398.html">Lib::GUI::Canvas</a> &amp; canvas = gui.<a id="a13" name="a13"></a><a class="code hl_function" href="../../d5/d43/a05406.html#a25647b80401b91267564b71671e479fa">getCanvas</a>();</div>
+<div class="line"> </div>
+<div class="line">    gui.<a id="a14" name="a14"></a><a class="code hl_function" href="../../d5/d43/a05406.html#aa06d22a1795a1ed05102338fe3f06b3f">clear</a>();</div>
+<div class="line"> </div>
+<div class="line">    primitives.<a id="a15" name="a15"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#a45d3c6d27e469f191c19a8cea3fd116f">roundRect</a>({0, 0}, 128, 64, 8);</div>
+<div class="line">    primitives.<a id="a16" name="a16"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#afac28e58f0654e4b82bbbaf76511de90">line</a>({8, 34}, {119, 34}, <span class="keyword">true</span>, 2, <a id="_a17" name="_a17"></a><a class="code hl_enumvalue" href="../../d6/dea/a01094.html#a66c91585008a33f06f6d4531c915a3c0a8e3a10cd3a9f7ba14e8229c287ad3c2c">Lib::GUI::LineStyle::DASHED</a>);</div>
+<div class="line">    primitives.<a id="a18" name="a18"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#a10df4231ce7708649b8678fdf1cd944d">fillRoundRect</a>({90, 40}, 30, 18, 4);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(primitives.<a id="a19" name="a19"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#a5551a9bcfc4ff190df315da708080739">lineByAngle</a>({20, 56}, 20, 45.0F));</div>
+<div class="line"> </div>
+<div class="line">    canvas.<a id="a20" name="a20"></a><a class="code hl_function" href="../../df/d45/a05398.html#a61b20bea7a4bc5fc203cefd8450d3a12">drawTextAligned</a>(0, 4, 128, <span class="stringliteral">&quot;Hello&quot;</span>, <a id="_a21" name="_a21"></a><a class="code hl_enumvalue" href="../../d6/dea/a01094.html#a4edbb8fb5be471298bc566045680142bac397289ee45877be0cd49811fe245b4e">Lib::GUI::Alignment::CENTER</a>);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(canvas.<a id="a22" name="a22"></a><a class="code hl_function" href="../../df/d45/a05398.html#a624e4c3ee3789a8cdb7fecd77de901d7">drawText</a>({8, 40}, <span class="stringliteral">&quot;OLED&quot;</span>));</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(gui.<a id="a23" name="a23"></a><a class="code hl_function" href="../../d5/d43/a05406.html#a7beed38f320353f422e70d9a209c4c5c">flush</a>());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01094_html_a4edbb8fb5be471298bc566045680142bac397289ee45877be0cd49811fe245b4e"><div class="ttname"><a href="../../d6/dea/a01094.html#a4edbb8fb5be471298bc566045680142bac397289ee45877be0cd49811fe245b4e">Lib::GUI::Alignment::CENTER</a></div><div class="ttdeci">@ CENTER</div><div class="ttdoc">Text is centered; an odd remainder goes to the right.</div><div class="ttdef"><b>Definition</b> Alignment.hpp:24</div></div>
+<div class="ttc" id="aa01094_html_a66c91585008a33f06f6d4531c915a3c0a8e3a10cd3a9f7ba14e8229c287ad3c2c"><div class="ttname"><a href="../../d6/dea/a01094.html#a66c91585008a33f06f6d4531c915a3c0a8e3a10cd3a9f7ba14e8229c287ad3c2c">Lib::GUI::LineStyle::DASHED</a></div><div class="ttdeci">@ DASHED</div><div class="ttdoc">Four lit steps followed by two dark steps.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:31</div></div>
+<div class="ttc" id="aa05398_html"><div class="ttname"><a href="../../df/d45/a05398.html">Lib::GUI::Canvas</a></div><div class="ttdoc">Text and layout helper over the shared Lib::GUI::Primitives, which draws the shapes and pixels.</div><div class="ttdef"><b>Definition</b> Canvas.hpp:42</div></div>
+<div class="ttc" id="aa05398_html_a61b20bea7a4bc5fc203cefd8450d3a12"><div class="ttname"><a href="../../df/d45/a05398.html#a61b20bea7a4bc5fc203cefd8450d3a12">Lib::GUI::Canvas::drawTextAligned</a></div><div class="ttdeci">void drawTextAligned(const int32_t x, const int32_t y, const int32_t width, const std::string_view text, const Alignment align=Alignment::LEFT, const int32_t scale=1, const bool isOn=true) noexcept</div><div class="ttdoc">Draws a single-line text aligned inside a horizontal range.</div><div class="ttdef"><b>Definition</b> Canvas.hpp:351</div></div>
+<div class="ttc" id="aa05398_html_a624e4c3ee3789a8cdb7fecd77de901d7"><div class="ttname"><a href="../../df/d45/a05398.html#a624e4c3ee3789a8cdb7fecd77de901d7">Lib::GUI::Canvas::drawText</a></div><div class="ttdeci">int32_t drawText(const Position position, const std::string_view text, const int32_t scale=1, const bool isOn=true) noexcept</div><div class="ttdoc">Draws a text at a position, which may span several lines.</div><div class="ttdef"><b>Definition</b> Canvas.hpp:310</div></div>
+<div class="ttc" id="aa05406_html_a25647b80401b91267564b71671e479fa"><div class="ttname"><a href="../../d5/d43/a05406.html#a25647b80401b91267564b71671e479fa">Lib::GUI::Context::getCanvas</a></div><div class="ttdeci">Canvas &amp; getCanvas() noexcept</div><div class="ttdoc">Gets the text drawing, which also holds the current font.</div><div class="ttdef"><b>Definition</b> Context.hpp:178</div></div>
+<div class="ttc" id="aa05406_html_a4d9f5800faa647f6ddfb8a0c95223d58"><div class="ttname"><a href="../../d5/d43/a05406.html#a4d9f5800faa647f6ddfb8a0c95223d58">Lib::GUI::Context::getPrimitives</a></div><div class="ttdeci">Primitives &amp; getPrimitives() noexcept</div><div class="ttdoc">Gets the shape drawing: pixels, lines, rectangles and rounded rectangles.</div><div class="ttdef"><b>Definition</b> Context.hpp:169</div></div>
+<div class="ttc" id="aa05406_html_a7beed38f320353f422e70d9a209c4c5c"><div class="ttname"><a href="../../d5/d43/a05406.html#a7beed38f320353f422e70d9a209c4c5c">Lib::GUI::Context::flush</a></div><div class="ttdeci">bool flush() noexcept</div><div class="ttdoc">Sends the frame buffer to the panel.</div><div class="ttdef"><b>Definition</b> Context.hpp:198</div></div>
+<div class="ttc" id="aa05406_html_aa06d22a1795a1ed05102338fe3f06b3f"><div class="ttname"><a href="../../d5/d43/a05406.html#aa06d22a1795a1ed05102338fe3f06b3f">Lib::GUI::Context::clear</a></div><div class="ttdeci">void clear() noexcept</div><div class="ttdoc">Clears the drawing area, which is the whole frame buffer unless a viewport is set.</div><div class="ttdef"><b>Definition</b> Context.hpp:189</div></div>
+<div class="ttc" id="aa05462_html"><div class="ttname"><a href="../../d3/d1e/a05462.html">Lib::GUI::Primitives</a></div><div class="ttdoc">Pixels, lines, rectangles, circles, ellipses, arcs, pie slices, triangles and curves on one display,...</div><div class="ttdef"><b>Definition</b> Primitives.hpp:55</div></div>
+<div class="ttc" id="aa05462_html_a10df4231ce7708649b8678fdf1cd944d"><div class="ttname"><a href="../../d3/d1e/a05462.html#a10df4231ce7708649b8678fdf1cd944d">Lib::GUI::Primitives::fillRoundRect</a></div><div class="ttdeci">void fillRoundRect(const Position position, const int32_t width, const int32_t height, const int32_t radius, const bool isOn=true) noexcept</div><div class="ttdoc">Draws a filled rectangle with rounded corners.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:326</div></div>
+<div class="ttc" id="aa05462_html_a45d3c6d27e469f191c19a8cea3fd116f"><div class="ttname"><a href="../../d3/d1e/a05462.html#a45d3c6d27e469f191c19a8cea3fd116f">Lib::GUI::Primitives::roundRect</a></div><div class="ttdeci">void roundRect(const Position position, const int32_t width, const int32_t height, const int32_t radius, const bool isOn=true) noexcept</div><div class="ttdoc">Draws the outline of a rectangle with rounded corners.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:289</div></div>
+<div class="ttc" id="aa05462_html_a5551a9bcfc4ff190df315da708080739"><div class="ttname"><a href="../../d3/d1e/a05462.html#a5551a9bcfc4ff190df315da708080739">Lib::GUI::Primitives::lineByAngle</a></div><div class="ttdeci">Position lineByAngle(const Position from, const uint32_t length, const float angle, const bool isOn=true, const int32_t thickness=1, const LineStyle style=LineStyle::SOLID) noexcept</div><div class="ttdoc">Draws a line from a position in a direction.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:230</div></div>
+<div class="ttc" id="aa05462_html_afac28e58f0654e4b82bbbaf76511de90"><div class="ttname"><a href="../../d3/d1e/a05462.html#afac28e58f0654e4b82bbbaf76511de90">Lib::GUI::Primitives::line</a></div><div class="ttdeci">void line(const Position from, const Position to, const bool isOn=true, const int32_t thickness=1, const LineStyle style=LineStyle::SOLID) noexcept</div><div class="ttdoc">Draws a straight line between two positions, ends included.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:182</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="gui_usage_shapes"></a>
+Circles, arcs and curves</h3>
+<p>All angles are in degrees, counted counter-clockwise from the right: 0 is right, 90 up, 180 left, 270 down. An arc runs from its start to its end angle in that direction. <a class="el" href="../../d6/dea/a01094.html#a0adec646edfb59fdc790acdb7887577aaa2727ae72447eea06d4cc0ef67187280" title="Lib::GUI::PixelMode::INVERT">Lib::GUI::PixelMode::INVERT</a> toggles a pixel and needs a driver that can read pixels back, as <a class="el" href="../../df/dd2/a04486.html" title="Lib::BSP::Display::SSD1306">Lib::BSP::Display::SSD1306</a> can.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> drawGauge() noexcept {</div>
+<div class="line">    <a class="code hl_class" href="../../d3/d1e/a05462.html">Lib::GUI::Primitives</a> &amp; primitives = <a class="code hl_function" href="../../d5/d43/a05406.html#aeeb552543645af9a768454825165e480">Lib::GUI::Context::instance</a>().<a class="code hl_function" href="../../d5/d43/a05406.html#a4d9f5800faa647f6ddfb8a0c95223d58">getPrimitives</a>();</div>
+<div class="line"> </div>
+<div class="line">    primitives.<a id="a24" name="a24"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#a9fe13d828f42ecaca732bcb7e46d599e">circle</a>({32, 32}, 30);</div>
+<div class="line">    primitives.<a id="a25" name="a25"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#a209a123744865e3e5c8cf937ede6e9b8">fillArcRound</a>({32, 32}, 26, 6, 210.0F, 330.0F);         <span class="comment">// The lower part of the dial.</span></div>
+<div class="line">    primitives.<a id="a26" name="a26"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#a768b645b51fb3e31c08748b9c4c1bb12">pieSlice</a>({96, 32}, 24, 45.0F, 135.0F);                 <span class="comment">// A slice that points up.</span></div>
+<div class="line">    primitives.<a id="a27" name="a27"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#a8588de5c00fba5e201c9dbf301f1982c">ellipse</a>({96, 32}, 30, 20);</div>
+<div class="line">    primitives.<a id="a28" name="a28"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#af7237594ff6b2f390c0708bcbef760a0">triangle</a>({90, 56}, {102, 56}, {96, 46}, 30.0F, {96, 52}); <span class="comment">// Turned 30 degrees about its base.</span></div>
+<div class="line">    primitives.<a id="a29" name="a29"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#ab40013f957f8bea82e156f608d3062c1">bezierCurve</a>({0, 63}, {64, 20}, {127, 63});</div>
+<div class="line">    primitives.<a id="a30" name="a30"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#aa156ae82861cde66833b99d5a870066a">setPixel</a>({32, 32}, <span class="keyword">true</span>, <a id="_a31" name="_a31"></a><a class="code hl_enumvalue" href="../../d6/dea/a01094.html#a0adec646edfb59fdc790acdb7887577aaa2727ae72447eea06d4cc0ef67187280">Lib::GUI::PixelMode::INVERT</a>);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01094_html_a0adec646edfb59fdc790acdb7887577aaa2727ae72447eea06d4cc0ef67187280"><div class="ttname"><a href="../../d6/dea/a01094.html#a0adec646edfb59fdc790acdb7887577aaa2727ae72447eea06d4cc0ef67187280">Lib::GUI::PixelMode::INVERT</a></div><div class="ttdeci">@ INVERT</div><div class="ttdoc">The pixel is toggled; the drawn state is ignored. Needs a display that can read a pixel back.</div><div class="ttdef"><b>Definition</b> PixelMode.hpp:24</div></div>
+<div class="ttc" id="aa05462_html_a209a123744865e3e5c8cf937ede6e9b8"><div class="ttname"><a href="../../d3/d1e/a05462.html#a209a123744865e3e5c8cf937ede6e9b8">Lib::GUI::Primitives::fillArcRound</a></div><div class="ttdeci">void fillArcRound(const Position center, const int32_t radius, const int32_t thickness, const float startAngle, const float endAngle, const bool isOn=true) noexcept</div><div class="ttdoc">Draws a filled arc of a ring with round ends.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:505</div></div>
+<div class="ttc" id="aa05462_html_a768b645b51fb3e31c08748b9c4c1bb12"><div class="ttname"><a href="../../d3/d1e/a05462.html#a768b645b51fb3e31c08748b9c4c1bb12">Lib::GUI::Primitives::pieSlice</a></div><div class="ttdeci">void pieSlice(const Position center, const int32_t radius, const float startAngle, const float endAngle, const bool isOn=true) noexcept</div><div class="ttdoc">Draws a filled pie slice: the sector of a circle between two angles.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:523</div></div>
+<div class="ttc" id="aa05462_html_a8588de5c00fba5e201c9dbf301f1982c"><div class="ttname"><a href="../../d3/d1e/a05462.html#a8588de5c00fba5e201c9dbf301f1982c">Lib::GUI::Primitives::ellipse</a></div><div class="ttdeci">void ellipse(const Position center, const int32_t xRadius, const int32_t yRadius, const bool isOn=true, const float startAngle=0.0F, const float endAngle=360.0F) noexcept</div><div class="ttdoc">Draws the outline of an ellipse or of an elliptical arc.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:416</div></div>
+<div class="ttc" id="aa05462_html_a9fe13d828f42ecaca732bcb7e46d599e"><div class="ttname"><a href="../../d3/d1e/a05462.html#a9fe13d828f42ecaca732bcb7e46d599e">Lib::GUI::Primitives::circle</a></div><div class="ttdeci">void circle(const Position center, const int32_t radius, const bool isOn=true) noexcept</div><div class="ttdoc">Draws the outline of a circle.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:374</div></div>
+<div class="ttc" id="aa05462_html_aa156ae82861cde66833b99d5a870066a"><div class="ttname"><a href="../../d3/d1e/a05462.html#aa156ae82861cde66833b99d5a870066a">Lib::GUI::Primitives::setPixel</a></div><div class="ttdeci">void setPixel(const Position position, const bool isOn=true, const PixelMode mode=PixelMode::NORMAL) noexcept</div><div class="ttdoc">Sets one pixel; a position outside the display is ignored.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:155</div></div>
+<div class="ttc" id="aa05462_html_ab40013f957f8bea82e156f608d3062c1"><div class="ttname"><a href="../../d3/d1e/a05462.html#ab40013f957f8bea82e156f608d3062c1">Lib::GUI::Primitives::bezierCurve</a></div><div class="ttdeci">void bezierCurve(const Position start, const Position control, const Position end, const bool isOn=true) noexcept</div><div class="ttdoc">Draws a quadratic Bezier curve.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:577</div></div>
+<div class="ttc" id="aa05462_html_af7237594ff6b2f390c0708bcbef760a0"><div class="ttname"><a href="../../d3/d1e/a05462.html#af7237594ff6b2f390c0708bcbef760a0">Lib::GUI::Primitives::triangle</a></div><div class="ttdeci">void triangle(const Position first, const Position second, const Position third, const bool isOn=true) noexcept</div><div class="ttdoc">Draws the outline of a triangle.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:545</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="gui_usage_viewport"></a>
+Drawing in a part of the display</h3>
+<p><a class="el" href="../../dd/d15/a05414.html" title="Lib::GUI::Context::ViewportScope">Lib::GUI::Context::ViewportScope</a> limits drawing to a rectangle for one block. Inside it the coordinates start at the top-left corner of the rectangle, the text, the shapes and the widgets are clipped to it, and <a class="el" href="../../d5/d43/a05406.html#aa06d22a1795a1ed05102338fe3f06b3f" title="Lib::GUI::Context::clear()">Lib::GUI::Context::clear()</a> clears only that part, so each panel can be redrawn on its own. Scopes can be nested. The frame buffer is still sent whole by <a class="el" href="../../d5/d43/a05406.html#a7beed38f320353f422e70d9a209c4c5c" title="Lib::GUI::Context::flush()">Lib::GUI::Context::flush()</a>.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> drawPanels() noexcept {</div>
+<div class="line">    <a class="code hl_class" href="../../d5/d43/a05406.html">Lib::GUI::Context</a> &amp; gui = <a class="code hl_function" href="../../d5/d43/a05406.html#aeeb552543645af9a768454825165e480">Lib::GUI::Context::instance</a>();</div>
+<div class="line"> </div>
+<div class="line">    gui.<a class="code hl_function" href="../../d5/d43/a05406.html#aa06d22a1795a1ed05102338fe3f06b3f">clear</a>();</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">const</span> <a id="_a32" name="_a32"></a><a class="code hl_class" href="../../dd/d15/a05414.html">Lib::GUI::Context::ViewportScope</a> <a id="_a33" name="_a33"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a10f7eecc91d9c92c116eb8877e3176dd">left</a>({0, 0}, 64, 64);</div>
+<div class="line">        gui.<a class="code hl_function" href="../../d5/d43/a05406.html#a4d9f5800faa647f6ddfb8a0c95223d58">getPrimitives</a>().<a id="a34" name="a34"></a><a class="code hl_function" href="../../d3/d1e/a05462.html#aa1fcd5fe13fd6612f8521d927de01ede">rect</a>({0, 0}, 64, 64);</div>
+<div class="line">        gui.<a class="code hl_function" href="../../d5/d43/a05406.html#a25647b80401b91267564b71671e479fa">getCanvas</a>().<a class="code hl_function" href="../../df/d45/a05398.html#a61b20bea7a4bc5fc203cefd8450d3a12">drawTextAligned</a>(0, 20, 64, <span class="stringliteral">&quot;Left&quot;</span>, <a class="code hl_enumvalue" href="../../d6/dea/a01094.html#a4edbb8fb5be471298bc566045680142bac397289ee45877be0cd49811fe245b4e">Lib::GUI::Alignment::CENTER</a>);</div>
+<div class="line">    }</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d15/a05414.html">Lib::GUI::Context::ViewportScope</a> <a id="_a35" name="_a35"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a91a59c3869c676b52cfefaae1d856d36">right</a>({64, 0}, 64, 64);</div>
+<div class="line">        gui.<a class="code hl_function" href="../../d5/d43/a05406.html#a4d9f5800faa647f6ddfb8a0c95223d58">getPrimitives</a>().<a class="code hl_function" href="../../d3/d1e/a05462.html#aa1fcd5fe13fd6612f8521d927de01ede">rect</a>({0, 0}, 64, 64);</div>
+<div class="line">        gui.<a class="code hl_function" href="../../d5/d43/a05406.html#a25647b80401b91267564b71671e479fa">getCanvas</a>().<a class="code hl_function" href="../../df/d45/a05398.html#a61b20bea7a4bc5fc203cefd8450d3a12">drawTextAligned</a>(0, 20, 64, <span class="stringliteral">&quot;Right&quot;</span>, <a class="code hl_enumvalue" href="../../d6/dea/a01094.html#a4edbb8fb5be471298bc566045680142bac397289ee45877be0cd49811fe245b4e">Lib::GUI::Alignment::CENTER</a>);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(gui.<a class="code hl_function" href="../../d5/d43/a05406.html#a7beed38f320353f422e70d9a209c4c5c">flush</a>());</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01692_html_a10f7eecc91d9c92c116eb8877e3176dd"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a10f7eecc91d9c92c116eb8877e3176dd">left</a></div><div class="ttdeci">ios_base &amp; left(ios_base &amp;__base)</div></div>
+<div class="ttc" id="aa01692_html_a91a59c3869c676b52cfefaae1d856d36"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a91a59c3869c676b52cfefaae1d856d36">right</a></div><div class="ttdeci">ios_base &amp; right(ios_base &amp;__base)</div></div>
+<div class="ttc" id="aa05414_html"><div class="ttname"><a href="../../dd/d15/a05414.html">Lib::GUI::Context::ViewportScope</a></div><div class="ttdoc">Limits drawing to a part of the display for one scope and gives the previous area back when the scope...</div><div class="ttdef"><b>Definition</b> Context.hpp:57</div></div>
+<div class="ttc" id="aa05462_html_aa1fcd5fe13fd6612f8521d927de01ede"><div class="ttname"><a href="../../d3/d1e/a05462.html#aa1fcd5fe13fd6612f8521d927de01ede">Lib::GUI::Primitives::rect</a></div><div class="ttdeci">void rect(const Position position, const int32_t width, const int32_t height, const bool isOn=true) noexcept</div><div class="ttdoc">Draws the outline of a rectangle.</div><div class="ttdef"><b>Definition</b> Primitives.hpp:249</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="gui_usage_widgets"></a>
+Widgets in a periodic task</h3>
+<p>A <a class="el" href="../../dd/de0/a05478.html" title="Lib::GUI::String">Lib::GUI::String</a> keeps its own copy of the text and clears its width before drawing, so a shorter number leaves nothing of a longer one. A widget can have a font of its own, here the one that was parsed above; the others use the font of the context. A <a class="el" href="../../d1/db8/a05450.html" title="Lib::GUI::ListMenu">Lib::GUI::ListMenu</a> is used the same way with <a class="el" href="../../d1/db8/a05450.html#a751fa5ba1f756e7738c95bfad8fb9f46" title="Lib::GUI::ListMenu::selectNext()">Lib::GUI::ListMenu::selectNext()</a> and <a class="el" href="../../d1/db8/a05450.html#a4115d2fdaf12a9e10b4f65509563148f" title="Lib::GUI::ListMenu::draw()">Lib::GUI::ListMenu::draw()</a>; give it a font small enough for several rows.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/GUI/ProgressBar.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dfa/a00626.html">Lib/GUI/String.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/dce/a01052.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> CAN_HandleTypeDef hcan1;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> exchangeBlocking() noexcept {</div>
-<div class="line">    Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; can(&amp;hcan1);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!can.open()) {</div>
+<div class="line"><span class="keywordtype">void</span> displayTask() noexcept {</div>
+<div class="line">    <span class="keywordflow">if</span> (!openDisplay()) {</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
+<div class="line">    <a class="code hl_class" href="../../d5/d43/a05406.html">Lib::GUI::Context</a> &amp; gui = <a class="code hl_function" href="../../d5/d43/a05406.html#aeeb552543645af9a768454825165e480">Lib::GUI::Context::instance</a>();</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 2&gt;</a> status{0x01U, 0x02U};</div>
-<div class="line">    <span class="keywordflow">if</span> (!can.writeBlocking(0x123U, status, <a id="_a1" name="_a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(10))) {</div>
-<div class="line">        <span class="comment">// No free mailbox within 10 ms.</span></div>
+<div class="line">    <a id="_a36" name="_a36"></a><a class="code hl_class" href="../../dd/de0/a05478.html">Lib::GUI::String&lt;8&gt;</a> value({.position = {4, 6}, .width = 120, .alignment = <a class="code hl_enumvalue" href="../../d6/dea/a01094.html#a4edbb8fb5be471298bc566045680142bac397289ee45877be0cd49811fe245b4e">Lib::GUI::Alignment::CENTER</a>, .font = &amp;font});</div>
+<div class="line">    <a id="_a37" name="_a37"></a><a class="code hl_class" href="../../da/d10/a05470.html">Lib::GUI::ProgressBar</a> bar({.x = 8, .y = 44, .width = 112, .height = 10, .maxValue = 100});</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">for</span> (int32_t level = 0;; level = (level + 5) % 105) {</div>
+<div class="line">        gui.<a class="code hl_function" href="../../d5/d43/a05406.html#aa06d22a1795a1ed05102338fe3f06b3f">clear</a>();</div>
+<div class="line">        gui.<a class="code hl_function" href="../../d5/d43/a05406.html#a4d9f5800faa647f6ddfb8a0c95223d58">getPrimitives</a>().<a class="code hl_function" href="../../d3/d1e/a05462.html#a45d3c6d27e469f191c19a8cea3fd116f">roundRect</a>({0, 0}, 128, 64, 6);</div>
+<div class="line"> </div>
+<div class="line">        value.setNumber(level);</div>
+<div class="line">        value.draw();</div>
+<div class="line"> </div>
+<div class="line">        bar.setValue(<span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(level));</div>
+<div class="line">        bar.draw();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">if</span> (!gui.<a class="code hl_function" href="../../d5/d43/a05406.html#a7beed38f320353f422e70d9a209c4c5c">flush</a>()) {</div>
+<div class="line">            <span class="keywordflow">break</span>; <span class="comment">// The bus failed; report it and stop drawing.</span></div>
+<div class="line">        }</div>
+<div class="line">        <a id="a38" name="a38"></a><a class="code hl_function" href="../../dd/dcb/a01104.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a id="_a39" name="_a39"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../db/d2d/a05520.html">Lib::HAL::CANFrame</a> frame{};</div>
-<div class="line">    <span class="keywordflow">if</span> (can.readBlocking(CAN_RX_FIFO0, frame, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
-<div class="line">        <span class="comment">// Use frame.id, frame.data and frame.length.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(can.close());</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00641_html"><div class="ttname"><a href="../../db/d3a/a00641.html">CANPort-Block.hpp</a></div><div class="ttdoc">Blocking specialization of the CAN port.</div></div>
+<div class="ttc" id="aa00623_html"><div class="ttname"><a href="../../df/d6f/a00623.html">ProgressBar.hpp</a></div><div class="ttdoc">Declares Lib::GUI::ProgressBar, a horizontal bar widget drawn with the shared Lib::GUI::Primitives.</div></div>
+<div class="ttc" id="aa00626_html"><div class="ttname"><a href="../../d6/dfa/a00626.html">String.hpp</a></div><div class="ttdoc">Declares Lib::GUI::String, a text widget with its own storage, position and alignment.</div></div>
+<div class="ttc" id="aa01052_html"><div class="ttname"><a href="../../d9/dce/a01052.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01104_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../dd/dcb/a01104.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:610</div></div>
 <div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa05520_html"><div class="ttname"><a href="../../db/d2d/a05520.html">Lib::HAL::CANFrame</a></div><div class="ttdoc">Classic CAN frame as filled in by CANPortBase::read().</div><div class="ttdef"><b>Definition</b> CANPortBase.hpp:29</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="can_usage_it"></a>
-Interrupt-driven receive task</h3>
-<p>Lib::HAL::CANPort::open() binds the task that calls it as the notification target, so the task that calls Lib::HAL::CANPort::waitForEvent() must be the one that opened the port. A notification from the CAN interrupts is delivered to that task only.</p>
-<dl class="section warning"><dt>Warning</dt><dd>Only the task that called Lib::HAL::CANPort::open() may call Lib::HAL::CANPort::waitForEvent(); other tasks never receive the CAN events.</dd></dl>
-<p>The timeout of Lib::HAL::CANPort::waitForEvent() is in milliseconds, and the call returns the event bits that fired, or 0 on timeout. The port has no error-code getter, so the example closes and reopens the port when <em class="arg">ERROR</em> is reported.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d0f/a00644.html">Lib/HAL/CAN/CANPort-IT.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d22/a01049.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> CAN_HandleTypeDef hcan1;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>CanTask final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    CanTask() noexcept :</div>
-<div class="line">        can(&amp;hcan1),</div>
-<div class="line">        task(<a id="_a3" name="_a3"></a><a class="code hl_struct" href="../../d3/da4/a06136.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Can&quot;</span>, 512, <a id="_a4" name="_a4"></a><a class="code hl_enumvalue" href="../../d6/d09/a06120.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt; can;</div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../da/de4/a06116.html">RTOS::Task</a> task; <span class="comment">// Must stay the last member.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="comment">// open() binds this task, so it must be called here, not from the constructor.</span></div>
-<div class="line">        <span class="keywordflow">if</span> (!can.open()) {</div>
-<div class="line">            assert(!<span class="stringliteral">&quot;CanTask: failed to open CAN&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keyword">const</span> uint32_t events = can.waitForEvent(Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::RX_FIFO0 |</div>
-<div class="line">                                                     Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::ERROR,</div>
-<div class="line">                                                     <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500));</div>
-<div class="line">            <span class="keywordflow">if</span> ((events &amp; Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::RX_FIFO0) != 0U) {</div>
-<div class="line">                <a class="code hl_struct" href="../../db/d2d/a05520.html">Lib::HAL::CANFrame</a> frame{};</div>
-<div class="line">                <span class="comment">// Drain every frame latched in FIFO 0, not just one per notification.</span></div>
-<div class="line">                <span class="keywordflow">while</span> (can.read(CAN_RX_FIFO0, frame)) {</div>
-<div class="line">                    <span class="comment">// Use frame.id, frame.data and frame.length.</span></div>
-<div class="line">                }</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">if</span> ((events &amp; Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::ERROR) != 0U) {</div>
-<div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(can.close());</div>
-<div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(can.open());</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
-<div class="ttc" id="aa00644_html"><div class="ttname"><a href="../../d9/d0f/a00644.html">CANPort-IT.hpp</a></div><div class="ttdoc">Interrupt-driven specialization of the CAN port.</div></div>
-<div class="ttc" id="aa01049_html"><div class="ttname"><a href="../../d0/d22/a01049.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa06116_html"><div class="ttname"><a href="../../da/de4/a06116.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
-<div class="ttc" id="aa06120_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d6/d09/a06120.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:89</div></div>
-<div class="ttc" id="aa06136_html"><div class="ttname"><a href="../../d3/da4/a06136.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:638</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="can_usage_it_send"></a>
-Transmit with completion</h3>
-<p><a class="el" href="../../d7/d66/a05524.html#a65aa681fa591b2d0956e06e67e990b15" title="Lib::HAL::CANPortBase::write()">Lib::HAL::CANPortBase::write()</a> returns as soon as a mailbox accepts the frame. The bus transmission completes later, which the IT mode reports as Lib::HAL::CANPort::Event::TX_COMPLETE to the task that opened the port.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d0f/a00644.html">Lib/HAL/CAN/CANPort-IT.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> sendWithCompletion(Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; can) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 4&gt;</a> payload{0xDEU, 0xADU, 0xBEU, 0xEFU};</div>
-<div class="line">    <span class="keywordflow">if</span> (can.write(0x7FFU, payload)) {</div>
-<div class="line">        <span class="keyword">const</span> uint32_t events = can.waitForEvent(Lib::HAL::CANPort&lt;Lib::HAL::DriverMode::IT&gt;::Event::TX_COMPLETE,</div>
-<div class="line">                                                 <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(10));</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events);</div>
-<div class="line">    }</div>
-<div class="line">}</div>
+<div class="ttc" id="aa05470_html"><div class="ttname"><a href="../../da/d10/a05470.html">Lib::GUI::ProgressBar</a></div><div class="ttdoc">Horizontal bar that shows how far a value has come between zero and a maximum.</div><div class="ttdef"><b>Definition</b> ProgressBar.hpp:29</div></div>
+<div class="ttc" id="aa05478_html"><div class="ttname"><a href="../../dd/de0/a05478.html">Lib::GUI::String</a></div><div class="ttdoc">Single-line text that keeps its own copy of the characters, so it can be changed while the screen is ...</div><div class="ttdef"><b>Definition</b> String.hpp:41</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

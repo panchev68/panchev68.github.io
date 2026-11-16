@@ -1,14 +1,9 @@
 var a04866 =
 [
-    [ "Subscriber", "d6/dd3/a04866.html#a3f40221ae5736ac688a612345a14a8e4", null ],
-    [ "MulticastDelegate", "d6/dd3/a04866.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
-    [ "add", "d6/dd3/a04866.html#a7b2551280da180b1f1dda5c6981737cd", null ],
-    [ "clear", "d6/dd3/a04866.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
-    [ "invoke", "d6/dd3/a04866.html#abfd30810b143472b8393b53f898dbcd5", null ],
-    [ "isEmpty", "d6/dd3/a04866.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
-    [ "operator()", "d6/dd3/a04866.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
-    [ "operator+=", "d6/dd3/a04866.html#a6dbac05fdf70d7b6ea7c1223f90eb0f3", null ],
-    [ "operator-=", "d6/dd3/a04866.html#abf65efccd32893eb2f7b5adfc53f8536", null ],
-    [ "remove", "d6/dd3/a04866.html#adb01252450a4c8f5a57794062eef97da", null ],
-    [ "size", "d6/dd3/a04866.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
+    [ "Address", "d6/dd3/a04866.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
+    [ "FunctionCode", "d6/dd3/a04866.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
+    [ "close", "d6/dd3/a04866.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
+    [ "open", "d6/dd3/a04866.html#a60baa47faf417d3e58c9da926ba26d49", null ],
+    [ "sendFrame", "d6/dd3/a04866.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
+    [ "setup", "d6/dd3/a04866.html#accad19c50e45234b499d537407a53007", null ]
 ];

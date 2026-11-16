@@ -1,6 +1,12 @@
 var a05214 =
 [
-    [ "code", "d0/d19/a05214.html#a4d8eace811bd06ebbd23b48cdcd55a97", null ],
-    [ "index", "d0/d19/a05214.html#a3c1fc7598e3500d7f06ac23818fd80a3", null ],
-    [ "name", "d0/d19/a05214.html#adb71631f3f01cfe4b407c729d606608c", null ]
+    [ "Command", "d0/d19/a05214.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
+    [ "RemoteAtCommand", "d0/d19/a05214.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
+    [ "RemoteAtCommand", "d0/d19/a05214.html#a772786f4856c6806756c33743f038855", null ],
+    [ "close", "d0/d19/a05214.html#acfc9182b712685cd72276c7c645330ec", null ],
+    [ "open", "d0/d19/a05214.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
+    [ "operator=", "d0/d19/a05214.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
+    [ "receive", "d0/d19/a05214.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
+    [ "send", "d0/d19/a05214.html#a68565e1939553aa4b73a44d4c6adf059", null ],
+    [ "send", "d0/d19/a05214.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
 ];

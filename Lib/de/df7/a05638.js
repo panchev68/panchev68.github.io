@@ -1,14 +1,10 @@
 var a05638 =
 [
-    [ "JaggedArrayBase", "de/df7/a05638.html#ae79ec88b260154126e7ec280a136c14a", null ],
-    [ "addItem", "de/df7/a05638.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
-    [ "addItems", "de/df7/a05638.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
-    [ "clearItems", "de/df7/a05638.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
-    [ "getElements", "de/df7/a05638.html#a428409a8385b8547bfa65d04a71565b1", null ],
-    [ "getElements", "de/df7/a05638.html#a718f7db994c254bce01246ea32b1d653", null ],
-    [ "getSize", "de/df7/a05638.html#afca6ed09d7865e2bac45430fda768aae", null ],
-    [ "operator[]", "de/df7/a05638.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
-    [ "operator[]", "de/df7/a05638.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
-    [ "removeItem", "de/df7/a05638.html#a819041f4264ebfce07665c548d5dd7bc", null ],
-    [ "elementList", "de/df7/a05638.html#a319cd6aae084f711db14582ed55929a5", null ]
+    [ "IndependentWatchdog", "de/df7/a05638.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
+    [ "IndependentWatchdog", "de/df7/a05638.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
+    [ "IndependentWatchdog", "de/df7/a05638.html#aabfa4830743c87632886a0e095af6dba", null ],
+    [ "open", "de/df7/a05638.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
+    [ "operator=", "de/df7/a05638.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
+    [ "operator=", "de/df7/a05638.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
+    [ "refresh", "de/df7/a05638.html#ae9f164f43789bd02baa1587a44c30e61", null ]
 ];

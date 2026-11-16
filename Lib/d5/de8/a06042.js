@@ -1,10 +1,7 @@
 var a06042 =
 [
-    [ "VersionString", "d5/de8/a06042.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "d5/de8/a06042.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getSubVersion", "d5/de8/a06042.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "d5/de8/a06042.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "d5/de8/a06042.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "d5/de8/a06042.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "d5/de8/a06042.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "isInverted", "d5/de8/a06042.html#a527ce99ad9135c5ee638b478e35031de", null ],
+    [ "isPresent", "d5/de8/a06042.html#adeb1badd28d6911fa7c0422e5278feef", null ],
+    [ "name", "d5/de8/a06042.html#aa93f171d58ca1b53c5c589d81d12bf17", null ],
+    [ "source", "d5/de8/a06042.html#a13e98c772a216681f6a95506ba77144a", null ]
 ];

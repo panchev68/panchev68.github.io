@@ -1,8 +1,6 @@
 var a05286 =
 [
-    [ "Node", "d6/d14/a05286.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
-    [ "Node", "d6/d14/a05286.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
-    [ "set", "d6/d14/a05286.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
-    [ "ip", "d6/d14/a05286.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
-    [ "port", "d6/d14/a05286.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
+    [ "code", "d6/d14/a05286.html#a4d8eace811bd06ebbd23b48cdcd55a97", null ],
+    [ "index", "d6/d14/a05286.html#a3c1fc7598e3500d7f06ac23818fd80a3", null ],
+    [ "name", "d6/d14/a05286.html#adb71631f3f01cfe4b407c729d606608c", null ]
 ];

@@ -1,10 +1,10 @@
 var dir_8614472618abc149a31dd7841874bafa =
 [
-    [ "AsyncPortCore.hpp", "de/ddd/a00653.html", "de/ddd/a00653" ],
-    [ "Device.hpp", "dc/df2/a00656.html", "dc/df2/a00656" ],
-    [ "DeviceManager.hpp", "d3/d22/a08504.html", "d3/d22/a08504" ],
-    [ "DmaMemory.hpp", "dc/d91/a00659.html", "dc/d91/a00659" ],
-    [ "DriverDataDirection.hpp", "dc/df1/a00662.html", "dc/df1/a00662" ],
-    [ "DriverMode.hpp", "da/d46/a00665.html", "da/d46/a00665" ],
-    [ "HalTimeout.hpp", "d0/d5c/a00668.html", "d0/d5c/a00668" ]
+    [ "AsyncPortCore.hpp", "dc/df2/a00656.html", "dc/df2/a00656" ],
+    [ "Device.hpp", "dc/d91/a00659.html", "dc/d91/a00659" ],
+    [ "DeviceManager.hpp", "d8/d97/a08507.html", "d8/d97/a08507" ],
+    [ "DmaMemory.hpp", "dc/df1/a00662.html", "dc/df1/a00662" ],
+    [ "DriverDataDirection.hpp", "da/d46/a00665.html", "da/d46/a00665" ],
+    [ "DriverMode.hpp", "d0/d5c/a00668.html", "d0/d5c/a00668" ],
+    [ "HalTimeout.hpp", "d8/d13/a00671.html", "d8/d13/a00671" ]
 ];

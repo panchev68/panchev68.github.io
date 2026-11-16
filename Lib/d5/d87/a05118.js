@@ -1,8 +1,6 @@
 var a05118 =
 [
-    [ "writeTo", "d5/d87/a05118.html#a4b67abe71dc0cda3271d558cf7dc8567", null ],
-    [ "dstAddress", "d5/d87/a05118.html#a9969bce892ba39508a48daebcde56b75", null ],
-    [ "frameId", "d5/d87/a05118.html#ae540c1fa3f4c9c108127455e8ac5b127", null ],
-    [ "options", "d5/d87/a05118.html#a61fadbd6372692084aabcea329f5f1ab", null ],
-    [ "rfData", "d5/d87/a05118.html#a99cf3d6eb6a15b6b82e1f552a57c54af", null ]
+    [ "AtCommandString", "d5/d87/a05118.html#aececd161348c75d93c06ea6da2f4cd23", null ],
+    [ "AtCommandString", "d5/d87/a05118.html#aeda6a28d5f8d19ea98ec29f1795507be", null ],
+    [ "operator uint16_t", "d5/d87/a05118.html#a5bfb355d92f981a786da2146384333c5", null ]
 ];

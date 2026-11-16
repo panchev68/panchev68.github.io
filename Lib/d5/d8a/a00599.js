@@ -1,8 +1,4 @@
 var a00599 =
 [
-    [ "Lib::GUI::FontLayout", "d6/d0d/a01091.html#ace52ba374752881b284966b4aa2f15e2", [
-      [ "Lib::GUI::FontLayout::COLUMNS", "d6/d0d/a01091.html#ace52ba374752881b284966b4aa2f15e2a24140871f9cd6d3d93fbaab2db509ebb", null ],
-      [ "Lib::GUI::FontLayout::VERTICAL_ROWS", "d6/d0d/a01091.html#ace52ba374752881b284966b4aa2f15e2ab34e8e89eab8a1125a37023dfc5de06d", null ],
-      [ "Lib::GUI::FontLayout::HORIZONTAL_ROWS", "d6/d0d/a01091.html#ace52ba374752881b284966b4aa2f15e2a027b2007ad9dddabea80e89e1856ab38", null ]
-    ] ]
+    [ "Lib::GUI::FontData", "da/d86/a05438.html", "da/d86/a05438" ]
 ];

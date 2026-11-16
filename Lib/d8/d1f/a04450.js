@@ -1,8 +1,10 @@
 var a04450 =
 [
-    [ "button", "d8/d1f/a04450.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
-    [ "channel1", "d8/d1f/a04450.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
-    [ "channel2", "d8/d1f/a04450.html#a360d21f775c66781831db2507e7a73fc", null ],
-    [ "divider", "d8/d1f/a04450.html#a702af25fea0b8af225fc46b4f3fdaee3", null ],
-    [ "reversePolarity", "d8/d1f/a04450.html#a979f1b4b2c4f2a9dd0b652da9bb5b724", null ]
+    [ "PortBase", "d8/d1f/a04450.html#a5350d276e1d3d6505501c1a194798ee1", null ],
+    [ "~PortBase", "d8/d1f/a04450.html#ae97ed92776c4c9fec031848b9d223290", null ],
+    [ "getSpiHandle", "d8/d1f/a04450.html#a1677aa107627ab40c3a7a3a495722c77", null ],
+    [ "postUpdateCallback", "d8/d1f/a04450.html#af0d8329309d89f85d0432a205da0410c", null ],
+    [ "preUpdateCallback", "d8/d1f/a04450.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
+    [ "setup", "d8/d1f/a04450.html#a819a0deaed30808011035c3403fbf93c", null ],
+    [ "update", "d8/d1f/a04450.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
 ];

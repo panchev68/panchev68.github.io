@@ -1,8 +1,11 @@
 var a04738 =
 [
-    [ "ambientTemperatureCelsius", "dc/ddd/a04738.html#afe46178f50e25346cca90112dc708790", null ],
-    [ "listenDuration", "dc/ddd/a04738.html#aed97102995a3a032b9524b1e47731f17", null ],
-    [ "timeout", "dc/ddd/a04738.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
-    [ "uart", "dc/ddd/a04738.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
-    [ "uartAddress", "dc/ddd/a04738.html#a07cd324da0adf0baf2262a0b33404164", null ]
+    [ "operator==", "dc/ddd/a04738.html#a6d55cf519f280eb9c0e3a26e175a07f1", null ],
+    [ "fifoStatus1", "dc/ddd/a04738.html#a8d4064983272456f2bb02cc0e9f0c920", null ],
+    [ "irqStatus1", "dc/ddd/a04738.html#aa768730607ddfadbd98e83d9e2dad318", null ],
+    [ "irqStatus2", "dc/ddd/a04738.html#adac7641fc9718f5eadda0e0b4ab2ed71", null ],
+    [ "operation", "dc/ddd/a04738.html#a5b9150d2c316bf04c90a8e926eaf8f81", null ],
+    [ "protocol", "dc/ddd/a04738.html#a7057ac56ad3d604ce1fcb392d89f6e1c", null ],
+    [ "protocolRx1", "dc/ddd/a04738.html#a3286298ea7c4dc967dd97d575455c368", null ],
+    [ "status", "dc/ddd/a04738.html#afd9a8486968b9512fd0de55e3d549edf", null ]
 ];

@@ -1,5 +1,5 @@
 var a08522 =
 [
-    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base", "d0/da8/a04547.html", "d0/da8/a04547" ],
-    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base::Config", "de/d9c/a04551.html", "de/d9c/a04551" ]
+    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;", "d7/dba/a04502.html", "d7/dba/a04502" ],
+    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;::Config", "d8/d4c/a04506.html", "d8/d4c/a04506" ]
 ];

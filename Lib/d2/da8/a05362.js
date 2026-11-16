@@ -1,17 +1,14 @@
 var a05362 =
 [
-    [ "OSPIPort", "d2/da8/a05362.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
-    [ "~OSPIPort", "d2/da8/a05362.html#a08e56728c9a64f13a22b89d6b482b132", null ],
-    [ "OSPIPort", "d2/da8/a05362.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
-    [ "OSPIPort", "d2/da8/a05362.html#a50425950532682614be81eb8bb5216b7", null ],
-    [ "close", "d2/da8/a05362.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
-    [ "command", "d2/da8/a05362.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
-    [ "getHandle", "d2/da8/a05362.html#a696d949d69359bb54440fe22e1de963f", null ],
-    [ "getHandle", "d2/da8/a05362.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
-    [ "isBusy", "d2/da8/a05362.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "open", "d2/da8/a05362.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
-    [ "operator=", "d2/da8/a05362.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
-    [ "operator=", "d2/da8/a05362.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
-    [ "receive", "d2/da8/a05362.html#aef7cf93602718e2d14816e122f15f3be", null ],
-    [ "transmit", "d2/da8/a05362.html#a10d2dc1da9553992110c3752aa39e058", null ]
+    [ "PortString", "d2/da8/a05362.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
+    [ "Port", "d2/da8/a05362.html#a0cdcdcee9376806af5c6778670685c80", null ],
+    [ "Port", "d2/da8/a05362.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
+    [ "fromString", "d2/da8/a05362.html#af096519c074646658fc5d42017770060", null ],
+    [ "get", "d2/da8/a05362.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
+    [ "get", "d2/da8/a05362.html#a74efeaeccbeb41630891ddb4725470a5", null ],
+    [ "operator uint16_t", "d2/da8/a05362.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
+    [ "operator<=>", "d2/da8/a05362.html#a5db32af54d9bdde977000618e7b6d476", null ],
+    [ "operator=", "d2/da8/a05362.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
+    [ "set", "d2/da8/a05362.html#a1de553c3b996aee8be2112632f45ee1b", null ],
+    [ "toString", "d2/da8/a05362.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
 ];

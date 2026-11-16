@@ -1,4 +1,4 @@
 var a08507 =
 [
-    [ "Lib::BSP::Display::DriverBase", "de/d9e/a04459.html", "de/d9e/a04459" ]
+    [ "Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;", "df/de9/a05538.html", "df/de9/a05538" ]
 ];

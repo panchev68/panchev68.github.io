@@ -1,17 +1,19 @@
 var a05570 =
 [
-    [ "Manager", "d0/d5e/a05570.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "d0/d5e/a05570.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimInputCapture", "d0/d5e/a05570.html#abfe70b316d617c0b779207aebafd9fb9", null ],
-    [ "~TimInputCapture", "d0/d5e/a05570.html#a3b3c0bd5c909651c9a4de95e888d86da", null ],
-    [ "bindWorker", "d0/d5e/a05570.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
-    [ "getCapture", "d0/d5e/a05570.html#ac7f8fd84985b45a4db579b480aaf5251", null ],
-    [ "getHandle", "d0/d5e/a05570.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "notifyWorkerFromISR", "d0/d5e/a05570.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "start", "d0/d5e/a05570.html#add28b2f0b32350281b1f47c4e4e25e84", null ],
-    [ "stop", "d0/d5e/a05570.html#a6d1e0aa45356b048a97c7390802d142a", null ],
-    [ "waitCapture", "d0/d5e/a05570.html#a1fc8b61efbe101b5e3e019e16d73f707", null ],
-    [ "waitCapture", "d0/d5e/a05570.html#a2732cd4549f6b1ca08da0cbcb462f404", null ],
-    [ "waitEvent", "d0/d5e/a05570.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
-    [ "void::HAL_TIM_IC_CaptureCallback", "d0/d5e/a05570.html#a4e452b46ec2394148f37767c37e5b374", null ]
+    [ "ExtInterrupt", "d0/d5e/a05570.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
+    [ "~ExtInterrupt", "d0/d5e/a05570.html#a0500efb3e0dbde6f95fd02948060723b", null ],
+    [ "ExtInterrupt", "d0/d5e/a05570.html#a0896646faa35c4149a6fb3f8360da15b", null ],
+    [ "ExtInterrupt", "d0/d5e/a05570.html#af65b4789b35500d9539e56a75d90c71c", null ],
+    [ "bindCallback", "d0/d5e/a05570.html#a716641ce172d66ad1226056de77e00f3", null ],
+    [ "isHigh", "d0/d5e/a05570.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "d0/d5e/a05570.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "d0/d5e/a05570.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "d0/d5e/a05570.html#a89f184dfbf150b77ab08f3bf7a9078ca", null ],
+    [ "operator=", "d0/d5e/a05570.html#a29b2dfe4158fc5f27e352ab72f1a11fe", null ],
+    [ "read", "d0/d5e/a05570.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "unbindCallback", "d0/d5e/a05570.html#a436fbfef93e09cd205ebb36284da5374", null ],
+    [ "void::HAL_GPIO_EXTI_Callback", "d0/d5e/a05570.html#a7b34f0451fb5f0d0f5077ea7594eb5bb", null ],
+    [ "void::HAL_GPIO_EXTI_Falling_Callback", "d0/d5e/a05570.html#a608244a38c1095888d60a17b77ae5ed4", null ],
+    [ "void::HAL_GPIO_EXTI_Rising_Callback", "d0/d5e/a05570.html#aa8068c433729122f23f40e6bfa77659f", null ],
+    [ "handle", "d0/d5e/a05570.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

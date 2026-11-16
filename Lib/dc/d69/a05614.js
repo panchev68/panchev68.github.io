@@ -1,7 +1,19 @@
 var a05614 =
 [
-    [ "Delay", "dc/d69/a05614.html#ae05989164bd1c17d9508a274c9c8efc6", null ],
-    [ "~Delay", "dc/d69/a05614.html#abab8b5337f9a0a494dc33f550b7d898b", null ],
-    [ "Delay", "dc/d69/a05614.html#a1cb3786f2784e6c6c42979b9860a5c4b", null ],
-    [ "operator=", "dc/d69/a05614.html#a62e0ff423d0e589d0757d35725eaf0b2", null ]
+    [ "I2CPort", "dc/d69/a05614.html#a70dc562f520726340c2c942ee7753b17", null ],
+    [ "~I2CPort", "dc/d69/a05614.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
+    [ "I2CPort", "dc/d69/a05614.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
+    [ "I2CPort", "dc/d69/a05614.html#a6c227decd7ea7b8ff23e032025761259", null ],
+    [ "close", "dc/d69/a05614.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "getHandle", "dc/d69/a05614.html#a57df6990634d2cba4b86d8cf193f4050", null ],
+    [ "getHandle", "dc/d69/a05614.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
+    [ "isBusy", "dc/d69/a05614.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "dc/d69/a05614.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "masterMemRead", "dc/d69/a05614.html#aff45c6ae44d78ac3f07f800383374359", null ],
+    [ "masterMemWrite", "dc/d69/a05614.html#ae89e0f492119ac05671af0cdca2b90de", null ],
+    [ "masterReceive", "dc/d69/a05614.html#a165d3958b26f38d4c513160a447bcfaf", null ],
+    [ "masterTransmit", "dc/d69/a05614.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
+    [ "open", "dc/d69/a05614.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "dc/d69/a05614.html#aae592f22809df591ac07e2cd47f3969b", null ],
+    [ "operator=", "dc/d69/a05614.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
 ];

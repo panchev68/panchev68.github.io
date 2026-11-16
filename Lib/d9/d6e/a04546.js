@@ -1,5 +1,5 @@
 var a04546 =
 [
-    [ "total", "d9/d6e/a04546.html#aca264bc9cdc62b63f4c5ed1b37a4f09f", null ],
-    [ "used", "d9/d6e/a04546.html#a2631ea3e071aabeb8d98b27969896ddc", null ]
+    [ "button", "d9/d6e/a04546.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
+    [ "handle", "d9/d6e/a04546.html#a75774bfc0a226b392ad051cc0514697c", null ]
 ];

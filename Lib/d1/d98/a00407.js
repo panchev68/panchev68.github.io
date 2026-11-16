@@ -1,10 +1,10 @@
 var a00407 =
 [
-    [ "Lib::Digi::API::Connection", "d9/d7c/a04999.html", "d9/d7c/a04999" ],
-    [ "Lib::Digi::API::Connection::State", "d7/d3c/a05003.html", "d7/d3c/a05003" ],
-    [ "Lib::Digi::API::Connection::Quality", "db/d5b/a05007.html", "db/d5b/a05007" ],
-    [ "Lib::Digi::API::Connection::Info", "db/dc2/a05011.html", "db/dc2/a05011" ],
-    [ "Lib::Digi::API::Connection::Info::Counter", "d0/d0c/a05015.html", "d0/d0c/a05015" ],
-    [ "Lib::Digi::API::Connection::Info::Period", "de/d93/a05019.html", "de/d93/a05019" ],
-    [ "Lib::Digi::API::Connection::Info::SignalStrength", "db/d39/a05023.html", "db/d39/a05023" ]
+    [ "Lib::Digi::API::Connection", "d7/daf/a05002.html", "d7/daf/a05002" ],
+    [ "Lib::Digi::API::Connection::State", "d5/dc0/a05006.html", "d5/dc0/a05006" ],
+    [ "Lib::Digi::API::Connection::Quality", "d8/d79/a05010.html", "d8/d79/a05010" ],
+    [ "Lib::Digi::API::Connection::Info", "dc/d66/a05014.html", "dc/d66/a05014" ],
+    [ "Lib::Digi::API::Connection::Info::Counter", "d8/d10/a05018.html", "d8/d10/a05018" ],
+    [ "Lib::Digi::API::Connection::Info::Period", "df/dab/a05022.html", "df/dab/a05022" ],
+    [ "Lib::Digi::API::Connection::Info::SignalStrength", "d2/df7/a05026.html", "d2/df7/a05026" ]
 ];

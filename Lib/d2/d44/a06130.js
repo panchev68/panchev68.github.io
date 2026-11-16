@@ -1,8 +1,14 @@
 var a06130 =
 [
-    [ "pinNRST", "d2/d44/a06130.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "d2/d44/a06130.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "d2/d44/a06130.html#a7a30a24da1b05da04d34ae04d9601ed4", null ],
-    [ "usbDetectPin", "d2/d44/a06130.html#a7821371ae14cff05383049657f3dd8d6", null ],
-    [ "usbDisablePin", "d2/d44/a06130.html#aeafd4713f3249500c2a871623ffc4e6c", null ]
+    [ "Label", "d2/d44/a06130.html#a98d823750bde45aebd4db31f4086821e", [
+      [ "RUNNING", "d2/d44/a06130.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
+      [ "READY", "d2/d44/a06130.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "BLOCKED", "d2/d44/a06130.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
+      [ "SUSPENDED", "d2/d44/a06130.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
+      [ "DELETED", "d2/d44/a06130.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
+      [ "INVALID", "d2/d44/a06130.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
+    ] ],
+    [ "State", "d2/d44/a06130.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
+    [ "get", "d2/d44/a06130.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
+    [ "operator Label", "d2/d44/a06130.html#a3c30086da2d01872c5cdccdba1874c74", null ]
 ];

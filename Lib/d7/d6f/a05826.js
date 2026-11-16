@@ -1,20 +1,19 @@
 var a05826 =
 [
-    [ "Point", "dd/d81/a05830.html", "dd/d81/a05830" ],
-    [ "BoundaryType", "d7/d6f/a05826.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "d7/d6f/a05826.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "d7/d6f/a05826.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "d7/d6f/a05826.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "d7/d6f/a05826.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "d7/d6f/a05826.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "d7/d6f/a05826.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "d7/d6f/a05826.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "d7/d6f/a05826.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "d7/d6f/a05826.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "d7/d6f/a05826.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "d7/d6f/a05826.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "d7/d6f/a05826.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "d7/d6f/a05826.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "d7/d6f/a05826.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "USBHostPortBase", "d7/d6f/a05826.html#ac0f4ceb9b0f8b8a506fd172cb3ce4566", null ],
+    [ "USBHostPortBase", "d7/d6f/a05826.html#aa89066f8aa5102a47badafbc732bf444", null ],
+    [ "USBHostPortBase", "d7/d6f/a05826.html#a6ab4021b54519845f9f116d64637e8b3", null ],
+    [ "~USBHostPortBase", "d7/d6f/a05826.html#a78ed9071852127d2096ce7ef2b2a5f8e", null ],
+    [ "close", "d7/d6f/a05826.html#aff332f8bc49d112c37f829db7d9b78c1", null ],
+    [ "closeChannel", "d7/d6f/a05826.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
+    [ "getFrame", "d7/d6f/a05826.html#aa5a82053bf356261f139d027918f7a98", null ],
+    [ "getSpeed", "d7/d6f/a05826.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
+    [ "getTransferCount", "d7/d6f/a05826.html#aeafad19d337548bb5ef919dd44723b5f", null ],
+    [ "open", "d7/d6f/a05826.html#ab20db0d8a9ceb5b527bc5b4ff065717f", null ],
+    [ "openChannel", "d7/d6f/a05826.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
+    [ "operator=", "d7/d6f/a05826.html#a58f84861a9e04f0260bf39e31c926931", null ],
+    [ "operator=", "d7/d6f/a05826.html#a9dea26483778c8eacb80952819421b30", null ],
+    [ "resetPort", "d7/d6f/a05826.html#a4be20887571f3bd3694a79bb349979f8", null ],
+    [ "start", "d7/d6f/a05826.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
+    [ "stop", "d7/d6f/a05826.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ]
 ];

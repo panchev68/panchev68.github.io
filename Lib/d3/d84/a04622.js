@@ -1,13 +1,9 @@
 var a04622 =
 [
-    [ "Bytes", "d3/d84/a04622.html#aaa924b52936a11a36f991b92270eb1b6", null ],
-    [ "Digest", "d3/d84/a04622.html#a97d15161e3e4d29994672b77e28ea856", null ],
-    [ "Message", "d3/d84/a04622.html#a8ba002cb2db8c1b57b6534f88d77e2ab", null ],
-    [ "Uid", "d3/d84/a04622.html#ab823c89537a28891f90d448eeb6122c1", null ],
-    [ "Result", "d3/d84/a04622.html#ae690657e7ab3cf073f0d03abc2ee488b", [
-      [ "VALID", "d3/d84/a04622.html#ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea", null ],
-      [ "BAD_FORMAT", "d3/d84/a04622.html#ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a", null ],
-      [ "UNKNOWN_KEY", "d3/d84/a04622.html#ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb", null ],
-      [ "BAD_SIGNATURE", "d3/d84/a04622.html#ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a", null ]
-    ] ]
+    [ "dtr", "d3/d84/a04622.html#a1f0325547dba26c50be0574888fc397e", null ],
+    [ "port", "d3/d84/a04622.html#a86fe1b86ed7cea66b9a5c100adea5c50", null ],
+    [ "powerKey", "d3/d84/a04622.html#a7602e69d38d7f788df016037bb00df30", null ],
+    [ "reset", "d3/d84/a04622.html#a4a2aa8be77cad07c87aebcea429856d2", null ],
+    [ "setSupply", "d3/d84/a04622.html#a9848006a47ed741d31636388c9deb387", null ],
+    [ "status", "d3/d84/a04622.html#a223d2213e1ed43f94c86e60f5cf37555", null ]
 ];

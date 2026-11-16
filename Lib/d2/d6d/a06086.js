@@ -1,11 +1,15 @@
 var a06086 =
 [
-    [ "FirmwareString", "d2/d6d/a06086.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "VersionString", "d2/d6d/a06086.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Firmware", "d2/d6d/a06086.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "getSubVersion", "d2/d6d/a06086.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator FirmwareString", "d2/d6d/a06086.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "d2/d6d/a06086.html#a7dcca38967251869c5bf305173fc13ee", null ],
-    [ "operator VersionString", "d2/d6d/a06086.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d2/d6d/a06086.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "MutexGuard", "d2/d6d/a06086.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
+    [ "MutexGuard", "d2/d6d/a06086.html#a06d66e08a55ebf1440edb711e6886307", null ],
+    [ "MutexGuard", "d2/d6d/a06086.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
+    [ "MutexGuard", "d2/d6d/a06086.html#a21aba9e001a6afec8742ff355b845ede", null ],
+    [ "~MutexGuard", "d2/d6d/a06086.html#a35526aab46b7a21b967df7060f8d6747", null ],
+    [ "MutexGuard", "d2/d6d/a06086.html#a271282f741f6a7c1dcebff1616c9916e", null ],
+    [ "MutexGuard", "d2/d6d/a06086.html#a66f7b610af22e97faef98e233dbd46d5", null ],
+    [ "isLocked", "d2/d6d/a06086.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
+    [ "operator bool", "d2/d6d/a06086.html#af9126f464f900d7777d9bb069a13265b", null ],
+    [ "operator=", "d2/d6d/a06086.html#ada341f5a3644025a9b57e448e023d88b", null ],
+    [ "operator=", "d2/d6d/a06086.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
+    [ "unlock", "d2/d6d/a06086.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
 ];

@@ -1,11 +1,8 @@
 var a04746 =
 [
-    [ "Config", "dc/d64/a04750.html", "dc/d64/a04750" ],
-    [ "Voltmeter", "d1/d86/a04746.html#a0f038c75a30b2d6cd8382c776fddd2bb", null ],
-    [ "getVoltage", "d1/d86/a04746.html#ac23395cb420c81ab42a23e604cf05f18", null ],
-    [ "handleValueChanged", "d1/d86/a04746.html#a0867be0757674c033a721efb796a8e39", null ],
-    [ "registerDevice", "d1/d86/a04746.html#a299662c9e9bdb346771579418056dccf", null ],
-    [ "setup", "d1/d86/a04746.html#aef6d6cecbcd23016ebff9b46c2cf3ce0", null ],
-    [ "DeviceManager::DeviceBase", "d1/d86/a04746.html#af5908117d248071190096967e686c5a3", null ],
-    [ "interpolator", "d1/d86/a04746.html#a5cabeda795635eeccd12383109ddf96c", null ]
+    [ "operator==", "d1/d86/a04746.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
+    [ "blue", "d1/d86/a04746.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
+    [ "green", "d1/d86/a04746.html#aaac4b49f8ced6f8a10842162f110217d", null ],
+    [ "red", "d1/d86/a04746.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
+    [ "white", "d1/d86/a04746.html#a272f822cae4bd3b8e993080e2317636e", null ]
 ];

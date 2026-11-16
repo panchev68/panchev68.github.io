@@ -1,26 +1,14 @@
 var a06126 =
 [
-    [ "Config", "d2/d44/a06130.html", "d2/d44/a06130" ],
-    [ "Status", "dc/d1e/a06126.html#a02700dee6676fa9bcb527b7187e2813e", null ],
-    [ "SerialPortRepeaterBase", "dc/d1e/a06126.html#abc48d5df5532ace88e0b869d74c9402d", null ],
-    [ "~SerialPortRepeaterBase", "dc/d1e/a06126.html#a58fa656cbf94ed6c21c195f984d6d174", null ],
-    [ "SerialPortRepeaterBase", "dc/d1e/a06126.html#a80538ec6535fc978efc92d1dd3755b12", null ],
-    [ "close", "dc/d1e/a06126.html#adbee3abb5c99ee9cf98632fd71e8a1df", null ],
-    [ "enableUSBPort", "dc/d1e/a06126.html#adc7fac7fb29a13eea289322a26425397", null ],
-    [ "handlePostReceivedEvent", "dc/d1e/a06126.html#a369b78a9d6f52d4076e777b8d96a25f0", null ],
-    [ "handlePostTransmitEvent", "dc/d1e/a06126.html#ad6ef51bd1c8018d7ee0e8576d7f51b06", null ],
-    [ "isConnected", "dc/d1e/a06126.html#ac6a20178fbb9fa9edd7182cfdb8368e5", null ],
-    [ "isPoweredByUSB", "dc/d1e/a06126.html#ad681efdf3e8eaee1fa0f7f44c1352481", null ],
-    [ "open", "dc/d1e/a06126.html#a9869e02a625d87d244bb9fa24407a398", null ],
-    [ "operator=", "dc/d1e/a06126.html#ade6e8c09bc7602c46fabd0b5bc38b0a2", null ],
-    [ "send", "dc/d1e/a06126.html#a0ad3de935e20dec9db20515d75bf4f0a", null ],
-    [ "send", "dc/d1e/a06126.html#a484a85d98faebe518ae3b89b6e0cf5d0", null ],
-    [ "setBaudRate", "dc/d1e/a06126.html#aaf6c85e6f10e0756e438bf61460c7563", null ],
-    [ "setModuleResetPin", "dc/d1e/a06126.html#acf3b15d8b0fe17fd8341b16e38284202", null ],
-    [ "setResetPin", "dc/d1e/a06126.html#a0abe8e602336b586b790df6ea81b4ab0", null ],
-    [ "signalReceivedBegin", "dc/d1e/a06126.html#a6bbbdcd4be7e1c161148e5a4064f799c", null ],
-    [ "signalReceivedEnd", "dc/d1e/a06126.html#ae7e6f9868883bcb06e6f214b24192c10", null ],
-    [ "signalTransmitBegin", "dc/d1e/a06126.html#acdc6aba10abfdf39b35e51b9654d779b", null ],
-    [ "signalTransmitEnd", "dc/d1e/a06126.html#ac5a426dc66dbabe1f6884132060811c7", null ],
-    [ "onConnected", "dc/d1e/a06126.html#a452bd0a884b3a32c8b09df66688e14b2", null ]
+    [ "Level", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69", [
+      [ "IDLE", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
+      [ "LOW", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
+      [ "NORMAL", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
+      [ "HIGH", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
+      [ "REALTIME", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
+    ] ],
+    [ "Priority", "dc/d1e/a06126.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
+    [ "get", "dc/d1e/a06126.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
+    [ "getFromISR", "dc/d1e/a06126.html#a077686e91e7ea468ac484026c09fe001", null ],
+    [ "set", "dc/d1e/a06126.html#a458e98cafe1842d218c9640b76bde004", null ]
 ];

@@ -1,9 +1,9 @@
 var a04394 =
 [
-    [ "DriverBase", "d5/d22/a04394.html#a329188c9f70a21a0f421598a6fa4aea6", null ],
-    [ "~DriverBase", "d5/d22/a04394.html#a485ac6dbe46e3f7568c6ef46aeb78939", null ],
-    [ "canTransferBlock", "d5/d22/a04394.html#ad55213b27726f017dcbc465586c2b468", null ],
-    [ "getTransferActive", "d5/d22/a04394.html#abee35beb9e71effa911fc8fc30b2fbf7", null ],
-    [ "handleTransferCompleteEvent", "d5/d22/a04394.html#aee5a5b357b886ee353e04fb06a4c0ada", null ],
-    [ "setTransferActive", "d5/d22/a04394.html#af67616fc7d8d9dd4e3c92389d14bc58f", null ]
+    [ "dimmerMaxValue", "d5/d22/a04394.html#a4f8b7a66b8c7a9f4517dade719803f4b", null ],
+    [ "dimmerMinValue", "d5/d22/a04394.html#af51bd0ae2fb6abc537b29f613ed0b1ad", null ],
+    [ "fadeStep", "d5/d22/a04394.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
+    [ "sleepTimeout", "d5/d22/a04394.html#a7da153a96dbc9b64a78b1e5fc7e6691e", null ],
+    [ "timChannel", "d5/d22/a04394.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
+    [ "timHandle", "d5/d22/a04394.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
 ];

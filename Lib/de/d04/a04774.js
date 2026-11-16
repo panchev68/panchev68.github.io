@@ -1,9 +1,9 @@
 var a04774 =
 [
-    [ "errorCode", "de/d04/a04774.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
-    [ "errorCounter", "de/d04/a04774.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
-    [ "receivedMessages", "de/d04/a04774.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
-    [ "rxFifoFullCounter", "de/d04/a04774.html#ae1980d93ca6461dabf615247c5043049", null ],
-    [ "sentMessages", "de/d04/a04774.html#a71de4cab31423207b05a464ff4024347", null ],
-    [ "txMailboxAbortCounter", "de/d04/a04774.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
+    [ "calculatedChecksum", "de/d04/a04774.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
+    [ "frameChecksum", "de/d04/a04774.html#afd2a7854bded2de4881565573fc0d9b1", null ],
+    [ "invalidFrameChecksum", "de/d04/a04774.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
+    [ "invalidHumidity", "de/d04/a04774.html#a97069f405d3773e81b9930425efc8d74", null ],
+    [ "invalidTemperature", "de/d04/a04774.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
+    [ "receivedTimeout", "de/d04/a04774.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
 ];

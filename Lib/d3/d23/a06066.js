@@ -1,7 +1,9 @@
 var a06066 =
 [
-    [ "firmwareSubversion", "d3/d23/a06066.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
-    [ "firmwareVersionString", "d3/d23/a06066.html#a6b83c53d998379f08471d89aead2818e", null ],
-    [ "hardwareSubversion", "d3/d23/a06066.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
-    [ "hardwareVersionString", "d3/d23/a06066.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
+    [ "Lock", "d3/d23/a06066.html#a79915981fe481334533677f3c4691e1f", null ],
+    [ "~Lock", "d3/d23/a06066.html#acca996da9f16704d9247d8d2f0bab3e1", null ],
+    [ "Lock", "d3/d23/a06066.html#a7da060988728f2b1731d04e7b4465ffb", null ],
+    [ "Lock", "d3/d23/a06066.html#a73e4ec26337a86b9060fbfd8356a083c", null ],
+    [ "operator=", "d3/d23/a06066.html#a58e51b984954b6ea0275dd7b48479bb2", null ],
+    [ "operator=", "d3/d23/a06066.html#a2af1d07230d3a75aee8b72daf7ec73bf", null ]
 ];

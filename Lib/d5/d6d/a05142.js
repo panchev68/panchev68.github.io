@@ -1,7 +1,13 @@
 var a05142 =
 [
-    [ "operator std::vector< uint8_t >", "d5/d6d/a05142.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
-    [ "view", "d5/d6d/a05142.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
-    [ "data", "d5/d6d/a05142.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
-    [ "size", "d5/d6d/a05142.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
+    [ "append", "d5/d6d/a05142.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
+    [ "append", "d5/d6d/a05142.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
+    [ "append", "d5/d6d/a05142.html#a04412e1fc3a07248441dc288c99867f6", null ],
+    [ "assign", "d5/d6d/a05142.html#a056342d102635bded069d9f153268884", null ],
+    [ "assign", "d5/d6d/a05142.html#ae796119895d95296e7fe754347df07d7", null ],
+    [ "clear", "d5/d6d/a05142.html#a4e9638e82e027739671827a11a48a211", null ],
+    [ "getData", "d5/d6d/a05142.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
+    [ "getData", "d5/d6d/a05142.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
+    [ "getSize", "d5/d6d/a05142.html#a391a31513797286c540adbbc99195704", null ],
+    [ "setSize", "d5/d6d/a05142.html#a55130d108aa3f8d6235341814cfd4c23", null ]
 ];

@@ -1,8 +1,9 @@
 var a05006 =
 [
-    [ "Node", "d5/dc0/a05006.html#ae77243ef5154f0127b188cb07ee7b730", null ],
-    [ "Node", "d5/dc0/a05006.html#ade2b76a4bad3907d0779b98753dbe88b", null ],
-    [ "macAddress", "d5/dc0/a05006.html#ab4f01a998762165160e1c5f287e33b36", null ],
-    [ "nodeAddr16", "d5/dc0/a05006.html#a047c25d839ad49f40c973b610050fa18", null ],
-    [ "nodeIdentifier", "d5/dc0/a05006.html#a66f046134b60cff03864ca23d0ff54fa", null ]
+    [ "State", "d5/dc0/a05006.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
+    [ "State", "d5/dc0/a05006.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
+    [ "isConnected", "d5/dc0/a05006.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
+    [ "operator uint32_t", "d5/dc0/a05006.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
+    [ "operator=", "d5/dc0/a05006.html#a74040294aacf89a661c876eb5aadc081", null ],
+    [ "onConnectionChanged", "d5/dc0/a05006.html#af29d5ac1eff410a6876b1be865601ca8", null ]
 ];

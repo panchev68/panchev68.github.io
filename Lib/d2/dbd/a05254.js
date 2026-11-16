@@ -1,9 +1,16 @@
 var a05254 =
 [
-    [ "address", "d2/dbd/a05254.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
-    [ "channel", "d2/dbd/a05254.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
-    [ "counter", "d2/dbd/a05254.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
-    [ "length", "d2/dbd/a05254.html#af80f349070d12d0ce2387f6d95764bfe", null ],
-    [ "priority", "d2/dbd/a05254.html#a0c3726e1ac6fed602491f21449c9a740", null ],
-    [ "protocol", "d2/dbd/a05254.html#ac094990b182d42c38feb302d144a6924", null ]
+    [ "Container", "d2/dbd/a05254.html#a841797ffcee30732b12660006d8397bd", null ],
+    [ "Status", "d2/dbd/a05254.html#a577acdd119b66063413debe6a438470f", [
+      [ "STATUS_CHANGED", "d2/dbd/a05254.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "d2/dbd/a05254.html#a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "Dispatcher", "d2/dbd/a05254.html#aa0833a585d6be678d415f7b6a08c516c", null ],
+    [ "Dispatcher", "d2/dbd/a05254.html#a3a18ea72deb2fa22c44ec99f3f8e1e26", null ],
+    [ "createError", "d2/dbd/a05254.html#a407182f37d2b8174f02693ab5f91c8d8", null ],
+    [ "operator=", "d2/dbd/a05254.html#a6b5e5ae1add85447ebdc4ab0f64a8761", null ],
+    [ "operator=", "d2/dbd/a05254.html#aa962d0278c430ad4453c6cb8fc816f05", null ],
+    [ "start", "d2/dbd/a05254.html#a3ef04bebfe4813071fa54045b76177dd", null ],
+    [ "RTOS::TickClient< Dispatcher< T_ERROR > >", "d2/dbd/a05254.html#a2bc1526fd782acbf900903fbd8e4148b", null ],
+    [ "statusChangedHook", "d2/dbd/a05254.html#a7f6d7ca5ad3497f5a542fbbc18281ef6", null ]
 ];

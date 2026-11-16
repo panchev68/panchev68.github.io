@@ -1,7 +1,9 @@
 var a06026 =
 [
-    [ "maxVoltage", "d0/dbe/a06026.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
-    [ "minVoltage", "d0/dbe/a06026.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
-    [ "powerThreshold", "d0/dbe/a06026.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
-    [ "stepSize", "d0/dbe/a06026.html#a5ac779799a2638585b8dbced18eff05d", null ]
+    [ "name", "d0/dbe/a06026.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
+    [ "offSensor", "d0/dbe/a06026.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
+    [ "onSensor", "d0/dbe/a06026.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
+    [ "output", "d0/dbe/a06026.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
+    [ "sensorCalmingTime", "d0/dbe/a06026.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
+    [ "switchTimeout", "d0/dbe/a06026.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
 ];

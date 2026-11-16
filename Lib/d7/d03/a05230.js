@@ -1,13 +1,8 @@
 var a05230 =
 [
-    [ "Handlers", "d7/d03/a05230.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
-    [ "EepromEmulation", "d7/d03/a05230.html#a1146daff507a230799851b6c5f9ee835", null ],
-    [ "~EepromEmulation", "d7/d03/a05230.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
-    [ "EepromEmulation", "d7/d03/a05230.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
-    [ "EepromEmulation", "d7/d03/a05230.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
-    [ "operator=", "d7/d03/a05230.html#ac18054ff925ab9ff88d05d79a8674626", null ],
-    [ "operator=", "d7/d03/a05230.html#a8a0057afb82e294f720a93b50ad87908", null ],
-    [ "process", "d7/d03/a05230.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
-    [ "setHandlers", "d7/d03/a05230.html#a070225a3de178cf14fb35d7a18f183e0", null ],
-    [ "setReadSize", "d7/d03/a05230.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
+    [ "Frame0x88", "d7/d03/a05230.html#a8cdabdda134adaf1796641f68581f1c8", null ],
+    [ "atCommand", "d7/d03/a05230.html#aba3a41028c41109166efaf024c9dca74", null ],
+    [ "data", "d7/d03/a05230.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
+    [ "frameId", "d7/d03/a05230.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
+    [ "status", "d7/d03/a05230.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
 ];

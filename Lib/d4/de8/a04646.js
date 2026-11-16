@@ -1,10 +1,10 @@
 var a04646 =
 [
-    [ "operator==", "d4/de8/a04646.html#a76f4384c25c5a26bc057858df3c55875", null ],
-    [ "inPhaseAdc", "d4/de8/a04646.html#ae284e93d7297470825441d553589ac6f", null ],
-    [ "inPhaseCalibration", "d4/de8/a04646.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
-    [ "inPhaseReference", "d4/de8/a04646.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
-    [ "quadratureAdc", "d4/de8/a04646.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
-    [ "quadratureCalibration", "d4/de8/a04646.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
-    [ "quadratureReference", "d4/de8/a04646.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
+    [ "Network", "d4/de8/a04646.html#a858cc7193654c2e98129d4f0749d8240", null ],
+    [ "getLocation", "d4/de8/a04646.html#aba4491c30df0fb948ede36bb4e1085d3", null ],
+    [ "getRegistration", "d4/de8/a04646.html#afdf0dd669e99bdf0eeead5bb41e21a96", null ],
+    [ "getSignalQuality", "d4/de8/a04646.html#a485778d68bbe029717f5fed4f43c730b", null ],
+    [ "getTime", "d4/de8/a04646.html#a59b66d182fa20c0996b4643e51f9a51f", null ],
+    [ "setLTEOnly", "d4/de8/a04646.html#af76be66a29575097c7dbf63f65ae68de", null ],
+    [ "waitForRegistration", "d4/de8/a04646.html#a36029bb551781de86c0674a121c0a8cb", null ]
 ];

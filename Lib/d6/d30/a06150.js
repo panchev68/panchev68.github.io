@@ -1,17 +1,6 @@
 var a06150 =
 [
-    [ "Status", "d6/d30/a06150.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "d6/d30/a06150.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "d6/d30/a06150.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "d6/d30/a06150.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "d6/d30/a06150.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
-    ] ],
-    [ "Value64Handle", "d6/d30/a06150.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "d6/d30/a06150.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "d6/d30/a06150.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "d6/d30/a06150.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "d6/d30/a06150.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "d6/d30/a06150.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "d6/d30/a06150.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "d6/d30/a06150.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "autoStart", "d6/d30/a06150.html#ab55e2272bf479804d0a0d2f1e6e5bed4", null ],
+    [ "name", "d6/d30/a06150.html#aacc889d1a77591ed4d41f693a1ad15e7", null ],
+    [ "period", "d6/d30/a06150.html#a72f5a204f1d7fe3831b3f7afddae31a7", null ]
 ];

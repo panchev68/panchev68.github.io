@@ -1,7 +1,9 @@
 var a04906 =
 [
-    [ "Key", "d0/dca/a04906.html#a01aa89923019ee3bf5249396252577a0", null ],
-    [ "Nonce", "d0/dca/a04906.html#ae4ce9fb8d76a85f4786b936d4bdb3327", null ],
-    [ "Tag", "d0/dca/a04906.html#a73ebbac632c0982dc3eeb3880cd7febc", null ],
-    [ "WolfSSLChaCha20Poly1305", "d0/dca/a04906.html#af47892a2a6a403161bf652674b3fbaf8", null ]
+    [ "Address", "d0/dca/a04906.html#acd001c62e8048465f6e3775f8c914bed", null ],
+    [ "FunctionCode", "d0/dca/a04906.html#aa422425db306dc5abb9819fd3a3489aa", null ],
+    [ "close", "d0/dca/a04906.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
+    [ "handleReceivedFrame", "d0/dca/a04906.html#a089411b3f62f689799fb09666cfe1ac9", null ],
+    [ "open", "d0/dca/a04906.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
+    [ "setup", "d0/dca/a04906.html#a3134cd1c55cc339a5addd412f7d4b5fb", null ]
 ];

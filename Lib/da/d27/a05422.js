@@ -1,9 +1,5 @@
 var a05422 =
 [
-    [ "Handle", "da/d27/a05422.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
-    [ "Handle", "da/d27/a05422.html#a2ff88e41407c02b9858a201f579b32a1", null ],
-    [ "getPinNumber", "da/d27/a05422.html#a8d29716bb6bcc278e753e55560639c17", null ],
-    [ "getPort", "da/d27/a05422.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
-    [ "getPort", "da/d27/a05422.html#a717fa8fdec63c64bef95cffab50ed478", null ],
-    [ "operator==", "da/d27/a05422.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
+    [ "height", "da/d27/a05422.html#ac7b1a6b0ccd3b153ed5b0de44f194216", null ],
+    [ "width", "da/d27/a05422.html#a7698945addf4e6140fdc8263c99a4397", null ]
 ];

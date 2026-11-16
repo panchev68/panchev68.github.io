@@ -1,14 +1,6 @@
 var a06034 =
 [
-    [ "Bitset", "df/d0f/a06034.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "df/d0f/a06034.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "df/d0f/a06034.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "df/d0f/a06034.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Configuration", "df/d0f/a06034.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "df/d0f/a06034.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "df/d0f/a06034.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "df/d0f/a06034.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "df/d0f/a06034.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "df/d0f/a06034.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "name", "df/d0f/a06034.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
+    [ "output", "df/d0f/a06034.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
+    [ "rotateTime", "df/d0f/a06034.html#aad96d287e9891431e5a7c99935482563", null ]
 ];

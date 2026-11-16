@@ -1,6 +1,8 @@
 var a04682 =
 [
-    [ "pinHandle", "d3/d49/a04682.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
-    [ "timerHandler", "d3/d49/a04682.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
-    [ "updatePeriod", "d3/d49/a04682.html#a08c430ab4ab176b490c190835f89b3b0", null ]
+    [ "chipSelectPin", "d3/d49/a04682.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
+    [ "irqPin", "d3/d49/a04682.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
+    [ "resetPin", "d3/d49/a04682.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
+    [ "rxGain", "d3/d49/a04682.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
+    [ "spiHandle", "d3/d49/a04682.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
 ];

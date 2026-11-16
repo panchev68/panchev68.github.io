@@ -1,8 +1,16 @@
 var a05114 =
 [
-    [ "Frame0x80", "d5/d80/a05114.html#a6a35178c345302fc3fd7e0e797ecd87f", null ],
-    [ "option", "d5/d80/a05114.html#abbdc105cf84ccfae7ac49dcad817a495", null ],
-    [ "rfData", "d5/d80/a05114.html#acdd1182b90bc45f91b6d50fd4a0ff3eb", null ],
-    [ "rssi", "d5/d80/a05114.html#a75c9b510bbf5bbdfae41d3f2cfff6428", null ],
-    [ "srcAddr64", "d5/d80/a05114.html#a2ef2d6ca731ff433131e9a82b31ff492", null ]
+    [ "Command", "d5/d80/a05114.html#aeec1806cc51651aec7c65df97f20824f", [
+      [ "INPUTS", "d5/d80/a05114.html#aeec1806cc51651aec7c65df97f20824fac7cab40575826be2d11c65614ca65692", null ],
+      [ "GET_PARAMETERS", "d5/d80/a05114.html#aeec1806cc51651aec7c65df97f20824fad87e3170f16eba85483569bdf04166c1", null ],
+      [ "OUTPUTS", "d5/d80/a05114.html#aeec1806cc51651aec7c65df97f20824fa1ca47bf72b5f3be73e90beeed7a36a70", null ],
+      [ "SET_PARAMETERS", "d5/d80/a05114.html#aeec1806cc51651aec7c65df97f20824fa8e883255aa1108c276e166cd0bde2307", null ]
+    ] ],
+    [ "UserProtocol", "d5/d80/a05114.html#aa1cf835574b826afcd369ebf2d028ea7", null ],
+    [ "~UserProtocol", "d5/d80/a05114.html#ad7f787cb3b60753ed4352d4a34e8a9a7", null ],
+    [ "handleGetParameters", "d5/d80/a05114.html#a1675e1b5fd15fd1500a5d996f87dfd46", null ],
+    [ "handleInputsUpdate", "d5/d80/a05114.html#a667d3ff5b042410546dc2212f46897b3", null ],
+    [ "handleOutputsUpdate", "d5/d80/a05114.html#a0da8607e6d55446f6dfa2edb7431481f", null ],
+    [ "handleSetParameters", "d5/d80/a05114.html#afc05283afd3c88f8eee7d0c94e969ab4", null ],
+    [ "parse", "d5/d80/a05114.html#a4d3b6c9250019cb601e8256f0167da64", null ]
 ];
