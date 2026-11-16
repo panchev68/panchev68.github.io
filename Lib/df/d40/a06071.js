@@ -1,9 +1,15 @@
 var a06071 =
 [
-    [ "VersionString", "df/d40/a06071.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Base", "df/d40/a06071.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
-    [ "getSubVersion", "df/d40/a06071.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "df/d40/a06071.html#a463ebb1b62a72aab04d6b128c567109a", null ],
-    [ "operator VersionString", "df/d40/a06071.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "df/d40/a06071.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "Status", "df/d40/a06071.html#a12545d9824f6613ee89191861f120584", [
+      [ "SUCCESS", "df/d40/a06071.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "INVALID_SIZE", "df/d40/a06071.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
+      [ "OUT_OF_MEMORY", "df/d40/a06071.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
+      [ "SIZE_TOO_LARGE", "df/d40/a06071.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
+    ] ],
+    [ "MemoryManager", "df/d40/a06071.html#a11985e607e9d0df1a66531314e37b38b", null ],
+    [ "~MemoryManager", "df/d40/a06071.html#a71e750b42ae7c18640c58654a6e54687", null ],
+    [ "MemoryManager", "df/d40/a06071.html#a7045943a317adab019e38e7c6bf2de73", null ],
+    [ "MemoryManager", "df/d40/a06071.html#a89bca016476ef966223eb6841d5cc034", null ],
+    [ "operator=", "df/d40/a06071.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
+    [ "operator=", "df/d40/a06071.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
 ];

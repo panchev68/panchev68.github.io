@@ -1,17 +1,9 @@
 var a05399 =
 [
-    [ "DataAlignment", "dc/daf/a05399.html#a18b5de83aaec561a43dc24a80e15bd46", [
-      [ "RIGHT_12_BITS", "dc/daf/a05399.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
-      [ "LEFT_12_BITS", "dc/daf/a05399.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
-      [ "RIGHT_8_BITS", "dc/daf/a05399.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
-    ] ],
-    [ "DACPortBase", "dc/daf/a05399.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
-    [ "DACPortBase", "dc/daf/a05399.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
-    [ "DACPortBase", "dc/daf/a05399.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
-    [ "~DACPortBase", "dc/daf/a05399.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
-    [ "close", "dc/daf/a05399.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
-    [ "open", "dc/daf/a05399.html#ae527315d8794d0bcdbd7b686839e4630", null ],
-    [ "operator=", "dc/daf/a05399.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
-    [ "operator=", "dc/daf/a05399.html#abfba06342b098e48cbd2ecf0d159497c", null ],
-    [ "setValue", "dc/daf/a05399.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
+    [ "FontScope", "dc/daf/a05399.html#afb51acf5f900afa24daddd98d53a4f16", null ],
+    [ "~FontScope", "dc/daf/a05399.html#a7ba17ca2985cf1fd5ee2c2cba69cae96", null ],
+    [ "FontScope", "dc/daf/a05399.html#ae2ac273810904a0e55683d3f687a075e", null ],
+    [ "FontScope", "dc/daf/a05399.html#abfadcacb673353bcec5428ce22f232fe", null ],
+    [ "operator=", "dc/daf/a05399.html#adc1fb9cebc3b57c497930841e36c23ce", null ],
+    [ "operator=", "dc/daf/a05399.html#a14b3211ff5f705efaa52316e61ec4faa", null ]
 ];

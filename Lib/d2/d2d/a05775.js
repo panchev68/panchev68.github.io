@@ -1,9 +1,13 @@
 var a05775 =
 [
-    [ "name", "d2/d2d/a05775.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "d2/d2d/a05775.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "d2/d2d/a05775.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "d2/d2d/a05775.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "d2/d2d/a05775.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "d2/d2d/a05775.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "UARTPortBase", "d2/d2d/a05775.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
+    [ "UARTPortBase", "d2/d2d/a05775.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
+    [ "UARTPortBase", "d2/d2d/a05775.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
+    [ "~UARTPortBase", "d2/d2d/a05775.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
+    [ "close", "d2/d2d/a05775.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
+    [ "isBusy", "d2/d2d/a05775.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "open", "d2/d2d/a05775.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
+    [ "operator=", "d2/d2d/a05775.html#ad0321a4f1297088a60c64e263c8c6816", null ],
+    [ "operator=", "d2/d2d/a05775.html#af29977f244357cb79e8203dbd192840c", null ],
+    [ "setBaudRate", "d2/d2d/a05775.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

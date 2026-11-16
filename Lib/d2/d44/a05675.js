@@ -1,12 +1,19 @@
 var a05675 =
 [
-    [ "WindowWatchdog", "d2/d44/a05675.html#aedbc081389ab6197c5a334fcff249dc9", null ],
-    [ "~WindowWatchdog", "d2/d44/a05675.html#abf0355eeac54b8e2df2436417ae430c8", null ],
-    [ "WindowWatchdog", "d2/d44/a05675.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
-    [ "WindowWatchdog", "d2/d44/a05675.html#a94de72071a208a3a396313415af9df3a", null ],
-    [ "open", "d2/d44/a05675.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
-    [ "operator=", "d2/d44/a05675.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
-    [ "operator=", "d2/d44/a05675.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
-    [ "refresh", "d2/d44/a05675.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
-    [ "setWindow", "d2/d44/a05675.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
+    [ "Date", "d3/ddb/a05679.html", "d3/ddb/a05679" ],
+    [ "Time", "d6/d3e/a05683.html", "d6/d3e/a05683" ],
+    [ "Callback", "d2/d44/a05675.html#a0a60ddd5d190a0aaa1bbe1c7e6d62c59", null ],
+    [ "RTCDevice", "d2/d44/a05675.html#aef59f39cbffc698a357982cd0194a7f9", null ],
+    [ "~RTCDevice", "d2/d44/a05675.html#a892362d24be775443627005ea8724b38", null ],
+    [ "RTCDevice", "d2/d44/a05675.html#a0a276a7a9c7f0c70b9f23ff4d33f5e42", null ],
+    [ "RTCDevice", "d2/d44/a05675.html#a6c8a82665278c72edbd09c517d929e67", null ],
+    [ "getDateTime", "d2/d44/a05675.html#ad950fdd81c82bb7ecbe2f6f0a896c573", null ],
+    [ "getHandle", "d2/d44/a05675.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isTickServiceRunning", "d2/d44/a05675.html#a17d53ca66d3c3868cf28aea0df5922dc", null ],
+    [ "operator=", "d2/d44/a05675.html#a97370a531742ca95f9bbb03daefd9919", null ],
+    [ "operator=", "d2/d44/a05675.html#a9b9f7c009be9bbae886ca7082a302099", null ],
+    [ "setDateTime", "d2/d44/a05675.html#a9911cafdfc9189dd93f7eb0494ffd54a", null ],
+    [ "startTickService", "d2/d44/a05675.html#a653f2f434ecec9a018b72fd9101db1d0", null ],
+    [ "stopTickService", "d2/d44/a05675.html#acdd2b9c31ba35c63f5873309d8f0130e", null ],
+    [ "void::HAL_RTC_AlarmAEventCallback", "d2/d44/a05675.html#a292bc50e5b612af91527952bbffe57e9", null ]
 ];

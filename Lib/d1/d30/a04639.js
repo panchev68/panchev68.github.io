@@ -1,8 +1,13 @@
 var a04639 =
 [
-    [ "operator==", "d1/d30/a04639.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
-    [ "inPhaseMax", "d1/d30/a04639.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
-    [ "inPhaseMin", "d1/d30/a04639.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
-    [ "quadratureMax", "d1/d30/a04639.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
-    [ "quadratureMin", "d1/d30/a04639.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
+    [ "Power", "d1/d30/a04639.html#af2064ef23cdc3d14a2a9a5e5c9ab2b8e", null ],
+    [ "hardReset", "d1/d30/a04639.html#a4a97d410838feb9faea50b34948d313d", null ],
+    [ "isAsleep", "d1/d30/a04639.html#a146b6c17667d99ba4b4d919d98959641", null ],
+    [ "isOn", "d1/d30/a04639.html#a2cc49b087c846d65af5aaab43d0b4803", null ],
+    [ "isStatusHigh", "d1/d30/a04639.html#acfea3f32a8e3c53a7ce0118d81ed3d20", null ],
+    [ "off", "d1/d30/a04639.html#a00662a719223d2d8dea3e0567d1cc7a8", null ],
+    [ "on", "d1/d30/a04639.html#a9ef3fdbe071a7ca9a6d48b660c068c44", null ],
+    [ "setSavingMode", "d1/d30/a04639.html#a181f9d4d8e952e84f202734e77c8cb85", null ],
+    [ "sleep", "d1/d30/a04639.html#a3100efc86fbfd79c1db3d66caeda4b3e", null ],
+    [ "wakeUp", "d1/d30/a04639.html#aca2cbd553202896c84c23e75d49ddd9e", null ]
 ];

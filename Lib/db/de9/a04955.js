@@ -1,10 +1,13 @@
 var a04955 =
 [
-    [ "SignalStrength", "db/de9/a04955.html#a7221c00a8ff27a3bd355928f960897d4", null ],
-    [ "SignalStrength", "db/de9/a04955.html#ae5207184fca8fed0cc906620b9f017a1", null ],
-    [ "SignalStrength", "db/de9/a04955.html#a759f37108d2a33d860169ffd300b57ed", null ],
-    [ "operator uint8_t", "db/de9/a04955.html#a9d673263c2b74c5aefc860e9f9d03a15", null ],
-    [ "operator=", "db/de9/a04955.html#ae69aec5c67c3620921f8b4dcbcf52bcd", null ],
-    [ "operator=", "db/de9/a04955.html#a849d26f03c86e035d3c4c257ff25e136", null ],
-    [ "toPercent", "db/de9/a04955.html#adf558805c6630d02cef0e3d45d936b9c", null ]
+    [ "WolfSSHServer", "db/de9/a04955.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
+    [ "~WolfSSHServer", "db/de9/a04955.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
+    [ "WolfSSHServer", "db/de9/a04955.html#ad8f53deb42abb7890bd933f530e30e99", null ],
+    [ "WolfSSHServer", "db/de9/a04955.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
+    [ "accept", "db/de9/a04955.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
+    [ "operator=", "db/de9/a04955.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
+    [ "operator=", "db/de9/a04955.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
+    [ "read", "db/de9/a04955.html#ac07508d68f41b64e463fdd58db57558b", null ],
+    [ "send", "db/de9/a04955.html#a034957692d48053e848ee6d77605fe2f", null ],
+    [ "shutdown", "db/de9/a04955.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
 ];

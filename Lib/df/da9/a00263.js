@@ -1,5 +1,5 @@
 var a00263 =
 [
-    [ "Lib::BSP::Display::SSD1306&lt; T_WIDTH, T_HEIGHT &gt;", "d0/d0c/a04484.html", "d0/d0c/a04484" ],
-    [ "Lib::BSP::Display::SSD1306&lt; T_WIDTH, T_HEIGHT &gt;::Config", "de/d37/a04488.html", "de/d37/a04488" ]
+    [ "Lib::BSP::Display::SSD1306&lt; T_WIDTH, T_HEIGHT &gt;", "dd/d0a/a04483.html", "dd/d0a/a04483" ],
+    [ "Lib::BSP::Display::SSD1306&lt; T_WIDTH, T_HEIGHT &gt;::Config", "d8/dc4/a04487.html", "d8/dc4/a04487" ]
 ];

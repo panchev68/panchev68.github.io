@@ -1,9 +1,19 @@
 var a04779 =
 [
-    [ "Address", "d4/deb/a04779.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
-    [ "FunctionCode", "d4/deb/a04779.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
-    [ "close", "d4/deb/a04779.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
-    [ "open", "d4/deb/a04779.html#a60baa47faf417d3e58c9da926ba26d49", null ],
-    [ "sendFrame", "d4/deb/a04779.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
-    [ "setup", "d4/deb/a04779.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
+    [ "Config", "d0/d9d/a04783.html", "d0/d9d/a04783" ],
+    [ "Resolution", "d4/deb/a04779.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
+      [ "BITS_9", "d4/deb/a04779.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
+      [ "BITS_10", "d4/deb/a04779.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
+      [ "BITS_11", "d4/deb/a04779.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
+      [ "BITS_12", "d4/deb/a04779.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
+    ] ],
+    [ "DS18B20", "d4/deb/a04779.html#a6e8835c62b13a615346d69068ee41c97", null ],
+    [ "~DS18B20", "d4/deb/a04779.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
+    [ "close", "d4/deb/a04779.html#aab038c628d13a5369429107b4be42b3d", null ],
+    [ "getResolution", "d4/deb/a04779.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
+    [ "isGenuineDevice", "d4/deb/a04779.html#ae8e710761fe8b7931ba5d6893456b4a2", null ],
+    [ "isPresent", "d4/deb/a04779.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
+    [ "open", "d4/deb/a04779.html#a1dc439d417a53a57d054f811cf33402d", null ],
+    [ "readRom", "d4/deb/a04779.html#a26a1ebc99132937ee58668fd12c26263", null ],
+    [ "readTemperatureCelsius", "d4/deb/a04779.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
 ];

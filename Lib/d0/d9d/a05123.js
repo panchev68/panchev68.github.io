@@ -1,7 +1,13 @@
 var a05123 =
 [
-    [ "writeTo", "d0/d9d/a05123.html#a0fbf65ec7ca7d7ad1b75517bab647edd", null ],
-    [ "atCommand", "d0/d9d/a05123.html#a270978a96cccd4b3ef127d536cde4a6d", null ],
-    [ "frameId", "d0/d9d/a05123.html#a714c8902b6e8cc0a5f0265f4f1af9c84", null ],
-    [ "parameters", "d0/d9d/a05123.html#aaf51e64f47cc8a54064df71903a793bb", null ]
+    [ "Config", "d0/d42/a05127.html", "d0/d42/a05127" ],
+    [ "ComDriver", "d0/d9d/a05123.html#ababf68659e9af31a588761f3b7019ee4", null ],
+    [ "ComDriver", "d0/d9d/a05123.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
+    [ "~ComDriver", "d0/d9d/a05123.html#ac84fd480c15423c989d3f9f367f99045", null ],
+    [ "init", "d0/d9d/a05123.html#a43649d6474cd7c536e4e76c7a3374725", null ],
+    [ "operator=", "d0/d9d/a05123.html#a39956162d031d237c8741f20d1de0b4d", null ],
+    [ "reset", "d0/d9d/a05123.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
+    [ "send", "d0/d9d/a05123.html#adb3898389cd892854bac73d239b647fc", null ],
+    [ "diagnostic", "d0/d9d/a05123.html#a567a1a6ed97de4267cfec4531f60a373", null ],
+    [ "xrst", "d0/d9d/a05123.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
 ];

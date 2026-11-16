@@ -1,14 +1,10 @@
 var a05635 =
 [
-    [ "Time", "d7/d9a/a05639.html", "d7/d9a/a05639" ],
-    [ "Date", "d7/d3b/a05643.html", "d7/d3b/a05643" ],
-    [ "DateTime", "dd/df1/a05635.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "dd/df1/a05635.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "dd/df1/a05635.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "dd/df1/a05635.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "dd/df1/a05635.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "dd/df1/a05635.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "dd/df1/a05635.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "dd/df1/a05635.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "dd/df1/a05635.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "IndependentWatchdog", "dd/df1/a05635.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
+    [ "IndependentWatchdog", "dd/df1/a05635.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
+    [ "IndependentWatchdog", "dd/df1/a05635.html#aabfa4830743c87632886a0e095af6dba", null ],
+    [ "open", "dd/df1/a05635.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
+    [ "operator=", "dd/df1/a05635.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
+    [ "operator=", "dd/df1/a05635.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
+    [ "refresh", "dd/df1/a05635.html#ae9f164f43789bd02baa1587a44c30e61", null ]
 ];

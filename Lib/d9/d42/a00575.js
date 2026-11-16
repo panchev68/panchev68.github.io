@@ -1,5 +1,5 @@
 var a00575 =
 [
-    [ "Lib::Ethernet::Wiznet::W5500", "d3/dec/a05384.html", "d3/dec/a05384" ],
-    [ "Lib::Ethernet::Wiznet::W5500::Config", "da/de3/a05388.html", "da/de3/a05388" ]
+    [ "Lib::Ethernet::Wiznet::W5500", "db/de3/a05387.html", "db/de3/a05387" ],
+    [ "Lib::Ethernet::Wiznet::W5500::Config", "d2/dc7/a05391.html", "d2/dc7/a05391" ]
 ];

@@ -1,10 +1,8 @@
 var a04723 =
 [
-    [ "RxMessage", "dc/d12/a04723.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
-    [ "RxMessage", "dc/d12/a04723.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
-    [ "getData", "dc/d12/a04723.html#a211378ed57e780728a164371a88e9913", null ],
-    [ "getId", "dc/d12/a04723.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
-    [ "data", "dc/d12/a04723.html#ad7fd7612128273e1c546b6344e7410b3", null ],
-    [ "id", "dc/d12/a04723.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
-    [ "length", "dc/d12/a04723.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
+    [ "operator==", "dc/d12/a04723.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
+    [ "inPhaseMax", "dc/d12/a04723.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
+    [ "inPhaseMin", "dc/d12/a04723.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
+    [ "quadratureMax", "dc/d12/a04723.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
+    [ "quadratureMin", "dc/d12/a04723.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
 ];

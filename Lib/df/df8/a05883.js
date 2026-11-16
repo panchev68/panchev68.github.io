@@ -1,13 +1,12 @@
 var a05883 =
 [
-    [ "CriticalSectionFromISR", "d9/d99/a05887.html", "d9/d99/a05887" ],
-    [ "CriticalSection", "db/d5e/a05891.html", "db/d5e/a05891" ],
-    [ "Scheduler", "d0/d49/a05895.html", "d0/d49/a05895" ],
-    [ "MemoryInfo", "db/d12/a05903.html", "db/d12/a05903" ],
-    [ "InterruptMask", "df/df8/a05883.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
-    [ "TaskCount", "df/df8/a05883.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
-    [ "TickDuration", "df/df8/a05883.html#ab8efa244b2762e143dbfc23e170ed0e1", null ],
-    [ "TickType", "df/df8/a05883.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
-    [ "Kernel", "df/df8/a05883.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
-    [ "~Kernel", "df/df8/a05883.html#a002477130b9e5bd7adc19142c1516c08", null ]
+    [ "Time", "df/df8/a05883.html#a09c1a289db437e3ca338e958ea1101fe", null ],
+    [ "Time", "df/df8/a05883.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
+    [ "isValid", "df/df8/a05883.html#aad60c63a33a981ba3174a5360f508caa", null ],
+    [ "operator<=>", "df/df8/a05883.html#a439444313b0351de56cc2f43dc39b9b4", null ],
+    [ "operator==", "df/df8/a05883.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
+    [ "toDuration", "df/df8/a05883.html#a3f5be273bd672ae87b52a229edec304f", null ],
+    [ "hours", "df/df8/a05883.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
+    [ "minutes", "df/df8/a05883.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
+    [ "seconds", "df/df8/a05883.html#acffd8038132dc5a2078816b9d0dae829", null ]
 ];

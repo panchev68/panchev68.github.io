@@ -1,14 +1,16 @@
 var a05019 =
 [
-    [ "SerialNumber", "db/d39/a05023.html", "db/d39/a05023" ],
-    [ "ackFailures", "de/d93/a05019.html#aa36464587f33788505f069d1c46ec004", null ],
-    [ "ccaFailures", "de/d93/a05019.html#a51e5f54e9e1224b2389b126cd7602d65", null ],
-    [ "channel", "de/d93/a05019.html#a910133d925087a409f8f8357447b9e3a", null ],
-    [ "firmwareVersion", "de/d93/a05019.html#a919225b632587966d3cdbd15ca30f0d3", null ],
-    [ "hardwareVersion", "de/d93/a05019.html#a2efd702c930d16f10c2672244503d676", null ],
-    [ "nodeIdentifier", "de/d93/a05019.html#a1980717ff0972ddb91d6d59e8bd1a38e", null ],
-    [ "panId", "de/d93/a05019.html#ad1515643697ad647030e33ba97d79968", null ],
-    [ "serialNumber", "de/d93/a05019.html#a5e4e85516315320363b69f902c64a5b7", null ],
-    [ "temperature", "de/d93/a05019.html#aece1486ed1a9e85c4aa022f9634a3884", null ],
-    [ "voltage", "de/d93/a05019.html#a9ee4423766190b01b3381ae41455bf2d", null ]
+    [ "Period", "de/d93/a05019.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
+    [ "Period", "de/d93/a05019.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
+    [ "beginMeasurement", "de/d93/a05019.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
+    [ "clearMinMax", "de/d93/a05019.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
+    [ "endMeasurement", "de/d93/a05019.html#a764b89843884696c66a1e499e466bb51", null ],
+    [ "getMaximum", "de/d93/a05019.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
+    [ "getMinimum", "de/d93/a05019.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
+    [ "getRawValue", "de/d93/a05019.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
+    [ "getValue", "de/d93/a05019.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
+    [ "operator uint32_t", "de/d93/a05019.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
+    [ "operator=", "de/d93/a05019.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
+    [ "reset", "de/d93/a05019.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
+    [ "stopMeasurement", "de/d93/a05019.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
 ];

@@ -1,20 +1,10 @@
 var a04751 =
 [
-    [ "Diagnostic", "da/d9d/a04751.html#a4412fc056d4c7fd922510ac818f9f29f", null ],
-    [ "RxMessage", "da/d9d/a04751.html#a932efed9da888704df63ae07522746cc", null ],
-    [ "Service", "da/d9d/a04751.html#afb69c60e1b3fb8c0f019359b77c18e7c", null ],
-    [ "~Service", "da/d9d/a04751.html#a30e6a9733d9f217ad7d68f54d009a286", null ],
-    [ "errorCallback", "da/d9d/a04751.html#ad74f33fcf92667fa655a8cef606c84d9", null ],
-    [ "getDiagnostic", "da/d9d/a04751.html#ac4f24cab5af43338c4feec4e384ec00b", null ],
-    [ "messageReceivedCallback", "da/d9d/a04751.html#a90b4af9d9bea6fa640fce38af5d20e5f", null ],
-    [ "receive", "da/d9d/a04751.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "da/d9d/a04751.html#a7f595e29f9d0f652826f0c139ddb37e8", null ],
-    [ "send", "da/d9d/a04751.html#aad0ab4b3fc67332597a346d30271a53b", null ],
-    [ "send", "da/d9d/a04751.html#a6237cedfed2431ade85c2736d2e9fc10", null ],
-    [ "send", "da/d9d/a04751.html#a9e61e58322c0a574320d57ad9da13966", null ],
-    [ "send", "da/d9d/a04751.html#ae9698dff358c5494704ad558fcf82d22", null ],
-    [ "send", "da/d9d/a04751.html#a26cd3541d7c850c5151fe7281e917a94", null ],
-    [ "start", "da/d9d/a04751.html#a784752f46553c65f8c8b3fe024a43cc1", null ],
-    [ "stop", "da/d9d/a04751.html#aaa138c97c967ef7f4ae1ccbf10b69187", null ],
-    [ "taskFn", "da/d9d/a04751.html#a375bb14705ce8117ed4e147179680854", null ]
+    [ "Ring", "da/d9d/a04751.html#a162946918a210436d07b8649948e2939", null ],
+    [ "Ring", "da/d9d/a04751.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
+    [ "Ring", "da/d9d/a04751.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
+    [ "getData", "da/d9d/a04751.html#a897e123e376e08a2741c3498d764166d", null ],
+    [ "operator=", "da/d9d/a04751.html#a3b42427dd22bff92b102320fdf83a671", null ],
+    [ "operator=", "da/d9d/a04751.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
+    [ "operator[]", "da/d9d/a04751.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
 ];

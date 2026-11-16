@@ -1,12 +1,20 @@
 var a05687 =
 [
-    [ "Sunset", "d2/de1/a05687.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "d2/de1/a05687.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
-    [ "calculateSunTime", "d2/de1/a05687.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
-    [ "computeHourAngle", "d2/de1/a05687.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
-    [ "setCurrentDate", "d2/de1/a05687.html#a0598ea08f953291be6bd331b39254b2a", null ],
-    [ "setCurrentDate", "d2/de1/a05687.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "d2/de1/a05687.html#afbc858a5944c47609616f459b657339b", null ],
-    [ "sunrise", "d2/de1/a05687.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
-    [ "sunset", "d2/de1/a05687.html#a3bea9bb96761c55203633434195d87c4", null ]
+    [ "Timeout", "d2/de1/a05687.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
+    [ "SPIPort", "d2/de1/a05687.html#a903be3f889b13683ab1e357df5e48ddb", null ],
+    [ "~SPIPort", "d2/de1/a05687.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
+    [ "SPIPort", "d2/de1/a05687.html#a8335bc7cd53354957b5b059adfa4a702", null ],
+    [ "SPIPort", "d2/de1/a05687.html#ab03e262f43c766b37a67b48c85bff815", null ],
+    [ "bindBeginTransactionFunc", "d2/de1/a05687.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "d2/de1/a05687.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "d2/de1/a05687.html#ab6529e241d0728159eb3f60c7621b666", null ],
+    [ "getHandle", "d2/de1/a05687.html#a177a320faf7a48d1692b081641399447", null ],
+    [ "getHandle", "d2/de1/a05687.html#a88e71252a873f0d8d5051292a08b1336", null ],
+    [ "isBusy", "d2/de1/a05687.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "open", "d2/de1/a05687.html#af039716c9cb01db958d77f8c581627cf", null ],
+    [ "operator=", "d2/de1/a05687.html#a7ac0642f801168b819d2f19789bd9d15", null ],
+    [ "operator=", "d2/de1/a05687.html#ae10f073f8753cb6161429d0e321dfd92", null ],
+    [ "receive", "d2/de1/a05687.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "d2/de1/a05687.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "d2/de1/a05687.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

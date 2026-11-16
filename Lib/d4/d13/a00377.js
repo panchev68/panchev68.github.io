@@ -1,4 +1,4 @@
 var a00377 =
 [
-    [ "Lib::Communication::Modbus::Master", "da/dea/a04864.html", "da/dea/a04864" ]
+    [ "Lib::Communication::Modbus::Master", "df/d6c/a04863.html", "df/d6c/a04863" ]
 ];

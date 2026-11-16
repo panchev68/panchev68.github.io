@@ -1,4 +1,4 @@
 var a00938 =
 [
-    [ "Lib::Math::HammingCode", "d7/d3c/a05976.html", null ]
+    [ "Lib::Math::HammingCode", "d6/d0c/a05979.html", null ]
 ];

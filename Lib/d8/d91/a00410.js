@@ -1,10 +1,10 @@
 var a00410 =
 [
-    [ "Lib::Digi::API::NodeInfo", "dc/d61/a05028.html", "dc/d61/a05028" ],
-    [ "Lib::Digi::API::NodeInfo::MacAddress", "de/dff/a05032.html", "de/dff/a05032" ],
-    [ "Lib::Digi::API::NodeInfo::NetworkInfo", "d8/d09/a05036.html", "d8/d09/a05036" ],
-    [ "Lib::Digi::API::NodeInfo::Discovery", "d3/d40/a05040.html", "d3/d40/a05040" ],
-    [ "Lib::Digi::API::NodeInfo::Versions", "db/df9/a05044.html", "db/df9/a05044" ],
-    [ "Lib::Digi::API::NodeInfo::Monitor", "d0/d8b/a05048.html", "d0/d8b/a05048" ],
-    [ "Lib::Digi::API::NodeInfo::MacDiagnostic", "d1/dc4/a05052.html", "d1/dc4/a05052" ]
+    [ "Lib::Digi::API::NodeInfo", "d1/d82/a05027.html", "d1/d82/a05027" ],
+    [ "Lib::Digi::API::NodeInfo::MacAddress", "de/ddd/a05031.html", "de/ddd/a05031" ],
+    [ "Lib::Digi::API::NodeInfo::NetworkInfo", "d1/d9f/a05035.html", "d1/d9f/a05035" ],
+    [ "Lib::Digi::API::NodeInfo::Discovery", "d4/d6b/a05039.html", "d4/d6b/a05039" ],
+    [ "Lib::Digi::API::NodeInfo::Versions", "d2/d61/a05043.html", "d2/d61/a05043" ],
+    [ "Lib::Digi::API::NodeInfo::Monitor", "d3/dd5/a05047.html", "d3/dd5/a05047" ],
+    [ "Lib::Digi::API::NodeInfo::MacDiagnostic", "d6/d32/a05051.html", "d6/d32/a05051" ]
 ];

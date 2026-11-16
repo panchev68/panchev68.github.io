@@ -1,5 +1,5 @@
 var a00584 =
 [
-    [ "Lib::GUI::Canvas", "da/dc0/a05392.html", "da/dc0/a05392" ],
-    [ "Lib::GUI::Canvas::FontScope", "db/d21/a05396.html", "db/d21/a05396" ]
+    [ "Lib::GUI::Canvas", "d7/dd1/a05395.html", "d7/dd1/a05395" ],
+    [ "Lib::GUI::Canvas::FontScope", "dc/daf/a05399.html", "dc/daf/a05399" ]
 ];

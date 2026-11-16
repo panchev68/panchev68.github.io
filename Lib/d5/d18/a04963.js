@@ -1,6 +1,11 @@
 var a04963 =
 [
-    [ "operator uint64_t", "d5/d18/a04963.html#aebc72338217669721612422f138da4e6", null ],
-    [ "leastSignificant", "d5/d18/a04963.html#af020cae181d7b432faf85061911c84dd", null ],
-    [ "mostSignificant", "d5/d18/a04963.html#abd19bd98e154f92791c281037281c222", null ]
+    [ "WolfSSLRandom", "d5/d18/a04963.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
+    [ "~WolfSSLRandom", "d5/d18/a04963.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
+    [ "WolfSSLRandom", "d5/d18/a04963.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
+    [ "WolfSSLRandom", "d5/d18/a04963.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
+    [ "generate", "d5/d18/a04963.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
+    [ "native", "d5/d18/a04963.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
+    [ "operator=", "d5/d18/a04963.html#a2b57fbc329feeb209aa7f41b29608488", null ],
+    [ "operator=", "d5/d18/a04963.html#a61facc5365a377d384371cb51442e897", null ]
 ];

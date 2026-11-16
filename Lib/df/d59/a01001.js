@@ -1,5 +1,5 @@
 var a01001 =
 [
-    [ "RTOS::TickClient&lt; Derived &gt;", "d6/db5/a06140.html", "d6/db5/a06140" ],
-    [ "RTOS::TickClient&lt; Derived &gt;::Config", "d5/db3/a06144.html", "d5/db3/a06144" ]
+    [ "RTOS::TickClient&lt; Derived &gt;", "d7/dc5/a06143.html", "d7/dc5/a06143" ],
+    [ "RTOS::TickClient&lt; Derived &gt;::Config", "d1/d10/a06147.html", "d1/d10/a06147" ]
 ];

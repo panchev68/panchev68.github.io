@@ -1,17 +1,9 @@
 var a05323 =
 [
-    [ "ADCPort", "d6/daf/a05323.html#ad3590b6cb223a01016ad98732fcce676", null ],
-    [ "~ADCPort", "d6/daf/a05323.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
-    [ "ADCPort", "d6/daf/a05323.html#a9e044644fe3be9918072830d224a30df", null ],
-    [ "ADCPort", "d6/daf/a05323.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
-    [ "close", "d6/daf/a05323.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
-    [ "getHandle", "d6/daf/a05323.html#a5614da14358698185ca50bab6f0ffb90", null ],
-    [ "getHandle", "d6/daf/a05323.html#a67ec812f689c32e443b0f0b0693c358a", null ],
-    [ "getValue", "d6/daf/a05323.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "d6/daf/a05323.html#aed764265c454323ee0b2d718d2f447cb", null ],
-    [ "operator=", "d6/daf/a05323.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
-    [ "operator=", "d6/daf/a05323.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
-    [ "poll", "d6/daf/a05323.html#a7f4263cc22040a8ca759022ba6097646", null ],
-    [ "start", "d6/daf/a05323.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
-    [ "stop", "d6/daf/a05323.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
+    [ "address", "d6/daf/a05323.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
+    [ "channel", "d6/daf/a05323.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
+    [ "counter", "d6/daf/a05323.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
+    [ "length", "d6/daf/a05323.html#af80f349070d12d0ce2387f6d95764bfe", null ],
+    [ "priority", "d6/daf/a05323.html#a0c3726e1ac6fed602491f21449c9a740", null ],
+    [ "protocol", "d6/daf/a05323.html#ac094990b182d42c38feb302d144a6924", null ]
 ];

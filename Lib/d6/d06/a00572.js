@@ -1,4 +1,4 @@
 var a00572 =
 [
-    [ "Lib::Ethernet::Wiznet::Sockets", "d2/d6f/a05380.html", "d2/d6f/a05380" ]
+    [ "Lib::Ethernet::Wiznet::Sockets", "db/d18/a05383.html", "db/d18/a05383" ]
 ];

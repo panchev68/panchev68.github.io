@@ -1,7 +1,7 @@
 var a05195 =
 [
-    [ "Group", "dc/d65/a05195.html#a48b74757679d549dd7d08383435d59b5", null ],
-    [ "~Group", "dc/d65/a05195.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
-    [ "getCaption", "dc/d65/a05195.html#a6b28a1279997058ac197a0579f4c818d", null ],
-    [ "tag", "dc/d65/a05195.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
+    [ "writeTo", "dc/d65/a05195.html#a7822cbb27fa7495fd67556a0afaed75f", null ],
+    [ "atCommand", "dc/d65/a05195.html#ae3e6e306d54297473f78f320425df58b", null ],
+    [ "frameId", "dc/d65/a05195.html#af2345c092e4bb001e18ac86d718196a4", null ],
+    [ "parameterValue", "dc/d65/a05195.html#a060767a4f172791aa4d493bf2ba4ac6d", null ]
 ];

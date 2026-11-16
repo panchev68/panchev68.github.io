@@ -1,5 +1,5 @@
 var a04783 =
 [
-    [ "Master", "d0/d9d/a04783.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d0/d9d/a04783.html#af2d503cce06191d01441adbba146c9f5", null ]
+    [ "pin", "d0/d9d/a04783.html#a41948546fdb93612c9914e22c070296d", null ],
+    [ "resolution", "d0/d9d/a04783.html#aee8c02f423a290519c3aed577d688891", null ]
 ];

@@ -1,6 +1,5 @@
 var a05375 =
 [
-    [ "getDevice", "d3/d97/a05375.html#a44399c0b88c31ab172615c8522506511", null ],
-    [ "registerDevice", "d3/d97/a05375.html#a20731f8c338ecda6068a2f416c8e9e97", null ],
-    [ "unregisterDevice", "d3/d97/a05375.html#aa1c87169c3e9040cd552e10c08e0eee4", null ]
+    [ "rxMessageCounter", "d3/d97/a05375.html#ae09c04483f8353c553a966fcfd32c214", null ],
+    [ "txMessageCounter", "d3/d97/a05375.html#a4286c02031295ce311297c75eee43398", null ]
 ];

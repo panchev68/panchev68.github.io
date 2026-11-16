@@ -1,9 +1,5 @@
 var a05419 =
 [
-    [ "Handle", "d5/dc5/a05419.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
-    [ "Handle", "d5/dc5/a05419.html#a2ff88e41407c02b9858a201f579b32a1", null ],
-    [ "getPinNumber", "d5/dc5/a05419.html#a8d29716bb6bcc278e753e55560639c17", null ],
-    [ "getPort", "d5/dc5/a05419.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
-    [ "getPort", "d5/dc5/a05419.html#a717fa8fdec63c64bef95cffab50ed478", null ],
-    [ "operator==", "d5/dc5/a05419.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
+    [ "height", "d5/dc5/a05419.html#ac7b1a6b0ccd3b153ed5b0de44f194216", null ],
+    [ "width", "d5/dc5/a05419.html#a7698945addf4e6140fdc8263c99a4397", null ]
 ];

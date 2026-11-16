@@ -1,15 +1,13 @@
 var a04787 =
 [
-    [ "WolfSSLRsa", "d2/df3/a04787.html#a1308729d8ff35f469e9f9b371d525d28", null ],
-    [ "~WolfSSLRsa", "d2/df3/a04787.html#ab6ae34e7912a123c6835ee6840762239", null ],
-    [ "WolfSSLRsa", "d2/df3/a04787.html#acc7f398f326414a4d2f5bea6b308a0b0", null ],
-    [ "WolfSSLRsa", "d2/df3/a04787.html#a3814f988249760683546ddc093b8ba4e", null ],
-    [ "decrypt", "d2/df3/a04787.html#a690ac94f5fdb51b1a82a680b427e80f6", null ],
-    [ "encrypt", "d2/df3/a04787.html#a5e86c36f992625c03945c115ab436f54", null ],
-    [ "encryptedSize", "d2/df3/a04787.html#a8886d49ea9dc962dd7e5dfded3314703", null ],
-    [ "generateKey", "d2/df3/a04787.html#a43de0d37ba0f47417c537dba6ce37ad4", null ],
-    [ "operator=", "d2/df3/a04787.html#a0767271bfdf8f54002f922c2ee09944a", null ],
-    [ "operator=", "d2/df3/a04787.html#a09d6b1e65a5e85ce8c839c0001917c96", null ],
-    [ "sign", "d2/df3/a04787.html#aaa7fa629597c530db9a29c108a50c076", null ],
-    [ "verify", "d2/df3/a04787.html#a8efa778b2f9627a75054ee625e3a5c2e", null ]
+    [ "Config", "db/d92/a04791.html", "db/d92/a04791" ],
+    [ "TMP102", "d2/df3/a04787.html#a949aef107b50c3194360a1211fc77380", null ],
+    [ "configureAlert", "d2/df3/a04787.html#ad9a264b10f99d9f65ad8c08b872fb4fb", null ],
+    [ "enterSleepMode", "d2/df3/a04787.html#aaf751d7c9bc24731e6fe8347ec8772ce", null ],
+    [ "exitSleepMode", "d2/df3/a04787.html#ac7ab933572bb11b6d0193a5e9ab370e9", null ],
+    [ "init", "d2/df3/a04787.html#aad208b4242276623b58c7e690d0be566", null ],
+    [ "readTemperature", "d2/df3/a04787.html#a8bad032159a78dfb379d94fd21f9a14e", null ],
+    [ "setTHigh", "d2/df3/a04787.html#a31909d75566cc264aeee9cc68c96c6a8", null ],
+    [ "setTLow", "d2/df3/a04787.html#abe3ff96789b3357515f28158f06aa714", null ],
+    [ "triggerOneShot", "d2/df3/a04787.html#a911c4aa4ba809f4461cd5d1c2586670c", null ]
 ];

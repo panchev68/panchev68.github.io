@@ -1,4 +1,4 @@
 var a00995 =
 [
-    [ "RTOS::StreamBuffer", "d8/d7b/a06112.html", "d8/d7b/a06112" ]
+    [ "RTOS::StreamBuffer", "db/d41/a06115.html", "db/d41/a06115" ]
 ];

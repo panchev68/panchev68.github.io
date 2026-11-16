@@ -1,20 +1,19 @@
 var a05823 =
 [
-    [ "Point", "d0/d5b/a05827.html", "d0/d5b/a05827" ],
-    [ "BoundaryType", "de/d27/a05823.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "de/d27/a05823.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "de/d27/a05823.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "de/d27/a05823.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "de/d27/a05823.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "de/d27/a05823.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "de/d27/a05823.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "de/d27/a05823.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "de/d27/a05823.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "de/d27/a05823.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "de/d27/a05823.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "de/d27/a05823.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "de/d27/a05823.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "de/d27/a05823.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "de/d27/a05823.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "USBHostPortBase", "de/d27/a05823.html#ac0f4ceb9b0f8b8a506fd172cb3ce4566", null ],
+    [ "USBHostPortBase", "de/d27/a05823.html#aa89066f8aa5102a47badafbc732bf444", null ],
+    [ "USBHostPortBase", "de/d27/a05823.html#a6ab4021b54519845f9f116d64637e8b3", null ],
+    [ "~USBHostPortBase", "de/d27/a05823.html#a78ed9071852127d2096ce7ef2b2a5f8e", null ],
+    [ "close", "de/d27/a05823.html#aff332f8bc49d112c37f829db7d9b78c1", null ],
+    [ "closeChannel", "de/d27/a05823.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
+    [ "getFrame", "de/d27/a05823.html#aa5a82053bf356261f139d027918f7a98", null ],
+    [ "getSpeed", "de/d27/a05823.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
+    [ "getTransferCount", "de/d27/a05823.html#aeafad19d337548bb5ef919dd44723b5f", null ],
+    [ "open", "de/d27/a05823.html#ab20db0d8a9ceb5b527bc5b4ff065717f", null ],
+    [ "openChannel", "de/d27/a05823.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
+    [ "operator=", "de/d27/a05823.html#a58f84861a9e04f0260bf39e31c926931", null ],
+    [ "operator=", "de/d27/a05823.html#a9dea26483778c8eacb80952819421b30", null ],
+    [ "resetPort", "de/d27/a05823.html#a4be20887571f3bd3694a79bb349979f8", null ],
+    [ "start", "de/d27/a05823.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
+    [ "stop", "de/d27/a05823.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ]
 ];

@@ -1,23 +1,18 @@
 var a05779 =
 [
-    [ "Config", "d6/d37/a05783.html", "d6/d37/a05783" ],
-    [ "Command", "d6/d64/a05779.html#a0b7ad8b7773fc15de07047754f3794f9", [
-      [ "OFF", "d6/d64/a05779.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "d6/d64/a05779.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
-    ] ],
-    [ "Status", "d6/d64/a05779.html#a9f826713fcf7511db5c43ef6f27173af", [
-      [ "IS_OFF", "d6/d64/a05779.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
-      [ "IS_ON", "d6/d64/a05779.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
-      [ "IN_MOTION", "d6/d64/a05779.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
-    ] ],
-    [ "RotationCylinder", "d6/d64/a05779.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
-    [ "RotationCylinder", "d6/d64/a05779.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
-    [ "command", "d6/d64/a05779.html#a8ca6acca72dbe8c542856371e956e058", null ],
-    [ "getName", "d6/d64/a05779.html#a480be139cc8704be72afb69d2456281f", null ],
-    [ "getStatus", "d6/d64/a05779.html#aba16d8727149fd2debf8b51fff5438bd", null ],
-    [ "isOff", "d6/d64/a05779.html#a90f1e56010dee19b0f66350351127712", null ],
-    [ "isOn", "d6/d64/a05779.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
-    [ "operator=", "d6/d64/a05779.html#a44c71110f315e89203746b05fd4ab10a", null ],
-    [ "setup", "d6/d64/a05779.html#a659c7989f745a79aeecb1c24004acba6", null ],
-    [ "update", "d6/d64/a05779.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
+    [ "EventHandler", "d6/d64/a05779.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
+    [ "USBDevicePort", "d6/d64/a05779.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
+    [ "~USBDevicePort", "d6/d64/a05779.html#a380acfe834fbf265a2fdfe8e26550867", null ],
+    [ "abort", "d6/d64/a05779.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
+    [ "close", "d6/d64/a05779.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d6/d64/a05779.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d6/d64/a05779.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d6/d64/a05779.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d6/d64/a05779.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d6/d64/a05779.html#add4fb8ab17eac13116050ae3c8237acf", null ],
+    [ "send", "d6/d64/a05779.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
+    [ "setEventHandler", "d6/d64/a05779.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
+    [ "submitReceive", "d6/d64/a05779.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
+    [ "submitSend", "d6/d64/a05779.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
+    [ "waitForEvent", "d6/d64/a05779.html#ac98dece292bb17828882e8d61e803880", null ]
 ];

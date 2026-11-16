@@ -1,21 +1,17 @@
 var a04455 =
 [
-    [ "Config", "de/d9e/a04459.html", "de/d9e/a04459" ],
-    [ "EventCode", "d1/d2d/a04455.html#a79bb5179e93b8bb7fb1dca034f1572f7", [
-      [ "BUTTON_PUSH", "d1/d2d/a04455.html#a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
-      [ "BUTTON_PULL", "d1/d2d/a04455.html#a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972", null ],
-      [ "BUTTON_HOLD", "d1/d2d/a04455.html#a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e", null ],
-      [ "ENCODER_CW", "d1/d2d/a04455.html#a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404", null ],
-      [ "ENCODER_CCW", "d1/d2d/a04455.html#a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b", null ],
-      [ "NONE", "d1/d2d/a04455.html#a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693", null ]
-    ] ],
-    [ "EncoderTimer", "d1/d2d/a04455.html#aaf07b62dc5be29307f86fc985c41c7ab", null ],
-    [ "~EncoderTimer", "d1/d2d/a04455.html#a449279e87494b389cfa1adba8e7f6b37", null ],
-    [ "EncoderTimer", "d1/d2d/a04455.html#a99753bd300ae9ecf9544bf7ba709e3f5", null ],
-    [ "EncoderTimer", "d1/d2d/a04455.html#a7d21c22284a66c9cbf8d4260a84aef01", null ],
-    [ "close", "d1/d2d/a04455.html#a9e37bcbed278df67dad753953c0e0505", null ],
-    [ "open", "d1/d2d/a04455.html#a332145ce828a12688d8de9aea070c328", null ],
-    [ "operator=", "d1/d2d/a04455.html#a6e4f9be3709b642fa4507cda01d85fc1", null ],
-    [ "operator=", "d1/d2d/a04455.html#a8f9bc205f553a774c7a25beff08602ac", null ],
-    [ "read", "d1/d2d/a04455.html#afa10c44ad4eee7779caf46410cac1255", null ]
+    [ "Outputs", "d1/d2d/a04455.html#a247cd7c1b9224f24326b3776838b272f", null ],
+    [ "getChangesCounter", "d1/d2d/a04455.html#a20ce1721d96d5e27bdd04a0e1952f3fb", null ],
+    [ "getSpiHandle", "d1/d2d/a04455.html#a95099752d786b9afd12743cfed8e8f39", null ],
+    [ "getStatus", "d1/d2d/a04455.html#a5390728a76821a9b72e0bf604b09462e", null ],
+    [ "getValue", "d1/d2d/a04455.html#adfeabb3ecc2b63a7d2fdaef8972422d2", null ],
+    [ "hasSpiError", "d1/d2d/a04455.html#a577114566b65889dd42c95c3e3350b1a", null ],
+    [ "postUpdateCallback", "d1/d2d/a04455.html#a369ec8b311dd4871503593f3fd91e103", null ],
+    [ "preUpdateCallback", "d1/d2d/a04455.html#a785e5cd7daaf7419e296aaa67f4d785c", null ],
+    [ "setup", "d1/d2d/a04455.html#aeee2211d23c7dfc940b0d3f16ff4e531", null ],
+    [ "setValue", "d1/d2d/a04455.html#a6a6877af80563061eddc23c9bb71746d", null ],
+    [ "update", "d1/d2d/a04455.html#aae51811f331f09bf179cc6f2d9c2b974", null ],
+    [ "onSpiError", "d1/d2d/a04455.html#ac1712a00bda5093ed106f6f7924d6c54", null ],
+    [ "onStatusChanged", "d1/d2d/a04455.html#a931c2b178d43f30e3aad9ebdabe094d9", null ],
+    [ "onValueChanged", "d1/d2d/a04455.html#aeeff5cb2652ef6ff0541b09d96f4579c", null ]
 ];

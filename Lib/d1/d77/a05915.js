@@ -1,29 +1,14 @@
 var a05915 =
 [
-    [ "TickType", "d1/d77/a05915.html#adc2e1b449462bfc5e02a4ee323b012e5", null ],
-    [ "Type", "d1/d77/a05915.html#a32944cdf5acfc817c79a3b60e03bbc38", [
-      [ "NORMAL", "d1/d77/a05915.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051", null ],
-      [ "RECURSIVE", "d1/d77/a05915.html#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638", null ]
-    ] ],
-    [ "Mutex", "d1/d77/a05915.html#a85140f0dfb31c3d5a8a27ce01e98fdc6", null ],
-    [ "Mutex", "d1/d77/a05915.html#a301698c6b87d5cd81fda2792e6f14b4c", null ],
-    [ "~Mutex", "d1/d77/a05915.html#a032031894c38dfb5861f1be4a7e247dd", null ],
-    [ "Mutex", "d1/d77/a05915.html#acce47428aedbea4c3597ab4b07a0dc16", null ],
-    [ "close", "d1/d77/a05915.html#acae6fb03115a857672d114638e6da0cb", null ],
-    [ "createStatic", "d1/d77/a05915.html#a4a72a94370a00b530eb26b466ed373bc", null ],
-    [ "getHolder", "d1/d77/a05915.html#a616ca3c51747ccb7932dab4363b40ef5", null ],
-    [ "getHolderFromISR", "d1/d77/a05915.html#a4442eb3b200cdfba2f9780f45b293ee4", null ],
-    [ "getNativeHandle", "d1/d77/a05915.html#a38014af85379eee8f59569c75f075995", null ],
-    [ "getType", "d1/d77/a05915.html#a4625bbff147fffc8861b3478c8430f94", null ],
-    [ "isLocked", "d1/d77/a05915.html#a7797096bb17dedbd7f2dc83952a87ad0", null ],
-    [ "isOwnedByCurrentTask", "d1/d77/a05915.html#a0fe980766d5bb3fb9f27336981430a6f", null ],
-    [ "isValid", "d1/d77/a05915.html#a2a35fb03473deda78f602d516fb9b09c", null ],
-    [ "lock", "d1/d77/a05915.html#a80b2989f05e4378994f3eb8e811d9a2b", null ],
-    [ "lock", "d1/d77/a05915.html#a9249f5e17ed3dc3621afb504a94f51c4", null ],
-    [ "lock", "d1/d77/a05915.html#a2b2c30777cc3c44739df34e98fc05d0f", null ],
-    [ "open", "d1/d77/a05915.html#a9f2abf5c8b3442dd741bac7c15e5726a", null ],
-    [ "operator=", "d1/d77/a05915.html#a1e606324a490dacaed78d56b0f2e463f", null ],
-    [ "operator=", "d1/d77/a05915.html#aa0480ec896a8ce6959a8fe0069fc4a0f", null ],
-    [ "tryLock", "d1/d77/a05915.html#a18a279e5ed19c174389ad7be7fb2264d", null ],
-    [ "unlock", "d1/d77/a05915.html#a55031b1cdaf584950893279ceac8ff93", null ]
+    [ "JaggedArrayBase", "d1/d77/a05915.html#ae79ec88b260154126e7ec280a136c14a", null ],
+    [ "addItem", "d1/d77/a05915.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
+    [ "addItems", "d1/d77/a05915.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
+    [ "clearItems", "d1/d77/a05915.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
+    [ "getElements", "d1/d77/a05915.html#a428409a8385b8547bfa65d04a71565b1", null ],
+    [ "getElements", "d1/d77/a05915.html#a718f7db994c254bce01246ea32b1d653", null ],
+    [ "getSize", "d1/d77/a05915.html#afca6ed09d7865e2bac45430fda768aae", null ],
+    [ "operator[]", "d1/d77/a05915.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
+    [ "operator[]", "d1/d77/a05915.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
+    [ "removeItem", "d1/d77/a05915.html#a819041f4264ebfce07665c548d5dd7bc", null ],
+    [ "elementList", "d1/d77/a05915.html#a319cd6aae084f711db14582ed55929a5", null ]
 ];

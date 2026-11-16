@@ -1,11 +1,18 @@
 var a05531 =
 [
-    [ "SPIPort", "d1/d01/a05531.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
-    [ "~SPIPort", "d1/d01/a05531.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ],
-    [ "abort", "d1/d01/a05531.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
+    [ "EventBits", "d1/d01/a05531.html#a3c55c6775abc08a42ba3fb85ac9404c9", null ],
+    [ "AsyncPortCore", "d1/d01/a05531.html#a9e0e2e3d307485d3bc6cc4c54a4a9790", null ],
+    [ "AsyncPortCore", "d1/d01/a05531.html#ae4c323f8431fa6f03e914d953c4306c2", null ],
+    [ "AsyncPortCore", "d1/d01/a05531.html#a3fea82834797dbd505ac308e4ebe58a2", null ],
+    [ "~AsyncPortCore", "d1/d01/a05531.html#aa73910a82d1814199dbe1ec58c46f450", null ],
     [ "close", "d1/d01/a05531.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "derived", "d1/d01/a05531.html#a3dbece6116a65776aa72cb7a95e4a79a", null ],
     [ "getHandle", "d1/d01/a05531.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d1/d01/a05531.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
     [ "isOpened", "d1/d01/a05531.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d1/d01/a05531.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "open", "d1/d01/a05531.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "operator=", "d1/d01/a05531.html#af7a0ea878376b289ff08600fa9477026", null ],
+    [ "operator=", "d1/d01/a05531.html#a83e0efb939206ab305b7b0c0b80a27e5", null ],
+    [ "events", "d1/d01/a05531.html#abb56ddd8ed19246084e1242e9075982f", null ],
+    [ "isOpen", "d1/d01/a05531.html#aa533ddd5b800443ba9ea9687a78b720e", null ]
 ];

@@ -1,5 +1,12 @@
 var a04451 =
 [
-    [ "baseAddress", "d0/d73/a04451.html#ab922219fc16e46857f76b5a34c05ea47", null ],
-    [ "sizeBytes", "d0/d73/a04451.html#a0bee61cd2a7be7f180c426bb8c9eee17", null ]
+    [ "Inputs", "d0/d73/a04451.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
+    [ "getChangesCounter", "d0/d73/a04451.html#a02a156f7de35ad87391858c4284826ce", null ],
+    [ "getSpiHandle", "d0/d73/a04451.html#afb55a694371e388292f94be2800d26b6", null ],
+    [ "getValue", "d0/d73/a04451.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
+    [ "postUpdateCallback", "d0/d73/a04451.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
+    [ "preUpdateCallback", "d0/d73/a04451.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
+    [ "setup", "d0/d73/a04451.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
+    [ "update", "d0/d73/a04451.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
+    [ "onValueChanged", "d0/d73/a04451.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
 ];

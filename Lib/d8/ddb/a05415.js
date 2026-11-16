@@ -1,5 +1,30 @@
 var a05415 =
 [
-    [ "pin", "d8/ddb/a05415.html#a9f0aedb5f20c40ce4048a6a1b863ae63", null ],
-    [ "port", "d8/ddb/a05415.html#a331d935a90423faf4580a7e95c531ba6", null ]
+    [ "Config", "d5/dc5/a05419.html", "d5/dc5/a05419" ],
+    [ "Viewport", "df/d5a/a05423.html", "df/d5a/a05423" ],
+    [ "ClearFunction", "d8/ddb/a05415.html#aa8c0df80a9d96322bf63a98d7410d36f", null ],
+    [ "FlushFunction", "d8/ddb/a05415.html#a865aea7d54df6eacac87a5f2d754a3a6", null ],
+    [ "PixelFunction", "d8/ddb/a05415.html#a2500145014378b005c6299208f130e85", null ],
+    [ "ReadFunction", "d8/ddb/a05415.html#a66f10500a5134d1b42f2ee801af5b247", null ],
+    [ "Display", "d8/ddb/a05415.html#a6a884f5629148aeb58bc0091f927f71d", null ],
+    [ "~Display", "d8/ddb/a05415.html#a99e9122bd2af7f42648217f000a55e93", null ],
+    [ "Display", "d8/ddb/a05415.html#adb7af06324acfa668ee600b027f9d192", null ],
+    [ "Display", "d8/ddb/a05415.html#a17422b8b833eda72f9c1b813b9097743", null ],
+    [ "bind", "d8/ddb/a05415.html#a6990b56f44ebb47712254495daa78971", null ],
+    [ "clear", "d8/ddb/a05415.html#a0c4fbca3b48950ac4ebf1fdcde956a61", null ],
+    [ "flush", "d8/ddb/a05415.html#ae672e62631bc2e66394b7a3a913525d4", null ],
+    [ "getHeight", "d8/ddb/a05415.html#a4e6ff23c0b2cd0eb10bd0e8f1665f3d7", null ],
+    [ "getPixel", "d8/ddb/a05415.html#a8d076aeb5ad677f9719f380e779674bb", null ],
+    [ "getWidth", "d8/ddb/a05415.html#afb383786a6d95b6928591d37827828c0", null ],
+    [ "operator=", "d8/ddb/a05415.html#a964d9bec3e6414aa260699541a7fb9f8", null ],
+    [ "operator=", "d8/ddb/a05415.html#a318337ceedff79494a851f717e2e53b5", null ],
+    [ "resetViewport", "d8/ddb/a05415.html#ae2ee82eee34e85924f4e4637ebf754af", null ],
+    [ "restoreViewport", "d8/ddb/a05415.html#abd0adc1a48ca1ebf9e4d44756b089afa", null ],
+    [ "setClearFunction", "d8/ddb/a05415.html#a439d636a77d69d19f6cfa67e8eca8167", null ],
+    [ "setFlushFunction", "d8/ddb/a05415.html#a61ce4bd97ae15b76bb92eb452d8f5210", null ],
+    [ "setPixel", "d8/ddb/a05415.html#af0032e39cc008c83186a5a5af0ca8c6f", null ],
+    [ "setPixelFunction", "d8/ddb/a05415.html#a8812966b0bd6caff7fc7b3985d974427", null ],
+    [ "setReadFunction", "d8/ddb/a05415.html#abf83e9ec1bdf57d11854919312d92d3a", null ],
+    [ "setSize", "d8/ddb/a05415.html#aa5e4653b7c495c755c49a0f130559466", null ],
+    [ "setViewport", "d8/ddb/a05415.html#aba913bb18139e315c6a42fed79e8661a", null ]
 ];

@@ -1,14 +1,19 @@
 var a05495 =
 [
-    [ "TimPwmOutput", "db/d0d/a05495.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
-    [ "~TimPwmOutput", "db/d0d/a05495.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
-    [ "TimPwmOutput", "db/d0d/a05495.html#a422a9009ca77380721da2502794a00a0", null ],
-    [ "TimPwmOutput", "db/d0d/a05495.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
-    [ "close", "db/d0d/a05495.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
-    [ "getPeriod", "db/d0d/a05495.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
-    [ "open", "db/d0d/a05495.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
-    [ "operator=", "db/d0d/a05495.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
-    [ "operator=", "db/d0d/a05495.html#a686c13d106e6d8d754e3020b7107d262", null ],
-    [ "setPeriod", "db/d0d/a05495.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
-    [ "setPulse", "db/d0d/a05495.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
+    [ "Event", "df/d7e/a05499.html", null ],
+    [ "ADCPort", "db/d0d/a05495.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "db/d0d/a05495.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "db/d0d/a05495.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "db/d0d/a05495.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "db/d0d/a05495.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "getHandle", "db/d0d/a05495.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "db/d0d/a05495.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getValue", "db/d0d/a05495.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "db/d0d/a05495.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "db/d0d/a05495.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "db/d0d/a05495.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "db/d0d/a05495.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "db/d0d/a05495.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "db/d0d/a05495.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "db/d0d/a05495.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

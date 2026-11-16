@@ -1,11 +1,16 @@
 var a05027 =
 [
-    [ "ignoredMessagesByTimeout", "d1/d82/a05027.html#aef5921d826333c4443495f22db6f23b2", null ],
-    [ "invalidMessages", "d1/d82/a05027.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
-    [ "maxMsgLengthErrors", "d1/d82/a05027.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
-    [ "receivedAtCommandMessages", "d1/d82/a05027.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
-    [ "receivedDataMessages", "d1/d82/a05027.html#ac128abb8594b88f0197fc4fc467d9261", null ],
-    [ "sentAtCommandMessages", "d1/d82/a05027.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
-    [ "sentDataMessages", "d1/d82/a05027.html#acdadb83db434afcb1c0147457f423064", null ],
-    [ "sentDataMessagesTimeout", "d1/d82/a05027.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
+    [ "MacAddress", "de/ddd/a05031.html", "de/ddd/a05031" ],
+    [ "NetworkInfo", "d1/d9f/a05035.html", "d1/d9f/a05035" ],
+    [ "Discovery", "d4/d6b/a05039.html", "d4/d6b/a05039" ],
+    [ "Versions", "d2/d61/a05043.html", "d2/d61/a05043" ],
+    [ "Monitor", "d3/dd5/a05047.html", "d3/dd5/a05047" ],
+    [ "MacDiagnostic", "d6/d32/a05051.html", "d6/d32/a05051" ],
+    [ "destMacAddress", "d1/d82/a05027.html#a2202bf139fcaadc9e3a2a004fe6b12fc", null ],
+    [ "discovery", "d1/d82/a05027.html#a97b6260d13c3747f87dc0bc37e6acd99", null ],
+    [ "macAddress", "d1/d82/a05027.html#ab2a76fe0ca955df089155d2fd9307e55", null ],
+    [ "macDiagnostic", "d1/d82/a05027.html#af5eac088239deecbb5f3a75c2da6edea", null ],
+    [ "monitor", "d1/d82/a05027.html#a4390ea32a7336912f66f7e557589550f", null ],
+    [ "networkInfo", "d1/d82/a05027.html#a79267193fdf738c8909b97c6f9884589", null ],
+    [ "versions", "d1/d82/a05027.html#a8af2e6c665db207944c0e30fdf610763", null ]
 ];

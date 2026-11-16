@@ -1,9 +1,12 @@
 var a05931 =
 [
-    [ "DeepSleepLock", "d7/d57/a05931.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
-    [ "~DeepSleepLock", "d7/d57/a05931.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
-    [ "DeepSleepLock", "d7/d57/a05931.html#a40925e50ac0805b094e04973ed61f50b", null ],
-    [ "DeepSleepLock", "d7/d57/a05931.html#a653104e321c6b159eb7b5e5385d286ac", null ],
-    [ "operator=", "d7/d57/a05931.html#a3523f9fd591310866af37223de2c32d3", null ],
-    [ "operator=", "d7/d57/a05931.html#a10ab5d18c8a969841a27a2688604c55c", null ]
+    [ "Sunset", "d7/d57/a05931.html#a402a1203f51a88c0d732a65d431084b2", null ],
+    [ "Sunset", "d7/d57/a05931.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
+    [ "calculateSunTime", "d7/d57/a05931.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
+    [ "computeHourAngle", "d7/d57/a05931.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
+    [ "setCurrentDate", "d7/d57/a05931.html#a0598ea08f953291be6bd331b39254b2a", null ],
+    [ "setCurrentDate", "d7/d57/a05931.html#a29094e288d78ced6c06c9652828bb343", null ],
+    [ "setPosition", "d7/d57/a05931.html#afbc858a5944c47609616f459b657339b", null ],
+    [ "sunrise", "d7/d57/a05931.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
+    [ "sunset", "d7/d57/a05931.html#a3bea9bb96761c55203633434195d87c4", null ]
 ];

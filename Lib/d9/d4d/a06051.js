@@ -1,9 +1,9 @@
 var a06051 =
 [
-    [ "SerialString", "d9/d4d/a06051.html#aa6020b729e0f58cedf044dc7ff97b00b", null ],
-    [ "SerialNumber", "d9/d4d/a06051.html#aed268b613b7b701d255b7d0c98dbfd58", null ],
-    [ "operator SerialString", "d9/d4d/a06051.html#a2a4f1521a09306606c2d5f032fdf544e", null ],
-    [ "operator uint32_t", "d9/d4d/a06051.html#ac46566dc9eaf2fcb21dcde82468b0652", null ],
-    [ "toString", "d9/d4d/a06051.html#a5f96c48e2369c3f690a6b7473ad854d1", null ],
-    [ "result", "d9/d4d/a06051.html#af3d33382ba6c5d600113f549fad5b91d", null ]
+    [ "CriticalSectionFromISR", "d9/d4d/a06051.html#a94cda37183a61f5455dc5e641bcb5109", null ],
+    [ "~CriticalSectionFromISR", "d9/d4d/a06051.html#a54e463ae72e1238776194c4cb941357b", null ],
+    [ "CriticalSectionFromISR", "d9/d4d/a06051.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
+    [ "CriticalSectionFromISR", "d9/d4d/a06051.html#a9d04ea07249455e75c39ce5450c33028", null ],
+    [ "operator=", "d9/d4d/a06051.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
+    [ "operator=", "d9/d4d/a06051.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
 ];

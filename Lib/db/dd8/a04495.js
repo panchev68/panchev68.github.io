@@ -1,9 +1,6 @@
 var a04495 =
 [
-    [ "chipManufacturer", "db/dd8/a04495.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
-    [ "memoryCapacity", "db/dd8/a04495.html#a0ce044d51923185dc77297ec3845620b", null ],
-    [ "pagePerSector", "db/dd8/a04495.html#a768e74e894621cf3033a1f4e06661b66", null ],
-    [ "pageSize", "db/dd8/a04495.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
-    [ "sectorCount", "db/dd8/a04495.html#ae152c07a2eeb80c6525857160e04126b", null ],
-    [ "sectorSize", "db/dd8/a04495.html#a453d47437845007dcb1caa1889d1ec2b", null ]
+    [ "display", "db/dd8/a04495.html#a7d8f9e06a65bd03e71e1d3ca3292e295", null ],
+    [ "onVSync", "db/dd8/a04495.html#aec339ef9147238a17cb01d3bfc555905", null ],
+    [ "vsyncPeriod", "db/dd8/a04495.html#aec27fd6b1640a8dfe9bd6fb4e8ba0d28", null ]
 ];

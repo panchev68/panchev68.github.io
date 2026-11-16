@@ -1,7 +1,9 @@
 var a06059 =
 [
-    [ "firmwareSubversion", "d7/d22/a06059.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
-    [ "firmwareVersionString", "d7/d22/a06059.html#a6b83c53d998379f08471d89aead2818e", null ],
-    [ "hardwareSubversion", "d7/d22/a06059.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
-    [ "hardwareVersionString", "d7/d22/a06059.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
+    [ "Lock", "d3/ddd/a06063.html", "d3/ddd/a06063" ],
+    [ "State", "d7/d22/a06059.html#a329f49803f7880dc5d4e70b422ef08ff", [
+      [ "SUSPENDED", "d7/d22/a06059.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
+      [ "NOT_STARTED", "d7/d22/a06059.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
+      [ "RUNNING", "d7/d22/a06059.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
+    ] ]
 ];

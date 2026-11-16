@@ -1,8 +1,14 @@
 var a05767 =
 [
-    [ "State", "d5/d1a/a05767.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
-    [ "firstRun", "d5/d1a/a05767.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
-    [ "integralSum", "d5/d1a/a05767.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
-    [ "lastInput", "d5/d1a/a05767.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
-    [ "lastOutput", "d5/d1a/a05767.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
+    [ "UARTPortAsync", "d5/d1a/a05767.html#ae3dfd1d49bf2eb3ae572e5482852a106", null ],
+    [ "abort", "d5/d1a/a05767.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
+    [ "close", "d5/d1a/a05767.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d5/d1a/a05767.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d5/d1a/a05767.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isBusy", "d5/d1a/a05767.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "isOpened", "d5/d1a/a05767.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d5/d1a/a05767.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d5/d1a/a05767.html#a3c10830f8d93936773f64d95201bc7da", null ],
+    [ "send", "d5/d1a/a05767.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ],
+    [ "setBaudRate", "d5/d1a/a05767.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

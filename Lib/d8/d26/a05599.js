@@ -1,13 +1,16 @@
 var a05599 =
 [
-    [ "UARTPort", "d8/d26/a05599.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
-    [ "~UARTPort", "d8/d26/a05599.html#a379b29de4717643896518dcc44558b2d", null ],
-    [ "abort", "d8/d26/a05599.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "d8/d26/a05599.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "Event", "db/dd0/a05603.html", null ],
+    [ "Sha256Digest", "d8/d26/a05599.html#add4d9f33ecf447251492399927b27da5", null ],
+    [ "HASHPort", "d8/d26/a05599.html#a6c119eb2a5f647e1754a57b0b850fe4f", null ],
+    [ "~HASHPort", "d8/d26/a05599.html#a4160e13f3eda86ab67d5e41e3d9f0fca", null ],
+    [ "HASHPort", "d8/d26/a05599.html#af6b9554592c3ad75d36bdd11041e7006", null ],
+    [ "HASHPort", "d8/d26/a05599.html#a491caf024458b7906cce604bafe47e1c", null ],
+    [ "close", "d8/d26/a05599.html#afd2e0fb455d45519f537895cc2a022c3", null ],
     [ "getHandle", "d8/d26/a05599.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d8/d26/a05599.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d8/d26/a05599.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d8/d26/a05599.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d8/d26/a05599.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "d8/d26/a05599.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
+    [ "open", "d8/d26/a05599.html#abc11d9a441e0dc16a3e5a353bd0445fd", null ],
+    [ "operator=", "d8/d26/a05599.html#a4313f6e70d3c0be3f82ed001be995baf", null ],
+    [ "operator=", "d8/d26/a05599.html#a816e654f5c439b829301c71a3dbdf30d", null ],
+    [ "sha256", "d8/d26/a05599.html#a331d3b9f3f4f47d04927bfe00ec600e6", null ]
 ];

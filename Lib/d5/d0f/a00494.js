@@ -1,4 +1,4 @@
 var a00494 =
 [
-    [ "Lib::Digi::Core::QueueMessage", "df/dfd/a05208.html", "df/dfd/a05208" ]
+    [ "Lib::Digi::Core::QueueMessage", "d8/d42/a05207.html", "d8/d42/a05207" ]
 ];

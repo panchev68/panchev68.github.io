@@ -1,33 +1,13 @@
 var a05967 =
 [
-    [ "Result", "d3/d67/a05971.html", "d3/d67/a05971" ],
-    [ "Bits", "dd/d3d/a05967.html#a76db1b2abff36d5013ab969b3b149834", null ],
-    [ "Action", "dd/d3d/a05967.html#a2e9af9f97a3c22576f3f0e8fe98b88c0", [
-      [ "NO_ACTION", "dd/d3d/a05967.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a24ce802dad4f363a652f77ce888c9b91", null ],
-      [ "SET_BITS", "dd/d3d/a05967.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a584142dc5514c9123172a12e9f7f150f", null ],
-      [ "INCREMENT", "dd/d3d/a05967.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a90cf1f5206b348a822cc1a453a587534", null ],
-      [ "SET_VALUE_WITH_OVERWRITE", "dd/d3d/a05967.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f", null ],
-      [ "SET_VALUE_WITHOUT_OVERWRITE", "dd/d3d/a05967.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a07e53fb05649b7d8f7020183075a9afb", null ]
-    ] ],
-    [ "Notify", "dd/d3d/a05967.html#af4a648aef0b1204911e4f0b57ca2d90b", null ],
-    [ "clearBits", "dd/d3d/a05967.html#adfd929a14d86953a749caecb186a493b", null ],
-    [ "clearState", "dd/d3d/a05967.html#a4a968ee53740cc429b232c80589b748a", null ],
-    [ "fireEvent", "dd/d3d/a05967.html#a4732602e81ec507a9370a1dd41be78f8", null ],
-    [ "fireEventFromISR", "dd/d3d/a05967.html#a742840c973b7a2ce22645d9ae4f8d51a", null ],
-    [ "fireEventFromISR", "dd/d3d/a05967.html#a0fcaadc33f0db421bbae341a59b0b07a", null ],
-    [ "give", "dd/d3d/a05967.html#a1fb17f69e367f23f6497932cc17e4630", null ],
-    [ "giveFromISR", "dd/d3d/a05967.html#a38804fffd180e5a0cfd4488727e7521a", null ],
-    [ "giveFromISR", "dd/d3d/a05967.html#a4e0005f0d61c80d42a6f4a1f86447d6f", null ],
-    [ "notify", "dd/d3d/a05967.html#ac28b1bcc68bd40c199a5e504d7cd696c", null ],
-    [ "notifyAndQuery", "dd/d3d/a05967.html#ae4d92ef7755e1231a03356b8e9ff8ecc", null ],
-    [ "notifyAndQueryFromISR", "dd/d3d/a05967.html#aabfa91e4b27b8816c32546da448da44f", null ],
-    [ "notifyAndQueryFromISR", "dd/d3d/a05967.html#a01a8186691b5ea2d9884997612955204", null ],
-    [ "notifyFromISR", "dd/d3d/a05967.html#a25aaaf77386e00477eb6dc16df543364", null ],
-    [ "notifyFromISR", "dd/d3d/a05967.html#a90999910ff7124119e0143b6281ebeac", null ],
-    [ "take", "dd/d3d/a05967.html#affe9d15dcc3438ccb68a264744683f96", null ],
-    [ "take", "dd/d3d/a05967.html#ab2c154d06ce722fcc5d10141ea9971dc", null ],
-    [ "wait", "dd/d3d/a05967.html#a9b7ec0e3945a5a2e59f89abc12c995ac", null ],
-    [ "wait", "dd/d3d/a05967.html#a05ffffc3617eb293c579a9e12885057b", null ],
-    [ "waitForBits", "dd/d3d/a05967.html#acd94a5ede593ed6ae5571c18903e030b", null ],
-    [ "waitForBits", "dd/d3d/a05967.html#a1eafe4fed845fcf63255a0cd6b71e5a1", null ]
+    [ "WolfSSLTransport", "dd/d3d/a05967.html#a902fc980deaff7372065ac354e424bd7", null ],
+    [ "~WolfSSLTransport", "dd/d3d/a05967.html#a1af1ec7c8459af557cecf30e2fce9851", null ],
+    [ "WolfSSLTransport", "dd/d3d/a05967.html#ac66ebbbe5867fdc9e41b120f0703afd9", null ],
+    [ "WolfSSLTransport", "dd/d3d/a05967.html#aee33a9d5d619aea80630e5c113bc940c", null ],
+    [ "close", "dd/d3d/a05967.html#afc96144cd745fe9fc116e7fa03ea0c00", null ],
+    [ "open", "dd/d3d/a05967.html#a34b1d6a735d69895b3381e71a3d7b24f", null ],
+    [ "operator=", "dd/d3d/a05967.html#a65c79de2e76f70c00d2a7117462aef12", null ],
+    [ "operator=", "dd/d3d/a05967.html#ac0b3753689c57f39a30e72868cac2919", null ],
+    [ "receive", "dd/d3d/a05967.html#a665163ec5d248c6f5f86737aec8901e8", null ],
+    [ "send", "dd/d3d/a05967.html#a609db5ba4b95a1e99a742291477e322b", null ]
 ];

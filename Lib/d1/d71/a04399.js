@@ -1,7 +1,13 @@
 var a04399 =
 [
-    [ "diPinHandle", "d1/d71/a04399.html#ac1b56409fb324181fdf949402d46b876", null ],
-    [ "nrstPinHandle", "d1/d71/a04399.html#af72580eea93e2646b3f6eb5efbbce47f", null ],
-    [ "nssPinHandle", "d1/d71/a04399.html#a8dc8520c47e27de48c5b73a8870cda54", null ],
-    [ "spiHandle", "d1/d71/a04399.html#ab178d2536db34733af537ae7bec2353c", null ]
+    [ "Config", "d3/dd8/a04403.html", "d3/dd8/a04403" ],
+    [ "Beep", "d1/d71/a04399.html#ab7fc52bc381f9496a1cf35f629d1a944", null ],
+    [ "~Beep", "d1/d71/a04399.html#af601628e760dd29541b317a1256b6bd1", null ],
+    [ "Beep", "d1/d71/a04399.html#a08c08dc451270c224dded9c366b9aa6a", null ],
+    [ "Beep", "d1/d71/a04399.html#a3506da759c0ccebd28b87c0489cdb56e", null ],
+    [ "isPlaying", "d1/d71/a04399.html#ac6552c090b310890de41a06ba77a7e68", null ],
+    [ "operator=", "d1/d71/a04399.html#a3c5fdc21b4e87a407ca4fb0efaa588cc", null ],
+    [ "operator=", "d1/d71/a04399.html#ad2f515525962880586d857dd395e8983", null ],
+    [ "play", "d1/d71/a04399.html#a4bc5b3cc66d266518992ce5dc14973c5", null ],
+    [ "RTOS::TickClient< Beep >", "d1/d71/a04399.html#a021b081c55c843fa9b7ba25effa04637", null ]
 ];

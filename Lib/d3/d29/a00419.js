@@ -1,5 +1,5 @@
 var a00419 =
 [
-    [ "Lib::Digi::API::Service::NetworkDiscovery", "d3/d41/a05068.html", "d3/d41/a05068" ],
-    [ "Lib::Digi::API::Service::NetworkDiscovery::Node", "d3/d96/a05072.html", "d3/d96/a05072" ]
+    [ "Lib::Digi::API::Service::NetworkDiscovery", "d3/df0/a05067.html", "d3/df0/a05067" ],
+    [ "Lib::Digi::API::Service::NetworkDiscovery::Node", "db/d78/a05071.html", "db/d78/a05071" ]
 ];

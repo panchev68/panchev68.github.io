@@ -1,13 +1,13 @@
 var a04703 =
 [
-    [ "Config", "d6/d7d/a04707.html", "d6/d7d/a04707" ],
-    [ "TMP102", "d6/d8c/a04703.html#a949aef107b50c3194360a1211fc77380", null ],
-    [ "configureAlert", "d6/d8c/a04703.html#ad9a264b10f99d9f65ad8c08b872fb4fb", null ],
-    [ "enterSleepMode", "d6/d8c/a04703.html#aaf751d7c9bc24731e6fe8347ec8772ce", null ],
-    [ "exitSleepMode", "d6/d8c/a04703.html#ac7ab933572bb11b6d0193a5e9ab370e9", null ],
-    [ "init", "d6/d8c/a04703.html#aad208b4242276623b58c7e690d0be566", null ],
-    [ "readTemperature", "d6/d8c/a04703.html#a8bad032159a78dfb379d94fd21f9a14e", null ],
-    [ "setTHigh", "d6/d8c/a04703.html#a31909d75566cc264aeee9cc68c96c6a8", null ],
-    [ "setTLow", "d6/d8c/a04703.html#abe3ff96789b3357515f28158f06aa714", null ],
-    [ "triggerOneShot", "d6/d8c/a04703.html#a911c4aa4ba809f4461cd5d1c2586670c", null ]
+    [ "Bytes", "d6/d8c/a04703.html#aaa924b52936a11a36f991b92270eb1b6", null ],
+    [ "Digest", "d6/d8c/a04703.html#a97d15161e3e4d29994672b77e28ea856", null ],
+    [ "Message", "d6/d8c/a04703.html#a8ba002cb2db8c1b57b6534f88d77e2ab", null ],
+    [ "Uid", "d6/d8c/a04703.html#ab823c89537a28891f90d448eeb6122c1", null ],
+    [ "Result", "d6/d8c/a04703.html#ae690657e7ab3cf073f0d03abc2ee488b", [
+      [ "VALID", "d6/d8c/a04703.html#ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea", null ],
+      [ "BAD_FORMAT", "d6/d8c/a04703.html#ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a", null ],
+      [ "UNKNOWN_KEY", "d6/d8c/a04703.html#ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb", null ],
+      [ "BAD_SIGNATURE", "d6/d8c/a04703.html#ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a", null ]
+    ] ]
 ];

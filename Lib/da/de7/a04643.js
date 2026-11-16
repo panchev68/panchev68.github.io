@@ -1,10 +1,10 @@
 var a04643 =
 [
-    [ "operator==", "da/de7/a04643.html#a76f4384c25c5a26bc057858df3c55875", null ],
-    [ "inPhaseAdc", "da/de7/a04643.html#ae284e93d7297470825441d553589ac6f", null ],
-    [ "inPhaseCalibration", "da/de7/a04643.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
-    [ "inPhaseReference", "da/de7/a04643.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
-    [ "quadratureAdc", "da/de7/a04643.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
-    [ "quadratureCalibration", "da/de7/a04643.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
-    [ "quadratureReference", "da/de7/a04643.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
+    [ "Network", "da/de7/a04643.html#a858cc7193654c2e98129d4f0749d8240", null ],
+    [ "getLocation", "da/de7/a04643.html#aba4491c30df0fb948ede36bb4e1085d3", null ],
+    [ "getRegistration", "da/de7/a04643.html#afdf0dd669e99bdf0eeead5bb41e21a96", null ],
+    [ "getSignalQuality", "da/de7/a04643.html#a485778d68bbe029717f5fed4f43c730b", null ],
+    [ "getTime", "da/de7/a04643.html#a59b66d182fa20c0996b4643e51f9a51f", null ],
+    [ "setLTEOnly", "da/de7/a04643.html#af76be66a29575097c7dbf63f65ae68de", null ],
+    [ "waitForRegistration", "da/de7/a04643.html#a36029bb551781de86c0674a121c0a8cb", null ]
 ];

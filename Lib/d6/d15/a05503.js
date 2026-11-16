@@ -1,11 +1,12 @@
 var a05503 =
 [
-    [ "OTP", "d6/d15/a05503.html#aaff496f8bf89080e84c1fbda6b0904c3", null ],
-    [ "OTP", "d6/d15/a05503.html#a7bc9c9e1f02016880f00d3a1182e5e71", null ],
-    [ "lock", "d6/d15/a05503.html#ab4c2e78575458526b83be6e259aa1f93", null ],
-    [ "operator=", "d6/d15/a05503.html#ad631f9069ef7f1c2f316505e7b391885", null ],
-    [ "operator=", "d6/d15/a05503.html#af5af865ec6e520ce53d21e6c9ecd7221", null ],
-    [ "read", "d6/d15/a05503.html#acff397156950347f6f452dec2c94af43", null ],
-    [ "unlock", "d6/d15/a05503.html#a220a07c58647557d8a81402260eacfb5", null ],
-    [ "write", "d6/d15/a05503.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
+    [ "ADCPortBase", "d6/d15/a05503.html#a4434447d51727d630ac97c35686a4ec0", null ],
+    [ "ADCPortBase", "d6/d15/a05503.html#a0ad5d61e73944a97373bfae0962076a5", null ],
+    [ "ADCPortBase", "d6/d15/a05503.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
+    [ "~ADCPortBase", "d6/d15/a05503.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
+    [ "close", "d6/d15/a05503.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getValue", "d6/d15/a05503.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d6/d15/a05503.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "d6/d15/a05503.html#a283bca78dae75fbe3786f0ddfcb865f3", null ],
+    [ "operator=", "d6/d15/a05503.html#a0fcfa429879f8263683b639ed5e74c96", null ]
 ];

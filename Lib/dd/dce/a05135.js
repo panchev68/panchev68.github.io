@@ -1,7 +1,11 @@
 var a05135 =
 [
-    [ "FrameWriter", "dd/dce/a05135.html#a59412dd23cc927bfec3c14e563ce00ac", null ],
-    [ "put", "dd/dce/a05135.html#a08ff6a358e2a048f64a0d79be8a77a3a", null ],
-    [ "put", "dd/dce/a05135.html#afa16c8a90132f75fc0ca2fec2864fc19", null ],
-    [ "put", "dd/dce/a05135.html#abb5db27849ce33eefe7c66d078a1372b", null ]
+    [ "ignoredMessagesByTimeout", "dd/dce/a05135.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "dd/dce/a05135.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "dd/dce/a05135.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "dd/dce/a05135.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "dd/dce/a05135.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "dd/dce/a05135.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "dd/dce/a05135.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "dd/dce/a05135.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

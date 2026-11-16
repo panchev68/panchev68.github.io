@@ -1,7 +1,6 @@
 var a05127 =
 [
-    [ "writeTo", "d0/d42/a05127.html#a7822cbb27fa7495fd67556a0afaed75f", null ],
-    [ "atCommand", "d0/d42/a05127.html#ae3e6e306d54297473f78f320425df58b", null ],
-    [ "frameId", "d0/d42/a05127.html#af2345c092e4bb001e18ac86d718196a4", null ],
-    [ "parameterValue", "d0/d42/a05127.html#a060767a4f172791aa4d493bf2ba4ac6d", null ]
+    [ "resetPin", "d0/d42/a05127.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
+    [ "rxHandle", "d0/d42/a05127.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
+    [ "txHandle", "d0/d42/a05127.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
 ];

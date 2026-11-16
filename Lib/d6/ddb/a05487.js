@@ -1,14 +1,18 @@
 var a05487 =
 [
-    [ "OSPIPort", "d6/ddb/a05487.html#a14ccf4bafc49e1e7c3810bc249cc5748", null ],
-    [ "~OSPIPort", "d6/ddb/a05487.html#a50dab62adbe482ae17aa805e97c7f3ce", null ],
-    [ "abort", "d6/ddb/a05487.html#a12a734c939e90c6c90510ba2c323dec0", null ],
-    [ "close", "d6/ddb/a05487.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "command", "d6/ddb/a05487.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "Event", "df/d51/a05491.html", null ],
+    [ "ADCPort", "d6/ddb/a05487.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
+    [ "~ADCPort", "d6/ddb/a05487.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
+    [ "ADCPort", "d6/ddb/a05487.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
+    [ "ADCPort", "d6/ddb/a05487.html#af963171787341304aeec9ad771e5f523", null ],
+    [ "close", "d6/ddb/a05487.html#a91651451878e1931de2457be52f68c92", null ],
     [ "getHandle", "d6/ddb/a05487.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d6/ddb/a05487.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d6/ddb/a05487.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d6/ddb/a05487.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d6/ddb/a05487.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
-    [ "transmit", "d6/ddb/a05487.html#a2f58a3412364e7819ba973859d2389a7", null ]
+    [ "getValue", "d6/ddb/a05487.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d6/ddb/a05487.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
+    [ "operator=", "d6/ddb/a05487.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
+    [ "operator=", "d6/ddb/a05487.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
+    [ "start", "d6/ddb/a05487.html#a97c4921b9e22a517072028d001c86ef1", null ],
+    [ "stop", "d6/ddb/a05487.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
+    [ "waitForEvent", "d6/ddb/a05487.html#af0c975bbd0a66ffabc210d52ec971714", null ]
 ];

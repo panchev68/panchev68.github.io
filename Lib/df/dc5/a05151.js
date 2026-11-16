@@ -1,8 +1,6 @@
 var a05151 =
 [
-    [ "Frame0x80", "df/dc5/a05151.html#a6a35178c345302fc3fd7e0e797ecd87f", null ],
-    [ "option", "df/dc5/a05151.html#abbdc105cf84ccfae7ac49dcad817a495", null ],
-    [ "rfData", "df/dc5/a05151.html#acdd1182b90bc45f91b6d50fd4a0ff3eb", null ],
-    [ "rssi", "df/dc5/a05151.html#a75c9b510bbf5bbdfae41d3f2cfff6428", null ],
-    [ "srcAddr64", "df/dc5/a05151.html#a2ef2d6ca731ff433131e9a82b31ff492", null ]
+    [ "lengthLSB", "df/dc5/a05151.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
+    [ "lengthMSB", "df/dc5/a05151.html#a975df99244301d7a71b2c326555ba6fd", null ],
+    [ "startDelimiter", "df/dc5/a05151.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
 ];

@@ -1,8 +1,5 @@
 var a04659 =
 [
-    [ "operator==", "de/d12/a04659.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
-    [ "blue", "de/d12/a04659.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
-    [ "green", "de/d12/a04659.html#aaac4b49f8ced6f8a10842162f110217d", null ],
-    [ "red", "de/d12/a04659.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
-    [ "white", "de/d12/a04659.html#a272f822cae4bd3b8e993080e2317636e", null ]
+    [ "baseAddress", "de/d12/a04659.html#ab922219fc16e46857f76b5a34c05ea47", null ],
+    [ "sizeBytes", "de/d12/a04659.html#a0bee61cd2a7be7f180c426bb8c9eee17", null ]
 ];

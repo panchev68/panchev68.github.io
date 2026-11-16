@@ -1,14 +1,12 @@
 var a05403 =
 [
-    [ "FlashInterface", "d1/d5e/a05403.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
-    [ "~FlashInterface", "d1/d5e/a05403.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
-    [ "FlashInterface", "d1/d5e/a05403.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
-    [ "FlashInterface", "d1/d5e/a05403.html#a1c805cbd8158ca094182032c42fa8a68", null ],
-    [ "eraseSector", "d1/d5e/a05403.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
-    [ "lock", "d1/d5e/a05403.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
-    [ "operator=", "d1/d5e/a05403.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
-    [ "operator=", "d1/d5e/a05403.html#a2e5471c04f3069860252fdf10e53270a", null ],
-    [ "unlock", "d1/d5e/a05403.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
-    [ "writeBuffer", "d1/d5e/a05403.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
-    [ "writeWord", "d1/d5e/a05403.html#ad771befb1be3db0d319c46507a7896ca", null ]
+    [ "Config", "dc/d06/a05407.html", "dc/d06/a05407" ],
+    [ "ViewportScope", "d8/d4f/a05411.html", "d8/d4f/a05411" ],
+    [ "bind", "d1/d5e/a05403.html#ab97e6f8f2b368533fe0a40ad5c353f2c", null ],
+    [ "clear", "d1/d5e/a05403.html#aa06d22a1795a1ed05102338fe3f06b3f", null ],
+    [ "flush", "d1/d5e/a05403.html#a7beed38f320353f422e70d9a209c4c5c", null ],
+    [ "getCanvas", "d1/d5e/a05403.html#a25647b80401b91267564b71671e479fa", null ],
+    [ "getDisplay", "d1/d5e/a05403.html#a4bfe72de47e228e7f12d63366b27cb51", null ],
+    [ "getPrimitives", "d1/d5e/a05403.html#a4d9f5800faa647f6ddfb8a0c95223d58", null ],
+    [ "setup", "d1/d5e/a05403.html#a48271a82a8ee7fb036692180987ef703", null ]
 ];

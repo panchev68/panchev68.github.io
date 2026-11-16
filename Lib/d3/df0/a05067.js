@@ -1,11 +1,18 @@
 var a05067 =
 [
-    [ "ignoredMessagesByTimeout", "d3/df0/a05067.html#aef5921d826333c4443495f22db6f23b2", null ],
-    [ "invalidMessages", "d3/df0/a05067.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
-    [ "maxMsgLengthErrors", "d3/df0/a05067.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
-    [ "receivedAtCommandMessages", "d3/df0/a05067.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
-    [ "receivedDataMessages", "d3/df0/a05067.html#ac128abb8594b88f0197fc4fc467d9261", null ],
-    [ "sentAtCommandMessages", "d3/df0/a05067.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
-    [ "sentDataMessages", "d3/df0/a05067.html#acdadb83db434afcb1c0147457f423064", null ],
-    [ "sentDataMessagesTimeout", "d3/df0/a05067.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
+    [ "Node", "db/d78/a05071.html", "db/d78/a05071" ],
+    [ "NetworkDiscovery", "d3/df0/a05067.html#acd0e3f3866a3ca66b7f3e542776da665", null ],
+    [ "NetworkDiscovery", "d3/df0/a05067.html#ab9ffde2714e24e2870cdc93c23495f03", null ],
+    [ "close", "d3/df0/a05067.html#a1315fb9cad5a91c5e451bf64e521ea96", null ],
+    [ "getNodeCount", "d3/df0/a05067.html#a5ff67a6679624bd114c6dcf093a2e5ca", null ],
+    [ "getNodes", "d3/df0/a05067.html#a1bb3ae3971de79ceadc4598cb0e980fb", null ],
+    [ "hasNodes", "d3/df0/a05067.html#aff5f6c6f0f6bea3102ddff447677796f", null ],
+    [ "initialize", "d3/df0/a05067.html#a6329c58c641c134db59a8f37a9637dea", null ],
+    [ "isRunning", "d3/df0/a05067.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "d3/df0/a05067.html#a1a3ede33b94a0d0f532e9e6d3b599dce", null ],
+    [ "operator=", "d3/df0/a05067.html#a56fe4df6f329a5e18e8f8132ec5f5c7b", null ],
+    [ "process", "d3/df0/a05067.html#a0747f885e5a9feba10647c760353f395", null ],
+    [ "start", "d3/df0/a05067.html#a959b5480dd22f8a82c83f45f689a5f47", null ],
+    [ "tearDown", "d3/df0/a05067.html#a433b1176b2ec86cafe98bb73425d401b", null ],
+    [ "update", "d3/df0/a05067.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
 ];

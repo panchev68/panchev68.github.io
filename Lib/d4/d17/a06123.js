@@ -1,8 +1,14 @@
 var a06123 =
 [
-    [ "pinNRST", "d4/d17/a06123.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "d4/d17/a06123.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "d4/d17/a06123.html#a7a30a24da1b05da04d34ae04d9601ed4", null ],
-    [ "usbDetectPin", "d4/d17/a06123.html#a7821371ae14cff05383049657f3dd8d6", null ],
-    [ "usbDisablePin", "d4/d17/a06123.html#aeafd4713f3249500c2a871623ffc4e6c", null ]
+    [ "Level", "d4/d17/a06123.html#a47d1302bb72530432eb0072fc7286e69", [
+      [ "IDLE", "d4/d17/a06123.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
+      [ "LOW", "d4/d17/a06123.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
+      [ "NORMAL", "d4/d17/a06123.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
+      [ "HIGH", "d4/d17/a06123.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
+      [ "REALTIME", "d4/d17/a06123.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
+    ] ],
+    [ "Priority", "d4/d17/a06123.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
+    [ "get", "d4/d17/a06123.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
+    [ "getFromISR", "d4/d17/a06123.html#a077686e91e7ea468ac484026c09fe001", null ],
+    [ "set", "d4/d17/a06123.html#a458e98cafe1842d218c9640b76bde004", null ]
 ];

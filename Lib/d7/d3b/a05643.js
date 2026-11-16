@@ -1,14 +1,14 @@
 var a05643 =
 [
-    [ "EventHandler", "d7/d3b/a05643.html#a10761412c20341dee385767eac673248", null ],
-    [ "USBHostPort", "d7/d3b/a05643.html#a8c4ffe96e057ebee8d694a33d50ca85a", null ],
-    [ "~USBHostPort", "d7/d3b/a05643.html#a56f4dd3a3342b8ec3066733c10f723f1", null ],
+    [ "OSPIPort", "d7/d3b/a05643.html#a8c1f23febaf9293e008f91a9d6ad5b17", null ],
+    [ "~OSPIPort", "d7/d3b/a05643.html#a88592dfaa7cbb4efa05747483c911d6f", null ],
+    [ "abort", "d7/d3b/a05643.html#a12a734c939e90c6c90510ba2c323dec0", null ],
     [ "close", "d7/d3b/a05643.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "command", "d7/d3b/a05643.html#ab13d30c818279bf38505328181fa1409", null ],
     [ "getHandle", "d7/d3b/a05643.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d7/d3b/a05643.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
     [ "isOpened", "d7/d3b/a05643.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
     [ "open", "d7/d3b/a05643.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "setEventHandler", "d7/d3b/a05643.html#a031aa9b48caa98516825b7f35468b627", null ],
-    [ "transfer", "d7/d3b/a05643.html#a3bcff372802df7955ce5761f4e32e420", null ],
-    [ "waitForEvent", "d7/d3b/a05643.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
+    [ "receive", "d7/d3b/a05643.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "d7/d3b/a05643.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

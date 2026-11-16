@@ -1,12 +1,15 @@
 var a05723 =
 [
-    [ "Time", "d1/d27/a05723.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "d1/d27/a05723.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "d1/d27/a05723.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "d1/d27/a05723.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "d1/d27/a05723.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "d1/d27/a05723.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "d1/d27/a05723.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "d1/d27/a05723.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "d1/d27/a05723.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "Manager", "d1/d27/a05723.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d1/d27/a05723.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimEventBase", "d1/d27/a05723.html#ae4e4ea4622adc3ec78740bcbb5de40c7", null ],
+    [ "TimEventBase", "d1/d27/a05723.html#a5bc4465b338b0255addd68424099b237", null ],
+    [ "TimEventBase", "d1/d27/a05723.html#a16a104e17a6f13f616dc2f0a20f42653", null ],
+    [ "~TimEventBase", "d1/d27/a05723.html#a5005179511e8564eef47bc3da1d74925", null ],
+    [ "bindWorker", "d1/d27/a05723.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getHandle", "d1/d27/a05723.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "d1/d27/a05723.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "operator=", "d1/d27/a05723.html#a85bb87c2ebb0260e1e4503471892deaa", null ],
+    [ "operator=", "d1/d27/a05723.html#a252859ce5916b5a86188c2929fc271a4", null ],
+    [ "waitEvent", "d1/d27/a05723.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ]
 ];

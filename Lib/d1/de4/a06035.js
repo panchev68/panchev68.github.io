@@ -1,10 +1,14 @@
 var a06035 =
 [
-    [ "VersionString", "d1/de4/a06035.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "d1/de4/a06035.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getSubVersion", "d1/de4/a06035.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "d1/de4/a06035.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "d1/de4/a06035.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "d1/de4/a06035.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "d1/de4/a06035.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "Config", "d1/dd7/a06039.html", "d1/dd7/a06039" ],
+    [ "State", "d1/de4/a06035.html#a7063555b30fb75832750a0361328040e", [
+      [ "ACTIVE", "d1/de4/a06035.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
+      [ "INACTIVE", "d1/de4/a06035.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
+      [ "DISABLED", "d1/de4/a06035.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
+    ] ],
+    [ "Sensor", "d1/de4/a06035.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
+    [ "getName", "d1/de4/a06035.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
+    [ "isActive", "d1/de4/a06035.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
+    [ "isPresent", "d1/de4/a06035.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
+    [ "read", "d1/de4/a06035.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
 ];

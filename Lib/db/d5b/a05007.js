@@ -1,13 +1,26 @@
 var a05007 =
 [
-    [ "Config", "db/dc2/a05011.html", "db/dc2/a05011" ],
-    [ "Params", "db/d5b/a05007.html#aa0a4f2bbe579882088ad1235acfe6fd9", null ],
-    [ "PairService", "db/d5b/a05007.html#a5a54bddc9780ee25cf4d3807f36e1f12", null ],
-    [ "PairService", "db/d5b/a05007.html#a469a4f643d4fa5a75c530cb6d7ec49d5", null ],
-    [ "close", "db/d5b/a05007.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "isRunning", "db/d5b/a05007.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "db/d5b/a05007.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "db/d5b/a05007.html#a115a3537a0189cfcd83c231d716c0bb5", null ],
-    [ "process", "db/d5b/a05007.html#a0747f885e5a9feba10647c760353f395", null ],
-    [ "update", "db/d5b/a05007.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "Mode", "db/d5b/a05007.html#a46b4913da28daeccef03e456b1d3a101", [
+      [ "RUNTIME", "db/d5b/a05007.html#a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8", null ],
+      [ "SCANNER", "db/d5b/a05007.html#a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d", null ]
+    ] ],
+    [ "State", "db/d5b/a05007.html#af7ac77ba20da5be346e1d3948da5de72", [
+      [ "DISCONNECTED", "db/d5b/a05007.html#af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785", null ],
+      [ "UNUSABLE", "db/d5b/a05007.html#af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e", null ],
+      [ "NOT_GOOD", "db/d5b/a05007.html#af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4", null ],
+      [ "OKAY", "db/d5b/a05007.html#af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734", null ],
+      [ "VERY_GOOD", "db/d5b/a05007.html#af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347", null ],
+      [ "AMAZING", "db/d5b/a05007.html#af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9", null ]
+    ] ],
+    [ "Quality", "db/d5b/a05007.html#addae8d177e3be6cf88efd4277f317ef7", null ],
+    [ "clear", "db/d5b/a05007.html#a609bf11d7132e415fcbb42bdb189c438", null ],
+    [ "getPercent", "db/d5b/a05007.html#a58d1f865ff5385df9120089b3b9be020", null ],
+    [ "getState", "db/d5b/a05007.html#acc0dd49fae439b6a503f21d2c2296569", null ],
+    [ "onExchange", "db/d5b/a05007.html#a889bc1271f7b0cf758338c7ee2514554", null ],
+    [ "onRssi", "db/d5b/a05007.html#acd7a4f8340c849e6247997e1fff9b177", null ],
+    [ "setRuntimeMode", "db/d5b/a05007.html#a55bae7d188caa41cd85b5960bc80b4c9", null ],
+    [ "setScannerMode", "db/d5b/a05007.html#a94bf3ed338180ddd04fe888b204907c7", null ],
+    [ "start", "db/d5b/a05007.html#ad5e27604826fa9613e36ac6186b344bb", null ],
+    [ "update", "db/d5b/a05007.html#a74c56a3babe14b32b8d4362d4e3ace1f", null ],
+    [ "onUpdate", "db/d5b/a05007.html#a6f2e37a3261d7339927cb06d1b32fa02", null ]
 ];

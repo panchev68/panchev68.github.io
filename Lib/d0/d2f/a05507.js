@@ -1,13 +1,13 @@
 var a05507 =
 [
-    [ "State", "d0/d2f/a05507.html#ae9f0fa1c20664b577fc615da59211d91", [
-      [ "UNKNOWN", "d0/d2f/a05507.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "POWER_ON", "d0/d2f/a05507.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
-      [ "BROWNOUT", "d0/d2f/a05507.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
-      [ "PIN", "d0/d2f/a05507.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
-      [ "SOFTWARE", "d0/d2f/a05507.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
-      [ "INDEPENDENT_WATCHDOG", "d0/d2f/a05507.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
-      [ "WINDOW_WATCHDOG", "d0/d2f/a05507.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
-      [ "LOW_POWER", "d0/d2f/a05507.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
-    ] ]
+    [ "BackupRamDomain", "d0/d2f/a05507.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "d0/d2f/a05507.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "d0/d2f/a05507.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "d0/d2f/a05507.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "d0/d2f/a05507.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "d0/d2f/a05507.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "d0/d2f/a05507.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "d0/d2f/a05507.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "d0/d2f/a05507.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "d0/d2f/a05507.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

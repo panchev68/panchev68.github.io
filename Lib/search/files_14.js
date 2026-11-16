@@ -20,7 +20,7 @@ var searchData=
   ['unordered_5fset_2eh_17',['unordered_set.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00776.html',0,'']]],
   ['update_5ffn_5fimps_2ehpp_18',['update_fn_imps.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01520.html',0,'']]],
   ['usb_2ehpp_19',['USB.hpp',['../d2/d5e/a00860.html',1,'']]],
-  ['usb_2fserialport_2ehpp_20',['SerialPort.hpp',['../d2/d78/a08584.html',1,'']]],
+  ['usb_2fserialport_2ehpp_20',['SerialPort.hpp',['../d5/d8c/a08591.html',1,'']]],
   ['usbdeviceport_2ddma_2ehpp_21',['USBDevicePort-DMA.hpp',['../d9/daf/a00830.html',1,'']]],
   ['usbdeviceport_2dit_2ehpp_22',['USBDevicePort-IT.hpp',['../dc/d6e/a00833.html',1,'']]],
   ['usbdeviceportasync_2ehpp_23',['USBDevicePortAsync.hpp',['../d3/d13/a00836.html',1,'']]],

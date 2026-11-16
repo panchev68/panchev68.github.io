@@ -1,12 +1,18 @@
 var a05707 =
 [
-    [ "getLocalTransition", "d3/d39/a05707.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
-    [ "getOffset", "d3/d39/a05707.html#a5b83c2cf38318866e23774caee880570", null ],
-    [ "isValid", "d3/d39/a05707.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
-    [ "dayOfWeek", "d3/d39/a05707.html#a71011003fee57e0e6420889a983146f2", null ],
-    [ "hour", "d3/d39/a05707.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
-    [ "month", "d3/d39/a05707.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
-    [ "offsetMinutes", "d3/d39/a05707.html#ade82abb20d81fccacc264075f09a1667", null ],
-    [ "ruleName", "d3/d39/a05707.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
-    [ "weekOfMonth", "d3/d39/a05707.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
+    [ "Timeout", "d3/d39/a05707.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
+    [ "SPIPortBase", "d3/d39/a05707.html#af7d9dc0b540fee5b78bdf3853a203937", null ],
+    [ "SPIPortBase", "d3/d39/a05707.html#a3d58a47067dbf8b77d78250373234f6d", null ],
+    [ "SPIPortBase", "d3/d39/a05707.html#afa9b12cc40b3d5af68b16f594f5a92f7", null ],
+    [ "~SPIPortBase", "d3/d39/a05707.html#a88e5899dd8db4b887c6afbf89dcbed77", null ],
+    [ "bindBeginTransactionFunc", "d3/d39/a05707.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "d3/d39/a05707.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "d3/d39/a05707.html#ab6529e241d0728159eb3f60c7621b666", null ],
+    [ "isBusy", "d3/d39/a05707.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "open", "d3/d39/a05707.html#af039716c9cb01db958d77f8c581627cf", null ],
+    [ "operator=", "d3/d39/a05707.html#a33e5060aa4a9e4755b6786700276a5bf", null ],
+    [ "operator=", "d3/d39/a05707.html#ae6957396d6689ed6ebcffc3b11177118", null ],
+    [ "receive", "d3/d39/a05707.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "d3/d39/a05707.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "d3/d39/a05707.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

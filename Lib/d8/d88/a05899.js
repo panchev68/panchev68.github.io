@@ -1,9 +1,10 @@
 var a05899 =
 [
-    [ "Lock", "d8/d88/a05899.html#a79915981fe481334533677f3c4691e1f", null ],
-    [ "~Lock", "d8/d88/a05899.html#acca996da9f16704d9247d8d2f0bab3e1", null ],
-    [ "Lock", "d8/d88/a05899.html#a7da060988728f2b1731d04e7b4465ffb", null ],
-    [ "Lock", "d8/d88/a05899.html#a73e4ec26337a86b9060fbfd8356a083c", null ],
-    [ "operator=", "d8/d88/a05899.html#a58e51b984954b6ea0275dd7b48479bb2", null ],
-    [ "operator=", "d8/d88/a05899.html#a2af1d07230d3a75aee8b72daf7ec73bf", null ]
+    [ "PeakInfo", "db/d12/a05903.html", "db/d12/a05903" ],
+    [ "FindPeaks", "d8/d88/a05899.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
+    [ "addSample", "d8/d88/a05899.html#af68c408bdc213c13c758fceb90fdf51e", null ],
+    [ "getCount", "d8/d88/a05899.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
+    [ "getFallingPeak", "d8/d88/a05899.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
+    [ "getRisingPeak", "d8/d88/a05899.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
+    [ "reset", "d8/d88/a05899.html#a176df2aab4c0e044fe550ca813f88168", null ]
 ];

@@ -1,27 +1,19 @@
 var a04607 =
 [
-    [ "Config", "d4/dda/a04611.html", "d4/dda/a04611" ],
-    [ "Diagnostics", "dc/d9b/a04615.html", "dc/d9b/a04615" ],
-    [ "CardActivatedCallback", "de/d76/a04607.html#aaa9dd3ae634e7a69d4f917e7bd454305", null ],
-    [ "ReadBuffer", "de/d76/a04607.html#a5f65acf300f17deb99c963ab374432b3", null ],
-    [ "Reader", "de/d76/a04607.html#a6701c6a8809d64b58d6f2572a5d5e3db", null ],
-    [ "SignatureBuffer", "de/d76/a04607.html#afea6f0e2a71e2700aba290c8c12dcbcc", null ],
-    [ "State", "de/d76/a04607.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9c", [
-      [ "IDLE", "de/d76/a04607.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5daf7f2ebbba4975d61dab1c40188c7", null ],
-      [ "POLL_REQA", "de/d76/a04607.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca85c5b813825733ffaddba38ff01013d9", null ],
-      [ "POLL_ANTICOL", "de/d76/a04607.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9cad5dc3be53612bd06503c0bbfad204df3", null ],
-      [ "POLL_SELECT", "de/d76/a04607.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4", null ],
-      [ "CARD_ACTIVATED", "de/d76/a04607.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11", null ]
-    ] ],
-    [ "NfcManager", "de/d76/a04607.html#a4e43b591f0d6680b5fdacd85a2858caf", null ],
-    [ "~NfcManager", "de/d76/a04607.html#a99dc2c6cf10e46e8158d7e15504f0cc5", null ],
-    [ "getDiagnostics", "de/d76/a04607.html#a0fc17fc5e17c79eac24ad7d9d6fb72ab", null ],
-    [ "getState", "de/d76/a04607.html#a3b2d0421ba5761b21a2c806ae6480bbf", null ],
-    [ "getWakeupADCRange", "de/d76/a04607.html#a2c7d71eee5f6187585aba0f69b39c3f6", null ],
-    [ "readPages", "de/d76/a04607.html#a4c81d15f935d8e1c2dd13d993975f940", null ],
-    [ "readSignature", "de/d76/a04607.html#abdbd4ef43ac6798f86fb0f05d695d011", null ],
-    [ "resetWakeupADCRange", "de/d76/a04607.html#aca5c8406388ff9e1c1f7808fd7c5b4c4", null ],
-    [ "start", "de/d76/a04607.html#a347e0188a1c8207e8d11268d607aa763", null ],
-    [ "stop", "de/d76/a04607.html#ae7bf77d346d29fc8a4da4226fc32e640", null ],
-    [ "writePage", "de/d76/a04607.html#aa61c13d6b4df75e3243f862a1e8af3d5", null ]
+    [ "Command", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10", [
+      [ "WRITE_ENABLE", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "WRITE_DISABLE", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
+      [ "READ_STATUS_REGISTER1", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "READ_DATA", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
+      [ "PAGE_PROGRAM", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
+      [ "SECTOR_ERASE", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "de/d76/a04607.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

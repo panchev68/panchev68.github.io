@@ -1,18 +1,17 @@
 var a05727 =
 [
-    [ "DateString", "d5/da4/a05727.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
-    [ "Date", "d5/da4/a05727.html#a93def70969fc16974f55e56219a01b0f", null ],
-    [ "Date", "d5/da4/a05727.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
-    [ "getDayOfWeek", "d5/da4/a05727.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
-    [ "getDayOfYear", "d5/da4/a05727.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
-    [ "isValid", "d5/da4/a05727.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
-    [ "operator<=>", "d5/da4/a05727.html#a7a7ccaefa33e38ba99be918a93731119", null ],
-    [ "operator==", "d5/da4/a05727.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
-    [ "toString", "d5/da4/a05727.html#a70ecfff686d88d444a44393965b296e5", null ],
-    [ "toSysDays", "d5/da4/a05727.html#a59f67718a1b057bca29012a393547479", null ],
-    [ "toYearMonthDay", "d5/da4/a05727.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
-    [ "DateTime", "d5/da4/a05727.html#ae3d4a8787eced68c65a23f5906c11add", null ],
-    [ "day", "d5/da4/a05727.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
-    [ "month", "d5/da4/a05727.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
-    [ "year", "d5/da4/a05727.html#a1026d89f27e48fd23eccde7a9850b302", null ]
+    [ "Manager", "d5/da4/a05727.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d5/da4/a05727.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimInputCapture", "d5/da4/a05727.html#abfe70b316d617c0b779207aebafd9fb9", null ],
+    [ "~TimInputCapture", "d5/da4/a05727.html#a3b3c0bd5c909651c9a4de95e888d86da", null ],
+    [ "bindWorker", "d5/da4/a05727.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getCapture", "d5/da4/a05727.html#ac7f8fd84985b45a4db579b480aaf5251", null ],
+    [ "getHandle", "d5/da4/a05727.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "d5/da4/a05727.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "start", "d5/da4/a05727.html#add28b2f0b32350281b1f47c4e4e25e84", null ],
+    [ "stop", "d5/da4/a05727.html#a6d1e0aa45356b048a97c7390802d142a", null ],
+    [ "waitCapture", "d5/da4/a05727.html#a1fc8b61efbe101b5e3e019e16d73f707", null ],
+    [ "waitCapture", "d5/da4/a05727.html#a2732cd4549f6b1ca08da0cbcb462f404", null ],
+    [ "waitEvent", "d5/da4/a05727.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "void::HAL_TIM_IC_CaptureCallback", "d5/da4/a05727.html#a4e452b46ec2394148f37767c37e5b374", null ]
 ];

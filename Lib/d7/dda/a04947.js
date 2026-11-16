@@ -1,9 +1,10 @@
 var a04947 =
 [
-    [ "Counter", "d7/dda/a04947.html#a979dd53107c70679957a49b352e309e4", null ],
-    [ "Counter", "d7/dda/a04947.html#aa0fcdac4118821433a18e704d608605d", null ],
-    [ "clear", "d7/dda/a04947.html#a5f4c68779359a4681b48228f57296c09", null ],
-    [ "operator uint32_t", "d7/dda/a04947.html#a32d48ad9be69d1fb44852223025c4efe", null ],
-    [ "operator++", "d7/dda/a04947.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
-    [ "operator=", "d7/dda/a04947.html#aebee6561b906ea1271070b47c2610fe2", null ]
+    [ "WolfSSH", "d7/dda/a04947.html#acda587d771e0b88270bdf9263d156fd0", null ],
+    [ "~WolfSSH", "d7/dda/a04947.html#ad07d509cc2a825d9165ab30739d84515", null ],
+    [ "WolfSSH", "d7/dda/a04947.html#ab03771dcd75546ec452cb768b0a29da5", null ],
+    [ "WolfSSH", "d7/dda/a04947.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
+    [ "isOpen", "d7/dda/a04947.html#aac3ff36b57e422860d83792bb84c84f3", null ],
+    [ "operator=", "d7/dda/a04947.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
+    [ "operator=", "d7/dda/a04947.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
 ];

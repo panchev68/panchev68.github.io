@@ -1,11 +1,16 @@
 var a04511 =
 [
-    [ "capacityBytes", "d2/d5d/a04511.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
-    [ "chipId", "d2/d5d/a04511.html#a51f97ba3d60d343706487241e08e252e", null ],
-    [ "manufacturerId", "d2/d5d/a04511.html#a5c3278897e2a6732479c70a4efed141c", null ],
-    [ "pageCount", "d2/d5d/a04511.html#af9ad76ca92b33af38466c11344584476", null ],
-    [ "pageSize", "d2/d5d/a04511.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
-    [ "pagesPerSector", "d2/d5d/a04511.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
-    [ "sectorCount", "d2/d5d/a04511.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
-    [ "sectorSize", "d2/d5d/a04511.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
+    [ "Config", "d2/d5d/a04511.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
+    [ "M24C64W", "d2/d5d/a04511.html#a961e9014542ac6f768bd548fa1d15598", null ],
+    [ "~M24C64W", "d2/d5d/a04511.html#a786bcea2331bd895b693fa1cf2fb0e6b", null ],
+    [ "close", "d2/d5d/a04511.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "d2/d5d/a04511.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "d2/d5d/a04511.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "read", "d2/d5d/a04511.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "d2/d5d/a04511.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "d2/d5d/a04511.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "d2/d5d/a04511.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "d2/d5d/a04511.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "d2/d5d/a04511.html#a299a926321f0db8d9eac8527198f28fc", null ],
+    [ "Driver< M24C64W >", "d2/d5d/a04511.html#a389c035ca7d606c8426542af2e4b7d70", null ]
 ];

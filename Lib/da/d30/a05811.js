@@ -1,9 +1,21 @@
 var a05811 =
 [
-    [ "Config", "d2/df9/a05815.html", "d2/df9/a05815" ],
-    [ "Kalman", "da/d30/a05811.html#aa1d2d569c178bee69ecdf55d472c9b50", null ],
-    [ "~Kalman", "da/d30/a05811.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
-    [ "operator()", "da/d30/a05811.html#a08ac86c068c49ae0ab36a020c0939f2c", null ],
-    [ "reset", "da/d30/a05811.html#ab92d894be215dcd5a1b3999997ca74a9", null ],
-    [ "setParam", "da/d30/a05811.html#a363c061b7ad96069e62fafd73dbdda8d", null ]
+    [ "EventHandler", "da/d30/a05811.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPortAsync", "da/d30/a05811.html#a0eb76333730406f2b4eb1c25a840e786", null ],
+    [ "close", "da/d30/a05811.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "closeChannel", "da/d30/a05811.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
+    [ "getFrame", "da/d30/a05811.html#aa5a82053bf356261f139d027918f7a98", null ],
+    [ "getHandle", "da/d30/a05811.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "da/d30/a05811.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getSpeed", "da/d30/a05811.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
+    [ "getTransferCount", "da/d30/a05811.html#aeafad19d337548bb5ef919dd44723b5f", null ],
+    [ "isOpened", "da/d30/a05811.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "da/d30/a05811.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "openChannel", "da/d30/a05811.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
+    [ "resetPort", "da/d30/a05811.html#a4be20887571f3bd3694a79bb349979f8", null ],
+    [ "setEventHandler", "da/d30/a05811.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "start", "da/d30/a05811.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
+    [ "stop", "da/d30/a05811.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ],
+    [ "transfer", "da/d30/a05811.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "da/d30/a05811.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

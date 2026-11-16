@@ -1,26 +1,19 @@
 var a05291 =
 [
-    [ "MessageHeader", "d1/df2/a05295.html", "d1/df2/a05295" ],
-    [ "Command", "d8/dbd/a05291.html#af1bf58d46a2365d039aa946466c931e4", [
-      [ "ECHO", "d8/dbd/a05291.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409", null ],
-      [ "INPUTS", "d8/dbd/a05291.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692", null ],
-      [ "OUTPUTS", "d8/dbd/a05291.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70", null ]
-    ] ],
-    [ "Error", "d8/dbd/a05291.html#af7acfca02d188807a9c220d5c0bfeda6", [
-      [ "OK", "d8/dbd/a05291.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "COMMAND_NOT_SUPPORT", "d8/dbd/a05291.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7", null ],
-      [ "EMPTY_MESSAGE", "d8/dbd/a05291.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0", null ],
-      [ "INVALID_PAYLOAD_LENGTH", "d8/dbd/a05291.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e", null ],
-      [ "INVALID_START_DELIMITER", "d8/dbd/a05291.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c", null ]
-    ] ],
-    [ "UserProtocol", "d8/dbd/a05291.html#ab11ca2634a103484248a6d8ea24a5407", null ],
-    [ "~UserProtocol", "d8/dbd/a05291.html#ad2bb639951ce599fce10adfb65668d02", null ],
-    [ "build", "d8/dbd/a05291.html#ae9170839094fc83686dd4af2244027fb", null ],
-    [ "echoCallback", "d8/dbd/a05291.html#a3061aa5da161fa13a28466c38e0f725f", null ],
-    [ "getLastSentTimeStamp", "d8/dbd/a05291.html#ad39a3a83a2a35aab8c09065f6ea63f0f", null ],
-    [ "handleIncomingMessageHeader", "d8/dbd/a05291.html#aa78f9b31828d798a794fcd69e78f46e2", null ],
-    [ "handleOutputsUpdate", "d8/dbd/a05291.html#a78c96c1519356f5ea3948970fff30d5c", null ],
-    [ "inputsUpdateCallback", "d8/dbd/a05291.html#a26f74b072f3f808ae2a3374051efa833", null ],
-    [ "parse", "d8/dbd/a05291.html#a5693bd9519902713725ab87ae72a635d", null ],
-    [ "updateNodeActivityCallback", "d8/dbd/a05291.html#a9937ef06792e7b6d381e0b29d25c1f27", null ]
+    [ "Abort", "d8/dbd/a05291.html#a34422d4477e1d28e96ff0a570ccb0832", null ],
+    [ "Access", "d8/dbd/a05291.html#a19c1714c2af7e709205e93053af6fee9", null ],
+    [ "Handlers", "d8/dbd/a05291.html#a4dfbb7a5575c7ee9e62bfeab0e6aca45", null ],
+    [ "Object", "d8/dbd/a05291.html#a827cdba5edb655bcc4f5784b4a4e893d", null ],
+    [ "ObjectInfo", "d8/dbd/a05291.html#a35b9281b5d29eae7fab95112ba1e5115", null ],
+    [ "CoE", "d8/dbd/a05291.html#aaf9d8025b89e7899d8cb2c83ae135e45", null ],
+    [ "~CoE", "d8/dbd/a05291.html#ac46699d9659c29b73d7c01ca84cbfb5f", null ],
+    [ "CoE", "d8/dbd/a05291.html#a71024e33a92eff3dd5b442e02f0b9425", null ],
+    [ "CoE", "d8/dbd/a05291.html#a7b986f95ef2d9b17a078924eddf7d17c", null ],
+    [ "find", "d8/dbd/a05291.html#afca119caf11fde38cdab46d3d4205107", null ],
+    [ "handle", "d8/dbd/a05291.html#afdb20681a34fcdfcb78cf75a78ce0347", null ],
+    [ "operator=", "d8/dbd/a05291.html#ac45513fde48737f49471c84707ec42fa", null ],
+    [ "operator=", "d8/dbd/a05291.html#aaa3b4bee41d8960bb544d7299a183270", null ],
+    [ "reset", "d8/dbd/a05291.html#ab2c195af5b9a058b13b9b6cca0f9159f", null ],
+    [ "service", "d8/dbd/a05291.html#aaa57403f24de4e0bd9670919c80376ac", null ],
+    [ "setHandlers", "d8/dbd/a05291.html#abfa900feff906b9e829ef4ac5da55711", null ]
 ];

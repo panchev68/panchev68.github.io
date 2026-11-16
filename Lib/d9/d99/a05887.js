@@ -1,9 +1,18 @@
 var a05887 =
 [
-    [ "CriticalSectionFromISR", "d9/d99/a05887.html#a94cda37183a61f5455dc5e641bcb5109", null ],
-    [ "~CriticalSectionFromISR", "d9/d99/a05887.html#a54e463ae72e1238776194c4cb941357b", null ],
-    [ "CriticalSectionFromISR", "d9/d99/a05887.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
-    [ "CriticalSectionFromISR", "d9/d99/a05887.html#a9d04ea07249455e75c39ce5450c33028", null ],
-    [ "operator=", "d9/d99/a05887.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
-    [ "operator=", "d9/d99/a05887.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
+    [ "DateString", "d9/d99/a05887.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
+    [ "Date", "d9/d99/a05887.html#a93def70969fc16974f55e56219a01b0f", null ],
+    [ "Date", "d9/d99/a05887.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
+    [ "getDayOfWeek", "d9/d99/a05887.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
+    [ "getDayOfYear", "d9/d99/a05887.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
+    [ "isValid", "d9/d99/a05887.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
+    [ "operator<=>", "d9/d99/a05887.html#a7a7ccaefa33e38ba99be918a93731119", null ],
+    [ "operator==", "d9/d99/a05887.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
+    [ "toString", "d9/d99/a05887.html#a70ecfff686d88d444a44393965b296e5", null ],
+    [ "toSysDays", "d9/d99/a05887.html#a59f67718a1b057bca29012a393547479", null ],
+    [ "toYearMonthDay", "d9/d99/a05887.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
+    [ "DateTime", "d9/d99/a05887.html#ae3d4a8787eced68c65a23f5906c11add", null ],
+    [ "day", "d9/d99/a05887.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
+    [ "month", "d9/d99/a05887.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
+    [ "year", "d9/d99/a05887.html#a1026d89f27e48fd23eccde7a9850b302", null ]
 ];

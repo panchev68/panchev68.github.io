@@ -1,16 +1,11 @@
 var a04827 =
 [
-    [ "Period", "d6/da6/a04827.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
-    [ "Period", "d6/da6/a04827.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
-    [ "beginMeasurement", "d6/da6/a04827.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
-    [ "clearMinMax", "d6/da6/a04827.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
-    [ "endMeasurement", "d6/da6/a04827.html#a764b89843884696c66a1e499e466bb51", null ],
-    [ "getMaximum", "d6/da6/a04827.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
-    [ "getMinimum", "d6/da6/a04827.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
-    [ "getRawValue", "d6/da6/a04827.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
-    [ "getValue", "d6/da6/a04827.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
-    [ "operator uint32_t", "d6/da6/a04827.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
-    [ "operator=", "d6/da6/a04827.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
-    [ "reset", "d6/da6/a04827.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
-    [ "stopMeasurement", "d6/da6/a04827.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
+    [ "Config", "d2/d2e/a04831.html", "d2/d2e/a04831" ],
+    [ "Voltmeter", "d6/da6/a04827.html#a0f038c75a30b2d6cd8382c776fddd2bb", null ],
+    [ "getVoltage", "d6/da6/a04827.html#ac23395cb420c81ab42a23e604cf05f18", null ],
+    [ "handleValueChanged", "d6/da6/a04827.html#a0867be0757674c033a721efb796a8e39", null ],
+    [ "registerDevice", "d6/da6/a04827.html#a299662c9e9bdb346771579418056dccf", null ],
+    [ "setup", "d6/da6/a04827.html#aef6d6cecbcd23016ebff9b46c2cf3ce0", null ],
+    [ "DeviceManager::DeviceBase", "d6/da6/a04827.html#af5908117d248071190096967e686c5a3", null ],
+    [ "interpolator", "d6/da6/a04827.html#a5cabeda795635eeccd12383109ddf96c", null ]
 ];

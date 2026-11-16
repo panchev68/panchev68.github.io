@@ -1,6 +1,12 @@
 var a05659 =
 [
-    [ "operator==", "d7/d33/a05659.html#a0384dbed539af8588014927e2cc2611e", null ],
-    [ "position", "d7/d33/a05659.html#a1e9e29c6bb250746612836ecee4e0f57", null ],
-    [ "value", "d7/d33/a05659.html#a036bbd4435de7509f8854ca2adf96d41", null ]
+    [ "OSPIPortBase", "d7/d33/a05659.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "d7/d33/a05659.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "d7/d33/a05659.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "d7/d33/a05659.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "d7/d33/a05659.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "d7/d33/a05659.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d7/d33/a05659.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d7/d33/a05659.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "d7/d33/a05659.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

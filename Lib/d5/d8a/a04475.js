@@ -1,9 +1,9 @@
 var a04475 =
 [
-    [ "Interface", "d5/d8a/a04475.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
-    [ "~Interface", "d5/d8a/a04475.html#a66b65dc5b7f6571301b7491242361a95", null ],
-    [ "hardwareReset", "d5/d8a/a04475.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
-    [ "initialize", "d5/d8a/a04475.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
-    [ "send", "d5/d8a/a04475.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
-    [ "sendReceive", "d5/d8a/a04475.html#a2d9014fe08fb984de211efd021eb1f35", null ]
+    [ "Config", "d7/dd6/a04479.html", "d7/dd6/a04479" ],
+    [ "Driver", "d5/d8a/a04475.html#a1d8e503b6726e6008abf411810b2191d", null ],
+    [ "~Driver", "d5/d8a/a04475.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
+    [ "handleTransferCompleteEvent", "d5/d8a/a04475.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
+    [ "setup", "d5/d8a/a04475.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
+    [ "transmitBlock", "d5/d8a/a04475.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
 ];

@@ -1,8 +1,14 @@
 var a05999 =
 [
-    [ "Config", "d1/d05/a05999.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
-    [ "callback", "d1/d05/a05999.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
-    [ "mode", "d1/d05/a05999.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
-    [ "name", "d1/d05/a05999.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
-    [ "period", "d1/d05/a05999.html#ae81cad8de025f71497b5b241c41da1eb", null ]
+    [ "Point", "d3/d59/a06003.html", "d3/d59/a06003" ],
+    [ "LinearInterpolation", "d1/d05/a05999.html#a30333add26642338f1f8d0e6d9418329", null ],
+    [ "LinearInterpolation", "d1/d05/a05999.html#a28d9815d7e6e80bc98e7aefedaa9a07f", null ],
+    [ "addPoint", "d1/d05/a05999.html#a899e4fc629040c693f4513f50baba169", null ],
+    [ "addPoint", "d1/d05/a05999.html#abdbb751960ad3016fc0cebeab774f390", null ],
+    [ "clear", "d1/d05/a05999.html#a4e24492b9c447060beed4a198636f3b4", null ],
+    [ "getPoint", "d1/d05/a05999.html#ade8e90d104aaf0097ab9c497e1fd8a1e", null ],
+    [ "getPointCount", "d1/d05/a05999.html#a038da817b90fe59e655561803c0094c9", null ],
+    [ "interpolate", "d1/d05/a05999.html#abe222c022160affacc4dd077c9a50cfc", null ],
+    [ "isEmpty", "d1/d05/a05999.html#af70bb2ed853bea231b21578a5fa5123b", null ],
+    [ "sortPoints", "d1/d05/a05999.html#adf160df65e43281237598a9ddf284e5f", null ]
 ];

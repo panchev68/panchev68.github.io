@@ -1,14 +1,12 @@
 var a05607 =
 [
-    [ "UARTPortAsync", "db/de6/a05607.html#ae3dfd1d49bf2eb3ae572e5482852a106", null ],
-    [ "abort", "db/de6/a05607.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "db/de6/a05607.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "db/de6/a05607.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "db/de6/a05607.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "db/de6/a05607.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
-    [ "isOpened", "db/de6/a05607.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "db/de6/a05607.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "db/de6/a05607.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "db/de6/a05607.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ],
-    [ "setBaudRate", "db/de6/a05607.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
+    [ "Sha256Digest", "db/de6/a05607.html#add4d9f33ecf447251492399927b27da5", null ],
+    [ "HASHPortBase", "db/de6/a05607.html#a402b74d9e249e868a6fb33cc93e1c08a", null ],
+    [ "HASHPortBase", "db/de6/a05607.html#a7309c31d1f17d06b52ed35b24816f30f", null ],
+    [ "HASHPortBase", "db/de6/a05607.html#a362af192b07fc68f58947d01ce37d8f2", null ],
+    [ "~HASHPortBase", "db/de6/a05607.html#a97d7a142991358197ddc449c08d06925", null ],
+    [ "close", "db/de6/a05607.html#aea9707fb978271d6f7346e2eacd3d206", null ],
+    [ "open", "db/de6/a05607.html#ae9dc794f4ad8b52c9c6ecdd73468f030", null ],
+    [ "operator=", "db/de6/a05607.html#a50692e19ce033e67c57e1581aeff1be4", null ],
+    [ "operator=", "db/de6/a05607.html#a910cff9c471be2aa82ac50da02b2027e", null ]
 ];

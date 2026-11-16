@@ -1,14 +1,8 @@
 var a05871 =
 [
-    [ "Config", "dd/dc3/a05875.html", "dd/dc3/a05875" ],
-    [ "State", "d5/dfd/a05871.html#a7063555b30fb75832750a0361328040e", [
-      [ "ACTIVE", "d5/dfd/a05871.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "INACTIVE", "d5/dfd/a05871.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
-      [ "DISABLED", "d5/dfd/a05871.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
-    ] ],
-    [ "Sensor", "d5/dfd/a05871.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
-    [ "getName", "d5/dfd/a05871.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
-    [ "isActive", "d5/dfd/a05871.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
-    [ "isPresent", "d5/dfd/a05871.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
-    [ "read", "d5/dfd/a05871.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
+    [ "crc16", "d5/dfd/a05871.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
+    [ "crc16", "d5/dfd/a05871.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
+    [ "crc16", "d5/dfd/a05871.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
+    [ "crc16", "d5/dfd/a05871.html#abac152733a66bebdb4f969523dc9dbe1", null ],
+    [ "operator uint16_t", "d5/dfd/a05871.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
 ];

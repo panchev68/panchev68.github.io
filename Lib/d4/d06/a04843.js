@@ -1,12 +1,18 @@
 var a04843 =
 [
-    [ "FreeFunctionPointer", "d4/d06/a04843.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d4/d06/a04843.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d4/d06/a04843.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "d4/d06/a04843.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d4/d06/a04843.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d4/d06/a04843.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d4/d06/a04843.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d4/d06/a04843.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d4/d06/a04843.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "RxMessage", "dd/dca/a04847.html", "dd/dca/a04847" ],
+    [ "Node", "dd/d3b/a04851.html", "dd/d3b/a04851" ],
+    [ "Diagnostic", "d9/d87/a04855.html", "d9/d87/a04855" ],
+    [ "ServiceBase", "d4/d06/a04843.html#acbfceb92cefef5281785b7d5db81df5d", null ],
+    [ "~ServiceBase", "d4/d06/a04843.html#a6594894f460fcebe7b8705a3ebca6938", null ],
+    [ "errorCallback", "d4/d06/a04843.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
+    [ "getDiagnostic", "d4/d06/a04843.html#aa6e2069cd0ca82608d533788d367dddf", null ],
+    [ "messageReceivedCallback", "d4/d06/a04843.html#abe37221a89d42b0ec836894d481128b4", null ],
+    [ "receive", "d4/d06/a04843.html#a24358bc730156fbe1517606352fbf513", null ],
+    [ "send", "d4/d06/a04843.html#a9e61e58322c0a574320d57ad9da13966", null ],
+    [ "send", "d4/d06/a04843.html#ae9698dff358c5494704ad558fcf82d22", null ],
+    [ "send", "d4/d06/a04843.html#a26cd3541d7c850c5151fe7281e917a94", null ],
+    [ "start", "d4/d06/a04843.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
+    [ "stop", "d4/d06/a04843.html#a3d0252842f197249fff9649618458fee", null ],
+    [ "taskFn", "d4/d06/a04843.html#a3f461c3e0f637c2be89463249c736b46", null ]
 ];

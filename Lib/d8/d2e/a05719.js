@@ -1,14 +1,14 @@
 var a05719 =
 [
-    [ "Time", "d1/d27/a05723.html", "d1/d27/a05723" ],
-    [ "Date", "d5/da4/a05727.html", "d5/da4/a05727" ],
-    [ "DateTime", "d8/d2e/a05719.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "d8/d2e/a05719.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "d8/d2e/a05719.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "d8/d2e/a05719.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "d8/d2e/a05719.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "d8/d2e/a05719.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "d8/d2e/a05719.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "d8/d2e/a05719.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "d8/d2e/a05719.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "TimEncoder", "d8/d2e/a05719.html#a865f1c850a27e5a21c65997eddc230e6", null ],
+    [ "~TimEncoder", "d8/d2e/a05719.html#a75c39486905ce140625f8ede68cf6b1c", null ],
+    [ "TimEncoder", "d8/d2e/a05719.html#ab1d7d4c14ddad06846dbb8f3f39f57e2", null ],
+    [ "TimEncoder", "d8/d2e/a05719.html#a6ac1197149221d77d1967fbc9bf30371", null ],
+    [ "close", "d8/d2e/a05719.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
+    [ "isClockwise", "d8/d2e/a05719.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
+    [ "open", "d8/d2e/a05719.html#a0332945ce02a55fb6e624309d4613697", null ],
+    [ "operator=", "d8/d2e/a05719.html#a5f081d643e5f193b16d632bca48547f3", null ],
+    [ "operator=", "d8/d2e/a05719.html#a65f9304f38d0afcedc9c8bcaeae935c7", null ],
+    [ "read", "d8/d2e/a05719.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
+    [ "write", "d8/d2e/a05719.html#aa31e675a06e5e104834e47423daa2b5f", null ]
 ];

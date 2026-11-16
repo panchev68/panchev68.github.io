@@ -1,10 +1,18 @@
 var a05747 =
 [
-    [ "Integrator", "d6/df4/a05747.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
-    [ "addValue", "d6/df4/a05747.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
-    [ "computeResult", "d6/df4/a05747.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
-    [ "isWindowFull", "d6/df4/a05747.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
-    [ "operator()", "d6/df4/a05747.html#a97085ec2f9a9f65920181fffae409662", null ],
-    [ "processValue", "d6/df4/a05747.html#ab31a92d828aeae207fd9641101c217f5", null ],
-    [ "resetWindow", "d6/df4/a05747.html#a78e088ee416a676679fe227ceb71b1b0", null ]
+    [ "Config", "dd/d80/a05751.html", "dd/d80/a05751" ],
+    [ "StreamSerialPort", "d6/df4/a05747.html#a273a38e15bd84ddcb1ab16c18bcb563a", null ],
+    [ "~StreamSerialPort", "d6/df4/a05747.html#a82213704bb45f3f325b198dc0eb1ecab", null ],
+    [ "StreamSerialPort", "d6/df4/a05747.html#a4385588b551ca7105aacb5fa1b83da65", null ],
+    [ "StreamSerialPort", "d6/df4/a05747.html#a4dbd8a6587109d4ce29242ec1ddfdec0", null ],
+    [ "close", "d6/df4/a05747.html#af4d1dbc5fcd691c510918d277281ee6e", null ],
+    [ "discardInput", "d6/df4/a05747.html#ad313993195f0d6ea829d9c7b61df667f", null ],
+    [ "getDroppedCount", "d6/df4/a05747.html#a32276aa918b5679e4f0e8df69175063f", null ],
+    [ "isOpen", "d6/df4/a05747.html#a6fe88c556292e95190f066d34a6455a9", null ],
+    [ "open", "d6/df4/a05747.html#a1b052f09718429b991946fea7724f411", null ],
+    [ "operator=", "d6/df4/a05747.html#a49b22bf81050b4ee173b0cb712fce161", null ],
+    [ "operator=", "d6/df4/a05747.html#a5d8430086822b05225d0b3f4372238b2", null ],
+    [ "read", "d6/df4/a05747.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a", null ],
+    [ "write", "d6/df4/a05747.html#a0a35058ffe6e3bb6d1a5a9fb335c3588", null ],
+    [ "write", "d6/df4/a05747.html#aa11ae6544b3fe4193e42a03891973953", null ]
 ];

@@ -1,12 +1,12 @@
 var a04803 =
 [
-    [ "FreeFunctionPointer", "d9/d62/a04803.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d9/d62/a04803.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d9/d62/a04803.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "d9/d62/a04803.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d9/d62/a04803.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d9/d62/a04803.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d9/d62/a04803.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d9/d62/a04803.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d9/d62/a04803.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "debounceDuration", "d9/d62/a04803.html#a645398d022257454438fc47ce15fcdb9", null ],
+    [ "height", "d9/d62/a04803.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
+    [ "rotationFlipped", "d9/d62/a04803.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
+    [ "rotationNormal", "d9/d62/a04803.html#aa5b75686141869dfbbfb78febc4822aa", null ],
+    [ "width", "d9/d62/a04803.html#a36fe0a7ac1def2933216417d9c50860b", null ],
+    [ "xMax", "d9/d62/a04803.html#ad7faa3502a791114bf456c98c0dbf644", null ],
+    [ "xMin", "d9/d62/a04803.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
+    [ "yMax", "d9/d62/a04803.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
+    [ "yMin", "d9/d62/a04803.html#acda2f52d642f3f712c72b8046d83fa30", null ]
 ];

@@ -1,10 +1,7 @@
 var a06139 =
 [
-    [ "Value64Handle", "d7/dc5/a06143.html", "d7/dc5/a06143" ],
-    [ "Status", "d3/d0b/a06139.html#ae95109eada6e1d27cd31567f2ba169de", [
-      [ "OK", "d3/d0b/a06139.html#ae95109eada6e1d27cd31567f2ba169deae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d3/d0b/a06139.html#ae95109eada6e1d27cd31567f2ba169deabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "close", "d3/d0b/a06139.html#a53db90908f030950c411387229c0e443", null ],
-    [ "open", "d3/d0b/a06139.html#a53a9eea61415dd09f7459b8b382eeb58", null ]
+    [ "Config", "d3/d0b/a06139.html#a3dd0c854864c93e37dcf898eac213cf9", null ],
+    [ "name", "d3/d0b/a06139.html#a573525e01a356a23378c06c203754517", null ],
+    [ "priority", "d3/d0b/a06139.html#a5d982f29a32e7d0b156f2ea79f36ef74", null ],
+    [ "stackSize", "d3/d0b/a06139.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
 ];

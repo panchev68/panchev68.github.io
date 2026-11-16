@@ -1,9 +1,16 @@
 var a05251 =
 [
-    [ "address", "d4/d19/a05251.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
-    [ "channel", "d4/d19/a05251.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
-    [ "counter", "d4/d19/a05251.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
-    [ "length", "d4/d19/a05251.html#af80f349070d12d0ce2387f6d95764bfe", null ],
-    [ "priority", "d4/d19/a05251.html#a0c3726e1ac6fed602491f21449c9a740", null ],
-    [ "protocol", "d4/d19/a05251.html#ac094990b182d42c38feb302d144a6924", null ]
+    [ "Container", "d4/d19/a05251.html#a841797ffcee30732b12660006d8397bd", null ],
+    [ "Status", "d4/d19/a05251.html#a577acdd119b66063413debe6a438470f", [
+      [ "STATUS_CHANGED", "d4/d19/a05251.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "d4/d19/a05251.html#a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "Dispatcher", "d4/d19/a05251.html#aa0833a585d6be678d415f7b6a08c516c", null ],
+    [ "Dispatcher", "d4/d19/a05251.html#a3a18ea72deb2fa22c44ec99f3f8e1e26", null ],
+    [ "createError", "d4/d19/a05251.html#a407182f37d2b8174f02693ab5f91c8d8", null ],
+    [ "operator=", "d4/d19/a05251.html#a6b5e5ae1add85447ebdc4ab0f64a8761", null ],
+    [ "operator=", "d4/d19/a05251.html#aa962d0278c430ad4453c6cb8fc816f05", null ],
+    [ "start", "d4/d19/a05251.html#a3ef04bebfe4813071fa54045b76177dd", null ],
+    [ "RTOS::TickClient< Dispatcher< T_ERROR > >", "d4/d19/a05251.html#a2bc1526fd782acbf900903fbd8e4148b", null ],
+    [ "statusChangedHook", "d4/d19/a05251.html#a7f6d7ca5ad3497f5a542fbbc18281ef6", null ]
 ];

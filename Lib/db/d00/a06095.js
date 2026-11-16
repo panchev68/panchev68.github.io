@@ -1,7 +1,9 @@
 var a06095 =
 [
-    [ "baudRate", "db/d00/a06095.html#ad346dd14c75b113671501f286d5348d3", null ],
-    [ "dataBits", "db/d00/a06095.html#a0834146908baa5e641e203755bcae7d0", null ],
-    [ "parity", "db/d00/a06095.html#ae1d9173fb3c732649e3ae12b963b784c", null ],
-    [ "stopBits", "db/d00/a06095.html#aece0199b65b1b9e27305ae98b9c7bc31", null ]
+    [ "DeepSleepLock", "db/d00/a06095.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
+    [ "~DeepSleepLock", "db/d00/a06095.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
+    [ "DeepSleepLock", "db/d00/a06095.html#a40925e50ac0805b094e04973ed61f50b", null ],
+    [ "DeepSleepLock", "db/d00/a06095.html#a653104e321c6b159eb7b5e5385d286ac", null ],
+    [ "operator=", "db/d00/a06095.html#a3523f9fd591310866af37223de2c32d3", null ],
+    [ "operator=", "db/d00/a06095.html#a10ab5d18c8a969841a27a2688604c55c", null ]
 ];

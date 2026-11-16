@@ -1,7 +1,11 @@
 var a06011 =
 [
-    [ "current", "d8/d4e/a06011.html#a03c2002021ee39257b3712ebb21f9804", null ],
-    [ "irradiance", "d8/d4e/a06011.html#aeb4a3f32aa352d29093581039d36dd08", null ],
-    [ "temperature", "d8/d4e/a06011.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
-    [ "voltage", "d8/d4e/a06011.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
+    [ "Parameters", "d8/d4e/a06011.html#a24b8a679899e0a92f683ab16239f32df", null ],
+    [ "Parameters", "d8/d4e/a06011.html#a4e23b99119d652c7a97a2b5047722d75", null ],
+    [ "kd", "d8/d4e/a06011.html#a6fd341537b6f12074478402b53dea8f1", null ],
+    [ "ki", "d8/d4e/a06011.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
+    [ "kp", "d8/d4e/a06011.html#af4932c40d48d9c972bd4f448a37388bc", null ],
+    [ "outputMax", "d8/d4e/a06011.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
+    [ "outputMin", "d8/d4e/a06011.html#a23515cb5c24f985549f55404aee2928a", null ],
+    [ "sampleTime", "d8/d4e/a06011.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
 ];

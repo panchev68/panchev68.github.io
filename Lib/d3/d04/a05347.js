@@ -1,13 +1,19 @@
 var a05347 =
 [
-    [ "BackupRamDomain", "d3/d04/a05347.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
-    [ "~BackupRamDomain", "d3/d04/a05347.html#a3b301936cae87db14bef527c0a5629af", null ],
-    [ "BackupRamDomain", "d3/d04/a05347.html#abf039272ad85b43415d4df28c8c0a051", null ],
-    [ "BackupRamDomain", "d3/d04/a05347.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
-    [ "close", "d3/d04/a05347.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
-    [ "open", "d3/d04/a05347.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
-    [ "operator=", "d3/d04/a05347.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
-    [ "operator=", "d3/d04/a05347.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
-    [ "readRegister", "d3/d04/a05347.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
-    [ "writeRegister", "d3/d04/a05347.html#acc5002942f221da40872cb7be92706a9", null ]
+    [ "AddressString", "d3/d04/a05347.html#a4bd1cdcefe0490f36b31a3dd12dbb8c9", null ],
+    [ "IpAddress", "d3/d04/a05347.html#a14871d2fd0997a7192dbfa9efb391866", null ],
+    [ "IpAddress", "d3/d04/a05347.html#ad2648b0f73ef692addbd78f8b6a89e83", null ],
+    [ "IpAddress", "d3/d04/a05347.html#a969426d705b94a3bb6a04bc46e2194e5", null ],
+    [ "IpAddress", "d3/d04/a05347.html#ac1bc670d3fdcf3a73cde02df85874f9a", null ],
+    [ "~IpAddress", "d3/d04/a05347.html#a91c1c230613abcd87e0e6e643231cdac", null ],
+    [ "IpAddress", "d3/d04/a05347.html#a121d3d9a5d1d5288d582bbf6c925f23a", null ],
+    [ "data", "d3/d04/a05347.html#a4c0fc88456d713ebc87705c39a7a5fa2", null ],
+    [ "fromString", "d3/d04/a05347.html#aa8258817877631b9f96b9e16451a4027", null ],
+    [ "get", "d3/d04/a05347.html#a5407112eb57277910f2696486f34d87b", null ],
+    [ "operator[]", "d3/d04/a05347.html#a008326accb852006dc00f15e9ea5fb02", null ],
+    [ "set", "d3/d04/a05347.html#a3b95e7ad2bf59d4967e7a741aea271a5", null ],
+    [ "set", "d3/d04/a05347.html#a95fd8cae114a9d4e9f160927f60a7880", null ],
+    [ "set", "d3/d04/a05347.html#ac055a400e34b3e1927421c0243ba509d", null ],
+    [ "size", "d3/d04/a05347.html#a18a251f6c463c27b3f0de2c9316a54c2", null ],
+    [ "toString", "d3/d04/a05347.html#adc079b389a5a25b969af193bd5c9ad4a", null ]
 ];

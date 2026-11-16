@@ -1,14 +1,23 @@
 var a06027 =
 [
-    [ "Bitset", "db/dc9/a06027.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "db/dc9/a06027.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "db/dc9/a06027.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "db/dc9/a06027.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "Config", "d8/da2/a06031.html", "d8/da2/a06031" ],
+    [ "Command", "db/dc9/a06027.html#a0b7ad8b7773fc15de07047754f3794f9", [
+      [ "OFF", "db/dc9/a06027.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
+      [ "ON", "db/dc9/a06027.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
     ] ],
-    [ "Configuration", "db/dc9/a06027.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "db/dc9/a06027.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "db/dc9/a06027.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "db/dc9/a06027.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "db/dc9/a06027.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "db/dc9/a06027.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "Status", "db/dc9/a06027.html#a9f826713fcf7511db5c43ef6f27173af", [
+      [ "IS_OFF", "db/dc9/a06027.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
+      [ "IS_ON", "db/dc9/a06027.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
+      [ "IN_MOTION", "db/dc9/a06027.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
+    ] ],
+    [ "RotationCylinder", "db/dc9/a06027.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
+    [ "RotationCylinder", "db/dc9/a06027.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
+    [ "command", "db/dc9/a06027.html#a8ca6acca72dbe8c542856371e956e058", null ],
+    [ "getName", "db/dc9/a06027.html#a480be139cc8704be72afb69d2456281f", null ],
+    [ "getStatus", "db/dc9/a06027.html#aba16d8727149fd2debf8b51fff5438bd", null ],
+    [ "isOff", "db/dc9/a06027.html#a90f1e56010dee19b0f66350351127712", null ],
+    [ "isOn", "db/dc9/a06027.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
+    [ "operator=", "db/dc9/a06027.html#a44c71110f315e89203746b05fd4ab10a", null ],
+    [ "setup", "db/dc9/a06027.html#a659c7989f745a79aeecb1c24004acba6", null ],
+    [ "update", "db/dc9/a06027.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
 ];
