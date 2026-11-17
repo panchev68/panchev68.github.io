@@ -1,4 +1,4 @@
 var a00494 =
 [
-    [ "Lib::Digi::Core::QueueMessage", "d5/dfc/a05210.html", "d5/dfc/a05210" ]
+    [ "Lib::Digi::Core::Frame0x08", "d4/d54/a05231.html", "d4/d54/a05231" ]
 ];

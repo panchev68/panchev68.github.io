@@ -1,9 +1,7 @@
 var a06239 =
 [
-    [ "VersionString", "db/d4f/a06239.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Hardware", "db/d4f/a06239.html#a5df26239c512941c15b1473b41fd41e6", null ],
-    [ "getSubVersion", "db/d4f/a06239.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "db/d4f/a06239.html#ad9b45ee76c12709fe9ef566466c9f721", null ],
-    [ "operator VersionString", "db/d4f/a06239.html#a9e770d09f97bafa86fcc361a02339e2b", null ],
-    [ "subVersion", "db/d4f/a06239.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "maxVoltage", "db/d4f/a06239.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
+    [ "minVoltage", "db/d4f/a06239.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
+    [ "powerThreshold", "db/d4f/a06239.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
+    [ "stepSize", "db/d4f/a06239.html#a5ac779799a2638585b8dbced18eff05d", null ]
 ];

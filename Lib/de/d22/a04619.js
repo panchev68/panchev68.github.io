@@ -1,9 +1,9 @@
 var a04619 =
 [
-    [ "dtr", "de/d22/a04619.html#a1f0325547dba26c50be0574888fc397e", null ],
-    [ "port", "de/d22/a04619.html#a86fe1b86ed7cea66b9a5c100adea5c50", null ],
-    [ "powerKey", "de/d22/a04619.html#a7602e69d38d7f788df016037bb00df30", null ],
-    [ "reset", "de/d22/a04619.html#a4a2aa8be77cad07c87aebcea429856d2", null ],
-    [ "setSupply", "de/d22/a04619.html#a9848006a47ed741d31636388c9deb387", null ],
-    [ "status", "de/d22/a04619.html#a223d2213e1ed43f94c86e60f5cf37555", null ]
+    [ "chipManufacturer", "de/d22/a04619.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
+    [ "memoryCapacity", "de/d22/a04619.html#a0ce044d51923185dc77297ec3845620b", null ],
+    [ "pagePerSector", "de/d22/a04619.html#a768e74e894621cf3033a1f4e06661b66", null ],
+    [ "pageSize", "de/d22/a04619.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
+    [ "sectorCount", "de/d22/a04619.html#ae152c07a2eeb80c6525857160e04126b", null ],
+    [ "sectorSize", "de/d22/a04619.html#a453d47437845007dcb1caa1889d1ec2b", null ]
 ];

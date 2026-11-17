@@ -1,6 +1,6 @@
 var a06147 =
 [
-    [ "autoStart", "d1/d10/a06147.html#ab55e2272bf479804d0a0d2f1e6e5bed4", null ],
-    [ "name", "d1/d10/a06147.html#aacc889d1a77591ed4d41f693a1ad15e7", null ],
-    [ "period", "d1/d10/a06147.html#a72f5a204f1d7fe3831b3f7afddae31a7", null ]
+    [ "deepSleepCount", "d1/d10/a06147.html#ae80981e088a11d9e03983df5989a0c57", null ],
+    [ "deepSleepTicks", "d1/d10/a06147.html#a1db12ec46a399abd96da0e8362daeb40", null ],
+    [ "lightSleepCount", "d1/d10/a06147.html#a01c394457f049509658022904e7ace56", null ]
 ];

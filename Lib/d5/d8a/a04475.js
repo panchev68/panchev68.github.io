@@ -1,9 +1,12 @@
 var a04475 =
 [
-    [ "Config", "d7/dd6/a04479.html", "d7/dd6/a04479" ],
-    [ "Driver", "d5/d8a/a04475.html#a1d8e503b6726e6008abf411810b2191d", null ],
-    [ "~Driver", "d5/d8a/a04475.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
-    [ "handleTransferCompleteEvent", "d5/d8a/a04475.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
-    [ "setup", "d5/d8a/a04475.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
-    [ "transmitBlock", "d5/d8a/a04475.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
+    [ "Inputs", "d5/d8a/a04475.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
+    [ "getChangesCounter", "d5/d8a/a04475.html#a02a156f7de35ad87391858c4284826ce", null ],
+    [ "getSpiHandle", "d5/d8a/a04475.html#afb55a694371e388292f94be2800d26b6", null ],
+    [ "getValue", "d5/d8a/a04475.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
+    [ "postUpdateCallback", "d5/d8a/a04475.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
+    [ "preUpdateCallback", "d5/d8a/a04475.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
+    [ "setup", "d5/d8a/a04475.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
+    [ "update", "d5/d8a/a04475.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
+    [ "onValueChanged", "d5/d8a/a04475.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
 ];

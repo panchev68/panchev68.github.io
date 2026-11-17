@@ -1,5 +1,9 @@
 var a04411 =
 [
-    [ "offsetAmperes", "d2/d8a/a04411.html#abbabcd239f7f7e8cd62d810f7ddf34ee", null ],
-    [ "polarity", "d2/d8a/a04411.html#a331117dc379889237a688a73fb86504d", null ]
+    [ "Config", "d0/dc5/a04415.html", "d0/dc5/a04415" ],
+    [ "Backlight", "d2/d8a/a04411.html#aa256a4d5fc394db1a9afed11974b96ef", null ],
+    [ "~Backlight", "d2/d8a/a04411.html#a5516d16616d30b6214626e963873f08a", null ],
+    [ "get", "d2/d8a/a04411.html#a50a810c2a297031558286c9c20bb51ea", null ],
+    [ "operator=", "d2/d8a/a04411.html#a6b38c863109edd503a2e5e78f170f0bd", null ],
+    [ "set", "d2/d8a/a04411.html#a666c0e0466ea2c644c087fc5a3eaa625", null ]
 ];

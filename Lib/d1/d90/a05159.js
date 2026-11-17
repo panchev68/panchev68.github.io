@@ -1,8 +1,6 @@
 var a05159 =
 [
-    [ "Frame0x88", "d1/d90/a05159.html#a8cdabdda134adaf1796641f68581f1c8", null ],
-    [ "atCommand", "d1/d90/a05159.html#aba3a41028c41109166efaf024c9dca74", null ],
-    [ "data", "d1/d90/a05159.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
-    [ "frameId", "d1/d90/a05159.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
-    [ "status", "d1/d90/a05159.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
+    [ "Checksum", "d1/d90/a05159.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
+    [ "Checksum", "d1/d90/a05159.html#a804971de0300d66401e3f2ed94f306dc", null ],
+    [ "operator uint8_t", "d1/d90/a05159.html#add4f353a37e719b8e2439c490fa552b8", null ]
 ];

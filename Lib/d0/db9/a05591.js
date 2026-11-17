@@ -1,15 +1,20 @@
 var a05591 =
 [
-    [ "Config", "d0/db9/a05591.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
-    [ "Handle", "d0/db9/a05591.html#ade0f87f7318848ef033a913d2442a32e", null ],
-    [ "Port", "d0/db9/a05591.html#ad4395b6d9b762e123ebbb09110c3a99f", null ],
-    [ "~Port", "d0/db9/a05591.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
-    [ "Port", "d0/db9/a05591.html#adbcc85448b423ac51fae90db4cb3a5f4", null ],
-    [ "Port", "d0/db9/a05591.html#af0271c4483ea3f5cebaa37054062a428", null ],
-    [ "operator=", "d0/db9/a05591.html#a451d09420f0a1f54df4073cdeb4ae623", null ],
-    [ "operator=", "d0/db9/a05591.html#a8e39b404c71b26364658b90ae25a398d", null ],
-    [ "read", "d0/db9/a05591.html#adce8df0019ea415a350cf833ac481fc2", null ],
-    [ "setPullupPulldown", "d0/db9/a05591.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
-    [ "setup", "d0/db9/a05591.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
-    [ "write", "d0/db9/a05591.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
+    [ "Event", "d6/d66/a05595.html", null ],
+    [ "DataAlignment", "d0/db9/a05591.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "d0/db9/a05591.html#ae36ab0485cc108ac7f0082068d118518", null ],
+    [ "~DACPort", "d0/db9/a05591.html#a38af62d642471553e5aa356e673ad171", null ],
+    [ "DACPort", "d0/db9/a05591.html#afe60fcad137acbac62467215f81e262a", null ],
+    [ "DACPort", "d0/db9/a05591.html#a6befbf3fd6e387b958c474127b15a55e", null ],
+    [ "close", "d0/db9/a05591.html#a2b221635f62446099dbe5e86e8065288", null ],
+    [ "getChannel", "d0/db9/a05591.html#abb9c3299abda744064d8d8e8d44f825b", null ],
+    [ "getHandle", "d0/db9/a05591.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d0/db9/a05591.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "open", "d0/db9/a05591.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
+    [ "operator=", "d0/db9/a05591.html#a8669eba366ce1c94494df43dfaccc690", null ],
+    [ "operator=", "d0/db9/a05591.html#ae0483104f828bd3464839de4f4880b4a", null ],
+    [ "setValue", "d0/db9/a05591.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "d0/db9/a05591.html#a6c386654350eba5ab306e4764474af96", null ],
+    [ "stop", "d0/db9/a05591.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
+    [ "waitForUnderrun", "d0/db9/a05591.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
 ];

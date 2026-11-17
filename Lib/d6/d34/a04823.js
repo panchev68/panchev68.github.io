@@ -1,5 +1,5 @@
 var a04823 =
 [
-    [ "decayPeriodMicroseconds", "d6/d34/a04823.html#a12e79efa3a5a899b1e64d25ff5a0fdb3", null ],
-    [ "frequencyHz", "d6/d34/a04823.html#a50257a628ef439fb965df1ee908f3e5e", null ]
+    [ "pin", "d6/d34/a04823.html#a41948546fdb93612c9914e22c070296d", null ],
+    [ "resolution", "d6/d34/a04823.html#aee8c02f423a290519c3aed577d688891", null ]
 ];

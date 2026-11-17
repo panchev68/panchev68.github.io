@@ -1,8 +1,4 @@
 var a00668 =
 [
-    [ "Lib::HAL::DriverMode", "de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0", [
-      [ "Lib::HAL::DriverMode::BLOCKING", "de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415", null ],
-      [ "Lib::HAL::DriverMode::IT", "de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c", null ],
-      [ "Lib::HAL::DriverMode::DMA", "de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949", null ]
-    ] ]
+    [ "Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;", "d6/d3f/a05571.html", "d6/d3f/a05571" ]
 ];

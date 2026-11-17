@@ -1,8 +1,6 @@
 var a00602 =
 [
-    [ "Lib::GUI::FontLayout", "d6/dea/a01094.html#ace52ba374752881b284966b4aa2f15e2", [
-      [ "Lib::GUI::FontLayout::COLUMNS", "d6/dea/a01094.html#ace52ba374752881b284966b4aa2f15e2a24140871f9cd6d3d93fbaab2db509ebb", null ],
-      [ "Lib::GUI::FontLayout::VERTICAL_ROWS", "d6/dea/a01094.html#ace52ba374752881b284966b4aa2f15e2ab34e8e89eab8a1125a37023dfc5de06d", null ],
-      [ "Lib::GUI::FontLayout::HORIZONTAL_ROWS", "d6/dea/a01094.html#ace52ba374752881b284966b4aa2f15e2a027b2007ad9dddabea80e89e1856ab38", null ]
-    ] ]
+    [ "Lib::GUI::Context", "dd/d83/a05443.html", "dd/d83/a05443" ],
+    [ "Lib::GUI::Context::Config", "d1/db0/a05447.html", "d1/db0/a05447" ],
+    [ "Lib::GUI::Context::ViewportScope", "dc/d83/a05451.html", "dc/d83/a05451" ]
 ];

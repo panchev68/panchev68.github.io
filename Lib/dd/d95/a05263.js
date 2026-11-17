@@ -1,19 +1,8 @@
 var a05263 =
 [
-    [ "State", "dd/d95/a05263.html#ac97d949e755c3b10315681da95176f7b", null ],
-    [ "~SimpleError", "dd/d95/a05263.html#a7c535e7cce0af47da08a363f2770e2d3", null ],
-    [ "clear", "dd/d95/a05263.html#a29a3344a3bb2dbbfaf71fbd851d5806e", null ],
-    [ "disable", "dd/d95/a05263.html#af9f860d5fb0bc9ff863d4ae98c6ef2f7", null ],
-    [ "enable", "dd/d95/a05263.html#a88d3d3da71f0e2492b08fdd668cd48f9", null ],
-    [ "getCaption", "dd/d95/a05263.html#a487c111cdf645891f0eeb29bb9c2f47c", null ],
-    [ "getGroup", "dd/d95/a05263.html#acdbb516e56181e2fd2bae4b4fed468bc", null ],
-    [ "getId", "dd/d95/a05263.html#ad6f2187166f4193448442ffc02b24c24", null ],
-    [ "getState", "dd/d95/a05263.html#a0ebb8e7fff7af6fea43ff768a0c6a539", null ],
-    [ "operator bool", "dd/d95/a05263.html#a39a5f8631f5713cc8f2ca156543730bc", null ],
-    [ "operator=", "dd/d95/a05263.html#a41ca9532f4b665090473c250d9e75e82", null ],
-    [ "operator=", "dd/d95/a05263.html#a30ca9da7743071ed024847752e03fb3c", null ],
-    [ "reset", "dd/d95/a05263.html#a1445698f47acd7ded509fd49018195d9", null ],
-    [ "set", "dd/d95/a05263.html#a99694248f4f6aab1e752d95d5d775392", null ],
-    [ "setGroup", "dd/d95/a05263.html#a1455d282ed73d25fb067ca510d87a14c", null ],
-    [ "Dispatcher", "dd/d95/a05263.html#a5d3b867dd215d4353be753385d68ee19", null ]
+    [ "Frame0x81", "dd/d95/a05263.html#ab6c2582c9c22d8b4b3e34d5c6e73e8b8", null ],
+    [ "option", "dd/d95/a05263.html#a9514d0309e3844c8659d92c660c71a2b", null ],
+    [ "rfData", "dd/d95/a05263.html#a17639b9161591eee69ff2916356f4f5f", null ],
+    [ "rssi", "dd/d95/a05263.html#af6b4d51bb9e62729e45af3c4c973f0f4", null ],
+    [ "srcAddr16", "dd/d95/a05263.html#a44c2e0a72745be88823b58901a37b73b", null ]
 ];

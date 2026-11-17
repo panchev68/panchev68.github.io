@@ -1,6 +1,6 @@
 var a01037 =
 [
-    [ "Lib::System::System", "d6/d0c/a06222.html", "d6/d0c/a06222" ],
-    [ "Lib::System::System::Config", "d1/d8c/a06226.html", "d1/d8c/a06226" ],
-    [ "Lib::System::System::DataMap", "d6/d60/a06230.html", "d6/d60/a06230" ]
+    [ "Lib::SolarControl::MPPT", "dd/de8/a06223.html", "dd/de8/a06223" ],
+    [ "Lib::SolarControl::MPPT::ReferenceParameters", "d6/d4a/a06227.html", "d6/d4a/a06227" ],
+    [ "Lib::SolarControl::MPPT::Measurement", "dd/d85/a06231.html", "dd/d85/a06231" ]
 ];

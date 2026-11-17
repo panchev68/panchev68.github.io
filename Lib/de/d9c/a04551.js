@@ -1,9 +1,17 @@
 var a04551 =
 [
-    [ "pinIRQ", "de/d9c/a04551.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
-    [ "pinNSS", "de/d9c/a04551.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
-    [ "pinReset", "de/d9c/a04551.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
-    [ "pinSync0", "de/d9c/a04551.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
-    [ "pinSync1", "de/d9c/a04551.html#a3358fa1b35628a6d324f9be9d4624338", null ],
-    [ "spiHandle", "de/d9c/a04551.html#aed57b8892979041579d2eb130d453151", null ]
+    [ "Config", "dc/d65/a04555.html", "dc/d65/a04555" ],
+    [ "FlashEmulationF4", "de/d9c/a04551.html#ad4bbada9bc6a2af1c867241a14b86143", null ],
+    [ "FlashEmulationF4", "de/d9c/a04551.html#a90029c8c44f3c4cb598e732a78ff8462", null ],
+    [ "FlashEmulationF4", "de/d9c/a04551.html#ad564397cd5d71a2875d17ef20547a23f", null ],
+    [ "close", "de/d9c/a04551.html#a6346c239e63111e820ae7e36c13ce912", null ],
+    [ "getFreeSpace", "de/d9c/a04551.html#a7e523e9aa4a58e12cfea76a6675fe033", null ],
+    [ "getMaxValueSize", "de/d9c/a04551.html#a00c766da3764b8b923fc316bf543704e", null ],
+    [ "getUsedSpace", "de/d9c/a04551.html#a27cda86fd955cdae40e9228879e80cea", null ],
+    [ "isOpen", "de/d9c/a04551.html#a10cdb6c86428014150ad8bab075bd0e5", null ],
+    [ "open", "de/d9c/a04551.html#a6b7d16dd69a3f98b4b91448cac004903", null ],
+    [ "operator=", "de/d9c/a04551.html#a6fd14d0960d51d426dc3f3d652147318", null ],
+    [ "operator=", "de/d9c/a04551.html#a2f18264f7ff9df2096b8d69c428394a3", null ],
+    [ "read", "de/d9c/a04551.html#aec049dbf918bed6868f9cce8c045af65", null ],
+    [ "write", "de/d9c/a04551.html#a5863d644bc7b08caf327f4dba28f017c", null ]
 ];

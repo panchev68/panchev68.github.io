@@ -1,19 +1,10 @@
 var a06251 =
 [
-    [ "Config", "de/dac/a06255.html", "de/dac/a06255" ],
-    [ "LineCoding", "da/d78/a06259.html", "da/d78/a06259" ],
-    [ "Port", "d8/d45/a06251.html#ad99e2d8bd81a2c357380c4a3319320f8", null ],
-    [ "CDCDevice", "d8/d45/a06251.html#af7b09c403e844e0c975664e34b98b279", null ],
-    [ "~CDCDevice", "d8/d45/a06251.html#aefb023f88ce5ef0b7e147fc416c0ed41", null ],
-    [ "CDCDevice", "d8/d45/a06251.html#ad8ae48cb38b9de3e91de0f46c8374bd6", null ],
-    [ "CDCDevice", "d8/d45/a06251.html#a4f99d53056ddc8b8bc333fa07c3c45c8", null ],
-    [ "getIsConfigured", "d8/d45/a06251.html#a305d79f8cbcefeee5562a1a06a67e674", null ],
-    [ "getIsTerminalReady", "d8/d45/a06251.html#aa8d2d7650d9bdb5ad00e4acedb520de9", null ],
-    [ "getLineCoding", "d8/d45/a06251.html#a7050967650f0854192c3edfd7c530401", null ],
-    [ "operator=", "d8/d45/a06251.html#a24102852b2e32fc565744189c324299f", null ],
-    [ "operator=", "d8/d45/a06251.html#ab698808b2c8e27ea388d4a005539d697", null ],
-    [ "read", "d8/d45/a06251.html#a413023729a8480cdd9c834fa089163e8", null ],
-    [ "start", "d8/d45/a06251.html#a294be6529255dc9284bc23adac2a1e72", null ],
-    [ "stop", "d8/d45/a06251.html#ab6d8c3abdb8e9779be8326b0498c4c44", null ],
-    [ "write", "d8/d45/a06251.html#aae8ec892d4f13050681e77062b651054", null ]
+    [ "VersionString", "d8/d45/a06251.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
+    [ "FirmwareVersion", "d8/d45/a06251.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
+    [ "getSubVersion", "d8/d45/a06251.html#a74bafacd182d3ccff4da47e5aac54408", null ],
+    [ "getValue", "d8/d45/a06251.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
+    [ "operator uint32_t", "d8/d45/a06251.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
+    [ "operator VersionString", "d8/d45/a06251.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
+    [ "toString", "d8/d45/a06251.html#ac82dd7d67829e33f61b3625626f44742", null ]
 ];

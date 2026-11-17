@@ -1,5 +1,5 @@
 var a05431 =
 [
-    [ "from", "d7/d4f/a05431.html#ab7b495c18afbfcff14ce0c86e772c4ee", null ],
-    [ "to", "d7/d4f/a05431.html#abff0410180e083a1839955a66b07b42c", null ]
+    [ "nssPin", "d7/d4f/a05431.html#af56f9d2f7252dc530ec070d0aa211f2b", null ],
+    [ "spiPort", "d7/d4f/a05431.html#aefcb5eddfdf2be760845ce74b7a29ec9", null ]
 ];

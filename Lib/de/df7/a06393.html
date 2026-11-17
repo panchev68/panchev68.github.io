@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Timer::TimOutputCompare</title>
+<title>IAR EWARM Library: Lib::BSP::INA219</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,84 +129,88 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/df7/a06393.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOutputCompare</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::INA219</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Generates a timed event with <a class="el" href="../../de/df7/a06393.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>.</p>
-<p>Generates a timed event with <a class="el" href="../../de/df7/a06393.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>. The timer raises an interrupt when its counter matches the compare value of the channel, which wakes the task blocked in <a class="el" href="../../d0/df5/a05735.html#a18804c13963fca99f8037034a6d4e7ec" title="Lib::HAL::Timer::TimOutputCompare::waitCompare()">Lib::HAL::Timer::TimOutputCompare::waitCompare()</a>. The task then sets the next compare value with <a class="el" href="../../d0/df5/a05735.html#a14b6982f85b9be41e24886a8a1c7445d" title="Lib::HAL::Timer::TimOutputCompare::setCompare()">Lib::HAL::Timer::TimOutputCompare::setCompare()</a>. Call <a class="el" href="../../d0/df5/a05735.html#a63482b7958cd7171218c959b2b5df044" title="Lib::HAL::Timer::TimOutputCompare::start()">Lib::HAL::Timer::TimOutputCompare::start()</a> from the waiting task, because it binds that task.</p>
-<p>The header defines the HAL callback <b>HAL_TIM_OC_DelayElapsedCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; the compare value is changed in the task.</p>
+<p>Demonstrates two <a class="el" href="../../de/df7/a06393.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.</p>
+<p>Demonstrates two <a class="el" href="../../de/df7/a06393.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.The battery channel reports signed current, so power turns negative while charging. The motor channel uses <a class="el" href="../../d1/dec/a04431.html#a12dbe47287cc8ea3e6057097e7679d5baab6c31432785221bae58327ef5f6ea58" title="Lib::BSP::INA219::Polarity::POSITIVE">Lib::BSP::INA219::Polarity::POSITIVE</a> with a 20 mA offset to hide noise around zero. A reading comes back as <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on a bus failure or when the shunt ADC saturates. Both monitors are initialized before the task starts and then used only from that task, since the driver is not thread-safe. With 128-sample averaging each result takes tens of milliseconds, so polling faster than a few times per second gains nothing.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timoc_usage_hw"></a>
-Hardware and CubeMX assumptions</h3>
-<ul>
-<li>Timer channel (here <em class="arg">TIM4</em>, <em class="arg">TIM_CHANNEL_2</em>) set to Output Compare mode with its interrupt enabled in the NVIC. The output pin is optional for this use.</li>
-<li>Timer clock and prescaler are set in CubeMX; the compare value is in timer ticks.</li>
-<li>One <a class="el" href="../../de/df7/a06393.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a> per timer handle.</li>
-</ul>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="timoc_usage_delay"></a>
-Scheduling a compare event in a task</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="ina219_usage_task"></a>
+Battery and motor channels polled from one task</h3>
+<p><a class="el" href="../../d1/dec/a04431.html#a1b96174980d4785dbabfcaa110656cbe" title="Lib::BSP::INA219::init()">Lib::BSP::INA219::init()</a> configures both monitors before the task starts. <a class="el" href="../../d1/dec/a04431.html#a1aa8cad61e1ccdb3899c6929726963fd" title="Lib::BSP::INA219::readVoltage()">Lib::BSP::INA219::readVoltage()</a> and <a class="el" href="../../d1/dec/a04431.html#abb224ceec2374ac08e8ea58d3c898ab6" title="Lib::BSP::INA219::readCurrent()">Lib::BSP::INA219::readCurrent()</a> each return <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html" title="std::optional">std::optional</a>, so check for a value before using it.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dd7/a00248.html">Lib/BSP/CurrentAndPowerMonitor/INA219.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/dfa/a00746.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d7b/a00986.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/dd8/a01022.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d22/a01049.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>DelayedEvent final {</div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1; <span class="comment">// Generated by CubeMX in main.c.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>PowerMonitor final {</div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">explicit</span> DelayedEvent(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
-<div class="line">        compare(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a>),</div>
-<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d3/d0b/a06139.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Delayed&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d4/d17/a06123.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
+<div class="line">    <span class="keyword">using </span>Monitor = <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d1/dec/a04431.html">Lib::BSP::INA219&lt;Lib::HAL::DriverMode::BLOCKING&gt;</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!battery.init() || !motor.init()) {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        task.setup({<span class="stringliteral">&quot;Power&quot;</span>, 256, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a>});</div>
+<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">private</span>:</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d0/df5/a05735.html">Lib::HAL::Timer::TimOutputCompare</a> compare; <span class="comment">// Constructed before the task starts using it.</span></div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../db/d9d/a06119.html">RTOS::Task</a> task;                           <span class="comment">// Must stay the last member.</span></div>
+<div class="line">    Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; i2cPort{&amp;hi2c1}; <span class="comment">///&lt; Bus shared by both monitors.</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!compare.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d0/df5/a05735.html#a63482b7958cd7171218c959b2b5df044">start</a>()) {</div>
-<div class="line">            assert(!<span class="stringliteral">&quot;DelayedEvent: output compare failed to start&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
+<div class="line">    Monitor battery{{</div>
+<div class="line">        .i2cPort = i2cPort,</div>
+<div class="line">        .i2cAddr = 0x40,</div>
+<div class="line">        .shuntResistorOhms = 0.1F,</div>
+<div class="line">    }}; <span class="comment">///&lt; Charge and discharge: signed current.</span></div>
 <div class="line"> </div>
+<div class="line">    Monitor motor{{</div>
+<div class="line">        .i2cPort = i2cPort,</div>
+<div class="line">        .i2cAddr = 0x41,</div>
+<div class="line">        .shuntResistorOhms = 0.01F,</div>
+<div class="line">        .correction = {.polarity = Monitor::Polarity::POSITIVE, .offsetAmperes = 0.02F},</div>
+<div class="line">    }}; <span class="comment">///&lt; Load only: magnitude above a 20 mA noise floor.</span></div>
+<div class="line"> </div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d0/dca/a06175.html">RTOS::Task</a> task;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
 <div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="comment">// Fire 1000 ticks after the current counter value.</span></div>
-<div class="line">            compare.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d0/df5/a05735.html#a14b6982f85b9be41e24886a8a1c7445d">setCompare</a>(compare.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d0/df5/a05735.html#afaf7f01f359523e9b30110fdbf8b175b">getCounter</a>() + 1000U);</div>
-<div class="line"> </div>
-<div class="line">            <span class="keywordflow">if</span> (compare.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d0/df5/a05735.html#a18804c13963fca99f8037034a6d4e7ec">waitCompare</a>(<a id="_a10" name="_a10"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500))) {</div>
-<div class="line">                <span class="comment">// The compare event fired; run the delayed action here.</span></div>
+<div class="line">            <span class="keyword">const</span> <a id="_a5" name="_a5"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> volts = battery.readVoltage();</div>
+<div class="line">            <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> amperes = battery.readCurrent();</div>
+<div class="line">            <span class="keywordflow">if</span> (volts &amp;&amp; amperes) {</div>
+<div class="line">                [[maybe_unused]] <span class="keyword">const</span> <span class="keywordtype">float</span> watts = *volts * *amperes; <span class="comment">// Negative while charging.</span></div>
 <div class="line">            }</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> motorAmperes = motor.readCurrent(); !motorAmperes) {</div>
+<div class="line">                <span class="comment">// Bus failure or shunt saturated: the true current is above the +-320 mV range.</span></div>
+<div class="line">            }</div>
+<div class="line"> </div>
+<div class="line">            <a id="a6" name="a6"></a><a class="code hl_function" href="../../d6/dc4/a01125.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(250ms);</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00800_html"><div class="ttname"><a href="../../df/d0e/a00800.html">TimOutputCompare.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware Output Compare interface using STM32 Timers.</div></div>
-<div class="ttc" id="aa01049_html"><div class="ttname"><a href="../../d0/d22/a01049.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01114_html_ga33e02d43345a7ac5886f01b39e4f7ccd"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a></div><div class="ttdeci">#define TIM_CHANNEL_2</div></div>
-<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa05735_html"><div class="ttname"><a href="../../d0/df5/a05735.html">Lib::HAL::Timer::TimOutputCompare</a></div><div class="ttdoc">Controls one hardware timer channel configured under an active output compare profile.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:40</div></div>
-<div class="ttc" id="aa05735_html_a14b6982f85b9be41e24886a8a1c7445d"><div class="ttname"><a href="../../d0/df5/a05735.html#a14b6982f85b9be41e24886a8a1c7445d">Lib::HAL::Timer::TimOutputCompare::setCompare</a></div><div class="ttdeci">void setCompare(uint32_t compareValue) noexcept</div><div class="ttdoc">Sets the counter value at which the output changes state, in the channel&#39;s CCRx register.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:148</div></div>
-<div class="ttc" id="aa05735_html_a18804c13963fca99f8037034a6d4e7ec"><div class="ttname"><a href="../../d0/df5/a05735.html#a18804c13963fca99f8037034a6d4e7ec">Lib::HAL::Timer::TimOutputCompare::waitCompare</a></div><div class="ttdeci">bool waitCompare(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the counter next matches the compare value.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:119</div></div>
-<div class="ttc" id="aa05735_html_a63482b7958cd7171218c959b2b5df044"><div class="ttname"><a href="../../d0/df5/a05735.html#a63482b7958cd7171218c959b2b5df044">Lib::HAL::Timer::TimOutputCompare::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the channel with its compare interrupt; the calling task becomes the one waitCompare() serves.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:81</div></div>
-<div class="ttc" id="aa05735_html_afaf7f01f359523e9b30110fdbf8b175b"><div class="ttname"><a href="../../d0/df5/a05735.html#afaf7f01f359523e9b30110fdbf8b175b">Lib::HAL::Timer::TimOutputCompare::getCounter</a></div><div class="ttdeci">uint32_t getCounter() const noexcept</div><div class="ttdoc">Reads the running counter.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:167</div></div>
-<div class="ttc" id="aa06119_html"><div class="ttname"><a href="../../db/d9d/a06119.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
-<div class="ttc" id="aa06123_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d4/d17/a06123.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:89</div></div>
-<div class="ttc" id="aa06139_html"><div class="ttname"><a href="../../d3/d0b/a06139.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:638</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timoc_usage_stop"></a>
-Stopping</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> cancelDelay(<a class="code hl_class" href="../../d0/df5/a05735.html">Lib::HAL::Timer::TimOutputCompare</a> &amp; compare) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(compare.stop());</div>
-<div class="line">}</div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa00248_html"><div class="ttname"><a href="../../dd/dd7/a00248.html">INA219.hpp</a></div><div class="ttdoc">Declares the BSP driver template for the INA219 current and power monitor on a HAL I2C port.</div></div>
+<div class="ttc" id="aa00746_html"><div class="ttname"><a href="../../d4/dfa/a00746.html">I2C.hpp</a></div><div class="ttdoc">Public umbrella include for the I2C subsystem, exposing the master-only Lib::HAL::I2CPort in all thre...</div></div>
+<div class="ttc" id="aa00986_html"><div class="ttname"><a href="../../d3/d7b/a00986.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
+<div class="ttc" id="aa01022_html"><div class="ttname"><a href="../../d1/dd8/a01022.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
+<div class="ttc" id="aa01125_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d6/dc4/a01125.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:610</div></div>
+<div class="ttc" id="aa01452_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
+<div class="ttc" id="aa04431_html"><div class="ttname"><a href="../../d1/dec/a04431.html">Lib::BSP::INA219</a></div><div class="ttdoc">Driver for the INA219 high-side current and power monitor.</div><div class="ttdef"><b>Definition</b> INA219.hpp:36</div></div>
+<div class="ttc" id="aa06175_html"><div class="ttname"><a href="../../d0/dca/a06175.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
+<div class="ttc" id="aa06179_html_a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a"><div class="ttname"><a href="../../dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a></div><div class="ttdeci">@ LOW</div><div class="ttdoc">Low priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:88</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

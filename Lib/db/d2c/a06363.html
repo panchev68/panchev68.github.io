@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::FlashInterface</title>
+<title>IAR EWARM Library: Lib::XCOM::ServiceBase::Value64Handle</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('db/d2c/a06363.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('db/d2c/a06363.html','../../','d2/d96/a06360'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -129,74 +129,310 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('db/d2c/a06363.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::FlashInterface</div></div>
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../d2/d96/a06360.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::XCOM::ServiceBase::Value64Handle</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Unlocks the flash controller, erases a sector and programs words with <a class="el" href="../../db/d2c/a06363.html" title="Lib::HAL::FlashInterface">Lib::HAL::FlashInterface</a>.</p>
-<p>Unlocks the flash controller, erases a sector and programs words with Lib::HAL::FlashInterface.The class is a thin facade over the HAL flash functions and holds no state. Erase and program operations need the controller unlocked, so call <a class="el" href="../../d5/d7e/a05563.html#a0f5c36a802a9b6cf15aacf3d104cb445" title="Lib::HAL::FlashInterface::unlock()">Lib::HAL::FlashInterface::unlock()</a> first and <a class="el" href="../../d5/d7e/a05563.html#a076081c699cb3dcf3a7f5890c6c4f568" title="Lib::HAL::FlashInterface::lock()">Lib::HAL::FlashInterface::lock()</a> afterwards. The HAL calls block until the operation ends, so keep them out of interrupt handlers. <a class="el" href="../../d5/d7e/a05563.html#ae33402652ac23992b9eb28ed57ca35e8" title="Lib::HAL::FlashInterface::writeBuffer()">Lib::HAL::FlashInterface::writeBuffer()</a> programs in order and stops at the first failure; the words written before that failure stay programmed.</p>
-<p>The erase granularity and the programming width are chosen at compile time from the device macros: sectors where <em class="arg">FLASH_TYPEERASE_SECTORS</em> is defined, pages where <em class="arg">FLASH_TYPEERASE_PAGES</em> is defined, and word or doubleword programming where <em class="arg">FLASH_TYPEPROGRAM_WORD</em> or <em class="arg">FLASH_TYPEPROGRAM_DOUBLEWORD</em> is defined. On a device without the macro, the method returns <em class="arg">false</em>.</p>
-<dl class="section important"><dt>Important</dt><dd>The module guard is <em class="arg">HAL_FLASH_MODULE_ENABLED</em>, which the project's 'stm32f4xx_hal_conf.h' enables. On the STM32F407xx target the HAL headers define <em class="arg">FLASH_TYPEERASE_SECTORS</em> and <em class="arg">FLASH_TYPEPROGRAM_WORD</em>, so both methods are compiled in.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>An erase destroys the whole sector, including any code or constants stored in it. Never erase the sector that holds the running firmware, and keep the code that erases and programs in RAM, because the CPU cannot execute from flash while the operation runs. Writes can only clear bits, so a word must be erased before it is programmed to a value that sets bits.</dd></dl>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="flash_usage_erase"></a>
-Erase a sector and program a block</h3>
-<p><a class="el" href="../../d5/d7e/a05563.html#a31fec472e71d387e0e9a5ade75e5ae24" title="Lib::HAL::FlashInterface::eraseSector()">Lib::HAL::FlashInterface::eraseSector()</a> takes the sector index and the voltage range that matches the supply voltage; use the HAL constant <em class="arg">FLASH_VOLTAGE_RANGE_3</em> for 2.7 V to 3.6 V on the STM32F407xx. Program the data only after the erase returns <em class="arg">true</em>, and check each step.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d9e/a00686.html">Lib/HAL/Flash/FlashInterface.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> storeSettings() noexcept {</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t SETTINGS_SECTOR = 11U;</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t SETTINGS_ADDRESS = 0x080E0000U;</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 4&gt;</a> SETTINGS{0x01U, 0x02U, 0x03U, 0x04U};</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d5/d7e/a05563.html">Lib::HAL::FlashInterface</a> flash;</div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d5/d7e/a05563.html#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> isStored = flash.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d5/d7e/a05563.html#a31fec472e71d387e0e9a5ade75e5ae24">eraseSector</a>(SETTINGS_SECTOR, <a id="_a4" name="_a4"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d5/d12/a00794.html#ga50950407a789684eec9216f49e0831a0">FLASH_VOLTAGE_RANGE_3</a>) &amp;&amp;</div>
-<div class="line">                    flash.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d5/d7e/a05563.html#ae33402652ac23992b9eb28ed57ca35e8">writeBuffer</a>(SETTINGS_ADDRESS, SETTINGS.data(), <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(SETTINGS.size()));</div>
-<div class="line"> </div>
-<div class="line">    isStored = flash.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d5/d7e/a05563.html#a076081c699cb3dcf3a7f5890c6c4f568">lock</a>() &amp;&amp; isStored;</div>
-<div class="line">    <span class="keywordflow">return</span> isStored;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00686_html"><div class="ttname"><a href="../../df/d9e/a00686.html">FlashInterface.hpp</a></div><div class="ttdoc">Facade over the STM32 internal Flash controller: lock control, sector or page erase and word programm...</div></div>
-<div class="ttc" id="aa00794_html_ga50950407a789684eec9216f49e0831a0"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d5/d12/a00794.html#ga50950407a789684eec9216f49e0831a0">FLASH_VOLTAGE_RANGE_3</a></div><div class="ttdeci">#define FLASH_VOLTAGE_RANGE_3</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa05563_html"><div class="ttname"><a href="../../d5/d7e/a05563.html">Lib::HAL::FlashInterface</a></div><div class="ttdoc">Stateless facade over the internal Flash controller.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:36</div></div>
-<div class="ttc" id="aa05563_html_a076081c699cb3dcf3a7f5890c6c4f568"><div class="ttname"><a href="../../d5/d7e/a05563.html#a076081c699cb3dcf3a7f5890c6c4f568">Lib::HAL::FlashInterface::lock</a></div><div class="ttdeci">bool lock() noexcept</div><div class="ttdoc">Locks the Flash control register against accidental erase and program operations.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:103</div></div>
-<div class="ttc" id="aa05563_html_a0f5c36a802a9b6cf15aacf3d104cb445"><div class="ttname"><a href="../../d5/d7e/a05563.html#a0f5c36a802a9b6cf15aacf3d104cb445">Lib::HAL::FlashInterface::unlock</a></div><div class="ttdeci">bool unlock() noexcept</div><div class="ttdoc">Unlocks the Flash control register so that erase and program operations are accepted.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:94</div></div>
-<div class="ttc" id="aa05563_html_a31fec472e71d387e0e9a5ade75e5ae24"><div class="ttname"><a href="../../d5/d7e/a05563.html#a31fec472e71d387e0e9a5ade75e5ae24">Lib::HAL::FlashInterface::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t sectorIndex, uint32_t voltageRange) noexcept</div><div class="ttdoc">Erases one sector (sector-based families) or one page (page-based families).</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:121</div></div>
-<div class="ttc" id="aa05563_html_ae33402652ac23992b9eb28ed57ca35e8"><div class="ttname"><a href="../../d5/d7e/a05563.html#ae33402652ac23992b9eb28ed57ca35e8">Lib::HAL::FlashInterface::writeBuffer</a></div><div class="ttdeci">bool writeBuffer(uint32_t startAddress, const uint32_t *dataPointer, uint32_t wordLength) noexcept</div><div class="ttdoc">Programs a buffer of 32-bit words into consecutive flash addresses.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:185</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="flash_usage_word"></a>
-Program one word</h3>
-<p><a class="el" href="../../d5/d7e/a05563.html#ad771befb1be3db0d319c46507a7896ca" title="Lib::HAL::FlashInterface::writeWord()">Lib::HAL::FlashInterface::writeWord()</a> asserts that the address is 4-byte aligned. On a doubleword device the hardware programs 8 bytes at once, so the class reads the neighbouring word and programs the pair; that neighbour must still be erased or hold the value it already has.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d9e/a00686.html">Lib/HAL/Flash/FlashInterface.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> writeOneWord(uint32_t address, uint32_t value) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <a class="code hl_class" href="../../d5/d7e/a05563.html">Lib::HAL::FlashInterface</a> flash;</div>
-<div class="line">    <span class="keywordflow">if</span> (!flash.<a class="code hl_function" href="../../d5/d7e/a05563.html#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> isWritten = flash.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d5/d7e/a05563.html#ad771befb1be3db0d319c46507a7896ca">writeWord</a>(address, value);</div>
-<div class="line">    <span class="keywordflow">return</span> flash.<a class="code hl_function" href="../../d5/d7e/a05563.html#a076081c699cb3dcf3a7f5890c6c4f568">lock</a>() &amp;&amp; isWritten;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05563_html_ad771befb1be3db0d319c46507a7896ca"><div class="ttname"><a href="../../d5/d7e/a05563.html#ad771befb1be3db0d319c46507a7896ca">Lib::HAL::FlashInterface::writeWord</a></div><div class="ttdeci">bool writeWord(uint32_t address, uint32_t data) noexcept</div><div class="ttdoc">Programs one 32-bit word.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:154</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Change tracker for an external uint64_t, for lightweight change detection in communication code. </p>
+<p>Binds to the reference, detects changes against the last completed value and marks the update cycle. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ae91f7070344c27bb733ae287d79e858d" id="r_ae91f7070344c27bb733ae287d79e858d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae91f7070344c27bb733ae287d79e858d">Value64Handle</a> ()=default</td></tr>
+<tr class="memitem:a5421aedc1179a53c55c2d4d93ce22391" id="r_a5421aedc1179a53c55c2d4d93ce22391"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#a5421aedc1179a53c55c2d4d93ce22391">~Value64Handle</a> ()=default</td></tr>
+<tr class="memdesc:a5421aedc1179a53c55c2d4d93ce22391"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual: a derived handle may be deleted through a 'Value64Handle' pointer.  <br /></td></tr>
+<tr class="memitem:aa4aa8de706f83b39bb1006637a938ff3" id="r_aa4aa8de706f83b39bb1006637a938ff3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa4aa8de706f83b39bb1006637a938ff3">operator const uint64_t &amp;</a> () const</td></tr>
+<tr class="memdesc:aa4aa8de706f83b39bb1006637a938ff3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access operator returning the currently bound value or the last known previous value if not bound.  <br /></td></tr>
+<tr class="memitem:aa8cf727f1d905c276f8dadefb6a080dc" id="r_aa8cf727f1d905c276f8dadefb6a080dc"><td class="memItemLeft"><a class="el" href="#ae91f7070344c27bb733ae287d79e858d">Value64Handle</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa8cf727f1d905c276f8dadefb6a080dc">operator=</a> (uint64_t value)</td></tr>
+<tr class="memdesc:aa8cf727f1d905c276f8dadefb6a080dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assigns a new value to the bound reference, only in COMPLETED state.  <br /></td></tr>
+<tr class="memitem:a3b562544e02a39556f90e7dac8d760ca" id="r_a3b562544e02a39556f90e7dac8d760ca"><td class="memItemLeft"><a class="el" href="#a61454ee42b2bfba6e7e63296f6011ff2">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3b562544e02a39556f90e7dac8d760ca">update</a> ()</td></tr>
+<tr class="memdesc:a3b562544e02a39556f90e7dac8d760ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the internal state by comparing the bound value with the previous recorded value.  <br /></td></tr>
+<tr class="memitem:ac621a9cf7d72e05de784a76929a7dab4" id="r_ac621a9cf7d72e05de784a76929a7dab4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac621a9cf7d72e05de784a76929a7dab4">complete</a> ()</td></tr>
+<tr class="memdesc:ac621a9cf7d72e05de784a76929a7dab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark the handle as completed and record the current bound value as the previous value.  <br /></td></tr>
+<tr class="memitem:ade6d2f8f79b9705b6078b0d797bdee41" id="r_ade6d2f8f79b9705b6078b0d797bdee41"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ade6d2f8f79b9705b6078b0d797bdee41">inProgress</a> ()</td></tr>
+<tr class="memdesc:ade6d2f8f79b9705b6078b0d797bdee41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark the handle as currently processing an update.  <br /></td></tr>
+<tr class="memitem:add5c3b1dc3041fd34c3f7da2614cbb4a" id="r_add5c3b1dc3041fd34c3f7da2614cbb4a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#add5c3b1dc3041fd34c3f7da2614cbb4a">bind</a> (uint64_t &amp;ref)</td></tr>
+<tr class="memdesc:add5c3b1dc3041fd34c3f7da2614cbb4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind the handle to an external uint64_t reference.  <br /></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a61454ee42b2bfba6e7e63296f6011ff2" name="a61454ee42b2bfba6e7e63296f6011ff2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61454ee42b2bfba6e7e63296f6011ff2">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a61454ee42b2bfba6e7e63296f6011ff2">Lib::XCOM::ServiceBase::Value64Handle::Status</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>State machine for the handle lifecycle. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d" name="a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d"></a>NO_INIT&#160;</td><td class="fielddoc"><p>Handle not bound to a value yet. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a" name="a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a"></a>CHANGED&#160;</td><td class="fielddoc"><p>Bound value has changed since last complete(). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9" name="a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9"></a>IN_PROGRESS&#160;</td><td class="fielddoc"><p>An update is currently in progress. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e" name="a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e"></a>COMPLETED&#160;</td><td class="fielddoc"><p>Last change was acknowledged and completed. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae91f7070344c27bb733ae287d79e858d" name="ae91f7070344c27bb733ae287d79e858d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae91f7070344c27bb733ae287d79e858d">&#9670;&#160;</a></span>Value64Handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::XCOM::ServiceBase::Value64Handle::Value64Handle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5421aedc1179a53c55c2d4d93ce22391" name="a5421aedc1179a53c55c2d4d93ce22391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5421aedc1179a53c55c2d4d93ce22391">&#9670;&#160;</a></span>~Value64Handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Lib::XCOM::ServiceBase::Value64Handle::~Value64Handle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Virtual: a derived handle may be deleted through a 'Value64Handle' pointer. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="add5c3b1dc3041fd34c3f7da2614cbb4a" name="add5c3b1dc3041fd34c3f7da2614cbb4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add5c3b1dc3041fd34c3f7da2614cbb4a">&#9670;&#160;</a></span>bind()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::XCOM::ServiceBase::Value64Handle::bind </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t &amp;</td>          <td class="paramname"><span class="paramname"><em>ref</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Bind the handle to an external uint64_t reference. </p>
+<p>Binding sets the state to CHANGED to indicate that a new value should be considered.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ref</td><td>Reference to the external uint64_t to bind. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac621a9cf7d72e05de784a76929a7dab4" name="ac621a9cf7d72e05de784a76929a7dab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac621a9cf7d72e05de784a76929a7dab4">&#9670;&#160;</a></span>complete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::XCOM::ServiceBase::Value64Handle::complete </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mark the handle as completed and record the current bound value as the previous value. </p>
+
+</div>
+</div>
+<a id="ade6d2f8f79b9705b6078b0d797bdee41" name="ade6d2f8f79b9705b6078b0d797bdee41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade6d2f8f79b9705b6078b0d797bdee41">&#9670;&#160;</a></span>inProgress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::XCOM::ServiceBase::Value64Handle::inProgress </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mark the handle as currently processing an update. </p>
+
+</div>
+</div>
+<a id="aa4aa8de706f83b39bb1006637a938ff3" name="aa4aa8de706f83b39bb1006637a938ff3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4aa8de706f83b39bb1006637a938ff3">&#9670;&#160;</a></span>operator const uint64_t &amp;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::XCOM::ServiceBase::Value64Handle::operator const uint64_t &amp; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Access operator returning the currently bound value or the last known previous value if not bound. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the current or previous uint64_t value. </dd></dl>
+
+</div>
+</div>
+<a id="aa8cf727f1d905c276f8dadefb6a080dc" name="aa8cf727f1d905c276f8dadefb6a080dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8cf727f1d905c276f8dadefb6a080dc">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae91f7070344c27bb733ae287d79e858d">Value64Handle</a> &amp; Lib::XCOM::ServiceBase::Value64Handle::operator= </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assigns a new value to the bound reference, only in COMPLETED state. </p>
+<p>A different value saves the old one and sets the state to CHANGED.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>New uint64_t value to assign. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this handle. </dd></dl>
+
+</div>
+</div>
+<a id="a3b562544e02a39556f90e7dac8d760ca" name="a3b562544e02a39556f90e7dac8d760ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b562544e02a39556f90e7dac8d760ca">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a61454ee42b2bfba6e7e63296f6011ff2">Status</a> Lib::XCOM::ServiceBase::Value64Handle::update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Update the internal state by comparing the bound value with the previous recorded value. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current Status after the update. </dd></dl>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d6/d9a/a01083.html">Lib</a></li><li class="navelem"><a href="../../d9/d17/a01129.html">XCOM</a></li><li class="navelem"><a href="../../d9/da0/a06359.html">ServiceBase</a></li><li class="navelem"><a href="../../db/d2c/a06363.html">Value64Handle</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

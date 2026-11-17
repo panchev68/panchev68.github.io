@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Math::HammingCode</title>
+<title>IAR EWARM Library: Lib::HAL::OSPIPort</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,94 +129,109 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/dac/a06431.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Math::HammingCode</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::OSPIPort</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Protects 16-bit words with <a class="el" href="../../d6/dac/a06431.html" title="Lib::Math::HammingCode">Lib::Math::HammingCode</a>, a Hamming(21,16) code that corrects any single flipped bit.</p>
-<p>Protects 16-bit words with <a class="el" href="../../d6/dac/a06431.html" title="Lib::Math::HammingCode">Lib::Math::HammingCode</a>, a Hamming(21,16) code that corrects any single flipped bit. The class has only static constexpr functions, needs no instance and is safe to call from any context, including an interrupt handler. A codeword uses the low <b>21</b> bits of a 32-bit value.</p>
+<p>Runs a command with a data phase on the Octo-SPI controller through <a class="el" href="../../d6/dac/a06431.html" title="Lib::HAL::OSPIPort">Lib::HAL::OSPIPort</a> in its three transfer modes: 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' and 'Lib::HAL::DriverMode::DMA'.</p>
+<p>Runs a command with a data phase on the Octo-SPI controller through <a class="el" href="../../d6/dac/a06431.html" title="Lib::HAL::OSPIPort">Lib::HAL::OSPIPort</a> in its three transfer modes: 'Lib::HAL::DriverMode::BLOCKING', 'Lib::HAL::DriverMode::IT' and 'Lib::HAL::DriverMode::DMA'. The port wraps a CubeMX <em class="arg">OSPI_HandleTypeDef</em> and does not configure the pins, clock or memory-mapped mode.</p>
+<p>Each transfer is two steps: Lib::HAL::OSPIPort::command() sends the instruction, address, alternate-byte and dummy phases described by a HAL <em class="arg">OSPI_RegularCmdTypeDef</em>, and the following Lib::HAL::OSPIPort::transmit() or Lib::HAL::OSPIPort::receive() moves the data phase. The size of the buffer must equal the <em class="arg">NbData</em> of that command. The BLOCKING mode completes inside the HAL calls and works from any context. The IT and DMA modes are task-only and assert when called from an ISR; they wait on an <a class="el" href="../../d5/dff/a06501.html" title="RTOS::EventGroup">RTOS::EventGroup</a> for the data phase and for a command without one, while a command with a data phase is issued through the polling HAL call. The OCTOSPI interrupt handler must call <b>HAL_OSPI_IRQHandler()</b> for the handle.</p>
+<dl class="section important"><dt>Important</dt><dd>The OCTOSPI controller is not on the STM32F407 used by this library (F7, H7 and L4+ only), so the <em class="arg">HAL_OSPI_MODULE_ENABLED</em> guard of this class has nothing to enable there. On that target the header compiles to nothing, so the example below applies only to a target with an OCTOSPI peripheral.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>The IT and DMA modes register their own HAL callbacks in open(), so the HAL configuration header must set <em class="arg">USE_HAL_OSPI_REGISTER_CALLBACKS</em> to <b>1</b>.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="hamming_usage_basic"></a>
-Encoding and decoding</h3>
-<p><a class="el" href="../../d6/d0c/a05979.html#ad9d4101cb404a5c8eaff5d9592047d0a" title="Lib::Math::HammingCode::encode()">Lib::Math::HammingCode::encode()</a> adds five parity bits to the 16 data bits and <a class="el" href="../../d6/d0c/a05979.html#a4191c3eb813016d80f65ff66f6f13b80" title="Lib::Math::HammingCode::decode()">Lib::Math::HammingCode::decode()</a> returns the data after correcting a single-bit error.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d54/a00938.html">Lib/Math/HammingCode.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="ospi_usage_setup"></a>
+Setup and lifecycle</h3>
+<p>The CubeMX init code creates and configures the handle, including the flash size and the clock. open() runs <b>HAL_OSPI_Init()</b>; for the IT and DMA modes it also registers the callbacks and creates the event group. close() reverses this from task context. The port does not own the handle.</p>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="ospi_usage_blocking"></a>
+Blocking command and data phase</h3>
+<p>The timeouts are <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01708.html" title="std::chrono">std::chrono</a> durations. The example reads a block with the Quad I/O fast read opcode <b>0xEB</b> of a serial flash; the instruction, address and dummy values are device-specific, and every field not set stays zero.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dae/a00767.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> storeAndLoad() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> uint32_t codeword = <a id="a0" name="a0"></a><a class="code hl_function" href="../../d6/d0c/a05979.html#ad9d4101cb404a5c8eaff5d9592047d0a">Lib::Math::HammingCode::encode</a>(0xA5C3U);</div>
+<div class="line"><span class="keyword">extern</span> OSPI_HandleTypeDef hospi1;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// The codeword travels over a noisy link or sits in memory; bit 6 gets flipped.</span></div>
-<div class="line">    <span class="keyword">const</span> uint32_t received = codeword ^ (1U &lt;&lt; 6U);</div>
+<div class="line"><span class="keywordtype">bool</span> readQuad(Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; &amp; port, uint32_t address, std::span&lt;uint8_t&gt; <a id="_a0" name="_a0"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>) <span class="keyword">noexcept</span> {</div>
+<div class="line">    OSPI_RegularCmdTypeDef cmd{};</div>
+<div class="line">    cmd.OperationType = HAL_OSPI_OPTYPE_COMMON_CFG;</div>
+<div class="line">    cmd.FlashId = HAL_OSPI_FLASH_ID_1;</div>
+<div class="line">    cmd.Instruction = 0xEBU;</div>
+<div class="line">    cmd.InstructionMode = HAL_OSPI_INSTRUCTION_1_LINE;</div>
+<div class="line">    cmd.InstructionSize = HAL_OSPI_INSTRUCTION_8_BITS;</div>
+<div class="line">    cmd.Address = address;</div>
+<div class="line">    cmd.AddressMode = HAL_OSPI_ADDRESS_4_LINES;</div>
+<div class="line">    cmd.AddressSize = HAL_OSPI_ADDRESS_24_BITS;</div>
+<div class="line">    cmd.DataMode = HAL_OSPI_DATA_4_LINES;</div>
+<div class="line">    cmd.NbData = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>.size());</div>
+<div class="line">    cmd.DummyCycles = 6U;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint16_t <a id="_a1" name="_a1"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a> = <a id="a2" name="a2"></a><a class="code hl_function" href="../../d6/d0c/a05979.html#a4191c3eb813016d80f65ff66f6f13b80">Lib::Math::HammingCode::decode</a>(received);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (!port.command(cmd, <a id="_a1" name="_a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> port.receive(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00938_html"><div class="ttname"><a href="../../d5/d54/a00938.html">HammingCode.hpp</a></div><div class="ttdoc">Hamming(21,16) single-error-correcting code for 16-bit words.</div></div>
+<div class="ttc" id="aa00767_html"><div class="ttname"><a href="../../d5/dae/a00767.html">OSPI.hpp</a></div><div class="ttdoc">Public umbrella include for the OCTOSPI subsystem.</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
 <div class="ttc" id="aa01692_html_aba9b31054eec50310ef02c998663e27b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a></div><div class="ttdeci">constexpr auto data(_Container &amp;__cont) noexcept(noexcept(__cont.data())) -&gt; decltype(__cont.data())</div></div>
-<div class="ttc" id="aa05979_html_a4191c3eb813016d80f65ff66f6f13b80"><div class="ttname"><a href="../../d6/d0c/a05979.html#a4191c3eb813016d80f65ff66f6f13b80">Lib::Math::HammingCode::decode</a></div><div class="ttdeci">static constexpr uint16_t decode(uint32_t value) noexcept</div><div class="ttdoc">Decodes and corrects a Hamming(21,16) codeword.</div><div class="ttdef"><b>Definition</b> HammingCode.hpp:66</div></div>
-<div class="ttc" id="aa05979_html_ad9d4101cb404a5c8eaff5d9592047d0a"><div class="ttname"><a href="../../d6/d0c/a05979.html#ad9d4101cb404a5c8eaff5d9592047d0a">Lib::Math::HammingCode::encode</a></div><div class="ttdeci">static constexpr uint32_t encode(uint16_t value) noexcept</div><div class="ttdoc">Encodes a 16-bit value into a Hamming(21,16) codeword.</div><div class="ttdef"><b>Definition</b> HammingCode.hpp:47</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">encode(0xA5C3) = 0x145C1D</div>
-<div class="line">decode(0x145C5D) = 0xA5C3</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="hamming_usage_syndrome"></a>
-Clean, corrected and uncorrectable words</h3>
-<p><a class="el" href="../../d6/d0c/a05979.html#a4191c3eb813016d80f65ff66f6f13b80" title="Lib::Math::HammingCode::decode()">Lib::Math::HammingCode::decode()</a> corrects silently. To learn what happened, compute the syndrome first: <b>0</b> means a clean word, a value for which <a class="el" href="../../d6/d0c/a05979.html#a913e4f9bbfd5bbfe99493a28c8124527" title="Lib::Math::HammingCode::canCorrect()">Lib::Math::HammingCode::canCorrect()</a> returns <em class="arg">true</em> is the position of the flipped bit, and anything else is uncorrectable. Two flipped bits can also produce a correctable-looking syndrome, which this code cannot tell apart from a single-bit error, so add a checksum on top when that matters.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d54/a00938.html">Lib/Math/HammingCode.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="ospi_usage_it"></a>
+Interrupt-driven transfer</h3>
+<p>The IT mode uses the same two calls from a task. The OCTOSPI handler is the only interrupt hook: the CubeMX <b>OCTOSPI1_IRQHandler()</b> calls <b>HAL_OSPI_IRQHandler(&amp;hospi1)</b>, which fires the callbacks that open() registered. A command without a data phase completes through the same event group.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dae/a00767.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">enum class</span> WordState {</div>
-<div class="line">    CLEAN,</div>
-<div class="line">    CORRECTED,</div>
-<div class="line">    UNCORRECTABLE,</div>
+<div class="line"><span class="keyword">extern</span> OSPI_HandleTypeDef hospi1;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>FlashRegisterAccess final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">    FlashRegisterAccess() noexcept :</div>
+<div class="line">        port(&amp;hospi1) {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from a task.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">return</span> port.open();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Call from a task only; reads one status byte with a single-line data phase.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> readStatus(uint8_t &amp; status) <span class="keyword">noexcept</span> {</div>
+<div class="line">        OSPI_RegularCmdTypeDef cmd{};</div>
+<div class="line">        cmd.OperationType = HAL_OSPI_OPTYPE_COMMON_CFG;</div>
+<div class="line">        cmd.FlashId = HAL_OSPI_FLASH_ID_1;</div>
+<div class="line">        cmd.Instruction = 0x05U;</div>
+<div class="line">        cmd.InstructionMode = HAL_OSPI_INSTRUCTION_1_LINE;</div>
+<div class="line">        cmd.InstructionSize = HAL_OSPI_INSTRUCTION_8_BITS;</div>
+<div class="line">        cmd.AddressMode = HAL_OSPI_ADDRESS_NONE;</div>
+<div class="line">        cmd.DataMode = HAL_OSPI_DATA_1_LINE;</div>
+<div class="line">        cmd.NbData = 1U;</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">const</span> std::span&lt;uint8_t&gt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>(&amp;status, 1U);</div>
+<div class="line">        <span class="keywordflow">return</span> port.command(cmd, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50)) &amp;&amp; port.receive(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt; port;</div>
 <div class="line">};</div>
-<div class="line"> </div>
-<div class="line">WordState check(uint32_t codeword, uint16_t &amp; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">const</span> uint32_t syndrome = <a id="a3" name="a3"></a><a class="code hl_function" href="../../d6/d0c/a05979.html#a840a90d96caceeafec7fb6ebaf51b8e1">Lib::Math::HammingCode::syndrome</a>(codeword);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (syndrome == 0U) {</div>
-<div class="line">        <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a> = <a class="code hl_function" href="../../d6/d0c/a05979.html#a4191c3eb813016d80f65ff66f6f13b80">Lib::Math::HammingCode::decode</a>(codeword);</div>
-<div class="line">        <span class="keywordflow">return</span> WordState::CLEAN;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">if</span> (<a id="_a4" name="_a4"></a><a class="code hl_function" href="../../d6/d0c/a05979.html#a913e4f9bbfd5bbfe99493a28c8124527">Lib::Math::HammingCode::canCorrect</a>(syndrome)) {</div>
-<div class="line">        <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a> = <a class="code hl_function" href="../../d6/d0c/a05979.html#a4191c3eb813016d80f65ff66f6f13b80">Lib::Math::HammingCode::decode</a>(codeword);</div>
-<div class="line">        <span class="keywordflow">return</span> WordState::CORRECTED;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> WordState::UNCORRECTABLE;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa05979_html_a840a90d96caceeafec7fb6ebaf51b8e1"><div class="ttname"><a href="../../d6/d0c/a05979.html#a840a90d96caceeafec7fb6ebaf51b8e1">Lib::Math::HammingCode::syndrome</a></div><div class="ttdeci">static constexpr uint32_t syndrome(uint32_t value) noexcept</div><div class="ttdoc">Computes the error syndrome of a codeword.</div><div class="ttdef"><b>Definition</b> HammingCode.hpp:85</div></div>
-<div class="ttc" id="aa05979_html_a913e4f9bbfd5bbfe99493a28c8124527"><div class="ttname"><a href="../../d6/d0c/a05979.html#a913e4f9bbfd5bbfe99493a28c8124527">Lib::Math::HammingCode::canCorrect</a></div><div class="ttdeci">static constexpr bool canCorrect(uint32_t syndrome) noexcept</div><div class="ttdoc">Checks whether a syndrome value indicates a correctable error position.</div><div class="ttdef"><b>Definition</b> HammingCode.hpp:102</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">syndrome(0x145C1D) = 0</div>
-<div class="line">syndrome(0x145C5D) = 7</div>
-<div class="line">syndrome(0x145C1D with bits 1 and 19 flipped) = 22</div>
+<div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="hamming_usage_table"></a>
-Compile-time lookup table</h3>
-<p>Every function is constexpr, so a table of codewords can be built at compile time and placed in flash. The following code builds the codewords of the values <b>0</b> to <b>15</b> and checks the table with <em class="arg">static_assert</em>.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d54/a00938.html">Lib/Math/HammingCode.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="ospi_usage_error"></a>
+Error path and abort</h3>
+<p>A timed-out or failed phase returns <em class="arg">false</em> and the port stops its transfer, so the caller may issue the next command. If a task must release a blocked transfer from outside, Lib::HAL::OSPIPort::abort() stops the controller and wakes the waiting task; it is called from task context. The DMA mode requires the buffer to be reachable by the DMA controller; the port asserts on a CCM RAM buffer in a debug build.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dae/a00767.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">constexpr</span> <a id="_a5" name="_a5"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 16U&gt;</a> NIBBLE_CODEWORDS = [] {</div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint32_t, 16U&gt;</a> table{};</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0U; i &lt; table.size(); ++i) {</div>
-<div class="line">        table[i] = <a class="code hl_function" href="../../d6/d0c/a05979.html#ad9d4101cb404a5c8eaff5d9592047d0a">Lib::Math::HammingCode::encode</a>(<span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span>(i));</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> table;</div>
-<div class="line">}();</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">static_assert</span>(NIBBLE_CODEWORDS[0] == 0x000000U);</div>
-<div class="line"><span class="keyword">static_assert</span>(NIBBLE_CODEWORDS[1] == 0x000007U);</div>
-<div class="line"><span class="keyword">static_assert</span>(NIBBLE_CODEWORDS[2] == 0x000019U);</div>
-<div class="line"><span class="keyword">static_assert</span>(<a class="code hl_function" href="../../d6/d0c/a05979.html#a4191c3eb813016d80f65ff66f6f13b80">Lib::Math::HammingCode::decode</a>(NIBBLE_CODEWORDS[11]) == 11U);</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
+<div class="line"><span class="keywordtype">void</span> cancelPending(Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; port) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(port.abort());</div>
+<div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

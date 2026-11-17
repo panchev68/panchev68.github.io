@@ -1,5 +1,4 @@
 var a01004 =
 [
-    [ "RTOS::TickClient&lt; Derived &gt;", "dc/d71/a06146.html", "dc/d71/a06146" ],
-    [ "RTOS::TickClient&lt; Derived &gt;::Config", "d6/d30/a06150.html", "d6/d30/a06150" ]
+    [ "RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;", "de/d49/a06155.html", "de/d49/a06155" ]
 ];

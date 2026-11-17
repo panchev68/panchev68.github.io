@@ -1,17 +1,18 @@
 var a05571 =
 [
-    [ "Manager", "d6/d3f/a05571.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "d6/d3f/a05571.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimOnePulse", "d6/d3f/a05571.html#ae287fccac43cfbccd505d62c3450d886", null ],
-    [ "~TimOnePulse", "d6/d3f/a05571.html#a1e04591efe0469a8ca79694006f138e6", null ],
-    [ "bindWorker", "d6/d3f/a05571.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "EventBits", "d6/d3f/a05571.html#a3c55c6775abc08a42ba3fb85ac9404c9", null ],
+    [ "AsyncPortCore", "d6/d3f/a05571.html#a9e0e2e3d307485d3bc6cc4c54a4a9790", null ],
+    [ "AsyncPortCore", "d6/d3f/a05571.html#ae4c323f8431fa6f03e914d953c4306c2", null ],
+    [ "AsyncPortCore", "d6/d3f/a05571.html#a3fea82834797dbd505ac308e4ebe58a2", null ],
+    [ "~AsyncPortCore", "d6/d3f/a05571.html#aa73910a82d1814199dbe1ec58c46f450", null ],
+    [ "close", "d6/d3f/a05571.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "derived", "d6/d3f/a05571.html#a3dbece6116a65776aa72cb7a95e4a79a", null ],
+    [ "getHandle", "d6/d3f/a05571.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d6/d3f/a05571.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "notifyWorkerFromISR", "d6/d3f/a05571.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "setTiming", "d6/d3f/a05571.html#adcd5d98b02d7d70c3dbcd75ab4f117b6", null ],
-    [ "start", "d6/d3f/a05571.html#a4dd784ca9da4b8c662101a2b232a1f61", null ],
-    [ "stop", "d6/d3f/a05571.html#a2ab7da84b6cafce46167eeca602289ac", null ],
-    [ "waitEvent", "d6/d3f/a05571.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
-    [ "waitPulseStart", "d6/d3f/a05571.html#a16dbc64b1db27612373f5d95fe8fe6ed", null ],
-    [ "waitPulseStart", "d6/d3f/a05571.html#aeba87dc02428bea360275fd39706fa18", null ],
-    [ "void::HAL_TIM_PWM_PulseFinishedCallback", "d6/d3f/a05571.html#a5e91f9ca8a9abc6255b583f8225f7478", null ]
+    [ "isOpened", "d6/d3f/a05571.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d6/d3f/a05571.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "operator=", "d6/d3f/a05571.html#af7a0ea878376b289ff08600fa9477026", null ],
+    [ "operator=", "d6/d3f/a05571.html#a83e0efb939206ab305b7b0c0b80a27e5", null ],
+    [ "events", "d6/d3f/a05571.html#abb56ddd8ed19246084e1242e9075982f", null ],
+    [ "isOpen", "d6/d3f/a05571.html#aa533ddd5b800443ba9ea9687a78b720e", null ]
 ];

@@ -1,20 +1,14 @@
 var a05687 =
 [
-    [ "Timeout", "d2/de1/a05687.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
-    [ "SPIPort", "d2/de1/a05687.html#a903be3f889b13683ab1e357df5e48ddb", null ],
-    [ "~SPIPort", "d2/de1/a05687.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
-    [ "SPIPort", "d2/de1/a05687.html#a8335bc7cd53354957b5b059adfa4a702", null ],
-    [ "SPIPort", "d2/de1/a05687.html#ab03e262f43c766b37a67b48c85bff815", null ],
-    [ "bindBeginTransactionFunc", "d2/de1/a05687.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
-    [ "bindEndTransactionFunc", "d2/de1/a05687.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
-    [ "close", "d2/de1/a05687.html#ab6529e241d0728159eb3f60c7621b666", null ],
-    [ "getHandle", "d2/de1/a05687.html#a177a320faf7a48d1692b081641399447", null ],
-    [ "getHandle", "d2/de1/a05687.html#a88e71252a873f0d8d5051292a08b1336", null ],
-    [ "isBusy", "d2/de1/a05687.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
-    [ "open", "d2/de1/a05687.html#af039716c9cb01db958d77f8c581627cf", null ],
-    [ "operator=", "d2/de1/a05687.html#a7ac0642f801168b819d2f19789bd9d15", null ],
-    [ "operator=", "d2/de1/a05687.html#ae10f073f8753cb6161429d0e321dfd92", null ],
-    [ "receive", "d2/de1/a05687.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
-    [ "send", "d2/de1/a05687.html#ac557450438e468ea5bf25de308bc023c", null ],
-    [ "sendReceive", "d2/de1/a05687.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
+    [ "OSPIPort", "d2/de1/a05687.html#a14ccf4bafc49e1e7c3810bc249cc5748", null ],
+    [ "~OSPIPort", "d2/de1/a05687.html#a50dab62adbe482ae17aa805e97c7f3ce", null ],
+    [ "abort", "d2/de1/a05687.html#a12a734c939e90c6c90510ba2c323dec0", null ],
+    [ "close", "d2/de1/a05687.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "command", "d2/de1/a05687.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "getHandle", "d2/de1/a05687.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d2/de1/a05687.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d2/de1/a05687.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d2/de1/a05687.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d2/de1/a05687.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "d2/de1/a05687.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

@@ -1,9 +1,7 @@
 var a06095 =
 [
-    [ "DeepSleepLock", "db/d00/a06095.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
-    [ "~DeepSleepLock", "db/d00/a06095.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
-    [ "DeepSleepLock", "db/d00/a06095.html#a40925e50ac0805b094e04973ed61f50b", null ],
-    [ "DeepSleepLock", "db/d00/a06095.html#a653104e321c6b159eb7b5e5385d286ac", null ],
-    [ "operator=", "db/d00/a06095.html#a3523f9fd591310866af37223de2c32d3", null ],
-    [ "operator=", "db/d00/a06095.html#a10ab5d18c8a969841a27a2688604c55c", null ]
+    [ "isInverted", "db/d00/a06095.html#a527ce99ad9135c5ee638b478e35031de", null ],
+    [ "isPresent", "db/d00/a06095.html#adeb1badd28d6911fa7c0422e5278feef", null ],
+    [ "name", "db/d00/a06095.html#aa93f171d58ca1b53c5c589d81d12bf17", null ],
+    [ "source", "db/d00/a06095.html#a13e98c772a216681f6a95506ba77144a", null ]
 ];

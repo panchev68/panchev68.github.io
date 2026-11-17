@@ -1,4 +1,4 @@
 var a00779 =
 [
-    [ "Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;", "d4/d00/a05710.html", "d4/d00/a05710" ]
+    [ "Lib::HAL::SPIPort&lt; DriverMode::BLOCKING &gt;", "d5/da4/a05727.html", "d5/da4/a05727" ]
 ];

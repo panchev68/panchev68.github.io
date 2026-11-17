@@ -1,11 +1,14 @@
 var a05847 =
 [
-    [ "Parameters", "d8/d07/a05847.html#a1755515e60fdfe10aafe099283f9d593", null ],
-    [ "Parameters", "d8/d07/a05847.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
-    [ "kd", "d8/d07/a05847.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d8/d07/a05847.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d8/d07/a05847.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d8/d07/a05847.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d8/d07/a05847.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d8/d07/a05847.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "EventHandler", "d8/d07/a05847.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPort", "d8/d07/a05847.html#a91ab9877db9cf87b15fe9118bf39ed92", null ],
+    [ "~USBHostPort", "d8/d07/a05847.html#a4c01d7a9aa859df6f11e05b804af766d", null ],
+    [ "close", "d8/d07/a05847.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d8/d07/a05847.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d8/d07/a05847.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d8/d07/a05847.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d8/d07/a05847.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "setEventHandler", "d8/d07/a05847.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "transfer", "d8/d07/a05847.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "d8/d07/a05847.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

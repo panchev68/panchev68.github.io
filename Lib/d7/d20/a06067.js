@@ -1,8 +1,11 @@
 var a06067 =
 [
-    [ "allocations", "d7/d20/a06067.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "d7/d20/a06067.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "d7/d20/a06067.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "d7/d20/a06067.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "d7/d20/a06067.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "Parameters", "d7/d20/a06067.html#a24b8a679899e0a92f683ab16239f32df", null ],
+    [ "Parameters", "d7/d20/a06067.html#a4e23b99119d652c7a97a2b5047722d75", null ],
+    [ "kd", "d7/d20/a06067.html#a6fd341537b6f12074478402b53dea8f1", null ],
+    [ "ki", "d7/d20/a06067.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
+    [ "kp", "d7/d20/a06067.html#af4932c40d48d9c972bd4f448a37388bc", null ],
+    [ "outputMax", "d7/d20/a06067.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
+    [ "outputMin", "d7/d20/a06067.html#a23515cb5c24f985549f55404aee2928a", null ],
+    [ "sampleTime", "d7/d20/a06067.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
 ];

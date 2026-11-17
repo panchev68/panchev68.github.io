@@ -1,11 +1,20 @@
 var a05099 =
 [
-    [ "Message", "d3/d8f/a05099.html#adf2fad29193213811e051ef8d5f227a7", null ],
-    [ "Message", "d3/d8f/a05099.html#a68d2a5b54227d976281ef2c06d063d87", null ],
-    [ "Message", "d3/d8f/a05099.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
-    [ "data", "d3/d8f/a05099.html#abc7d722b3924f3002a908d282429e590", null ],
-    [ "empty", "d3/d8f/a05099.html#a09e2a403173178d77de083ae66a831fe", null ],
-    [ "operator std::vector< uint8_t >", "d3/d8f/a05099.html#aa265929307138945bf4e16749958a7f8", null ],
-    [ "size", "d3/d8f/a05099.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
-    [ "view", "d3/d8f/a05099.html#a99d9247c3097add390da201d0083e524", null ]
+    [ "Channel", "d8/d5e/a05103.html", "d8/d5e/a05103" ],
+    [ "ChannelArray", "d3/d8f/a05099.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
+    [ "QualityMode", "d3/d8f/a05099.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
+    [ "Error", "d3/d8f/a05099.html#acb54f9ec6751a18eda393e2c5bd0675c", [
+      [ "NONE", "d3/d8f/a05099.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "MODULE_IS_NOT_CONNECTED", "d3/d8f/a05099.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
+      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d3/d8f/a05099.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
+    ] ],
+    [ "ChannelScanner", "d3/d8f/a05099.html#a4e65a2b73399e5ba18d5090993f64487", null ],
+    [ "ChannelScanner", "d3/d8f/a05099.html#a1b11f5df668c4629836c71101e686990", null ],
+    [ "close", "d3/d8f/a05099.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
+    [ "getChannels", "d3/d8f/a05099.html#a124a962ad28c0688ab38329f7a7b034e", null ],
+    [ "isRunning", "d3/d8f/a05099.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "d3/d8f/a05099.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "d3/d8f/a05099.html#aed5af8462cac9a996e73489e369434d3", null ],
+    [ "update", "d3/d8f/a05099.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
+    [ "onError", "d3/d8f/a05099.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
 ];

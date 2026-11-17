@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::MutexGuard</title>
+<title>IAR EWARM Library: Lib::HAL::Timer::TimOutputCompare</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,60 +129,84 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/dfa/a06449.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::MutexGuard</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOutputCompare</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows scope-based locking with <a class="el" href="../../d4/dfa/a06449.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope.</p>
-<p>Shows scope-based locking with <a class="el" href="../../d4/dfa/a06449.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope. It covers an indefinite lock and a timed lock, and checks the guard state after construction.</p>
-<p>The example runs in a task context with the FreeRTOS scheduler running. A mutex must never be locked or unlocked from an ISR. The first guard blocks indefinitely, because it uses the default <a class="el" href="../../d9/db8/a06079.html#acb650bbb5d2ae6ae2bab2490d29712be" title="RTOS::Mutex::WAIT_FOREVER">RTOS::Mutex::WAIT_FOREVER</a> timeout.</p>
+<p>Generates a timed event with <a class="el" href="../../d4/dfa/a06449.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>.</p>
+<p>Generates a timed event with <a class="el" href="../../d4/dfa/a06449.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>. The timer raises an interrupt when its counter matches the compare value of the channel, which wakes the task blocked in <a class="el" href="../../d2/d2d/a05775.html#a18804c13963fca99f8037034a6d4e7ec" title="Lib::HAL::Timer::TimOutputCompare::waitCompare()">Lib::HAL::Timer::TimOutputCompare::waitCompare()</a>. The task then sets the next compare value with <a class="el" href="../../d2/d2d/a05775.html#a14b6982f85b9be41e24886a8a1c7445d" title="Lib::HAL::Timer::TimOutputCompare::setCompare()">Lib::HAL::Timer::TimOutputCompare::setCompare()</a>. Call <a class="el" href="../../d2/d2d/a05775.html#a63482b7958cd7171218c959b2b5df044" title="Lib::HAL::Timer::TimOutputCompare::start()">Lib::HAL::Timer::TimOutputCompare::start()</a> from the waiting task, because it binds that task.</p>
+<p>The header defines the HAL callback <b>HAL_TIM_OC_DelayElapsedCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; the compare value is changed in the task.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_scope"></a>
-Scoped lock with an indefinite wait</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d3c/a00971.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timoc_usage_hw"></a>
+Hardware and CubeMX assumptions</h3>
+<ul>
+<li>Timer channel (here <em class="arg">TIM4</em>, <em class="arg">TIM_CHANNEL_2</em>) set to Output Compare mode with its interrupt enabled in the NVIC. The output pin is optional for this use.</li>
+<li>Timer clock and prescaler are set in CubeMX; the compare value is in timer ticks.</li>
+<li>One <a class="el" href="../../d4/dfa/a06449.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a> per timer handle.</li>
+</ul>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timoc_usage_delay"></a>
+Scheduling a compare event in a task</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d2d/a00815.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> lockedSection() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/db8/a06079.html">RTOS::Mutex</a> mutex(<a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../d9/db8/a06079.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a>);</div>
-<div class="line">    <span class="keywordflow">if</span> (!mutex.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d9/db8/a06079.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
-<div class="line">    }</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d7c/a01073.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d8/d7a/a06083.html">RTOS::MutexGuard</a> guard(mutex); <span class="comment">// Locks on construction, waits forever.</span></div>
-<div class="line">        <span class="keywordflow">if</span> (guard.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d8/d7a/a06083.html#a3f156fd8fcb57426c142acbd54ddb267">isLocked</a>()) {</div>
-<div class="line">            <span class="comment">// Critical section protected by &#39;mutex&#39;.</span></div>
-<div class="line">        }</div>
-<div class="line">    } <span class="comment">// Guard destroyed here; the mutex is unlocked only if it was locked.</span></div>
-<div class="line"> </div>
-<div class="line">    mutex.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d9/db8/a06079.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00971_html"><div class="ttname"><a href="../../d0/d3c/a00971.html">Mutex.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS mutex and recursive mutex synchronization primitives.</div></div>
-<div class="ttc" id="aa00974_html"><div class="ttname"><a href="../../df/dce/a00974.html">MutexGuard.hpp</a></div><div class="ttdoc">RAII wrapper for safe, exception-free mutex acquisition and release.</div></div>
-<div class="ttc" id="aa06079_html"><div class="ttname"><a href="../../d9/db8/a06079.html">RTOS::Mutex</a></div><div class="ttdoc">Priority-inheriting mutual exclusion lock, normal or recursive.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:50</div></div>
-<div class="ttc" id="aa06079_html_a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="../../d9/db8/a06079.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Standard non-recursive priority-inheritance mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:62</div></div>
-<div class="ttc" id="aa06079_html_a9f2abf5c8b3442dd741bac7c15e5726a"><div class="ttname"><a href="../../d9/db8/a06079.html#a9f2abf5c8b3442dd741bac7c15e5726a">RTOS::Mutex::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the underlying FreeRTOS mutex handle, if not already open.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:145</div></div>
-<div class="ttc" id="aa06079_html_acae6fb03115a857672d114638e6da0cb"><div class="ttname"><a href="../../d9/db8/a06079.html#acae6fb03115a857672d114638e6da0cb">RTOS::Mutex::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the underlying FreeRTOS handle and marks the mutex closed.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:203</div></div>
-<div class="ttc" id="aa06083_html"><div class="ttname"><a href="../../d8/d7a/a06083.html">RTOS::MutexGuard</a></div><div class="ttdoc">Scope-based lock guard for RTOS::Mutex, in the style of std::lock_guard.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:45</div></div>
-<div class="ttc" id="aa06083_html_a3f156fd8fcb57426c142acbd54ddb267"><div class="ttname"><a href="../../d8/d7a/a06083.html#a3f156fd8fcb57426c142acbd54ddb267">RTOS::MutexGuard::isLocked</a></div><div class="ttdeci">bool isLocked() const noexcept</div><div class="ttdoc">Checks if the guard currently holds the lock.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:150</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_timed"></a>
-Timed lock</h3>
-<p>The guard converts the <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> to ticks. When the lock times out, the critical section is not protected and nothing is unlocked.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d3c/a00971.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
-<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><span class="keyword">class </span>DelayedEvent final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> timedSection(<a class="code hl_class" href="../../d9/db8/a06079.html">RTOS::Mutex</a> &amp; mutex) {</div>
-<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d7a/a06083.html">RTOS::MutexGuard</a> guard(mutex, 10ms); guard) {</div>
-<div class="line">        <span class="comment">// Lock acquired within 10 ms.</span></div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// Timed out: the critical section is not protected.</span></div>
+<div class="line">    <span class="keyword">explicit</span> DelayedEvent(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
+<div class="line">        compare(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a>),</div>
+<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d6/d4c/a06195.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Delayed&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
 <div class="line">    }</div>
-<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d2/d2d/a05775.html">Lib::HAL::Timer::TimOutputCompare</a> compare; <span class="comment">// Constructed before the task starts using it.</span></div>
+<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d0/dca/a06175.html">RTOS::Task</a> task;                           <span class="comment">// Must stay the last member.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!compare.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d2/d2d/a05775.html#a63482b7958cd7171218c959b2b5df044">start</a>()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;DelayedEvent: output compare failed to start&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="comment">// Fire 1000 ticks after the current counter value.</span></div>
+<div class="line">            compare.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d2/d2d/a05775.html#a14b6982f85b9be41e24886a8a1c7445d">setCompare</a>(compare.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d2/d2d/a05775.html#afaf7f01f359523e9b30110fdbf8b175b">getCounter</a>() + 1000U);</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">if</span> (compare.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d2/d2d/a05775.html#a18804c13963fca99f8037034a6d4e7ec">waitCompare</a>(<a id="_a10" name="_a10"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500))) {</div>
+<div class="line">                <span class="comment">// The compare event fired; run the delayed action here.</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00815_html"><div class="ttname"><a href="../../d8/d2d/a00815.html">TimOutputCompare.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware Output Compare interface using STM32 Timers.</div></div>
+<div class="ttc" id="aa01073_html"><div class="ttname"><a href="../../d9/d7c/a01073.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01114_html_ga33e02d43345a7ac5886f01b39e4f7ccd"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a></div><div class="ttdeci">#define TIM_CHANNEL_2</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa05775_html"><div class="ttname"><a href="../../d2/d2d/a05775.html">Lib::HAL::Timer::TimOutputCompare</a></div><div class="ttdoc">Controls one hardware timer channel configured under an active output compare profile.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:40</div></div>
+<div class="ttc" id="aa05775_html_a14b6982f85b9be41e24886a8a1c7445d"><div class="ttname"><a href="../../d2/d2d/a05775.html#a14b6982f85b9be41e24886a8a1c7445d">Lib::HAL::Timer::TimOutputCompare::setCompare</a></div><div class="ttdeci">void setCompare(uint32_t compareValue) noexcept</div><div class="ttdoc">Sets the counter value at which the output changes state, in the channel&#39;s CCRx register.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:148</div></div>
+<div class="ttc" id="aa05775_html_a18804c13963fca99f8037034a6d4e7ec"><div class="ttname"><a href="../../d2/d2d/a05775.html#a18804c13963fca99f8037034a6d4e7ec">Lib::HAL::Timer::TimOutputCompare::waitCompare</a></div><div class="ttdeci">bool waitCompare(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the counter next matches the compare value.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:119</div></div>
+<div class="ttc" id="aa05775_html_a63482b7958cd7171218c959b2b5df044"><div class="ttname"><a href="../../d2/d2d/a05775.html#a63482b7958cd7171218c959b2b5df044">Lib::HAL::Timer::TimOutputCompare::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the channel with its compare interrupt; the calling task becomes the one waitCompare() serves.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:81</div></div>
+<div class="ttc" id="aa05775_html_afaf7f01f359523e9b30110fdbf8b175b"><div class="ttname"><a href="../../d2/d2d/a05775.html#afaf7f01f359523e9b30110fdbf8b175b">Lib::HAL::Timer::TimOutputCompare::getCounter</a></div><div class="ttdeci">uint32_t getCounter() const noexcept</div><div class="ttdoc">Reads the running counter.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:167</div></div>
+<div class="ttc" id="aa06175_html"><div class="ttname"><a href="../../d0/dca/a06175.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
+<div class="ttc" id="aa06179_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:89</div></div>
+<div class="ttc" id="aa06195_html"><div class="ttname"><a href="../../d6/d4c/a06195.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:638</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timoc_usage_stop"></a>
+Stopping</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d2d/a00815.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> cancelDelay(<a class="code hl_class" href="../../d2/d2d/a05775.html">Lib::HAL::Timer::TimOutputCompare</a> &amp; compare) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(compare.stop());</div>
+<div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

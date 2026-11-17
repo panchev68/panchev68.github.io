@@ -1,13 +1,19 @@
 var a05299 =
 [
-    [ "Handlers", "db/d87/a05299.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
-    [ "EepromEmulation", "db/d87/a05299.html#a1146daff507a230799851b6c5f9ee835", null ],
-    [ "~EepromEmulation", "db/d87/a05299.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
-    [ "EepromEmulation", "db/d87/a05299.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
-    [ "EepromEmulation", "db/d87/a05299.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
-    [ "operator=", "db/d87/a05299.html#ac18054ff925ab9ff88d05d79a8674626", null ],
-    [ "operator=", "db/d87/a05299.html#a8a0057afb82e294f720a93b50ad87908", null ],
-    [ "process", "db/d87/a05299.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
-    [ "setHandlers", "db/d87/a05299.html#a070225a3de178cf14fb35d7a18f183e0", null ],
-    [ "setReadSize", "db/d87/a05299.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
+    [ "State", "db/d87/a05299.html#ac97d949e755c3b10315681da95176f7b", null ],
+    [ "~SimpleError", "db/d87/a05299.html#a7c535e7cce0af47da08a363f2770e2d3", null ],
+    [ "clear", "db/d87/a05299.html#a29a3344a3bb2dbbfaf71fbd851d5806e", null ],
+    [ "disable", "db/d87/a05299.html#af9f860d5fb0bc9ff863d4ae98c6ef2f7", null ],
+    [ "enable", "db/d87/a05299.html#a88d3d3da71f0e2492b08fdd668cd48f9", null ],
+    [ "getCaption", "db/d87/a05299.html#a487c111cdf645891f0eeb29bb9c2f47c", null ],
+    [ "getGroup", "db/d87/a05299.html#acdbb516e56181e2fd2bae4b4fed468bc", null ],
+    [ "getId", "db/d87/a05299.html#ad6f2187166f4193448442ffc02b24c24", null ],
+    [ "getState", "db/d87/a05299.html#a0ebb8e7fff7af6fea43ff768a0c6a539", null ],
+    [ "operator bool", "db/d87/a05299.html#a39a5f8631f5713cc8f2ca156543730bc", null ],
+    [ "operator=", "db/d87/a05299.html#a41ca9532f4b665090473c250d9e75e82", null ],
+    [ "operator=", "db/d87/a05299.html#a30ca9da7743071ed024847752e03fb3c", null ],
+    [ "reset", "db/d87/a05299.html#a1445698f47acd7ded509fd49018195d9", null ],
+    [ "set", "db/d87/a05299.html#a99694248f4f6aab1e752d95d5d775392", null ],
+    [ "setGroup", "db/d87/a05299.html#a1455d282ed73d25fb067ca510d87a14c", null ],
+    [ "Dispatcher", "db/d87/a05299.html#a5d3b867dd215d4353be753385d68ee19", null ]
 ];

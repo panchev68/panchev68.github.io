@@ -1,16 +1,12 @@
 var a05251 =
 [
-    [ "Container", "d4/d19/a05251.html#a841797ffcee30732b12660006d8397bd", null ],
-    [ "Status", "d4/d19/a05251.html#a577acdd119b66063413debe6a438470f", [
-      [ "STATUS_CHANGED", "d4/d19/a05251.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4", null ],
-      [ "ALL_ERRORS_CLEARED", "d4/d19/a05251.html#a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db", null ]
-    ] ],
-    [ "Dispatcher", "d4/d19/a05251.html#aa0833a585d6be678d415f7b6a08c516c", null ],
-    [ "Dispatcher", "d4/d19/a05251.html#a3a18ea72deb2fa22c44ec99f3f8e1e26", null ],
-    [ "createError", "d4/d19/a05251.html#a407182f37d2b8174f02693ab5f91c8d8", null ],
-    [ "operator=", "d4/d19/a05251.html#a6b5e5ae1add85447ebdc4ab0f64a8761", null ],
-    [ "operator=", "d4/d19/a05251.html#aa962d0278c430ad4453c6cb8fc816f05", null ],
-    [ "start", "d4/d19/a05251.html#a3ef04bebfe4813071fa54045b76177dd", null ],
-    [ "RTOS::TickClient< Dispatcher< T_ERROR > >", "d4/d19/a05251.html#a2bc1526fd782acbf900903fbd8e4148b", null ],
-    [ "statusChangedHook", "d4/d19/a05251.html#a7f6d7ca5ad3497f5a542fbbc18281ef6", null ]
+    [ "Command", "d4/d19/a05251.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
+    [ "RemoteAtCommand", "d4/d19/a05251.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
+    [ "RemoteAtCommand", "d4/d19/a05251.html#a772786f4856c6806756c33743f038855", null ],
+    [ "close", "d4/d19/a05251.html#acfc9182b712685cd72276c7c645330ec", null ],
+    [ "open", "d4/d19/a05251.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
+    [ "operator=", "d4/d19/a05251.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
+    [ "receive", "d4/d19/a05251.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
+    [ "send", "d4/d19/a05251.html#a68565e1939553aa4b73a44d4c6adf059", null ],
+    [ "send", "d4/d19/a05251.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
 ];

@@ -1,14 +1,16 @@
 var a05739 =
 [
-    [ "TimPwmOutput", "d1/d64/a05739.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
-    [ "~TimPwmOutput", "d1/d64/a05739.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
-    [ "TimPwmOutput", "d1/d64/a05739.html#a422a9009ca77380721da2502794a00a0", null ],
-    [ "TimPwmOutput", "d1/d64/a05739.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
-    [ "close", "d1/d64/a05739.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
-    [ "getPeriod", "d1/d64/a05739.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
-    [ "open", "d1/d64/a05739.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
-    [ "operator=", "d1/d64/a05739.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
-    [ "operator=", "d1/d64/a05739.html#a686c13d106e6d8d754e3020b7107d262", null ],
-    [ "setPeriod", "d1/d64/a05739.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
-    [ "setPulse", "d1/d64/a05739.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
+    [ "SPIPortAsync", "d1/d64/a05739.html#abce1f805b84c4710a11d7e558b87de55", null ],
+    [ "abort", "d1/d64/a05739.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
+    [ "bindBeginTransactionFunc", "d1/d64/a05739.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "d1/d64/a05739.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "d1/d64/a05739.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d1/d64/a05739.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d1/d64/a05739.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isBusy", "d1/d64/a05739.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "isOpened", "d1/d64/a05739.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d1/d64/a05739.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d1/d64/a05739.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "d1/d64/a05739.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "d1/d64/a05739.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

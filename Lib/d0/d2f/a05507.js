@@ -1,13 +1,9 @@
 var a05507 =
 [
-    [ "BackupRamDomain", "d0/d2f/a05507.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
-    [ "~BackupRamDomain", "d0/d2f/a05507.html#a3b301936cae87db14bef527c0a5629af", null ],
-    [ "BackupRamDomain", "d0/d2f/a05507.html#abf039272ad85b43415d4df28c8c0a051", null ],
-    [ "BackupRamDomain", "d0/d2f/a05507.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
-    [ "close", "d0/d2f/a05507.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
-    [ "open", "d0/d2f/a05507.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
-    [ "operator=", "d0/d2f/a05507.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
-    [ "operator=", "d0/d2f/a05507.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
-    [ "readRegister", "d0/d2f/a05507.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
-    [ "writeRegister", "d0/d2f/a05507.html#acc5002942f221da40872cb7be92706a9", null ]
+    [ "Config", "d4/da8/a05511.html", "d4/da8/a05511" ],
+    [ "ProgressBar", "d0/d2f/a05507.html#a970f34fc42d95a8a141294489bf37a53", null ],
+    [ "~ProgressBar", "d0/d2f/a05507.html#a7d7b7e408bb253ee4dbfe5f57a5f10e1", null ],
+    [ "draw", "d0/d2f/a05507.html#a88e3c9c800952e43b333f905089fd34b", null ],
+    [ "getValue", "d0/d2f/a05507.html#aa344786432eb5d0b0786e74eab934e16", null ],
+    [ "setValue", "d0/d2f/a05507.html#af2712a6a13824a5a166747d06601f650", null ]
 ];

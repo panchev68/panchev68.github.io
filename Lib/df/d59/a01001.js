@@ -1,9 +1,8 @@
 var a01001 =
 [
-    [ "RTOS::Task", "d8/d2f/a06122.html", "d8/d2f/a06122" ],
-    [ "RTOS::Task::Priority", "dc/d1e/a06126.html", "dc/d1e/a06126" ],
-    [ "RTOS::Task::State", "d2/d44/a06130.html", "d2/d44/a06130" ],
-    [ "RTOS::Task::Notify", "dc/d40/a06134.html", "dc/d40/a06134" ],
-    [ "RTOS::Task::Notify::Result", "d6/de0/a06138.html", "d6/de0/a06138" ],
-    [ "RTOS::Task::Config", "d0/d2a/a06142.html", "d0/d2a/a06142" ]
+    [ "RTOS::PowerManager", "d7/dc5/a06143.html", "d7/dc5/a06143" ],
+    [ "RTOS::PowerManager::Statistics", "d1/d10/a06147.html", "d1/d10/a06147" ],
+    [ "RTOS::PowerManager::DeepSleepLock", "d2/dc1/a06151.html", "d2/dc1/a06151" ],
+    [ "SystemClock_Config", "df/d59/a01001.html#a70af21c671abfcc773614a9a4f63d920", null ],
+    [ "vPortSuppressTicksAndSleep", "df/d59/a01001.html#af0b23788b85d579db89c2cbb6744b92f", null ]
 ];

@@ -1,4 +1,4 @@
 var a00890 =
 [
-    [ "Lib::Helper::Convert::Percent", "d5/d43/a05870.html", null ]
+    [ "Lib::Helper::Convert::Bcd", "db/d5e/a05891.html", "db/d5e/a05891" ]
 ];

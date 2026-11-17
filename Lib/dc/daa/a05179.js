@@ -1,10 +1,13 @@
 var a05179 =
 [
-    [ "Frame0x97", "dc/daa/a05179.html#a8d6d58095dc72605b19af99d9a4c2097", null ],
-    [ "atCommand", "dc/daa/a05179.html#a965406599165a7744ecbe01f6054fc9d", null ],
-    [ "commandStatus", "dc/daa/a05179.html#a1ffffd99f0fd3d9c4529ae8fd2d2f069", null ],
-    [ "frameId", "dc/daa/a05179.html#ae5cbfb88fbca17299b374c0b207128d0", null ],
-    [ "parameters", "dc/daa/a05179.html#a0716b11170a5695a6ff94920635fb32f", null ],
-    [ "srcAddr16", "dc/daa/a05179.html#a4dcf22e4dd07f8d0c0764bebb9e23721", null ],
-    [ "srcAddr64", "dc/daa/a05179.html#a146e6de04eded1ed1426630c73a3ad17", null ]
+    [ "append", "dc/daa/a05179.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
+    [ "append", "dc/daa/a05179.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
+    [ "append", "dc/daa/a05179.html#a04412e1fc3a07248441dc288c99867f6", null ],
+    [ "assign", "dc/daa/a05179.html#a056342d102635bded069d9f153268884", null ],
+    [ "assign", "dc/daa/a05179.html#ae796119895d95296e7fe754347df07d7", null ],
+    [ "clear", "dc/daa/a05179.html#a4e9638e82e027739671827a11a48a211", null ],
+    [ "getData", "dc/daa/a05179.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
+    [ "getData", "dc/daa/a05179.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
+    [ "getSize", "dc/daa/a05179.html#a391a31513797286c540adbbc99195704", null ],
+    [ "setSize", "dc/daa/a05179.html#a55130d108aa3f8d6235341814cfd4c23", null ]
 ];

@@ -1,21 +1,15 @@
 var a04539 =
 [
-    [ "Config", "d5/dd2/a04543.html", "d5/dd2/a04543" ],
-    [ "EventCode", "d0/d3d/a04539.html#a79bb5179e93b8bb7fb1dca034f1572f7", [
-      [ "BUTTON_PUSH", "d0/d3d/a04539.html#a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
-      [ "BUTTON_PULL", "d0/d3d/a04539.html#a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972", null ],
-      [ "BUTTON_HOLD", "d0/d3d/a04539.html#a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e", null ],
-      [ "ENCODER_CW", "d0/d3d/a04539.html#a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404", null ],
-      [ "ENCODER_CCW", "d0/d3d/a04539.html#a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b", null ],
-      [ "NONE", "d0/d3d/a04539.html#a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693", null ]
-    ] ],
-    [ "EncoderTimer", "d0/d3d/a04539.html#aaf07b62dc5be29307f86fc985c41c7ab", null ],
-    [ "~EncoderTimer", "d0/d3d/a04539.html#a449279e87494b389cfa1adba8e7f6b37", null ],
-    [ "EncoderTimer", "d0/d3d/a04539.html#a99753bd300ae9ecf9544bf7ba709e3f5", null ],
-    [ "EncoderTimer", "d0/d3d/a04539.html#a7d21c22284a66c9cbf8d4260a84aef01", null ],
-    [ "close", "d0/d3d/a04539.html#a9e37bcbed278df67dad753953c0e0505", null ],
-    [ "open", "d0/d3d/a04539.html#a332145ce828a12688d8de9aea070c328", null ],
-    [ "operator=", "d0/d3d/a04539.html#a6e4f9be3709b642fa4507cda01d85fc1", null ],
-    [ "operator=", "d0/d3d/a04539.html#a8f9bc205f553a774c7a25beff08602ac", null ],
-    [ "read", "d0/d3d/a04539.html#afa10c44ad4eee7779caf46410cac1255", null ]
+    [ "FlashEmulation", "d0/d3d/a04539.html#a0e75388b44cd284464c96fb9a0c7fc1f", null ],
+    [ "FlashEmulation", "d0/d3d/a04539.html#af5de4a71fd88ee41e580deb1e4a8b4e1", null ],
+    [ "FlashEmulation", "d0/d3d/a04539.html#a65b04ccc40b81a011eafa3dd70ccd280", null ],
+    [ "close", "d0/d3d/a04539.html#af34a366cd1952a3ba03b96af1976a0f6", null ],
+    [ "getFreeSpace", "d0/d3d/a04539.html#a9edbfceb64b451800f603d97a165a446", null ],
+    [ "getUsedSpace", "d0/d3d/a04539.html#aa1c59b98d1ce881640ce49d0d8b3e3ee", null ],
+    [ "isOpen", "d0/d3d/a04539.html#ab3c80c5ea91d07003acec0528aeea7af", null ],
+    [ "open", "d0/d3d/a04539.html#a8947a65dd4bc123a43147aadad6d5328", null ],
+    [ "operator=", "d0/d3d/a04539.html#ac176ad5bc133ed1cdbc6b3e8e1e402e4", null ],
+    [ "operator=", "d0/d3d/a04539.html#abd98d1e0a541c569e9a190459fdce6c8", null ],
+    [ "read", "d0/d3d/a04539.html#a3f58c8364b14419a8582e02eb79e613a", null ],
+    [ "write", "d0/d3d/a04539.html#a063c0d9941fea672cb74a10cb66f281e", null ]
 ];

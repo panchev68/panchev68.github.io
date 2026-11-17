@@ -1,4 +1,4 @@
 var a00866 =
 [
-    [ "Lib::HAL::WindowWatchdog", "dd/d9e/a05838.html", "dd/d9e/a05838" ]
+    [ "Lib::HAL::USBHostPortBase&lt; T_DERIVED &gt;", "d2/dea/a05863.html", "d2/dea/a05863" ]
 ];

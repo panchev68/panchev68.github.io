@@ -1,9 +1,7 @@
 var a04459 =
 [
-    [ "DriverBase", "de/d9e/a04459.html#a329188c9f70a21a0f421598a6fa4aea6", null ],
-    [ "~DriverBase", "de/d9e/a04459.html#a485ac6dbe46e3f7568c6ef46aeb78939", null ],
-    [ "canTransferBlock", "de/d9e/a04459.html#ad55213b27726f017dcbc465586c2b468", null ],
-    [ "getTransferActive", "de/d9e/a04459.html#abee35beb9e71effa911fc8fc30b2fbf7", null ],
-    [ "handleTransferCompleteEvent", "de/d9e/a04459.html#aee5a5b357b886ee353e04fb06a4c0ada", null ],
-    [ "setTransferActive", "de/d9e/a04459.html#af67616fc7d8d9dd4e3c92389d14bc58f", null ]
+    [ "Inputs", "d0/d18/a04463.html", "d0/d18/a04463" ],
+    [ "Outputs", "d2/de7/a04467.html", "d2/de7/a04467" ],
+    [ "inputs", "de/d9e/a04459.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "de/d9e/a04459.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];

@@ -1,19 +1,16 @@
 var a05291 =
 [
-    [ "Abort", "d8/dbd/a05291.html#a34422d4477e1d28e96ff0a570ccb0832", null ],
-    [ "Access", "d8/dbd/a05291.html#a19c1714c2af7e709205e93053af6fee9", null ],
-    [ "Handlers", "d8/dbd/a05291.html#a4dfbb7a5575c7ee9e62bfeab0e6aca45", null ],
-    [ "Object", "d8/dbd/a05291.html#a827cdba5edb655bcc4f5784b4a4e893d", null ],
-    [ "ObjectInfo", "d8/dbd/a05291.html#a35b9281b5d29eae7fab95112ba1e5115", null ],
-    [ "CoE", "d8/dbd/a05291.html#aaf9d8025b89e7899d8cb2c83ae135e45", null ],
-    [ "~CoE", "d8/dbd/a05291.html#ac46699d9659c29b73d7c01ca84cbfb5f", null ],
-    [ "CoE", "d8/dbd/a05291.html#a71024e33a92eff3dd5b442e02f0b9425", null ],
-    [ "CoE", "d8/dbd/a05291.html#a7b986f95ef2d9b17a078924eddf7d17c", null ],
-    [ "find", "d8/dbd/a05291.html#afca119caf11fde38cdab46d3d4205107", null ],
-    [ "handle", "d8/dbd/a05291.html#afdb20681a34fcdfcb78cf75a78ce0347", null ],
-    [ "operator=", "d8/dbd/a05291.html#ac45513fde48737f49471c84707ec42fa", null ],
-    [ "operator=", "d8/dbd/a05291.html#aaa3b4bee41d8960bb544d7299a183270", null ],
-    [ "reset", "d8/dbd/a05291.html#ab2c195af5b9a058b13b9b6cca0f9159f", null ],
-    [ "service", "d8/dbd/a05291.html#aaa57403f24de4e0bd9670919c80376ac", null ],
-    [ "setHandlers", "d8/dbd/a05291.html#abfa900feff906b9e829ef4ac5da55711", null ]
+    [ "Container", "d8/dbd/a05291.html#a841797ffcee30732b12660006d8397bd", null ],
+    [ "Status", "d8/dbd/a05291.html#a577acdd119b66063413debe6a438470f", [
+      [ "STATUS_CHANGED", "d8/dbd/a05291.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "d8/dbd/a05291.html#a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "Dispatcher", "d8/dbd/a05291.html#aa0833a585d6be678d415f7b6a08c516c", null ],
+    [ "Dispatcher", "d8/dbd/a05291.html#a3a18ea72deb2fa22c44ec99f3f8e1e26", null ],
+    [ "createError", "d8/dbd/a05291.html#a407182f37d2b8174f02693ab5f91c8d8", null ],
+    [ "operator=", "d8/dbd/a05291.html#a6b5e5ae1add85447ebdc4ab0f64a8761", null ],
+    [ "operator=", "d8/dbd/a05291.html#aa962d0278c430ad4453c6cb8fc816f05", null ],
+    [ "start", "d8/dbd/a05291.html#a3ef04bebfe4813071fa54045b76177dd", null ],
+    [ "RTOS::TickClient< Dispatcher< T_ERROR > >", "d8/dbd/a05291.html#a2bc1526fd782acbf900903fbd8e4148b", null ],
+    [ "statusChangedHook", "d8/dbd/a05291.html#a7f6d7ca5ad3497f5a542fbbc18281ef6", null ]
 ];

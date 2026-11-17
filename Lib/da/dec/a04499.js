@@ -1,19 +1,9 @@
 var a04499 =
 [
     [ "Config", "d2/d71/a04503.html", "d2/d71/a04503" ],
-    [ "Driver", "da/dec/a04499.html#ad08435e7ab04b1447660c851f626b703", null ],
-    [ "~Driver", "da/dec/a04499.html#aa6102b0396341784835c07a1ce9a127a", null ],
-    [ "Driver", "da/dec/a04499.html#af6f8c45fa76cc4cdc69a8d3131ee043d", null ],
-    [ "Driver", "da/dec/a04499.html#a7768b7b6fa2ec552019ebed7d7728e4c", null ],
-    [ "close", "da/dec/a04499.html#a379c6a49e0b3c1c663020582e61d6887", null ],
-    [ "getChipSize", "da/dec/a04499.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
-    [ "open", "da/dec/a04499.html#ababf497720b16b51762103ca82e56f49", null ],
-    [ "operator=", "da/dec/a04499.html#afe0439b5fd16b15fa6196111c14e70ef", null ],
-    [ "operator=", "da/dec/a04499.html#aa79821ce37ce3fca38aaaa91e94ddf75", null ],
-    [ "read", "da/dec/a04499.html#a54927e78496718fcd7a9cb0e02767604", null ],
-    [ "read16", "da/dec/a04499.html#a41825423769f79dd77cb1e77736e6e2a", null ],
-    [ "read8", "da/dec/a04499.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
-    [ "write", "da/dec/a04499.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
-    [ "write16", "da/dec/a04499.html#a1736b59146de0f5cacdb663197cd061e", null ],
-    [ "write8", "da/dec/a04499.html#a299a926321f0db8d9eac8527198f28fc", null ]
+    [ "Driver", "da/dec/a04499.html#a1d8e503b6726e6008abf411810b2191d", null ],
+    [ "~Driver", "da/dec/a04499.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
+    [ "handleTransferCompleteEvent", "da/dec/a04499.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
+    [ "setup", "da/dec/a04499.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
+    [ "transmitBlock", "da/dec/a04499.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
 ];

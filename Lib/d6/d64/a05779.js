@@ -1,18 +1,14 @@
 var a05779 =
 [
-    [ "EventHandler", "d6/d64/a05779.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
-    [ "USBDevicePort", "d6/d64/a05779.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
-    [ "~USBDevicePort", "d6/d64/a05779.html#a380acfe834fbf265a2fdfe8e26550867", null ],
-    [ "abort", "d6/d64/a05779.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
-    [ "close", "d6/d64/a05779.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d6/d64/a05779.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d6/d64/a05779.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d6/d64/a05779.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d6/d64/a05779.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d6/d64/a05779.html#add4fb8ab17eac13116050ae3c8237acf", null ],
-    [ "send", "d6/d64/a05779.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
-    [ "setEventHandler", "d6/d64/a05779.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
-    [ "submitReceive", "d6/d64/a05779.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
-    [ "submitSend", "d6/d64/a05779.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
-    [ "waitForEvent", "d6/d64/a05779.html#ac98dece292bb17828882e8d61e803880", null ]
+    [ "TimPwmOutput", "d6/d64/a05779.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
+    [ "~TimPwmOutput", "d6/d64/a05779.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
+    [ "TimPwmOutput", "d6/d64/a05779.html#a422a9009ca77380721da2502794a00a0", null ],
+    [ "TimPwmOutput", "d6/d64/a05779.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
+    [ "close", "d6/d64/a05779.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
+    [ "getPeriod", "d6/d64/a05779.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
+    [ "open", "d6/d64/a05779.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
+    [ "operator=", "d6/d64/a05779.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
+    [ "operator=", "d6/d64/a05779.html#a686c13d106e6d8d754e3020b7107d262", null ],
+    [ "setPeriod", "d6/d64/a05779.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
+    [ "setPulse", "d6/d64/a05779.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
 ];

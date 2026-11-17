@@ -1,14 +1,15 @@
 var a06127 =
 [
-    [ "Label", "df/d5c/a06127.html#a98d823750bde45aebd4db31f4086821e", [
-      [ "RUNNING", "df/d5c/a06127.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "READY", "df/d5c/a06127.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "BLOCKED", "df/d5c/a06127.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
-      [ "SUSPENDED", "df/d5c/a06127.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
-      [ "DELETED", "df/d5c/a06127.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
-      [ "INVALID", "df/d5c/a06127.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
+    [ "Status", "df/d5c/a06127.html#a12545d9824f6613ee89191861f120584", [
+      [ "SUCCESS", "df/d5c/a06127.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "INVALID_SIZE", "df/d5c/a06127.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
+      [ "OUT_OF_MEMORY", "df/d5c/a06127.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
+      [ "SIZE_TOO_LARGE", "df/d5c/a06127.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
     ] ],
-    [ "State", "df/d5c/a06127.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
-    [ "get", "df/d5c/a06127.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
-    [ "operator Label", "df/d5c/a06127.html#a3c30086da2d01872c5cdccdba1874c74", null ]
+    [ "MemoryManager", "df/d5c/a06127.html#a11985e607e9d0df1a66531314e37b38b", null ],
+    [ "~MemoryManager", "df/d5c/a06127.html#a71e750b42ae7c18640c58654a6e54687", null ],
+    [ "MemoryManager", "df/d5c/a06127.html#a7045943a317adab019e38e7c6bf2de73", null ],
+    [ "MemoryManager", "df/d5c/a06127.html#a89bca016476ef966223eb6841d5cc034", null ],
+    [ "operator=", "df/d5c/a06127.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
+    [ "operator=", "df/d5c/a06127.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
 ];

@@ -1,4 +1,5 @@
 var a00977 =
 [
-    [ "RTOS::MutexGuard", "d2/d6d/a06086.html", "d2/d6d/a06086" ]
+    [ "Lib::Pneumatics::RotationCylinder", "d8/d7a/a06083.html", "d8/d7a/a06083" ],
+    [ "Lib::Pneumatics::RotationCylinder::Config", "df/df6/a06087.html", "df/df6/a06087" ]
 ];

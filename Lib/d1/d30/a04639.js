@@ -1,13 +1,17 @@
 var a04639 =
 [
-    [ "Power", "d1/d30/a04639.html#af2064ef23cdc3d14a2a9a5e5c9ab2b8e", null ],
-    [ "hardReset", "d1/d30/a04639.html#a4a97d410838feb9faea50b34948d313d", null ],
-    [ "isAsleep", "d1/d30/a04639.html#a146b6c17667d99ba4b4d919d98959641", null ],
-    [ "isOn", "d1/d30/a04639.html#a2cc49b087c846d65af5aaab43d0b4803", null ],
-    [ "isStatusHigh", "d1/d30/a04639.html#acfea3f32a8e3c53a7ce0118d81ed3d20", null ],
-    [ "off", "d1/d30/a04639.html#a00662a719223d2d8dea3e0567d1cc7a8", null ],
-    [ "on", "d1/d30/a04639.html#a9ef3fdbe071a7ca9a6d48b660c068c44", null ],
-    [ "setSavingMode", "d1/d30/a04639.html#a181f9d4d8e952e84f202734e77c8cb85", null ],
-    [ "sleep", "d1/d30/a04639.html#a3100efc86fbfd79c1db3d66caeda4b3e", null ],
-    [ "wakeUp", "d1/d30/a04639.html#aca2cbd553202896c84c23e75d49ddd9e", null ]
+    [ "DriverBase", "d1/d30/a04639.html#a5eafa5f0d53866cb78471368f7297754", null ],
+    [ "~DriverBase", "d1/d30/a04639.html#a5205dedf63ce60a8439a4fdd8ff7950b", null ],
+    [ "close", "d1/d30/a04639.html#a71f952f5639e0a0d0d7c1af2c3f0dbc0", null ],
+    [ "eraseChip", "d1/d30/a04639.html#a32148377b4274abf28db1beb3d12ea11", null ],
+    [ "eraseSector", "d1/d30/a04639.html#a23c3062b24d15e58237ddb109c474b74", null ],
+    [ "getInfo", "d1/d30/a04639.html#ad6c747b02c7f3e3781d0bb8d4da5a8c2", null ],
+    [ "getStatus", "d1/d30/a04639.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
+    [ "open", "d1/d30/a04639.html#a5d093e457b6ea6877ea0bfccc4007122", null ],
+    [ "read", "d1/d30/a04639.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
+    [ "write", "d1/d30/a04639.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
+    [ "info", "d1/d30/a04639.html#aca8a7487175e31060363fe99270e69a3", null ],
+    [ "nss", "d1/d30/a04639.html#a6cad70d123e273b88f244598cc93a22b", null ],
+    [ "spiPort", "d1/d30/a04639.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
+    [ "status", "d1/d30/a04639.html#af95471bb260264403e3df2dc07b80419", null ]
 ];

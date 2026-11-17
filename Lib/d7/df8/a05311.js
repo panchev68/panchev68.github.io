@@ -1,18 +1,18 @@
 var a05311 =
 [
-    [ "Handlers", "d7/df8/a05311.html#a272ea34043ce0f3bb7014fc2c4df927e", null ],
-    [ "Parameters", "d7/df8/a05311.html#a4d66198ad9a9b1a75925e1a97dbc5fb9", null ],
-    [ "Result", "d7/df8/a05311.html#a6870bc1d903b1d83b238ba51088eb134", null ],
-    [ "EoE", "d7/df8/a05311.html#a57ce3b2cab796d2623bc80be2bc75e80", null ],
-    [ "~EoE", "d7/df8/a05311.html#a5babb7f332ba38f3e2e33203e39e615d", null ],
-    [ "EoE", "d7/df8/a05311.html#a07829bbfc5250b03c81968ebd709bf4e", null ],
-    [ "EoE", "d7/df8/a05311.html#ac52aa3b6cbf2a17e467cfba61ddbf48e", null ],
-    [ "handle", "d7/df8/a05311.html#a41416e8882dd613876cb3a6bcbfc9b44", null ],
-    [ "isSendPending", "d7/df8/a05311.html#a91f842049f97f5f7055e5a7f6de7c6ac", null ],
-    [ "operator=", "d7/df8/a05311.html#a82f98b2311b36aea43517d9a31df5d08", null ],
-    [ "operator=", "d7/df8/a05311.html#ae9237ef17cddb3bf83d5e2b41580c4af", null ],
-    [ "queueFrame", "d7/df8/a05311.html#a2afc345b5bcd9326d015eb678e620201", null ],
-    [ "reset", "d7/df8/a05311.html#a85ee64bff9f15d5ace7999ebdb5643ef", null ],
-    [ "service", "d7/df8/a05311.html#a4d41465f94d62fdbab816ab8d8ebd674", null ],
-    [ "setHandlers", "d7/df8/a05311.html#a6b26ad71662f36a666db683b5755a119", null ]
+    [ "Observer", "d7/df8/a05311.html#afe02160d2037b3473348b6a8101ce02b", null ],
+    [ "Observer", "d7/df8/a05311.html#a9f77eb8776932e4e0191d50f3703f0ff", null ],
+    [ "Observer", "d7/df8/a05311.html#afc4ae49baad10a972ffdb6c524333fe2", null ],
+    [ "Observer", "d7/df8/a05311.html#adc48af5af4516461e5f6d18b3cbd825a", null ],
+    [ "Observer", "d7/df8/a05311.html#ad82de88a0dfd9483e5d22acbba9d4e13", null ],
+    [ "~Observer", "d7/df8/a05311.html#a9697518dee56240bb69c649f98c7ea00", null ],
+    [ "check", "d7/df8/a05311.html#a62a61f576a7da92378d07601ab84c86b", null ],
+    [ "forEach", "d7/df8/a05311.html#a0bc7d57fe41425f15a2d06cdd4d12a03", null ],
+    [ "getGroup", "d7/df8/a05311.html#ad46566158066e38be9c6b52569ed95b0", null ],
+    [ "matches", "d7/df8/a05311.html#af4fa18de8bd3a0f30d101d8451bc3127", null ],
+    [ "number", "d7/df8/a05311.html#a21efb6d92b106ecb679f58b9d826aadd", null ],
+    [ "operator const Group *", "d7/df8/a05311.html#a38eb70d1a029f0026c698ce34b4bc9a0", null ],
+    [ "operator=", "d7/df8/a05311.html#af81560f6bffed718145291161ce0cbb7", null ],
+    [ "operator=", "d7/df8/a05311.html#a01b7acf596bb8d3c1566060b17df2974", null ],
+    [ "read", "d7/df8/a05311.html#a51117f0d8d5bbb482a585d7af71a390a", null ]
 ];

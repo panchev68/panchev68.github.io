@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::USB::CDCDevice</title>
+<title>IAR EWARM Library: Lib::HAL::RTCDevice</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,94 +129,73 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d20/a06437.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::USB::CDCDevice</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::RTCDevice</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a USB virtual COM port (<a class="el" href="../../de/d20/a06437.html" title="Lib::USB::CDCDevice">Lib::USB::CDCDevice</a>) that echoes the received bytes back to the host.</p>
-<p>Demonstrates a USB virtual COM port (<a class="el" href="../../de/d20/a06437.html" title="Lib::USB::CDCDevice">Lib::USB::CDCDevice</a>) that echoes the received bytes back to the host.The device answers the enumeration and the CDC class requests in the USB interrupt, so a host can enumerate the port without any task running. Clock, pins and the USB interrupt stay in the CubeMX code (<b>HAL_PCD_MspInit()</b> and the USB interrupt calling <b>HAL_PCD_IRQHandler()</b>). <a class="el" href="../../d8/d45/a06251.html#a413023729a8480cdd9c834fa089163e8" title="Lib::USB::CDCDevice::read()">Lib::USB::CDCDevice::read()</a> and <a class="el" href="../../d8/d45/a06251.html#aae8ec892d4f13050681e77062b651054" title="Lib::USB::CDCDevice::write()">Lib::USB::CDCDevice::write()</a> are for task context only, so the echo runs in its own task. <a class="el" href="../../d8/d45/a06251.html#aae8ec892d4f13050681e77062b651054" title="Lib::USB::CDCDevice::write()">Lib::USB::CDCDevice::write()</a> fails early until the host has selected the configuration, so the task waits for <a class="el" href="../../d8/d45/a06251.html#a305d79f8cbcefeee5562a1a06a67e674" title="Lib::USB::CDCDevice::getIsConfigured()">Lib::USB::CDCDevice::getIsConfigured()</a> first.</p>
+<p>Reads and sets the real-time clock with <a class="el" href="../../de/d20/a06437.html" title="Lib::HAL::RTCDevice">Lib::HAL::RTCDevice</a> and delivers a once-per-second tick to an observer from a worker task.</p>
+<p>Reads and sets the real-time clock with <a class="el" href="../../de/d20/a06437.html" title="Lib::HAL::RTCDevice">Lib::HAL::RTCDevice</a> and delivers a once-per-second tick to an observer from a worker task.The device registers itself with <a class="el" href="../../df/da9/a06417.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a> on construction, so the HAL alarm callback can map the native handle back to the instance. startTickService() creates an RTOS task and arms Alarm A; the observer is a non-owning <a class="el" href="../../df/db7/a05715.html#a0a60ddd5d190a0aaa1bbe1c7e6d62c59" title="Lib::HAL::RTCDevice::Callback">Lib::HAL::RTCDevice::Callback</a>, so the function it refers to must outlive the service.</p>
+<p>The header defines the C-linkage <b>HAL_RTC_AlarmAEventCallback()</b> itself. Do not define that callback in CubeMX user code or anywhere else, or the link fails with a duplicate symbol.</p>
+<dl class="section important"><dt>Important</dt><dd>The RTC is available on every STM32F4xx family, including the STM32F407xx target of this library. The module guard is <em class="arg">HAL_RTC_MODULE_ENABLED</em>; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so that guard is unverified here, although the STM32Cube template enables it.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="../../df/db7/a05715.html#a9911cafdfc9189dd93f7eb0494ffd54a" title="Lib::HAL::RTCDevice::setDateTime()">Lib::HAL::RTCDevice::setDateTime()</a> and <a class="el" href="../../df/db7/a05715.html#a653f2f434ecec9a018b72fd9101db1d0" title="Lib::HAL::RTCDevice::startTickService()">Lib::HAL::RTCDevice::startTickService()</a> assert that they run in task context, not in an ISR. <a class="el" href="../../df/db7/a05715.html#acdd2b9c31ba35c63f5873309d8f0130e" title="Lib::HAL::RTCDevice::stopTickService()">Lib::HAL::RTCDevice::stopTickService()</a> blocks until the worker task exits. Called from the tick observer itself, it only requests the stop and must not wait on the worker, so the observer must return.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="cdc_usage_echo"></a>
-Echo task</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d27/a01043.html">Lib/USB/CDCDevice.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="rtc_usage_read"></a>
+Read and set date and time</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/dd4/a00776.html">Lib/HAL/RTC/RTCDevice.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;usb_otg.h&quot;</span> <span class="comment">// CubeMX: declares the USB controller handle &#39;hpcd_USB_OTG_FS&#39;.</span></div>
+<div class="line"><span class="keyword">extern</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a> hrtc; <span class="comment">// Generated by CubeMX.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d22/a01049.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"><span class="keyword">static</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../df/db7/a05715.html">Lib::HAL::RTCDevice</a> rtcDevice(&amp;hrtc);</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>UsbEcho {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a0" name="_a0"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!device.start()) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        task.setup({<span class="stringliteral">&quot;UsbEcho&quot;</span>, 256, <a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../d4/d17/a06123.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>});</div>
-<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
+<div class="line"><span class="keywordtype">void</span> setInitialClock() noexcept {</div>
+<div class="line">    <span class="keyword">const</span> <a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d1/d27/a05723.html">Lib::HAL::RTCDevice::Time</a> time{.hours = 12U, .minutes = 30U, .seconds = 0U};</div>
+<div class="line">    <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_struct" href="../../d8/d2e/a05719.html">Lib::HAL::RTCDevice::Date</a> date{.year = 26U, .month = 11U, .day = 13U, .weekDay = <a id="_a4" name="_a4"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d4/d95/a00989.html#ga3755707d628f4664c30d02fd2a2f0182">RTC_WEEKDAY_FRIDAY</a>};</div>
+<div class="line">    <span class="keywordflow">if</span> (!rtcDevice.setDateTime(time, date)) {</div>
+<div class="line">        <span class="comment">// The HAL refused the write; the clock keeps its previous value.</span></div>
 <div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00776_html"><div class="ttname"><a href="../../d9/dd4/a00776.html">RTCDevice.hpp</a></div><div class="ttdoc">Event-driven interface to the STM32 Real-Time Clock peripheral.</div></div>
+<div class="ttc" id="aa00989_html_ga3755707d628f4664c30d02fd2a2f0182"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d4/d95/a00989.html#ga3755707d628f4664c30d02fd2a2f0182">RTC_WEEKDAY_FRIDAY</a></div><div class="ttdeci">#define RTC_WEEKDAY_FRIDAY</div></div>
+<div class="ttc" id="aa01512_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa05715_html"><div class="ttname"><a href="../../df/db7/a05715.html">Lib::HAL::RTCDevice</a></div><div class="ttdoc">Controls the microcontroller Real-Time Clock calendar structures with event notifications.</div><div class="ttdef"><b>Definition</b> RTCDevice.hpp:50</div></div>
+<div class="ttc" id="aa05719_html"><div class="ttname"><a href="../../d8/d2e/a05719.html">Lib::HAL::RTCDevice::Date</a></div><div class="ttdoc">Calendar date fields in the HAL binary format.</div><div class="ttdef"><b>Definition</b> RTCDevice.hpp:63</div></div>
+<div class="ttc" id="aa05723_html"><div class="ttname"><a href="../../d1/d27/a05723.html">Lib::HAL::RTCDevice::Time</a></div><div class="ttdoc">Time-of-day fields in the HAL binary format.</div><div class="ttdef"><b>Definition</b> RTCDevice.hpp:73</div></div>
+</div><!-- fragment --><p>The weekday must agree with the day of the month; <a class="el" href="../../df/db7/a05715.html#a9911cafdfc9189dd93f7eb0494ffd54a" title="Lib::HAL::RTCDevice::setDateTime()">Lib::HAL::RTCDevice::setDateTime()</a> checks only that it lies between <em class="arg">RTC_WEEKDAY_MONDAY</em> and <em class="arg">RTC_WEEKDAY_SUNDAY</em>.</p>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="rtc_usage_tick"></a>
+Per-second tick observer</h3>
+<p>The observer runs in the worker task, so it may call RTOS services, but it must not block for longer than one second or the next tick is delayed.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/dd4/a00776.html">Lib/HAL/RTC/RTCDevice.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">bool</span> isStopped = task.stop();</div>
-<div class="line">        device.stop();</div>
-<div class="line">        <span class="keywordflow">return</span> isStopped;</div>
-<div class="line">    }</div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a> hrtc; <span class="comment">// Generated by CubeMX.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"><span class="keyword">static</span> <a class="code hl_class" href="../../df/db7/a05715.html">Lib::HAL::RTCDevice</a> rtcDevice(&amp;hrtc);</div>
 <div class="line"> </div>
-<div class="line">    Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::IT&gt; port{&amp;<a id="_a3" name="_a3"></a><a class="code hl_variable" href="../../da/d17/a01046.html#a3ec0d70a6cb9406d997fb3d006cc940d">hpcd_USB_OTG_FS</a>};</div>
+<div class="line"><span class="keywordtype">void</span> onTick(<span class="keyword">const</span> <a class="code hl_struct" href="../../d1/d27/a05723.html">Lib::HAL::RTCDevice::Time</a> &amp; time, <span class="keyword">const</span> <a class="code hl_struct" href="../../d8/d2e/a05719.html">Lib::HAL::RTCDevice::Date</a> &amp; date) {</div>
+<div class="line">    <span class="comment">// Update the display or log the time. Keep it short.</span></div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(time);</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(date);</div>
+<div class="line">}</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d8/d45/a06251.html">Lib::USB::CDCDevice</a> device{<a id="_a5" name="_a5"></a><a class="code hl_struct" href="../../de/dac/a06255.html">Lib::USB::CDCDevice::Config</a>{</div>
-<div class="line">        .port = port,</div>
-<div class="line">        .vendorId = 0x0483U,</div>
-<div class="line">        .productId = 0x5740U,</div>
-<div class="line">        .releaseNumber = 0x0100U,</div>
-<div class="line">        .manufacturer = <span class="stringliteral">&quot;Senstate&quot;</span>,</div>
-<div class="line">        .product = <span class="stringliteral">&quot;Virtual COM Port&quot;</span>,</div>
-<div class="line">        .serialNumber = <span class="stringliteral">&quot;0001&quot;</span>,</div>
-<div class="line">    }};</div>
+<div class="line"><span class="keywordtype">bool</span> startClockTicks() noexcept {</div>
+<div class="line">    <span class="keywordflow">return</span> rtcDevice.startTickService(onTick);</div>
+<div class="line">}</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../db/d9d/a06119.html">RTOS::Task</a> task;</div>
+<div class="line"><span class="keywordtype">void</span> stopClockTicks() noexcept {</div>
+<div class="line">    rtcDevice.stopTickService();</div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="rtc_usage_error"></a>
+Error path</h3>
+<p><a class="el" href="../../df/db7/a05715.html#a653f2f434ecec9a018b72fd9101db1d0" title="Lib::HAL::RTCDevice::startTickService()">Lib::HAL::RTCDevice::startTickService()</a> returns <em class="arg">false</em> when the service already runs, and also when the observer is unbound (which asserts in a debug build), when the worker task cannot be created, or when the Alarm A configuration is refused. In the last two cases the service is left stopped, so a retry is safe. <a class="el" href="../../df/db7/a05715.html#ad950fdd81c82bb7ecbe2f6f0a896c573" title="Lib::HAL::RTCDevice::getDateTime()">Lib::HAL::RTCDevice::getDateTime()</a> returns <em class="arg">false</em> when either HAL read fails; the output parameters are then not written and must not be used.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/dd4/a00776.html">Lib/HAL/RTC/RTCDevice.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <a id="_a7" name="_a7"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array&lt;uint8_t, 64&gt;</a> buffer{};</div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keywordflow">if</span> (!device.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d8/d45/a06251.html#a305d79f8cbcefeee5562a1a06a67e674">getIsConfigured</a>()) {</div>
-<div class="line">                <a id="a9" name="a9"></a><a class="code hl_function" href="../../db/d9d/a06119.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a>(100ms);</div>
-<div class="line">                <span class="keywordflow">continue</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a id="_a10" name="_a10"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a> = device.<a id="a11" name="a11"></a><a class="code hl_function" href="../../d8/d45/a06251.html#a413023729a8480cdd9c834fa089163e8">read</a>(buffer, 500ms);</div>
-<div class="line">            <span class="keywordflow">if</span> (<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a> &gt; 0U) {</div>
-<div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(device.<a id="a12" name="a12"></a><a class="code hl_function" href="../../d8/d45/a06251.html#aae8ec892d4f13050681e77062b651054">write</a>(std::span&lt;const uint8_t&gt;(buffer.data(), <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>), 100ms));</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa01043_html"><div class="ttname"><a href="../../d8/d27/a01043.html">CDCDevice.hpp</a></div><div class="ttdoc">USB CDC-ACM device (virtual COM port) on top of &#39;Lib::HAL::USBDevicePort&#39;.</div></div>
-<div class="ttc" id="aa01046_html_a3ec0d70a6cb9406d997fb3d006cc940d"><div class="ttname"><a href="../../da/d17/a01046.html#a3ec0d70a6cb9406d997fb3d006cc940d">hpcd_USB_OTG_FS</a></div><div class="ttdeci">PCD_HandleTypeDef hpcd_USB_OTG_FS</div></div>
-<div class="ttc" id="aa01049_html"><div class="ttname"><a href="../../d0/d22/a01049.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01627_html_ga5a30c8541e506f4962cb5103a18f1fd1"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a></div><div class="ttdeci">constexpr iterator_traits&lt; _InputIterator &gt;::difference_type count(_InputIterator __first, _InputIterator __last, const _Tp &amp;__value)</div></div>
-<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
-<div class="ttc" id="aa01692_html_aaf6b4883d69cf5ba182f4f29a103cc4b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a></div><div class="ttdeci">constexpr auto end(_Container &amp;__cont) -&gt; decltype(__cont.end())</div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa06119_html"><div class="ttname"><a href="../../db/d9d/a06119.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
-<div class="ttc" id="aa06119_html_a1c0c1a0a57ee9332e741c8422eebbffe"><div class="ttname"><a href="../../db/d9d/a06119.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType ticks) noexcept</div><div class="ttdoc">Delays the calling task for the given number of ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:748</div></div>
-<div class="ttc" id="aa06123_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d4/d17/a06123.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:89</div></div>
-<div class="ttc" id="aa06251_html"><div class="ttname"><a href="../../d8/d45/a06251.html">Lib::USB::CDCDevice</a></div><div class="ttdoc">CDC-ACM virtual COM port with a single data interface.</div><div class="ttdef"><b>Definition</b> CDCDevice.hpp:43</div></div>
-<div class="ttc" id="aa06251_html_a305d79f8cbcefeee5562a1a06a67e674"><div class="ttname"><a href="../../d8/d45/a06251.html#a305d79f8cbcefeee5562a1a06a67e674">Lib::USB::CDCDevice::getIsConfigured</a></div><div class="ttdeci">bool getIsConfigured() const noexcept</div><div class="ttdoc">Reports whether the host selected the configuration, i.e.</div><div class="ttdef"><b>Definition</b> CDCDevice.hpp:247</div></div>
-<div class="ttc" id="aa06251_html_a413023729a8480cdd9c834fa089163e8"><div class="ttname"><a href="../../d8/d45/a06251.html#a413023729a8480cdd9c834fa089163e8">Lib::USB::CDCDevice::read</a></div><div class="ttdeci">size_t read(std::span&lt; uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</div><div class="ttdoc">Receives bytes the host sent.</div><div class="ttdef"><b>Definition</b> CDCDevice.hpp:228</div></div>
-<div class="ttc" id="aa06251_html_aae8ec892d4f13050681e77062b651054"><div class="ttname"><a href="../../d8/d45/a06251.html#aae8ec892d4f13050681e77062b651054">Lib::USB::CDCDevice::write</a></div><div class="ttdeci">size_t write(std::span&lt; const uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</div><div class="ttdoc">Sends bytes to the host and waits until the host has taken them.</div><div class="ttdef"><b>Definition</b> CDCDevice.hpp:198</div></div>
-<div class="ttc" id="aa06255_html"><div class="ttname"><a href="../../de/dac/a06255.html">Lib::USB::CDCDevice::Config</a></div><div class="ttdoc">Parameters of the device and its buffers.</div><div class="ttdef"><b>Definition</b> CDCDevice.hpp:51</div></div>
+<div class="line"><span class="keyword">extern</span> <a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dc/d57/a01512.html">RTC_HandleTypeDef</a> hrtc; <span class="comment">// Generated by CubeMX.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">static</span> <a class="code hl_class" href="../../df/db7/a05715.html">Lib::HAL::RTCDevice</a> rtcDevice(&amp;hrtc);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> readClock(<a class="code hl_struct" href="../../d1/d27/a05723.html">Lib::HAL::RTCDevice::Time</a> &amp; time, <a class="code hl_struct" href="../../d8/d2e/a05719.html">Lib::HAL::RTCDevice::Date</a> &amp; date) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> rtcDevice.getDateTime(time, date);</div>
+<div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

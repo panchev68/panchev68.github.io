@@ -1,10 +1,5 @@
 var a05899 =
 [
-    [ "PeakInfo", "db/d12/a05903.html", "db/d12/a05903" ],
-    [ "FindPeaks", "d8/d88/a05899.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
-    [ "addSample", "d8/d88/a05899.html#af68c408bdc213c13c758fceb90fdf51e", null ],
-    [ "getCount", "d8/d88/a05899.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
-    [ "getFallingPeak", "d8/d88/a05899.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
-    [ "getRisingPeak", "d8/d88/a05899.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
-    [ "reset", "d8/d88/a05899.html#a176df2aab4c0e044fe550ca813f88168", null ]
+    [ "DecimalDigits", "d8/d88/a05899.html#a7f58f0c943d4e885231b11dbd0697d08", null ],
+    [ "HexDigits", "d8/d88/a05899.html#a73d7051255379fed271d86e4b50887f4", null ]
 ];

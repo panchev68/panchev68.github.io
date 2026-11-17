@@ -1,7 +1,4 @@
 var a05891 =
 [
-    [ "Delay", "db/d5e/a05891.html#ae05989164bd1c17d9508a274c9c8efc6", null ],
-    [ "~Delay", "db/d5e/a05891.html#abab8b5337f9a0a494dc33f550b7d898b", null ],
-    [ "Delay", "db/d5e/a05891.html#a1cb3786f2784e6c6c42979b9860a5c4b", null ],
-    [ "operator=", "db/d5e/a05891.html#a62e0ff423d0e589d0757d35725eaf0b2", null ]
+    [ "Digits", "db/d5e/a05891.html#a6d4a05d6f245e02cf8f764801f23f0fc", null ]
 ];

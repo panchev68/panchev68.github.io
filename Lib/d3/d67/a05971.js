@@ -1,9 +1,12 @@
 var a05971 =
 [
-    [ "Config", "d5/dc4/a05975.html", "d5/dc4/a05975" ],
-    [ "Kalman", "d3/d67/a05971.html#a3e7cb33fc02e4a9f5cfd0b36a190e1cb", null ],
-    [ "~Kalman", "d3/d67/a05971.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
-    [ "operator()", "d3/d67/a05971.html#a58b5b7eb34e36d03a11115994cbea0cb", null ],
-    [ "reset", "d3/d67/a05971.html#a677e8869d39da510437c9dd8adf43848", null ],
-    [ "setParam", "d3/d67/a05971.html#a086aa45da9c828d66507b2a2ce2c2f09", null ]
+    [ "Sunset", "d3/d67/a05971.html#a402a1203f51a88c0d732a65d431084b2", null ],
+    [ "Sunset", "d3/d67/a05971.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
+    [ "calculateSunTime", "d3/d67/a05971.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
+    [ "computeHourAngle", "d3/d67/a05971.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
+    [ "setCurrentDate", "d3/d67/a05971.html#a0598ea08f953291be6bd331b39254b2a", null ],
+    [ "setCurrentDate", "d3/d67/a05971.html#a29094e288d78ced6c06c9652828bb343", null ],
+    [ "setPosition", "d3/d67/a05971.html#afbc858a5944c47609616f459b657339b", null ],
+    [ "sunrise", "d3/d67/a05971.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
+    [ "sunset", "d3/d67/a05971.html#a3bea9bb96761c55203633434195d87c4", null ]
 ];

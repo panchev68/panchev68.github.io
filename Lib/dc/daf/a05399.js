@@ -1,9 +1,14 @@
 var a05399 =
 [
-    [ "FontScope", "dc/daf/a05399.html#afb51acf5f900afa24daddd98d53a4f16", null ],
-    [ "~FontScope", "dc/daf/a05399.html#a7ba17ca2985cf1fd5ee2c2cba69cae96", null ],
-    [ "FontScope", "dc/daf/a05399.html#ae2ac273810904a0e55683d3f687a075e", null ],
-    [ "FontScope", "dc/daf/a05399.html#abfadcacb673353bcec5428ce22f232fe", null ],
-    [ "operator=", "dc/daf/a05399.html#adc1fb9cebc3b57c497930841e36c23ce", null ],
-    [ "operator=", "dc/daf/a05399.html#a14b3211ff5f705efaa52316e61ec4faa", null ]
+    [ "PortString", "dc/daf/a05399.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
+    [ "Port", "dc/daf/a05399.html#a0cdcdcee9376806af5c6778670685c80", null ],
+    [ "Port", "dc/daf/a05399.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
+    [ "fromString", "dc/daf/a05399.html#af096519c074646658fc5d42017770060", null ],
+    [ "get", "dc/daf/a05399.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
+    [ "get", "dc/daf/a05399.html#a74efeaeccbeb41630891ddb4725470a5", null ],
+    [ "operator uint16_t", "dc/daf/a05399.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
+    [ "operator<=>", "dc/daf/a05399.html#a5db32af54d9bdde977000618e7b6d476", null ],
+    [ "operator=", "dc/daf/a05399.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
+    [ "set", "dc/daf/a05399.html#a1de553c3b996aee8be2112632f45ee1b", null ],
+    [ "toString", "dc/daf/a05399.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
 ];

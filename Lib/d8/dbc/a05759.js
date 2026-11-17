@@ -1,13 +1,14 @@
 var a05759 =
 [
-    [ "UARTPort", "d8/dbc/a05759.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
-    [ "~UARTPort", "d8/dbc/a05759.html#a379b29de4717643896518dcc44558b2d", null ],
-    [ "abort", "d8/dbc/a05759.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "d8/dbc/a05759.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d8/dbc/a05759.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d8/dbc/a05759.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d8/dbc/a05759.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d8/dbc/a05759.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d8/dbc/a05759.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "d8/dbc/a05759.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
+    [ "TimEncoder", "d8/dbc/a05759.html#a865f1c850a27e5a21c65997eddc230e6", null ],
+    [ "~TimEncoder", "d8/dbc/a05759.html#a75c39486905ce140625f8ede68cf6b1c", null ],
+    [ "TimEncoder", "d8/dbc/a05759.html#ab1d7d4c14ddad06846dbb8f3f39f57e2", null ],
+    [ "TimEncoder", "d8/dbc/a05759.html#a6ac1197149221d77d1967fbc9bf30371", null ],
+    [ "close", "d8/dbc/a05759.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
+    [ "isClockwise", "d8/dbc/a05759.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
+    [ "open", "d8/dbc/a05759.html#a0332945ce02a55fb6e624309d4613697", null ],
+    [ "operator=", "d8/dbc/a05759.html#a5f081d643e5f193b16d632bca48547f3", null ],
+    [ "operator=", "d8/dbc/a05759.html#a65f9304f38d0afcedc9c8bcaeae935c7", null ],
+    [ "read", "d8/dbc/a05759.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
+    [ "write", "d8/dbc/a05759.html#aa31e675a06e5e104834e47423daa2b5f", null ]
 ];

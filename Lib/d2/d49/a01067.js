@@ -1,4 +1,6 @@
 var a01067 =
 [
-    [ "ospi", "d2/d49/a01067.html#ab63f02a17d4d1f80ae295f1955922795", null ]
+    [ "Lib::USB::CDCDevice", "de/d5b/a06307.html", "de/d5b/a06307" ],
+    [ "Lib::USB::CDCDevice::Config", "d7/d8c/a06311.html", "d7/d8c/a06311" ],
+    [ "Lib::USB::CDCDevice::LineCoding", "db/d7f/a06315.html", "db/d7f/a06315" ]
 ];

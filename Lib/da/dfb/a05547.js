@@ -1,19 +1,13 @@
 var a05547 =
 [
-    [ "DataAlignment", "da/dfb/a05547.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
-    [ "DACPort", "da/dfb/a05547.html#a430af54970be9f050913a2587b44af8c", null ],
-    [ "~DACPort", "da/dfb/a05547.html#a6f809dceb0bf7f7f10d36a60d80542ae", null ],
-    [ "DACPort", "da/dfb/a05547.html#a74ca3aad257be30051d7eaf469296f7d", null ],
-    [ "DACPort", "da/dfb/a05547.html#a3baeea2036cc1c8db31042f17b2ace75", null ],
-    [ "close", "da/dfb/a05547.html#a5a6f143205e2aaed0dc76423e1ae1464", null ],
-    [ "getChannel", "da/dfb/a05547.html#a668e6706e47926674d5df3daad36276c", null ],
-    [ "getHandle", "da/dfb/a05547.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "da/dfb/a05547.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "open", "da/dfb/a05547.html#a972d40716f11cc01e220bc488d2fb281", null ],
-    [ "operator=", "da/dfb/a05547.html#a3de9f7904a1682b503e927cd7557360c", null ],
-    [ "operator=", "da/dfb/a05547.html#a935c4325ea0cf9f2079b66affe1e46a1", null ],
-    [ "setValue", "da/dfb/a05547.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
-    [ "start", "da/dfb/a05547.html#a99aa0c249bf50a455acd99a243d63c67", null ],
-    [ "stop", "da/dfb/a05547.html#a05ff882667b873c0ea3c7874ab07bb73", null ],
-    [ "waitForEvent", "da/dfb/a05547.html#a9327549838d3f5ba4298452dabb5e443", null ]
+    [ "BackupRamDomain", "da/dfb/a05547.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "da/dfb/a05547.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "da/dfb/a05547.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "da/dfb/a05547.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "da/dfb/a05547.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "da/dfb/a05547.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "da/dfb/a05547.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "da/dfb/a05547.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "da/dfb/a05547.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "da/dfb/a05547.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

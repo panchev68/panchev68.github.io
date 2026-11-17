@@ -1,4 +1,5 @@
 var a00638 =
 [
-    [ "Lib::HAL::ADCPortBase&lt; Derived &gt;", "d0/dac/a05506.html", "d0/dac/a05506" ]
+    [ "Lib::GUI::String&lt; T_CAPACITY &gt;", "d1/dab/a05515.html", "d1/dab/a05515" ],
+    [ "Lib::GUI::String&lt; T_CAPACITY &gt;::Config", "de/d01/a05519.html", "de/d01/a05519" ]
 ];

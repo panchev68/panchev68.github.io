@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Member List</title>
+<title>IAR EWARM Library: Lib::Math::Filter::Median&lt; T_TYPE, T_SIZE &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d80/a06030.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('db/dc9/a06027.html','../../','df/d9b/a06024'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -129,31 +129,308 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d80/a06030.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Pneumatics::RotationCylinder Member List</div></div>
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="../../df/d9b/a06024.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::Math::Filter::Median&lt; T_TYPE, T_SIZE &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_TYPE, size_t T_SIZE&gt;<br />
+requires (std::is_arithmetic_v&lt;T_TYPE&gt; &amp;&amp; (T_SIZE &gt; 0U))<br />
+class Lib::Math::Filter::Median&lt; T_TYPE, T_SIZE &gt;</div><p>Median of the last <em class="arg">T_SIZE</em> samples, kept in a ring buffer. </p>
+<p>The median is the middle value of the sorted window, so fewer wild samples than half the window, such as spikes from a bus error or a missed pulse, do not reach the output at all, and a real step passes without smearing. It does not smooth small random noise as well as <a class="el" href="../../d2/d1f/a06491.html" title="Lib::Math::Filter::MovingAverage">Lib::Math::Filter::MovingAverage</a> does, so the two are often chained: the median first, then the average. An odd <em class="arg">T_SIZE</em> gives the middle sample; with an even window, or before it is full and an even number of samples is stored, the result is the mean of the two middle samples, truncated towards zero for an integral type. Each call sorts a copy of the window, which suits the small windows (3 to 15) it is meant for. The filter owns no heap memory and is not thread-safe: call it from one context only.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_TYPE</td><td>Sample and result type, integral or floating-point. </td></tr>
+    <tr><td class="paramname">T_SIZE</td><td>Window length in samples, at least 1; an odd value is recommended.</td></tr>
+  </table>
+  </dd>
+</dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Math/Filter/Median.hpp" target="_blank">Source</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Math/Filter/doc/Median.md" target="_blank">Detail Description</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d98/a06485.html#_a5">Lib::Math::Filter::ExponentialSmoothing</a>, <a class="el" href="../../d0/d7b/a06489.html#_a0">Lib::Math::Filter::Median</a>, and <a class="el" href="../../d2/d1f/a06491.html#_a6">Lib::Math::Filter::MovingAverage</a>.</dd>
+</dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad5e26881f53db8464f4730b9dcf744b5" id="r_ad5e26881f53db8464f4730b9dcf744b5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad5e26881f53db8464f4730b9dcf744b5">Median</a> () noexcept=default</td></tr>
+<tr class="memdesc:ad5e26881f53db8464f4730b9dcf744b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty filter.  <br /></td></tr>
+<tr class="memitem:aea9355b7d00464b38c606b8df68914df" id="r_aea9355b7d00464b38c606b8df68914df"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aea9355b7d00464b38c606b8df68914df">~Median</a> ()=default</td></tr>
+<tr class="memdesc:aea9355b7d00464b38c606b8df68914df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the filter; trivial, the filter owns no resources.  <br /></td></tr>
+<tr class="memitem:a8980bab4cbb1b238203aa16eae0881d5" id="r_a8980bab4cbb1b238203aa16eae0881d5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8980bab4cbb1b238203aa16eae0881d5">reset</a> () noexcept</td></tr>
+<tr class="memdesc:a8980bab4cbb1b238203aa16eae0881d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forgets all samples, so the next sample starts a new window.  <br /></td></tr>
+<tr class="memitem:a0ce772c5c1103723077c83ef31016e1d" id="r_a0ce772c5c1103723077c83ef31016e1d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0ce772c5c1103723077c83ef31016e1d">isFull</a> () const noexcept</td></tr>
+<tr class="memdesc:a0ce772c5c1103723077c83ef31016e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether the window holds <a class="el" href="#a3f1d6a8331adf269df0e46056d4cf612" title="WINDOW_SIZE">WINDOW_SIZE</a> samples.  <br /></td></tr>
+<tr class="memitem:a49c79d04e33477161726151b8df8482b" id="r_a49c79d04e33477161726151b8df8482b"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a49c79d04e33477161726151b8df8482b">getCount</a> () const noexcept</td></tr>
+<tr class="memdesc:a49c79d04e33477161726151b8df8482b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of samples in the window.  <br /></td></tr>
+<tr class="memitem:ab228c4f547df75df80aff7092407d40c" id="r_ab228c4f547df75df80aff7092407d40c"><td class="memItemLeft">T_TYPE&#160;</td><td class="memItemRight"><a class="el" href="#ab228c4f547df75df80aff7092407d40c">getMedian</a> () const noexcept</td></tr>
+<tr class="memdesc:ab228c4f547df75df80aff7092407d40c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the median of the samples in the window without adding a sample.  <br /></td></tr>
+<tr class="memitem:ae635f57134348fe6c30da3865e529a72" id="r_ae635f57134348fe6c30da3865e529a72"><td class="memItemLeft">T_TYPE&#160;</td><td class="memItemRight"><a class="el" href="#ae635f57134348fe6c30da3865e529a72">operator()</a> (T_TYPE value) noexcept</td></tr>
+<tr class="memdesc:ae635f57134348fe6c30da3865e529a72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a sample, dropping the oldest one when the window is full.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a3f1d6a8331adf269df0e46056d4cf612" id="r_a3f1d6a8331adf269df0e46056d4cf612"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a3f1d6a8331adf269df0e46056d4cf612">WINDOW_SIZE</a> = T_SIZE</td></tr>
+<tr class="memdesc:a3f1d6a8331adf269df0e46056d4cf612"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window length in samples.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad5e26881f53db8464f4730b9dcf744b5" name="ad5e26881f53db8464f4730b9dcf744b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5e26881f53db8464f4730b9dcf744b5">&#9670;&#160;</a></span>Median()</h2>
 
-<p>This is the complete list of members for <a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#a0b7ad8b7773fc15de07047754f3794f9">Command</a> enum name</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#a8ca6acca72dbe8c542856371e956e058">command</a>(const Command command) noexcept</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#a480be139cc8704be72afb69d2456281f">getName</a>() const noexcept</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#aba16d8727149fd2debf8b51fff5438bd">getStatus</a>() const noexcept</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#a90f1e56010dee19b0f66350351127712">isOff</a>() const noexcept</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#a3dfd5b2cf18acd7457732541b4271d1a">isOn</a>() const noexcept</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#a44c71110f315e89203746b05fd4ab10a">operator=</a>(const RotationCylinder &amp;)=delete</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#a9e8bc0dbf9e33b3d355379fb51a67416">RotationCylinder</a>(const Config &amp;config) noexcept</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#a7c2b4110cef52e26a1699691fd9bd4fb">RotationCylinder</a>(const RotationCylinder &amp;)=delete</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#a659c7989f745a79aeecb1c24004acba6">setup</a>(std::chrono::milliseconds rotateTime) noexcept</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#a9f826713fcf7511db5c43ef6f27173af">Status</a> enum name</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d4/d80/a06030.html#afcafcbf63c5703cb97f68a8496510b3b">update</a>() noexcept</td><td class="entry"><a class="el" href="../../d4/d80/a06030.html">Lib::Pneumatics::RotationCylinder</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-</table></div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dc9/a06027.html">Lib::Math::Filter::Median</a>&lt; T_TYPE, T_SIZE &gt;::Median </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates an empty filter. </p>
+
+</div>
+</div>
+<a id="aea9355b7d00464b38c606b8df68914df" name="aea9355b7d00464b38c606b8df68914df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea9355b7d00464b38c606b8df68914df">&#9670;&#160;</a></span>~Median()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dc9/a06027.html">Lib::Math::Filter::Median</a>&lt; T_TYPE, T_SIZE &gt;::~<a class="el" href="#ad5e26881f53db8464f4730b9dcf744b5">Median</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the filter; trivial, the filter owns no resources. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a49c79d04e33477161726151b8df8482b" name="a49c79d04e33477161726151b8df8482b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49c79d04e33477161726151b8df8482b">&#9670;&#160;</a></span>getCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../db/dc9/a06027.html">Lib::Math::Filter::Median</a>&lt; T_TYPE, T_SIZE &gt;::getCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the number of samples in the window. </p>
+<dl class="section return"><dt>Returns</dt><dd>Samples received since the last <a class="el" href="#a8980bab4cbb1b238203aa16eae0881d5" title="reset()">reset()</a>, at most <a class="el" href="#a3f1d6a8331adf269df0e46056d4cf612" title="WINDOW_SIZE">WINDOW_SIZE</a>. </dd></dl>
+
+</div>
+</div>
+<a id="ab228c4f547df75df80aff7092407d40c" name="ab228c4f547df75df80aff7092407d40c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab228c4f547df75df80aff7092407d40c">&#9670;&#160;</a></span>getMedian()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_TYPE <a class="el" href="../../db/dc9/a06027.html">Lib::Math::Filter::Median</a>&lt; T_TYPE, T_SIZE &gt;::getMedian </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the median of the samples in the window without adding a sample. </p>
+<dl class="section return"><dt>Returns</dt><dd>Median of the stored samples, or <b>0</b> if there are none. </dd></dl>
+
+</div>
+</div>
+<a id="a0ce772c5c1103723077c83ef31016e1d" name="a0ce772c5c1103723077c83ef31016e1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ce772c5c1103723077c83ef31016e1d">&#9670;&#160;</a></span>isFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../db/dc9/a06027.html">Lib::Math::Filter::Median</a>&lt; T_TYPE, T_SIZE &gt;::isFull </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports whether the window holds <a class="el" href="#a3f1d6a8331adf269df0e46056d4cf612" title="WINDOW_SIZE">WINDOW_SIZE</a> samples. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> once <a class="el" href="#a3f1d6a8331adf269df0e46056d4cf612" title="WINDOW_SIZE">WINDOW_SIZE</a> samples arrived since the last <a class="el" href="#a8980bab4cbb1b238203aa16eae0881d5" title="reset()">reset()</a>, <b>false</b> before that. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d0/d7b/a06489.html#a1">Lib::Math::Filter::Median</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ae635f57134348fe6c30da3865e529a72" name="ae635f57134348fe6c30da3865e529a72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae635f57134348fe6c30da3865e529a72">&#9670;&#160;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_TYPE <a class="el" href="../../db/dc9/a06027.html">Lib::Math::Filter::Median</a>&lt; T_TYPE, T_SIZE &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>() </td>
+          <td>(</td>
+          <td class="paramtype">T_TYPE</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a sample, dropping the oldest one when the window is full. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>New sample. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Median of the samples in the window, including the new one. </dd></dl>
+
+</div>
+</div>
+<a id="a8980bab4cbb1b238203aa16eae0881d5" name="a8980bab4cbb1b238203aa16eae0881d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8980bab4cbb1b238203aa16eae0881d5">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../db/dc9/a06027.html">Lib::Math::Filter::Median</a>&lt; T_TYPE, T_SIZE &gt;::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Forgets all samples, so the next sample starts a new window. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d0/d7b/a06489.html#a3">Lib::Math::Filter::Median</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a3f1d6a8331adf269df0e46056d4cf612" name="a3f1d6a8331adf269df0e46056d4cf612"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f1d6a8331adf269df0e46056d4cf612">&#9670;&#160;</a></span>WINDOW_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../db/dc9/a06027.html">Lib::Math::Filter::Median</a>&lt; T_TYPE, T_SIZE &gt;::WINDOW_SIZE = T_SIZE</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Window length in samples. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d6/d9a/a01083.html">Lib</a></li><li class="navelem"><a href="../../db/d32/a01122.html">Math</a></li><li class="navelem"><a href="../../de/de5/a01123.html">Filter</a></li><li class="navelem"><a href="../../db/dc9/a06027.html">Median</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

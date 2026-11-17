@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::BackupRamDomain</title>
+<title>IAR EWARM Library: Lib::XCOM::Protocol::Frame</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/de6/a06355.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/de6/a06355.html','../../','d1/d67/a06352'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -129,67 +129,64 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/de6/a06355.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::BackupRamDomain</div></div>
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d1/d67/a06352.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::XCOM::Protocol::Frame</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Keeps small values in the backup data registers, which survive a system reset, with <a class="el" href="../../d2/de6/a06355.html" title="Lib::HAL::BackupRamDomain">Lib::HAL::BackupRamDomain</a>.</p>
-<p>Keeps small values in the backup data registers, which survive a system reset, with Lib::HAL::BackupRamDomain. Lib::HAL::BackupRamDomain::open() opens the write gate of the backup domain, enables the PWR clock and, where the device has one, the backup SRAM clock; <a class="el" href="../../d0/d2f/a05507.html#a0e38a00a0e42d1e9718b0e5ab46c9223" title="Lib::HAL::BackupRamDomain::close()">Lib::HAL::BackupRamDomain::close()</a> reverses them. Reads are always allowed, but writes take effect only between open() and close(), so open the gate before calling <a class="el" href="../../d0/d2f/a05507.html#acc5002942f221da40872cb7be92706a9" title="Lib::HAL::BackupRamDomain::writeRegister()">Lib::HAL::BackupRamDomain::writeRegister()</a>. The registers keep their content across low-power modes and, with a backup supply, across a power loss.</p>
-<dl class="section important"><dt>Important</dt><dd>The module guard is <em class="arg">HAL_PWR_MODULE_ENABLED</em>, which the project's 'stm32f4xx_hal_conf.h' enables. On the STM32F407xx target the HAL headers define neither <em class="arg">RTC_BKP_NUMBER</em> nor <em class="arg">TAMP_BASE</em>, so the register count is not known here and the index is not range-checked at all. The registers are read from the RTC block, because the device has no TAMP block.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>The index is checked only by an assert in debug builds, and on this target there is no check at all. An index beyond the backup registers of the device accesses memory outside the register block, so pass only the indices defined for the target (the STM32F4 has 20 backup registers, 0 to 19, per its reference manual).</dd></dl>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="backup_usage_store"></a>
-Store a value across a reset</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/daa/a00638.html">Lib/HAL/BackupRamDomain/BackupRamDomain.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t BOOT_COUNT_REGISTER = 0U;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">uint32_t incrementBootCount() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d0/d2f/a05507.html">Lib::HAL::BackupRamDomain</a> backup;</div>
-<div class="line">    <span class="keywordflow">if</span> (!backup.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d0/d2f/a05507.html#a75eda4bb9a1e9d88118cacebbb8992a3">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span> 0U;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint32_t <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a> = backup.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d0/d2f/a05507.html#a90b19ee3b4f06e4874a36f9f25b22ce6">readRegister</a>(BOOT_COUNT_REGISTER) + 1U;</div>
-<div class="line">    backup.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d0/d2f/a05507.html#acc5002942f221da40872cb7be92706a9">writeRegister</a>(BOOT_COUNT_REGISTER, <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(backup.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d0/d2f/a05507.html#a0e38a00a0e42d1e9718b0e5ab46c9223">close</a>());</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00638_html"><div class="ttname"><a href="../../d1/daa/a00638.html">BackupRamDomain.hpp</a></div><div class="ttdoc">Interface to the STM32 backup domain: write-protection gate, Backup SRAM clock and backup data regist...</div></div>
-<div class="ttc" id="aa01627_html_ga5a30c8541e506f4962cb5103a18f1fd1"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01627.html#ga5a30c8541e506f4962cb5103a18f1fd1">count</a></div><div class="ttdeci">constexpr iterator_traits&lt; _InputIterator &gt;::difference_type count(_InputIterator __first, _InputIterator __last, const _Tp &amp;__value)</div></div>
-<div class="ttc" id="aa05507_html"><div class="ttname"><a href="../../d0/d2f/a05507.html">Lib::HAL::BackupRamDomain</a></div><div class="ttdoc">Stateless facade over the backup domain write gate and the backup data registers.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:36</div></div>
-<div class="ttc" id="aa05507_html_a0e38a00a0e42d1e9718b0e5ab46c9223"><div class="ttname"><a href="../../d0/d2f/a05507.html#a0e38a00a0e42d1e9718b0e5ab46c9223">Lib::HAL::BackupRamDomain::close</a></div><div class="ttdeci">bool close()</div><div class="ttdoc">Disables the Backup SRAM clock, where the device has one, and closes the write gate to the backup dom...</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:125</div></div>
-<div class="ttc" id="aa05507_html_a75eda4bb9a1e9d88118cacebbb8992a3"><div class="ttname"><a href="../../d0/d2f/a05507.html#a75eda4bb9a1e9d88118cacebbb8992a3">Lib::HAL::BackupRamDomain::open</a></div><div class="ttdeci">bool open()</div><div class="ttdoc">Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one...</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:96</div></div>
-<div class="ttc" id="aa05507_html_a90b19ee3b4f06e4874a36f9f25b22ce6"><div class="ttname"><a href="../../d0/d2f/a05507.html#a90b19ee3b4f06e4874a36f9f25b22ce6">Lib::HAL::BackupRamDomain::readRegister</a></div><div class="ttdeci">uint32_t readRegister(uint32_t backupRegisterIndex) const</div><div class="ttdoc">Reads a backup data register.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:152</div></div>
-<div class="ttc" id="aa05507_html_acc5002942f221da40872cb7be92706a9"><div class="ttname"><a href="../../d0/d2f/a05507.html#acc5002942f221da40872cb7be92706a9">Lib::HAL::BackupRamDomain::writeRegister</a></div><div class="ttdeci">void writeRegister(uint32_t backupRegisterIndex, uint32_t value)</div><div class="ttdoc">Writes a backup data register.</div><div class="ttdef"><b>Definition</b> BackupRamDomain.hpp:166</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="backup_usage_scope"></a>
-Keep the access window short</h3>
-<p>Backup-domain write access stays open between open() and close(), so a stray write from another task or an ISR during that window goes through. Open it, do the accesses, and close it in one task.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/daa/a00638.html">Lib/HAL/BackupRamDomain/BackupRamDomain.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> saveFaultCode(uint32_t faultCode) {</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t FAULT_REGISTER = 1U;</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="../../d0/d2f/a05507.html">Lib::HAL::BackupRamDomain</a> backup;</div>
-<div class="line">    <span class="keywordflow">if</span> (backup.<a class="code hl_function" href="../../d0/d2f/a05507.html#a75eda4bb9a1e9d88118cacebbb8992a3">open</a>()) {</div>
-<div class="line">        backup.<a class="code hl_function" href="../../d0/d2f/a05507.html#acc5002942f221da40872cb7be92706a9">writeRegister</a>(FAULT_REGISTER, faultCode);</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(backup.<a class="code hl_function" href="../../d0/d2f/a05507.html#a0e38a00a0e42d1e9718b0e5ab46c9223">close</a>());</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Logical representation of an XCOM frame payload. </p>
+<p>The payload is a non-owning view. When returned by parse() it refers to the caller's workspace buffer and stays valid only for as long as that buffer keeps its contents. </p>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ab88a17ebe65ad74bd0ad24c49f050229" id="r_ab88a17ebe65ad74bd0ad24c49f050229"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ab88a17ebe65ad74bd0ad24c49f050229">command</a> {0U}</td></tr>
+<tr class="memdesc:ab88a17ebe65ad74bd0ad24c49f050229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command identifier for the frame.  <br /></td></tr>
+<tr class="memitem:a837fc81ef88a6c8c67e1982490629483" id="r_a837fc81ef88a6c8c67e1982490629483"><td class="memItemLeft">std::span&lt; const uint8_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a837fc81ef88a6c8c67e1982490629483">payload</a> {}</td></tr>
+<tr class="memdesc:a837fc81ef88a6c8c67e1982490629483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Payload bytes associated with the command.  <br /></td></tr>
+</table>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ab88a17ebe65ad74bd0ad24c49f050229" name="ab88a17ebe65ad74bd0ad24c49f050229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab88a17ebe65ad74bd0ad24c49f050229">&#9670;&#160;</a></span>command</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::XCOM::Protocol::Frame::command {0U}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Command identifier for the frame. </p>
+
+</div>
+</div>
+<a id="a837fc81ef88a6c8c67e1982490629483" name="a837fc81ef88a6c8c67e1982490629483"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a837fc81ef88a6c8c67e1982490629483">&#9670;&#160;</a></span>payload</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt;const uint8_t&gt; Lib::XCOM::Protocol::Frame::payload {}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Payload bytes associated with the command. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d6/d9a/a01083.html">Lib</a></li><li class="navelem"><a href="../../d9/d17/a01129.html">XCOM</a></li><li class="navelem"><a href="../../d9/d28/a06351.html">Protocol</a></li><li class="navelem"><a href="../../d2/de6/a06355.html">Frame</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

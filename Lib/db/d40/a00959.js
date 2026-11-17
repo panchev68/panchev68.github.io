@@ -1,5 +1,4 @@
 var a00959 =
 [
-    [ "Lib::Pneumatics::Sensor", "dd/d4e/a06038.html", "dd/d4e/a06038" ],
-    [ "Lib::Pneumatics::Sensor::Config", "d5/de8/a06042.html", "d5/de8/a06042" ]
+    [ "Lib::Math::Filter::MovingAverage&lt; T_TYPE, T_SIZE &gt;", "d8/da2/a06031.html", "d8/da2/a06031" ]
 ];

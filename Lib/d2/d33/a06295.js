@@ -1,8 +1,9 @@
 var a06295 =
 [
-    [ "Frame", "d6/d5e/a06299.html", "d6/d5e/a06299" ],
-    [ "Status", "d2/d33/a06295.html#a9e9dc1e741ca0edee8938fa06d7a9c70", [
-      [ "OK", "d2/d33/a06295.html#a9e9dc1e741ca0edee8938fa06d7a9c70ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d2/d33/a06295.html#a9e9dc1e741ca0edee8938fa06d7a9c70abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "VersionString", "d2/d33/a06295.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
+    [ "Hardware", "d2/d33/a06295.html#a5df26239c512941c15b1473b41fd41e6", null ],
+    [ "getSubVersion", "d2/d33/a06295.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
+    [ "operator uint32_t", "d2/d33/a06295.html#ad9b45ee76c12709fe9ef566466c9f721", null ],
+    [ "operator VersionString", "d2/d33/a06295.html#a9e770d09f97bafa86fcc361a02339e2b", null ],
+    [ "subVersion", "d2/d33/a06295.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
 ];

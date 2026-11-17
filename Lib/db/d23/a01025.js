@@ -1,4 +1,5 @@
 var a01025 =
 [
-    [ "Lib::System::FirmwareVersion", "df/d12/a06198.html", "df/d12/a06198" ]
+    [ "RTOS::TickClient&lt; Derived &gt;", "d9/d57/a06199.html", "d9/d57/a06199" ],
+    [ "RTOS::TickClient&lt; Derived &gt;::Config", "d4/d7a/a06203.html", "d4/d7a/a06203" ]
 ];

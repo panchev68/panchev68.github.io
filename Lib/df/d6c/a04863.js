@@ -1,9 +1,5 @@
 var a04863 =
 [
-    [ "Address", "df/d6c/a04863.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
-    [ "FunctionCode", "df/d6c/a04863.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
-    [ "close", "df/d6c/a04863.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
-    [ "open", "df/d6c/a04863.html#a60baa47faf417d3e58c9da926ba26d49", null ],
-    [ "sendFrame", "df/d6c/a04863.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
-    [ "setup", "df/d6c/a04863.html#accad19c50e45234b499d537407a53007", null ]
+    [ "decayPeriodMicroseconds", "df/d6c/a04863.html#a12e79efa3a5a899b1e64d25ff5a0fdb3", null ],
+    [ "frequencyHz", "df/d6c/a04863.html#a50257a628ef439fb965df1ee908f3e5e", null ]
 ];

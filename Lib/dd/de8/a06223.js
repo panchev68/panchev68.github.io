@@ -1,7 +1,12 @@
 var a06223 =
 [
-    [ "firmwareSubversion", "dd/de8/a06223.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
-    [ "firmwareVersionString", "dd/de8/a06223.html#a6b83c53d998379f08471d89aead2818e", null ],
-    [ "hardwareSubversion", "dd/de8/a06223.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
-    [ "hardwareVersionString", "dd/de8/a06223.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
+    [ "ReferenceParameters", "d6/d4a/a06227.html", "d6/d4a/a06227" ],
+    [ "Measurement", "dd/d85/a06231.html", "dd/d85/a06231" ],
+    [ "MaxPowerEstimator", "dd/de8/a06223.html#a434bc885ae98e175c94cc0274463e3e5", null ],
+    [ "MPPT", "dd/de8/a06223.html#aedf986308c8dd799d4771f32d446ee01", null ],
+    [ "getIrradianceCoefficient", "dd/de8/a06223.html#a55a3b7a18c79deb5568e627889f76b86", null ],
+    [ "getTolerance", "dd/de8/a06223.html#a0ac8d81cbc06a7045f43424b16871253", null ],
+    [ "getVoltageSetpoint", "dd/de8/a06223.html#a455584e52b5677fe4bce93e58e80ca38", null ],
+    [ "setMaxPowerEstimationFunction", "dd/de8/a06223.html#abc619561c7180e6c69b8282c58157857", null ],
+    [ "update", "dd/de8/a06223.html#ad36e9d2ea685d45133e207a156fb76cb", null ]
 ];

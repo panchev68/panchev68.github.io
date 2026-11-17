@@ -1,11 +1,9 @@
 var a04943 =
 [
-    [ "Digest", "d5/dc1/a04943.html#a64f2dc888ae92e9d62a6cb46920ecbfc", null ],
-    [ "SHA256", "d5/dc1/a04943.html#ae261512ec5be0bfb16ede1ff9b2265d0", null ],
-    [ "SHA256", "d5/dc1/a04943.html#a03a051c073cce9b452a28fb40f911e88", null ],
-    [ "SHA256", "d5/dc1/a04943.html#a9bab9e477aeea4a1eb3091299eddc9c6", null ],
-    [ "finish", "d5/dc1/a04943.html#a5cd0fa14a06cde89274eea1d00a22c46", null ],
-    [ "operator=", "d5/dc1/a04943.html#ad5bdebc14ab4ffb181a07e57b3f42abc", null ],
-    [ "operator=", "d5/dc1/a04943.html#a7114367adabcd60f21fa613f649f47a3", null ],
-    [ "update", "d5/dc1/a04943.html#a12912b60a4fe22b09e7a961671550704", null ]
+    [ "Address", "d5/dc1/a04943.html#acd001c62e8048465f6e3775f8c914bed", null ],
+    [ "FunctionCode", "d5/dc1/a04943.html#aa422425db306dc5abb9819fd3a3489aa", null ],
+    [ "close", "d5/dc1/a04943.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
+    [ "handleReceivedFrame", "d5/dc1/a04943.html#a089411b3f62f689799fb09666cfe1ac9", null ],
+    [ "open", "d5/dc1/a04943.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
+    [ "setup", "d5/dc1/a04943.html#a3134cd1c55cc339a5addd412f7d4b5fb", null ]
 ];

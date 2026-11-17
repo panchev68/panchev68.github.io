@@ -1,4 +1,4 @@
 var a00641 =
 [
-    [ "Lib::HAL::BackupRamDomain", "da/d88/a05510.html", "da/d88/a05510" ]
+    [ "Lib::HAL::ADCPort&lt; DriverMode::BLOCKING &gt;", "d9/d91/a05523.html", "d9/d91/a05523" ]
 ];

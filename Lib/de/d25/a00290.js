@@ -1,4 +1,5 @@
 var a00290 =
 [
-    [ "Lib::BSP::RFID::NTAG21x::CardRecord&lt; T_ISSUER &gt;", "d3/d84/a04622.html", "d3/d84/a04622" ]
+    [ "Lib::BSP::EEPROM::FlashEmulationF4", "de/d9c/a04551.html", "de/d9c/a04551" ],
+    [ "Lib::BSP::EEPROM::FlashEmulationF4::Config", "dc/d65/a04555.html", "dc/d65/a04555" ]
 ];

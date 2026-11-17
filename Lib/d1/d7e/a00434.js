@@ -1,8 +1,5 @@
 var a00434 =
 [
-    [ "Lib::Digi::Core::ApiMode", "d0/d1f/a01087.html#a90113324d5ba519fcc76387893bb17ed", [
-      [ "Lib::Digi::Core::ApiMode::TRANSPARENT", "d0/d1f/a01087.html#a90113324d5ba519fcc76387893bb17eda6dbf1b8bc39b4ed513395a18b554979f", null ],
-      [ "Lib::Digi::Core::ApiMode::API1", "d0/d1f/a01087.html#a90113324d5ba519fcc76387893bb17eda7e8d092d9c015707dedc7a3b8173f6b5", null ],
-      [ "Lib::Digi::Core::ApiMode::API2", "d0/d1f/a01087.html#a90113324d5ba519fcc76387893bb17eda51dfa65dc2042cfa662ff3a4cd76c968", null ]
-    ] ]
+    [ "Lib::Digi::API::Service::PairService", "df/d84/a05115.html", "df/d84/a05115" ],
+    [ "Lib::Digi::API::Service::PairService::Config", "d3/d91/a05119.html", "d3/d91/a05119" ]
 ];

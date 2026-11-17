@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Member List</title>
+<title>IAR EWARM Library: Lib::BSP::EEPROM::FlashEmulationF4</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/ded/a04554.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d9c/a04551.html','../../','dd/d61/a04548'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -129,25 +129,543 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/ded/a04554.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::Ethercat::PDI::LAN9252::Base::Config Member List</div></div>
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="../../dd/d61/a04548.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::BSP::EEPROM::FlashEmulationF4<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Stores 16-bit keyed records in two erasable flash sectors, appended as a log and compacted when a sector fills up. </p>
+<p>Every record is an 8-byte header followed by its data, padded to a multiple of 4 bytes, because the flash is programmed in words. The data is written first, then the checksum, and the header word with the key and the length last, so a power loss leaves an erased header word and the record is simply absent. The newest record of a key wins. A sector holds a 16-byte header with a sequence number, written last during compaction, so the sector with the higher sequence is the active one. Reads go straight to the memory-mapped flash; writes and erases use the HAL.</p>
+<p>Access is by key, not by address: compaction moves the live records, so an offset would not stay valid. Each key has its own length, from 1 to <a class="el" href="#a00c766da3764b8b923fc316bf543704e" title="getMaxValueSize()">getMaxValueSize()</a> bytes, stored in its record header; a new value of a different length simply replaces the old one. A value equal to the stored one is not written again.</p>
+<p>Each write of a changed value consumes flash space. When the active sector is full, the latest value of every key is copied to the other sector, and the old sector is erased before the next compaction reuses it. The live values of all keys together must fit into one sector; dead records do not count, because compaction drops them. A record that a power loss left half written is skipped the same way: the append is refused until compaction clears the sector.</p>
+<p>The two sectors must have the same size: two of the <em>16 KB</em> sectors 0 to 3, or two of the <em>128 KB</em> sectors 5 to 11. Programming uses 32-bit words, which needs the supply range of <a class="el" href="../../dc/d65/a04555.html#a24f0ff02d5af92835b8d1f9175824520" title="Config::voltageRange">Config::voltageRange</a>; the default is <em>2.7 V to 3.6 V</em>.</p>
+<dl class="section warning"><dt>Warning</dt><dd>Erasing and programming <b>stall the CPU</b> while code in the same flash bank is fetched, and this family has a single bank. Erasing a <em>128 KB</em> sector takes up to about <em>2 s</em>, a <em>16 KB</em> one about <em>0.4 s</em>; interrupts and tasks wait, so the watchdog must tolerate it. <a class="el" href="#a6b7d16dd69a3f98b4b91448cac004903" title="open()">open()</a> formats both sectors if the area holds no valid header, and every compaction erases one.</dd>
+<dd>
+Call only from task context: the HAL polls the flash until each operation completes.</dd></dl>
+<dl class="section important"><dt>Important</dt><dd>The linker script must not place code or constants in the emulated sectors. Lower the end of the ROM region below the first sector, for example '<b>ICFEDIT_region_ROM_end</b> = 0x0803FFFF' for sectors 6 and 7 of a <em>512 KB</em> device.</dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/EEPROM/Internal/FlashEmulationF4.hpp" target="_blank">Source</a> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d65/a04555.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Location of the emulated area and the programming voltage.  <a href="../../dc/d65/a04555.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ad4bbada9bc6a2af1c867241a14b86143" id="r_ad4bbada9bc6a2af1c867241a14b86143"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad4bbada9bc6a2af1c867241a14b86143">FlashEmulationF4</a> (const <a class="el" href="../../dc/d65/a04555.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:ad4bbada9bc6a2af1c867241a14b86143"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the emulation to its flash sectors without touching the flash.  <br /></td></tr>
+<tr class="memitem:a90029c8c44f3c4cb598e732a78ff8462" id="r_a90029c8c44f3c4cb598e732a78ff8462"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a90029c8c44f3c4cb598e732a78ff8462">FlashEmulationF4</a> (const FlashEmulationF4 &amp;other)=delete</td></tr>
+<tr class="memdesc:a90029c8c44f3c4cb598e732a78ff8462"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:ad564397cd5d71a2875d17ef20547a23f" id="r_ad564397cd5d71a2875d17ef20547a23f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad564397cd5d71a2875d17ef20547a23f">FlashEmulationF4</a> (FlashEmulationF4 &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:ad564397cd5d71a2875d17ef20547a23f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:a6fd14d0960d51d426dc3f3d652147318" id="r_a6fd14d0960d51d426dc3f3d652147318"><td class="memItemLeft"><a class="el" href="#ad4bbada9bc6a2af1c867241a14b86143">FlashEmulationF4</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6fd14d0960d51d426dc3f3d652147318">operator=</a> (const <a class="el" href="#ad4bbada9bc6a2af1c867241a14b86143">FlashEmulationF4</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a6fd14d0960d51d426dc3f3d652147318"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:a2f18264f7ff9df2096b8d69c428394a3" id="r_a2f18264f7ff9df2096b8d69c428394a3"><td class="memItemLeft"><a class="el" href="#ad4bbada9bc6a2af1c867241a14b86143">FlashEmulationF4</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2f18264f7ff9df2096b8d69c428394a3">operator=</a> (<a class="el" href="#ad4bbada9bc6a2af1c867241a14b86143">FlashEmulationF4</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a2f18264f7ff9df2096b8d69c428394a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the instance owns a mutex and the state of one flash area.  <br /></td></tr>
+<tr class="memitem:a6b7d16dd69a3f98b4b91448cac004903" id="r_a6b7d16dd69a3f98b4b91448cac004903"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6b7d16dd69a3f98b4b91448cac004903">open</a> () noexcept</td></tr>
+<tr class="memdesc:a6b7d16dd69a3f98b4b91448cac004903"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the active sector, or formats the area if it holds no valid sector header.  <br /></td></tr>
+<tr class="memitem:a6346c239e63111e820ae7e36c13ce912" id="r_a6346c239e63111e820ae7e36c13ce912"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6346c239e63111e820ae7e36c13ce912">close</a> () noexcept</td></tr>
+<tr class="memdesc:a6346c239e63111e820ae7e36c13ce912"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the mutex; the stored data stays in flash.  <br /></td></tr>
+<tr class="memitem:a10cdb6c86428014150ad8bab075bd0e5" id="r_a10cdb6c86428014150ad8bab075bd0e5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a10cdb6c86428014150ad8bab075bd0e5">isOpen</a> () const noexcept</td></tr>
+<tr class="memdesc:a10cdb6c86428014150ad8bab075bd0e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tells whether the area is open.  <br /></td></tr>
+<tr class="memitem:aec049dbf918bed6868f9cce8c045af65" id="r_aec049dbf918bed6868f9cce8c045af65"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aec049dbf918bed6868f9cce8c045af65">read</a> (uint16_t key, std::span&lt; uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:aec049dbf918bed6868f9cce8c045af65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the latest value stored for a key.  <br /></td></tr>
+<tr class="memitem:a5863d644bc7b08caf327f4dba28f017c" id="r_a5863d644bc7b08caf327f4dba28f017c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5863d644bc7b08caf327f4dba28f017c">write</a> (uint16_t key, std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a5863d644bc7b08caf327f4dba28f017c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a value under a key, replacing the previous one.  <br /></td></tr>
+<tr class="memitem:a00c766da3764b8b923fc316bf543704e" id="r_a00c766da3764b8b923fc316bf543704e"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a00c766da3764b8b923fc316bf543704e">getMaxValueSize</a> () const noexcept</td></tr>
+<tr class="memdesc:a00c766da3764b8b923fc316bf543704e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the largest value one key can hold: a sector minus its header and one record header, at most <em>65535 bytes</em>.  <br /></td></tr>
+<tr class="memitem:a7e523e9aa4a58e12cfea76a6675fe033" id="r_a7e523e9aa4a58e12cfea76a6675fe033"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a7e523e9aa4a58e12cfea76a6675fe033">getFreeSpace</a> () noexcept</td></tr>
+<tr class="memdesc:a7e523e9aa4a58e12cfea76a6675fe033"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the bytes that can still be appended to the active sector without a compaction.  <br /></td></tr>
+<tr class="memitem:a27cda86fd955cdae40e9228879e80cea" id="r_a27cda86fd955cdae40e9228879e80cea"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a27cda86fd955cdae40e9228879e80cea">getUsedSpace</a> () noexcept</td></tr>
+<tr class="memdesc:a27cda86fd955cdae40e9228879e80cea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the bytes occupied by records in the active sector, including dead ones.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a484f6a8087c7c44958fb02cf62a9beeb" id="r_a484f6a8087c7c44958fb02cf62a9beeb"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a484f6a8087c7c44958fb02cf62a9beeb">MAX_KEY</a> = 0xFFFEU</td></tr>
+<tr class="memdesc:a484f6a8087c7c44958fb02cf62a9beeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest key; 0xFFFF marks erased flash.  <br /></td></tr>
+<tr class="memitem:a5ddd7682beaf7bcac466d76036200aac" id="r_a5ddd7682beaf7bcac466d76036200aac"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5ddd7682beaf7bcac466d76036200aac">SECTOR_COUNT</a> = 2U</td></tr>
+<tr class="memdesc:a5ddd7682beaf7bcac466d76036200aac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flash sectors of the emulated area.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ad4bbada9bc6a2af1c867241a14b86143" name="ad4bbada9bc6a2af1c867241a14b86143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4bbada9bc6a2af1c867241a14b86143">&#9670;&#160;</a></span>FlashEmulationF4() <span class="overload">[1/3]</span></h2>
 
-<p>This is the complete list of members for <a class="el" href="../../dc/ded/a04554.html">Lib::BSP::Ethercat::PDI::LAN9252::Base::Config</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../dc/ded/a04554.html#a0ab780fb02bfd77df15f096810ce2e85">pinIRQ</a></td><td class="entry"><a class="el" href="../../dc/ded/a04554.html">Lib::BSP::Ethercat::PDI::LAN9252::Base::Config</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../dc/ded/a04554.html#a214d97f7c4aae60c0b32b0676b02796e">pinNSS</a></td><td class="entry"><a class="el" href="../../dc/ded/a04554.html">Lib::BSP::Ethercat::PDI::LAN9252::Base::Config</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dc/ded/a04554.html#ad0ae47dc035cf93e9bfa71d0507144f3">pinReset</a></td><td class="entry"><a class="el" href="../../dc/ded/a04554.html">Lib::BSP::Ethercat::PDI::LAN9252::Base::Config</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../dc/ded/a04554.html#a7aeb6b56add932f3c0533bd8fc7011cc">pinSync0</a></td><td class="entry"><a class="el" href="../../dc/ded/a04554.html">Lib::BSP::Ethercat::PDI::LAN9252::Base::Config</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dc/ded/a04554.html#a3358fa1b35628a6d324f9be9d4624338">pinSync1</a></td><td class="entry"><a class="el" href="../../dc/ded/a04554.html">Lib::BSP::Ethercat::PDI::LAN9252::Base::Config</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../dc/ded/a04554.html#aed57b8892979041579d2eb130d453151">spiHandle</a></td><td class="entry"><a class="el" href="../../dc/ded/a04554.html">Lib::BSP::Ethercat::PDI::LAN9252::Base::Config</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EEPROM::FlashEmulationF4::FlashEmulationF4 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d65/a04555.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds the emulation to its flash sectors without touching the flash. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Sector numbers and voltage range. The sectors must differ, lie in the single-bank layout and have the same size. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a90029c8c44f3c4cb598e732a78ff8462" name="a90029c8c44f3c4cb598e732a78ff8462"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90029c8c44f3c4cb598e732a78ff8462">&#9670;&#160;</a></span>FlashEmulationF4() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EEPROM::FlashEmulationF4::FlashEmulationF4 </td>
+          <td>(</td>
+          <td class="paramtype">const FlashEmulationF4 &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the instance owns a mutex and the state of one flash area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad564397cd5d71a2875d17ef20547a23f" name="ad564397cd5d71a2875d17ef20547a23f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad564397cd5d71a2875d17ef20547a23f">&#9670;&#160;</a></span>FlashEmulationF4() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EEPROM::FlashEmulationF4::FlashEmulationF4 </td>
+          <td>(</td>
+          <td class="paramtype">FlashEmulationF4 &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the instance owns a mutex and the state of one flash area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a6346c239e63111e820ae7e36c13ce912" name="a6346c239e63111e820ae7e36c13ce912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6346c239e63111e820ae7e36c13ce912">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::BSP::EEPROM::FlashEmulationF4::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Releases the mutex; the stored data stays in flash. </p>
+
+</div>
+</div>
+<a id="a7e523e9aa4a58e12cfea76a6675fe033" name="a7e523e9aa4a58e12cfea76a6675fe033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e523e9aa4a58e12cfea76a6675fe033">&#9670;&#160;</a></span>getFreeSpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulationF4::getFreeSpace </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the bytes that can still be appended to the active sector without a compaction. </p>
+<p>Dead records are not reclaimed here, so this value only falls until the next compaction. A damaged record at the end of the sector makes the sector unclean; then the space is reported as 0, because new records are refused until compaction.</p>
+<dl class="section return"><dt>Returns</dt><dd>Free bytes of the active sector, or <b>0</b> if the area is not open. </dd></dl>
+
+</div>
+</div>
+<a id="a00c766da3764b8b923fc316bf543704e" name="a00c766da3764b8b923fc316bf543704e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c766da3764b8b923fc316bf543704e">&#9670;&#160;</a></span>getMaxValueSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulationF4::getMaxValueSize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the largest value one key can hold: a sector minus its header and one record header, at most <em>65535 bytes</em>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Largest value length in bytes. </dd></dl>
+
+</div>
+</div>
+<a id="a27cda86fd955cdae40e9228879e80cea" name="a27cda86fd955cdae40e9228879e80cea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27cda86fd955cdae40e9228879e80cea">&#9670;&#160;</a></span>getUsedSpace()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulationF4::getUsedSpace </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the bytes occupied by records in the active sector, including dead ones. </p>
+<p>The value counts every appended record, so it grows with each changed write until compaction copies the live values to the other sector and drops the rest. The live values alone are usually smaller.</p>
+<dl class="section return"><dt>Returns</dt><dd>Used bytes of the active sector, or <b>0</b> if the area is not open. </dd></dl>
+
+</div>
+</div>
+<a id="a10cdb6c86428014150ad8bab075bd0e5" name="a10cdb6c86428014150ad8bab075bd0e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10cdb6c86428014150ad8bab075bd0e5">&#9670;&#160;</a></span>isOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::EEPROM::FlashEmulationF4::isOpen </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Tells whether the area is open. </p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> between a successful <a class="el" href="#a6b7d16dd69a3f98b4b91448cac004903" title="open()">open()</a> and <a class="el" href="#a6346c239e63111e820ae7e36c13ce912" title="close()">close()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a6b7d16dd69a3f98b4b91448cac004903" name="a6b7d16dd69a3f98b4b91448cac004903"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b7d16dd69a3f98b4b91448cac004903">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::EEPROM::FlashEmulationF4::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds the active sector, or formats the area if it holds no valid sector header. </p>
+<p>Formatting erases both sectors, so it discards any data the area held before.</p>
+<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the area is ready for <a class="el" href="#aec049dbf918bed6868f9cce8c045af65" title="read()">read()</a> and <a class="el" href="#a5863d644bc7b08caf327f4dba28f017c" title="write()">write()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a6fd14d0960d51d426dc3f3d652147318" name="a6fd14d0960d51d426dc3f3d652147318"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fd14d0960d51d426dc3f3d652147318">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ad4bbada9bc6a2af1c867241a14b86143">FlashEmulationF4</a> &amp; Lib::BSP::EEPROM::FlashEmulationF4::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ad4bbada9bc6a2af1c867241a14b86143">FlashEmulationF4</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the instance owns a mutex and the state of one flash area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a2f18264f7ff9df2096b8d69c428394a3" name="a2f18264f7ff9df2096b8d69c428394a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f18264f7ff9df2096b8d69c428394a3">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ad4bbada9bc6a2af1c867241a14b86143">FlashEmulationF4</a> &amp; Lib::BSP::EEPROM::FlashEmulationF4::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ad4bbada9bc6a2af1c867241a14b86143">FlashEmulationF4</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the instance owns a mutex and the state of one flash area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="aec049dbf918bed6868f9cce8c045af65" name="aec049dbf918bed6868f9cce8c045af65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec049dbf918bed6868f9cce8c045af65">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulationF4::read </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads the latest value stored for a key. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">key</td><td>Record key, 0 to <a class="el" href="#a484f6a8087c7c44958fb02cf62a9beeb" title="MAX_KEY">MAX_KEY</a>. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination; receives at most its size of the stored bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Length of the stored value, or <b>0</b> if the key does not exist or the area is not open. A value longer than the buffer is cut, so compare the result with the buffer size. </dd></dl>
+
+</div>
+</div>
+<a id="a5863d644bc7b08caf327f4dba28f017c" name="a5863d644bc7b08caf327f4dba28f017c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5863d644bc7b08caf327f4dba28f017c">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::EEPROM::FlashEmulationF4::write </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores a value under a key, replacing the previous one. </p>
+<p>A value equal to the stored one is not written again, which saves flash endurance.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>Record key, 0 to <a class="el" href="#a484f6a8087c7c44958fb02cf62a9beeb" title="MAX_KEY">MAX_KEY</a>. </td></tr>
+    <tr><td class="paramname">data</td><td>Value to store, 1 to <a class="el" href="#a00c766da3764b8b923fc316bf543704e" title="getMaxValueSize()">getMaxValueSize()</a> bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the value is stored, or already was; <b>false</b> if the area is not open, the value is too large or the flash failed. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a484f6a8087c7c44958fb02cf62a9beeb" name="a484f6a8087c7c44958fb02cf62a9beeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a484f6a8087c7c44958fb02cf62a9beeb">&#9670;&#160;</a></span>MAX_KEY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Lib::BSP::EEPROM::FlashEmulationF4::MAX_KEY = 0xFFFEU</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Largest key; 0xFFFF marks erased flash. </p>
+
+</div>
+</div>
+<a id="a5ddd7682beaf7bcac466d76036200aac" name="a5ddd7682beaf7bcac466d76036200aac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ddd7682beaf7bcac466d76036200aac">&#9670;&#160;</a></span>SECTOR_COUNT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::EEPROM::FlashEmulationF4::SECTOR_COUNT = 2U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Flash sectors of the emulated area. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d6/d9a/a01083.html">Lib</a></li><li class="navelem"><a href="../../da/d93/a01084.html">BSP</a></li><li class="navelem"><a href="../../d9/df5/a01086.html">EEPROM</a></li><li class="navelem"><a href="../../de/d9c/a04551.html">FlashEmulationF4</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

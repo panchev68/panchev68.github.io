@@ -1,4 +1,4 @@
 var a00998 =
 [
-    [ "RTOS::StreamBuffer", "df/d58/a06118.html", "df/d58/a06118" ]
+    [ "RTOS::MutexGuard", "d3/d0b/a06139.html", "d3/d0b/a06139" ]
 ];

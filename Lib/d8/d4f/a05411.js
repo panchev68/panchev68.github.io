@@ -1,9 +1,22 @@
 var a05411 =
 [
-    [ "ViewportScope", "d8/d4f/a05411.html#ae54cbe4588aab0c0a335d639dc5481e0", null ],
-    [ "~ViewportScope", "d8/d4f/a05411.html#aaf5cd0f72a813a9af4725b2d0551c63c", null ],
-    [ "ViewportScope", "d8/d4f/a05411.html#a9785684a6080200fc8a3833d435d9318", null ],
-    [ "ViewportScope", "d8/d4f/a05411.html#a78ef751d8b19d0a9ae832c294bb97dc6", null ],
-    [ "operator=", "d8/d4f/a05411.html#ac87d8f95c234d6bca25d78ada6802967", null ],
-    [ "operator=", "d8/d4f/a05411.html#a58ce60c0531280d49e3cb0eb465ac003", null ]
+    [ "Diagnostic", "d8/ddb/a05415.html", "d8/ddb/a05415" ],
+    [ "ConnectionState", "d8/d4f/a05411.html#a56cd12ff82e971645f7a23734b80bbf0", null ],
+    [ "ClientBase", "d8/d4f/a05411.html#a2ee9814fe7b1bdf67ee96cc783454230", null ],
+    [ "~ClientBase", "d8/d4f/a05411.html#aa64fe42414f52a9ddcf73265f7aaa32e", null ],
+    [ "ClientBase", "d8/d4f/a05411.html#a171d0ee214534d948c4d955355ab7bf3", null ],
+    [ "ClientBase", "d8/d4f/a05411.html#a9ad742e1649a2f2423837da9974e4140", null ],
+    [ "getConnectionState", "d8/d4f/a05411.html#a0ba4737991369ec358f11bf82c4392df", null ],
+    [ "getDiagnostic", "d8/d4f/a05411.html#acddaa0b3fe21bf41d5c49971e4833fb8", null ],
+    [ "getRemoteNode", "d8/d4f/a05411.html#a0d9ed09b6ed483d84196c3617fdd854d", null ],
+    [ "handleApplicationProcess", "d8/d4f/a05411.html#a00422437a5ab35fa114a370d21d55678", null ],
+    [ "operator=", "d8/d4f/a05411.html#a878f98b5d415e7a8e2821d7c2b7c398e", null ],
+    [ "operator=", "d8/d4f/a05411.html#ae1ba6598652355c62f04b855d15e0ee4", null ],
+    [ "readLinkState", "d8/d4f/a05411.html#a1509f9ad6bf5e3766269bbdec6103779", null ],
+    [ "send", "d8/d4f/a05411.html#a75056b314ce6ce19807888e9fd56cb2c", null ],
+    [ "setConnectionState", "d8/d4f/a05411.html#a7936da086b583d8438bc492bd1423181", null ],
+    [ "setRemoteNode", "d8/d4f/a05411.html#aca3bfc7a7ae808b71533018ec7f30382", null ],
+    [ "start", "d8/d4f/a05411.html#a590e03d72003060be01839884fdd0b26", null ],
+    [ "updateRxLedCallback", "d8/d4f/a05411.html#af2915b8806cc5b5c86f344d441dc28c2", null ],
+    [ "updateTxLedCallback", "d8/d4f/a05411.html#ac2aebcf3601efce658d06d2be4f7f06c", null ]
 ];

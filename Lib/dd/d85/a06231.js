@@ -1,6 +1,7 @@
 var a06231 =
 [
-    [ "Base", "da/d36/a06235.html", "da/d36/a06235" ],
-    [ "Hardware", "db/d4f/a06239.html", "db/d4f/a06239" ],
-    [ "Firmware", "d8/de8/a06243.html", "d8/de8/a06243" ]
+    [ "current", "dd/d85/a06231.html#a03c2002021ee39257b3712ebb21f9804", null ],
+    [ "irradiance", "dd/d85/a06231.html#aeb4a3f32aa352d29093581039d36dd08", null ],
+    [ "temperature", "dd/d85/a06231.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
+    [ "voltage", "dd/d85/a06231.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
 ];

@@ -1,9 +1,14 @@
 var a06055 =
 [
-    [ "CriticalSection", "de/d62/a06055.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
-    [ "~CriticalSection", "de/d62/a06055.html#a4a507b226238920b8fae903a5bd87776", null ],
-    [ "CriticalSection", "de/d62/a06055.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
-    [ "CriticalSection", "de/d62/a06055.html#a9de7a81409af7b28d1da974ded4a7688", null ],
-    [ "operator=", "de/d62/a06055.html#aabac4732503c72da02f8e49754bbc736", null ],
-    [ "operator=", "de/d62/a06055.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
+    [ "Point", "d7/d22/a06059.html", "d7/d22/a06059" ],
+    [ "LinearInterpolation", "de/d62/a06055.html#a30333add26642338f1f8d0e6d9418329", null ],
+    [ "LinearInterpolation", "de/d62/a06055.html#a28d9815d7e6e80bc98e7aefedaa9a07f", null ],
+    [ "addPoint", "de/d62/a06055.html#a899e4fc629040c693f4513f50baba169", null ],
+    [ "addPoint", "de/d62/a06055.html#abdbb751960ad3016fc0cebeab774f390", null ],
+    [ "clear", "de/d62/a06055.html#a4e24492b9c447060beed4a198636f3b4", null ],
+    [ "getPoint", "de/d62/a06055.html#ade8e90d104aaf0097ab9c497e1fd8a1e", null ],
+    [ "getPointCount", "de/d62/a06055.html#a038da817b90fe59e655561803c0094c9", null ],
+    [ "interpolate", "de/d62/a06055.html#abe222c022160affacc4dd077c9a50cfc", null ],
+    [ "isEmpty", "de/d62/a06055.html#af70bb2ed853bea231b21578a5fa5123b", null ],
+    [ "sortPoints", "de/d62/a06055.html#adf160df65e43281237598a9ddf284e5f", null ]
 ];

@@ -1,4 +1,4 @@
 var a00656 =
 [
-    [ "Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;", "dd/d66/a05534.html", "dd/d66/a05534" ]
+    [ "Lib::HAL::CANPort&lt; DriverMode::BLOCKING &gt;", "de/ddf/a05551.html", "de/ddf/a05551" ]
 ];

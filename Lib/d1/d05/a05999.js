@@ -1,14 +1,11 @@
 var a05999 =
 [
-    [ "Point", "d3/d59/a06003.html", "d3/d59/a06003" ],
-    [ "LinearInterpolation", "d1/d05/a05999.html#a30333add26642338f1f8d0e6d9418329", null ],
-    [ "LinearInterpolation", "d1/d05/a05999.html#a28d9815d7e6e80bc98e7aefedaa9a07f", null ],
-    [ "addPoint", "d1/d05/a05999.html#a899e4fc629040c693f4513f50baba169", null ],
-    [ "addPoint", "d1/d05/a05999.html#abdbb751960ad3016fc0cebeab774f390", null ],
-    [ "clear", "d1/d05/a05999.html#a4e24492b9c447060beed4a198636f3b4", null ],
-    [ "getPoint", "d1/d05/a05999.html#ade8e90d104aaf0097ab9c497e1fd8a1e", null ],
-    [ "getPointCount", "d1/d05/a05999.html#a038da817b90fe59e655561803c0094c9", null ],
-    [ "interpolate", "d1/d05/a05999.html#abe222c022160affacc4dd077c9a50cfc", null ],
-    [ "isEmpty", "d1/d05/a05999.html#af70bb2ed853bea231b21578a5fa5123b", null ],
-    [ "sortPoints", "d1/d05/a05999.html#adf160df65e43281237598a9ddf284e5f", null ]
+    [ "Client", "d1/d05/a05999.html#afbf556ac8abd6b5e8b12958b7b7e8e87", null ],
+    [ "Client", "d1/d05/a05999.html#a893ac5643ef917f5ca701fabbe75a429", null ],
+    [ "Client", "d1/d05/a05999.html#a207055b9f6a7daac509985f971a0e14f", null ],
+    [ "get", "d1/d05/a05999.html#aabf7e35c74111468fdd296e6931b047f", null ],
+    [ "operator=", "d1/d05/a05999.html#a19375415236ef7e6b214f897791eeb09", null ],
+    [ "operator=", "d1/d05/a05999.html#a3b9c27f75842a31365c97eaaa607d452", null ],
+    [ "post", "d1/d05/a05999.html#aee5955fa4ffad931d4418d2f59af2880", null ],
+    [ "request", "d1/d05/a05999.html#aff0df8d671c191feb30e91ba3a1053a7", null ]
 ];

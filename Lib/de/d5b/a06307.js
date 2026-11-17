@@ -1,17 +1,19 @@
 var a06307 =
 [
-    [ "Status", "de/d5b/a06307.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "de/d5b/a06307.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "de/d5b/a06307.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "de/d5b/a06307.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "de/d5b/a06307.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
-    ] ],
-    [ "Value64Handle", "de/d5b/a06307.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "de/d5b/a06307.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "de/d5b/a06307.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "de/d5b/a06307.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "de/d5b/a06307.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "de/d5b/a06307.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "de/d5b/a06307.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "de/d5b/a06307.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "Config", "d7/d8c/a06311.html", "d7/d8c/a06311" ],
+    [ "LineCoding", "db/d7f/a06315.html", "db/d7f/a06315" ],
+    [ "Port", "de/d5b/a06307.html#ad99e2d8bd81a2c357380c4a3319320f8", null ],
+    [ "CDCDevice", "de/d5b/a06307.html#af7b09c403e844e0c975664e34b98b279", null ],
+    [ "~CDCDevice", "de/d5b/a06307.html#aefb023f88ce5ef0b7e147fc416c0ed41", null ],
+    [ "CDCDevice", "de/d5b/a06307.html#ad8ae48cb38b9de3e91de0f46c8374bd6", null ],
+    [ "CDCDevice", "de/d5b/a06307.html#a4f99d53056ddc8b8bc333fa07c3c45c8", null ],
+    [ "getIsConfigured", "de/d5b/a06307.html#a305d79f8cbcefeee5562a1a06a67e674", null ],
+    [ "getIsTerminalReady", "de/d5b/a06307.html#aa8d2d7650d9bdb5ad00e4acedb520de9", null ],
+    [ "getLineCoding", "de/d5b/a06307.html#a7050967650f0854192c3edfd7c530401", null ],
+    [ "operator=", "de/d5b/a06307.html#a24102852b2e32fc565744189c324299f", null ],
+    [ "operator=", "de/d5b/a06307.html#ab698808b2c8e27ea388d4a005539d697", null ],
+    [ "read", "de/d5b/a06307.html#a413023729a8480cdd9c834fa089163e8", null ],
+    [ "start", "de/d5b/a06307.html#a294be6529255dc9284bc23adac2a1e72", null ],
+    [ "stop", "de/d5b/a06307.html#ab6d8c3abdb8e9779be8326b0498c4c44", null ],
+    [ "write", "de/d5b/a06307.html#aae8ec892d4f13050681e77062b651054", null ]
 ];

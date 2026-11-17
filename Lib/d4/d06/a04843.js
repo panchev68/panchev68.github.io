@@ -1,18 +1,12 @@
 var a04843 =
 [
-    [ "RxMessage", "dd/dca/a04847.html", "dd/dca/a04847" ],
-    [ "Node", "dd/d3b/a04851.html", "dd/d3b/a04851" ],
-    [ "Diagnostic", "d9/d87/a04855.html", "d9/d87/a04855" ],
-    [ "ServiceBase", "d4/d06/a04843.html#acbfceb92cefef5281785b7d5db81df5d", null ],
-    [ "~ServiceBase", "d4/d06/a04843.html#a6594894f460fcebe7b8705a3ebca6938", null ],
-    [ "errorCallback", "d4/d06/a04843.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
-    [ "getDiagnostic", "d4/d06/a04843.html#aa6e2069cd0ca82608d533788d367dddf", null ],
-    [ "messageReceivedCallback", "d4/d06/a04843.html#abe37221a89d42b0ec836894d481128b4", null ],
-    [ "receive", "d4/d06/a04843.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "d4/d06/a04843.html#a9e61e58322c0a574320d57ad9da13966", null ],
-    [ "send", "d4/d06/a04843.html#ae9698dff358c5494704ad558fcf82d22", null ],
-    [ "send", "d4/d06/a04843.html#a26cd3541d7c850c5151fe7281e917a94", null ],
-    [ "start", "d4/d06/a04843.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
-    [ "stop", "d4/d06/a04843.html#a3d0252842f197249fff9649618458fee", null ],
-    [ "taskFn", "d4/d06/a04843.html#a3f461c3e0f637c2be89463249c736b46", null ]
+    [ "debounceDuration", "d4/d06/a04843.html#a645398d022257454438fc47ce15fcdb9", null ],
+    [ "height", "d4/d06/a04843.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
+    [ "rotationFlipped", "d4/d06/a04843.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
+    [ "rotationNormal", "d4/d06/a04843.html#aa5b75686141869dfbbfb78febc4822aa", null ],
+    [ "width", "d4/d06/a04843.html#a36fe0a7ac1def2933216417d9c50860b", null ],
+    [ "xMax", "d4/d06/a04843.html#ad7faa3502a791114bf456c98c0dbf644", null ],
+    [ "xMin", "d4/d06/a04843.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
+    [ "yMax", "d4/d06/a04843.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
+    [ "yMin", "d4/d06/a04843.html#acda2f52d642f3f712c72b8046d83fa30", null ]
 ];

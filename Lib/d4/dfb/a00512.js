@@ -1,4 +1,4 @@
 var a00512 =
 [
-    [ "Lib::Digi::Core::Frame0x89", "d6/de6/a05234.html", "d6/de6/a05234" ]
+    [ "Lib::Digi::Core::ResponseEvents", "d5/d12/a05255.html", "d5/d12/a05255" ]
 ];

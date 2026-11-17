@@ -1,23 +1,10 @@
 var a06027 =
 [
-    [ "Config", "d8/da2/a06031.html", "d8/da2/a06031" ],
-    [ "Command", "db/dc9/a06027.html#a0b7ad8b7773fc15de07047754f3794f9", [
-      [ "OFF", "db/dc9/a06027.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "db/dc9/a06027.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
-    ] ],
-    [ "Status", "db/dc9/a06027.html#a9f826713fcf7511db5c43ef6f27173af", [
-      [ "IS_OFF", "db/dc9/a06027.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
-      [ "IS_ON", "db/dc9/a06027.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
-      [ "IN_MOTION", "db/dc9/a06027.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
-    ] ],
-    [ "RotationCylinder", "db/dc9/a06027.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
-    [ "RotationCylinder", "db/dc9/a06027.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
-    [ "command", "db/dc9/a06027.html#a8ca6acca72dbe8c542856371e956e058", null ],
-    [ "getName", "db/dc9/a06027.html#a480be139cc8704be72afb69d2456281f", null ],
-    [ "getStatus", "db/dc9/a06027.html#aba16d8727149fd2debf8b51fff5438bd", null ],
-    [ "isOff", "db/dc9/a06027.html#a90f1e56010dee19b0f66350351127712", null ],
-    [ "isOn", "db/dc9/a06027.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
-    [ "operator=", "db/dc9/a06027.html#a44c71110f315e89203746b05fd4ab10a", null ],
-    [ "setup", "db/dc9/a06027.html#a659c7989f745a79aeecb1c24004acba6", null ],
-    [ "update", "db/dc9/a06027.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
+    [ "Median", "db/dc9/a06027.html#ad5e26881f53db8464f4730b9dcf744b5", null ],
+    [ "~Median", "db/dc9/a06027.html#aea9355b7d00464b38c606b8df68914df", null ],
+    [ "getCount", "db/dc9/a06027.html#a49c79d04e33477161726151b8df8482b", null ],
+    [ "getMedian", "db/dc9/a06027.html#ab228c4f547df75df80aff7092407d40c", null ],
+    [ "isFull", "db/dc9/a06027.html#a0ce772c5c1103723077c83ef31016e1d", null ],
+    [ "operator()", "db/dc9/a06027.html#ae635f57134348fe6c30da3865e529a72", null ],
+    [ "reset", "db/dc9/a06027.html#a8980bab4cbb1b238203aa16eae0881d5", null ]
 ];

@@ -1,4 +1,5 @@
 var a00644 =
 [
-    [ "Lib::HAL::CANPort&lt; DriverMode::BLOCKING &gt;", "d7/d55/a05514.html", "d7/d55/a05514" ]
+    [ "Lib::HAL::ADCPort&lt; DriverMode::DMA &gt;", "d3/d68/a05527.html", "d3/d68/a05527" ],
+    [ "Lib::HAL::ADCPort&lt; DriverMode::DMA &gt;::Event", "d1/d01/a05531.html", null ]
 ];

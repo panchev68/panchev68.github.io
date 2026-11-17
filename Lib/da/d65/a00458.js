@@ -1,4 +1,4 @@
 var a00458 =
 [
-    [ "Lib::Digi::Core::Frame::Header", "d9/dcb/a05154.html", "d9/dcb/a05154" ]
+    [ "Lib::Digi::Core::Diagnostic", "dc/d07/a05175.html", "dc/d07/a05175" ]
 ];

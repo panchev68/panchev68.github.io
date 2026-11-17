@@ -1,7 +1,21 @@
 var a00947 =
 [
-    [ "Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;", "d1/df7/a06002.html", "d1/df7/a06002" ],
-    [ "Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;::Point", "dc/dd4/a06006.html", "dc/dd4/a06006" ],
-    [ "Lib::Math::LinearInterpolationD", "de/d99/a01101.html#a9bf9bc3df3d95d1280a4ea6c6f33ce4e", null ],
-    [ "Lib::Math::LinearInterpolationF", "de/d99/a01101.html#a8e491be310ee384e098186699963cc0e", null ]
+    [ "Lib::HTTP::Response", "d2/d10/a05995.html", "d2/d10/a05995" ],
+    [ "Lib::HTTP::Client&lt; T_TRANSPORT &gt;", "d1/d05/a05999.html", "d1/d05/a05999" ],
+    [ "Lib::HTTP::WolfSSLTransport&lt; T_RAW_TRANSPORT &gt;", "dc/ddd/a06007.html", "dc/ddd/a06007" ],
+    [ "Lib::HTTP::Method", "dd/de4/a01121.html#a8f753d750ea425a0a07f531674302436", [
+      [ "Lib::HTTP::Method::GET", "dd/de4/a01121.html#a8f753d750ea425a0a07f531674302436a7528035a93ee69cedb1dbddb2f0bfcc8", null ],
+      [ "Lib::HTTP::Method::POST", "dd/de4/a01121.html#a8f753d750ea425a0a07f531674302436aa02439ec229d8be0e74b0c1602392310", null ],
+      [ "Lib::HTTP::Method::PUT", "dd/de4/a01121.html#a8f753d750ea425a0a07f531674302436a3e75383a5992a6d15fb81e872e46e256", null ],
+      [ "Lib::HTTP::Method::DELETE", "dd/de4/a01121.html#a8f753d750ea425a0a07f531674302436a32f68a60cef40faedbc6af20298c1a1e", null ]
+    ] ],
+    [ "Lib::HTTP::Status", "dd/de4/a01121.html#afc43b899679a3737d2e7425a9168a85c", [
+      [ "Lib::HTTP::Status::SUCCESS", "dd/de4/a01121.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "Lib::HTTP::Status::REQUEST_TOO_LARGE", "dd/de4/a01121.html#afc43b899679a3737d2e7425a9168a85ca851bf3985bc449f3da3c770257062617", null ],
+      [ "Lib::HTTP::Status::SEND_ERROR", "dd/de4/a01121.html#afc43b899679a3737d2e7425a9168a85ca2722a1c4409a8a5aad2b5467f3cb5b2d", null ],
+      [ "Lib::HTTP::Status::RECEIVE_ERROR", "dd/de4/a01121.html#afc43b899679a3737d2e7425a9168a85ca892a643eb340f74fff27ab376b6105bf", null ],
+      [ "Lib::HTTP::Status::TIMEOUT", "dd/de4/a01121.html#afc43b899679a3737d2e7425a9168a85ca070a0fb40f6c308ab544b227660aadff", null ],
+      [ "Lib::HTTP::Status::MALFORMED_RESPONSE", "dd/de4/a01121.html#afc43b899679a3737d2e7425a9168a85ca7850e7c3a0c981c95e69e331469c33b9", null ],
+      [ "Lib::HTTP::Status::RESPONSE_TOO_LARGE", "dd/de4/a01121.html#afc43b899679a3737d2e7425a9168a85ca06679887379e5098264880df36242556", null ]
+    ] ]
 ];

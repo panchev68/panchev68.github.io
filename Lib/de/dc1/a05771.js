@@ -1,12 +1,17 @@
 var a05771 =
 [
-    [ "Sunset", "de/dc1/a05771.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "de/dc1/a05771.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
-    [ "calculateSunTime", "de/dc1/a05771.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
-    [ "computeHourAngle", "de/dc1/a05771.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
-    [ "setCurrentDate", "de/dc1/a05771.html#a0598ea08f953291be6bd331b39254b2a", null ],
-    [ "setCurrentDate", "de/dc1/a05771.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "de/dc1/a05771.html#afbc858a5944c47609616f459b657339b", null ],
-    [ "sunrise", "de/dc1/a05771.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
-    [ "sunset", "de/dc1/a05771.html#a3bea9bb96761c55203633434195d87c4", null ]
+    [ "Manager", "de/dc1/a05771.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "de/dc1/a05771.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimOnePulse", "de/dc1/a05771.html#ae287fccac43cfbccd505d62c3450d886", null ],
+    [ "~TimOnePulse", "de/dc1/a05771.html#a1e04591efe0469a8ca79694006f138e6", null ],
+    [ "bindWorker", "de/dc1/a05771.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getHandle", "de/dc1/a05771.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "de/dc1/a05771.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "setTiming", "de/dc1/a05771.html#adcd5d98b02d7d70c3dbcd75ab4f117b6", null ],
+    [ "start", "de/dc1/a05771.html#a4dd784ca9da4b8c662101a2b232a1f61", null ],
+    [ "stop", "de/dc1/a05771.html#a2ab7da84b6cafce46167eeca602289ac", null ],
+    [ "waitEvent", "de/dc1/a05771.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "waitPulseStart", "de/dc1/a05771.html#a16dbc64b1db27612373f5d95fe8fe6ed", null ],
+    [ "waitPulseStart", "de/dc1/a05771.html#aeba87dc02428bea360275fd39706fa18", null ],
+    [ "void::HAL_TIM_PWM_PulseFinishedCallback", "de/dc1/a05771.html#a5e91f9ca8a9abc6255b583f8225f7478", null ]
 ];

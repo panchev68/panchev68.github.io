@@ -1,7 +1,6 @@
 var a00365 =
 [
-    [ "Lib::Canbus::Mode", "d9/d67/a01080.html#ad81e761f20d5185ff2c7cbf5e547ef02", [
-      [ "Lib::Canbus::Mode::CLIENT", "d9/d67/a01080.html#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1", null ],
-      [ "Lib::Canbus::Mode::SERVER", "d9/d67/a01080.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844", null ]
-    ] ]
+    [ "Lib::BSP::XPT2046", "db/db4/a04835.html", "db/db4/a04835" ],
+    [ "Lib::BSP::XPT2046::Config", "d4/d10/a04839.html", "d4/d10/a04839" ],
+    [ "Lib::BSP::XPT2046::Parameters", "d4/d06/a04843.html", "d4/d06/a04843" ]
 ];

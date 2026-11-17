@@ -1,9 +1,7 @@
 var a06023 =
 [
-    [ "name", "dd/d51/a06023.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "dd/d51/a06023.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "dd/d51/a06023.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "dd/d51/a06023.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "dd/d51/a06023.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "dd/d51/a06023.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "estimatedError", "dd/d51/a06023.html#aa627467e596e97925629cac77c51da24", null ],
+    [ "processNoise", "dd/d51/a06023.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
+    [ "sensorNoise", "dd/d51/a06023.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
+    [ "value", "dd/d51/a06023.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
 ];

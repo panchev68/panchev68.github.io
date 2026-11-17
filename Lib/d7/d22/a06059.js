@@ -1,9 +1,7 @@
 var a06059 =
 [
-    [ "Lock", "d3/ddd/a06063.html", "d3/ddd/a06063" ],
-    [ "State", "d7/d22/a06059.html#a329f49803f7880dc5d4e70b422ef08ff", [
-      [ "SUSPENDED", "d7/d22/a06059.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
-      [ "NOT_STARTED", "d7/d22/a06059.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
-      [ "RUNNING", "d7/d22/a06059.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
-    ] ]
+    [ "Point", "d7/d22/a06059.html#af92f73fda44486edb268ec0d7bc9446b", null ],
+    [ "Point", "d7/d22/a06059.html#a0684d399017f899ed84a5cf222704904", null ],
+    [ "x", "d7/d22/a06059.html#ade6943178d200f4eecb5a7a84e593ba0", null ],
+    [ "y", "d7/d22/a06059.html#a0921a157fe3803511d1d72c3b5461ca4", null ]
 ];

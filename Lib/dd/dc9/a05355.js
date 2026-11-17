@@ -1,8 +1,7 @@
 var a05355 =
 [
-    [ "Node", "dd/dc9/a05355.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
-    [ "Node", "dd/dc9/a05355.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
-    [ "set", "dd/dc9/a05355.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
-    [ "ip", "dd/dc9/a05355.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
-    [ "port", "dd/dc9/a05355.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
+    [ "close", "dd/dc9/a05355.html#ab9d284c5cdff31383f99dea75c7f9e89", null ],
+    [ "open", "dd/dc9/a05355.html#a2f27b571e2674aeb90f9773efe5d47c5", null ],
+    [ "read", "dd/dc9/a05355.html#a53a2f54f254565a80c92924936564fb0", null ],
+    [ "write", "dd/dc9/a05355.html#ae649720e51a2f29cd3f226e0c91e40f4", null ]
 ];

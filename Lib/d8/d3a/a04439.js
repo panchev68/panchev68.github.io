@@ -1,7 +1,7 @@
 var a04439 =
 [
-    [ "mappingFields", "d8/d3a/a04439.html#a1ab61452f8c6716fefec2b2b8d48ddff", null ],
-    [ "nssPin", "d8/d3a/a04439.html#a1057a60af84ee4d60342df596793afee", null ],
-    [ "pinCount", "d8/d3a/a04439.html#a4ec50d1e310701baec42aebd409d8af6", null ],
-    [ "spiPort", "d8/d3a/a04439.html#a7a00976594ca0e1ebcaf62159fddb767", null ]
+    [ "correction", "d8/d3a/a04439.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
+    [ "i2cAddr", "d8/d3a/a04439.html#ae3266da82296416f02f68de0c610a2f9", null ],
+    [ "i2cPort", "d8/d3a/a04439.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
+    [ "shuntResistorOhms", "d8/d3a/a04439.html#a9808e99c30c4516f65cdae3a889ec038", null ]
 ];

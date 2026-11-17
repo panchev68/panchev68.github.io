@@ -1,11 +1,9 @@
 var a04651 =
 [
-    [ "Files", "da/d47/a04651.html#a32bb043cb678f854f5dc82cba11ce9b5", null ],
-    [ "exists", "da/d47/a04651.html#acdeb9b2ee2aa50ce02467af8f47f6efc", null ],
-    [ "getFreeSpace", "da/d47/a04651.html#a42a3c07dbf7258cf065d87c71b70789e", null ],
-    [ "getSize", "da/d47/a04651.html#a55ba36349934ad39c2b7a49be4d94d9d", null ],
-    [ "getStorage", "da/d47/a04651.html#aaec7f88b45cdde1197ee733af3b68a87", null ],
-    [ "read", "da/d47/a04651.html#a784a6d3798784d545630794b0d373972", null ],
-    [ "remove", "da/d47/a04651.html#a4b8b47fe473b142b38344e359b9c2f6b", null ],
-    [ "write", "da/d47/a04651.html#a4c6ad03d6f8d73995700115490d2f279", null ]
+    [ "chipManufacturer", "da/d47/a04651.html#a0699528d9734e0f26fa0ba87d7132204", null ],
+    [ "memoryCapacity", "da/d47/a04651.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
+    [ "pagePerSector", "da/d47/a04651.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
+    [ "pageSize", "da/d47/a04651.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
+    [ "sectorCount", "da/d47/a04651.html#a8e623c67b780e827d65e722809156e96", null ],
+    [ "sectorSize", "da/d47/a04651.html#a61bb395a7747150174a9b64ececfb178", null ]
 ];

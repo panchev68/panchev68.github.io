@@ -1,4 +1,4 @@
 var a00941 =
 [
-    [ "Lib::Math::HammingCode", "d5/d61/a05982.html", null ]
+    [ "Lib::Helper::TimePeriod", "d3/d1f/a05983.html", "d3/d1f/a05983" ]
 ];

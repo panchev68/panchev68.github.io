@@ -1,8 +1,10 @@
 var a04471 =
 [
-    [ "chipSelectPin", "d7/d67/a04471.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
-    [ "irqPin", "d7/d67/a04471.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
-    [ "resetPin", "d7/d67/a04471.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
-    [ "rxGain", "d7/d67/a04471.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
-    [ "spiHandle", "d7/d67/a04471.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
+    [ "PortBase", "d7/d67/a04471.html#a5350d276e1d3d6505501c1a194798ee1", null ],
+    [ "~PortBase", "d7/d67/a04471.html#ae97ed92776c4c9fec031848b9d223290", null ],
+    [ "getSpiHandle", "d7/d67/a04471.html#a1677aa107627ab40c3a7a3a495722c77", null ],
+    [ "postUpdateCallback", "d7/d67/a04471.html#af0d8329309d89f85d0432a205da0410c", null ],
+    [ "preUpdateCallback", "d7/d67/a04471.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
+    [ "setup", "d7/d67/a04471.html#a819a0deaed30808011035c3403fbf93c", null ],
+    [ "update", "d7/d67/a04471.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
 ];

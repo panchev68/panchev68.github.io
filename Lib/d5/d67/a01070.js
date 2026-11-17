@@ -1,17 +1,12 @@
 var a01070 =
 [
-    [ "DriverBase", "d5/d67/a01070.html#a5eafa5f0d53866cb78471368f7297754", null ],
-    [ "~DriverBase", "d5/d67/a01070.html#a5205dedf63ce60a8439a4fdd8ff7950b", null ],
-    [ "close", "d5/d67/a01070.html#a71f952f5639e0a0d0d7c1af2c3f0dbc0", null ],
-    [ "eraseChip", "d5/d67/a01070.html#a32148377b4274abf28db1beb3d12ea11", null ],
-    [ "eraseSector", "d5/d67/a01070.html#a23c3062b24d15e58237ddb109c474b74", null ],
-    [ "getInfo", "d5/d67/a01070.html#ad6c747b02c7f3e3781d0bb8d4da5a8c2", null ],
-    [ "getStatus", "d5/d67/a01070.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
-    [ "open", "d5/d67/a01070.html#a5d093e457b6ea6877ea0bfccc4007122", null ],
-    [ "read", "d5/d67/a01070.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
-    [ "write", "d5/d67/a01070.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
-    [ "info", "d5/d67/a01070.html#aca8a7487175e31060363fe99270e69a3", null ],
-    [ "nss", "d5/d67/a01070.html#a6cad70d123e273b88f244598cc93a22b", null ],
-    [ "spiPort", "d5/d67/a01070.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
-    [ "status", "d5/d67/a01070.html#af95471bb260264403e3df2dc07b80419", null ]
+    [ "Lib::USB::SerialPortRepeaterBase", "d4/d67/a06339.html", "d4/d67/a06339" ],
+    [ "Lib::USB::SerialPortRepeaterBase::Config", "de/d0d/a06343.html", "de/d0d/a06343" ],
+    [ "CDC_Transmit_FS", "d5/d67/a01070.html#a9f54b31ad23bbe32b693bdeef89303f4", null ],
+    [ "MX_USB_DEVICE_Init", "d5/d67/a01070.html#adab4f7fc1db4ce2be073d3913209d2af", null ],
+    [ "USBD_CDC_ReceivePacket", "d5/d67/a01070.html#a7c4014397838b40b7716d800fd90ebcf", null ],
+    [ "hpcd_USB_OTG_FS", "d5/d67/a01070.html#a3ec0d70a6cb9406d997fb3d006cc940d", null ],
+    [ "hUsbDeviceFS", "d5/d67/a01070.html#afe8a2d9e10b33d5e7906f9f04f95358e", null ],
+    [ "UserRxBufferFS", "d5/d67/a01070.html#a1e37e6616e6affe5acf9c0befd063f6a", null ],
+    [ "UserTxBufferFS", "d5/d67/a01070.html#ad48fea85cdb7aed49bf62140a52f23e0", null ]
 ];

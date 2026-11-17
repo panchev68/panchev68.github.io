@@ -1,4 +1,5 @@
 var a01034 =
 [
-    [ "Lib::System::SerialNumber", "de/d01/a06218.html", "de/d01/a06218" ]
+    [ "RTOS::Timer", "d0/d65/a06215.html", "d0/d65/a06215" ],
+    [ "RTOS::Timer::Config", "d9/d20/a06219.html", "d9/d20/a06219" ]
 ];

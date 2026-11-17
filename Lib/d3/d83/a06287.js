@@ -1,8 +1,6 @@
 var a06287 =
 [
-    [ "pinNRST", "d3/d83/a06287.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "d3/d83/a06287.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "d3/d83/a06287.html#a7a30a24da1b05da04d34ae04d9601ed4", null ],
-    [ "usbDetectPin", "d3/d83/a06287.html#a7821371ae14cff05383049657f3dd8d6", null ],
-    [ "usbDisablePin", "d3/d83/a06287.html#aeafd4713f3249500c2a871623ffc4e6c", null ]
+    [ "Base", "d2/df2/a06291.html", "d2/df2/a06291" ],
+    [ "Hardware", "d2/d33/a06295.html", "d2/d33/a06295" ],
+    [ "Firmware", "d6/d5e/a06299.html", "d6/d5e/a06299" ]
 ];

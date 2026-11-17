@@ -1,11 +1,14 @@
 var a06011 =
 [
-    [ "Parameters", "d8/d4e/a06011.html#a24b8a679899e0a92f683ab16239f32df", null ],
-    [ "Parameters", "d8/d4e/a06011.html#a4e23b99119d652c7a97a2b5047722d75", null ],
-    [ "kd", "d8/d4e/a06011.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d8/d4e/a06011.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d8/d4e/a06011.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d8/d4e/a06011.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d8/d4e/a06011.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d8/d4e/a06011.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "Config", "dc/d04/a06015.html", "dc/d04/a06015" ],
+    [ "State", "d8/d4e/a06011.html#aa183e4ad471e783fceeab79e42bd8760", null ],
+    [ "ExponentialSmoothing", "d8/d4e/a06011.html#a3fad6466dc864983b592a9b283ed4b93", null ],
+    [ "ExponentialSmoothing", "d8/d4e/a06011.html#ae0c57db15abdd99a3de3ac3626180567", null ],
+    [ "~ExponentialSmoothing", "d8/d4e/a06011.html#a1fb62fa1bc325d13fd9b1f2118d2dbe7", null ],
+    [ "getAlpha", "d8/d4e/a06011.html#aaf2f8bcf8bede4d388c4ffb8f128e412", null ],
+    [ "getValue", "d8/d4e/a06011.html#ad53797dbb6242c7d8a51bcf5179b8e0f", null ],
+    [ "hasValue", "d8/d4e/a06011.html#ae0497be090d8d44d98b35c0ce4d92acf", null ],
+    [ "operator()", "d8/d4e/a06011.html#a803cda9b7813dae43fbd99fd639c9c1f", null ],
+    [ "reset", "d8/d4e/a06011.html#aabee13aa66e69e5d9234e1b0b1e40866", null ],
+    [ "setAlpha", "d8/d4e/a06011.html#a60f24123c101105ed24721ee7235d140", null ]
 ];

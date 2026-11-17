@@ -1,27 +1,19 @@
 var a04647 =
 [
-    [ "Mode", "d3/df2/a04647.html#a1daedc54cbed94813a3f5a28788f02ee", [
-      [ "READ", "d3/df2/a04647.html#a1daedc54cbed94813a3f5a28788f02eea3466fab4975481651940ed328aa990e4", null ],
-      [ "WRITE", "d3/df2/a04647.html#a1daedc54cbed94813a3f5a28788f02eead4b9e47f65b6e79b010582f15785867e", null ],
-      [ "APPEND", "d3/df2/a04647.html#a1daedc54cbed94813a3f5a28788f02eea375ffb668aa90f1c7fcae55e9734a752", null ]
-    ] ],
-    [ "Origin", "d3/df2/a04647.html#a24d9949178c04dbff8a51a46404f5274", [
-      [ "BEGIN", "d3/df2/a04647.html#a24d9949178c04dbff8a51a46404f5274a19aad9f2fe3ce0023298ab83f7e75775", null ],
-      [ "CURRENT", "d3/df2/a04647.html#a24d9949178c04dbff8a51a46404f5274aa2770969c827f0f2910f6179418462df", null ],
-      [ "END", "d3/df2/a04647.html#a24d9949178c04dbff8a51a46404f5274ab1a326c06d88bf042f73d70f50197905", null ]
-    ] ],
-    [ "File", "d3/df2/a04647.html#a82552ae5d2d082b01cc048b6d5f28504", null ],
-    [ "~File", "d3/df2/a04647.html#a8d5bf6c606ffd1d8d17f5d6bba29157a", null ],
-    [ "File", "d3/df2/a04647.html#a25edad5fbc94c04a5121f75434361dfe", null ],
-    [ "File", "d3/df2/a04647.html#ab85d612b0acb279719a29f07ec991d48", null ],
-    [ "close", "d3/df2/a04647.html#a7c0a91066586518abbef60479f08ec66", null ],
-    [ "isOpen", "d3/df2/a04647.html#a90b350290b06d5ee2cf1d7b325804454", null ],
-    [ "open", "d3/df2/a04647.html#a96670932bba49251bcc459dac43017a1", null ],
-    [ "operator=", "d3/df2/a04647.html#a095369cd880af04d889d44d6edb4ffe4", null ],
-    [ "operator=", "d3/df2/a04647.html#adff8a97f3267437e7baa45a767cf3a3c", null ],
-    [ "read", "d3/df2/a04647.html#ab53db1c5f8ccb661295ce0203e34d7ec", null ],
-    [ "seek", "d3/df2/a04647.html#a66b6ed3c3e1e592174dc4ff92dfe8cd5", null ],
-    [ "size", "d3/df2/a04647.html#ae432dc9450887014c08de3cc35287be2", null ],
-    [ "tell", "d3/df2/a04647.html#aca9142e54a9033aeac167cdd5a56cd8b", null ],
-    [ "write", "d3/df2/a04647.html#ad841aa788c7ebf36c0d12b1ded803d60", null ]
+    [ "Command", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10", [
+      [ "WRITE_ENABLE", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "WRITE_DISABLE", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
+      [ "READ_STATUS_REGISTER1", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "READ_DATA", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
+      [ "PAGE_PROGRAM", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
+      [ "SECTOR_ERASE", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

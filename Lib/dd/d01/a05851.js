@@ -1,4 +1,21 @@
 var a05851 =
 [
-    [ "Digits", "dd/d01/a05851.html#a6d4a05d6f245e02cf8f764801f23f0fc", null ]
+    [ "EventHandler", "dd/d01/a05851.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPortAsync", "dd/d01/a05851.html#a0eb76333730406f2b4eb1c25a840e786", null ],
+    [ "close", "dd/d01/a05851.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "closeChannel", "dd/d01/a05851.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
+    [ "getFrame", "dd/d01/a05851.html#aa5a82053bf356261f139d027918f7a98", null ],
+    [ "getHandle", "dd/d01/a05851.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "dd/d01/a05851.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getSpeed", "dd/d01/a05851.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
+    [ "getTransferCount", "dd/d01/a05851.html#aeafad19d337548bb5ef919dd44723b5f", null ],
+    [ "isOpened", "dd/d01/a05851.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "dd/d01/a05851.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "openChannel", "dd/d01/a05851.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
+    [ "resetPort", "dd/d01/a05851.html#a4be20887571f3bd3694a79bb349979f8", null ],
+    [ "setEventHandler", "dd/d01/a05851.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "start", "dd/d01/a05851.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
+    [ "stop", "dd/d01/a05851.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ],
+    [ "transfer", "dd/d01/a05851.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "dd/d01/a05851.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

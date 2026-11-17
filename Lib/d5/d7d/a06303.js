@@ -1,10 +1,10 @@
 var a06303 =
 [
-    [ "Value64Handle", "de/d5b/a06307.html", "de/d5b/a06307" ],
-    [ "Status", "d5/d7d/a06303.html#ae95109eada6e1d27cd31567f2ba169de", [
-      [ "OK", "d5/d7d/a06303.html#ae95109eada6e1d27cd31567f2ba169deae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d5/d7d/a06303.html#ae95109eada6e1d27cd31567f2ba169deabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "close", "d5/d7d/a06303.html#a53db90908f030950c411387229c0e443", null ],
-    [ "open", "d5/d7d/a06303.html#a53a9eea61415dd09f7459b8b382eeb58", null ]
+    [ "VersionString", "d5/d7d/a06303.html#a86d520da943edfbb98a592e47cd30177", null ],
+    [ "VersionBase", "d5/d7d/a06303.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
+    [ "getSubVersion", "d5/d7d/a06303.html#ae5c57f2bce8b985f8190894328141480", null ],
+    [ "getValue", "d5/d7d/a06303.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
+    [ "operator uint32_t", "d5/d7d/a06303.html#afca34523d727d800376b4959573f80bf", null ],
+    [ "operator VersionString", "d5/d7d/a06303.html#a3e56152954887db7681501c597507ae4", null ],
+    [ "toString", "d5/d7d/a06303.html#a1288aa2ce9764268fe7751f879f27a00", null ]
 ];

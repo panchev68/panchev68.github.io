@@ -1,19 +1,8 @@
 var a05511 =
 [
-    [ "CANPort", "d4/da8/a05511.html#adc087231856d1ec6bde6f97494503899", null ],
-    [ "~CANPort", "d4/da8/a05511.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
-    [ "CANPort", "d4/da8/a05511.html#afceeecde4eb91455d12a7305342e889a", null ],
-    [ "CANPort", "d4/da8/a05511.html#a91653fb9445c55c224e60742c91718a2", null ],
-    [ "close", "d4/da8/a05511.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
-    [ "getFreeTxMailboxCount", "d4/da8/a05511.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getHandle", "d4/da8/a05511.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
-    [ "getHandle", "d4/da8/a05511.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
-    [ "getRxFifoFillLevel", "d4/da8/a05511.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "d4/da8/a05511.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
-    [ "operator=", "d4/da8/a05511.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
-    [ "operator=", "d4/da8/a05511.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
-    [ "read", "d4/da8/a05511.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "readBlocking", "d4/da8/a05511.html#a49854c8fa3a47517562c6761363bb281", null ],
-    [ "write", "d4/da8/a05511.html#a65aa681fa591b2d0956e06e67e990b15", null ],
-    [ "writeBlocking", "d4/da8/a05511.html#a290a918dfefeea6aab3500acb68b90de", null ]
+    [ "height", "d4/da8/a05511.html#ad603dcefe826331cc2665717b89cbfef", null ],
+    [ "maxValue", "d4/da8/a05511.html#a4058a3baf4bdcce1e7d87c621d69d11a", null ],
+    [ "width", "d4/da8/a05511.html#a48beeef162ec50e89370be0735a2f6f2", null ],
+    [ "x", "d4/da8/a05511.html#a1154e88149043fd03ff26f92c28b753b", null ],
+    [ "y", "d4/da8/a05511.html#a1cd410dfa37a05eef3aecaa37e0c7368", null ]
 ];

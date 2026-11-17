@@ -1,4 +1,4 @@
 var a00731 =
 [
-    [ "Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;", "d7/d1a/a05634.html", "d7/d1a/a05634" ]
+    [ "Lib::HAL::I2CPort&lt; DriverMode::BLOCKING &gt;", "d1/d19/a05651.html", "d1/d19/a05651" ]
 ];

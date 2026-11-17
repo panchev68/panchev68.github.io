@@ -1,19 +1,19 @@
 var a04523 =
 [
-    [ "Command", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10", [
-      [ "WRITE_ENABLE", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "WRITE_DISABLE", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
-      [ "READ_STATUS_REGISTER1", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "READ_DATA", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
-      [ "PAGE_PROGRAM", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
-      [ "SECTOR_ERASE", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "d7/ddc/a04523.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "Config", "df/dd3/a04527.html", "df/dd3/a04527" ],
+    [ "Driver", "d7/ddc/a04523.html#ad08435e7ab04b1447660c851f626b703", null ],
+    [ "~Driver", "d7/ddc/a04523.html#aa6102b0396341784835c07a1ce9a127a", null ],
+    [ "Driver", "d7/ddc/a04523.html#af6f8c45fa76cc4cdc69a8d3131ee043d", null ],
+    [ "Driver", "d7/ddc/a04523.html#a7768b7b6fa2ec552019ebed7d7728e4c", null ],
+    [ "close", "d7/ddc/a04523.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "d7/ddc/a04523.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "d7/ddc/a04523.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "operator=", "d7/ddc/a04523.html#afe0439b5fd16b15fa6196111c14e70ef", null ],
+    [ "operator=", "d7/ddc/a04523.html#aa79821ce37ce3fca38aaaa91e94ddf75", null ],
+    [ "read", "d7/ddc/a04523.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "d7/ddc/a04523.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "d7/ddc/a04523.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "d7/ddc/a04523.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "d7/ddc/a04523.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "d7/ddc/a04523.html#a299a926321f0db8d9eac8527198f28fc", null ]
 ];

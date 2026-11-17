@@ -1,26 +1,8 @@
 var a05395 =
 [
-    [ "FontScope", "dc/daf/a05399.html", "dc/daf/a05399" ],
-    [ "Canvas", "d7/dd1/a05395.html#a47465a0e29e0e3831343f26b1d20e4a0", null ],
-    [ "~Canvas", "d7/dd1/a05395.html#a6dc741ba0c68fd152bca62d204e8f884", null ],
-    [ "clear", "d7/dd1/a05395.html#a776010b076475500a9f2314d2bfb3252", null ],
-    [ "drawChar", "d7/dd1/a05395.html#ae942d2f6c96b143932eb02960b29b48a", null ],
-    [ "drawChar", "d7/dd1/a05395.html#a569b76684862846384a496d7fd999f8d", null ],
-    [ "drawNumber", "d7/dd1/a05395.html#a6493d161927b43d0523c3995deb6d609", null ],
-    [ "drawText", "d7/dd1/a05395.html#a0cc7f97c3a72d55f0328a4870965e0e4", null ],
-    [ "drawText", "d7/dd1/a05395.html#a624e4c3ee3789a8cdb7fecd77de901d7", null ],
-    [ "drawTextAligned", "d7/dd1/a05395.html#a61b20bea7a4bc5fc203cefd8450d3a12", null ],
-    [ "flush", "d7/dd1/a05395.html#a090647cea78a53ccfcd3106bc7bc59e6", null ],
-    [ "getFont", "d7/dd1/a05395.html#a97696d7c379db51ff00b0b650bd74585", null ],
-    [ "getFont", "d7/dd1/a05395.html#ab4d7400cf18c7ae594b33cfdf1a78f7f", null ],
-    [ "getGlyphSpacing", "d7/dd1/a05395.html#aa3d8970999574ca16da5e7012a625853", null ],
-    [ "getHeight", "d7/dd1/a05395.html#a3049414bb5f239593a8084a0e6c10848", null ],
-    [ "getLineSpacing", "d7/dd1/a05395.html#a9726bc61dfb91913f1fc1db6c7f33e80", null ],
-    [ "getPrimitives", "d7/dd1/a05395.html#a080ad1be098f5a1f891a62b5e8320862", null ],
-    [ "getTextHeight", "d7/dd1/a05395.html#a3c0b5198eff2d8f83ac71070553403ed", null ],
-    [ "getTextWidth", "d7/dd1/a05395.html#ae700883e2059adf653de50f17e24ef13", null ],
-    [ "getWidth", "d7/dd1/a05395.html#a0ff7b181cfe9970d68d26ab7d212da4f", null ],
-    [ "setFont", "d7/dd1/a05395.html#a3956389dbb3fcee581093bc4120a2a6d", null ],
-    [ "setGlyphSpacing", "d7/dd1/a05395.html#afbfda345cbd7b4882c40132f0db0214a", null ],
-    [ "setLineSpacing", "d7/dd1/a05395.html#aa98953d5b8cfbad7e72eb83516dec479", null ]
+    [ "Node", "d7/dd1/a05395.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
+    [ "Node", "d7/dd1/a05395.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
+    [ "set", "d7/dd1/a05395.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
+    [ "ip", "d7/dd1/a05395.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
+    [ "port", "d7/dd1/a05395.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
 ];

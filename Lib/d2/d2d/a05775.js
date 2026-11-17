@@ -1,13 +1,18 @@
 var a05775 =
 [
-    [ "UARTPortBase", "d2/d2d/a05775.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
-    [ "UARTPortBase", "d2/d2d/a05775.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
-    [ "UARTPortBase", "d2/d2d/a05775.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
-    [ "~UARTPortBase", "d2/d2d/a05775.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
-    [ "close", "d2/d2d/a05775.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
-    [ "isBusy", "d2/d2d/a05775.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
-    [ "open", "d2/d2d/a05775.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
-    [ "operator=", "d2/d2d/a05775.html#ad0321a4f1297088a60c64e263c8c6816", null ],
-    [ "operator=", "d2/d2d/a05775.html#af29977f244357cb79e8203dbd192840c", null ],
-    [ "setBaudRate", "d2/d2d/a05775.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
+    [ "Manager", "d2/d2d/a05775.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d2/d2d/a05775.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimOutputCompare", "d2/d2d/a05775.html#a147e928fad995991b23e7d01fe3858fd", null ],
+    [ "~TimOutputCompare", "d2/d2d/a05775.html#ad51108ace6896dca15950c5bbfd3002b", null ],
+    [ "bindWorker", "d2/d2d/a05775.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getCounter", "d2/d2d/a05775.html#afaf7f01f359523e9b30110fdbf8b175b", null ],
+    [ "getHandle", "d2/d2d/a05775.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "d2/d2d/a05775.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "setCompare", "d2/d2d/a05775.html#a14b6982f85b9be41e24886a8a1c7445d", null ],
+    [ "start", "d2/d2d/a05775.html#a63482b7958cd7171218c959b2b5df044", null ],
+    [ "stop", "d2/d2d/a05775.html#aac2ec3db8ef26406c23bea924b96997b", null ],
+    [ "waitCompare", "d2/d2d/a05775.html#a040290a0bf889a08fc0248b637b69e71", null ],
+    [ "waitCompare", "d2/d2d/a05775.html#a18804c13963fca99f8037034a6d4e7ec", null ],
+    [ "waitEvent", "d2/d2d/a05775.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d2/d2d/a05775.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
 ];

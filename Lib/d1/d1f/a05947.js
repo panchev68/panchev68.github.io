@@ -1,14 +1,10 @@
 var a05947 =
 [
-    [ "TimeChangeRule", "dc/d21/a05951.html", "dc/d21/a05951" ],
-    [ "TimeZone", "d1/d1f/a05947.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
-    [ "TimeZone", "d1/d1f/a05947.html#a0edb02c779df5ea86747377d1413c3d8", null ],
-    [ "TimeZone", "d1/d1f/a05947.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
-    [ "convertLocalToUtcMinutes", "d1/d1f/a05947.html#a479ec4792a22a5b314a497bb01be2047", null ],
-    [ "getName", "d1/d1f/a05947.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
-    [ "getOffset", "d1/d1f/a05947.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
-    [ "getOffsetMinutes", "d1/d1f/a05947.html#a85aeda7715611b5af76b28bdc266c545", null ],
-    [ "setName", "d1/d1f/a05947.html#a46b717d157e7f9b012a459cf78b723b5", null ],
-    [ "setOffset", "d1/d1f/a05947.html#aedb03e610f976aba921183f41dd10501", null ],
-    [ "setOffsetMinutes", "d1/d1f/a05947.html#a57128a66ae77de2e6d60521056cb33db", null ]
+    [ "Integrator", "d1/d1f/a05947.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
+    [ "addValue", "d1/d1f/a05947.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
+    [ "computeResult", "d1/d1f/a05947.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
+    [ "isWindowFull", "d1/d1f/a05947.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
+    [ "operator()", "d1/d1f/a05947.html#a97085ec2f9a9f65920181fffae409662", null ],
+    [ "processValue", "d1/d1f/a05947.html#ab31a92d828aeae207fd9641101c217f5", null ],
+    [ "resetWindow", "d1/d1f/a05947.html#a78e088ee416a676679fe227ceb71b1b0", null ]
 ];

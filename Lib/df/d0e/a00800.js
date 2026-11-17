@@ -1,5 +1,6 @@
 var a00800 =
 [
-    [ "Lib::HAL::Timer::TimOnePulse", "d1/d52/a05734.html", "d1/d52/a05734" ],
-    [ "HAL_TIM_PWM_PulseFinishedCallback", "df/d0e/a00800.html#a07e5fc4d223b16bec2fd6bed547cf91d", null ]
+    [ "Lib::HAL::Timer::compareRegister", "dd/d09/a01118.html#afb4fb6e73aa0198e451581196e258e12", null ],
+    [ "Lib::HAL::Timer::isValidChannel", "dd/d09/a01118.html#ab75a39e4c4d2e24306f9d60322937e4a", null ],
+    [ "Lib::HAL::Timer::toActiveChannel", "dd/d09/a01118.html#a7308e7f3aee34a139db6fc9cc68a0876", null ]
 ];

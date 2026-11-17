@@ -1,6 +1,14 @@
 var a05127 =
 [
-    [ "resetPin", "d0/d42/a05127.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
-    [ "rxHandle", "d0/d42/a05127.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
-    [ "txHandle", "d0/d42/a05127.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
+    [ "SerialNumber", "d0/dcf/a05131.html", "d0/dcf/a05131" ],
+    [ "ackFailures", "d0/d42/a05127.html#aa36464587f33788505f069d1c46ec004", null ],
+    [ "ccaFailures", "d0/d42/a05127.html#a51e5f54e9e1224b2389b126cd7602d65", null ],
+    [ "channel", "d0/d42/a05127.html#a910133d925087a409f8f8357447b9e3a", null ],
+    [ "firmwareVersion", "d0/d42/a05127.html#a919225b632587966d3cdbd15ca30f0d3", null ],
+    [ "hardwareVersion", "d0/d42/a05127.html#a2efd702c930d16f10c2672244503d676", null ],
+    [ "nodeIdentifier", "d0/d42/a05127.html#a1980717ff0972ddb91d6d59e8bd1a38e", null ],
+    [ "panId", "d0/d42/a05127.html#ad1515643697ad647030e33ba97d79968", null ],
+    [ "serialNumber", "d0/d42/a05127.html#a5e4e85516315320363b69f902c64a5b7", null ],
+    [ "temperature", "d0/d42/a05127.html#aece1486ed1a9e85c4aa022f9634a3884", null ],
+    [ "voltage", "d0/d42/a05127.html#a9ee4423766190b01b3381ae41455bf2d", null ]
 ];

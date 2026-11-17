@@ -1,6 +1,10 @@
 var a06031 =
 [
-    [ "name", "d8/da2/a06031.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
-    [ "output", "d8/da2/a06031.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
-    [ "rotateTime", "d8/da2/a06031.html#aad96d287e9891431e5a7c99935482563", null ]
+    [ "MovingAverage", "d8/da2/a06031.html#a8510d234d514c7e0cce11de72a76efa9", null ],
+    [ "~MovingAverage", "d8/da2/a06031.html#a1475bc793d6f5d0efd3961a1752bde27", null ],
+    [ "getAverage", "d8/da2/a06031.html#a6253a2f3564edfd4e2007c31e220a8f0", null ],
+    [ "getCount", "d8/da2/a06031.html#ad37bfac14689d022b3c70fc9ad6f90e0", null ],
+    [ "isFull", "d8/da2/a06031.html#aaf4c6d357fb792f439055171bc67e56b", null ],
+    [ "operator()", "d8/da2/a06031.html#a3dcd298d77375acddce6844d1394fa9a", null ],
+    [ "reset", "d8/da2/a06031.html#a581a63a6d58adc1a6d6929fece577f99", null ]
 ];

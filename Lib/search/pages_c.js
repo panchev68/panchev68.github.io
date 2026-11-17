@@ -6,7 +6,9 @@ var searchData=
   ['new_20parameters_3',['Reset and new parameters',['../X:/Lib/IAR/Project/Examples/Lib_Math_Filter_Kalman.dox#kalman_usage_reset',1,'']]],
   ['nibble_4',['ASCII to nibble',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_HexHelper.dox#hexhelper_usage_parse',1,'']]],
   ['nibble_20to_20ascii_5',['Nibble to ASCII',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_HexHelper.dox#hexhelper_usage_nibble',1,'']]],
-  ['non_20default_20uart_20address_6',['Non-default UART address',['../X:/Lib/IAR/Project/Examples/Lib_BSP_Ultrasonic_PGA460TPWRQ1.dox#pga460_usage_address',1,'']]],
-  ['normal_20mutex_20with_20timeout_7',['Normal mutex with timeout',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_normal',1,'']]],
-  ['numeric_20decimal_20value_8',['BCD to numeric decimal value',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_Bcd.dox#bcd_usage_hex',1,'']]]
+  ['noise_6',['Spikes first, then noise',['../X:/Lib/IAR/Project/Examples/Lib_Math_Filter_Median.dox#median_usage_chain',1,'']]],
+  ['non_20default_20uart_20address_7',['Non-default UART address',['../X:/Lib/IAR/Project/Examples/Lib_BSP_Ultrasonic_PGA460TPWRQ1.dox#pga460_usage_address',1,'']]],
+  ['normal_20mutex_20with_20timeout_8',['Normal mutex with timeout',['../X:/Lib/IAR/Project/Examples/RTOS_Mutex.dox#mutex_usage_normal',1,'']]],
+  ['not_20yet_20full_9',['Window not yet full',['../X:/Lib/IAR/Project/Examples/Lib_Math_Filter_Median.dox#median_usage_even',1,'']]],
+  ['numeric_20decimal_20value_10',['BCD to numeric decimal value',['../X:/Lib/IAR/Project/Examples/Lib_Helper_Convert_Bcd.dox#bcd_usage_hex',1,'']]]
 ];

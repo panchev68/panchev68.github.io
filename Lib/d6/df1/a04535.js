@@ -1,9 +1,16 @@
 var a04535 =
 [
-    [ "dtr", "d6/df1/a04535.html#a1f0325547dba26c50be0574888fc397e", null ],
-    [ "port", "d6/df1/a04535.html#a86fe1b86ed7cea66b9a5c100adea5c50", null ],
-    [ "powerKey", "d6/df1/a04535.html#a7602e69d38d7f788df016037bb00df30", null ],
-    [ "reset", "d6/df1/a04535.html#a4a2aa8be77cad07c87aebcea429856d2", null ],
-    [ "setSupply", "d6/df1/a04535.html#a9848006a47ed741d31636388c9deb387", null ],
-    [ "status", "d6/df1/a04535.html#a223d2213e1ed43f94c86e60f5cf37555", null ]
+    [ "Config", "d6/df1/a04535.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
+    [ "M24C64W", "d6/df1/a04535.html#a961e9014542ac6f768bd548fa1d15598", null ],
+    [ "~M24C64W", "d6/df1/a04535.html#a786bcea2331bd895b693fa1cf2fb0e6b", null ],
+    [ "close", "d6/df1/a04535.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "d6/df1/a04535.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "d6/df1/a04535.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "read", "d6/df1/a04535.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "d6/df1/a04535.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "d6/df1/a04535.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "d6/df1/a04535.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "d6/df1/a04535.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "d6/df1/a04535.html#a299a926321f0db8d9eac8527198f28fc", null ],
+    [ "Driver< M24C64W >", "d6/df1/a04535.html#a389c035ca7d606c8426542af2e4b7d70", null ]
 ];

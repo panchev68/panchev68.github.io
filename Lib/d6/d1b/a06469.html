@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Timeout</title>
+<title>IAR EWARM Library: Lib::Helper::Convert::HexHelper</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,62 +129,72 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d1b/a06469.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Timeout</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Convert::HexHelper</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows tracking a deadline in a polling loop with <a class="el" href="../../d6/d1b/a06469.html" title="RTOS::Timeout">RTOS::Timeout</a>.</p>
-<p>Shows tracking a deadline in a polling loop with RTOS::Timeout.Covers a timeout created from a duration, polled until it expires, restarted explicitly with <a class="el" href="../../de/d49/a06155.html#a4f719fdc728f4b1e2a6a3b33c747c32e" title="RTOS::Timeout::reset()">RTOS::Timeout::reset()</a>, and disabled when no limit is needed. The timeout measures elapsed time with the scheduler tick count and can be polled from task and ISR context.</p>
+<p>Shows the lightweight conversion helpers of <a class="el" href="../../d6/d1b/a06469.html" title="Lib::Helper::Convert::HexHelper">Lib::Helper::Convert::HexHelper</a>, which turn a nibble into its ASCII hex digit, a value from <b>0</b> to <b>99</b> packed into 8-bit BCD, a decimal value packed into 32-bit BCD, and an ASCII hex digit back to its numeric nibble.</p>
+<p>Shows the lightweight conversion helpers of <a class="el" href="../../d6/d1b/a06469.html" title="Lib::Helper::Convert::HexHelper">Lib::Helper::Convert::HexHelper</a>, which turn a nibble into its ASCII hex digit, a value from <b>0</b> to <b>99</b> packed into 8-bit BCD, a decimal value packed into 32-bit BCD, and an ASCII hex digit back to its numeric nibble.The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs. <a class="el" href="../../db/d12/a05903.html#adc4e23573cc8d30952b34baa738a7829" title="Lib::Helper::Convert::HexHelper::toBcd()">Lib::Helper::Convert::HexHelper::toBcd()</a> and <a class="el" href="../../db/d12/a05903.html#a0ff1064b777a7e7bcc333deb8863d171" title="Lib::Helper::Convert::HexHelper::toBcd8()">Lib::Helper::Convert::HexHelper::toBcd8()</a> assert on a value above their capacity in debug builds. <a class="el" href="../../db/d12/a05903.html#ad25faac730a1cf9e48849a2e2c672b18" title="Lib::Helper::Convert::HexHelper::fromAscii()">Lib::Helper::Convert::HexHelper::fromAscii()</a> returns <a class="el" href="../../db/d12/a05903.html#a6bf7a4038d9764ca11bac42597dcc0a7" title="Lib::Helper::Convert::HexHelper::INVALID_NIBBLE">Lib::Helper::Convert::HexHelper::INVALID_NIBBLE</a> for a non-hex character, and asserts on it in debug builds.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timeout_usage_poll"></a>
-Polling until a deadline</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d88/a00962.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d8d/a01007.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_nibble"></a>
+Nibble to ASCII</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><span class="keywordtype">void</span> printNibbleAsAscii() {</div>
+<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d12/a05903.html">Lib::Helper::Convert::HexHelper</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> isPeripheralReady() noexcept;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> waitForReady() noexcept {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../de/d49/a06155.html">RTOS::Timeout</a> deadline(500ms);</div>
-<div class="line">    <span class="keywordflow">while</span> (!deadline.<a id="a1" name="a1"></a><a class="code hl_function" href="../../de/d49/a06155.html#a4264c550073d457fa8f6ca89e591a0e6">isExpired</a>()) {</div>
-<div class="line">        <span class="keywordflow">if</span> (isPeripheralReady()) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d99/a01101.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(10ms);</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Not ready within 500 ms.</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> c = HexHelper::toAscii(0xAU);</div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Nibble 0xA -&gt; &quot;</span> &lt;&lt; c &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00962_html"><div class="ttname"><a href="../../df/d88/a00962.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
-<div class="ttc" id="aa01007_html"><div class="ttname"><a href="../../d6/d8d/a01007.html">Timeout.hpp</a></div><div class="ttdoc">FreeRTOS-compatible timeout management utility.</div></div>
-<div class="ttc" id="aa01101_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../de/d99/a01101.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:610</div></div>
-<div class="ttc" id="aa06155_html"><div class="ttname"><a href="../../de/d49/a06155.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:37</div></div>
-<div class="ttc" id="aa06155_html_a4264c550073d457fa8f6ca89e591a0e6"><div class="ttname"><a href="../../de/d49/a06155.html#a4264c550073d457fa8f6ca89e591a0e6">RTOS::Timeout::isExpired</a></div><div class="ttdeci">bool isExpired() const noexcept</div><div class="ttdoc">Checks if the timeout duration has elapsed.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:144</div></div>
+<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
+<div class="ttc" id="aa00899_html"><div class="ttname"><a href="../../d3/d8a/a00899.html">HexHelper.hpp</a></div><div class="ttdoc">Hexadecimal and BCD conversion helpers, forwarding the nibble and character mapping to Lib::Helper::C...</div></div>
+<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
+<div class="ttc" id="aa05903_html"><div class="ttname"><a href="../../db/d12/a05903.html">Lib::Helper::Convert::HexHelper</a></div><div class="ttdoc">Static constexpr conversion utilities between numeric values, ASCII hex characters and packed BCD.</div><div class="ttdef"><b>Definition</b> HexHelper.hpp:29</div></div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">Nibble 0xA -&gt; A</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timeout_usage_restart"></a>
-Restarting and disabling</h3>
-<p><a class="el" href="../../de/d49/a06155.html#a4f719fdc728f4b1e2a6a3b33c747c32e" title="RTOS::Timeout::reset()">RTOS::Timeout::reset()</a> restarts the window from the current tick, and <a class="el" href="../../de/d49/a06155.html#a9f4c1790b62b338de5ee47cad756a53e" title="RTOS::Timeout::disable()">RTOS::Timeout::disable()</a> makes the timeout never expire until <a class="el" href="../../de/d49/a06155.html#a859711fa5327754ac08a5a5f7b6175ba" title="RTOS::Timeout::set()">RTOS::Timeout::set()</a> is called again.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d8d/a01007.html">Lib/RTOS/FreeRTOS/Timeout.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_bcd"></a>
+Packing decimal values into BCD</h3>
+<p><a class="el" href="../../db/d12/a05903.html#a0ff1064b777a7e7bcc333deb8863d171" title="Lib::Helper::Convert::HexHelper::toBcd8()">Lib::Helper::Convert::HexHelper::toBcd8()</a> packs <b>0</b> to <b>99</b> into one byte, and <a class="el" href="../../db/d12/a05903.html#adc4e23573cc8d30952b34baa738a7829" title="Lib::Helper::Convert::HexHelper::toBcd()">Lib::Helper::Convert::HexHelper::toBcd()</a> packs up to <b>8</b> decimal digits into 32 bits.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><span class="keywordtype">void</span> printPackedBcd() {</div>
+<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../db/d12/a05903.html">Lib::Helper::Convert::HexHelper</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> restartWindows() noexcept {</div>
-<div class="line">    <a class="code hl_class" href="../../de/d49/a06155.html">RTOS::Timeout</a> unlimited(1s);</div>
-<div class="line">    unlimited.<a id="a3" name="a3"></a><a class="code hl_function" href="../../de/d49/a06155.html#a9f4c1790b62b338de5ee47cad756a53e">disable</a>();</div>
+<div class="line">    <span class="keyword">const</span> uint8_t bcd8 = HexHelper::toBcd8(42U);</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;BCD8(42) -&gt; 0x&quot;</span> &lt;&lt; <a id="a2" name="a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex &lt;&lt; static_cast&lt;int&gt;</a>(bcd8) &lt;&lt; <a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="../../de/d49/a06155.html">RTOS::Timeout</a> retry(200ms);</div>
-<div class="line">    retry.<a id="a4" name="a4"></a><a class="code hl_function" href="../../de/d49/a06155.html#a4f719fdc728f4b1e2a6a3b33c747c32e">reset</a>();</div>
-<div class="line">    <span class="keywordflow">if</span> (retry.<a id="a5" name="a5"></a><a class="code hl_function" href="../../de/d49/a06155.html#a9960d8cda67ce72d1c02dcd7d3608066">getRemainingTicks</a>() &gt; 0U) {</div>
-<div class="line">        <span class="comment">// Still inside the window.</span></div>
+<div class="line">    <span class="keyword">const</span> uint32_t bcd32 = HexHelper::toBcd(1234U);</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;BCD32(1234) -&gt; 0x&quot;</span> &lt;&lt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex</a> &lt;&lt; bcd32 &lt;&lt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa01692_html_a0fc906aec6c2cb724b0aad05ee44de0d"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex</a></div><div class="ttdeci">ios_base &amp; hex(ios_base &amp;__base)</div></div>
+<div class="ttc" id="aa01692_html_a8e1042ae25efda13674517f13a10c44c"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a></div><div class="ttdeci">ios_base &amp; dec(ios_base &amp;__base)</div></div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">BCD8(42) -&gt; 0x42</div>
+<div class="line">BCD32(1234) -&gt; 0x1234</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_parse"></a>
+ASCII to nibble</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> printAsciiAsNibble() {</div>
+<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../db/d12/a05903.html">Lib::Helper::Convert::HexHelper</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> uint8_t nibble = HexHelper::fromAscii(<span class="charliteral">&#39;F&#39;</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (nibble != HexHelper::INVALID_NIBBLE) {</div>
+<div class="line">        <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;&#39;F&#39; -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(nibble) &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa06155_html_a4f719fdc728f4b1e2a6a3b33c747c32e"><div class="ttname"><a href="../../de/d49/a06155.html#a4f719fdc728f4b1e2a6a3b33c747c32e">RTOS::Timeout::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdoc">Restarts the clock at the current tick, keeping the configured duration; does nothing if disabled.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:129</div></div>
-<div class="ttc" id="aa06155_html_a9960d8cda67ce72d1c02dcd7d3608066"><div class="ttname"><a href="../../de/d49/a06155.html#a9960d8cda67ce72d1c02dcd7d3608066">RTOS::Timeout::getRemainingTicks</a></div><div class="ttdeci">TickType getRemainingTicks() const noexcept</div><div class="ttdoc">Retrieves the remaining ticks until expiration.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:156</div></div>
-<div class="ttc" id="aa06155_html_a9f4c1790b62b338de5ee47cad756a53e"><div class="ttname"><a href="../../de/d49/a06155.html#a9f4c1790b62b338de5ee47cad756a53e">RTOS::Timeout::disable</a></div><div class="ttdeci">void disable() noexcept</div><div class="ttdoc">Disables the timeout.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:100</div></div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line"><span class="charliteral">&#39;F&#39;</span> -&gt; 15</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

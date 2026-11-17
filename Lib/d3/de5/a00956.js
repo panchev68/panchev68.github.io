@@ -1,5 +1,4 @@
 var a00956 =
 [
-    [ "Lib::Pneumatics::RotationCylinder", "d4/d80/a06030.html", "d4/d80/a06030" ],
-    [ "Lib::Pneumatics::RotationCylinder::Config", "df/d0f/a06034.html", "df/d0f/a06034" ]
+    [ "Lib::Math::Filter::Median&lt; T_TYPE, T_SIZE &gt;", "db/dc9/a06027.html", "db/dc9/a06027" ]
 ];

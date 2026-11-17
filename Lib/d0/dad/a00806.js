@@ -1,4 +1,4 @@
 var a00806 =
 [
-    [ "Lib::HAL::Timer::TimPwmOutput", "d5/d88/a05742.html", "d5/d88/a05742" ]
+    [ "Lib::HAL::Timer::TimEventBase&lt; T_DERIVED &gt;", "d8/d36/a05763.html", "d8/d36/a05763" ]
 ];

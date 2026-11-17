@@ -1,18 +1,17 @@
 var a05783 =
 [
-    [ "EventHandler", "d6/d37/a05783.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
-    [ "USBDevicePort", "d6/d37/a05783.html#a73135119d83dd3a80c4b81f5bbe8fd61", null ],
-    [ "~USBDevicePort", "d6/d37/a05783.html#a0a313f5efd10221e16714eece65dda0f", null ],
-    [ "abort", "d6/d37/a05783.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
-    [ "close", "d6/d37/a05783.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d6/d37/a05783.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "Manager", "d6/d37/a05783.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d6/d37/a05783.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimTimebase", "d6/d37/a05783.html#a2c242b351c880239ebc508905c1cb177", null ],
+    [ "~TimTimebase", "d6/d37/a05783.html#a90c3f44e84cfcfed7135d75abee0a2e1", null ],
+    [ "bindWorker", "d6/d37/a05783.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
     [ "getHandle", "d6/d37/a05783.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d6/d37/a05783.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d6/d37/a05783.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d6/d37/a05783.html#add4fb8ab17eac13116050ae3c8237acf", null ],
-    [ "send", "d6/d37/a05783.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
-    [ "setEventHandler", "d6/d37/a05783.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
-    [ "submitReceive", "d6/d37/a05783.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
-    [ "submitSend", "d6/d37/a05783.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
-    [ "waitForEvent", "d6/d37/a05783.html#ac98dece292bb17828882e8d61e803880", null ]
+    [ "notifyWorkerFromISR", "d6/d37/a05783.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "setPeriod", "d6/d37/a05783.html#a29d9a9e5c9f5213605679a13c42aa764", null ],
+    [ "start", "d6/d37/a05783.html#ab552a6aca3293c0ecdd0ce26d6668663", null ],
+    [ "stop", "d6/d37/a05783.html#afffbfe2b0fcf27e6081cc6983d06e626", null ],
+    [ "waitEvent", "d6/d37/a05783.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "waitPeriod", "d6/d37/a05783.html#a2b19392b62c66b845538ec09abd31354", null ],
+    [ "waitPeriod", "d6/d37/a05783.html#a12ce8677b8ff16469cb2f21c9a1eb5bb", null ],
+    [ "void::Lib_HAL_TimTimebase_PeriodElapsed", "d6/d37/a05783.html#ae72687d02451939bdec7c3aaba269a45", null ]
 ];

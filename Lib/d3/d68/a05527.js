@@ -1,15 +1,18 @@
 var a05527 =
 [
-    [ "CANPortBase", "d3/d68/a05527.html#a49874a4fadbeed6acb5df1cd34d8b425", null ],
-    [ "CANPortBase", "d3/d68/a05527.html#a36fdf7b60492dfecc0b7bba144d57de0", null ],
-    [ "CANPortBase", "d3/d68/a05527.html#a3758c35d87fdeafd08f0cc9845888bea", null ],
-    [ "~CANPortBase", "d3/d68/a05527.html#afe0c3c29da222264a12b2ade136c866c", null ],
-    [ "close", "d3/d68/a05527.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
-    [ "getFreeTxMailboxCount", "d3/d68/a05527.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getRxFifoFillLevel", "d3/d68/a05527.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "d3/d68/a05527.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
-    [ "operator=", "d3/d68/a05527.html#a9d5120e2646e18222b7569d1caeda00e", null ],
-    [ "operator=", "d3/d68/a05527.html#a472090855651f87bac97104e8a80dee6", null ],
-    [ "read", "d3/d68/a05527.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "write", "d3/d68/a05527.html#a65aa681fa591b2d0956e06e67e990b15", null ]
+    [ "Event", "d1/d01/a05531.html", null ],
+    [ "ADCPort", "d3/d68/a05527.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
+    [ "~ADCPort", "d3/d68/a05527.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
+    [ "ADCPort", "d3/d68/a05527.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
+    [ "ADCPort", "d3/d68/a05527.html#af963171787341304aeec9ad771e5f523", null ],
+    [ "close", "d3/d68/a05527.html#a91651451878e1931de2457be52f68c92", null ],
+    [ "getHandle", "d3/d68/a05527.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d3/d68/a05527.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getValue", "d3/d68/a05527.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d3/d68/a05527.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
+    [ "operator=", "d3/d68/a05527.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
+    [ "operator=", "d3/d68/a05527.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
+    [ "start", "d3/d68/a05527.html#a97c4921b9e22a517072028d001c86ef1", null ],
+    [ "stop", "d3/d68/a05527.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
+    [ "waitForEvent", "d3/d68/a05527.html#af0c975bbd0a66ffabc210d52ec971714", null ]
 ];

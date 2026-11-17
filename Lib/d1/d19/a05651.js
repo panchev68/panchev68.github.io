@@ -1,14 +1,19 @@
 var a05651 =
 [
-    [ "OSPIPortAsync", "d1/d19/a05651.html#a51c7bf376cb7e3701de6391b213701a9", null ],
-    [ "abort", "d1/d19/a05651.html#a12a734c939e90c6c90510ba2c323dec0", null ],
-    [ "close", "d1/d19/a05651.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "command", "d1/d19/a05651.html#ab13d30c818279bf38505328181fa1409", null ],
-    [ "getHandle", "d1/d19/a05651.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d1/d19/a05651.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "d1/d19/a05651.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "isOpened", "d1/d19/a05651.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d1/d19/a05651.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d1/d19/a05651.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
-    [ "transmit", "d1/d19/a05651.html#a2f58a3412364e7819ba973859d2389a7", null ]
+    [ "I2CPort", "d1/d19/a05651.html#a70dc562f520726340c2c942ee7753b17", null ],
+    [ "~I2CPort", "d1/d19/a05651.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
+    [ "I2CPort", "d1/d19/a05651.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
+    [ "I2CPort", "d1/d19/a05651.html#a6c227decd7ea7b8ff23e032025761259", null ],
+    [ "close", "d1/d19/a05651.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "getHandle", "d1/d19/a05651.html#a57df6990634d2cba4b86d8cf193f4050", null ],
+    [ "getHandle", "d1/d19/a05651.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
+    [ "isBusy", "d1/d19/a05651.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "d1/d19/a05651.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "masterMemRead", "d1/d19/a05651.html#aff45c6ae44d78ac3f07f800383374359", null ],
+    [ "masterMemWrite", "d1/d19/a05651.html#ae89e0f492119ac05671af0cdca2b90de", null ],
+    [ "masterReceive", "d1/d19/a05651.html#a165d3958b26f38d4c513160a447bcfaf", null ],
+    [ "masterTransmit", "d1/d19/a05651.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
+    [ "open", "d1/d19/a05651.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "d1/d19/a05651.html#aae592f22809df591ac07e2cd47f3969b", null ],
+    [ "operator=", "d1/d19/a05651.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
 ];

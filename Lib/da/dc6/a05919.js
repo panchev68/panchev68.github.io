@@ -1,22 +1,14 @@
 var a05919 =
 [
-    [ "Date", "da/dc6/a05919.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
-    [ "Phase", "da/dc6/a05919.html#a5567988b4297dec26d3237506884f6a5", [
-      [ "NEW_MOON", "da/dc6/a05919.html#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446", null ],
-      [ "WAXING_CRESCENT", "da/dc6/a05919.html#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd", null ],
-      [ "FIRST_QUARTER", "da/dc6/a05919.html#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404", null ],
-      [ "WAXING_GIBBOUS", "da/dc6/a05919.html#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651", null ],
-      [ "FULL_MOON", "da/dc6/a05919.html#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1", null ],
-      [ "WANING_GIBBOUS", "da/dc6/a05919.html#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6", null ],
-      [ "LAST_QUARTER", "da/dc6/a05919.html#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18", null ],
-      [ "WANING_CRESCENT", "da/dc6/a05919.html#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39", null ]
-    ] ],
-    [ "MoonPhase", "da/dc6/a05919.html#ac58c9ddf6d8f37e3f317e4f702ac00a5", null ],
-    [ "MoonPhase", "da/dc6/a05919.html#acd603bf923907f139f3479a3fe0c6723", null ],
-    [ "calculate", "da/dc6/a05919.html#a47ac4868563998363835de249a5814a9", null ],
-    [ "index", "da/dc6/a05919.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
-    [ "name", "da/dc6/a05919.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
-    [ "operator std::string_view", "da/dc6/a05919.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
-    [ "operator uint32_t", "da/dc6/a05919.html#a64022e97a09da5fcaa242d39634aafbf", null ],
-    [ "phase", "da/dc6/a05919.html#a6ddb8be8e68814a16313e0824662b5c9", null ]
+    [ "Time", "d2/dde/a05923.html", "d2/dde/a05923" ],
+    [ "Date", "d3/d20/a05927.html", "d3/d20/a05927" ],
+    [ "DateTime", "da/dc6/a05919.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
+    [ "DateTime", "da/dc6/a05919.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
+    [ "isValid", "da/dc6/a05919.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
+    [ "operator<=>", "da/dc6/a05919.html#a768cad764174be4d63763ddda26b9f67", null ],
+    [ "operator==", "da/dc6/a05919.html#a3d983b842fee71216375379ddc6be3ce", null ],
+    [ "to_tm", "da/dc6/a05919.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
+    [ "toSysSeconds", "da/dc6/a05919.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
+    [ "date", "da/dc6/a05919.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
+    [ "time", "da/dc6/a05919.html#a99c6886879b06c9396a2df8bd08ce997", null ]
 ];

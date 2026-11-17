@@ -1,13 +1,10 @@
 var a04887 =
 [
-    [ "WolfSSHServer", "de/d63/a04887.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
-    [ "~WolfSSHServer", "de/d63/a04887.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
-    [ "WolfSSHServer", "de/d63/a04887.html#ad8f53deb42abb7890bd933f530e30e99", null ],
-    [ "WolfSSHServer", "de/d63/a04887.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
-    [ "accept", "de/d63/a04887.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
-    [ "operator=", "de/d63/a04887.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
-    [ "operator=", "de/d63/a04887.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
-    [ "read", "de/d63/a04887.html#ac07508d68f41b64e463fdd58db57558b", null ],
-    [ "send", "de/d63/a04887.html#a034957692d48053e848ee6d77605fe2f", null ],
-    [ "shutdown", "de/d63/a04887.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
+    [ "RxMessage", "de/d63/a04887.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
+    [ "RxMessage", "de/d63/a04887.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
+    [ "getData", "de/d63/a04887.html#a211378ed57e780728a164371a88e9913", null ],
+    [ "getId", "de/d63/a04887.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
+    [ "data", "de/d63/a04887.html#ad7fd7612128273e1c546b6344e7410b3", null ],
+    [ "id", "de/d63/a04887.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
+    [ "length", "de/d63/a04887.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
 ];

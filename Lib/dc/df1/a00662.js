@@ -1,4 +1,5 @@
 var a00662 =
 [
-    [ "Lib::HAL::isDmaReachable", "de/d6d/a01095.html#a6d025716096ef0a5098ff9db2688b2da", null ]
+    [ "Lib::HAL::CANFrame", "d5/d7e/a05563.html", "d5/d7e/a05563" ],
+    [ "Lib::HAL::CANPortBase&lt; T_DERIVED &gt;", "d2/d72/a05567.html", "d2/d72/a05567" ]
 ];

@@ -1,4 +1,4 @@
 var a00827 =
 [
-    [ "Lib::HAL::UARTPortBase&lt; T_DERIVED &gt;", "de/db9/a05778.html", "de/db9/a05778" ]
+    [ "Lib::HAL::UARTPort&lt; DriverMode::BLOCKING &gt;", "d1/d9a/a05795.html", "d1/d9a/a05795" ]
 ];

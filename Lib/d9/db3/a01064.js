@@ -1,4 +1,4 @@
 var a01064 =
 [
-    [ "ospi", "d9/db3/a01064.html#ab63f02a17d4d1f80ae295f1955922795", null ]
+    [ "Lib::System::VersionBase&lt; Derived &gt;", "d5/d7d/a06303.html", "d5/d7d/a06303" ]
 ];

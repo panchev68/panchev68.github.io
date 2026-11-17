@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::MessageBuffer</title>
+<title>IAR EWARM Library: Lib::HAL::Timer::TimInputCapture</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,59 +129,86 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d6e/a06445.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::MessageBuffer</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimInputCapture</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows creating an <a class="el" href="../../d6/d6e/a06445.html" title="RTOS::MessageBuffer">RTOS::MessageBuffer</a>, then sending and receiving one small message from a task.</p>
-<p>Shows creating an <a class="el" href="../../d6/d6e/a06445.html" title="RTOS::MessageBuffer">RTOS::MessageBuffer</a>, then sending and receiving one small message from a task. The example focuses on the API and leaves out task setup, so FreeRTOS must already be running.</p>
+<p>Measures the time of input edges with <a class="el" href="../../d6/d6e/a06445.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a>.</p>
+<p>Measures the time of input edges with <a class="el" href="../../d6/d6e/a06445.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a>. The capture interrupt wakes the task blocked in <a class="el" href="../../d5/d1a/a05767.html#a2732cd4549f6b1ca08da0cbcb462f404" title="Lib::HAL::Timer::TimInputCapture::waitCapture()">Lib::HAL::Timer::TimInputCapture::waitCapture()</a>, and the task reads the captured counter value with <a class="el" href="../../d5/d1a/a05767.html#ac7f8fd84985b45a4db579b480aaf5251" title="Lib::HAL::Timer::TimInputCapture::getCapture()">Lib::HAL::Timer::TimInputCapture::getCapture()</a>. Call <a class="el" href="../../d5/d1a/a05767.html#add28b2f0b32350281b1f47c4e4e25e84" title="Lib::HAL::Timer::TimInputCapture::start()">Lib::HAL::Timer::TimInputCapture::start()</a> from that task, because it binds the task that will wait.</p>
+<p>The header defines the HAL callback <b>HAL_TIM_IC_CaptureCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; all reading and processing happen in the task, never in the ISR.</p>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timic_usage_hw"></a>
+Hardware and CubeMX assumptions</h3>
 <ul>
-<li>A message buffer supports one writer and one reader; several writers or readers must serialize their calls themselves, e.g. with a <a class="el" href="../../de/d38/a06447.html" title="RTOS::Mutex">RTOS::Mutex</a>.</li>
-<li>Every message costs its payload plus a length header, <b>4</b> bytes with the default <em class="arg">configMESSAGE_BUFFER_LENGTH_TYPE</em>, so a 256-byte buffer carries messages of up to <a class="el" href="../../db/d2e/a06075.html#ac0cdf8e25be1101c88e2a89f0a109ce5" title="RTOS::MessageBuffer::getMaxMessageSize()">RTOS::MessageBuffer::getMaxMessageSize()</a> bytes (<b>252</b>).</li>
-<li>From an interrupt use <a class="el" href="../../db/d2e/a06075.html#a895f6a523a73fe0a86afc445c60cad95" title="RTOS::MessageBuffer::sendFromISR()">RTOS::MessageBuffer::sendFromISR()</a> and <a class="el" href="../../db/d2e/a06075.html#aa2cbd475f54d4d04bd40a1470fb8d0ea" title="RTOS::MessageBuffer::receiveFromISR()">RTOS::MessageBuffer::receiveFromISR()</a> instead; the overloads that take a <em class="arg">higherPriorityTaskWoken</em> flag leave the <b>portYIELD_FROM_ISR()</b> call to the caller.</li>
+<li>Timer channel (here <em class="arg">TIM2</em>, <em class="arg">TIM_CHANNEL_1</em>) set to <em>Input Capture direct mode</em>, with the capture interrupt enabled in the NVIC.</li>
+<li>Input filter and edge polarity are set in CubeMX. The wrapper does not change them.</li>
+<li>One <a class="el" href="../../d6/d6e/a06445.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a> per timer handle.</li>
 </ul>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="messagebuffer_usage_basic"></a>
-Send and receive a message</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d7/dd4/a00968.html">Lib/RTOS/FreeRTOS/MessageBuffer.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timic_usage_measure"></a>
+Measuring edge timing in a task</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7e/a00809.html">Lib/HAL/TIM/TimInputCapture.hpp</a>&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d7c/a01073.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><span class="keyword">class </span>EdgeMeter final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> taskSendReceiveExample() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d2e/a06075.html">RTOS::MessageBuffer</a> mb;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a 256-byte underlying message buffer.</span></div>
-<div class="line">    <span class="keywordflow">if</span> (!mb.<a id="a1" name="a1"></a><a class="code hl_function" href="../../db/d2e/a06075.html#ae76c68b3fa15940e00081d6362397a59">open</a>(256)) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    <span class="keyword">explicit</span> EdgeMeter(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
+<div class="line">        capture(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a>),</div>
+<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d6/d4c/a06195.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;EdgeMeter&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> payload[] = <span class="stringliteral">&quot;hello&quot;</span>;</div>
-<div class="line">    <span class="comment">// Send from a task, blocking up to 100 ticks if necessary.</span></div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> sent = mb.<a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d2e/a06075.html#a10110decaf3c897711e612ba455525cd">send</a>(payload, <span class="keyword">sizeof</span>(payload), <span class="keyword">static_cast&lt;</span><a id="_a3" name="_a3"></a><a class="code hl_typedef" href="../../db/d2e/a06075.html#a74349e8aa0172b4a9f4763e24b7c10a6">RTOS::MessageBuffer::TickType</a><span class="keyword">&gt;</span>(100));</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sent);</div>
+<div class="line"><span class="keyword">private</span>:</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Receive the message, blocking up to 100 ms.</span></div>
-<div class="line">    <span class="keywordtype">char</span> recv[32] = {};</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> received = mb.<a id="a4" name="a4"></a><a class="code hl_function" href="../../db/d2e/a06075.html#a8bc5b3b484124680e0b606c983ee095e">receive</a>(recv, <span class="keyword">sizeof</span>(recv), 100ms);</div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d5/d1a/a05767.html">Lib::HAL::Timer::TimInputCapture</a> capture; <span class="comment">// Constructed before the task starts using it.</span></div>
+<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d0/dca/a06175.html">RTOS::Task</a> task;                          <span class="comment">// Must stay the last member.</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// &#39;received&#39; is the payload size, or 0 on timeout or if &#39;recv&#39; was too small for the message.</span></div>
-<div class="line">    <span class="keywordflow">if</span> (received &gt; 0 &amp;&amp; received &lt; <span class="keyword">sizeof</span>(recv)) {</div>
-<div class="line">        recv[received] = <span class="charliteral">&#39;\0&#39;</span>;</div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!capture.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d5/d1a/a05767.html#add28b2f0b32350281b1f47c4e4e25e84">start</a>()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;EdgeMeter: input capture failed to start&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        uint32_t previous = 0U;</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keywordflow">if</span> (!capture.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d5/d1a/a05767.html#a2732cd4549f6b1ca08da0cbcb462f404">waitCapture</a>(<a id="_a8" name="_a8"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100))) {</div>
+<div class="line">                previous = 0U; <span class="comment">// No edge within 100 ms; restart the interval.</span></div>
+<div class="line">                <span class="keywordflow">continue</span>;</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keyword">const</span> uint32_t current = capture.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d5/d1a/a05767.html#ac7f8fd84985b45a4db579b480aaf5251">getCapture</a>();</div>
+<div class="line">            <span class="keyword">const</span> uint32_t interval = current - previous; <span class="comment">// Unsigned subtraction handles counter wrap-around.</span></div>
+<div class="line">            previous = current;</div>
+<div class="line">            <span class="comment">// Use interval (in timer ticks).</span></div>
+<div class="line">        }</div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    mb.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/d2e/a06075.html#a34199efdeb4b4ffc33966e52cb123bd8">close</a>();</div>
-<div class="line">}</div>
+<div class="line">};</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00968_html"><div class="ttname"><a href="../../d7/dd4/a00968.html">MessageBuffer.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS message buffers.</div></div>
-<div class="ttc" id="aa06075_html"><div class="ttname"><a href="../../db/d2e/a06075.html">RTOS::MessageBuffer</a></div><div class="ttdoc">Owner of a FreeRTOS message buffer handle.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:50</div></div>
-<div class="ttc" id="aa06075_html_a10110decaf3c897711e612ba455525cd"><div class="ttname"><a href="../../db/d2e/a06075.html#a10110decaf3c897711e612ba455525cd">RTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *source, size_t length, TickType blockTime) noexcept</div><div class="ttdoc">Writes one message, blocking up to a timeout until it fits as a whole.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:239</div></div>
-<div class="ttc" id="aa06075_html_a34199efdeb4b4ffc33966e52cb123bd8"><div class="ttname"><a href="../../db/d2e/a06075.html#a34199efdeb4b4ffc33966e52cb123bd8">RTOS::MessageBuffer::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the native message buffer; does nothing if already closed.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:203</div></div>
-<div class="ttc" id="aa06075_html_a74349e8aa0172b4a9f4763e24b7c10a6"><div class="ttname"><a href="../../db/d2e/a06075.html#a74349e8aa0172b4a9f4763e24b7c10a6">RTOS::MessageBuffer::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdoc">Scheduler tick count used for timeouts.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:54</div></div>
-<div class="ttc" id="aa06075_html_a8bc5b3b484124680e0b606c983ee095e"><div class="ttname"><a href="../../db/d2e/a06075.html#a8bc5b3b484124680e0b606c983ee095e">RTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dest, size_t length, TickType blockTime) noexcept</div><div class="ttdoc">Reads the oldest message, blocking up to a timeout for one to arrive.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:378</div></div>
-<div class="ttc" id="aa06075_html_ae76c68b3fa15940e00081d6362397a59"><div class="ttname"><a href="../../db/d2e/a06075.html#ae76c68b3fa15940e00081d6362397a59">RTOS::MessageBuffer::open</a></div><div class="ttdeci">bool open(size_t bufferSize) noexcept</div><div class="ttdoc">Creates the native message buffer from the FreeRTOS heap, if not already open.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:129</div></div>
+<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00809_html"><div class="ttname"><a href="../../dd/d7e/a00809.html">TimInputCapture.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware Input Capture interface using STM32 Timers.</div></div>
+<div class="ttc" id="aa01073_html"><div class="ttname"><a href="../../d9/d7c/a01073.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01114_html_ga6b1541e4a49d62610899e24bf23f4879"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga6b1541e4a49d62610899e24bf23f4879">TIM_CHANNEL_1</a></div><div class="ttdeci">#define TIM_CHANNEL_1</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa05767_html"><div class="ttname"><a href="../../d5/d1a/a05767.html">Lib::HAL::Timer::TimInputCapture</a></div><div class="ttdoc">Controls one hardware timer channel configured under an active input capture profile.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:40</div></div>
+<div class="ttc" id="aa05767_html_a2732cd4549f6b1ca08da0cbcb462f404"><div class="ttname"><a href="../../d5/d1a/a05767.html#a2732cd4549f6b1ca08da0cbcb462f404">Lib::HAL::Timer::TimInputCapture::waitCapture</a></div><div class="ttdeci">bool waitCapture(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the next edge is captured.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:117</div></div>
+<div class="ttc" id="aa05767_html_ac7f8fd84985b45a4db579b480aaf5251"><div class="ttname"><a href="../../d5/d1a/a05767.html#ac7f8fd84985b45a4db579b480aaf5251">Lib::HAL::Timer::TimInputCapture::getCapture</a></div><div class="ttdeci">uint32_t getCapture() const noexcept</div><div class="ttdoc">Reads the counter value latched at the last captured edge.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:146</div></div>
+<div class="ttc" id="aa05767_html_add28b2f0b32350281b1f47c4e4e25e84"><div class="ttname"><a href="../../d5/d1a/a05767.html#add28b2f0b32350281b1f47c4e4e25e84">Lib::HAL::Timer::TimInputCapture::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the channel with its capture interrupt; the calling task becomes the one waitCapture() serves.</div><div class="ttdef"><b>Definition</b> TimInputCapture.hpp:81</div></div>
+<div class="ttc" id="aa06175_html"><div class="ttname"><a href="../../d0/dca/a06175.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
+<div class="ttc" id="aa06179_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:89</div></div>
+<div class="ttc" id="aa06195_html"><div class="ttname"><a href="../../d6/d4c/a06195.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:638</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timic_usage_stop"></a>
+Stopping capture</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d7e/a00809.html">Lib/HAL/TIM/TimInputCapture.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> stopMeasuring(<a class="code hl_class" href="../../d5/d1a/a05767.html">Lib::HAL::Timer::TimInputCapture</a> &amp; capture) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(capture.stop());</div>
+<div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

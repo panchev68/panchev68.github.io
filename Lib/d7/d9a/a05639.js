@@ -1,17 +1,16 @@
 var a05639 =
 [
-    [ "OSPIPort", "d7/d9a/a05639.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
-    [ "~OSPIPort", "d7/d9a/a05639.html#a08e56728c9a64f13a22b89d6b482b132", null ],
-    [ "OSPIPort", "d7/d9a/a05639.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
-    [ "OSPIPort", "d7/d9a/a05639.html#a50425950532682614be81eb8bb5216b7", null ],
-    [ "close", "d7/d9a/a05639.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
-    [ "command", "d7/d9a/a05639.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
-    [ "getHandle", "d7/d9a/a05639.html#a696d949d69359bb54440fe22e1de963f", null ],
-    [ "getHandle", "d7/d9a/a05639.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
-    [ "isBusy", "d7/d9a/a05639.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "open", "d7/d9a/a05639.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
-    [ "operator=", "d7/d9a/a05639.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
-    [ "operator=", "d7/d9a/a05639.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
-    [ "receive", "d7/d9a/a05639.html#aef7cf93602718e2d14816e122f15f3be", null ],
-    [ "transmit", "d7/d9a/a05639.html#a10d2dc1da9553992110c3752aa39e058", null ]
+    [ "Event", "d7/d3b/a05643.html", null ],
+    [ "Sha256Digest", "d7/d9a/a05639.html#add4d9f33ecf447251492399927b27da5", null ],
+    [ "HASHPort", "d7/d9a/a05639.html#a6c119eb2a5f647e1754a57b0b850fe4f", null ],
+    [ "~HASHPort", "d7/d9a/a05639.html#a4160e13f3eda86ab67d5e41e3d9f0fca", null ],
+    [ "HASHPort", "d7/d9a/a05639.html#af6b9554592c3ad75d36bdd11041e7006", null ],
+    [ "HASHPort", "d7/d9a/a05639.html#a491caf024458b7906cce604bafe47e1c", null ],
+    [ "close", "d7/d9a/a05639.html#afd2e0fb455d45519f537895cc2a022c3", null ],
+    [ "getHandle", "d7/d9a/a05639.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d7/d9a/a05639.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "open", "d7/d9a/a05639.html#abc11d9a441e0dc16a3e5a353bd0445fd", null ],
+    [ "operator=", "d7/d9a/a05639.html#a4313f6e70d3c0be3f82ed001be995baf", null ],
+    [ "operator=", "d7/d9a/a05639.html#a816e654f5c439b829301c71a3dbdf30d", null ],
+    [ "sha256", "d7/d9a/a05639.html#a331d3b9f3f4f47d04927bfe00ec600e6", null ]
 ];

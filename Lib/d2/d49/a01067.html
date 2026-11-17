@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::Ethercat</title>
+<title>IAR EWARM Library: CDCDevice.hpp</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -130,21 +130,36 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/d49/a01067.
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::Ethercat</div></div>
+  <div class="headertitle"><div class="title">CDCDevice.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Board-level EtherCAT hardware integration.  
+<p>USB CDC-ACM device (virtual COM port) on top of 'Lib::HAL::USBDevicePort'.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Board-level EtherCAT hardware integration. </p>
-<p>Groups the process data interface (PDI) drivers; see <a class="el" href="../../d8/d18/a01069.html" title="Lib::BSP::Ethercat::PDI::LAN9252">Lib::BSP::Ethercat::PDI::LAN9252</a>. Distinct from <a class="el" href="../../d6/d0d/a01091.html" title="Lib::Ethercat::SOES">Lib::Ethercat::SOES</a>, which implements the slave protocol stack itself, not the PDI hardware underneath it. </p>
+<div class="textblock"><p>USB CDC-ACM device (virtual COM port) on top of 'Lib::HAL::USBDevicePort'. </p>
+<p>Answers the standard requests of the enumeration and the CDC class requests (line coding, control line state) in the interrupt of the controller, so a host can open the port without any task running. Data goes through two bulk endpoints: received bytes are collected in a stream buffer that 'read()' empties, and 'write()' sends from the caller's buffer. The bulk OUT endpoint is armed only while the stream buffer has room for a packet, so a slow reader makes the controller answer NAK instead of losing data.</p>
+<p>The class owns no clock, pin or interrupt setup: those stay in the CubeMX code ('HAL_PCD_MspInit()' and the USB interrupt calling 'HAL_PCD_IRQHandler()'). 'HAL_PCD_Start()' connects the device to the bus.</p>
+<dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-10-13 </dd></dl>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Lib_3A_3AUSB_3A_3ACDCDevice" id="r_Lib_3A_3AUSB_3A_3ACDCDevice"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d5b/a06307.html">Lib::USB::CDCDevice</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CDC-ACM virtual COM port with a single data interface.  <a href="../../de/d5b/a06307.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AUSB_3A_3ACDCDevice_3A_3AConfig" id="r_Lib_3A_3AUSB_3A_3ACDCDevice_3A_3AConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d8c/a06311.html">Lib::USB::CDCDevice::Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameters of the device and its buffers.  <a href="../../d7/d8c/a06311.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AUSB_3A_3ACDCDevice_3A_3ALineCoding" id="r_Lib_3A_3AUSB_3A_3ACDCDevice_3A_3ALineCoding"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../db/d7f/a06315.html">Lib::USB::CDCDevice::LineCoding</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Line coding the host sets with SET_LINE_CODING; it only describes the virtual line, the data is not changed.  <a href="../../db/d7f/a06315.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:PDI" id="r_PDI"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/de6/a01068.html">PDI</a></td></tr>
-<tr class="memdesc:d1/de6/a01068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process Data Interface (PDI) chip drivers linking an EtherCAT slave controller ASIC to the host MCU. <br /></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d9a/a01083.html">Lib</a></td></tr>
+<tr class="memdesc:d6/d9a/a01083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
+<tr class="memitem:Lib_3A_3AUSB" id="r_Lib_3A_3AUSB"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d9/d12/a01128.html">Lib::USB</a></td></tr>
+<tr class="memdesc:d9/d12/a01128"><td class="mdescLeft">&#160;</td><td class="mdescRight">USB serial port abstractions and helpers. <br /></td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -153,7 +168,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/de6/a01063.html">BSP</a></li><li class="navelem"><a href="../../d2/d49/a01067.html">Ethercat</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_faeb283bf437ec86682d826ccb2ce3ea.html">USB</a></li><li class="navelem"><a href="../../d2/d49/a01067.html">CDCDevice.hpp</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

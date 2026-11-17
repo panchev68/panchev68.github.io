@@ -1,10 +1,9 @@
 var a05451 =
 [
-    [ "font", "dc/d83/a05451.html#a2c3e1b6f550a2d80e71d282a25b6cff0", null ],
-    [ "height", "dc/d83/a05451.html#a6e78f99e5d65f305938c1e8626f89c2d", null ],
-    [ "items", "dc/d83/a05451.html#a19ff97a7731479d5305472a41eec6ef2", null ],
-    [ "scale", "dc/d83/a05451.html#af17da82f2f476f88d591253fbfff920b", null ],
-    [ "width", "dc/d83/a05451.html#ad685942ca97f523f6413bca2e202584a", null ],
-    [ "x", "dc/d83/a05451.html#adf4e46d8ec8c73c8c2715cbd25eb6599", null ],
-    [ "y", "dc/d83/a05451.html#ae98dfadd8efc895e551adccb18ea6357", null ]
+    [ "ViewportScope", "dc/d83/a05451.html#ae54cbe4588aab0c0a335d639dc5481e0", null ],
+    [ "~ViewportScope", "dc/d83/a05451.html#aaf5cd0f72a813a9af4725b2d0551c63c", null ],
+    [ "ViewportScope", "dc/d83/a05451.html#a9785684a6080200fc8a3833d435d9318", null ],
+    [ "ViewportScope", "dc/d83/a05451.html#a78ef751d8b19d0a9ae832c294bb97dc6", null ],
+    [ "operator=", "dc/d83/a05451.html#ac87d8f95c234d6bca25d78ada6802967", null ],
+    [ "operator=", "dc/d83/a05451.html#a58ce60c0531280d49e3cb0eb465ac003", null ]
 ];

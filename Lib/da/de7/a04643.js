@@ -1,10 +1,25 @@
 var a04643 =
 [
-    [ "Network", "da/de7/a04643.html#a858cc7193654c2e98129d4f0749d8240", null ],
-    [ "getLocation", "da/de7/a04643.html#aba4491c30df0fb948ede36bb4e1085d3", null ],
-    [ "getRegistration", "da/de7/a04643.html#afdf0dd669e99bdf0eeead5bb41e21a96", null ],
-    [ "getSignalQuality", "da/de7/a04643.html#a485778d68bbe029717f5fed4f43c730b", null ],
-    [ "getTime", "da/de7/a04643.html#a59b66d182fa20c0996b4643e51f9a51f", null ],
-    [ "setLTEOnly", "da/de7/a04643.html#af76be66a29575097c7dbf63f65ae68de", null ],
-    [ "waitForRegistration", "da/de7/a04643.html#a36029bb551781de86c0674a121c0a8cb", null ]
+    [ "Register", "d3/df2/a04647.html", "d3/df2/a04647" ],
+    [ "Info", "da/d47/a04651.html", "da/d47/a04651" ],
+    [ "Config", "da/de7/a04643.html#a91b48bf59f61c3580e5ead3149d91443", null ],
+    [ "W25Q128JVSIQ", "da/de7/a04643.html#af1b755c474085a41e554dcb38ad9056a", null ],
+    [ "~W25Q128JVSIQ", "da/de7/a04643.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
+    [ "close", "da/de7/a04643.html#a949717933a1c298041adcf500a7d8f9d", null ],
+    [ "eraseChip", "da/de7/a04643.html#a32148377b4274abf28db1beb3d12ea11", null ],
+    [ "eraseChipImpl", "da/de7/a04643.html#a9cfe72e525626e2236219608c53725d8", null ],
+    [ "eraseSector", "da/de7/a04643.html#a23c3062b24d15e58237ddb109c474b74", null ],
+    [ "eraseSectorImpl", "da/de7/a04643.html#ac379792562904225e5deb12f3820112b", null ],
+    [ "getInfo", "da/de7/a04643.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
+    [ "getStatus", "da/de7/a04643.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
+    [ "isPresent", "da/de7/a04643.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
+    [ "open", "da/de7/a04643.html#a419e720a0a366e322b172d234eccd202", null ],
+    [ "read", "da/de7/a04643.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
+    [ "readImpl", "da/de7/a04643.html#ac37211819c0d5e4f3072dae655065868", null ],
+    [ "write", "da/de7/a04643.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
+    [ "writeImpl", "da/de7/a04643.html#a00a39954e6187f8b4b393ed390f97239", null ],
+    [ "info", "da/de7/a04643.html#aca8a7487175e31060363fe99270e69a3", null ],
+    [ "nss", "da/de7/a04643.html#a6cad70d123e273b88f244598cc93a22b", null ],
+    [ "spiPort", "da/de7/a04643.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
+    [ "status", "da/de7/a04643.html#af95471bb260264403e3df2dc07b80419", null ]
 ];

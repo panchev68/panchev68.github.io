@@ -1,5 +1,8 @@
 var a04503 =
 [
-    [ "addr", "d2/d71/a04503.html#a52b4f081e411d6f6b400f02e266252f3", null ],
-    [ "i2cPort", "d2/d71/a04503.html#a0f7a92fa8726a2ef6dff8cac74b5e421", null ]
+    [ "bl", "d2/d71/a04503.html#a93656f94c882ca996c98bd294a4f268f", null ],
+    [ "dc", "d2/d71/a04503.html#a0a1a1de131448f5f9259510a9df8905e", null ],
+    [ "nrst", "d2/d71/a04503.html#a5f67207441de783f78571e1d72e2ad0e", null ],
+    [ "nss", "d2/d71/a04503.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
+    [ "spi", "d2/d71/a04503.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
 ];

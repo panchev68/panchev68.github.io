@@ -1,14 +1,17 @@
 var a05583 =
 [
-    [ "Input", "d0/d52/a05583.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
-    [ "~Input", "d0/d52/a05583.html#a95f707a268014333f78d7378dd579ea4", null ],
-    [ "Input", "d0/d52/a05583.html#aba23478206e067c578a2081a0ba4d1ee", null ],
-    [ "Input", "d0/d52/a05583.html#a01d95887913602ed10325b5b07f8cef5", null ],
-    [ "isHigh", "d0/d52/a05583.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d0/d52/a05583.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d0/d52/a05583.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "d0/d52/a05583.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
-    [ "operator=", "d0/d52/a05583.html#aac4da8195bb51d393df961046635bfc0", null ],
-    [ "read", "d0/d52/a05583.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "handle", "d0/d52/a05583.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "DataAlignment", "d0/d52/a05583.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "d0/d52/a05583.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
+    [ "~DACPort", "d0/d52/a05583.html#ac832156b805caf8041f1097ecf576ec2", null ],
+    [ "DACPort", "d0/d52/a05583.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
+    [ "DACPort", "d0/d52/a05583.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
+    [ "close", "d0/d52/a05583.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "getChannel", "d0/d52/a05583.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
+    [ "getHandle", "d0/d52/a05583.html#a8931efb843554302b191363c4a0bfa41", null ],
+    [ "open", "d0/d52/a05583.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "d0/d52/a05583.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
+    [ "operator=", "d0/d52/a05583.html#a947c4407f00f40ef2d244a914699c60e", null ],
+    [ "setValue", "d0/d52/a05583.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "d0/d52/a05583.html#a0fb9b03d74076c644c02fd75613c0748", null ],
+    [ "stop", "d0/d52/a05583.html#aeb4d00954e883a85534eb2da3acd379f", null ]
 ];
