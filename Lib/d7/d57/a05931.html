@@ -138,7 +138,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/d57/a05931.
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Busy-wait delay helpers based on the ARM Cortex-M Data Watchpoint and Trace (DWT) cycle counter. </p>
-<p>Suitable for short, precise delays where suspending the task or using RTOS timers would be too coarse. Every delay is rounded up to whole CPU cycles, so it is never shorter than requested; interrupts may lengthen it. The microsecond path and its helpers carry 'pragma inline=forced': without optimization (a Debug build) the un-inlined call chain adds enough fixed overhead to corrupt a few-microsecond protocol slot, such as a 1-Wire bit. Forcing the inline keeps that overhead low independent of the build's optimization level.</p>
+<p>Measures the delays with the CPU cycle counter (DWT CYCCNT). The counter is enabled on first use and left free-running, so other users of CYCCNT (run time statistics, profiling) are not disturbed. Intended for sub-tick delays; use the RTOS delay for anything longer.</p>
+<p>Suitable for short, precise delays where suspending the task or using RTOS timers would be too coarse. Every delay is rounded up to whole CPU cycles, so it is never shorter than requested; interrupts may lengthen it. The microsecond path and its helpers carry **pragma inline = forced**: without optimization (a Debug build) the un-inlined call chain adds enough fixed overhead to corrupt a few-microsecond protocol slot, such as a 1-Wire bit. Forcing the inline keeps that overhead low independent of the build's optimization level.</p>
 <hr  />
  <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/Delay.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
@@ -304,10 +305,10 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Delays execution for the specified number of microseconds. </p>
-<p>Bypasses the generic nanosecond-based conversion below (<em class="arg">waitFor()</em> and <em class="arg">toCycles()</em>): that path needs a 64-bit division, which takes far longer than the few microseconds a tight bit-bang slot (e.g. 1-Wire) allows. This path only ever divides two 32-bit values (<b>SystemCoreClock</b> by the constant <em class="arg">1000000</em>), a single hardware <em class="arg">UDIV</em>, then multiplies by <em class="arg">us</em> - correct for any clock that is a whole number of MHz (every STM32 configuration in practice), with the same <em>never shorter than requested</em> guarantee.</p>
+<p>Bypasses the generic nanosecond-based conversion (<b>waitFor()</b> and <b>toCycles()</b>): that path needs a 64-bit division, which takes far longer than the few microseconds a tight bit-bang slot (e.g. 1-Wire) allows. This path only ever divides two 32-bit values (<b>SystemCoreClock</b> by the constant <em class="arg">1000000</em>), a single hardware <em class="arg">UDIV</em>, then multiplies by <em class="arg">us</em>. It is correct for any clock that is a whole number of MHz (every STM32 configuration in practice), with the same <em>never shorter than requested</em> guarantee.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">us</td><td>Number of microseconds to delay; <b>0</b> returns immediately. </td></tr>
+    <tr><td class="paramname">us</td><td>Number of microseconds to delay; <em class="arg">0</em> returns immediately. </td></tr>
   </table>
   </dd>
 </dl>
@@ -373,7 +374,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Delays execution for the specified number of nanoseconds. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ns</td><td>Number of nanoseconds to delay; <b>0</b> returns immediately. </td></tr>
+    <tr><td class="paramname">ns</td><td>Number of nanoseconds to delay; <em class="arg">0</em> returns immediately. </td></tr>
   </table>
   </dd>
 </dl>

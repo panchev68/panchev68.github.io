@@ -138,6 +138,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d0c/a05979.
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Helpers for byte-order manipulation. </p>
 <p>Provides constexpr byte swapping for integral types, reading swapped values from unaligned memory and in-place buffer reversal.</p>
+<p><b>std::byteswap</b> is C++23 and is not shipped by this libc++ (a probe with the project flags fails with Pe135). IAR does not recognise the shift-and-mask idiom as a single instruction, so at run time the swap is done with the Cortex-M <em class="arg">REV</em> and <em class="arg">REV16</em> intrinsics, and in a constant expression with the portable shift-and-mask form.</p>
 <hr  />
  <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/SwapBytes.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
@@ -146,13 +147,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c867a7097efa978b004b658ce29a0bf" id="r_a1c867a7097efa978b004b658ce29a0bf"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; <br />
 requires (sizeof(T) == 1U || sizeof(T) == 2U || sizeof(T) == 4U || sizeof(T) == 8U)</td></tr>
 <tr class="memitem:a1c867a7097efa978b004b658ce29a0bf template"><td class="memItemLeft">static constexpr T&#160;</td><td class="memItemRight"><a class="el" href="#a1c867a7097efa978b004b658ce29a0bf">swap</a> (T value) noexcept</td></tr>
-<tr class="memdesc:a1c867a7097efa978b004b658ce29a0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap the byte order of an integral value of 1, 2, 4 or 8 bytes; a 1-byte value is returned unchanged.  <br /></td></tr>
+<tr class="memdesc:a1c867a7097efa978b004b658ce29a0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the byte order of an integral value of 1, 2, 4 or 8 bytes; a 1-byte value is returned unchanged.  <br /></td></tr>
 <tr class="memitem:af22202c759aed77ce9d844024595d1a2" id="r_af22202c759aed77ce9d844024595d1a2"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; <br />
 requires (sizeof(T) == 1U || sizeof(T) == 2U || sizeof(T) == 4U || sizeof(T) == 8U)</td></tr>
 <tr class="memitem:af22202c759aed77ce9d844024595d1a2 template"><td class="memItemLeft">static T&#160;</td><td class="memItemRight"><a class="el" href="#af22202c759aed77ce9d844024595d1a2">fromPointer</a> (const void *source) noexcept</td></tr>
-<tr class="memdesc:af22202c759aed77ce9d844024595d1a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read an integral value from a possibly unaligned pointer and return its byte-swapped representation.  <br /></td></tr>
+<tr class="memdesc:af22202c759aed77ce9d844024595d1a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an integral value from a possibly unaligned pointer and returns its byte-swapped representation.  <br /></td></tr>
 <tr class="memitem:a18a51cae29bca7273e983bb2ab96310a" id="r_a18a51cae29bca7273e983bb2ab96310a"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a18a51cae29bca7273e983bb2ab96310a">buffer</a> (void *data, size_t size) noexcept</td></tr>
-<tr class="memdesc:a18a51cae29bca7273e983bb2ab96310a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse the bytes of a buffer in place.  <br /></td></tr>
+<tr class="memdesc:a18a51cae29bca7273e983bb2ab96310a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the bytes of a buffer in place.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a18a51cae29bca7273e983bb2ab96310a" name="a18a51cae29bca7273e983bb2ab96310a"></a>
@@ -182,7 +183,7 @@ requires (sizeof(T) == 1U || sizeof(T) == 2U || sizeof(T) == 4U || sizeof(T) == 
 </table>
 </div><div class="memdoc">
 
-<p>Reverse the bytes of a buffer in place. </p>
+<p>Reverses the bytes of a buffer in place. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Pointer to the buffer to reverse; if null, the function returns immediately. </td></tr>
@@ -219,8 +220,8 @@ requires (sizeof(T) == 1U || sizeof(T) == 2U || sizeof(T) == 4U || sizeof(T) == 
 </table>
 </div><div class="memdoc">
 
-<p>Read an integral value from a possibly unaligned pointer and return its byte-swapped representation. </p>
-<p>The bytes are copied with <em class="arg">std::memcpy()</em> into a byte array that is then reinterpreted with <em class="arg">std::bit_cast()</em>, which is well defined for unaligned or packed data.</p>
+<p>Reads an integral value from a possibly unaligned pointer and returns its byte-swapped representation. </p>
+<p>The bytes are copied with std::memcpy() into a byte array that is then reinterpreted with std::bit_cast(), which is well defined for unaligned or packed data.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Integral type to read and swap. </td></tr>
@@ -263,7 +264,7 @@ requires (sizeof(T) == 1U || sizeof(T) == 2U || sizeof(T) == 4U || sizeof(T) == 
 </table>
 </div><div class="memdoc">
 
-<p>Swap the byte order of an integral value of 1, 2, 4 or 8 bytes; a 1-byte value is returned unchanged. </p>
+<p>Swaps the byte order of an integral value of 1, 2, 4 or 8 bytes; a 1-byte value is returned unchanged. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>Integral type to swap. </td></tr>

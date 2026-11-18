@@ -326,7 +326,7 @@ var searchData=
   ['setsupply_323',['setSupply',['../de/d12/a04659.html#a9848006a47ed741d31636388c9deb387',1,'Lib::BSP::GSM::A7670E::Config']]],
   ['setsyncmanagerenabled_324',['setSyncManagerEnabled',['../d0/d39/a01112.html#a98fb913e58940911741bebbe221d9af8',1,'Lib::Ethercat::SOES']]],
   ['settag_325',['setTag',['../d0/dca/a06175.html#ac5542444a657e3c13706b5c295589b17',1,'RTOS::Task']]],
-  ['setterminatehandler_326',['setTerminateHandler',['../dd/da7/a04407.html#a2a4067d8a3928c38caf21fc41efe8722',1,'Lib::Exception::setTerminateHandler()'],['../d3/d01/a05935.html#ae8803b234100fe8e98fb21aa01083805',1,'Lib::Helper::Exception::setTerminateHandler()']]],
+  ['setterminatehandler_326',['setTerminateHandler',['../dd/da7/a04407.html#a71598a5365815b2f530a4595a6901a93',1,'Lib::Exception::setTerminateHandler()'],['../d3/d01/a05935.html#ae8803b234100fe8e98fb21aa01083805',1,'Lib::Helper::Exception::setTerminateHandler()']]],
   ['settext_327',['setText',['../d1/dab/a05515.html#a21e008bc3a46b3fef88ad96d13b06515',1,'Lib::GUI::String']]],
   ['setthigh_328',['setTHigh',['../d6/da6/a04827.html#a31909d75566cc264aeee9cc68c96c6a8',1,'Lib::BSP::Thermometer::TMP102']]],
   ['setthreadlocalpointer_329',['setThreadLocalPointer',['../d0/dca/a06175.html#ad9875392ecacdb00cb8f25cf938637b2',1,'RTOS::Task']]],

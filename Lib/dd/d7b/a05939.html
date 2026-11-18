@@ -140,6 +140,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d7b/a05939.
 <div class="textblock"><div class="compoundTemplParams">template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt;<br />
 requires ((T_WINDOW_SIZE &gt; 0U) &amp;&amp; std::is_arithmetic_v&lt;T&gt; &amp;&amp; std::is_signed_v&lt;T&gt;)<br />
 class Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;</div><p>Peak detector over a fixed-size sliding window. </p>
+<p>The detector keeps the most recent <em class="arg">T_WINDOW_SIZE</em> samples in a circular buffer and feeds the delta between the newest sample and the one <em class="arg">T_WINDOW_SIZE</em> samples earlier into a leaky accumulator (each step halves the previous value). It records the largest and the smallest accumulated values together with their sample positions.</p>
 <p>The sample type must be signed, since deltas between samples may be negative. The caller must keep the sample range such that twice the largest delta fits into <em class="arg">T</em>. The instance is a literal type.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -161,7 +162,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1dcc2d44df31b363f9f06b9daf3af302" id="r_a1dcc2d44df31b363f9f06b9daf3af302"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a1dcc2d44df31b363f9f06b9daf3af302">FindPeaks</a> () noexcept=default</td></tr>
 <tr class="memdesc:a1dcc2d44df31b363f9f06b9daf3af302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the detector in the reset state.  <br /></td></tr>
 <tr class="memitem:a176df2aab4c0e044fe550ca813f88168" id="r_a176df2aab4c0e044fe550ca813f88168"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a176df2aab4c0e044fe550ca813f88168">reset</a> () noexcept</td></tr>
-<tr class="memdesc:a176df2aab4c0e044fe550ca813f88168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the detector to its initial state: clears the accumulator, the peaks and the sample counter.  <br /></td></tr>
+<tr class="memdesc:a176df2aab4c0e044fe550ca813f88168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the detector to its initial state: clears the accumulator, the peaks and the sample counter.  <br /></td></tr>
 <tr class="memitem:af68c408bdc213c13c758fceb90fdf51e" id="r_af68c408bdc213c13c758fceb90fdf51e"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#af68c408bdc213c13c758fceb90fdf51e">addSample</a> (T sample) noexcept</td></tr>
 <tr class="memdesc:af68c408bdc213c13c758fceb90fdf51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a sample and updates the peaks.  <br /></td></tr>
 <tr class="memitem:ad7c36f4ffcb651dcb65c75c1bca49333" id="r_ad7c36f4ffcb651dcb65c75c1bca49333"><td class="memItemLeft">constexpr <a class="el" href="../../d3/d4c/a05943.html">PeakInfo</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad7c36f4ffcb651dcb65c75c1bca49333">getRisingPeak</a> () const noexcept</td></tr>
@@ -294,7 +295,7 @@ template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the recorded falling peak. </p>
-<dl class="section return"><dt>Returns</dt><dd>Smallest accumulated value and its position; <em class="arg">value</em> is <em class="arg">max()</em> if none was recorded. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Smallest accumulated value and its position; <em class="arg">value</em> is <b>std::numeric_limits&lt;T&gt;::max()</b> if none was recorded. </dd></dl>
 
 </div>
 </div>
@@ -324,7 +325,7 @@ template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
 </div><div class="memdoc">
 
 <p>Returns the recorded rising peak. </p>
-<dl class="section return"><dt>Returns</dt><dd>Largest accumulated value and its position; <em class="arg">value</em> is <em class="arg">lowest()</em> if none was recorded. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Largest accumulated value and its position; <em class="arg">value</em> is <b>std::numeric_limits&lt;T&gt;::lowest()</b> if none was recorded. </dd></dl>
 
 </div>
 </div>
@@ -353,7 +354,7 @@ template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the detector to its initial state: clears the accumulator, the peaks and the sample counter. </p>
+<p>Resets the detector to its initial state: clears the accumulator, the peaks and the sample counter. </p>
 <p>Stored samples are not cleared: a slot is only read back after it has been overwritten again. </p>
 
 </div>

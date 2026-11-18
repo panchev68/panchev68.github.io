@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/dd4/a04971.
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt;<br />
 requires (T_CAPACITY &gt; 0U)<br />
 class MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;</div><p>Non-owning, fixed-capacity collection of <a class="el" href="../../d7/d53/a06401.html" title="FunctionRef">FunctionRef</a> subscribers sharing one Ret(Args...) signature. </p>
-<p>Holds a fixed-capacity list of <a class="el" href="../../d7/d53/a06401.html" title="FunctionRef">FunctionRef</a> subscribers and invokes all of them in registration order, without heap allocation, RTTI or virtual dispatch. Subscribers are stored contiguously in a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html" title="std::array">std::array</a>. Return values of the individual subscribers are discarded, matching event-style usage. A subscriber must not add or remove subscribers of the same instance while it is being invoked, since removal shifts the list and would skip the next entry.</p>
+<p>Invokes all subscribers in registration order, without heap allocation, RTTI or virtual dispatch. Subscribers are stored contiguously in a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html" title="std::array">std::array</a>. Return values of the individual subscribers are discarded, matching event-style usage. A subscriber must not add or remove subscribers of the same instance while it is being invoked, since removal shifts the list and would skip the next entry.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Ret</td><td>Return type of each bound subscriber. </td></tr>
@@ -161,9 +161,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:adb01252450a4c8f5a57794062eef97da" id="r_adb01252450a4c8f5a57794062eef97da"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#adb01252450a4c8f5a57794062eef97da">remove</a> (const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;subscriber) noexcept</td></tr>
 <tr class="memdesc:adb01252450a4c8f5a57794062eef97da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first subscriber delegate equal to <em class="arg">subscriber</em>.  <br /></td></tr>
 <tr class="memitem:a6dbac05fdf70d7b6ea7c1223f90eb0f3" id="r_a6dbac05fdf70d7b6ea7c1223f90eb0f3"><td class="memItemLeft">constexpr <a class="el" href="../../da/d70/a04967.html">MulticastDelegate</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6dbac05fdf70d7b6ea7c1223f90eb0f3">operator+=</a> (const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;subscriber) noexcept</td></tr>
-<tr class="memdesc:a6dbac05fdf70d7b6ea7c1223f90eb0f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a subscriber delegate, C# '+=' style.  <br /></td></tr>
+<tr class="memdesc:a6dbac05fdf70d7b6ea7c1223f90eb0f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a subscriber delegate, the C#-style addition operator.  <br /></td></tr>
 <tr class="memitem:abf65efccd32893eb2f7b5adfc53f8536" id="r_abf65efccd32893eb2f7b5adfc53f8536"><td class="memItemLeft">constexpr <a class="el" href="../../da/d70/a04967.html">MulticastDelegate</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abf65efccd32893eb2f7b5adfc53f8536">operator-=</a> (const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;subscriber) noexcept</td></tr>
-<tr class="memdesc:abf65efccd32893eb2f7b5adfc53f8536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first subscriber delegate equal to <em class="arg">subscriber</em>, C# '-=' style.  <br /></td></tr>
+<tr class="memdesc:abf65efccd32893eb2f7b5adfc53f8536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first subscriber delegate equal to <em class="arg">subscriber</em>, the C#-style subtraction operator.  <br /></td></tr>
 <tr class="memitem:abfd30810b143472b8393b53f898dbcd5" id="r_abfd30810b143472b8393b53f898dbcd5"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#abfd30810b143472b8393b53f898dbcd5">invoke</a> (Args... args) const noexcept</td></tr>
 <tr class="memdesc:abfd30810b143472b8393b53f898dbcd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes every registered subscriber in registration order.  <br /></td></tr>
 <tr class="memitem:a3ce770a13a2e2797a7e25e94bde9a97b" id="r_a3ce770a13a2e2797a7e25e94bde9a97b"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a3ce770a13a2e2797a7e25e94bde9a97b">operator()</a> (Args... args) const noexcept</td></tr>
@@ -262,7 +262,7 @@ template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the subscriber was added, <em class="arg">false</em> if <a class="el" href="#a27c5ea0de4eb9b630bfa31e5dfb1c762" title="CAPACITY">CAPACITY</a> subscribers are registered. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the subscriber was added, <b>false</b> if <a class="el" href="#a27c5ea0de4eb9b630bfa31e5dfb1c762" title="CAPACITY">CAPACITY</a> subscribers are registered. </dd></dl>
 
 </div>
 </div>
@@ -356,7 +356,7 @@ template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
 </div><div class="memdoc">
 
 <p>Checks whether no subscribers are currently registered. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if <a class="el" href="#a79a257c4883e94ef0e08c23ad8d4fa7c" title="size()">size()</a> is 0, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <a class="el" href="#a79a257c4883e94ef0e08c23ad8d4fa7c" title="size()">size()</a> is 0, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -421,7 +421,7 @@ template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Registers a subscriber delegate, C# '+=' style. </p>
+<p>Registers a subscriber delegate, the C#-style addition operator. </p>
 <p>Equivalent to <a class="el" href="#a7b2551280da180b1f1dda5c6981737cd" title="add()">add()</a>; exceeding <a class="el" href="#a27c5ea0de4eb9b630bfa31e5dfb1c762" title="CAPACITY">CAPACITY</a> is treated as a programming error and asserted.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -458,7 +458,7 @@ template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Removes the first subscriber delegate equal to <em class="arg">subscriber</em>, C# '-=' style. </p>
+<p>Removes the first subscriber delegate equal to <em class="arg">subscriber</em>, the C#-style subtraction operator. </p>
 <p>Equivalent to <a class="el" href="#adb01252450a4c8f5a57794062eef97da" title="remove()">remove()</a>; removing a delegate that is not registered is a no-op.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -503,7 +503,7 @@ template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if a matching subscriber was found and removed, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a matching subscriber was found and removed, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>

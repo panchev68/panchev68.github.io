@@ -139,17 +139,18 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d3d/a05379.
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt;<br />
 class Lib::Ethercat::SOES::Slave&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;</div><p>EtherCAT slave: the application layer state machine, the process data and the mailbox of one slave controller. </p>
-<p>Written directly on the ESC registers, so no vendor stack is needed. The class follows the master's AL control requests (INIT, PRE-OP, SAFE-OP, OP), checks the sync manager configuration the master wrote before each step up, reports a refused request or a failure through the AL status and AL status code registers, drops from OP to SAFE-OP when the process data watchdog expires, and exchanges the process data of SM2 (outputs) and SM3 (inputs), which it enables through the PDI control registers on entering OP and SAFE-OP. Mailbox messages of a protocol such as CoE are handed to the derived class.</p>
-<p>The BOOTSTRAP state is offered when the derived class says so (<a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c" title="isBootstrapSupported()">isBootstrapSupported()</a>); the firmware update itself runs over FoE. Distributed clock synchronization is configured by the master in the ESC; the step to SAFE-OP asks the derived class to accept it (<a class="el" href="#a7e7721361c828febdd00cb2be71940c7" title="checkDistributedClock()">checkDistributedClock()</a>). Not covered: AoE and SoE on the mailbox. CoE, FoE and EoE are the separate classes 'CoE', 'FoE' and 'EoE' (class/): call their 'handle()' from <a class="el" href="#a5276f808524352e6c6df3a118ee9077c" title="handleMailboxMessage()">handleMailboxMessage()</a>. The chip is reached through any type that provides 'readReg()' and 'writeReg()' (the LAN9252 driver does).</p>
-<p>The class is a CRTP base. A derived class may provide <a class="el" href="#a5276f808524352e6c6df3a118ee9077c" title="handleMailboxMessage()">handleMailboxMessage()</a>, <a class="el" href="#af9c8b2d649246374776bf22b633106a1" title="handleMailboxIdle()">handleMailboxIdle()</a>, <a class="el" href="#ac39266e5345996d9607fc9174ef47fc1" title="handleStateChange()">handleStateChange()</a>, <a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c" title="isBootstrapSupported()">isBootstrapSupported()</a> and <a class="el" href="#a7e7721361c828febdd00cb2be71940c7" title="checkDistributedClock()">checkDistributedClock()</a>; each replaces the default of this class. If it declares them private, it must make 'Slave&lt;...&gt;' its friend. One task at a time may use a slave.</p>
+<p>The class follows the master's AL control requests (INIT, PRE-OP, SAFE-OP, OP), reports a refused request or a failure through the AL status registers, drops from OP to SAFE-OP when the process data watchdog expires, and exchanges the process data of SM2 (outputs) and SM3 (inputs). Mailbox messages are handed to the derived class; the protocol classes CoE, FoE and EoE in the class/ folder are called from <a class="el" href="#a5276f808524352e6c6df3a118ee9077c" title="handleMailboxMessage()">handleMailboxMessage()</a>. AoE and SoE are not covered.</p>
+<p>The class is a CRTP base. A derived class may provide <a class="el" href="#a5276f808524352e6c6df3a118ee9077c" title="handleMailboxMessage()">handleMailboxMessage()</a>, <a class="el" href="#af9c8b2d649246374776bf22b633106a1" title="handleMailboxIdle()">handleMailboxIdle()</a>, <a class="el" href="#ac39266e5345996d9607fc9174ef47fc1" title="handleStateChange()">handleStateChange()</a>, <a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c" title="isBootstrapSupported()">isBootstrapSupported()</a> and <a class="el" href="#a7e7721361c828febdd00cb2be71940c7" title="checkDistributedClock()">checkDistributedClock()</a>; each replaces the default of this class. If it declares them private, it must make <a class="el" href="../../dd/d3d/a05379.html" title="Slave">Slave</a> its friend. One task at a time may use a slave.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T_DERIVED</td><td>The derived slave class. </td></tr>
-    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller, see 'EscAccess'. </td></tr>
-    <tr><td class="paramname">T_MAILBOX_SIZE</td><td>Largest mailbox, in bytes, the slave can handle. </td></tr>
+    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller, see <em class="arg">EscAccess</em>. </td></tr>
+    <tr><td class="paramname">T_MAILBOX_SIZE</td><td>Largest mailbox, in bytes, the slave can handle.</td></tr>
   </table>
   </dd>
 </dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Ethercat/SOES/Slave.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -178,11 +179,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aba721979d3b3f7d15cfa48c584e87182" id="r_aba721979d3b3f7d15cfa48c584e87182"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aba721979d3b3f7d15cfa48c584e87182">areOutputsValid</a> () const noexcept</td></tr>
 <tr class="memdesc:aba721979d3b3f7d15cfa48c584e87182"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the outputs may be applied.  <br /></td></tr>
 <tr class="memitem:a488cf78d1e9512af19de30969c6f1d52" id="r_a488cf78d1e9512af19de30969c6f1d52"><td class="memItemLeft"><a class="el" href="../../d0/d39/a01112.html#afea74831b3c37117c52ebef85489a279">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a488cf78d1e9512af19de30969c6f1d52">getState</a> () const noexcept</td></tr>
-<tr class="memdesc:a488cf78d1e9512af19de30969c6f1d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the AL state.  <br /></td></tr>
+<tr class="memdesc:a488cf78d1e9512af19de30969c6f1d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the AL state.  <br /></td></tr>
 <tr class="memitem:a3a39f586f68b1ee07853a6bdff7fbdf7" id="r_a3a39f586f68b1ee07853a6bdff7fbdf7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3a39f586f68b1ee07853a6bdff7fbdf7">hasError</a> () const noexcept</td></tr>
 <tr class="memdesc:a3a39f586f68b1ee07853a6bdff7fbdf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the AL error indication.  <br /></td></tr>
 <tr class="memitem:a2944b7e04f26a7786ee0042d429ead54" id="r_a2944b7e04f26a7786ee0042d429ead54"><td class="memItemLeft"><a class="el" href="../../d0/d39/a01112.html#a10c6daadd4bfb6d09e355d88ec1681dc">Error</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2944b7e04f26a7786ee0042d429ead54">getError</a> () const noexcept</td></tr>
-<tr class="memdesc:a2944b7e04f26a7786ee0042d429ead54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the AL status code that is shown.  <br /></td></tr>
+<tr class="memdesc:a2944b7e04f26a7786ee0042d429ead54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the AL status code that is shown.  <br /></td></tr>
 <tr class="memitem:a65f05684a824724062151ac2fdc257d0" id="r_a65f05684a824724062151ac2fdc257d0"><td class="memItemLeft"><a class="el" href="#a186483b3bfbc3199f52b2081e591cb83">SlaveMailbox</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a65f05684a824724062151ac2fdc257d0">getMailbox</a> () noexcept</td></tr>
 <tr class="memdesc:a65f05684a824724062151ac2fdc257d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives access to the mailbox, for example to answer a message with 'reply()'.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -193,7 +194,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a3d61cb1f7f2e035ec2c0f6636a81355c" id="r_a3d61cb1f7f2e035ec2c0f6636a81355c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3d61cb1f7f2e035ec2c0f6636a81355c">isBootstrapSupported</a> () const</td></tr>
 <tr class="memdesc:a3d61cb1f7f2e035ec2c0f6636a81355c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asks whether the slave has a BOOTSTRAP state (a firmware update over FoE).  <br /></td></tr>
 <tr class="memitem:a7e7721361c828febdd00cb2be71940c7" id="r_a7e7721361c828febdd00cb2be71940c7"><td class="memItemLeft"><a class="el" href="../../d0/d39/a01112.html#a10c6daadd4bfb6d09e355d88ec1681dc">Error</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7e7721361c828febdd00cb2be71940c7">checkDistributedClock</a> (uint8_t syncActivation)</td></tr>
-<tr class="memdesc:a7e7721361c828febdd00cb2be71940c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on the step from PRE-OP to SAFE-OP when the master has activated distributed clock synchronization (SYNC0 / SYNC1 outputs, ESC register 0x0981).  <br /></td></tr>
+<tr class="memdesc:a7e7721361c828febdd00cb2be71940c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on the step from PRE-OP to SAFE-OP when the master has activated distributed clock synchronization (SYNC0 / SYNC1 outputs, ESC register <em class="arg">0x0981</em>).  <br /></td></tr>
 <tr class="memitem:af9c8b2d649246374776bf22b633106a1" id="r_af9c8b2d649246374776bf22b633106a1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af9c8b2d649246374776bf22b633106a1">handleMailboxIdle</a> ()</td></tr>
 <tr class="memdesc:af9c8b2d649246374776bf22b633106a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on every pass of <a class="el" href="#ad379452d18db66bb7ba544fd1539e0ce" title="process()">process()</a> while the mailbox is started, after the pending message was handled; a protocol that sends in several steps, such as the CoE object list, continues here.  <br /></td></tr>
 <tr class="memitem:ac39266e5345996d9607fc9174ef47fc1" id="r_ac39266e5345996d9607fc9174ef47fc1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac39266e5345996d9607fc9174ef47fc1">handleStateChange</a> (<a class="el" href="../../d0/d39/a01112.html#afea74831b3c37117c52ebef85489a279">State</a> previous, <a class="el" href="../../d0/d39/a01112.html#afea74831b3c37117c52ebef85489a279">State</a> current)</td></tr>
@@ -451,7 +452,7 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
 </table>
 </div><div class="memdoc">
 
-<p>Called on the step from PRE-OP to SAFE-OP when the master has activated distributed clock synchronization (SYNC0 / SYNC1 outputs, ESC register 0x0981). </p>
+<p>Called on the step from PRE-OP to SAFE-OP when the master has activated distributed clock synchronization (SYNC0 / SYNC1 outputs, ESC register <em class="arg">0x0981</em>). </p>
 <p>Default: the configuration is refused, because the base class has no distributed clock support.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -459,7 +460,7 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'Error::NONE' to accept the configuration, otherwise the AL status code to refuse it with. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>Error::NONE</b> to accept the configuration, otherwise the AL status code to refuse it with. </dd></dl>
 
 </div>
 </div>
@@ -488,8 +489,8 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
 </table>
 </div><div class="memdoc">
 
-<p>Gets the AL status code that is shown. </p>
-<dl class="section return"><dt>Returns</dt><dd>The code; 'Error::NONE' without an error. </dd></dl>
+<p>Returns the AL status code that is shown. </p>
+<dl class="section return"><dt>Returns</dt><dd>The code; <b>Error::NONE</b> without an error. </dd></dl>
 
 </div>
 </div>
@@ -548,7 +549,7 @@ template&lt;typename T_DERIVED, EscAccess T_ESC, size_t T_MAILBOX_SIZE = 256U&gt
 </table>
 </div><div class="memdoc">
 
-<p>Gets the AL state. </p>
+<p>Returns the AL state. </p>
 <dl class="section return"><dt>Returns</dt><dd>The current state. </dd></dl>
 
 </div>

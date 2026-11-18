@@ -135,6 +135,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d1d/class_c
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Fan-speed and floor-heater decisions of the regulator; not thread-safe, the owner serializes the calls. </p>
+<p>The law works on the demand: how far the room is from the setpoint in the direction that needs action, positive while heating is needed in <a class="el" href="#ac3cf024cdf37044bbef930ca2393ce12ac429fde8b1b986d42f84ba63dbfef6ac" title="Control::RegulatorLaw::Mode::HOT">Control::RegulatorLaw::Mode::HOT</a> mode or cooling in <a class="el" href="#ac3cf024cdf37044bbef930ca2393ce12a3f7ff4daa99912d1b0c8c64340edb9fb" title="Control::RegulatorLaw::Mode::COLD">Control::RegulatorLaw::Mode::COLD</a> mode. Compared with the legacy AVR regulator it</p>
+<ul>
+<li>raises the fan speed in proportion to the demand instead of always one step per step interval, and lowers it the same way as the demand falls, with a hysteresis of half the low tolerance so the speed does not chatter at a boundary,</li>
+<li>lands softly: the fan drops to its lowest speed as the room nears the setpoint, and it stops only beyond the low tolerance,</li>
+<li>holds every relay at least <a class="el" href="../../d3/d24/struct_control_1_1_regulator_law_1_1_parameters.html#a95366663f2f6a3f0905f45bcd162a116" title="Control::RegulatorLaw::Parameters::minSwitchInterval">Control::RegulatorLaw::Parameters::minSwitchInterval</a>, except the jump to full speed in a cold room,</li>
+<li>switches the floor heater off a little before the setpoint, because the floor keeps giving heat, and holds both its states for <a class="el" href="../../d3/d24/struct_control_1_1_regulator_law_1_1_parameters.html#adcd4c35d9266063928138125d05dfd85" title="Control::RegulatorLaw::Parameters::heaterOnDuration">Control::RegulatorLaw::Parameters::heaterOnDuration</a>. </li>
+</ul>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -158,7 +165,7 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1268d2a734245c826df4a7b1b67d5373" id="r_a1268d2a734245c826df4a7b1b67d5373"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1268d2a734245c826df4a7b1b67d5373">RegulatorLaw</a> (const <a class="el" href="../../d3/d24/struct_control_1_1_regulator_law_1_1_parameters.html">Parameters</a> &amp;parameters=<a class="el" href="../../d3/d24/struct_control_1_1_regulator_law_1_1_parameters.html">Parameters</a>{}) noexcept</td></tr>
-<tr class="memdesc:a1268d2a734245c826df4a7b1b67d5373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the law in <b>OFF</b> mode.  <br /></td></tr>
+<tr class="memdesc:a1268d2a734245c826df4a7b1b67d5373"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the law in <a class="el" href="#ac3cf024cdf37044bbef930ca2393ce12a88559a0cfd8250c9d65970cc145c92d4" title="Control::RegulatorLaw::Mode::OFF">Control::RegulatorLaw::Mode::OFF</a> mode.  <br /></td></tr>
 <tr class="memitem:a373bbc2722a5e195e2cbc86ca4ed8ba4" id="r_a373bbc2722a5e195e2cbc86ca4ed8ba4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a373bbc2722a5e195e2cbc86ca4ed8ba4">~RegulatorLaw</a> ()=default</td></tr>
 <tr class="memdesc:a373bbc2722a5e195e2cbc86ca4ed8ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the law.  <br /></td></tr>
 <tr class="memitem:afcac52ff479b9b238987d067f36519b6" id="r_afcac52ff479b9b238987d067f36519b6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afcac52ff479b9b238987d067f36519b6">setParameters</a> (const <a class="el" href="../../d3/d24/struct_control_1_1_regulator_law_1_1_parameters.html">Parameters</a> &amp;newParameters) noexcept</td></tr>
@@ -210,7 +217,7 @@ Static Public Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="ac3cf024cdf37044bbef930ca2393ce12a3f7ff4daa99912d1b0c8c64340edb9fb" name="ac3cf024cdf37044bbef930ca2393ce12a3f7ff4daa99912d1b0c8c64340edb9fb"></a>COLD&#160;</td><td class="fieldinit">2U&#160;</td><td class="fielddoc"><p>Cooling: the fan speed rises as the room warms above the setpoint. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac3cf024cdf37044bbef930ca2393ce12a4d34f53389ed7f28ca91fc31ea360a66" name="ac3cf024cdf37044bbef930ca2393ce12a4d34f53389ed7f28ca91fc31ea360a66"></a>BLOCK&#160;</td><td class="fieldinit">3U&#160;</td><td class="fielddoc"><p>Externally blocked; behaves like <b>OFF</b>. </p>
+<tr><td class="fieldname"><a id="ac3cf024cdf37044bbef930ca2393ce12a4d34f53389ed7f28ca91fc31ea360a66" name="ac3cf024cdf37044bbef930ca2393ce12a4d34f53389ed7f28ca91fc31ea360a66"></a>BLOCK&#160;</td><td class="fieldinit">3U&#160;</td><td class="fielddoc"><p>Externally blocked; behaves like <a class="el" href="#ac3cf024cdf37044bbef930ca2393ce12a88559a0cfd8250c9d65970cc145c92d4" title="Control::RegulatorLaw::Mode::OFF">Control::RegulatorLaw::Mode::OFF</a>. </p>
 </td></tr>
 </table>
 
@@ -240,7 +247,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the law in <b>OFF</b> mode. </p>
+<p>Creates the law in <a class="el" href="#ac3cf024cdf37044bbef930ca2393ce12a88559a0cfd8250c9d65970cc145c92d4" title="Control::RegulatorLaw::Mode::OFF">Control::RegulatorLaw::Mode::OFF</a> mode. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">parameters</td><td>Initial tolerances and timings. </td></tr>
@@ -341,8 +348,8 @@ Static Public Attributes</h2></td></tr>
 <p>Chooses the fan speed and the floor-heater state for the given temperatures. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">currentTemperature</td><td>Room temperature, 0.1 degC. </td></tr>
-    <tr><td class="paramname">setpointTemperature</td><td>Target temperature, 0.1 degC. </td></tr>
+    <tr><td class="paramname">currentTemperature</td><td>Room temperature, <em>0.1°C</em>. </td></tr>
+    <tr><td class="paramname">setpointTemperature</td><td>Target temperature, <em>0.1°C</em>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -373,7 +380,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gives the fan speed chosen by the last evaluation. </p>
-<dl class="section return"><dt>Returns</dt><dd>Fan speed in range [0, <b>FAN_SPEED_COUNT</b> - 1]. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Fan speed in range <em>[0, FAN_SPEED_COUNT - 1]</em>. </dd></dl>
 
 </div>
 </div>
@@ -429,7 +436,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports whether the last evaluation left the floor heater on. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> while the heater runs; always <b>false</b> outside <b>HOT</b> mode or with the heater disabled. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> while the heater runs; always <b>false</b> outside <a class="el" href="#ac3cf024cdf37044bbef930ca2393ce12ac429fde8b1b986d42f84ba63dbfef6ac" title="Control::RegulatorLaw::Mode::HOT">Control::RegulatorLaw::Mode::HOT</a> mode or with the heater disabled. </dd></dl>
 
 </div>
 </div>
@@ -469,8 +476,8 @@ Static Public Attributes</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newMode</td><td>Control law to apply. </td></tr>
-    <tr><td class="paramname">newMaxFanSpeed</td><td>Highest fan speed, in range [0, <b>FAN_SPEED_COUNT</b> - 1]. </td></tr>
-    <tr><td class="paramname">isHeaterAllowed</td><td><b>true</b> if the floor heater may run in <b>HOT</b> mode. </td></tr>
+    <tr><td class="paramname">newMaxFanSpeed</td><td>Highest fan speed, in range <em>[0, FAN_SPEED_COUNT - 1]</em>. </td></tr>
+    <tr><td class="paramname">isHeaterAllowed</td><td><em class="arg">true</em> if the floor heater may run in <a class="el" href="#ac3cf024cdf37044bbef930ca2393ce12ac429fde8b1b986d42f84ba63dbfef6ac" title="Control::RegulatorLaw::Mode::HOT">Control::RegulatorLaw::Mode::HOT</a> mode. </td></tr>
   </table>
   </dd>
 </dl>

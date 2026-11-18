@@ -139,7 +139,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/d28/a06351.
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Builds and parses XCOM wire frames. </p>
-<p>A frame on the wire is a start delimiter, a payload length, a command byte, the payload and a little-endian CRC16, with every occurrence of the delimiter or the escape marker inside the body replaced by a two-byte escape sequence. All methods are static; the type is never instantiated. </p>
+<p>A frame on the wire is a start delimiter, a payload length, a command byte, the payload and a little-endian CRC16, with every occurrence of the delimiter or the escape marker inside the body replaced by a two-byte escape sequence. Both directions work on caller-supplied buffers and never allocate, so a frame can be assembled or decoded from an interrupt-driven receive path. All methods are static; the type is never instantiated.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/XCOM/Protocol.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -148,12 +150,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a235352bee19a22c8894f08ff519c734f" id="r_a235352bee19a22c8894f08ff519c734f"><td class="memItemLeft">static size_t&#160;</td><td class="memItemRight"><a class="el" href="#a235352bee19a22c8894f08ff519c734f">build</a> (const <a class="el" href="../../d2/de6/a06355.html">Frame</a> &amp;frame, std::span&lt; uint8_t &gt; output)</td></tr>
-<tr class="memdesc:a235352bee19a22c8894f08ff519c734f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build an escaped wire frame from a logical Frame.  <br /></td></tr>
-<tr class="memitem:a788dfdd83abed778c0d8afc0f7a00af5" id="r_a788dfdd83abed778c0d8afc0f7a00af5"><td class="memItemLeft">static <a class="el" href="#a9e9dc1e741ca0edee8938fa06d7a9c70">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a788dfdd83abed778c0d8afc0f7a00af5">parse</a> (std::span&lt; const uint8_t &gt; input, std::span&lt; uint8_t &gt; workspace, <a class="el" href="../../d2/de6/a06355.html">Frame</a> &amp;outputFrame)</td></tr>
-<tr class="memdesc:a788dfdd83abed778c0d8afc0f7a00af5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse an escaped wire frame into a logical Frame.  <br /></td></tr>
+<tr class="memitem:a26709e49048813bcff59ae4d4a6fb655" id="r_a26709e49048813bcff59ae4d4a6fb655"><td class="memItemLeft">static size_t&#160;</td><td class="memItemRight"><a class="el" href="#a26709e49048813bcff59ae4d4a6fb655">build</a> (const <a class="el" href="../../d2/de6/a06355.html">Frame</a> &amp;frame, std::span&lt; uint8_t &gt; output) noexcept</td></tr>
+<tr class="memdesc:a26709e49048813bcff59ae4d4a6fb655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds an escaped wire frame from a logical <a class="el" href="../../d2/de6/a06355.html" title="Frame">Frame</a>.  <br /></td></tr>
+<tr class="memitem:abb5d09a64859ee4f172a84103c8bcda1" id="r_abb5d09a64859ee4f172a84103c8bcda1"><td class="memItemLeft">static <a class="el" href="#a9e9dc1e741ca0edee8938fa06d7a9c70">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#abb5d09a64859ee4f172a84103c8bcda1">parse</a> (std::span&lt; const uint8_t &gt; input, std::span&lt; uint8_t &gt; workspace, <a class="el" href="../../d2/de6/a06355.html">Frame</a> &amp;outputFrame) noexcept</td></tr>
+<tr class="memdesc:abb5d09a64859ee4f172a84103c8bcda1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses an escaped wire frame into a logical <a class="el" href="../../d2/de6/a06355.html" title="Frame">Frame</a>.  <br /></td></tr>
 <tr class="memitem:a5745da1b02d3aae7895b7bf8928f31bc" id="r_a5745da1b02d3aae7895b7bf8928f31bc"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a5745da1b02d3aae7895b7bf8928f31bc">isEsc</a> (uint8_t value) noexcept</td></tr>
-<tr class="memdesc:a5745da1b02d3aae7895b7bf8928f31bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether a byte must be escaped when building a frame.  <br /></td></tr>
+<tr class="memdesc:a5745da1b02d3aae7895b7bf8928f31bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a byte must be escaped when building a frame.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -207,8 +209,8 @@ Static Public Attributes</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a235352bee19a22c8894f08ff519c734f" name="a235352bee19a22c8894f08ff519c734f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a235352bee19a22c8894f08ff519c734f">&#9670;&#160;</a></span>build()</h2>
+<a id="a26709e49048813bcff59ae4d4a6fb655" name="a26709e49048813bcff59ae4d4a6fb655"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26709e49048813bcff59ae4d4a6fb655">&#9670;&#160;</a></span>build()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -229,21 +231,21 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Build an escaped wire frame from a logical Frame. </p>
-<p>Writes the start delimiter, length, command, payload, CRC16 and the escaping of special bytes into 'output'. The payload is rejected rather than silently truncated when it exceeds <a class="el" href="#aff9a0aa28e3d8a3df456a7785f403418" title="MAX_PAYLOAD_SIZE">MAX_PAYLOAD_SIZE</a>.</p>
+<p>Builds an escaped wire frame from a logical <a class="el" href="../../d2/de6/a06355.html" title="Frame">Frame</a>. </p>
+<p>Writes the start delimiter, length, command, payload, CRC16 and the escaping of special bytes into <em class="arg">output</em>. The payload is rejected rather than silently truncated when it exceeds <a class="el" href="#aff9a0aa28e3d8a3df456a7785f403418" title="MAX_PAYLOAD_SIZE">MAX_PAYLOAD_SIZE</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">frame</td><td>Input logical frame (command + payload). </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">frame</td><td>Input logical frame (command and payload). </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; should be at least <a class="el" href="#abbc3cab3388d67686430238cdec2b71a" title="MAX_FRAME_SIZE">MAX_FRAME_SIZE</a> bytes to accept any frame. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written to 'output', or 0 if the payload is too long or 'output' is too small. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes written to <em class="arg">output</em>, or <b>0</b> if the payload is too long or <em class="arg">output</em> is too small. </dd></dl>
 
 </div>
 </div>
@@ -270,7 +272,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check whether a byte must be escaped when building a frame. </p>
+<p>Checks whether a byte must be escaped when building a frame. </p>
 <p>A byte is considered escapable when it equals the start delimiter or the escape substitution marker.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -278,12 +280,12 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the byte must be escaped, <em class="arg">false</em> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the byte must be escaped, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="a788dfdd83abed778c0d8afc0f7a00af5" name="a788dfdd83abed778c0d8afc0f7a00af5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a788dfdd83abed778c0d8afc0f7a00af5">&#9670;&#160;</a></span>parse()</h2>
+<a id="abb5d09a64859ee4f172a84103c8bcda1" name="abb5d09a64859ee4f172a84103c8bcda1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb5d09a64859ee4f172a84103c8bcda1">&#9670;&#160;</a></span>parse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -309,18 +311,18 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parse an escaped wire frame into a logical Frame. </p>
-<p>Validates the frame structure, performs unescaping into 'workspace', verifies the CRC16 and points 'outputFrame.payload' at the decoded bytes inside 'workspace'.</p>
+<p>Parses an escaped wire frame into a logical <a class="el" href="../../d2/de6/a06355.html" title="Frame">Frame</a>. </p>
+<p>Validates the frame structure, performs unescaping into <em class="arg">workspace</em>, verifies the CRC16 and points <em class="arg">outputFrame.payload</em> at the decoded bytes inside <em class="arg">workspace</em>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir"></td><td class="paramname">input</td><td>Byte sequence containing the escaped wire frame. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">workspace</td><td>Scratch buffer receiving the unescaped frame; should hold <a class="el" href="#ab503455121c93c6c3d2d634f80ae6129" title="MAX_RAW_FRAME_SIZE">MAX_RAW_FRAME_SIZE</a> bytes. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">outputFrame</td><td>Logical Frame that will be populated on success. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">outputFrame</td><td>Logical frame that is populated on success. </td></tr>
   </table>
   </dd>
 </dl>

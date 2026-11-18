@@ -130,20 +130,28 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
   <div class="headertitle"><div class="title">Room Controller </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><b>Version</b> 1.00 | <b>Updated</b> 2026-11-16</p>
+<div class="textblock"><p><b>Version</b> 1.00 | <b>Updated</b> 2026-11-17</p>
 <p><a href="https://github.com/panchev68-Ultima/ThermoControl-Firmware">Source code</a></p>
 <hr  />
 <h1 class="doxsection"><a class="anchor" id="hardware"></a>
 Hardware</h1>
 <p>Room controller of the Thermo Control 1.00 hotel HVAC system. It regulates the temperature of one room with a water convector (fan coil) with three fan speeds and a floor heater. The chiller feeds the convector with hot or cold water, so the regulator has both a <em class="arg">HOT</em> and a <em class="arg">COLD</em> mode; the floor heater works only in <em class="arg">HOT</em>.</p>
-<p>The target is an STM32F407VET6 running FreeRTOS, built with IAR EWARM and C++20. The controller talks to the central unit and the PC program over RS485 on USART1 at 19200 baud, to the room panel (three seven-segment digits, two keys, SMT160 thermometer) over a second RS485 line on USART3, and keeps its settings in an external EEPROM on I2C1.</p>
+<p>The target is an STM32F407VET6 running FreeRTOS, built with IAR EWARM and C++20. The controller talks to the central unit and the PC program over RS485 on USART1 at <em>19200 baud</em>, to the room panel (three seven-segment digits, two keys, SMT160 thermometer) over a second RS485 line on USART3, and keeps its settings in an external EEPROM on I²C1.</p>
 <h1 class="doxsection"><a class="anchor" id="structure"></a>
 How the firmware works</h1>
-<p>The code is header-only and touches no hardware directly: every input and output goes through callbacks on <a class="el" href="df/dcc/struct_application_1_1_room_controller_1_1_config.html" title="Application::RoomController::Config">Application::RoomController::Config</a>. <a class="el" href="d6/de2/class_application_1_1_room_controller.html" title="Application::RoomController">Application::RoomController</a> owns the whole controller: the RS485 task (<a class="el" href="d5/d32/class_r_s485_1_1_communication.html" title="RS485::Communication">RS485::Communication</a>), the panel task (<a class="el" href="da/d61/class_display_1_1_serial_panel.html" title="Display::SerialPanel">Display::SerialPanel</a>), a 5 ms control step and a task for the slow work (saving the settings, restart).</p>
+<p>The code is header-only and touches no hardware directly: every input and output goes through callbacks on <a class="el" href="df/dcc/struct_application_1_1_room_controller_1_1_config.html" title="Application::RoomController::Config">Application::RoomController::Config</a>. <a class="el" href="d6/de2/class_application_1_1_room_controller.html" title="Application::RoomController">Application::RoomController</a> owns the whole controller: the RS485 task (<a class="el" href="d5/d32/class_r_s485_1_1_communication.html" title="RS485::Communication">RS485::Communication</a>), the panel task (<a class="el" href="da/d61/class_display_1_1_serial_panel.html" title="Display::SerialPanel">Display::SerialPanel</a>), a <em>5 ms</em> control step and a task for the slow work (saving the settings, restart).</p>
 <p>The control step reads the panel keys and the room temperature, draws the panel screens (<a class="el" href="d0/dd0/class_display_1_1_panel_screen.html" title="Display::PanelScreen">Display::PanelScreen</a>), checks the open-door alarm and runs the regulator (<a class="el" href="dd/d4f/class_control_1_1_regulator.html" title="Control::Regulator">Control::Regulator</a>): fan speed proportional to the demand, a soft landing at the setpoint and a floor heater with hysteresis. The settings are kept in two EEPROM slots with a sequence number and a checksum (<a class="el" href="d1/d28/class_data_1_1_settings_storage.html" title="Data::SettingsStorage">Data::SettingsStorage</a>).</p>
 <h1 class="doxsection"><a class="anchor" id="compatibility"></a>
 Compatibility with the legacy firmware</h1>
-<p>The RS485 frames, commands and checksum follow the original ATmega8 firmware, so the existing PC application works unchanged. The serial port of that application is fixed at 19200 8N1, which is why USART1 keeps this speed. </p>
+<p>The RS485 frames, commands and checksum follow the original ATmega8 firmware, so the existing PC application works unchanged. The serial port of that application is fixed at <em>19200 baud</em> 8N1, which is why USART1 keeps this speed.</p>
+<h1 class="doxsection"><a class="anchor" id="previous"></a>
+Previous versions</h1>
+<p>The firmware this one replaces, the room panel and the PC program it works with are kept in the same repository:</p>
+<ul>
+<li><a href="https://github.com/panchev68-Ultima/ThermoControl-Firmware/tree/STM32-Verison/004-2010.06.02">Controller firmware 004-2010.06.02</a>, the original ATmega8 firmware running in the controllers of Hotel "Черневци".</li>
+<li><a href="https://github.com/panchev68-Ultima/ThermoControl-Firmware/tree/STM32-Verison/Display">Room panel firmware</a>, the AVR firmware of the serial panel with the three digits, two keys and the SMT160 thermometer.</li>
+<li><a href="https://github.com/panchev68-Ultima/ThermoControl-Firmware/tree/STM32-Verison/Clima%20Control%20ver.2.0.1.37">Clima Control 2.0.1.37</a>, the PC program that talks to the controllers over RS485. </li>
+</ul>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- doc-content -->

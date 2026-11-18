@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d1f/a05947.
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_VALUE, size_t T_WINDOW_SIZE&gt;<br />
 requires (std::is_arithmetic_v&lt;T_VALUE&gt; &amp;&amp; !std::same_as&lt;T_VALUE, bool&gt; &amp;&amp; (T_WINDOW_SIZE &gt; 0U))<br />
 class Lib::Helper::Integrator&lt; T_VALUE, T_WINDOW_SIZE &gt;</div><p>Sliding-window integrator that computes the arithmetic mean of the last <em class="arg">T_WINDOW_SIZE</em> samples. </p>
+<p>Integral samples are accumulated in the narrowest 32-bit or 64-bit type that fits a full window, so samples up to 32 bits never overflow the running sum; floating-point samples use compensated (Kahan) summation to limit rounding drift of the running sum.</p>
 <p>Integral means are truncated toward zero, like integer division. The instance is a literal type, so it can be used in constant expressions.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -163,7 +164,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a97085ec2f9a9f65920181fffae409662" id="r_a97085ec2f9a9f65920181fffae409662"><td class="memItemLeft">constexpr T_VALUE&#160;</td><td class="memItemRight"><a class="el" href="#a97085ec2f9a9f65920181fffae409662">operator()</a> (T_VALUE value) noexcept</td></tr>
 <tr class="memdesc:a97085ec2f9a9f65920181fffae409662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a sample and returns the updated mean; forwards to <a class="el" href="#ab31a92d828aeae207fd9641101c217f5" title="processValue()">processValue()</a>.  <br /></td></tr>
 <tr class="memitem:a78e088ee416a676679fe227ceb71b1b0" id="r_a78e088ee416a676679fe227ceb71b1b0"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a78e088ee416a676679fe227ceb71b1b0">resetWindow</a> () noexcept</td></tr>
-<tr class="memdesc:a78e088ee416a676679fe227ceb71b1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the window to the empty state and clears the accumulators.  <br /></td></tr>
+<tr class="memdesc:a78e088ee416a676679fe227ceb71b1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the window to the empty state and clears the accumulators.  <br /></td></tr>
 <tr class="memitem:aeb147317d59f6e6641e3938d0bf468d9" id="r_aeb147317d59f6e6641e3938d0bf468d9"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aeb147317d59f6e6641e3938d0bf468d9">isWindowFull</a> () const noexcept</td></tr>
 <tr class="memdesc:aeb147317d59f6e6641e3938d0bf468d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries whether the window holds <em class="arg">T_WINDOW_SIZE</em> samples.  <br /></td></tr>
 </table>
@@ -390,7 +391,7 @@ template&lt;typename T_VALUE, size_t T_WINDOW_SIZE&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the window to the empty state and clears the accumulators. </p>
+<p>Resets the window to the empty state and clears the accumulators. </p>
 <p>Stored samples are not cleared: a slot is only read back after it has been overwritten again. </p>
 
 </div>

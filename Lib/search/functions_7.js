@@ -214,7 +214,7 @@ var searchData=
   ['getsystemstate_211',['getSystemState',['../d2/da1/a06103.html#afe908121c5db2fa04df8bea014732a22',1,'RTOS::Kernel']]],
   ['gettag_212',['getTag',['../d0/dca/a06175.html#a5fcd0aa5b1d168f51936f15b352beef0',1,'RTOS::Task']]],
   ['gettemperature_213',['getTemperature',['../d1/da9/a04807.html#ae20843f3a9105a0d355f64cdb1096f9c',1,'Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;']]],
-  ['getterminatehandler_214',['getTerminateHandler',['../dd/da7/a04407.html#af581e01759dfd165389106493d22e81f',1,'Lib::Exception::getTerminateHandler()'],['../d3/d01/a05935.html#ab631975b55d83bcd0cad9ad9e1d0c9da',1,'Lib::Helper::Exception::getTerminateHandler()']]],
+  ['getterminatehandler_214',['getTerminateHandler',['../dd/da7/a04407.html#afb09f276fffec71be11b57b0db561d99',1,'Lib::Exception::getTerminateHandler()'],['../d3/d01/a05935.html#ab631975b55d83bcd0cad9ad9e1d0c9da',1,'Lib::Helper::Exception::getTerminateHandler()']]],
   ['gettext_215',['getText',['../d1/dab/a05515.html#a7049cc089883b2f7e46c105730400657',1,'Lib::GUI::String']]],
   ['gettextheight_216',['getTextHeight',['../d1/dd6/a05435.html#a3c0b5198eff2d8f83ac71070553403ed',1,'Lib::GUI::Canvas']]],
   ['gettextwidth_217',['getTextWidth',['../d1/dd6/a05435.html#ae700883e2059adf653de50f17e24ef13',1,'Lib::GUI::Canvas::getTextWidth()'],['../db/d89/a05467.html#a6903b22b3b35bff094d26621af9ad58a',1,'Lib::GUI::Font::getTextWidth()']]],

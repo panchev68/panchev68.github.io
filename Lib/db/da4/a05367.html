@@ -140,14 +140,16 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('db/da4/a05367.
 <div class="textblock"><div class="compoundTemplParams">template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt;<br />
 class Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;</div><p>EtherCAT slave mailbox transport, written directly on the ESC registers. </p>
 <p>The mailbox is the asynchronous channel between master and slave (CoE, FoE, EoE, AoE, SoE and VoE ride on it). It is two sync managers of the EtherCAT slave controller: SM0 carries messages from the master to the slave, SM1 from the slave to the master. This class enables both through the PDI control registers, reads the configuration the master wrote, receives one message at a time, sends messages and mailbox errors, and answers the master's repeat requests by writing the last message the master read again. It does not interpret the protocols themselves: it hands the protocol type and payload to the caller.</p>
-<p>The chip is reached through a type that provides 'readReg()' and 'writeReg()' (the LAN9252 driver does), so no vendor stack is needed. One task at a time may use a mailbox.</p>
+<p>The chip is reached through a type that provides <b>readReg()</b> and <b>writeReg()</b> (the LAN9252 driver does), so no vendor stack is needed. One task at a time may use a mailbox.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller, see 'EscAccess'. </td></tr>
-    <tr><td class="paramname">T_MAX_SIZE</td><td>Largest mailbox, in bytes, that the object can handle; the master's sync manager configuration must fit it. </td></tr>
+    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller, see <a class="el" href="../../dd/d96/a06372.html" title="EscAccess">EscAccess</a>. </td></tr>
+    <tr><td class="paramname">T_MAX_SIZE</td><td>Largest mailbox, in bytes, that the object can handle; the master's sync manager configuration must fit it.</td></tr>
   </table>
   </dd>
 </dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Ethercat/SOES/class/Mailbox.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -170,9 +172,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ae0df748e2b7e0163d2d0e576c60e67" id="r_a6ae0df748e2b7e0163d2d0e576c60e67"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6ae0df748e2b7e0163d2d0e576c60e67">process</a> () noexcept</td></tr>
 <tr class="memdesc:a6ae0df748e2b7e0163d2d0e576c60e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Services the mailbox: follows the send mailbox (a message the master read becomes the one a repeat request resends), answers a repeat request, then takes the next message from the master if none is held.  <br /></td></tr>
 <tr class="memitem:aedee8505e9fc71d9b8ee1f861aed18bd" id="r_aedee8505e9fc71d9b8ee1f861aed18bd"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; <a class="el" href="#ad7428bbb83ea5af8171eee7e864fdda4">Header</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aedee8505e9fc71d9b8ee1f861aed18bd">getHeader</a> () const noexcept</td></tr>
-<tr class="memdesc:aedee8505e9fc71d9b8ee1f861aed18bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the header of the message that is held.  <br /></td></tr>
+<tr class="memdesc:aedee8505e9fc71d9b8ee1f861aed18bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the header of the message that is held.  <br /></td></tr>
 <tr class="memitem:a9872acce7c2cf2223766fcf44e1bab1b" id="r_a9872acce7c2cf2223766fcf44e1bab1b"><td class="memItemLeft">std::span&lt; const uint8_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9872acce7c2cf2223766fcf44e1bab1b">getPayload</a> () const noexcept</td></tr>
-<tr class="memdesc:a9872acce7c2cf2223766fcf44e1bab1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the payload of the message that is held.  <br /></td></tr>
+<tr class="memdesc:a9872acce7c2cf2223766fcf44e1bab1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the payload of the message that is held.  <br /></td></tr>
 <tr class="memitem:a24ecfe28e44d01a0ef7402c9dd2b1929" id="r_a24ecfe28e44d01a0ef7402c9dd2b1929"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a24ecfe28e44d01a0ef7402c9dd2b1929">release</a> () noexcept</td></tr>
 <tr class="memdesc:a24ecfe28e44d01a0ef7402c9dd2b1929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the message that is held, so the next one can be taken.  <br /></td></tr>
 <tr class="memitem:a1841296b5aeb9919b19eacf34f6f8c29" id="r_a1841296b5aeb9919b19eacf34f6f8c29"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1841296b5aeb9919b19eacf34f6f8c29">isSendFree</a> () noexcept</td></tr>
@@ -184,9 +186,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af16f83230223a0cfc670c79022e90a1b" id="r_af16f83230223a0cfc670c79022e90a1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af16f83230223a0cfc670c79022e90a1b">sendError</a> (<a class="el" href="../../d0/d39/a01112.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8">Error</a> error) noexcept</td></tr>
 <tr class="memdesc:af16f83230223a0cfc670c79022e90a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a mailbox error response to the master.  <br /></td></tr>
 <tr class="memitem:adde97f5c848352eeba6b208c92a29e67" id="r_adde97f5c848352eeba6b208c92a29e67"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#adde97f5c848352eeba6b208c92a29e67">getMaxSendPayload</a> () const noexcept</td></tr>
-<tr class="memdesc:adde97f5c848352eeba6b208c92a29e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the largest payload a message to the master can carry.  <br /></td></tr>
+<tr class="memdesc:adde97f5c848352eeba6b208c92a29e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest payload a message to the master can carry.  <br /></td></tr>
 <tr class="memitem:ac7ab98301c17e070b6dc163a3c8cced5" id="r_ac7ab98301c17e070b6dc163a3c8cced5"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac7ab98301c17e070b6dc163a3c8cced5">getMaxReceivePayload</a> () const noexcept</td></tr>
-<tr class="memdesc:ac7ab98301c17e070b6dc163a3c8cced5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the largest payload a message from the master can carry.  <br /></td></tr>
+<tr class="memdesc:ac7ab98301c17e070b6dc163a3c8cced5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the largest payload a message from the master can carry.  <br /></td></tr>
 <tr class="memitem:ab1bcb7c3a74502f21370427c1e31753c" id="r_ab1bcb7c3a74502f21370427c1e31753c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab1bcb7c3a74502f21370427c1e31753c">isStarted</a> () const noexcept</td></tr>
 <tr class="memdesc:ab1bcb7c3a74502f21370427c1e31753c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the mailbox is started.  <br /></td></tr>
 <tr class="memitem:a42da399e1c4912a51547721ecd747034" id="r_a42da399e1c4912a51547721ecd747034"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a42da399e1c4912a51547721ecd747034">hasIncomingMessage</a> () const noexcept</td></tr>
@@ -481,7 +483,7 @@ template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the header of the message that is held. </p>
+<p>Returns the header of the message that is held. </p>
 <dl class="section return"><dt>Returns</dt><dd>The header, or nothing if no message is held. </dd></dl>
 
 </div>
@@ -511,7 +513,7 @@ template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the largest payload a message from the master can carry. </p>
+<p>Returns the largest payload a message from the master can carry. </p>
 <dl class="section return"><dt>Returns</dt><dd>Length of the receive sync manager minus the header; 0 before <a class="el" href="#abf50b8069f4ceb92d29414e4c378b96a" title="start()">start()</a>. </dd></dl>
 
 </div>
@@ -541,7 +543,7 @@ template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the largest payload a message to the master can carry. </p>
+<p>Returns the largest payload a message to the master can carry. </p>
 <dl class="section return"><dt>Returns</dt><dd>Length of the send sync manager minus the header; 0 before <a class="el" href="#abf50b8069f4ceb92d29414e4c378b96a" title="start()">start()</a>. </dd></dl>
 
 </div>
@@ -571,7 +573,7 @@ template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the payload of the message that is held. </p>
+<p>Returns the payload of the message that is held. </p>
 <dl class="section return"><dt>Returns</dt><dd>The payload bytes (empty if no message is held); valid until <a class="el" href="#a24ecfe28e44d01a0ef7402c9dd2b1929" title="release()">release()</a>. </dd></dl>
 
 </div>

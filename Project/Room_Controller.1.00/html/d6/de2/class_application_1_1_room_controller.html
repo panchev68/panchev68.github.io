@@ -135,7 +135,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/de2/class_a
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Hardware-agnostic room controller: all I/O goes through the <em class="arg">Config</em> callbacks, so it runs on any STM32 part. </p>
-<p>The RS485 task (<a class="el" href="../../d5/d32/class_r_s485_1_1_communication.html" title="RS485::Communication">RS485::Communication</a>) answers the master and the panel task (<a class="el" href="../../da/d61/class_display_1_1_serial_panel.html" title="Display::SerialPanel">Display::SerialPanel</a>) polls the room panel. A software timer (<a class="elRef" href="https://panchev68.github.io/Lib/dc/d71/a06146.html" title="RTOS::TickClient">RTOS::TickClient</a>) runs the short control step every <em class="arg">CONTROL_PERIOD:</em> panel screens, door alarm, regulator and the countdowns. The slow work, saving the settings to the EEPROM and restarting, runs in the control task, which the step wakes when something is due. One mutex guards the state these share.</p>
+<p>The RS485 task (<a class="el" href="../../d5/d32/class_r_s485_1_1_communication.html" title="RS485::Communication">RS485::Communication</a>) answers the master and the panel task (<a class="el" href="../../da/d61/class_display_1_1_serial_panel.html" title="Display::SerialPanel">Display::SerialPanel</a>) polls the room panel. A software timer (<a class="elRef" href="https://panchev68.github.io/Lib/d9/d57/a06199.html" title="RTOS::TickClient">RTOS::TickClient</a>) runs the short control step every <em class="arg">CONTROL_PERIOD:</em> panel screens, door alarm, regulator and the countdowns. The slow work, saving the settings to the EEPROM and restarting, runs in the control task, which the step wakes when something is due. One mutex guards the state these share.</p>
 <p>The room panel is the serial "Climate Control Display" with three digits, two keys and an SMT160 thermometer. The controller draws its screens and reads its keys and thermometer; the temperature is the average of the panel readings plus the calibration offset of the settings. The CAN panel is not used.</p>
 <p>Each concern is a nested class: <em class="arg">RS485Node</em> answers the master, <em class="arg">PanelLink</em> runs the room panel, <em class="arg">Session</em> watches the RS485 session, <em class="arg">RoomState</em> changes mode, setpoint, address and setup, <em class="arg">DeferredWork</em> saves the settings and restarts, and <em class="arg">ControlTick</em> drives the control step. The state they share stays here.</p>
 <p>A singleton: the node has one room. <em class="arg">configure()</em> builds it from the configuration once the settings are loaded, <em class="arg">getInstance()</em> reaches it from interrupt callbacks and other code.</p>
@@ -149,13 +149,13 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:aae926c83aa2331e7ee6b37335beec6b0" id="r_aae926c83aa2331e7ee6b37335beec6b0"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#aae926c83aa2331e7ee6b37335beec6b0">SettingsCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d5/de6/a04910.html">FunctionRef</a>&lt;bool(const <a class="el" href="../../db/db7/struct_data_1_1_settings.html">Data::Settings</a> &amp; settings) noexcept&gt;</td></tr>
+<tr class="memitem:aae926c83aa2331e7ee6b37335beec6b0" id="r_aae926c83aa2331e7ee6b37335beec6b0"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#aae926c83aa2331e7ee6b37335beec6b0">SettingsCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d7/dda/a04947.html">FunctionRef</a>&lt;bool(const <a class="el" href="../../db/db7/struct_data_1_1_settings.html">Data::Settings</a> &amp; settings) noexcept&gt;</td></tr>
 <tr class="memdesc:aae926c83aa2331e7ee6b37335beec6b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Persists the settings record; <b>false</b> on failure.  <br /></td></tr>
-<tr class="memitem:a70ef593bf266a7331f778749b4b30d0e" id="r_a70ef593bf266a7331f778749b4b30d0e"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a70ef593bf266a7331f778749b4b30d0e">OutputsCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d5/de6/a04910.html">FunctionRef</a>&lt;void(uint8_t outputs) noexcept&gt;</td></tr>
+<tr class="memitem:a70ef593bf266a7331f778749b4b30d0e" id="r_a70ef593bf266a7331f778749b4b30d0e"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a70ef593bf266a7331f778749b4b30d0e">OutputsCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d7/dda/a04947.html">FunctionRef</a>&lt;void(uint8_t outputs) noexcept&gt;</td></tr>
 <tr class="memdesc:a70ef593bf266a7331f778749b4b30d0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drives the regulator outputs, low nibble.  <br /></td></tr>
-<tr class="memitem:a53c19b9a51ea84acd541a9216f85d377" id="r_a53c19b9a51ea84acd541a9216f85d377"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a53c19b9a51ea84acd541a9216f85d377">InputCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d5/de6/a04910.html">FunctionRef</a>&lt;bool() noexcept&gt;</td></tr>
+<tr class="memitem:a53c19b9a51ea84acd541a9216f85d377" id="r_a53c19b9a51ea84acd541a9216f85d377"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a53c19b9a51ea84acd541a9216f85d377">InputCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d7/dda/a04947.html">FunctionRef</a>&lt;bool() noexcept&gt;</td></tr>
 <tr class="memdesc:a53c19b9a51ea84acd541a9216f85d377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a digital input.  <br /></td></tr>
-<tr class="memitem:a73b52640c23f30d785657e6fd95ab1a7" id="r_a73b52640c23f30d785657e6fd95ab1a7"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a73b52640c23f30d785657e6fd95ab1a7">ActionCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d5/de6/a04910.html">FunctionRef</a>&lt;void() noexcept&gt;</td></tr>
+<tr class="memitem:a73b52640c23f30d785657e6fd95ab1a7" id="r_a73b52640c23f30d785657e6fd95ab1a7"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a73b52640c23f30d785657e6fd95ab1a7">ActionCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d7/dda/a04947.html">FunctionRef</a>&lt;void() noexcept&gt;</td></tr>
 <tr class="memdesc:a73b52640c23f30d785657e6fd95ab1a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a platform action.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -215,7 +215,7 @@ Static Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a73b52640c23f30d785657e6fd95ab1a7">Application::RoomController::ActionCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d5/de6/a04910.html">FunctionRef</a>&lt;void() noexcept&gt;</td>
+          <td class="memname">using <a class="el" href="#a73b52640c23f30d785657e6fd95ab1a7">Application::RoomController::ActionCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d7/dda/a04947.html">FunctionRef</a>&lt;void() noexcept&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -231,7 +231,7 @@ Static Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a53c19b9a51ea84acd541a9216f85d377">Application::RoomController::InputCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d5/de6/a04910.html">FunctionRef</a>&lt;bool() noexcept&gt;</td>
+          <td class="memname">using <a class="el" href="#a53c19b9a51ea84acd541a9216f85d377">Application::RoomController::InputCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d7/dda/a04947.html">FunctionRef</a>&lt;bool() noexcept&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -247,7 +247,7 @@ Static Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a70ef593bf266a7331f778749b4b30d0e">Application::RoomController::OutputsCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d5/de6/a04910.html">FunctionRef</a>&lt;void(uint8_t outputs) noexcept&gt;</td>
+          <td class="memname">using <a class="el" href="#a70ef593bf266a7331f778749b4b30d0e">Application::RoomController::OutputsCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d7/dda/a04947.html">FunctionRef</a>&lt;void(uint8_t outputs) noexcept&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -263,7 +263,7 @@ Static Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#aae926c83aa2331e7ee6b37335beec6b0">Application::RoomController::SettingsCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d5/de6/a04910.html">FunctionRef</a>&lt;bool(const <a class="el" href="../../db/db7/struct_data_1_1_settings.html">Data::Settings</a> &amp; settings) noexcept&gt;</td>
+          <td class="memname">using <a class="el" href="#aae926c83aa2331e7ee6b37335beec6b0">Application::RoomController::SettingsCallback</a> = <a class="elRef" href="https://panchev68.github.io/Lib/d7/dda/a04947.html">FunctionRef</a>&lt;bool(const <a class="el" href="../../db/db7/struct_data_1_1_settings.html">Data::Settings</a> &amp; settings) noexcept&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">

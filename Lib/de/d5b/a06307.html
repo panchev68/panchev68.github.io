@@ -138,6 +138,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d5b/a06307.
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>CDC-ACM virtual COM port with a single data interface. </p>
+<p>Answers the standard requests of the enumeration and the CDC class requests (line coding, control line state) in the interrupt of the controller, so a host can open the port without any task running. Data goes through two bulk endpoints: received bytes are collected in a stream buffer that <b>read()</b> empties, and <b>write()</b> sends from the caller's buffer. The bulk OUT endpoint is armed only while the stream buffer has room for a packet, so a slow reader makes the controller answer NAK instead of losing data.</p>
+<p>The class owns no clock, pin or interrupt setup: those stay in the CubeMX code (<b>HAL_PCD_MspInit()</b> and the USB interrupt calling <b>HAL_PCD_IRQHandler()</b>). <b>HAL_PCD_Start()</b> connects the device to the bus.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/USB/CDCDevice.hpp" target="_blank">Source</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d64/a06499.html#_a4">Lib::USB::CDCDevice</a>.</dd>
 </dl>
 </div><table class="memberdecls">
@@ -349,7 +353,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Reports whether the host selected the configuration, i.e. </p>
 <p>the data endpoints work.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> between SET_CONFIGURATION and the next bus reset or disconnect. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between SET_CONFIGURATION and the next bus reset or disconnect. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d64/a06499.html#a8">Lib::USB::CDCDevice</a>.</dd>
 </dl>
 
@@ -379,7 +383,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports whether a program on the host has the port open (the DTR line is set). </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> while the host asserts DTR. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> while the host asserts DTR. </dd></dl>
 
 </div>
 </div>
@@ -407,7 +411,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the line coding the host set last. </p>
-<dl class="section return"><dt>Returns</dt><dd>The line coding; 115200 8N1 until the host sets another. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The line coding; <b>115200</b> baud, 8 data bits, no parity and 1 stop bit until the host sets another. </dd></dl>
 
 </div>
 </div>
@@ -524,7 +528,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes copied; 0 on timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes copied; <b>0</b> on timeout. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d64/a06499.html#a11">Lib::USB::CDCDevice</a>.</dd>
 </dl>
 
@@ -555,7 +559,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 
 <p>Opens the port, sets the FIFOs, installs the event handler and starts the bus, so the host can enumerate the device. </p>
 <p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the device runs; <em class="arg">false</em> if a step failed, in which case everything is undone. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the device runs; <b>false</b> if a step failed, in which case everything is undone. </dd></dl>
 
 </div>
 </div>
@@ -633,7 +637,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes the host took; less than 'data.size()' on a timeout or a bus reset. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of bytes the host took; less than <b>data.size()</b> on a timeout or a bus reset. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d64/a06499.html#a12">Lib::USB::CDCDevice</a>.</dd>
 </dl>
 

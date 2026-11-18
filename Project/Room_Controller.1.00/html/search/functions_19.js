@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['yield_0',['yield',['https://panchev68.github.io/Lib/d8/d2f/a06122.html#a6480f2863f92adf599350c436b28e5e2',1,'RTOS::Task::yield()'],['https://panchev68.github.io/Lib/db/da6/a06050.html#a297bee1d1e840d599f99a4260a551012',1,'RTOS::Kernel::yield()'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01727.html#a2a1ecebfe73aaa3eb40e909991bbd16e',1,'std::this_thread::yield()']]]
+  ['yield_0',['yield',['https://panchev68.github.io/Lib/d0/dca/a06175.html#a6480f2863f92adf599350c436b28e5e2',1,'RTOS::Task::yield()'],['https://panchev68.github.io/Lib/d2/da1/a06103.html#a297bee1d1e840d599f99a4260a551012',1,'RTOS::Kernel::yield()'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01727.html#a2a1ecebfe73aaa3eb40e909991bbd16e',1,'std::this_thread::yield()']]]
 ];

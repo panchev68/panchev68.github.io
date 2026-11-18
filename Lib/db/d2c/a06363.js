@@ -8,10 +8,10 @@ var a06363 =
     ] ],
     [ "Value64Handle", "db/d2c/a06363.html#ae91f7070344c27bb733ae287d79e858d", null ],
     [ "~Value64Handle", "db/d2c/a06363.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "db/d2c/a06363.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "db/d2c/a06363.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "db/d2c/a06363.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "db/d2c/a06363.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "db/d2c/a06363.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "db/d2c/a06363.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "bind", "db/d2c/a06363.html#a82222bd66fb6e0407b3517b9014c7b91", null ],
+    [ "complete", "db/d2c/a06363.html#a6405d6c1a52cdf66d299b45a7a1a52e2", null ],
+    [ "inProgress", "db/d2c/a06363.html#adfab8de56a71c8fa7d93af44c21e0e62", null ],
+    [ "operator const uint64_t &", "db/d2c/a06363.html#a9a1ccd9474c3f06be6a6ad9e5b1c3bff", null ],
+    [ "operator=", "db/d2c/a06363.html#a267c2bb2a2d37d91d788e45b99a50281", null ],
+    [ "update", "db/d2c/a06363.html#aa5797203ff21bbbbe4fbd6fc03d8170e", null ]
 ];
