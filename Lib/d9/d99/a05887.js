@@ -1,18 +1,9 @@
 var a05887 =
 [
-    [ "DateString", "d9/d99/a05887.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
-    [ "Date", "d9/d99/a05887.html#a93def70969fc16974f55e56219a01b0f", null ],
-    [ "Date", "d9/d99/a05887.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
-    [ "getDayOfWeek", "d9/d99/a05887.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
-    [ "getDayOfYear", "d9/d99/a05887.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
-    [ "isValid", "d9/d99/a05887.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
-    [ "operator<=>", "d9/d99/a05887.html#a7a7ccaefa33e38ba99be918a93731119", null ],
-    [ "operator==", "d9/d99/a05887.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
-    [ "toString", "d9/d99/a05887.html#a70ecfff686d88d444a44393965b296e5", null ],
-    [ "toSysDays", "d9/d99/a05887.html#a59f67718a1b057bca29012a393547479", null ],
-    [ "toYearMonthDay", "d9/d99/a05887.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
-    [ "DateTime", "d9/d99/a05887.html#ae3d4a8787eced68c65a23f5906c11add", null ],
-    [ "day", "d9/d99/a05887.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
-    [ "month", "d9/d99/a05887.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
-    [ "year", "d9/d99/a05887.html#a1026d89f27e48fd23eccde7a9850b302", null ]
+    [ "CityHash", "d9/d99/a05887.html#a15e433a2ca8afc2454c0b9ee95e7fea7", null ],
+    [ "CityHash", "d9/d99/a05887.html#a15b35a0b560f8789aa9ee2094ab202c0", null ],
+    [ "CityHash", "d9/d99/a05887.html#a74cd5ecd399d3ab6143d6ce1d372250c", null ],
+    [ "operator uint32_t", "d9/d99/a05887.html#a59dabbcd8725156de559846906b1d2d2", null ],
+    [ "operator=", "d9/d99/a05887.html#a9686208520746297f398d6e4c46879ec", null ],
+    [ "operator=", "d9/d99/a05887.html#a92c9de43df76b5194aa1da56c05e07fd", null ]
 ];

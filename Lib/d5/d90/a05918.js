@@ -1,14 +1,8 @@
 var a05918 =
 [
-    [ "JaggedArrayBase", "d5/d90/a05918.html#ae79ec88b260154126e7ec280a136c14a", null ],
-    [ "addItem", "d5/d90/a05918.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
-    [ "addItems", "d5/d90/a05918.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
-    [ "clearItems", "d5/d90/a05918.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
-    [ "getElements", "d5/d90/a05918.html#a428409a8385b8547bfa65d04a71565b1", null ],
-    [ "getElements", "d5/d90/a05918.html#a718f7db994c254bce01246ea32b1d653", null ],
-    [ "getSize", "d5/d90/a05918.html#afca6ed09d7865e2bac45430fda768aae", null ],
-    [ "operator[]", "d5/d90/a05918.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
-    [ "operator[]", "d5/d90/a05918.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
-    [ "removeItem", "d5/d90/a05918.html#a819041f4264ebfce07665c548d5dd7bc", null ],
-    [ "elementList", "d5/d90/a05918.html#a319cd6aae084f711db14582ed55929a5", null ]
+    [ "crc16", "d5/d90/a05918.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
+    [ "crc16", "d5/d90/a05918.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
+    [ "crc16", "d5/d90/a05918.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
+    [ "crc16", "d5/d90/a05918.html#abac152733a66bebdb4f969523dc9dbe1", null ],
+    [ "operator uint16_t", "d5/d90/a05918.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
 ];

@@ -1,9 +1,7 @@
 var a06054 =
 [
-    [ "CriticalSectionFromISR", "d8/d89/a06054.html#a94cda37183a61f5455dc5e641bcb5109", null ],
-    [ "~CriticalSectionFromISR", "d8/d89/a06054.html#a54e463ae72e1238776194c4cb941357b", null ],
-    [ "CriticalSectionFromISR", "d8/d89/a06054.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
-    [ "CriticalSectionFromISR", "d8/d89/a06054.html#a9d04ea07249455e75c39ce5450c33028", null ],
-    [ "operator=", "d8/d89/a06054.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
-    [ "operator=", "d8/d89/a06054.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
+    [ "Point", "d8/d89/a06054.html#aa0cad5391a5d7e73a9bf3d406fac8f27", null ],
+    [ "Point", "d8/d89/a06054.html#a624baf33318a709ecf62eb5a8b11169b", null ],
+    [ "x", "d8/d89/a06054.html#a5c0770c52f3794c74f1e05a140cb3c1c", null ],
+    [ "y", "d8/d89/a06054.html#af5bf7bc951e336b3552ed2a36f6d9056", null ]
 ];

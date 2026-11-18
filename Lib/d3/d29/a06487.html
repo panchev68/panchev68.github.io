@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Math::Filter::Kalman</title>
+<title>IAR EWARM Library: Lib::Helper::Convert::Hex</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,77 +129,92 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d3/d29/a06487.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Math::Filter::Kalman</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Convert::Hex</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Smooths a noisy measurement such as an ADC reading with <a class="el" href="../../d3/d29/a06487.html" title="Lib::Math::Filter::Kalman">Lib::Math::Filter::Kalman</a>.</p>
-<p>Smooths a noisy measurement such as an ADC reading with <a class="el" href="../../d3/d29/a06487.html" title="Lib::Math::Filter::Kalman">Lib::Math::Filter::Kalman</a>. The filter estimates one value recursively: every call of its call operator takes a new sample and returns the filtered estimate. It keeps its state in <em class="arg">double</em>, accepts an integral or a floating-point sample type and is not thread-safe, so call it from one context only.</p>
+<p>Shows the conversions of <a class="el" href="../../d3/d29/a06487.html" title="Lib::Helper::Convert::Hex">Lib::Helper::Convert::Hex</a> for 'uint8_t', 'uint16_t', 'uint32_t' and 'uint64_t': hexadecimal string, packed BCD value and decimal string.</p>
+<p>Shows the conversions of <a class="el" href="../../d3/d29/a06487.html" title="Lib::Helper::Convert::Hex">Lib::Helper::Convert::Hex</a> for 'uint8_t', 'uint16_t', 'uint32_t' and 'uint64_t': hexadecimal string, packed BCD value and decimal string.The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs. Every string result is a fixed, NUL-terminated <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html" title="std::array">std::array</a>, so it is printed through 'data()'. <a class="el" href="../../d0/dba/a05906.html#ac89907616139679d504490eebf13520f" title="Lib::Helper::Convert::Hex::toBcd()">Lib::Helper::Convert::Hex::toBcd()</a> is available only for types up to 32 bits.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="kalman_usage_config"></a>
-Configuration</h3>
-<p><a class="el" href="../../dd/d51/a06023.html" title="Lib::Math::Filter::Kalman::Config">Lib::Math::Filter::Kalman::Config</a> sets three noise terms and the starting value. A larger sensor noise makes the output smoother and slower; a larger process noise makes it follow real changes faster. The terms must be finite and non-negative.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/da3/a00953.html">Lib/Math/Filter/Kalman.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hex_usage_u8"></a>
+Eight-bit values</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/Helper/Convert/Hex.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using </span>AdcFilter = <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d72/a06019.html">Lib::Math::Filter::Kalman&lt;uint16_t&gt;</a>;</div>
+<div class="line"><span class="keywordtype">void</span> printHexU8() {</div>
+<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d0/dba/a05906.html">Lib::Helper::Convert::Hex</a>;</div>
 <div class="line"> </div>
-<div class="line">AdcFilter makeFilter() noexcept {</div>
-<div class="line">    AdcFilter::Config config;</div>
-<div class="line">    config.<a id="a1" name="a1"></a>processNoise = 0.01;</div>
-<div class="line">    config.sensorNoise = 4.0;</div>
-<div class="line">    config.estimatedError = 1.0;</div>
-<div class="line">    config.value = 2048U;</div>
-<div class="line">    <span class="keywordflow">return</span> AdcFilter(config);</div>
+<div class="line">    <span class="keyword">const</span> uint8_t v8 = 0xAB; <span class="comment">// 171 decimal</span></div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint8_t&gt;::toString(0xAB) = &quot;</span> &lt;&lt; Hex&lt;uint8_t&gt;::toString(v8).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint8_t&gt;::toBcd(171) = 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; Hex&lt;uint8_t&gt;::toBcd(171) &lt;&lt; <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint8_t&gt;::toBcdString(5, true) = &quot;</span> &lt;&lt; Hex&lt;uint8_t&gt;::toBcdString(5, <span class="keyword">true</span>).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00953_html"><div class="ttname"><a href="../../d5/da3/a00953.html">Kalman.hpp</a></div><div class="ttdoc">Discrete one-dimensional Kalman filter for smoothing a noisy signal.</div></div>
-<div class="ttc" id="aa06019_html"><div class="ttname"><a href="../../dc/d72/a06019.html">Lib::Math::Filter::Kalman</a></div><div class="ttdoc">Discrete 1-dimensional Kalman filter for signal filtering and state estimation.</div><div class="ttdef"><b>Definition</b> Kalman.hpp:31</div></div>
+<div class="ttc" id="aa00899_html"><div class="ttname"><a href="../../d3/d8a/a00899.html">Hex.hpp</a></div><div class="ttdoc">Declares Lib::Helper::Convert::Hex, the hexadecimal, packed BCD and decimal ASCII conversions for uns...</div></div>
+<div class="ttc" id="aa01692_html_a8e1042ae25efda13674517f13a10c44c"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a></div><div class="ttdeci">ios_base &amp; dec(ios_base &amp;__base)</div></div>
+<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
+<div class="ttc" id="aa05906_html"><div class="ttname"><a href="../../d0/dba/a05906.html">Lib::Helper::Convert::Hex</a></div><div class="ttdoc">Hexadecimal, packed BCD and decimal ASCII conversions for an unsigned integer type.</div><div class="ttdef"><b>Definition</b> Hex.hpp:39</div></div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">Hex&lt;uint8_t&gt;::toString(0xAB) = AB</div>
+<div class="line">Hex&lt;uint8_t&gt;::toBcd(171) = 0x171</div>
+<div class="line">Hex&lt;uint8_t&gt;::toBcdString(5, <span class="keyword">true</span>) = 005</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="kalman_usage_filter"></a>
-Filtering ADC samples</h3>
-<p>Feed every raw sample to the filter and use the returned value. The result is converted to the sample type, so a <em class="arg">uint16_t</em> filter returns whole ADC counts.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/da3/a00953.html">Lib/Math/Filter/Kalman.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hex_usage_u16"></a>
+Sixteen-bit values</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/Helper/Convert/Hex.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_class" href="../../dc/d72/a06019.html">Lib::Math::Filter::Kalman&lt;uint16_t&gt;</a> filter(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../dd/d51/a06023.html">Lib::Math::Filter::Kalman&lt;uint16_t&gt;::Config</a>{});</div>
+<div class="line"><span class="keywordtype">void</span> printHexU16() {</div>
+<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d0/dba/a05906.html">Lib::Helper::Convert::Hex</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Called from the task that receives the conversion results.</span></div>
-<div class="line">uint16_t onAdcSample(uint16_t raw) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> filter(raw);</div>
+<div class="line">    <span class="keyword">const</span> uint16_t v16 = 0x1234;</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint16_t&gt;::toString(0x1234) = &quot;</span> &lt;&lt; Hex&lt;uint16_t&gt;::toString(v16).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint16_t&gt;::toBcdString(1023) = &quot;</span> &lt;&lt; Hex&lt;uint16_t&gt;::toBcdString(1023).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa06023_html"><div class="ttname"><a href="../../dd/d51/a06023.html">Lib::Math::Filter::Kalman::Config</a></div><div class="ttdoc">Filter configuration parameters.</div><div class="ttdef"><b>Definition</b> Kalman.hpp:40</div></div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">Hex&lt;uint16_t&gt;::toString(0x1234) = 1234</div>
+<div class="line">Hex&lt;uint16_t&gt;::toBcdString(1023) = 1023</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="kalman_usage_floating"></a>
-Floating-point signal</h3>
-<p>Use a floating-point sample type for a physical quantity. Pass the first measurement as the starting value so the estimate does not have to converge from zero.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/da3/a00953.html">Lib/Math/Filter/Kalman.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><a class="code hl_class" href="../../dc/d72/a06019.html">Lib::Math::Filter::Kalman&lt;float&gt;</a> makeTemperatureFilter(<span class="keywordtype">float</span> firstReading) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <a class="code hl_struct" href="../../dd/d51/a06023.html">Lib::Math::Filter::Kalman&lt;float&gt;::Config</a> config;</div>
-<div class="line">    config.<a id="a3" name="a3"></a><a class="code hl_variable" href="../../dd/d51/a06023.html#a04983eb19f2dfbb4304e33ce8283c384">sensorNoise</a> = 0.25;</div>
-<div class="line">    config.<a id="a4" name="a4"></a><a class="code hl_variable" href="../../dd/d51/a06023.html#a9083872d6be2774cad6b5e7a7741f9e6">value</a> = firstReading;</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code hl_class" href="../../dc/d72/a06019.html">Lib::Math::Filter::Kalman&lt;float&gt;</a>(config);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa06023_html_a04983eb19f2dfbb4304e33ce8283c384"><div class="ttname"><a href="../../dd/d51/a06023.html#a04983eb19f2dfbb4304e33ce8283c384">Lib::Math::Filter::Kalman::Config::sensorNoise</a></div><div class="ttdeci">double sensorNoise</div><div class="ttdoc">Sensor noise variance.</div><div class="ttdef"><b>Definition</b> Kalman.hpp:46</div></div>
-<div class="ttc" id="aa06023_html_a9083872d6be2774cad6b5e7a7741f9e6"><div class="ttname"><a href="../../dd/d51/a06023.html#a9083872d6be2774cad6b5e7a7741f9e6">Lib::Math::Filter::Kalman::Config::value</a></div><div class="ttdeci">T_TYPE value</div><div class="ttdoc">Initial filtered value.</div><div class="ttdef"><b>Definition</b> Kalman.hpp:48</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="kalman_usage_reset"></a>
-Reset and new parameters</h3>
-<p><a class="el" href="../../dc/d72/a06019.html#a677e8869d39da510437c9dd8adf43848" title="Lib::Math::Filter::Kalman::reset()">Lib::Math::Filter::Kalman::reset()</a> returns the estimate and the error to their starting values, for example after the input channel was switched. <a class="el" href="../../dc/d72/a06019.html#a086aa45da9c828d66507b2a2ce2c2f09" title="Lib::Math::Filter::Kalman::setParam()">Lib::Math::Filter::Kalman::setParam()</a> loads a new configuration but keeps the running estimate until the next <a class="el" href="../../dc/d72/a06019.html#a677e8869d39da510437c9dd8adf43848" title="Lib::Math::Filter::Kalman::reset()">Lib::Math::Filter::Kalman::reset()</a>.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/da3/a00953.html">Lib/Math/Filter/Kalman.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="hex_usage_u32"></a>
+Thirty-two-bit values</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/Helper/Convert/Hex.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> switchChannel(<a class="code hl_class" href="../../dc/d72/a06019.html">Lib::Math::Filter::Kalman&lt;uint16_t&gt;</a> &amp; filter) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <a class="code hl_struct" href="../../dd/d51/a06023.html">Lib::Math::Filter::Kalman&lt;uint16_t&gt;::Config</a> config;</div>
-<div class="line">    config.<a class="code hl_variable" href="../../dd/d51/a06023.html#a04983eb19f2dfbb4304e33ce8283c384">sensorNoise</a> = 16.0;</div>
-<div class="line">    config.<a class="code hl_variable" href="../../dd/d51/a06023.html#a9083872d6be2774cad6b5e7a7741f9e6">value</a> = 0U;</div>
+<div class="line"><span class="keywordtype">void</span> printHexU32() {</div>
+<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d0/dba/a05906.html">Lib::Helper::Convert::Hex</a>;</div>
 <div class="line"> </div>
-<div class="line">    filter.setParam(config);</div>
-<div class="line">    filter.reset();</div>
+<div class="line">    <span class="keyword">const</span> uint32_t v32 = 0xDEADBEEFU;</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint32_t&gt;::toString(0xDEADBEEF) = &quot;</span> &lt;&lt; Hex&lt;uint32_t&gt;::toString(v32).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint32_t&gt;::toBcdString(1234567890) = &quot;</span> &lt;&lt; Hex&lt;uint32_t&gt;::toBcdString(1234567890U).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">Hex&lt;uint32_t&gt;::toString(0xDEADBEEF) = DEADBEEF</div>
+<div class="line">Hex&lt;uint32_t&gt;::toBcdString(1234567890) = 1234567890</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="hex_usage_u64"></a>
+Sixty-four-bit values</h3>
+<p><a class="el" href="../../d0/dba/a05906.html#ac89907616139679d504490eebf13520f" title="Lib::Helper::Convert::Hex::toBcd()">Lib::Helper::Convert::Hex::toBcd()</a> is not available for 'uint64_t'; use <a class="el" href="../../d0/dba/a05906.html#a98805ed7f4ff56f55a56ddafc8d775bc" title="Lib::Helper::Convert::Hex::toBcdString()">Lib::Helper::Convert::Hex::toBcdString()</a> for the decimal form.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/Helper/Convert/Hex.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> printHexU64() {</div>
+<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d0/dba/a05906.html">Lib::Helper::Convert::Hex</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> uint64_t v64 = 0x0123456789ABCDEFULL;</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint64_t&gt;::toString(0x0123456789ABCDEF) = &quot;</span> &lt;&lt; Hex&lt;uint64_t&gt;::toString(v64).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint64_t&gt;::toBcdString(UINT64_MAX) = &quot;</span> &lt;&lt; Hex&lt;uint64_t&gt;::toBcdString(UINT64_MAX).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">Hex&lt;uint64_t&gt;::toString(0x0123456789ABCDEF) = 0123456789ABCDEF</div>
+<div class="line">Hex&lt;uint64_t&gt;::toBcdString(UINT64_MAX) = 18446744073709551615</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

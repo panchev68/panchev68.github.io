@@ -1,4 +1,4 @@
 var a00542 =
 [
-    [ "Lib::Errors::Dispatcher&lt; T_ERROR &gt;", "d8/dbd/a05291.html", "d8/dbd/a05291" ]
+    [ "Lib::Digi::Core::isElapsed", "d6/d40/a01114.html#a3d546e5b9af6a0406bc510721f8621ec", null ]
 ];

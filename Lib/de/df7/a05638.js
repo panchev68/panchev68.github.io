@@ -1,10 +1,15 @@
 var a05638 =
 [
-    [ "IndependentWatchdog", "de/df7/a05638.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
-    [ "IndependentWatchdog", "de/df7/a05638.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
-    [ "IndependentWatchdog", "de/df7/a05638.html#aabfa4830743c87632886a0e095af6dba", null ],
-    [ "open", "de/df7/a05638.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
-    [ "operator=", "de/df7/a05638.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
-    [ "operator=", "de/df7/a05638.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
-    [ "refresh", "de/df7/a05638.html#ae9f164f43789bd02baa1587a44c30e61", null ]
+    [ "Config", "de/df7/a05638.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
+    [ "Handle", "de/df7/a05638.html#ade0f87f7318848ef033a913d2442a32e", null ],
+    [ "Port", "de/df7/a05638.html#ad4395b6d9b762e123ebbb09110c3a99f", null ],
+    [ "~Port", "de/df7/a05638.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
+    [ "Port", "de/df7/a05638.html#adbcc85448b423ac51fae90db4cb3a5f4", null ],
+    [ "Port", "de/df7/a05638.html#af0271c4483ea3f5cebaa37054062a428", null ],
+    [ "operator=", "de/df7/a05638.html#a451d09420f0a1f54df4073cdeb4ae623", null ],
+    [ "operator=", "de/df7/a05638.html#a8e39b404c71b26364658b90ae25a398d", null ],
+    [ "read", "de/df7/a05638.html#adce8df0019ea415a350cf833ac481fc2", null ],
+    [ "setPullupPulldown", "de/df7/a05638.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
+    [ "setup", "de/df7/a05638.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
+    [ "write", "de/df7/a05638.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
 ];

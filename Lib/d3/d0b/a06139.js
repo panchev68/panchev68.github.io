@@ -1,15 +1,8 @@
 var a06139 =
 [
-    [ "MutexGuard", "d3/d0b/a06139.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
-    [ "MutexGuard", "d3/d0b/a06139.html#a06d66e08a55ebf1440edb711e6886307", null ],
-    [ "MutexGuard", "d3/d0b/a06139.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
-    [ "MutexGuard", "d3/d0b/a06139.html#a21aba9e001a6afec8742ff355b845ede", null ],
-    [ "~MutexGuard", "d3/d0b/a06139.html#a35526aab46b7a21b967df7060f8d6747", null ],
-    [ "MutexGuard", "d3/d0b/a06139.html#a271282f741f6a7c1dcebff1616c9916e", null ],
-    [ "MutexGuard", "d3/d0b/a06139.html#a66f7b610af22e97faef98e233dbd46d5", null ],
-    [ "isLocked", "d3/d0b/a06139.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
-    [ "operator bool", "d3/d0b/a06139.html#af9126f464f900d7777d9bb069a13265b", null ],
-    [ "operator=", "d3/d0b/a06139.html#ada341f5a3644025a9b57e448e023d88b", null ],
-    [ "operator=", "d3/d0b/a06139.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
-    [ "unlock", "d3/d0b/a06139.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
+    [ "allocations", "d3/d0b/a06139.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
+    [ "freeHeap", "d3/d0b/a06139.html#a944d10ce32d8114a8a1349e2582022bd", null ],
+    [ "frees", "d3/d0b/a06139.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
+    [ "minimumFreeHeap", "d3/d0b/a06139.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
+    [ "totalHeap", "d3/d0b/a06139.html#a83580325c3df5098f79f23bd212fb20a", null ]
 ];

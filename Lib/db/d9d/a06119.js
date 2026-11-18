@@ -1,9 +1,13 @@
 var a06119 =
 [
-    [ "Lock", "db/d9d/a06119.html#a79915981fe481334533677f3c4691e1f", null ],
-    [ "~Lock", "db/d9d/a06119.html#acca996da9f16704d9247d8d2f0bab3e1", null ],
-    [ "Lock", "db/d9d/a06119.html#a7da060988728f2b1731d04e7b4465ffb", null ],
-    [ "Lock", "db/d9d/a06119.html#a73e4ec26337a86b9060fbfd8356a083c", null ],
-    [ "operator=", "db/d9d/a06119.html#a58e51b984954b6ea0275dd7b48479bb2", null ],
-    [ "operator=", "db/d9d/a06119.html#a2af1d07230d3a75aee8b72daf7ec73bf", null ]
+    [ "CriticalSectionFromISR", "d4/d17/a06123.html", "d4/d17/a06123" ],
+    [ "CriticalSection", "df/d5c/a06127.html", "df/d5c/a06127" ],
+    [ "Scheduler", "d4/d84/a06131.html", "d4/d84/a06131" ],
+    [ "MemoryInfo", "d3/d0b/a06139.html", "d3/d0b/a06139" ],
+    [ "InterruptMask", "db/d9d/a06119.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
+    [ "TaskCount", "db/d9d/a06119.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
+    [ "TickDuration", "db/d9d/a06119.html#ab8efa244b2762e143dbfc23e170ed0e1", null ],
+    [ "TickType", "db/d9d/a06119.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
+    [ "Kernel", "db/d9d/a06119.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
+    [ "~Kernel", "db/d9d/a06119.html#a002477130b9e5bd7adc19142c1516c08", null ]
 ];

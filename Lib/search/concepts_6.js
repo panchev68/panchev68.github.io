@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['serialport_0',['SerialPort',['../d6/de0/a06368.html',1,'Lib::Communication::Modbus']]],
-  ['storagelike_1',['StorageLike',['../de/da2/a06375.html',1,'Lib::System']]]
+  ['query_0',['Query',['../dc/d27/a06389.html',1,'Lib::Digi::Core']]]
 ];

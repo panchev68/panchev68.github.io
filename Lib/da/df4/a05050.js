@@ -1,5 +1,9 @@
 var a05050 =
 [
-    [ "temperatureValue", "da/df4/a05050.html#ad352c7bba31cc229e106eea4aef94299", null ],
-    [ "voltageValue", "da/df4/a05050.html#a8dfb3d30a434e5346c20ac691dfe3595", null ]
+    [ "State", "da/df4/a05050.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
+    [ "State", "da/df4/a05050.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
+    [ "isConnected", "da/df4/a05050.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
+    [ "operator uint32_t", "da/df4/a05050.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
+    [ "operator=", "da/df4/a05050.html#a74040294aacf89a661c876eb5aadc081", null ],
+    [ "onConnectionChanged", "da/df4/a05050.html#af29d5ac1eff410a6876b1be865601ca8", null ]
 ];

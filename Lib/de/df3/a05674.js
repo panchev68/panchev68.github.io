@@ -1,11 +1,13 @@
 var a05674 =
 [
-    [ "getDirection", "de/df3/a05674.html#a68335ce20908e5937884bf601bb4b90e", null ],
-    [ "getRecipient", "de/df3/a05674.html#ae7283011b9493caacbbe6081ca48b217", null ],
-    [ "getType", "de/df3/a05674.html#a2e0f40dbc98143b97268fbfa4a39bd3a", null ],
-    [ "index", "de/df3/a05674.html#a042e36be625640c409835eeb4ca30c8a", null ],
-    [ "length", "de/df3/a05674.html#a2e7f6964058d59cf704c5534a3b64cae", null ],
-    [ "request", "de/df3/a05674.html#a8f0551503e5416ac2f9eaaa0bef3a08f", null ],
-    [ "requestType", "de/df3/a05674.html#a87ecd5c19387a9761e2548aba162728d", null ],
-    [ "value", "de/df3/a05674.html#aeb95036baf576efe55bbdca1daf8c864", null ]
+    [ "I2CPortBase", "de/df3/a05674.html#aa4e4d14ed487d0a4f07d43f83937e8cf", null ],
+    [ "I2CPortBase", "de/df3/a05674.html#abb555787d1c67ffeb59851d309d7e32f", null ],
+    [ "I2CPortBase", "de/df3/a05674.html#ad9dd4358cc01cee75cd8f731f9f0fe5e", null ],
+    [ "~I2CPortBase", "de/df3/a05674.html#a4d69d746f11c95220372f8f0a62397b1", null ],
+    [ "close", "de/df3/a05674.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "isBusy", "de/df3/a05674.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "de/df3/a05674.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "open", "de/df3/a05674.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "de/df3/a05674.html#a31bad4fe08fe0a3ffbb5585f42ab9b69", null ],
+    [ "operator=", "de/df3/a05674.html#a847aa761811d4ff5a26e8ccaaef3bffe", null ]
 ];

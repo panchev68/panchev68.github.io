@@ -1,5 +1,5 @@
 var a04762 =
 [
-    [ "channel", "d9/d08/a04762.html#aa0967939bfb313185c18cc470150b853", null ],
-    [ "handle", "d9/d08/a04762.html#a373f87e5f5c75c7a49f16724225066b1", null ]
+    [ "onCardDetect", "d9/d08/a04762.html#a4e7561f8d775ae05de344bf44f2cbc7f", null ],
+    [ "spiPort", "d9/d08/a04762.html#a67ad4df5e15c12584fe20e638078eab3", null ]
 ];

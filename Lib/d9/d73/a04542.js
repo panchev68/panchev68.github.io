@@ -1,21 +1,16 @@
 var a04542 =
 [
-    [ "Config", "d9/d6e/a04546.html", "d9/d6e/a04546" ],
-    [ "EventCode", "d9/d73/a04542.html#a79bb5179e93b8bb7fb1dca034f1572f7", [
-      [ "BUTTON_PUSH", "d9/d73/a04542.html#a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
-      [ "BUTTON_PULL", "d9/d73/a04542.html#a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972", null ],
-      [ "BUTTON_HOLD", "d9/d73/a04542.html#a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e", null ],
-      [ "ENCODER_CW", "d9/d73/a04542.html#a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404", null ],
-      [ "ENCODER_CCW", "d9/d73/a04542.html#a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b", null ],
-      [ "NONE", "d9/d73/a04542.html#a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693", null ]
-    ] ],
-    [ "EncoderTimer", "d9/d73/a04542.html#aaf07b62dc5be29307f86fc985c41c7ab", null ],
-    [ "~EncoderTimer", "d9/d73/a04542.html#a449279e87494b389cfa1adba8e7f6b37", null ],
-    [ "EncoderTimer", "d9/d73/a04542.html#a99753bd300ae9ecf9544bf7ba709e3f5", null ],
-    [ "EncoderTimer", "d9/d73/a04542.html#a7d21c22284a66c9cbf8d4260a84aef01", null ],
-    [ "close", "d9/d73/a04542.html#a9e37bcbed278df67dad753953c0e0505", null ],
-    [ "open", "d9/d73/a04542.html#a332145ce828a12688d8de9aea070c328", null ],
-    [ "operator=", "d9/d73/a04542.html#a6e4f9be3709b642fa4507cda01d85fc1", null ],
-    [ "operator=", "d9/d73/a04542.html#a8f9bc205f553a774c7a25beff08602ac", null ],
-    [ "read", "d9/d73/a04542.html#afa10c44ad4eee7779caf46410cac1255", null ]
+    [ "Config", "d9/d73/a04542.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
+    [ "M24C64W", "d9/d73/a04542.html#a961e9014542ac6f768bd548fa1d15598", null ],
+    [ "~M24C64W", "d9/d73/a04542.html#a786bcea2331bd895b693fa1cf2fb0e6b", null ],
+    [ "close", "d9/d73/a04542.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "d9/d73/a04542.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "d9/d73/a04542.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "read", "d9/d73/a04542.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "d9/d73/a04542.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "d9/d73/a04542.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "d9/d73/a04542.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "d9/d73/a04542.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "d9/d73/a04542.html#a299a926321f0db8d9eac8527198f28fc", null ],
+    [ "Driver< M24C64W >", "d9/d73/a04542.html#a389c035ca7d606c8426542af2e4b7d70", null ]
 ];

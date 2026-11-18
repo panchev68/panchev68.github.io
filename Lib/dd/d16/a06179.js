@@ -1,14 +1,27 @@
 var a06179 =
 [
-    [ "Level", "dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69", [
-      [ "IDLE", "dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
-      [ "LOW", "dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
-      [ "NORMAL", "dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
-      [ "HIGH", "dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
-      [ "REALTIME", "dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
-    ] ],
-    [ "Priority", "dd/d16/a06179.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
-    [ "get", "dd/d16/a06179.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
-    [ "getFromISR", "dd/d16/a06179.html#a077686e91e7ea468ac484026c09fe001", null ],
-    [ "set", "dd/d16/a06179.html#a458e98cafe1842d218c9640b76bde004", null ]
+    [ "Handle", "dd/d16/a06179.html#a4b0fa065d254b79172dce084d987b8d4", null ],
+    [ "TickType", "dd/d16/a06179.html#a052c7fc009c89fd8f8542c6014405b43", null ],
+    [ "SemaphoreBase", "dd/d16/a06179.html#a7717ea389a92a9878d51dfde3869dd64", null ],
+    [ "SemaphoreBase", "dd/d16/a06179.html#ae0c09f0d483b3959297f30bd3909de83", null ],
+    [ "SemaphoreBase", "dd/d16/a06179.html#aa8eb9e59c8d7eea278876d3a562dd4f0", null ],
+    [ "~SemaphoreBase", "dd/d16/a06179.html#a15508562779df713e9be104d41d7664d", null ],
+    [ "close", "dd/d16/a06179.html#ac6a74e3af35fe243ff32a8ae89fd4214", null ],
+    [ "getCountFromISR", "dd/d16/a06179.html#aa25056dd49c8d19a9f388b97f02c5291", null ],
+    [ "getDerived", "dd/d16/a06179.html#a2cd2d582d5bec19cc64612f8c4c5cd8c", null ],
+    [ "getDerived", "dd/d16/a06179.html#a431358a0063bbdcb40d09537a2babe3a", null ],
+    [ "getHandle", "dd/d16/a06179.html#a9cd3c80279acde60a0701a674eecc148", null ],
+    [ "give", "dd/d16/a06179.html#a5682e0c5d8eb6b2076978634963b4020", null ],
+    [ "giveFromISR", "dd/d16/a06179.html#aa210564f44d72420fb519ca27f12d9a1", null ],
+    [ "giveFromISR", "dd/d16/a06179.html#adc665ae88781c6a32668f430f0425eac", null ],
+    [ "isOpen", "dd/d16/a06179.html#a8fe23c2cca8f01687c58c3aa1b257649", null ],
+    [ "operator=", "dd/d16/a06179.html#aaba790805ac420c6d1b347ab01b9550a", null ],
+    [ "operator=", "dd/d16/a06179.html#aaa0c4d93b7bd73160f68f700b6d86e26", null ],
+    [ "take", "dd/d16/a06179.html#adba0e9091ed738abab54ed798d53a7ca", null ],
+    [ "take", "dd/d16/a06179.html#a320bbbf470cde849ac2b5405273ff10d", null ],
+    [ "take", "dd/d16/a06179.html#a0c09ee6fc8a221b811abbd57ac9d0071", null ],
+    [ "takeFromISR", "dd/d16/a06179.html#a64003ee333dc11bd7ed7dff2d14e4145", null ],
+    [ "takeFromISR", "dd/d16/a06179.html#a351bf0854e0c48d82c1a078a39e02879", null ],
+    [ "tryTake", "dd/d16/a06179.html#a99e434d16d327ee8039d19a7feb75f8b", null ],
+    [ "semaphoreHandle", "dd/d16/a06179.html#a9f2ff1e57e66e99707d4107fa4c19812", null ]
 ];

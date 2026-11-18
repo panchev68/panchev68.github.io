@@ -1,7 +1,10 @@
 var a05682 =
 [
-    [ "day", "df/de9/a05682.html#a4e0afef93919b9d81fb11880e985faf7", null ],
-    [ "month", "df/de9/a05682.html#a81707050dd28eeb1de5e1bf17bc64ca0", null ],
-    [ "weekDay", "df/de9/a05682.html#a30dfc2209d0abdafbba3e90c6a5c24c8", null ],
-    [ "year", "df/de9/a05682.html#aacc37a4b6ca5a085f338d84b26cf1595", null ]
+    [ "IndependentWatchdog", "df/de9/a05682.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
+    [ "IndependentWatchdog", "df/de9/a05682.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
+    [ "IndependentWatchdog", "df/de9/a05682.html#aabfa4830743c87632886a0e095af6dba", null ],
+    [ "open", "df/de9/a05682.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
+    [ "operator=", "df/de9/a05682.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
+    [ "operator=", "df/de9/a05682.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
+    [ "refresh", "df/de9/a05682.html#ae9f164f43789bd02baa1587a44c30e61", null ]
 ];

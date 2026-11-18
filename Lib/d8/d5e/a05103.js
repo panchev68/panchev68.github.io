@@ -1,9 +1,20 @@
 var a05103 =
 [
-    [ "Channel", "d8/d5e/a05103.html#a22027e4571b9cc2d46357b22bd28e66f", null ],
-    [ "Channel", "d8/d5e/a05103.html#a5e50f722347f9ed9f0522656753bf4c9", null ],
-    [ "getConnectionQuality", "d8/d5e/a05103.html#a9c351291c3bb7c963270eae54a16597d", null ],
-    [ "operator uint8_t", "d8/d5e/a05103.html#ae2502b1dd2b99b51b8fbf42035379fd5", null ],
-    [ "operator=", "d8/d5e/a05103.html#a3ca558416faa66aa9c8c1957512b8f2c", null ],
-    [ "setConnectionQuality", "d8/d5e/a05103.html#af7e5e84d1697e43122a6e086007d9789", null ]
+    [ "Channel", "da/d41/a05107.html", "da/d41/a05107" ],
+    [ "ChannelArray", "d8/d5e/a05103.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
+    [ "QualityMode", "d8/d5e/a05103.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
+    [ "Error", "d8/d5e/a05103.html#acb54f9ec6751a18eda393e2c5bd0675c", [
+      [ "NONE", "d8/d5e/a05103.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "MODULE_IS_NOT_CONNECTED", "d8/d5e/a05103.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
+      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d8/d5e/a05103.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
+    ] ],
+    [ "ChannelScanner", "d8/d5e/a05103.html#a4e65a2b73399e5ba18d5090993f64487", null ],
+    [ "ChannelScanner", "d8/d5e/a05103.html#a1b11f5df668c4629836c71101e686990", null ],
+    [ "close", "d8/d5e/a05103.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
+    [ "getChannels", "d8/d5e/a05103.html#a124a962ad28c0688ab38329f7a7b034e", null ],
+    [ "isRunning", "d8/d5e/a05103.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "d8/d5e/a05103.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "d8/d5e/a05103.html#aed5af8462cac9a996e73489e369434d3", null ],
+    [ "update", "d8/d5e/a05103.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
+    [ "onError", "d8/d5e/a05103.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
 ];

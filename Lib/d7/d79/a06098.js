@@ -1,9 +1,9 @@
 var a06098 =
 [
-    [ "DeepSleepLock", "d7/d79/a06098.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
-    [ "~DeepSleepLock", "d7/d79/a06098.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
-    [ "DeepSleepLock", "d7/d79/a06098.html#a40925e50ac0805b094e04973ed61f50b", null ],
-    [ "DeepSleepLock", "d7/d79/a06098.html#a653104e321c6b159eb7b5e5385d286ac", null ],
-    [ "operator=", "d7/d79/a06098.html#a3523f9fd591310866af37223de2c32d3", null ],
-    [ "operator=", "d7/d79/a06098.html#a10ab5d18c8a969841a27a2688604c55c", null ]
+    [ "name", "d7/d79/a06098.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
+    [ "offSensor", "d7/d79/a06098.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
+    [ "onSensor", "d7/d79/a06098.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
+    [ "output", "d7/d79/a06098.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
+    [ "sensorCalmingTime", "d7/d79/a06098.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
+    [ "switchTimeout", "d7/d79/a06098.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
 ];

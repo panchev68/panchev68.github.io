@@ -1,12 +1,12 @@
 var a05879 =
 [
-    [ "BitSet", "de/d76/a05879.html#a16d91d28edc897acf8833de8df82699f", null ],
-    [ "BitSet", "de/d76/a05879.html#addc6ad14e596e534eb7fd2a018719985", null ],
-    [ "getBit", "de/d76/a05879.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
-    [ "getValue", "de/d76/a05879.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
-    [ "operator uint32_t", "de/d76/a05879.html#ab085297affb7e2df90201d7e6cdd1172", null ],
-    [ "operator=", "de/d76/a05879.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
-    [ "operator[]", "de/d76/a05879.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
-    [ "setBit", "de/d76/a05879.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
-    [ "setValue", "de/d76/a05879.html#a2505d1f74074939a87d45d3343d8bea3", null ]
+    [ "WindowWatchdog", "de/d76/a05879.html#aedbc081389ab6197c5a334fcff249dc9", null ],
+    [ "~WindowWatchdog", "de/d76/a05879.html#abf0355eeac54b8e2df2436417ae430c8", null ],
+    [ "WindowWatchdog", "de/d76/a05879.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
+    [ "WindowWatchdog", "de/d76/a05879.html#a94de72071a208a3a396313415af9df3a", null ],
+    [ "open", "de/d76/a05879.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
+    [ "operator=", "de/d76/a05879.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
+    [ "operator=", "de/d76/a05879.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
+    [ "refresh", "de/d76/a05879.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
+    [ "setWindow", "de/d76/a05879.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
 ];

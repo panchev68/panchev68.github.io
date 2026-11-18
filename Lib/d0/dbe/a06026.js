@@ -1,9 +1,9 @@
 var a06026 =
 [
-    [ "name", "d0/dbe/a06026.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "d0/dbe/a06026.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "d0/dbe/a06026.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "d0/dbe/a06026.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "d0/dbe/a06026.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "d0/dbe/a06026.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "Config", "d4/d80/a06030.html", "d4/d80/a06030" ],
+    [ "Kalman", "d0/dbe/a06026.html#a3e7cb33fc02e4a9f5cfd0b36a190e1cb", null ],
+    [ "~Kalman", "d0/dbe/a06026.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
+    [ "operator()", "d0/dbe/a06026.html#a58b5b7eb34e36d03a11115994cbea0cb", null ],
+    [ "reset", "d0/dbe/a06026.html#a677e8869d39da510437c9dd8adf43848", null ],
+    [ "setParam", "d0/dbe/a06026.html#a086aa45da9c828d66507b2a2ce2c2f09", null ]
 ];

@@ -1,5 +1,5 @@
 var a05094 =
 [
-    [ "high", "dc/d78/a05094.html#a463a9c11eea19eccb5ce4ac37c1a3d66", null ],
-    [ "low", "dc/d78/a05094.html#a717f15e16e6d47bb9ae5a9290676ea33", null ]
+    [ "temperatureValue", "dc/d78/a05094.html#ad352c7bba31cc229e106eea4aef94299", null ],
+    [ "voltageValue", "dc/d78/a05094.html#a8dfb3d30a434e5346c20ac691dfe3595", null ]
 ];

@@ -1,8 +1,5 @@
 var a05190 =
 [
-    [ "writeTo", "d2/d72/a05190.html#a46342f730043bd2cb721cafd68faf502", null ],
-    [ "dstAddress", "d2/d72/a05190.html#a681024a962d2609634ac216a9325a808", null ],
-    [ "frameId", "d2/d72/a05190.html#a30b2f9e311fce068c3facfca4084a959", null ],
-    [ "options", "d2/d72/a05190.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
-    [ "rfData", "d2/d72/a05190.html#a647a428c66648b2c7897b90431917f0b", null ]
+    [ "EscapedCode", "d2/d72/a05190.html#a0eba03e3a280131bad36582bede262ec", null ],
+    [ "operator bool", "d2/d72/a05190.html#aaec17e85d58e2a986fd4edae145b737c", null ]
 ];

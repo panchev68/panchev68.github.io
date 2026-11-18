@@ -1,17 +1,10 @@
 var a05679 =
 [
-    [ "OSPIPort", "d3/ddb/a05679.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
-    [ "~OSPIPort", "d3/ddb/a05679.html#a08e56728c9a64f13a22b89d6b482b132", null ],
-    [ "OSPIPort", "d3/ddb/a05679.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
-    [ "OSPIPort", "d3/ddb/a05679.html#a50425950532682614be81eb8bb5216b7", null ],
-    [ "close", "d3/ddb/a05679.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
-    [ "command", "d3/ddb/a05679.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
-    [ "getHandle", "d3/ddb/a05679.html#a696d949d69359bb54440fe22e1de963f", null ],
-    [ "getHandle", "d3/ddb/a05679.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
-    [ "isBusy", "d3/ddb/a05679.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "open", "d3/ddb/a05679.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
-    [ "operator=", "d3/ddb/a05679.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
-    [ "operator=", "d3/ddb/a05679.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
-    [ "receive", "d3/ddb/a05679.html#aef7cf93602718e2d14816e122f15f3be", null ],
-    [ "transmit", "d3/ddb/a05679.html#a10d2dc1da9553992110c3752aa39e058", null ]
+    [ "IndependentWatchdog", "d3/ddb/a05679.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
+    [ "IndependentWatchdog", "d3/ddb/a05679.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
+    [ "IndependentWatchdog", "d3/ddb/a05679.html#aabfa4830743c87632886a0e095af6dba", null ],
+    [ "open", "d3/ddb/a05679.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
+    [ "operator=", "d3/ddb/a05679.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
+    [ "operator=", "d3/ddb/a05679.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
+    [ "refresh", "d3/ddb/a05679.html#ae9f164f43789bd02baa1587a44c30e61", null ]
 ];

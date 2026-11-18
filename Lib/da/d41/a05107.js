@@ -1,18 +1,9 @@
 var a05107 =
 [
-    [ "Node", "dd/df7/a05111.html", "dd/df7/a05111" ],
-    [ "NetworkDiscovery", "da/d41/a05107.html#acd0e3f3866a3ca66b7f3e542776da665", null ],
-    [ "NetworkDiscovery", "da/d41/a05107.html#ab9ffde2714e24e2870cdc93c23495f03", null ],
-    [ "close", "da/d41/a05107.html#a1315fb9cad5a91c5e451bf64e521ea96", null ],
-    [ "getNodeCount", "da/d41/a05107.html#a5ff67a6679624bd114c6dcf093a2e5ca", null ],
-    [ "getNodes", "da/d41/a05107.html#a1bb3ae3971de79ceadc4598cb0e980fb", null ],
-    [ "hasNodes", "da/d41/a05107.html#aff5f6c6f0f6bea3102ddff447677796f", null ],
-    [ "initialize", "da/d41/a05107.html#a6329c58c641c134db59a8f37a9637dea", null ],
-    [ "isRunning", "da/d41/a05107.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "da/d41/a05107.html#a1a3ede33b94a0d0f532e9e6d3b599dce", null ],
-    [ "operator=", "da/d41/a05107.html#a56fe4df6f329a5e18e8f8132ec5f5c7b", null ],
-    [ "process", "da/d41/a05107.html#a0747f885e5a9feba10647c760353f395", null ],
-    [ "start", "da/d41/a05107.html#a959b5480dd22f8a82c83f45f689a5f47", null ],
-    [ "tearDown", "da/d41/a05107.html#a433b1176b2ec86cafe98bb73425d401b", null ],
-    [ "update", "da/d41/a05107.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "Channel", "da/d41/a05107.html#a22027e4571b9cc2d46357b22bd28e66f", null ],
+    [ "Channel", "da/d41/a05107.html#a5e50f722347f9ed9f0522656753bf4c9", null ],
+    [ "getConnectionQuality", "da/d41/a05107.html#a9c351291c3bb7c963270eae54a16597d", null ],
+    [ "operator uint8_t", "da/d41/a05107.html#ae2502b1dd2b99b51b8fbf42035379fd5", null ],
+    [ "operator=", "da/d41/a05107.html#a3ca558416faa66aa9c8c1957512b8f2c", null ],
+    [ "setConnectionQuality", "da/d41/a05107.html#af7e5e84d1697e43122a6e086007d9789", null ]
 ];

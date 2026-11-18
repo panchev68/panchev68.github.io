@@ -1,7 +1,13 @@
 var a05011 =
 [
-    [ "Key", "db/dc2/a05011.html#a01aa89923019ee3bf5249396252577a0", null ],
-    [ "Nonce", "db/dc2/a05011.html#ae4ce9fb8d76a85f4786b936d4bdb3327", null ],
-    [ "Tag", "db/dc2/a05011.html#a73ebbac632c0982dc3eeb3880cd7febc", null ],
-    [ "WolfSSLChaCha20Poly1305", "db/dc2/a05011.html#af47892a2a6a403161bf652674b3fbaf8", null ]
+    [ "Tag", "db/dc2/a05011.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
+    [ "WolfSSLAesGcm", "db/dc2/a05011.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
+    [ "~WolfSSLAesGcm", "db/dc2/a05011.html#a032c38854a99ed5c5a281809583c4bad", null ],
+    [ "WolfSSLAesGcm", "db/dc2/a05011.html#a0948de3456c47ec4fcfdda7f14014566", null ],
+    [ "WolfSSLAesGcm", "db/dc2/a05011.html#ae6206c63d09568b82e1efae3379c82d7", null ],
+    [ "decrypt", "db/dc2/a05011.html#a70889db1697fa4212becb3acfb87a2a4", null ],
+    [ "encrypt", "db/dc2/a05011.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
+    [ "open", "db/dc2/a05011.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
+    [ "operator=", "db/dc2/a05011.html#ab46183fdc3c915e95383d1216aac9109", null ],
+    [ "operator=", "db/dc2/a05011.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
 ];

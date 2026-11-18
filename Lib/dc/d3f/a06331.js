@@ -1,20 +1,7 @@
 var a06331 =
 [
-    [ "Config", "d3/db3/a06335.html", "d3/db3/a06335" ],
-    [ "Status", "dc/d3f/a06331.html#a69d5fbac0f2c325b3f576b76a1db1204", [
-      [ "OK", "dc/d3f/a06331.html#a69d5fbac0f2c325b3f576b76a1db1204ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "dc/d3f/a06331.html#a69d5fbac0f2c325b3f576b76a1db1204abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "SerialPort", "dc/d3f/a06331.html#a598e18433429c3e9aa74a063852aaccd", null ],
-    [ "~SerialPort", "dc/d3f/a06331.html#afded1dc48b51225406bff4ec53c93689", null ],
-    [ "SerialPort", "dc/d3f/a06331.html#aa66d3cdfabe12244a2c6c1b5554058d3", null ],
-    [ "close", "dc/d3f/a06331.html#aacd6fe508350e10b40ccc284a2b25770", null ],
-    [ "handlePostReceivedEvent", "dc/d3f/a06331.html#abe6dcde3251bf403edbf507d07eac6bc", null ],
-    [ "handlePostTransmitEvent", "dc/d3f/a06331.html#a3f8514c11b7df4573af3eda89f9105e6", null ],
-    [ "open", "dc/d3f/a06331.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a", null ],
-    [ "operator=", "dc/d3f/a06331.html#a91db90b93d921f24baf5b96ce0aa578c", null ],
-    [ "send", "dc/d3f/a06331.html#a0ad3de935e20dec9db20515d75bf4f0a", null ],
-    [ "send", "dc/d3f/a06331.html#a484a85d98faebe518ae3b89b6e0cf5d0", null ],
-    [ "setBaudRate", "dc/d3f/a06331.html#aaf6c85e6f10e0756e438bf61460c7563", null ],
-    [ "setResetPin", "dc/d3f/a06331.html#a0abe8e602336b586b790df6ea81b4ab0", null ]
+    [ "baudRate", "dc/d3f/a06331.html#ad346dd14c75b113671501f286d5348d3", null ],
+    [ "dataBits", "dc/d3f/a06331.html#a0834146908baa5e641e203755bcae7d0", null ],
+    [ "parity", "dc/d3f/a06331.html#ae1d9173fb3c732649e3ae12b963b784c", null ],
+    [ "stopBits", "dc/d3f/a06331.html#aece0199b65b1b9e27305ae98b9c7bc31", null ]
 ];

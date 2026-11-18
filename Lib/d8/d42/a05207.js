@@ -1,11 +1,13 @@
 var a05207 =
 [
-    [ "Message", "d8/d42/a05207.html#adf2fad29193213811e051ef8d5f227a7", null ],
-    [ "Message", "d8/d42/a05207.html#a68d2a5b54227d976281ef2c06d063d87", null ],
-    [ "Message", "d8/d42/a05207.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
-    [ "data", "d8/d42/a05207.html#abc7d722b3924f3002a908d282429e590", null ],
-    [ "empty", "d8/d42/a05207.html#a09e2a403173178d77de083ae66a831fe", null ],
-    [ "operator std::vector< uint8_t >", "d8/d42/a05207.html#aa265929307138945bf4e16749958a7f8", null ],
-    [ "size", "d8/d42/a05207.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
-    [ "view", "d8/d42/a05207.html#a99d9247c3097add390da201d0083e524", null ]
+    [ "Command", "d8/d42/a05207.html#ad7de9040ab35a62c524e02edb5857497", null ],
+    [ "LocalAtCommand", "d8/d42/a05207.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
+    [ "LocalAtCommand", "d8/d42/a05207.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
+    [ "close", "d8/d42/a05207.html#a5c97cd2a002f63083302783169a633fb", null ],
+    [ "isOpen", "d8/d42/a05207.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
+    [ "open", "d8/d42/a05207.html#a01489f683e248d7c2af355b8f1cd8992", null ],
+    [ "operator=", "d8/d42/a05207.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
+    [ "receive", "d8/d42/a05207.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
+    [ "send", "d8/d42/a05207.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
+    [ "send", "d8/d42/a05207.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
 ];

@@ -1,13 +1,11 @@
 var a05179 =
 [
-    [ "append", "dc/daa/a05179.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
-    [ "append", "dc/daa/a05179.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
-    [ "append", "dc/daa/a05179.html#a04412e1fc3a07248441dc288c99867f6", null ],
-    [ "assign", "dc/daa/a05179.html#a056342d102635bded069d9f153268884", null ],
-    [ "assign", "dc/daa/a05179.html#ae796119895d95296e7fe754347df07d7", null ],
-    [ "clear", "dc/daa/a05179.html#a4e9638e82e027739671827a11a48a211", null ],
-    [ "getData", "dc/daa/a05179.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
-    [ "getData", "dc/daa/a05179.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
-    [ "getSize", "dc/daa/a05179.html#a391a31513797286c540adbbc99195704", null ],
-    [ "setSize", "dc/daa/a05179.html#a55130d108aa3f8d6235341814cfd4c23", null ]
+    [ "ignoredMessagesByTimeout", "dc/daa/a05179.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "dc/daa/a05179.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "dc/daa/a05179.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "dc/daa/a05179.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "dc/daa/a05179.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "dc/daa/a05179.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "dc/daa/a05179.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "dc/daa/a05179.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

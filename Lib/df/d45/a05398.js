@@ -1,26 +1,10 @@
 var a05398 =
 [
-    [ "FontScope", "d9/d61/a05402.html", "d9/d61/a05402" ],
-    [ "Canvas", "df/d45/a05398.html#a47465a0e29e0e3831343f26b1d20e4a0", null ],
-    [ "~Canvas", "df/d45/a05398.html#a6dc741ba0c68fd152bca62d204e8f884", null ],
-    [ "clear", "df/d45/a05398.html#a776010b076475500a9f2314d2bfb3252", null ],
-    [ "drawChar", "df/d45/a05398.html#ae942d2f6c96b143932eb02960b29b48a", null ],
-    [ "drawChar", "df/d45/a05398.html#a569b76684862846384a496d7fd999f8d", null ],
-    [ "drawNumber", "df/d45/a05398.html#a6493d161927b43d0523c3995deb6d609", null ],
-    [ "drawText", "df/d45/a05398.html#a0cc7f97c3a72d55f0328a4870965e0e4", null ],
-    [ "drawText", "df/d45/a05398.html#a624e4c3ee3789a8cdb7fecd77de901d7", null ],
-    [ "drawTextAligned", "df/d45/a05398.html#a61b20bea7a4bc5fc203cefd8450d3a12", null ],
-    [ "flush", "df/d45/a05398.html#a090647cea78a53ccfcd3106bc7bc59e6", null ],
-    [ "getFont", "df/d45/a05398.html#a97696d7c379db51ff00b0b650bd74585", null ],
-    [ "getFont", "df/d45/a05398.html#ab4d7400cf18c7ae594b33cfdf1a78f7f", null ],
-    [ "getGlyphSpacing", "df/d45/a05398.html#aa3d8970999574ca16da5e7012a625853", null ],
-    [ "getHeight", "df/d45/a05398.html#a3049414bb5f239593a8084a0e6c10848", null ],
-    [ "getLineSpacing", "df/d45/a05398.html#a9726bc61dfb91913f1fc1db6c7f33e80", null ],
-    [ "getPrimitives", "df/d45/a05398.html#a080ad1be098f5a1f891a62b5e8320862", null ],
-    [ "getTextHeight", "df/d45/a05398.html#a3c0b5198eff2d8f83ac71070553403ed", null ],
-    [ "getTextWidth", "df/d45/a05398.html#ae700883e2059adf653de50f17e24ef13", null ],
-    [ "getWidth", "df/d45/a05398.html#a0ff7b181cfe9970d68d26ab7d212da4f", null ],
-    [ "setFont", "df/d45/a05398.html#a3956389dbb3fcee581093bc4120a2a6d", null ],
-    [ "setGlyphSpacing", "df/d45/a05398.html#afbfda345cbd7b4882c40132f0db0214a", null ],
-    [ "setLineSpacing", "df/d45/a05398.html#aa98953d5b8cfbad7e72eb83516dec479", null ]
+    [ "MacString", "df/d45/a05398.html#a8d2931e8aadff5cd62c7538659cd0b5f", null ],
+    [ "MacAddress", "df/d45/a05398.html#a1f0169e55ffd6342fdac1722c1a5a969", null ],
+    [ "MacAddress", "df/d45/a05398.html#aa300b2a042efd76f66f61db709b5b736", null ],
+    [ "data", "df/d45/a05398.html#ab4ba32f79afc750e8e1702d652a14ed4", null ],
+    [ "operator[]", "df/d45/a05398.html#a85452ad134f85dbeb0c8bcced1916eeb", null ],
+    [ "size", "df/d45/a05398.html#a64f89fcca5dea4f1c032848f71589c3a", null ],
+    [ "toString", "df/d45/a05398.html#a83b7f1a52401d479dea270cbe112b88c", null ]
 ];

@@ -1,4 +1,4 @@
 var a01010 =
 [
-    [ "RTOS::Semaphore", "d9/d40/a06159.html", "d9/d40/a06159" ]
+    [ "RTOS::Semaphore", "d0/dca/a06175.html", "d0/dca/a06175" ]
 ];

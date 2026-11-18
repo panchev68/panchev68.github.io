@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Ethercat::SOES::EepromHandlers</title>
+<title>IAR EWARM Library: Lib::Errors::Dispatcher&lt; T_ERROR &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,54 +130,391 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/dd6/a05298.
 
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="../../d1/df2/a05295.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::EepromHandlers</div></div>
+  <div class="headertitle"><div class="title">Lib::Errors::Dispatcher&lt; T_ERROR &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>The memory behind the emulated EEPROM. </p>
-<p>Addresses are byte addresses. Every hook is optional; a missing one makes the command fail with an acknowledge error. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;ErrorKind T_ERROR = SimpleError&gt;<br />
+class Lib::Errors::Dispatcher&lt; T_ERROR &gt;</div><p>Owns every constructed error and periodically scans it for state changes through an <a class="el" href="../../d3/db7/a06549.html" title="RTOS::TickClient">RTOS::TickClient</a>. </p>
+<p>One dispatcher exists per error type; the default one holds the plain <a class="el" href="../../d2/d63/a05306.html" title="Lib::Errors::SimpleError">Lib::Errors::SimpleError</a>. A custom error type derives from <a class="el" href="../../db/dd7/a05302.html" title="Lib::Errors::Error">Lib::Errors::Error</a>, makes its constructors private and befriends <a class="el" href="../../de/dd6/a05298.html" title="Lib::Errors::Dispatcher">Lib::Errors::Dispatcher</a>, which constructs it with a caption and a group.</p>
+<p><em class="arg">statusChangedHook</em> is invoked from the tick client's callback, in the timer service task, whenever an error becomes active, or when an error has been cleared and no error is active any more. Create the errors before <a class="el" href="#a3ef04bebfe4813071fa54045b76177dd" title="start()">start()</a>, since the registry is not guarded against being extended while a scan runs.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_ERROR</td><td>Error type held by the registry.</td></tr>
+  </table>
+  </dd>
+</dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Errors/Dispatcher.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa0833a585d6be678d415f7b6a08c516c" id="r_aa0833a585d6be678d415f7b6a08c516c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a> (const Dispatcher &amp;other)=delete</td></tr>
+<tr class="memdesc:aa0833a585d6be678d415f7b6a08c516c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy and move (construction and assignment) are deleted: the dispatcher is a singleton owning a timer.  <br /></td></tr>
+<tr class="memitem:a3a18ea72deb2fa22c44ec99f3f8e1e26" id="r_a3a18ea72deb2fa22c44ec99f3f8e1e26"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3a18ea72deb2fa22c44ec99f3f8e1e26">Dispatcher</a> (Dispatcher &amp;&amp;other)=delete</td></tr>
+<tr class="memitem:a6b5e5ae1add85447ebdc4ab0f64a8761" id="r_a6b5e5ae1add85447ebdc4ab0f64a8761"><td class="memItemLeft"><a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6b5e5ae1add85447ebdc4ab0f64a8761">operator=</a> (const <a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a> &amp;other)=delete</td></tr>
+<tr class="memitem:aa962d0278c430ad4453c6cb8fc816f05" id="r_aa962d0278c430ad4453c6cb8fc816f05"><td class="memItemLeft"><a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa962d0278c430ad4453c6cb8fc816f05">operator=</a> (<a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memitem:a407182f37d2b8174f02693ab5f91c8d8" id="r_a407182f37d2b8174f02693ab5f91c8d8"><td class="memItemLeft">T_ERROR &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a407182f37d2b8174f02693ab5f91c8d8">createError</a> (const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> caption, const <a class="el" href="../../db/dc8/a05314.html">Group</a> *const group=nullptr)</td></tr>
+<tr class="memdesc:a407182f37d2b8174f02693ab5f91c8d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and registers a new error.  <br /></td></tr>
+<tr class="memitem:a3ef04bebfe4813071fa54045b76177dd" id="r_a3ef04bebfe4813071fa54045b76177dd"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3ef04bebfe4813071fa54045b76177dd">start</a> ()</td></tr>
+<tr class="memdesc:a3ef04bebfe4813071fa54045b76177dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the periodic scan for error state changes.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a91f2944a3eb7ebea5e376145cd6221d8" id="r_a91f2944a3eb7ebea5e376145cd6221d8"><td class="memItemLeft">static <a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a91f2944a3eb7ebea5e376145cd6221d8">instance</a> ()</td></tr>
+<tr class="memdesc:a91f2944a3eb7ebea5e376145cd6221d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the global singleton instance.  <br /></td></tr>
+<tr class="memitem:ae6bf0f322c41ac17361028406dfed34c" id="r_ae6bf0f322c41ac17361028406dfed34c"><td class="memItemLeft">static <a class="el" href="#a841797ffcee30732b12660006d8397bd">Container</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae6bf0f322c41ac17361028406dfed34c">getVector</a> () noexcept</td></tr>
+<tr class="memdesc:ae6bf0f322c41ac17361028406dfed34c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns every error created so far.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a1d185c9a891facac570cbbdaa2157fa4" id="r_a1d185c9a891facac570cbbdaa2157fa4"><td class="memItemLeft"><a class="el" href="../../d5/de6/a04910.html">FunctionRef</a>&lt; bool(uint32_t, std::span&lt; uint8_t &gt;)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a1d185c9a891facac570cbbdaa2157fa4">read</a></td></tr>
-<tr class="memdesc:a1d185c9a891facac570cbbdaa2157fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from the memory; returns <em class="arg">true</em> on success.  <br /></td></tr>
-<tr class="memitem:a26af4517707f2496ad3f4ab6f5e51719" id="r_a26af4517707f2496ad3f4ab6f5e51719"><td class="memItemLeft"><a class="el" href="../../d5/de6/a04910.html">FunctionRef</a>&lt; bool(uint32_t, std::span&lt; const uint8_t &gt;)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a26af4517707f2496ad3f4ab6f5e51719">write</a></td></tr>
-<tr class="memdesc:a26af4517707f2496ad3f4ab6f5e51719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes to the memory; returns <em class="arg">true</em> on success.  <br /></td></tr>
+<tr class="memitem:a7f6d7ca5ad3497f5a542fbbc18281ef6" id="r_a7f6d7ca5ad3497f5a542fbbc18281ef6"><td class="memItemLeft"><a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt; void(<a class="el" href="#a577acdd119b66063413debe6a438470f">Status</a> status)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a7f6d7ca5ad3497f5a542fbbc18281ef6">statusChangedHook</a></td></tr>
+<tr class="memdesc:a7f6d7ca5ad3497f5a542fbbc18281ef6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked on a status change; see <a class="el" href="#a577acdd119b66063413debe6a438470f" title="Status">Status</a>.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a2bc1526fd782acbf900903fbd8e4148b" id="r_a2bc1526fd782acbf900903fbd8e4148b"><td class="memItemLeft">class&#160;</td><td class="memItemRight"><a class="el" href="#a2bc1526fd782acbf900903fbd8e4148b">RTOS::TickClient&lt; Dispatcher&lt; T_ERROR &gt; &gt;</a></td></tr>
 </table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a841797ffcee30732b12660006d8397bd" name="a841797ffcee30732b12660006d8397bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841797ffcee30732b12660006d8397bd">&#9670;&#160;</a></span>Container</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../de/dd6/a05298.html">Lib::Errors::Dispatcher</a>&lt; T_ERROR &gt;::Container = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06738.html">std::deque</a>&lt;T_ERROR&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Registry of all errors; a deque, so a reference returned by createError() stays valid as more are created. </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a577acdd119b66063413debe6a438470f" name="a577acdd119b66063413debe6a438470f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a577acdd119b66063413debe6a438470f">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a577acdd119b66063413debe6a438470f">Lib::Errors::Dispatcher::Status</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reason <em class="arg">statusChangedHook</em> was invoked. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4" name="a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4"></a>STATUS_CHANGED&#160;</td><td class="fielddoc"><p>At least one error transitioned to <a class="el" href="../../db/dd7/a05302.html#ac97d949e755c3b10315681da95176f7ba18ff74f43da410c5529f7d6fca84f115" title="Lib::Errors::Error::State::ACTIVE">Lib::Errors::Error::State::ACTIVE</a>. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db" name="a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db"></a>ALL_ERRORS_CLEARED&#160;</td><td class="fielddoc"><p>An error was cleared since the last scan and no error is active any more. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa0833a585d6be678d415f7b6a08c516c" name="aa0833a585d6be678d415f7b6a08c516c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0833a585d6be678d415f7b6a08c516c">&#9670;&#160;</a></span>Dispatcher() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/dd6/a05298.html">Lib::Errors::Dispatcher</a>&lt; T_ERROR &gt;::Dispatcher </td>
+          <td>(</td>
+          <td class="paramtype">const Dispatcher&lt; T_ERROR &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy and move (construction and assignment) are deleted: the dispatcher is a singleton owning a timer. </p>
+
+</div>
+</div>
+<a id="a3a18ea72deb2fa22c44ec99f3f8e1e26" name="a3a18ea72deb2fa22c44ec99f3f8e1e26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a18ea72deb2fa22c44ec99f3f8e1e26">&#9670;&#160;</a></span>Dispatcher() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/dd6/a05298.html">Lib::Errors::Dispatcher</a>&lt; T_ERROR &gt;::Dispatcher </td>
+          <td>(</td>
+          <td class="paramtype">Dispatcher&lt; T_ERROR &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a407182f37d2b8174f02693ab5f91c8d8" name="a407182f37d2b8174f02693ab5f91c8d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a407182f37d2b8174f02693ab5f91c8d8">&#9670;&#160;</a></span>createError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_ERROR &amp; <a class="el" href="../../de/dd6/a05298.html">Lib::Errors::Dispatcher</a>&lt; T_ERROR &gt;::createError </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>caption</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../db/dc8/a05314.html">Group</a> *const</td>          <td class="paramname"><span class="paramname"><em>group</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates and registers a new error. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caption</td><td>Human-readable description of the error. </td></tr>
+    <tr><td class="paramname">group</td><td>Group to tag the error with, or <em class="arg">nullptr</em> for none. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the newly created error, owned by this dispatcher and valid for its lifetime. </dd></dl>
+
+</div>
+</div>
+<a id="ae6bf0f322c41ac17361028406dfed34c" name="ae6bf0f322c41ac17361028406dfed34c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6bf0f322c41ac17361028406dfed34c">&#9670;&#160;</a></span>getVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a841797ffcee30732b12660006d8397bd">Container</a> &amp; <a class="el" href="../../de/dd6/a05298.html">Lib::Errors::Dispatcher</a>&lt; T_ERROR &gt;::getVector </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns every error created so far. </p>
+<dl class="section return"><dt>Returns</dt><dd>All registered errors, owned by this dispatcher. </dd></dl>
+
+</div>
+</div>
+<a id="a91f2944a3eb7ebea5e376145cd6221d8" name="a91f2944a3eb7ebea5e376145cd6221d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f2944a3eb7ebea5e376145cd6221d8">&#9670;&#160;</a></span>instance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a> &amp; <a class="el" href="../../de/dd6/a05298.html">Lib::Errors::Dispatcher</a>&lt; T_ERROR &gt;::instance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the global singleton instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the single dispatcher instance of this error type. </dd></dl>
+
+</div>
+</div>
+<a id="a6b5e5ae1add85447ebdc4ab0f64a8761" name="a6b5e5ae1add85447ebdc4ab0f64a8761"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b5e5ae1add85447ebdc4ab0f64a8761">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a> &amp; <a class="el" href="../../de/dd6/a05298.html">Lib::Errors::Dispatcher</a>&lt; T_ERROR &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a>&lt; T_ERROR &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa962d0278c430ad4453c6cb8fc816f05" name="aa962d0278c430ad4453c6cb8fc816f05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa962d0278c430ad4453c6cb8fc816f05">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a> &amp; <a class="el" href="../../de/dd6/a05298.html">Lib::Errors::Dispatcher</a>&lt; T_ERROR &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a>&lt; T_ERROR &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ef04bebfe4813071fa54045b76177dd" name="a3ef04bebfe4813071fa54045b76177dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ef04bebfe4813071fa54045b76177dd">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../de/dd6/a05298.html">Lib::Errors::Dispatcher</a>&lt; T_ERROR &gt;::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the periodic scan for error state changes. </p>
+
+</div>
+</div>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a2bc1526fd782acbf900903fbd8e4148b" name="a2bc1526fd782acbf900903fbd8e4148b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bc1526fd782acbf900903fbd8e4148b">&#9670;&#160;</a></span>RTOS::TickClient&lt; Dispatcher&lt; T_ERROR &gt; &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../de/d01/a06218.html">RTOS::TickClient</a>&lt; <a class="el" href="#aa0833a585d6be678d415f7b6a08c516c">Dispatcher</a>&lt; T_ERROR &gt; &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a1d185c9a891facac570cbbdaa2157fa4" name="a1d185c9a891facac570cbbdaa2157fa4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d185c9a891facac570cbbdaa2157fa4">&#9670;&#160;</a></span>read</h2>
+<a id="a7f6d7ca5ad3497f5a542fbbc18281ef6" name="a7f6d7ca5ad3497f5a542fbbc18281ef6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f6d7ca5ad3497f5a542fbbc18281ef6">&#9670;&#160;</a></span>statusChangedHook</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;ErrorKind T_ERROR = SimpleError&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/de6/a04910.html">FunctionRef</a>&lt;bool(uint32_t, std::span&lt;uint8_t&gt;)&gt; Lib::Ethercat::SOES::EepromHandlers::read</td>
+          <td class="memname"><a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt;void(<a class="el" href="#a577acdd119b66063413debe6a438470f">Status</a> status)&gt; <a class="el" href="../../de/dd6/a05298.html">Lib::Errors::Dispatcher</a>&lt; T_ERROR &gt;::statusChangedHook</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads from the memory; returns <em class="arg">true</em> on success. </p>
-<p>Arguments: byte address, destination. </p>
-
-</div>
-</div>
-<a id="a26af4517707f2496ad3f4ab6f5e51719" name="a26af4517707f2496ad3f4ab6f5e51719"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26af4517707f2496ad3f4ab6f5e51719">&#9670;&#160;</a></span>write</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/de6/a04910.html">FunctionRef</a>&lt;bool(uint32_t, std::span&lt;const uint8_t&gt;)&gt; Lib::Ethercat::SOES::EepromHandlers::write</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Writes to the memory; returns <em class="arg">true</em> on success. </p>
-<p>Arguments: byte address, data. </p>
+<p>Invoked on a status change; see <a class="el" href="#a577acdd119b66063413debe6a438470f" title="Status">Status</a>. </p>
 
 </div>
 </div>
@@ -175,7 +525,7 @@ Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../da/d73/a01090.html">Ethercat</a></li><li class="navelem"><a href="../../d6/d0d/a01091.html">SOES</a></li><li class="navelem"><a href="../../de/dd6/a05298.html">EepromHandlers</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../d4/dc5/a01116.html">Errors</a></li><li class="navelem"><a href="../../de/dd6/a05298.html">Dispatcher</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

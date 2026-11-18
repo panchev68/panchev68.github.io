@@ -1,7 +1,12 @@
 var a06239 =
 [
-    [ "maxVoltage", "db/d4f/a06239.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
-    [ "minVoltage", "db/d4f/a06239.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
-    [ "powerThreshold", "db/d4f/a06239.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
-    [ "stepSize", "db/d4f/a06239.html#a5ac779799a2638585b8dbced18eff05d", null ]
+    [ "ReferenceParameters", "d8/de8/a06243.html", "d8/de8/a06243" ],
+    [ "Measurement", "d7/dd3/a06247.html", "d7/dd3/a06247" ],
+    [ "MaxPowerEstimator", "db/d4f/a06239.html#a434bc885ae98e175c94cc0274463e3e5", null ],
+    [ "MPPT", "db/d4f/a06239.html#aedf986308c8dd799d4771f32d446ee01", null ],
+    [ "getIrradianceCoefficient", "db/d4f/a06239.html#a55a3b7a18c79deb5568e627889f76b86", null ],
+    [ "getTolerance", "db/d4f/a06239.html#a0ac8d81cbc06a7045f43424b16871253", null ],
+    [ "getVoltageSetpoint", "db/d4f/a06239.html#a455584e52b5677fe4bce93e58e80ca38", null ],
+    [ "setMaxPowerEstimationFunction", "db/d4f/a06239.html#abc619561c7180e6c69b8282c58157857", null ],
+    [ "update", "db/d4f/a06239.html#ad36e9d2ea685d45133e207a156fb76cb", null ]
 ];

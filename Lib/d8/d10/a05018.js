@@ -1,9 +1,7 @@
 var a05018 =
 [
-    [ "Counter", "d8/d10/a05018.html#a979dd53107c70679957a49b352e309e4", null ],
-    [ "Counter", "d8/d10/a05018.html#aa0fcdac4118821433a18e704d608605d", null ],
-    [ "clear", "d8/d10/a05018.html#a5f4c68779359a4681b48228f57296c09", null ],
-    [ "operator uint32_t", "d8/d10/a05018.html#a32d48ad9be69d1fb44852223025c4efe", null ],
-    [ "operator++", "d8/d10/a05018.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
-    [ "operator=", "d8/d10/a05018.html#aebee6561b906ea1271070b47c2610fe2", null ]
+    [ "Key", "d8/d10/a05018.html#a01aa89923019ee3bf5249396252577a0", null ],
+    [ "Nonce", "d8/d10/a05018.html#ae4ce9fb8d76a85f4786b936d4bdb3327", null ],
+    [ "Tag", "d8/d10/a05018.html#a73ebbac632c0982dc3eeb3880cd7febc", null ],
+    [ "WolfSSLChaCha20Poly1305", "d8/d10/a05018.html#af47892a2a6a403161bf652674b3fbaf8", null ]
 ];

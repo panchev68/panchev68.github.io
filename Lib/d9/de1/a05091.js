@@ -1,5 +1,5 @@
 var a05091 =
 [
-    [ "ascFailureCount", "d9/de1/a05091.html#a1e6fa3ed0ff87b537b8ec7aed53093bb", null ],
-    [ "ccaFailureCount", "d9/de1/a05091.html#a20afcf39b211e185e969b8d770f99017", null ]
+    [ "temperatureValue", "d9/de1/a05091.html#ad352c7bba31cc229e106eea4aef94299", null ],
+    [ "voltageValue", "d9/de1/a05091.html#a8dfb3d30a434e5346c20ac691dfe3595", null ]
 ];

@@ -1,19 +1,13 @@
 var a05551 =
 [
-    [ "CANPort", "de/ddf/a05551.html#adc087231856d1ec6bde6f97494503899", null ],
-    [ "~CANPort", "de/ddf/a05551.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
-    [ "CANPort", "de/ddf/a05551.html#afceeecde4eb91455d12a7305342e889a", null ],
-    [ "CANPort", "de/ddf/a05551.html#a91653fb9445c55c224e60742c91718a2", null ],
-    [ "close", "de/ddf/a05551.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
-    [ "getFreeTxMailboxCount", "de/ddf/a05551.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getHandle", "de/ddf/a05551.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
-    [ "getHandle", "de/ddf/a05551.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
-    [ "getRxFifoFillLevel", "de/ddf/a05551.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "de/ddf/a05551.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
-    [ "operator=", "de/ddf/a05551.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
-    [ "operator=", "de/ddf/a05551.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
-    [ "read", "de/ddf/a05551.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "readBlocking", "de/ddf/a05551.html#a49854c8fa3a47517562c6761363bb281", null ],
-    [ "write", "de/ddf/a05551.html#a65aa681fa591b2d0956e06e67e990b15", null ],
-    [ "writeBlocking", "de/ddf/a05551.html#a290a918dfefeea6aab3500acb68b90de", null ]
+    [ "BackupRamDomain", "de/ddf/a05551.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "de/ddf/a05551.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "de/ddf/a05551.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "de/ddf/a05551.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "de/ddf/a05551.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "de/ddf/a05551.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "de/ddf/a05551.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "de/ddf/a05551.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "de/ddf/a05551.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "de/ddf/a05551.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

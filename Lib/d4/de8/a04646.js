@@ -1,10 +1,17 @@
 var a04646 =
 [
-    [ "Network", "d4/de8/a04646.html#a858cc7193654c2e98129d4f0749d8240", null ],
-    [ "getLocation", "d4/de8/a04646.html#aba4491c30df0fb948ede36bb4e1085d3", null ],
-    [ "getRegistration", "d4/de8/a04646.html#afdf0dd669e99bdf0eeead5bb41e21a96", null ],
-    [ "getSignalQuality", "d4/de8/a04646.html#a485778d68bbe029717f5fed4f43c730b", null ],
-    [ "getTime", "d4/de8/a04646.html#a59b66d182fa20c0996b4643e51f9a51f", null ],
-    [ "setLTEOnly", "d4/de8/a04646.html#af76be66a29575097c7dbf63f65ae68de", null ],
-    [ "waitForRegistration", "d4/de8/a04646.html#a36029bb551781de86c0674a121c0a8cb", null ]
+    [ "DriverBase", "d4/de8/a04646.html#a5eafa5f0d53866cb78471368f7297754", null ],
+    [ "~DriverBase", "d4/de8/a04646.html#a5205dedf63ce60a8439a4fdd8ff7950b", null ],
+    [ "close", "d4/de8/a04646.html#a71f952f5639e0a0d0d7c1af2c3f0dbc0", null ],
+    [ "eraseChip", "d4/de8/a04646.html#a32148377b4274abf28db1beb3d12ea11", null ],
+    [ "eraseSector", "d4/de8/a04646.html#a23c3062b24d15e58237ddb109c474b74", null ],
+    [ "getInfo", "d4/de8/a04646.html#ad6c747b02c7f3e3781d0bb8d4da5a8c2", null ],
+    [ "getStatus", "d4/de8/a04646.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
+    [ "open", "d4/de8/a04646.html#a5d093e457b6ea6877ea0bfccc4007122", null ],
+    [ "read", "d4/de8/a04646.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
+    [ "write", "d4/de8/a04646.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
+    [ "info", "d4/de8/a04646.html#aca8a7487175e31060363fe99270e69a3", null ],
+    [ "nss", "d4/de8/a04646.html#a6cad70d123e273b88f244598cc93a22b", null ],
+    [ "spiPort", "d4/de8/a04646.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
+    [ "status", "d4/de8/a04646.html#af95471bb260264403e3df2dc07b80419", null ]
 ];

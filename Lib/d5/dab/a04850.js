@@ -1,10 +1,12 @@
 var a04850 =
 [
-    [ "RxMessage", "d5/dab/a04850.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
-    [ "RxMessage", "d5/dab/a04850.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
-    [ "getData", "d5/dab/a04850.html#a211378ed57e780728a164371a88e9913", null ],
-    [ "getId", "d5/dab/a04850.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
-    [ "data", "d5/dab/a04850.html#ad7fd7612128273e1c546b6344e7410b3", null ],
-    [ "id", "d5/dab/a04850.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
-    [ "length", "d5/dab/a04850.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
+    [ "debounceDuration", "d5/dab/a04850.html#a645398d022257454438fc47ce15fcdb9", null ],
+    [ "height", "d5/dab/a04850.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
+    [ "rotationFlipped", "d5/dab/a04850.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
+    [ "rotationNormal", "d5/dab/a04850.html#aa5b75686141869dfbbfb78febc4822aa", null ],
+    [ "width", "d5/dab/a04850.html#a36fe0a7ac1def2933216417d9c50860b", null ],
+    [ "xMax", "d5/dab/a04850.html#ad7faa3502a791114bf456c98c0dbf644", null ],
+    [ "xMin", "d5/dab/a04850.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
+    [ "yMax", "d5/dab/a04850.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
+    [ "yMin", "d5/dab/a04850.html#acda2f52d642f3f712c72b8046d83fa30", null ]
 ];

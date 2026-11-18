@@ -1,17 +1,12 @@
 var a05546 =
 [
-    [ "DataAlignment", "d1/d22/a05546.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
-    [ "DACPort", "d1/d22/a05546.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
-    [ "~DACPort", "d1/d22/a05546.html#ac832156b805caf8041f1097ecf576ec2", null ],
-    [ "DACPort", "d1/d22/a05546.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
-    [ "DACPort", "d1/d22/a05546.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
-    [ "close", "d1/d22/a05546.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
-    [ "getChannel", "d1/d22/a05546.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
-    [ "getHandle", "d1/d22/a05546.html#a8931efb843554302b191363c4a0bfa41", null ],
-    [ "open", "d1/d22/a05546.html#ae527315d8794d0bcdbd7b686839e4630", null ],
-    [ "operator=", "d1/d22/a05546.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
-    [ "operator=", "d1/d22/a05546.html#a947c4407f00f40ef2d244a914699c60e", null ],
-    [ "setValue", "d1/d22/a05546.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
-    [ "start", "d1/d22/a05546.html#a0fb9b03d74076c644c02fd75613c0748", null ],
-    [ "stop", "d1/d22/a05546.html#aeb4d00954e883a85534eb2da3acd379f", null ]
+    [ "ADCPortBase", "d1/d22/a05546.html#a4434447d51727d630ac97c35686a4ec0", null ],
+    [ "ADCPortBase", "d1/d22/a05546.html#a0ad5d61e73944a97373bfae0962076a5", null ],
+    [ "ADCPortBase", "d1/d22/a05546.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
+    [ "~ADCPortBase", "d1/d22/a05546.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
+    [ "close", "d1/d22/a05546.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getValue", "d1/d22/a05546.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d1/d22/a05546.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "d1/d22/a05546.html#a283bca78dae75fbe3786f0ddfcb865f3", null ],
+    [ "operator=", "d1/d22/a05546.html#a0fcfa429879f8263683b639ed5e74c96", null ]
 ];

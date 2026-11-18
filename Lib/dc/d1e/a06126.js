@@ -1,14 +1,9 @@
 var a06126 =
 [
-    [ "Level", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69", [
-      [ "IDLE", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
-      [ "LOW", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
-      [ "NORMAL", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
-      [ "HIGH", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
-      [ "REALTIME", "dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
-    ] ],
-    [ "Priority", "dc/d1e/a06126.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
-    [ "get", "dc/d1e/a06126.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
-    [ "getFromISR", "dc/d1e/a06126.html#a077686e91e7ea468ac484026c09fe001", null ],
-    [ "set", "dc/d1e/a06126.html#a458e98cafe1842d218c9640b76bde004", null ]
+    [ "CriticalSectionFromISR", "dc/d1e/a06126.html#a94cda37183a61f5455dc5e641bcb5109", null ],
+    [ "~CriticalSectionFromISR", "dc/d1e/a06126.html#a54e463ae72e1238776194c4cb941357b", null ],
+    [ "CriticalSectionFromISR", "dc/d1e/a06126.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
+    [ "CriticalSectionFromISR", "dc/d1e/a06126.html#a9d04ea07249455e75c39ce5450c33028", null ],
+    [ "operator=", "dc/d1e/a06126.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
+    [ "operator=", "dc/d1e/a06126.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
 ];

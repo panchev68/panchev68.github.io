@@ -1,5 +1,5 @@
 var a00347 =
 [
-    [ "Lib::BSP::SK6812", "d2/df3/a04787.html", "d2/df3/a04787" ],
-    [ "Lib::BSP::SK6812::Ring&lt; T_COUNT &gt;", "db/d92/a04791.html", "db/d92/a04791" ]
+    [ "Color", "dd/dec/a04786.html", "dd/dec/a04786" ],
+    [ "Color::Data", "d6/d56/a04790.html", "d6/d56/a04790" ]
 ];

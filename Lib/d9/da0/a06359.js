@@ -1,10 +1,8 @@
 var a06359 =
 [
-    [ "Value64Handle", "db/d2c/a06363.html", "db/d2c/a06363" ],
-    [ "Status", "d9/da0/a06359.html#ae95109eada6e1d27cd31567f2ba169de", [
-      [ "OK", "d9/da0/a06359.html#ae95109eada6e1d27cd31567f2ba169deae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d9/da0/a06359.html#ae95109eada6e1d27cd31567f2ba169deabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "close", "d9/da0/a06359.html#a53db90908f030950c411387229c0e443", null ],
-    [ "open", "d9/da0/a06359.html#a53a9eea61415dd09f7459b8b382eeb58", null ]
+    [ "pinNRST", "d9/da0/a06359.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
+    [ "rxPort", "d9/da0/a06359.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
+    [ "txPort", "d9/da0/a06359.html#a7a30a24da1b05da04d34ae04d9601ed4", null ],
+    [ "usbDetectPin", "d9/da0/a06359.html#a7821371ae14cff05383049657f3dd8d6", null ],
+    [ "usbDisablePin", "d9/da0/a06359.html#aeafd4713f3249500c2a871623ffc4e6c", null ]
 ];

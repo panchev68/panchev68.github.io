@@ -1,16 +1,14 @@
 var a05022 =
 [
-    [ "Period", "df/dab/a05022.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
-    [ "Period", "df/dab/a05022.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
-    [ "beginMeasurement", "df/dab/a05022.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
-    [ "clearMinMax", "df/dab/a05022.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
-    [ "endMeasurement", "df/dab/a05022.html#a764b89843884696c66a1e499e466bb51", null ],
-    [ "getMaximum", "df/dab/a05022.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
-    [ "getMinimum", "df/dab/a05022.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
-    [ "getRawValue", "df/dab/a05022.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
-    [ "getValue", "df/dab/a05022.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
-    [ "operator uint32_t", "df/dab/a05022.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
-    [ "operator=", "df/dab/a05022.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
-    [ "reset", "df/dab/a05022.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
-    [ "stopMeasurement", "df/dab/a05022.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
+    [ "SharedSecret", "df/dab/a05022.html#a7fbb5355ccfc526d83b2d67eadb425c8", null ],
+    [ "WolfSSLEcc", "df/dab/a05022.html#a19debb4d33bed3fade556263320330f7", null ],
+    [ "~WolfSSLEcc", "df/dab/a05022.html#ab882988b2ec1b1494dbe8f30062bd13e", null ],
+    [ "WolfSSLEcc", "df/dab/a05022.html#acfed6fbd26a4fb663e7aec5f8408e3f4", null ],
+    [ "WolfSSLEcc", "df/dab/a05022.html#ab7483aff9567983a99ff831e7bfcf284", null ],
+    [ "generateKey", "df/dab/a05022.html#a17edfaa1f02adf3fdd3a15dacc409b5d", null ],
+    [ "operator=", "df/dab/a05022.html#a3309d37d1e7115e7a81b80cee385c0f3", null ],
+    [ "operator=", "df/dab/a05022.html#a251a0fe821d569d4e0f785056ced42d7", null ],
+    [ "sharedSecret", "df/dab/a05022.html#a6c37442161fbe64b4d931ffc6a6f8997", null ],
+    [ "sign", "df/dab/a05022.html#ad2b17e604dc8ee9188ffc9a54dc87b46", null ],
+    [ "verify", "df/dab/a05022.html#a22a3ef4290390aa55282ade89d4bd8e4", null ]
 ];

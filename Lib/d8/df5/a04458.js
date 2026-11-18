@@ -1,17 +1,20 @@
 var a04458 =
 [
-    [ "Outputs", "d8/df5/a04458.html#a247cd7c1b9224f24326b3776838b272f", null ],
-    [ "getChangesCounter", "d8/df5/a04458.html#a20ce1721d96d5e27bdd04a0e1952f3fb", null ],
-    [ "getSpiHandle", "d8/df5/a04458.html#a95099752d786b9afd12743cfed8e8f39", null ],
-    [ "getStatus", "d8/df5/a04458.html#a5390728a76821a9b72e0bf604b09462e", null ],
-    [ "getValue", "d8/df5/a04458.html#adfeabb3ecc2b63a7d2fdaef8972422d2", null ],
-    [ "hasSpiError", "d8/df5/a04458.html#a577114566b65889dd42c95c3e3350b1a", null ],
-    [ "postUpdateCallback", "d8/df5/a04458.html#a369ec8b311dd4871503593f3fd91e103", null ],
-    [ "preUpdateCallback", "d8/df5/a04458.html#a785e5cd7daaf7419e296aaa67f4d785c", null ],
-    [ "setup", "d8/df5/a04458.html#aeee2211d23c7dfc940b0d3f16ff4e531", null ],
-    [ "setValue", "d8/df5/a04458.html#a6a6877af80563061eddc23c9bb71746d", null ],
-    [ "update", "d8/df5/a04458.html#aae51811f331f09bf179cc6f2d9c2b974", null ],
-    [ "onSpiError", "d8/df5/a04458.html#ac1712a00bda5093ed106f6f7924d6c54", null ],
-    [ "onStatusChanged", "d8/df5/a04458.html#a931c2b178d43f30e3aad9ebdabe094d9", null ],
-    [ "onValueChanged", "d8/df5/a04458.html#aeeff5cb2652ef6ff0541b09d96f4579c", null ]
+    [ "MapField", "dd/dc6/a04462.html", "dd/dc6/a04462" ],
+    [ "Config", "dd/d3c/a04466.html", "dd/d3c/a04466" ],
+    [ "PortBase", "d1/d6c/a04478.html", "d1/d6c/a04478" ],
+    [ "Inputs", "d7/d2e/a04482.html", "d7/d2e/a04482" ],
+    [ "Outputs", "df/dd2/a04486.html", "df/dd2/a04486" ],
+    [ "SpiPort", "d8/df5/a04458.html#a8e662cafaa683ac82c0b60d7b4da8fdc", null ],
+    [ "UpdateMode", "d8/df5/a04458.html#a50419179ec3a60e3ac3b5036b3b284eb", [
+      [ "SEQUENTIAL", "d8/df5/a04458.html#a50419179ec3a60e3ac3b5036b3b284eba39403cd282d944abcd4f14996cb71bcb", null ],
+      [ "PARALLEL", "d8/df5/a04458.html#a50419179ec3a60e3ac3b5036b3b284ebadf13a99b035d6f0bce4f44ab18eec8eb", null ]
+    ] ],
+    [ "DigitalPeripheralBase", "d8/df5/a04458.html#ace067a52b4d9576bd3ade495aa11e352", null ],
+    [ "~DigitalPeripheralBase", "d8/df5/a04458.html#a9d019d0d0be1f110d76abf5f5ab11e4e", null ],
+    [ "getInputs", "d8/df5/a04458.html#ae1add73078ebd967252d4864e16de016", null ],
+    [ "getOutputs", "d8/df5/a04458.html#ad664d141e8c0b66fbd109f6397914af6", null ],
+    [ "handlePostUpdateEvent", "d8/df5/a04458.html#a9b56e97a372ad140ce2ef0b8b348a7c5", null ],
+    [ "handlePreUpdateEvent", "d8/df5/a04458.html#a2953eba2059d60debecac4c3d1d3e1d2", null ],
+    [ "setup", "d8/df5/a04458.html#ae9523074ebe5ad81c27aacd0f7c38c7f", null ]
 ];

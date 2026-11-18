@@ -1,8 +1,6 @@
 var a06219 =
 [
-    [ "Config", "d9/d20/a06219.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
-    [ "callback", "d9/d20/a06219.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
-    [ "mode", "d9/d20/a06219.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
-    [ "name", "d9/d20/a06219.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
-    [ "period", "d9/d20/a06219.html#ae81cad8de025f71497b5b241c41da1eb", null ]
+    [ "autoStart", "d9/d20/a06219.html#ab55e2272bf479804d0a0d2f1e6e5bed4", null ],
+    [ "name", "d9/d20/a06219.html#aacc889d1a77591ed4d41f693a1ad15e7", null ],
+    [ "period", "d9/d20/a06219.html#a72f5a204f1d7fe3831b3f7afddae31a7", null ]
 ];

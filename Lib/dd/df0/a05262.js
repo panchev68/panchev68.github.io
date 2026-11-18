@@ -1,19 +1,11 @@
 var a05262 =
 [
-    [ "State", "dd/df0/a05262.html#ac97d949e755c3b10315681da95176f7b", null ],
-    [ "~SimpleError", "dd/df0/a05262.html#a7c535e7cce0af47da08a363f2770e2d3", null ],
-    [ "clear", "dd/df0/a05262.html#a29a3344a3bb2dbbfaf71fbd851d5806e", null ],
-    [ "disable", "dd/df0/a05262.html#af9f860d5fb0bc9ff863d4ae98c6ef2f7", null ],
-    [ "enable", "dd/df0/a05262.html#a88d3d3da71f0e2492b08fdd668cd48f9", null ],
-    [ "getCaption", "dd/df0/a05262.html#a487c111cdf645891f0eeb29bb9c2f47c", null ],
-    [ "getGroup", "dd/df0/a05262.html#acdbb516e56181e2fd2bae4b4fed468bc", null ],
-    [ "getId", "dd/df0/a05262.html#ad6f2187166f4193448442ffc02b24c24", null ],
-    [ "getState", "dd/df0/a05262.html#a0ebb8e7fff7af6fea43ff768a0c6a539", null ],
-    [ "operator bool", "dd/df0/a05262.html#a39a5f8631f5713cc8f2ca156543730bc", null ],
-    [ "operator=", "dd/df0/a05262.html#a41ca9532f4b665090473c250d9e75e82", null ],
-    [ "operator=", "dd/df0/a05262.html#a30ca9da7743071ed024847752e03fb3c", null ],
-    [ "reset", "dd/df0/a05262.html#a1445698f47acd7ded509fd49018195d9", null ],
-    [ "set", "dd/df0/a05262.html#a99694248f4f6aab1e752d95d5d775392", null ],
-    [ "setGroup", "dd/df0/a05262.html#a1455d282ed73d25fb067ca510d87a14c", null ],
-    [ "Dispatcher", "dd/df0/a05262.html#a5d3b867dd215d4353be753385d68ee19", null ]
+    [ "onExtendedTransmitStatusChanged", "dd/df0/a05262.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
+    [ "onLocalAtCommand", "dd/df0/a05262.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
+    [ "onModemStatusChanged", "dd/df0/a05262.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
+    [ "onPacketReceived", "dd/df0/a05262.html#a850cfb32fb4c250ebb5d07029d996133", null ],
+    [ "onReceivePacket16bit", "dd/df0/a05262.html#a30dd6aca5f04efa028541965da0f724f", null ],
+    [ "onReceivePacket64bit", "dd/df0/a05262.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
+    [ "onRemoteATCommand", "dd/df0/a05262.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
+    [ "onTransmitStatus", "dd/df0/a05262.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
 ];

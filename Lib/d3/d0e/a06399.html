@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::Ultrasonic::PGA460TPWRQ1</title>
+<title>IAR EWARM Library: Lib::BSP::Display::TouchGFX_BW</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,110 +129,87 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d3/d0e/a06399.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::Ultrasonic::PGA460TPWRQ1</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Display::TouchGFX_BW</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Reads the distance from a PGA460 ultrasonic sensor with <a class="el" href="../../d3/d0e/a06399.html" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a> in <a class="el" href="../../d4/dc5/a01116.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> mode.</p>
-<p>Reads the distance from a PGA460 ultrasonic sensor with <a class="el" href="../../d3/d0e/a06399.html" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a> in <a class="el" href="../../d4/dc5/a01116.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c" title="Lib::HAL::DriverMode::IT">Lib::HAL::DriverMode::IT</a> mode.The driver does not own the UART port; pass the 'Lib::HAL::UARTPort' wired to the PGA460 RXD/TXD pins. 'readDistance()' blocks the calling task for about the listen duration plus two UART transfers and yields via <a class="el" href="../../d6/dc4/a01125.html#a9457a17b234e2e6b6336f69c9f756021" title="RTOS::delay()">RTOS::delay()</a>, so call it from a task, never from an ISR. The driver is not thread-safe: use one instance from a single task, or guard it with a mutex.</p>
+<p>Shows a TouchGFX application on a 128 x 64 SSD1306 OLED with <a class="el" href="../../d3/d0e/a06399.html" title="Lib::BSP::Display::TouchGFX_BW">Lib::BSP::Display::TouchGFX_BW</a>.</p>
+<p>Shows a TouchGFX application on a 128 x 64 SSD1306 OLED with Lib::BSP::Display::TouchGFX_BW.TouchGFX renders into a black and white frame buffer, one bit per pixel, and tells the HAL which rectangle changed in <em class="arg">TouchGFXHAL::flushFrameBuffer()</em>. The bridge turns the changed 8 x 8 blocks into the pages of the OLED and sends the frame, and a software timer gives TouchGFX its vertical-sync tick. The bridge holds no TouchGFX type, so the three connections, the frame buffer with its rectangle, the sync callback and the display driver, are plain arguments written here once. The OLED transfer takes about 25 ms on I2C at 400 kHz, so the sync period is set to 25 ms: a shorter one only makes TouchGFX render frames that are never shown.</p>
+<dl class="section important"><dt>Important</dt><dd><a class="el" href="../../d8/d1c/a04522.html#a954a747230bf0b9cbc0a41961c137743" title="Lib::BSP::Display::TouchGFX_BW::update()">Lib::BSP::Display::TouchGFX_BW::update()</a> blocks on the panel transfer and runs in the TouchGFX task, never in an interrupt. The generated HAL has to use the 1-bit black and white frame buffer format; the bridge reads <em class="arg">WIDTH</em> / 8 bytes per row.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="pga460_usage_hw"></a>
-Hardware assumptions</h3>
-<ul>
-<li>Two-wire UART on RXD/TXD; the IO pin is unused (pulled up), so transmitted bytes are not echoed back.</li>
-<li>TEST pin tied to GND at power-up, so the digital I/O runs at 3.3 V.</li>
-<li>Factory 'UART_ADDR' of <b>0</b>; set <a class="el" href="../../da/d9f/a04859.html#a07cd324da0adf0baf2262a0b33404164" title="Lib::BSP::Ultrasonic::PGA460TPWRQ1::Config::uartAddress">Lib::BSP::Ultrasonic::PGA460TPWRQ1::Config::uartAddress</a> only if the EEPROM address was reprogrammed.</li>
-</ul>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="pga460_usage_basic"></a>
-Single measurement</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d21/a00368.html">Lib/BSP/Ultrasonic/PGA460TPWRQ1.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="touchgfx_usage_init"></a>
+Display, sync and TouchGFX task</h3>
+<p>The display is opened before TouchGFX starts rendering. The vertical-sync callback is the static <em class="arg">touchgfx::OSWrappers::signalVSync</em>, bound without any glue code. The TouchGFX task is the one that the generated code provides as <em class="arg">TouchGFX_Task</em>.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d5e/a00275.html">Lib/BSP/Display/SSD1306.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/d04/a00281.html">Lib/BSP/Display/TouchGFX_BW.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d80/a01076.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> measureOnce(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; uartPort) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/d87/a04855.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor({</div>
-<div class="line">        .uart = uartPort,</div>
-<div class="line">        .timeout = <a id="a1" name="a1"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
-<div class="line">        .listenDuration = <a id="a2" name="a2"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
-<div class="line">        .ambientTemperatureCelsius = 22.0F,</div>
-<div class="line">    });</div>
+<div class="line"><span class="preprocessor">#include &lt;touchgfx/hal/HAL.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;touchgfx/hal/OSWrappers.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;touchgfx/hal/Types.hpp&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!sensor.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1;     <span class="comment">// Generated by CubeMX in main.c.</span></div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> TouchGFX_Task(<span class="keywordtype">void</span> *); <span class="comment">// Generated by TouchGFX.</span></div>
+<div class="line"> </div>
+<div class="line">Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::IT&gt; i2cPort{&amp;hi2c1};</div>
+<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d1/d24/a04514.html">Lib::BSP::Display::SSD1306&lt;128, 64&gt;</a> oled{{.i2cPort = i2cPort}};</div>
+<div class="line"><a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d8/d1c/a04522.html">Lib::BSP::Display::TouchGFX_BW&lt;Lib::BSP::Display::SSD1306&lt;128, 64&gt;</a>&gt; bridge{{</div>
+<div class="line">    .display = oled,</div>
+<div class="line">    .onVSync = <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d2/d68/a04954.html">FunctionRef</a>&lt;void()&gt;::fromFunction&lt;&amp;touchgfx::OSWrappers::signalVSync&gt;(),</div>
+<div class="line">    .vsyncPeriod = <a id="a4" name="a4"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(25),</div>
+<div class="line">}};</div>
+<div class="line"> </div>
+<div class="line"><a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d8/df6/a06194.html">RTOS::Task</a> touchGfxTask;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Call once at start-up, after the generated TouchGFX initialization.</span></div>
+<div class="line">[[nodiscard]] <span class="keywordtype">bool</span> startDisplay() noexcept {</div>
+<div class="line">    <span class="keywordflow">if</span> (!oled.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d1/d24/a04514.html#ae77696c6301f7d64ab392726dc732210">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Port failed to open or the display did not acknowledge.</span></div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> distanceMeters = sensor.readDistance(); distanceMeters.has_value()) {</div>
-<div class="line">        <span class="comment">// Use *distanceMeters.</span></div>
+<div class="line">    touchgfx::HAL::getInstance()-&gt;lockDMAToFrontPorch(<span class="keyword">false</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> (!bridge.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d8/d1c/a04522.html#a211165ae608dd89ad3920d9e042a5614">start</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sensor.close());</div>
+<div class="line">    touchGfxTask.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d8/df6/a06194.html#aa1b94dd885e95c6b8eb2a20707ba60a3">setup</a>(<a id="_a9" name="_a9"></a><a class="code hl_struct" href="../../d6/d0b/a06214.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;TouchGFX&quot;</span>, 1024, <a id="_a10" name="_a10"></a><a class="code hl_enumvalue" href="../../df/d12/a06198.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>));</div>
+<div class="line">    <span class="keywordflow">return</span> touchGfxTask.<a id="a11" name="a11"></a><a class="code hl_function" href="../../d8/df6/a06194.html#af2754047ab9e43ad9bed91c038aa6019">start</a>([]() <span class="keyword">noexcept</span> { TouchGFX_Task(<span class="keyword">nullptr</span>); }) != <span class="keyword">nullptr</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00368_html"><div class="ttname"><a href="../../d8/d21/a00368.html">PGA460TPWRQ1.hpp</a></div><div class="ttdoc">Declares the UART driver for the Texas Instruments PGA460 ultrasonic signal processor,...</div></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Called from TouchGFXHAL::flushFrameBuffer(), see below.</span></div>
+<div class="line"><span class="keywordtype">void</span> updateDisplay(<span class="keyword">const</span> touchgfx::Rect &amp; rect) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> * frame = <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>uint8_t *<span class="keyword">&gt;</span>(touchgfx::HAL::getInstance()-&gt;getTFTFrameBuffer());</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(bridge.<a id="a12" name="a12"></a><a class="code hl_function" href="../../d8/d1c/a04522.html#a954a747230bf0b9cbc0a41961c137743">update</a>(frame, rect.x, rect.y, rect.width, rect.height));</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00275_html"><div class="ttname"><a href="../../d3/d5e/a00275.html">SSD1306.hpp</a></div><div class="ttdoc">Declares Lib::BSP::Display::SSD1306, the monochrome OLED driver over I²C; compiles to nothing without...</div></div>
+<div class="ttc" id="aa00281_html"><div class="ttname"><a href="../../d2/d04/a00281.html">TouchGFX_BW.hpp</a></div><div class="ttdoc">Declares Lib::BSP::Display::TouchGFX_BW, the bridge that shows a TouchGFX 1-bit frame buffer on a pag...</div></div>
+<div class="ttc" id="aa00749_html"><div class="ttname"><a href="../../d5/de8/a00749.html">I2C.hpp</a></div><div class="ttdoc">Public umbrella include for the I2C subsystem, exposing the master-only Lib::HAL::I2CPort in all thre...</div></div>
+<div class="ttc" id="aa01076_html"><div class="ttname"><a href="../../d6/d80/a01076.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01452_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a></div></div>
 <div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa01610_html_ga5688b0ad006994a28a4bb5c2fd1a715d"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a></div><div class="ttdeci">duration&lt; int64_t, micro &gt; microseconds</div></div>
-<div class="ttc" id="aa04855_html"><div class="ttname"><a href="../../d9/d87/a04855.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1</a></div><div class="ttdoc">Reads the current distance from a PGA460 ultrasonic sensor connected over UART.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:61</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+<div class="ttc" id="aa04514_html"><div class="ttname"><a href="../../d1/d24/a04514.html">Lib::BSP::Display::SSD1306</a></div><div class="ttdoc">Monochrome OLED display driven by an SSD1306 controller over I²C, drawn into a RAM frame buffer.</div><div class="ttdef"><b>Definition</b> SSD1306.hpp:55</div></div>
+<div class="ttc" id="aa04514_html_ae77696c6301f7d64ab392726dc732210"><div class="ttname"><a href="../../d1/d24/a04514.html#ae77696c6301f7d64ab392726dc732210">Lib::BSP::Display::SSD1306::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Opens the I²C port, initializes the controller and shows a blank screen.</div><div class="ttdef"><b>Definition</b> SSD1306.hpp:140</div></div>
+<div class="ttc" id="aa04522_html"><div class="ttname"><a href="../../d8/d1c/a04522.html">Lib::BSP::Display::TouchGFX_BW</a></div><div class="ttdoc">Shows the black and white frame buffer of TouchGFX on a display that keeps its pixels in pages,...</div><div class="ttdef"><b>Definition</b> TouchGFX_BW.hpp:52</div></div>
+<div class="ttc" id="aa04522_html_a211165ae608dd89ad3920d9e042a5614"><div class="ttname"><a href="../../d8/d1c/a04522.html#a211165ae608dd89ad3920d9e042a5614">Lib::BSP::Display::TouchGFX_BW::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the timer that calls the vertical-sync callback.</div><div class="ttdef"><b>Definition</b> TouchGFX_BW.hpp:138</div></div>
+<div class="ttc" id="aa04522_html_a954a747230bf0b9cbc0a41961c137743"><div class="ttname"><a href="../../d8/d1c/a04522.html#a954a747230bf0b9cbc0a41961c137743">Lib::BSP::Display::TouchGFX_BW::update</a></div><div class="ttdeci">bool update(const uint8_t *frameBuffer) noexcept</div><div class="ttdoc">Shows the whole frame buffer on the panel.</div><div class="ttdef"><b>Definition</b> TouchGFX_BW.hpp:170</div></div>
+<div class="ttc" id="aa04954_html"><div class="ttname"><a href="../../d2/d68/a04954.html">FunctionRef</a></div><div class="ttdoc">Primary template; only the function-signature specializations below are defined.</div><div class="ttdef"><b>Definition</b> FunctionRef.hpp:38</div></div>
+<div class="ttc" id="aa06194_html"><div class="ttname"><a href="../../d8/df6/a06194.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:53</div></div>
+<div class="ttc" id="aa06194_html_aa1b94dd885e95c6b8eb2a20707ba60a3"><div class="ttname"><a href="../../d8/df6/a06194.html#aa1b94dd885e95c6b8eb2a20707ba60a3">RTOS::Task::setup</a></div><div class="ttdeci">void setup(const Config &amp;config) noexcept</div><div class="ttdoc">Sets the task configuration used by a subsequent start().</div><div class="ttdef"><b>Definition</b> Task.hpp:902</div></div>
+<div class="ttc" id="aa06194_html_af2754047ab9e43ad9bed91c038aa6019"><div class="ttname"><a href="../../d8/df6/a06194.html#af2754047ab9e43ad9bed91c038aa6019">RTOS::Task::start</a></div><div class="ttdeci">Handle start(F &amp;&amp;function) noexcept</div><div class="ttdoc">Binds the entry function and creates and starts the task, stopping a previously created one first.</div><div class="ttdef"><b>Definition</b> Task.hpp:913</div></div>
+<div class="ttc" id="aa06198_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../df/d12/a06198.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:86</div></div>
+<div class="ttc" id="aa06214_html"><div class="ttname"><a href="../../d6/d0b/a06214.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:631</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="pga460_usage_task"></a>
-Periodic measurement task</h3>
-<p>The first reading after power-up may be rejected because the diagnostic byte still carries a stale error flag; treat an empty result as a skipped sample, not a fatal error.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d21/a00368.html">Lib/BSP/Ultrasonic/PGA460TPWRQ1.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="touchgfx_usage_hal"></a>
+The flush hook</h3>
+<p>The one change to the generated HAL file <em class="arg">TouchGFX/target/TouchGFXHAL.cpp</em>: send the changed rectangle to the bridge, then call the parent so that TouchGFX knows the flush is done. A rectangle without changes sends nothing to the panel.</p>
+<div class="fragment"><div class="line"><span class="keyword">extern</span> <span class="keywordtype">void</span> updateDisplay(<span class="keyword">const</span> touchgfx::Rect &amp; rect) <span class="keyword">noexcept</span>;</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d7c/a01073.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"><span class="keywordtype">void</span> TouchGFXHAL::flushFrameBuffer(<span class="keyword">const</span> touchgfx::Rect &amp; rect) {</div>
+<div class="line">    updateDisplay(rect);</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>LevelMonitor final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">explicit</span> LevelMonitor(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; uartPort) noexcept :</div>
-<div class="line">        sensor({</div>
-<div class="line">            .uart = uartPort,</div>
-<div class="line">            .timeout = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
-<div class="line">            .listenDuration = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
-<div class="line">        }),</div>
-<div class="line">        task(<a id="_a4" name="_a4"></a><a class="code hl_struct" href="../../d6/d4c/a06195.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Level&quot;</span>, 512, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> PERIOD{1000};</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t MAX_CONSECUTIVE_FAILURES = 5;</div>
-<div class="line"> </div>
-<div class="line">    <a class="code hl_class" href="../../d9/d87/a04855.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor; <span class="comment">// Constructed before the task starts using it.</span></div>
-<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d0/dca/a06175.html">RTOS::Task</a> task;          <span class="comment">// Must stay the last member.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!sensor.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d9/d87/a04855.html#a50accfabb3897779a4b26e4c6b8e7566">open</a>()) {</div>
-<div class="line">            assert(!<span class="stringliteral">&quot;LevelMonitor: failed to open sensor UART&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        uint32_t failures = 0;</div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> distanceMeters = sensor.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d9/d87/a04855.html#ab5b14fe14cfea3451683b86f1cc54952">readDistance</a>(); distanceMeters.has_value()) {</div>
-<div class="line">                failures = 0;</div>
-<div class="line">                <span class="comment">// Publish *distanceMeters.</span></div>
-<div class="line">            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (++failures &gt;= MAX_CONSECUTIVE_FAILURES) {</div>
-<div class="line">                failures = 0;</div>
-<div class="line">                <span class="comment">// Report a sensor fault.</span></div>
-<div class="line">            }</div>
-<div class="line">            <a id="a9" name="a9"></a><a class="code hl_function" href="../../d6/dc4/a01125.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(PERIOD);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa01073_html"><div class="ttname"><a href="../../d9/d7c/a01073.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01125_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d6/dc4/a01125.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:610</div></div>
-<div class="ttc" id="aa04855_html_a50accfabb3897779a4b26e4c6b8e7566"><div class="ttname"><a href="../../d9/d87/a04855.html#a50accfabb3897779a4b26e4c6b8e7566">Lib::BSP::Ultrasonic::PGA460TPWRQ1::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes the underlying UART peripheral.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:146</div></div>
-<div class="ttc" id="aa04855_html_ab5b14fe14cfea3451683b86f1cc54952"><div class="ttname"><a href="../../d9/d87/a04855.html#ab5b14fe14cfea3451683b86f1cc54952">Lib::BSP::Ultrasonic::PGA460TPWRQ1::readDistance</a></div><div class="ttdeci">std::optional&lt; float &gt; readDistance() noexcept</div><div class="ttdoc">Triggers a measurement and reads back the distance to the closest detected object.</div><div class="ttdef"><b>Definition</b> PGA460TPWRQ1.hpp:170</div></div>
-<div class="ttc" id="aa06175_html"><div class="ttname"><a href="../../d0/dca/a06175.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
-<div class="ttc" id="aa06179_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:89</div></div>
-<div class="ttc" id="aa06195_html"><div class="ttname"><a href="../../d6/d4c/a06195.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:638</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="pga460_usage_address"></a>
-Non-default UART address</h3>
-<div class="fragment"><div class="line"><a class="code hl_class" href="../../d9/d87/a04855.html">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt;</a> sensor({</div>
-<div class="line">    .uart = uartPort,</div>
-<div class="line">    .timeout = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50),</div>
-<div class="line">    .listenDuration = <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga5688b0ad006994a28a4bb5c2fd1a715d">std::chrono::microseconds</a>(15000),</div>
-<div class="line">    .uartAddress = 3, <span class="comment">// Must match UART_ADDR programmed in the device EEPROM.</span></div>
-<div class="line">});</div>
+<div class="line">    TouchGFXGeneratedHAL::flushFrameBuffer(rect);</div>
+<div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

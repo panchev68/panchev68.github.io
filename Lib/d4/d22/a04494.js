@@ -1,14 +1,11 @@
 var a04494 =
 [
     [ "Config", "dc/dd0/a04498.html", "dc/dd0/a04498" ],
-    [ "TouchGFX_BW", "d4/d22/a04494.html#a629c49ad3c29b04fe4667d8ef8409bc2", null ],
-    [ "~TouchGFX_BW", "d4/d22/a04494.html#ac9a06a946e2693f723ed5521164d5370", null ],
-    [ "TouchGFX_BW", "d4/d22/a04494.html#ab6069b983398128553bdf718bcf716e1", null ],
-    [ "TouchGFX_BW", "d4/d22/a04494.html#aca7757926274df17a33250ddf8b75db7", null ],
-    [ "operator=", "d4/d22/a04494.html#ab5b07ecfc9ff3420466ee1f075b7ef88", null ],
-    [ "operator=", "d4/d22/a04494.html#a7261fe75da21d4043526149b813ea1b4", null ],
-    [ "start", "d4/d22/a04494.html#a211165ae608dd89ad3920d9e042a5614", null ],
-    [ "stop", "d4/d22/a04494.html#a4b7643e2769c427994de2c06fe67b113", null ],
-    [ "update", "d4/d22/a04494.html#a954a747230bf0b9cbc0a41961c137743", null ],
-    [ "update", "d4/d22/a04494.html#abd5c93f4750e9f09e727afd842f07987", null ]
+    [ "Driver", "d4/d22/a04494.html#a1485030ad4d5221083358bb976d4f6a9", null ],
+    [ "~Driver", "d4/d22/a04494.html#a02b3a6700a07d6ec290c3b84098c3389", null ],
+    [ "handleTransferCompleteEvent", "d4/d22/a04494.html#a16f81d6e044e814af3071d70b3bfd029", null ],
+    [ "setBacklight", "d4/d22/a04494.html#a5c3019cb4ef6b0af87fb89c9b1e25ca4", null ],
+    [ "setRotation", "d4/d22/a04494.html#aa82bca6d7225f8fb51714daaa7b44ee1", null ],
+    [ "setup", "d4/d22/a04494.html#ae80e1a0a03b141829f376e2309e65a30", null ],
+    [ "transmitBlock", "d4/d22/a04494.html#a7c3b10e802400c9d45d7467ee59a7562", null ]
 ];

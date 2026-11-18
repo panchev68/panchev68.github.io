@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Task::Notify::Result</title>
+<title>IAR EWARM Library: RTOS::Kernel::Scheduler::Lock</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,51 +130,193 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/de0/a06138.
 
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../d8/d3d/a06135.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">RTOS::Task::Notify::Result</div></div>
+  <div class="headertitle"><div class="title">RTOS::Kernel::Scheduler::Lock<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Result structure for notification queries. </p>
+<div class="textblock"><p>RAII lock that suspends the scheduler for the lifetime of the guard. </p>
+<p>Interrupts stay enabled while the scheduler is suspended; only context switches are deferred. Must not be used from an ISR, and no blocking API may be called while the lock is held. </p>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:aaef68ed1b6e5e9f438c5faedf6306ca3" id="r_aaef68ed1b6e5e9f438c5faedf6306ca3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaef68ed1b6e5e9f438c5faedf6306ca3">success</a></td></tr>
-<tr class="memdesc:aaef68ed1b6e5e9f438c5faedf6306ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Operation result.  <br /></td></tr>
-<tr class="memitem:a18bbde03afa6705ff2164f33a694f539" id="r_a18bbde03afa6705ff2164f33a694f539"><td class="memItemLeft"><a class="el" href="../../dc/d40/a06134.html#a76db1b2abff36d5013ab969b3b149834">Bits</a>&#160;</td><td class="memItemRight"><a class="el" href="#a18bbde03afa6705ff2164f33a694f539">previousValue</a></td></tr>
-<tr class="memdesc:a18bbde03afa6705ff2164f33a694f539"><td class="mdescLeft">&#160;</td><td class="mdescRight">Previous notification value.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a79915981fe481334533677f3c4691e1f" id="r_a79915981fe481334533677f3c4691e1f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a79915981fe481334533677f3c4691e1f">Lock</a> () noexcept</td></tr>
+<tr class="memdesc:a79915981fe481334533677f3c4691e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends the scheduler.  <br /></td></tr>
+<tr class="memitem:acca996da9f16704d9247d8d2f0bab3e1" id="r_acca996da9f16704d9247d8d2f0bab3e1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acca996da9f16704d9247d8d2f0bab3e1">~Lock</a> () noexcept</td></tr>
+<tr class="memdesc:acca996da9f16704d9247d8d2f0bab3e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the scheduler, performing any context switch that became pending while it was suspended.  <br /></td></tr>
+<tr class="memitem:a7da060988728f2b1731d04e7b4465ffb" id="r_a7da060988728f2b1731d04e7b4465ffb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7da060988728f2b1731d04e7b4465ffb">Lock</a> (const Lock &amp;)=delete</td></tr>
+<tr class="memdesc:a7da060988728f2b1731d04e7b4465ffb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the guard owns the scheduler suspension of one scope.  <br /></td></tr>
+<tr class="memitem:a73e4ec26337a86b9060fbfd8356a083c" id="r_a73e4ec26337a86b9060fbfd8356a083c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a73e4ec26337a86b9060fbfd8356a083c">Lock</a> (Lock &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a73e4ec26337a86b9060fbfd8356a083c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the guard owns the scheduler suspension of one scope.  <br /></td></tr>
+<tr class="memitem:a58e51b984954b6ea0275dd7b48479bb2" id="r_a58e51b984954b6ea0275dd7b48479bb2"><td class="memItemLeft"><a class="el" href="#a79915981fe481334533677f3c4691e1f">Lock</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a58e51b984954b6ea0275dd7b48479bb2">operator=</a> (const <a class="el" href="#a79915981fe481334533677f3c4691e1f">Lock</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a58e51b984954b6ea0275dd7b48479bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the guard owns the scheduler suspension of one scope.  <br /></td></tr>
+<tr class="memitem:a2af1d07230d3a75aee8b72daf7ec73bf" id="r_a2af1d07230d3a75aee8b72daf7ec73bf"><td class="memItemLeft"><a class="el" href="#a79915981fe481334533677f3c4691e1f">Lock</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2af1d07230d3a75aee8b72daf7ec73bf">operator=</a> (<a class="el" href="#a79915981fe481334533677f3c4691e1f">Lock</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a2af1d07230d3a75aee8b72daf7ec73bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the guard owns the scheduler suspension of one scope.  <br /></td></tr>
 </table>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a18bbde03afa6705ff2164f33a694f539" name="a18bbde03afa6705ff2164f33a694f539"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18bbde03afa6705ff2164f33a694f539">&#9670;&#160;</a></span>previousValue</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a79915981fe481334533677f3c4691e1f" name="a79915981fe481334533677f3c4691e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79915981fe481334533677f3c4691e1f">&#9670;&#160;</a></span>Lock() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d40/a06134.html#a76db1b2abff36d5013ab969b3b149834">Bits</a> RTOS::Task::Notify::Result::previousValue</td>
+          <td class="memname">RTOS::Kernel::Scheduler::Lock::Lock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Previous notification value. </p>
+<p>Suspends the scheduler. </p>
 
 </div>
 </div>
-<a id="aaef68ed1b6e5e9f438c5faedf6306ca3" name="aaef68ed1b6e5e9f438c5faedf6306ca3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaef68ed1b6e5e9f438c5faedf6306ca3">&#9670;&#160;</a></span>success</h2>
+<a id="acca996da9f16704d9247d8d2f0bab3e1" name="acca996da9f16704d9247d8d2f0bab3e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acca996da9f16704d9247d8d2f0bab3e1">&#9670;&#160;</a></span>~Lock()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Task::Notify::Result::success</td>
+          <td class="memname">RTOS::Kernel::Scheduler::Lock::~Lock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Operation result. </p>
+<p>Resumes the scheduler, performing any context switch that became pending while it was suspended. </p>
+
+</div>
+</div>
+<a id="a7da060988728f2b1731d04e7b4465ffb" name="a7da060988728f2b1731d04e7b4465ffb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7da060988728f2b1731d04e7b4465ffb">&#9670;&#160;</a></span>Lock() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Kernel::Scheduler::Lock::Lock </td>
+          <td>(</td>
+          <td class="paramtype">const Lock &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: the guard owns the scheduler suspension of one scope. </p>
+
+</div>
+</div>
+<a id="a73e4ec26337a86b9060fbfd8356a083c" name="a73e4ec26337a86b9060fbfd8356a083c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73e4ec26337a86b9060fbfd8356a083c">&#9670;&#160;</a></span>Lock() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Kernel::Scheduler::Lock::Lock </td>
+          <td>(</td>
+          <td class="paramtype">Lock &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the guard owns the scheduler suspension of one scope. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a58e51b984954b6ea0275dd7b48479bb2" name="a58e51b984954b6ea0275dd7b48479bb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58e51b984954b6ea0275dd7b48479bb2">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a79915981fe481334533677f3c4691e1f">Lock</a> &amp; RTOS::Kernel::Scheduler::Lock::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a79915981fe481334533677f3c4691e1f">Lock</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: the guard owns the scheduler suspension of one scope. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a2af1d07230d3a75aee8b72daf7ec73bf" name="a2af1d07230d3a75aee8b72daf7ec73bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2af1d07230d3a75aee8b72daf7ec73bf">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a79915981fe481334533677f3c4691e1f">Lock</a> &amp; RTOS::Kernel::Scheduler::Lock::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a79915981fe481334533677f3c4691e1f">Lock</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the guard owns the scheduler suspension of one scope. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
@@ -172,7 +327,7 @@ Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dd/dcb/a01104.html">RTOS</a></li><li class="navelem"><a href="../../d8/d2f/a06122.html">Task</a></li><li class="navelem"><a href="../../dc/d40/a06134.html">Notify</a></li><li class="navelem"><a href="../../d6/de0/a06138.html">Result</a></li>
+    <li class="navelem"><a href="../../d6/de6/a01132.html">RTOS</a></li><li class="navelem"><a href="../../d8/d2f/a06122.html">Kernel</a></li><li class="navelem"><a href="../../dc/d40/a06134.html">Scheduler</a></li><li class="navelem"><a href="../../d6/de0/a06138.html">Lock</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

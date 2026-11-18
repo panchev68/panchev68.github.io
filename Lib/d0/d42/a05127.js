@@ -1,14 +1,20 @@
 var a05127 =
 [
-    [ "SerialNumber", "d0/dcf/a05131.html", "d0/dcf/a05131" ],
-    [ "ackFailures", "d0/d42/a05127.html#aa36464587f33788505f069d1c46ec004", null ],
-    [ "ccaFailures", "d0/d42/a05127.html#a51e5f54e9e1224b2389b126cd7602d65", null ],
-    [ "channel", "d0/d42/a05127.html#a910133d925087a409f8f8357447b9e3a", null ],
-    [ "firmwareVersion", "d0/d42/a05127.html#a919225b632587966d3cdbd15ca30f0d3", null ],
-    [ "hardwareVersion", "d0/d42/a05127.html#a2efd702c930d16f10c2672244503d676", null ],
-    [ "nodeIdentifier", "d0/d42/a05127.html#a1980717ff0972ddb91d6d59e8bd1a38e", null ],
-    [ "panId", "d0/d42/a05127.html#ad1515643697ad647030e33ba97d79968", null ],
-    [ "serialNumber", "d0/d42/a05127.html#a5e4e85516315320363b69f902c64a5b7", null ],
-    [ "temperature", "d0/d42/a05127.html#aece1486ed1a9e85c4aa022f9634a3884", null ],
-    [ "voltage", "d0/d42/a05127.html#a9ee4423766190b01b3381ae41455bf2d", null ]
+    [ "Data", "d0/dcf/a05131.html", "d0/dcf/a05131" ],
+    [ "Parameters", "d0/d42/a05127.html#ae9b1083d9afe5ce37684ee479065c08d", null ],
+    [ "Parameters", "d0/d42/a05127.html#a751f186c85cc8d58f16fc12d907ebe1f", null ],
+    [ "close", "d0/d42/a05127.html#a1a7e321a9bac36794a93524ee2265f1e", null ],
+    [ "getChannel", "d0/d42/a05127.html#abb0d4e0ff08a92ff38e3627964f0c50f", null ],
+    [ "getData", "d0/d42/a05127.html#ac793ef8a47bb6b900a9b96ef741286fc", null ],
+    [ "getPanId", "d0/d42/a05127.html#a002de6a62eca987fb68d0134d291d7a3", null ],
+    [ "isRunning", "d0/d42/a05127.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "isWritePending", "d0/d42/a05127.html#a2444246733f1cf2dfb8d6fb114e10f9e", null ],
+    [ "open", "d0/d42/a05127.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "d0/d42/a05127.html#a0036b61cadf6ca50a98425c13efd17e9", null ],
+    [ "pauseReadDynamicParameters", "d0/d42/a05127.html#a5ceaf511d2672fa9d60b960c563e6a47", null ],
+    [ "read", "d0/d42/a05127.html#a0b95648ab79c354ae5ed07e87775a4e4", null ],
+    [ "setChannel", "d0/d42/a05127.html#a1a9c64e3e6603a03c17294851fc407a5", null ],
+    [ "setPanId", "d0/d42/a05127.html#a2f50f7e3fb88c475ffbc15f2c0203698", null ],
+    [ "update", "d0/d42/a05127.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
+    [ "writeChanges", "d0/d42/a05127.html#aab4960dbba120dcbeddf25b42f53d85a", null ]
 ];

@@ -1,10 +1,14 @@
 var a06198 =
 [
-    [ "VersionString", "df/d12/a06198.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
-    [ "FirmwareVersion", "df/d12/a06198.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
-    [ "getSubVersion", "df/d12/a06198.html#a74bafacd182d3ccff4da47e5aac54408", null ],
-    [ "getValue", "df/d12/a06198.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
-    [ "operator uint32_t", "df/d12/a06198.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
-    [ "operator VersionString", "df/d12/a06198.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
-    [ "toString", "df/d12/a06198.html#ac82dd7d67829e33f61b3625626f44742", null ]
+    [ "Level", "df/d12/a06198.html#a47d1302bb72530432eb0072fc7286e69", [
+      [ "IDLE", "df/d12/a06198.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
+      [ "LOW", "df/d12/a06198.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
+      [ "NORMAL", "df/d12/a06198.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
+      [ "HIGH", "df/d12/a06198.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
+      [ "REALTIME", "df/d12/a06198.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
+    ] ],
+    [ "Priority", "df/d12/a06198.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
+    [ "get", "df/d12/a06198.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
+    [ "getFromISR", "df/d12/a06198.html#a077686e91e7ea468ac484026c09fe001", null ],
+    [ "set", "df/d12/a06198.html#a458e98cafe1842d218c9640b76bde004", null ]
 ];

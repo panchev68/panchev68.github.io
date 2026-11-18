@@ -1,10 +1,14 @@
 var a06251 =
 [
-    [ "VersionString", "d8/d45/a06251.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
-    [ "FirmwareVersion", "d8/d45/a06251.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
-    [ "getSubVersion", "d8/d45/a06251.html#a74bafacd182d3ccff4da47e5aac54408", null ],
-    [ "getValue", "d8/d45/a06251.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
-    [ "operator uint32_t", "d8/d45/a06251.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
-    [ "operator VersionString", "d8/d45/a06251.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
-    [ "toString", "d8/d45/a06251.html#ac82dd7d67829e33f61b3625626f44742", null ]
+    [ "Config", "de/dac/a06255.html", "de/dac/a06255" ],
+    [ "Measurement", "da/d78/a06259.html", "da/d78/a06259" ],
+    [ "Direction", "d8/d45/a06251.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
+      [ "DOWN", "d8/d45/a06251.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
+      [ "UP", "d8/d45/a06251.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
+    ] ],
+    [ "PerturbAndObserve", "d8/d45/a06251.html#a7e1626362f778f8b7e085cdc41794a67", null ],
+    [ "getVoltageSetpoint", "d8/d45/a06251.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
+    [ "reset", "d8/d45/a06251.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
+    [ "setStepSize", "d8/d45/a06251.html#a121c7b229d119d0ee55cd0b855065350", null ],
+    [ "update", "d8/d45/a06251.html#ab0587469fdbaa626d9f751ef04255627", null ]
 ];

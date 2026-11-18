@@ -1,14 +1,20 @@
 var a04886 =
 [
-    [ "PasswordAuthHandler", "d1/d58/a04886.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
-    [ "WolfSSHServerContext", "d1/d58/a04886.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
-    [ "~WolfSSHServerContext", "d1/d58/a04886.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
-    [ "WolfSSHServerContext", "d1/d58/a04886.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
-    [ "WolfSSHServerContext", "d1/d58/a04886.html#a41d71d3b7597c69631a274d39e0fa345", null ],
-    [ "native", "d1/d58/a04886.html#a188293485b26e63785504b3f63d346fe", null ],
-    [ "operator=", "d1/d58/a04886.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
-    [ "operator=", "d1/d58/a04886.html#ac889915b8b230867843bb316a9bad1fc", null ],
-    [ "setBanner", "d1/d58/a04886.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
-    [ "setPasswordAuthHandler", "d1/d58/a04886.html#a72301d8027efc740d10b7d0d660c198f", null ],
-    [ "usePrivateKey", "d1/d58/a04886.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
+    [ "Diagnostic", "d1/d58/a04886.html#a74fdde35a787cd13d6069871c0ff8976", null ],
+    [ "Node", "d1/d58/a04886.html#ab091b12fa34f220a5e75b16695a26a92", null ],
+    [ "RxMessage", "d1/d58/a04886.html#aee877c41a31b08b00ee86c56bdd9cd28", null ],
+    [ "Service", "d1/d58/a04886.html#a34d4fbaded08b287de47655b7713556a", null ],
+    [ "~Service", "d1/d58/a04886.html#aa70d5f9fd723805cc64c383864a55d17", null ],
+    [ "errorCallback", "d1/d58/a04886.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
+    [ "getDiagnostic", "d1/d58/a04886.html#a568458f9461115a1ea8f443f2dfde355", null ],
+    [ "messageReceivedCallback", "d1/d58/a04886.html#a42b0a1623b22a41e003e2abafd67c9f2", null ],
+    [ "postScanCallback", "d1/d58/a04886.html#a41b59ad5c5b3ad1f6a7220fbbb325c88", null ],
+    [ "receive", "d1/d58/a04886.html#a24358bc730156fbe1517606352fbf513", null ],
+    [ "send", "d1/d58/a04886.html#a2e0c631d402e3175044158dded2de545", null ],
+    [ "send", "d1/d58/a04886.html#a58523c22bcfd875e9c77077eb5f3e24c", null ],
+    [ "send", "d1/d58/a04886.html#a5249db04ea2b2e64223f6656ddd774dc", null ],
+    [ "start", "d1/d58/a04886.html#a93223c3fff4c00dc1af2fb2189a857ee", null ],
+    [ "start", "d1/d58/a04886.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
+    [ "stop", "d1/d58/a04886.html#a7ddbb1abfc9d0f93b2d9e809819651cb", null ],
+    [ "taskFn", "d1/d58/a04886.html#ada9602bb96ff9a1d8ef9d91580113505", null ]
 ];

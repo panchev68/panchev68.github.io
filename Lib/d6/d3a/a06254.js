@@ -1,19 +1,14 @@
 var a06254 =
 [
     [ "Config", "de/dd2/a06258.html", "de/dd2/a06258" ],
-    [ "LineCoding", "da/d8a/a06262.html", "da/d8a/a06262" ],
-    [ "Port", "d6/d3a/a06254.html#ad99e2d8bd81a2c357380c4a3319320f8", null ],
-    [ "CDCDevice", "d6/d3a/a06254.html#af7b09c403e844e0c975664e34b98b279", null ],
-    [ "~CDCDevice", "d6/d3a/a06254.html#aefb023f88ce5ef0b7e147fc416c0ed41", null ],
-    [ "CDCDevice", "d6/d3a/a06254.html#ad8ae48cb38b9de3e91de0f46c8374bd6", null ],
-    [ "CDCDevice", "d6/d3a/a06254.html#a4f99d53056ddc8b8bc333fa07c3c45c8", null ],
-    [ "getIsConfigured", "d6/d3a/a06254.html#a305d79f8cbcefeee5562a1a06a67e674", null ],
-    [ "getIsTerminalReady", "d6/d3a/a06254.html#aa8d2d7650d9bdb5ad00e4acedb520de9", null ],
-    [ "getLineCoding", "d6/d3a/a06254.html#a7050967650f0854192c3edfd7c530401", null ],
-    [ "operator=", "d6/d3a/a06254.html#a24102852b2e32fc565744189c324299f", null ],
-    [ "operator=", "d6/d3a/a06254.html#ab698808b2c8e27ea388d4a005539d697", null ],
-    [ "read", "d6/d3a/a06254.html#a413023729a8480cdd9c834fa089163e8", null ],
-    [ "start", "d6/d3a/a06254.html#a294be6529255dc9284bc23adac2a1e72", null ],
-    [ "stop", "d6/d3a/a06254.html#ab6d8c3abdb8e9779be8326b0498c4c44", null ],
-    [ "write", "d6/d3a/a06254.html#aae8ec892d4f13050681e77062b651054", null ]
+    [ "Measurement", "da/d8a/a06262.html", "da/d8a/a06262" ],
+    [ "Direction", "d6/d3a/a06254.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
+      [ "DOWN", "d6/d3a/a06254.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
+      [ "UP", "d6/d3a/a06254.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
+    ] ],
+    [ "PerturbAndObserve", "d6/d3a/a06254.html#a7e1626362f778f8b7e085cdc41794a67", null ],
+    [ "getVoltageSetpoint", "d6/d3a/a06254.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
+    [ "reset", "d6/d3a/a06254.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
+    [ "setStepSize", "d6/d3a/a06254.html#a121c7b229d119d0ee55cd0b855065350", null ],
+    [ "update", "d6/d3a/a06254.html#ab0587469fdbaa626d9f751ef04255627", null ]
 ];

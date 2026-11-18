@@ -1,7 +1,7 @@
 var a04463 =
 [
-    [ "mappingFields", "d0/d18/a04463.html#a1ab61452f8c6716fefec2b2b8d48ddff", null ],
-    [ "nssPin", "d0/d18/a04463.html#a1057a60af84ee4d60342df596793afee", null ],
-    [ "pinCount", "d0/d18/a04463.html#a4ec50d1e310701baec42aebd409d8af6", null ],
-    [ "spiPort", "d0/d18/a04463.html#a7a00976594ca0e1ebcaf62159fddb767", null ]
+    [ "Inputs", "d2/de7/a04467.html", "d2/de7/a04467" ],
+    [ "Outputs", "d7/d67/a04471.html", "d7/d67/a04471" ],
+    [ "inputs", "d0/d18/a04463.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "d0/d18/a04463.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];

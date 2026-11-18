@@ -1,20 +1,6 @@
 var a05086 =
 [
-    [ "Data", "dd/dbd/a05090.html", "dd/dbd/a05090" ],
-    [ "Parameters", "d2/d69/a05086.html#ae9b1083d9afe5ce37684ee479065c08d", null ],
-    [ "Parameters", "d2/d69/a05086.html#a751f186c85cc8d58f16fc12d907ebe1f", null ],
-    [ "close", "d2/d69/a05086.html#a1a7e321a9bac36794a93524ee2265f1e", null ],
-    [ "getChannel", "d2/d69/a05086.html#abb0d4e0ff08a92ff38e3627964f0c50f", null ],
-    [ "getData", "d2/d69/a05086.html#ac793ef8a47bb6b900a9b96ef741286fc", null ],
-    [ "getPanId", "d2/d69/a05086.html#a002de6a62eca987fb68d0134d291d7a3", null ],
-    [ "isRunning", "d2/d69/a05086.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "isWritePending", "d2/d69/a05086.html#a2444246733f1cf2dfb8d6fb114e10f9e", null ],
-    [ "open", "d2/d69/a05086.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "d2/d69/a05086.html#a0036b61cadf6ca50a98425c13efd17e9", null ],
-    [ "pauseReadDynamicParameters", "d2/d69/a05086.html#a5ceaf511d2672fa9d60b960c563e6a47", null ],
-    [ "read", "d2/d69/a05086.html#a0b95648ab79c354ae5ed07e87775a4e4", null ],
-    [ "setChannel", "d2/d69/a05086.html#a1a9c64e3e6603a03c17294851fc407a5", null ],
-    [ "setPanId", "d2/d69/a05086.html#a2f50f7e3fb88c475ffbc15f2c0203698", null ],
-    [ "update", "d2/d69/a05086.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
-    [ "writeChanges", "d2/d69/a05086.html#aab4960dbba120dcbeddf25b42f53d85a", null ]
+    [ "getIdentifier", "d2/d69/a05086.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
+    [ "setIdentifier", "d2/d69/a05086.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
+    [ "identifier", "d2/d69/a05086.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
 ];

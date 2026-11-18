@@ -1,12 +1,10 @@
 var a05954 =
 [
-    [ "getLocalTransition", "d9/d23/a05954.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
-    [ "getOffset", "d9/d23/a05954.html#a5b83c2cf38318866e23774caee880570", null ],
-    [ "isValid", "d9/d23/a05954.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
-    [ "dayOfWeek", "d9/d23/a05954.html#a71011003fee57e0e6420889a983146f2", null ],
-    [ "hour", "d9/d23/a05954.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
-    [ "month", "d9/d23/a05954.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
-    [ "offsetMinutes", "d9/d23/a05954.html#ade82abb20d81fccacc264075f09a1667", null ],
-    [ "ruleName", "d9/d23/a05954.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
-    [ "weekOfMonth", "d9/d23/a05954.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
+    [ "Integrator", "d9/d23/a05954.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
+    [ "addValue", "d9/d23/a05954.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
+    [ "computeResult", "d9/d23/a05954.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
+    [ "isWindowFull", "d9/d23/a05954.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
+    [ "operator()", "d9/d23/a05954.html#a97085ec2f9a9f65920181fffae409662", null ],
+    [ "processValue", "d9/d23/a05954.html#ab31a92d828aeae207fd9641101c217f5", null ],
+    [ "resetWindow", "d9/d23/a05954.html#a78e088ee416a676679fe227ceb71b1b0", null ]
 ];

@@ -1,9 +1,7 @@
 var a06295 =
 [
-    [ "VersionString", "d2/d33/a06295.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Hardware", "d2/d33/a06295.html#a5df26239c512941c15b1473b41fd41e6", null ],
-    [ "getSubVersion", "d2/d33/a06295.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "d2/d33/a06295.html#ad9b45ee76c12709fe9ef566466c9f721", null ],
-    [ "operator VersionString", "d2/d33/a06295.html#a9e770d09f97bafa86fcc361a02339e2b", null ],
-    [ "subVersion", "d2/d33/a06295.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "firmwareSubversion", "d2/d33/a06295.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
+    [ "firmwareVersionString", "d2/d33/a06295.html#a6b83c53d998379f08471d89aead2818e", null ],
+    [ "hardwareSubversion", "d2/d33/a06295.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
+    [ "hardwareVersionString", "d2/d33/a06295.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
 ];

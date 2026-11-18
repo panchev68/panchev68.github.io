@@ -1,20 +1,19 @@
 var a04842 =
 [
-    [ "Diagnostic", "df/dcf/a04842.html#a74fdde35a787cd13d6069871c0ff8976", null ],
-    [ "Node", "df/dcf/a04842.html#ab091b12fa34f220a5e75b16695a26a92", null ],
-    [ "RxMessage", "df/dcf/a04842.html#aee877c41a31b08b00ee86c56bdd9cd28", null ],
-    [ "Service", "df/dcf/a04842.html#a34d4fbaded08b287de47655b7713556a", null ],
-    [ "~Service", "df/dcf/a04842.html#aa70d5f9fd723805cc64c383864a55d17", null ],
-    [ "errorCallback", "df/dcf/a04842.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
-    [ "getDiagnostic", "df/dcf/a04842.html#a568458f9461115a1ea8f443f2dfde355", null ],
-    [ "messageReceivedCallback", "df/dcf/a04842.html#a42b0a1623b22a41e003e2abafd67c9f2", null ],
-    [ "postScanCallback", "df/dcf/a04842.html#a41b59ad5c5b3ad1f6a7220fbbb325c88", null ],
-    [ "receive", "df/dcf/a04842.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "df/dcf/a04842.html#a2e0c631d402e3175044158dded2de545", null ],
-    [ "send", "df/dcf/a04842.html#a58523c22bcfd875e9c77077eb5f3e24c", null ],
-    [ "send", "df/dcf/a04842.html#a5249db04ea2b2e64223f6656ddd774dc", null ],
-    [ "start", "df/dcf/a04842.html#a93223c3fff4c00dc1af2fb2189a857ee", null ],
-    [ "start", "df/dcf/a04842.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
-    [ "stop", "df/dcf/a04842.html#a7ddbb1abfc9d0f93b2d9e809819651cb", null ],
-    [ "taskFn", "df/dcf/a04842.html#ada9602bb96ff9a1d8ef9d91580113505", null ]
+    [ "Config", "de/d25/a04846.html", "de/d25/a04846" ],
+    [ "Parameters", "d5/dab/a04850.html", "d5/dab/a04850" ],
+    [ "Rotation", "df/dcf/a04842.html#af8a3b5e266b12d8f829d1e5c4858f36f", [
+      [ "DEFAULT", "df/dcf/a04842.html#af8a3b5e266b12d8f829d1e5c4858f36fa5b39c8b553c821e7cddc6da64b5bd2ee", null ],
+      [ "FLIP_X", "df/dcf/a04842.html#af8a3b5e266b12d8f829d1e5c4858f36fac039a0e505a57a288c0de3334649f17b", null ],
+      [ "FLIP_XY", "df/dcf/a04842.html#af8a3b5e266b12d8f829d1e5c4858f36fa6340c446a18eee835ff5ebf2ef438ca1", null ],
+      [ "FLIP_Y", "df/dcf/a04842.html#af8a3b5e266b12d8f829d1e5c4858f36fab9b8e06eeba4d9b150c39907b7261a34", null ]
+    ] ],
+    [ "XPT2046", "df/dcf/a04842.html#a0dda6dc35a85166d57bd689d629e6846", null ],
+    [ "~XPT2046", "df/dcf/a04842.html#a9edd1a086623e54cbb23781f0d989d53", null ],
+    [ "XPT2046", "df/dcf/a04842.html#aa40395fe163fa53055c2381264eee169", null ],
+    [ "XPT2046", "df/dcf/a04842.html#a0b37858e0ef9dc2bc3c8a2494e0d30d0", null ],
+    [ "operator=", "df/dcf/a04842.html#a187bc2ba23928588fb3e435ff1a0ffab", null ],
+    [ "operator=", "df/dcf/a04842.html#a0a0bca74a5312b24895a6b947c35e11a", null ],
+    [ "read", "df/dcf/a04842.html#adbf7069f002f1074ffe599970a15c399", null ],
+    [ "setRotation", "df/dcf/a04842.html#ada371f317a4f0551dc84dcf51749ee60", null ]
 ];

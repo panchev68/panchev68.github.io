@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['qualitymode_0',['QualityMode',['../d3/d8f/a05099.html#ad5fc8e4a205712347c919b6c0934fb03',1,'Lib::Digi::API::Service::ChannelScanner']]]
+  ['qualitymode_0',['QualityMode',['../d1/ddb/a05106.html#ad5fc8e4a205712347c919b6c0934fb03',1,'Lib::Digi::API::Service::ChannelScanner']]]
 ];

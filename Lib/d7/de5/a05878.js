@@ -1,5 +1,11 @@
 var a05878 =
 [
-    [ "crc8", "d7/de5/a05878.html#a6eb0c9200532e08815584e5b040283f9", null ],
-    [ "operator uint8_t", "d7/de5/a05878.html#a17512f695eb94c12c81163d5335f3ef2", null ]
+    [ "getDirection", "d7/de5/a05878.html#a68335ce20908e5937884bf601bb4b90e", null ],
+    [ "getRecipient", "d7/de5/a05878.html#ae7283011b9493caacbbe6081ca48b217", null ],
+    [ "getType", "d7/de5/a05878.html#a2e0f40dbc98143b97268fbfa4a39bd3a", null ],
+    [ "index", "d7/de5/a05878.html#a042e36be625640c409835eeb4ca30c8a", null ],
+    [ "length", "d7/de5/a05878.html#a2e7f6964058d59cf704c5534a3b64cae", null ],
+    [ "request", "d7/de5/a05878.html#a8f0551503e5416ac2f9eaaa0bef3a08f", null ],
+    [ "requestType", "d7/de5/a05878.html#a87ecd5c19387a9761e2548aba162728d", null ],
+    [ "value", "d7/de5/a05878.html#aeb95036baf576efe55bbdca1daf8c864", null ]
 ];

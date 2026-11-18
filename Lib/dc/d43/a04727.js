@@ -1,14 +1,9 @@
 var a04727 =
 [
-    [ "Mifare", "dc/d43/a04727.html#a32c5c26548db5a62c135d462408f7eb8", null ],
-    [ "~Mifare", "dc/d43/a04727.html#ab9292dbd07d2f2f0a579729beadce81a", null ],
-    [ "adjustValue", "dc/d43/a04727.html#ae63c40816081c83b32237540fa351d20", null ],
-    [ "authenticate", "dc/d43/a04727.html#a646ed2b83f740acca2902cf2bd94584a", null ],
-    [ "decrement", "dc/d43/a04727.html#ad4aef0d4dd5dd87530916fd4e7899410", null ],
-    [ "formatValueBlock", "dc/d43/a04727.html#ae321e9f7437818d3481f77afa3da63ec", null ],
-    [ "increment", "dc/d43/a04727.html#a419ae2e457e93dfb3ad77a301758f796", null ],
-    [ "readBlock", "dc/d43/a04727.html#ac2dfd03cabc019b9f3bf484f8affa113", null ],
-    [ "restore", "dc/d43/a04727.html#a7dee5ed9db810229e38b0299ec1ed31a", null ],
-    [ "transfer", "dc/d43/a04727.html#a7eac216ac4049cd65471896003a0d925", null ],
-    [ "writeBlock", "dc/d43/a04727.html#a602509a99b488ae6354b4c75e9335610", null ]
+    [ "Interface", "dc/d43/a04727.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
+    [ "~Interface", "dc/d43/a04727.html#a66b65dc5b7f6571301b7491242361a95", null ],
+    [ "hardwareReset", "dc/d43/a04727.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
+    [ "initialize", "dc/d43/a04727.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
+    [ "send", "dc/d43/a04727.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
+    [ "sendReceive", "dc/d43/a04727.html#a2d9014fe08fb984de211efd021eb1f35", null ]
 ];

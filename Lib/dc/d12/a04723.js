@@ -1,9 +1,8 @@
 var a04723 =
 [
-    [ "Interface", "dc/d12/a04723.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
-    [ "~Interface", "dc/d12/a04723.html#a66b65dc5b7f6571301b7491242361a95", null ],
-    [ "hardwareReset", "dc/d12/a04723.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
-    [ "initialize", "dc/d12/a04723.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
-    [ "send", "dc/d12/a04723.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
-    [ "sendReceive", "dc/d12/a04723.html#a2d9014fe08fb984de211efd021eb1f35", null ]
+    [ "chipSelectPin", "dc/d12/a04723.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
+    [ "irqPin", "dc/d12/a04723.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
+    [ "resetPin", "dc/d12/a04723.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
+    [ "rxGain", "dc/d12/a04723.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
+    [ "spiHandle", "dc/d12/a04723.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
 ];

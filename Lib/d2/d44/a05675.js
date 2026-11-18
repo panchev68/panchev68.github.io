@@ -1,10 +1,13 @@
 var a05675 =
 [
-    [ "IndependentWatchdog", "d2/d44/a05675.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
-    [ "IndependentWatchdog", "d2/d44/a05675.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
-    [ "IndependentWatchdog", "d2/d44/a05675.html#aabfa4830743c87632886a0e095af6dba", null ],
-    [ "open", "d2/d44/a05675.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
-    [ "operator=", "d2/d44/a05675.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
-    [ "operator=", "d2/d44/a05675.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
-    [ "refresh", "d2/d44/a05675.html#ae9f164f43789bd02baa1587a44c30e61", null ]
+    [ "I2CPortBase", "d2/d44/a05675.html#aa4e4d14ed487d0a4f07d43f83937e8cf", null ],
+    [ "I2CPortBase", "d2/d44/a05675.html#abb555787d1c67ffeb59851d309d7e32f", null ],
+    [ "I2CPortBase", "d2/d44/a05675.html#ad9dd4358cc01cee75cd8f731f9f0fe5e", null ],
+    [ "~I2CPortBase", "d2/d44/a05675.html#a4d69d746f11c95220372f8f0a62397b1", null ],
+    [ "close", "d2/d44/a05675.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "isBusy", "d2/d44/a05675.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "d2/d44/a05675.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "open", "d2/d44/a05675.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "d2/d44/a05675.html#a31bad4fe08fe0a3ffbb5585f42ab9b69", null ],
+    [ "operator=", "d2/d44/a05675.html#a847aa761811d4ff5a26e8ccaaef3bffe", null ]
 ];

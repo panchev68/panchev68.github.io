@@ -1,8 +1,9 @@
 var a06290 =
 [
-    [ "pinNRST", "da/dc8/a06290.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "da/dc8/a06290.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "da/dc8/a06290.html#a7a30a24da1b05da04d34ae04d9601ed4", null ],
-    [ "usbDetectPin", "da/dc8/a06290.html#a7821371ae14cff05383049657f3dd8d6", null ],
-    [ "usbDisablePin", "da/dc8/a06290.html#aeafd4713f3249500c2a871623ffc4e6c", null ]
+    [ "SerialString", "da/dc8/a06290.html#aa6020b729e0f58cedf044dc7ff97b00b", null ],
+    [ "SerialNumber", "da/dc8/a06290.html#aed268b613b7b701d255b7d0c98dbfd58", null ],
+    [ "operator SerialString", "da/dc8/a06290.html#a2a4f1521a09306606c2d5f032fdf544e", null ],
+    [ "operator uint32_t", "da/dc8/a06290.html#ac46566dc9eaf2fcb21dcde82468b0652", null ],
+    [ "toString", "da/dc8/a06290.html#a5f96c48e2369c3f690a6b7473ad854d1", null ],
+    [ "result", "da/dc8/a06290.html#af3d33382ba6c5d600113f549fad5b91d", null ]
 ];

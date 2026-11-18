@@ -1,18 +1,11 @@
 var a05710 =
 [
-    [ "Timeout", "d4/d00/a05710.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
-    [ "SPIPortBase", "d4/d00/a05710.html#af7d9dc0b540fee5b78bdf3853a203937", null ],
-    [ "SPIPortBase", "d4/d00/a05710.html#a3d58a47067dbf8b77d78250373234f6d", null ],
-    [ "SPIPortBase", "d4/d00/a05710.html#afa9b12cc40b3d5af68b16f594f5a92f7", null ],
-    [ "~SPIPortBase", "d4/d00/a05710.html#a88e5899dd8db4b887c6afbf89dcbed77", null ],
-    [ "bindBeginTransactionFunc", "d4/d00/a05710.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
-    [ "bindEndTransactionFunc", "d4/d00/a05710.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
-    [ "close", "d4/d00/a05710.html#ab6529e241d0728159eb3f60c7621b666", null ],
-    [ "isBusy", "d4/d00/a05710.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
-    [ "open", "d4/d00/a05710.html#af039716c9cb01db958d77f8c581627cf", null ],
-    [ "operator=", "d4/d00/a05710.html#a33e5060aa4a9e4755b6786700276a5bf", null ],
-    [ "operator=", "d4/d00/a05710.html#ae6957396d6689ed6ebcffc3b11177118", null ],
-    [ "receive", "d4/d00/a05710.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
-    [ "send", "d4/d00/a05710.html#ac557450438e468ea5bf25de308bc023c", null ],
-    [ "sendReceive", "d4/d00/a05710.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
+    [ "OTP", "d4/d00/a05710.html#aaff496f8bf89080e84c1fbda6b0904c3", null ],
+    [ "OTP", "d4/d00/a05710.html#a7bc9c9e1f02016880f00d3a1182e5e71", null ],
+    [ "lock", "d4/d00/a05710.html#ab4c2e78575458526b83be6e259aa1f93", null ],
+    [ "operator=", "d4/d00/a05710.html#ad631f9069ef7f1c2f316505e7b391885", null ],
+    [ "operator=", "d4/d00/a05710.html#af5af865ec6e520ce53d21e6c9ecd7221", null ],
+    [ "read", "d4/d00/a05710.html#acff397156950347f6f452dec2c94af43", null ],
+    [ "unlock", "d4/d00/a05710.html#a220a07c58647557d8a81402260eacfb5", null ],
+    [ "write", "d4/d00/a05710.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
 ];

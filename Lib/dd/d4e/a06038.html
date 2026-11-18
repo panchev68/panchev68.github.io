@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Pneumatics::Sensor</title>
+<title>IAR EWARM Library: Lib::Math::Filter::MovingAverage&lt; T_TYPE, T_SIZE &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,141 +130,126 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d4e/a06038.
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d1/de4/a06035.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Pneumatics::Sensor<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Math::Filter::MovingAverage&lt; T_TYPE, T_SIZE &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Wraps a boolean position-sensor input, accounting for physical absence and inverted wiring. </p>
-<p>The sensor reads its input through a reference on every call, so the owner keeps updating the bound flag, e.g. from a GPIO polling task. An absent sensor always reads as <a class="el" href="#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b" title="State::DISABLED">State::DISABLED</a>. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_TYPE, size_t T_SIZE&gt;<br />
+requires (std::is_arithmetic_v&lt;T_TYPE&gt; &amp;&amp; (T_SIZE &gt; 0U))<br />
+class Lib::Math::Filter::MovingAverage&lt; T_TYPE, T_SIZE &gt;</div><p>Average of the last <em class="arg">T_SIZE</em> samples, kept in a ring buffer. </p>
+<p>Every sample has the same weight and a sample leaves the window after exactly <em class="arg">T_SIZE</em> newer ones, so noise is reduced by about the square root of <em class="arg">T_SIZE</em>, and a real step reaches the output completely after <em class="arg">T_SIZE</em> samples. Use it for noise that is random from sample to sample, such as the jitter of a digital thermometer or an ADC reading; it does not reject a single wild sample, which <a class="el" href="../../d8/d74/a06509.html" title="Lib::Math::Filter::Median">Lib::Math::Filter::Median</a> does. Until the window is full the average covers only the samples received so far, and <a class="el" href="#aaf4c6d357fb792f439055171bc67e56b" title="Lib::Math::Filter::MovingAverage::isFull()">Lib::Math::Filter::MovingAverage::isFull()</a> tells when the output has the full smoothing. An integral type is averaged exactly and the result is truncated towards zero. The filter owns no heap memory and is not thread-safe: call it from one context only.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_TYPE</td><td>Sample and result type, integral or floating-point. </td></tr>
+    <tr><td class="paramname">T_SIZE</td><td>Window length in samples, at least 1.</td></tr>
+  </table>
+  </dd>
+</dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Math/Filter/MovingAverage.hpp" target="_blank">Source</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Math/Filter/doc/MovingAverage.md" target="_blank">Detail Description</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d74/a06509.html#_a2">Lib::Math::Filter::Median</a>, and <a class="el" href="../../dc/d23/a06511.html#_a0">Lib::Math::Filter::MovingAverage</a>.</dd>
+</dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d5/de8/a06042.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wiring and presence parameters for the sensor input.  <a href="../../d5/de8/a06042.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a710e69df2dee7bfc8aa209f4f6cc8d1c" id="r_a710e69df2dee7bfc8aa209f4f6cc8d1c"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a710e69df2dee7bfc8aa209f4f6cc8d1c">Sensor</a> (const <a class="el" href="../../d5/de8/a06042.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a710e69df2dee7bfc8aa209f4f6cc8d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the sensor name and input source, and configures its presence and inversion.  <br /></td></tr>
-<tr class="memitem:a2a1b8d661f06dff4eccff343ce7772bd" id="r_a2a1b8d661f06dff4eccff343ce7772bd"><td class="memItemLeft"><a class="el" href="#a7063555b30fb75832750a0361328040e">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2a1b8d661f06dff4eccff343ce7772bd">read</a> () const noexcept</td></tr>
-<tr class="memdesc:a2a1b8d661f06dff4eccff343ce7772bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the current sensor state, accounting for presence and inversion.  <br /></td></tr>
-<tr class="memitem:af197d2b1d06755fc83c2fca16e9c02e5" id="r_af197d2b1d06755fc83c2fca16e9c02e5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af197d2b1d06755fc83c2fca16e9c02e5">isActive</a> () const noexcept</td></tr>
-<tr class="memdesc:af197d2b1d06755fc83c2fca16e9c02e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the sensor is present and currently active.  <br /></td></tr>
-<tr class="memitem:aed9398c1217d23a7d2cd9e94a09f3722" id="r_aed9398c1217d23a7d2cd9e94a09f3722"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aed9398c1217d23a7d2cd9e94a09f3722">isPresent</a> () const noexcept</td></tr>
-<tr class="memdesc:aed9398c1217d23a7d2cd9e94a09f3722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the sensor is physically present.  <br /></td></tr>
-<tr class="memitem:a132f01180c3998d6e6d751330a9b4b6d" id="r_a132f01180c3998d6e6d751330a9b4b6d"><td class="memItemLeft">constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a>&#160;</td><td class="memItemRight"><a class="el" href="#a132f01180c3998d6e6d751330a9b4b6d">getName</a> () const noexcept</td></tr>
-<tr class="memdesc:a132f01180c3998d6e6d751330a9b4b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the configured name of the sensor.  <br /></td></tr>
+<tr class="memitem:a8510d234d514c7e0cce11de72a76efa9" id="r_a8510d234d514c7e0cce11de72a76efa9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8510d234d514c7e0cce11de72a76efa9">MovingAverage</a> () noexcept=default</td></tr>
+<tr class="memdesc:a8510d234d514c7e0cce11de72a76efa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty filter.  <br /></td></tr>
+<tr class="memitem:a1475bc793d6f5d0efd3961a1752bde27" id="r_a1475bc793d6f5d0efd3961a1752bde27"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1475bc793d6f5d0efd3961a1752bde27">~MovingAverage</a> ()=default</td></tr>
+<tr class="memdesc:a1475bc793d6f5d0efd3961a1752bde27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the filter; trivial, the filter owns no resources.  <br /></td></tr>
+<tr class="memitem:a581a63a6d58adc1a6d6929fece577f99" id="r_a581a63a6d58adc1a6d6929fece577f99"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a581a63a6d58adc1a6d6929fece577f99">reset</a> () noexcept</td></tr>
+<tr class="memdesc:a581a63a6d58adc1a6d6929fece577f99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forgets all samples, so the next sample starts a new window.  <br /></td></tr>
+<tr class="memitem:aaf4c6d357fb792f439055171bc67e56b" id="r_aaf4c6d357fb792f439055171bc67e56b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaf4c6d357fb792f439055171bc67e56b">isFull</a> () const noexcept</td></tr>
+<tr class="memdesc:aaf4c6d357fb792f439055171bc67e56b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether the window holds <a class="el" href="#ae5e5a10c9bd6735cceea301fbe5aa9d5" title="WINDOW_SIZE">WINDOW_SIZE</a> samples.  <br /></td></tr>
+<tr class="memitem:ad37bfac14689d022b3c70fc9ad6f90e0" id="r_ad37bfac14689d022b3c70fc9ad6f90e0"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ad37bfac14689d022b3c70fc9ad6f90e0">getCount</a> () const noexcept</td></tr>
+<tr class="memdesc:ad37bfac14689d022b3c70fc9ad6f90e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of samples in the window.  <br /></td></tr>
+<tr class="memitem:a6253a2f3564edfd4e2007c31e220a8f0" id="r_a6253a2f3564edfd4e2007c31e220a8f0"><td class="memItemLeft">T_TYPE&#160;</td><td class="memItemRight"><a class="el" href="#a6253a2f3564edfd4e2007c31e220a8f0">getAverage</a> () const noexcept</td></tr>
+<tr class="memdesc:a6253a2f3564edfd4e2007c31e220a8f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the average of the samples in the window without adding a sample.  <br /></td></tr>
+<tr class="memitem:a3dcd298d77375acddce6844d1394fa9a" id="r_a3dcd298d77375acddce6844d1394fa9a"><td class="memItemLeft">T_TYPE&#160;</td><td class="memItemRight"><a class="el" href="#a3dcd298d77375acddce6844d1394fa9a">operator()</a> (T_TYPE value) noexcept</td></tr>
+<tr class="memdesc:a3dcd298d77375acddce6844d1394fa9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a sample, dropping the oldest one when the window is full.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ae5e5a10c9bd6735cceea301fbe5aa9d5" id="r_ae5e5a10c9bd6735cceea301fbe5aa9d5"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae5e5a10c9bd6735cceea301fbe5aa9d5">WINDOW_SIZE</a> = T_SIZE</td></tr>
+<tr class="memdesc:ae5e5a10c9bd6735cceea301fbe5aa9d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Window length in samples.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a7063555b30fb75832750a0361328040e" name="a7063555b30fb75832750a0361328040e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7063555b30fb75832750a0361328040e">&#9670;&#160;</a></span>State</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a7063555b30fb75832750a0361328040e">Lib::Pneumatics::Sensor::State</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Possible states of the sensor. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115" name="a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115"></a>ACTIVE&#160;</td><td class="fielddoc"><p>Sensor is active. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2" name="a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2"></a>INACTIVE&#160;</td><td class="fielddoc"><p>Sensor is inactive. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b" name="a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b"></a>DISABLED&#160;</td><td class="fielddoc"><p>Sensor is physically absent; its state is not meaningful. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a710e69df2dee7bfc8aa209f4f6cc8d1c" name="a710e69df2dee7bfc8aa209f4f6cc8d1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a710e69df2dee7bfc8aa209f4f6cc8d1c">&#9670;&#160;</a></span>Sensor()</h2>
+<a id="a8510d234d514c7e0cce11de72a76efa9" name="a8510d234d514c7e0cce11de72a76efa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8510d234d514c7e0cce11de72a76efa9">&#9670;&#160;</a></span>MovingAverage()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Pneumatics::Sensor::Sensor </td>
+          <td class="memname"><a class="el" href="../../dd/d4e/a06038.html">Lib::Math::Filter::MovingAverage</a>&lt; T_TYPE, T_SIZE &gt;::MovingAverage </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d5/de8/a06042.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the sensor name and input source, and configures its presence and inversion. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">config</td><td>Name, wiring source, presence flag, and inversion flag. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Creates an empty filter. </p>
+
+</div>
+</div>
+<a id="a1475bc793d6f5d0efd3961a1752bde27" name="a1475bc793d6f5d0efd3961a1752bde27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1475bc793d6f5d0efd3961a1752bde27">&#9670;&#160;</a></span>~MovingAverage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d4e/a06038.html">Lib::Math::Filter::MovingAverage</a>&lt; T_TYPE, T_SIZE &gt;::~<a class="el" href="#a8510d234d514c7e0cce11de72a76efa9">MovingAverage</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the filter; trivial, the filter owns no resources. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a132f01180c3998d6e6d751330a9b4b6d" name="a132f01180c3998d6e6d751330a9b4b6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a132f01180c3998d6e6d751330a9b4b6d">&#9670;&#160;</a></span>getName()</h2>
+<a id="a6253a2f3564edfd4e2007c31e220a8f0" name="a6253a2f3564edfd4e2007c31e220a8f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6253a2f3564edfd4e2007c31e220a8f0">&#9670;&#160;</a></span>getAverage()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> Lib::Pneumatics::Sensor::getName </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves the configured name of the sensor. </p>
-<dl class="section return"><dt>Returns</dt><dd>Name of the sensor. </dd></dl>
-
-</div>
-</div>
-<a id="af197d2b1d06755fc83c2fca16e9c02e5" name="af197d2b1d06755fc83c2fca16e9c02e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af197d2b1d06755fc83c2fca16e9c02e5">&#9670;&#160;</a></span>isActive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Pneumatics::Sensor::isActive </td>
+          <td class="memname">T_TYPE <a class="el" href="../../dd/d4e/a06038.html">Lib::Math::Filter::MovingAverage</a>&lt; T_TYPE, T_SIZE &gt;::getAverage </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -264,50 +262,26 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks whether the sensor is present and currently active. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> only for a present sensor whose effective input is active. </dd></dl>
+<p>Gets the average of the samples in the window without adding a sample. </p>
+<dl class="section return"><dt>Returns</dt><dd>Average of the stored samples, or <b>0</b> if there are none. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d23/a06511.html#a5">Lib::Math::Filter::MovingAverage</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="aed9398c1217d23a7d2cd9e94a09f3722" name="aed9398c1217d23a7d2cd9e94a09f3722"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed9398c1217d23a7d2cd9e94a09f3722">&#9670;&#160;</a></span>isPresent()</h2>
+<a id="ad37bfac14689d022b3c70fc9ad6f90e0" name="ad37bfac14689d022b3c70fc9ad6f90e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad37bfac14689d022b3c70fc9ad6f90e0">&#9670;&#160;</a></span>getCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Pneumatics::Sensor::isPresent </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Indicates whether the sensor is physically present. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the sensor is present, <em class="arg">false</em> if absent. </dd></dl>
-
-</div>
-</div>
-<a id="a2a1b8d661f06dff4eccff343ce7772bd" name="a2a1b8d661f06dff4eccff343ce7772bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a1b8d661f06dff4eccff343ce7772bd">&#9670;&#160;</a></span>read()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a7063555b30fb75832750a0361328040e">State</a> Lib::Pneumatics::Sensor::read </td>
+          <td class="memname">size_t <a class="el" href="../../dd/d4e/a06038.html">Lib::Math::Filter::MovingAverage</a>&lt; T_TYPE, T_SIZE &gt;::getCount </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -320,8 +294,134 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the current sensor state, accounting for presence and inversion. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b" title="State::DISABLED">State::DISABLED</a> if the sensor is absent, otherwise <a class="el" href="#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115" title="State::ACTIVE">State::ACTIVE</a> or <a class="el" href="#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2" title="State::INACTIVE">State::INACTIVE</a>. </dd></dl>
+<p>Gets the number of samples in the window. </p>
+<dl class="section return"><dt>Returns</dt><dd>Samples received since the last <a class="el" href="#a581a63a6d58adc1a6d6929fece577f99" title="reset()">reset()</a>, at most <a class="el" href="#ae5e5a10c9bd6735cceea301fbe5aa9d5" title="WINDOW_SIZE">WINDOW_SIZE</a>. </dd></dl>
+
+</div>
+</div>
+<a id="aaf4c6d357fb792f439055171bc67e56b" name="aaf4c6d357fb792f439055171bc67e56b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf4c6d357fb792f439055171bc67e56b">&#9670;&#160;</a></span>isFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/d4e/a06038.html">Lib::Math::Filter::MovingAverage</a>&lt; T_TYPE, T_SIZE &gt;::isFull </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports whether the window holds <a class="el" href="#ae5e5a10c9bd6735cceea301fbe5aa9d5" title="WINDOW_SIZE">WINDOW_SIZE</a> samples. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> once <a class="el" href="#ae5e5a10c9bd6735cceea301fbe5aa9d5" title="WINDOW_SIZE">WINDOW_SIZE</a> samples arrived since the last <a class="el" href="#a581a63a6d58adc1a6d6929fece577f99" title="reset()">reset()</a>, <b>false</b> before that. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d23/a06511.html#a2">Lib::Math::Filter::MovingAverage</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a3dcd298d77375acddce6844d1394fa9a" name="a3dcd298d77375acddce6844d1394fa9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dcd298d77375acddce6844d1394fa9a">&#9670;&#160;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_TYPE <a class="el" href="../../dd/d4e/a06038.html">Lib::Math::Filter::MovingAverage</a>&lt; T_TYPE, T_SIZE &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>() </td>
+          <td>(</td>
+          <td class="paramtype">T_TYPE</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds a sample, dropping the oldest one when the window is full. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>New sample. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Average of the samples in the window, including the new one. </dd></dl>
+
+</div>
+</div>
+<a id="a581a63a6d58adc1a6d6929fece577f99" name="a581a63a6d58adc1a6d6929fece577f99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a581a63a6d58adc1a6d6929fece577f99">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../dd/d4e/a06038.html">Lib::Math::Filter::MovingAverage</a>&lt; T_TYPE, T_SIZE &gt;::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Forgets all samples, so the next sample starts a new window. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d23/a06511.html#a4">Lib::Math::Filter::MovingAverage</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ae5e5a10c9bd6735cceea301fbe5aa9d5" name="ae5e5a10c9bd6735cceea301fbe5aa9d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5e5a10c9bd6735cceea301fbe5aa9d5">&#9670;&#160;</a></span>WINDOW_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_TYPE, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../dd/d4e/a06038.html">Lib::Math::Filter::MovingAverage</a>&lt; T_TYPE, T_SIZE &gt;::WINDOW_SIZE = T_SIZE</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Window length in samples. </p>
 
 </div>
 </div>
@@ -332,7 +432,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../d9/d10/a01103.html">Pneumatics</a></li><li class="navelem"><a href="../../dd/d4e/a06038.html">Sensor</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../d9/d12/a01128.html">Math</a></li><li class="navelem"><a href="../../d9/d17/a01129.html">Filter</a></li><li class="navelem"><a href="../../dd/d4e/a06038.html">MovingAverage</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

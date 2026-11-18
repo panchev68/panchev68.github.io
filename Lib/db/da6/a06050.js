@@ -1,13 +1,20 @@
 var a06050 =
 [
-    [ "CriticalSectionFromISR", "d8/d89/a06054.html", "d8/d89/a06054" ],
-    [ "CriticalSection", "d4/db5/a06058.html", "d4/db5/a06058" ],
-    [ "Scheduler", "d9/de2/a06062.html", "d9/de2/a06062" ],
-    [ "MemoryInfo", "db/dd3/a06070.html", "db/dd3/a06070" ],
-    [ "InterruptMask", "db/da6/a06050.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
-    [ "TaskCount", "db/da6/a06050.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
-    [ "TickDuration", "db/da6/a06050.html#ab8efa244b2762e143dbfc23e170ed0e1", null ],
-    [ "TickType", "db/da6/a06050.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
-    [ "Kernel", "db/da6/a06050.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
-    [ "~Kernel", "db/da6/a06050.html#a002477130b9e5bd7adc19142c1516c08", null ]
+    [ "Point", "d8/d89/a06054.html", "d8/d89/a06054" ],
+    [ "BoundaryType", "db/da6/a06050.html#aa4199170b826f8a973a54466af4c6ee7", [
+      [ "NATURAL", "db/da6/a06050.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
+      [ "CLAMPED", "db/da6/a06050.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
+    ] ],
+    [ "CubicInterpolation", "db/da6/a06050.html#ab036a2fd8ca103e4758c6df093edaf14", null ],
+    [ "CubicInterpolation", "db/da6/a06050.html#a4a43a32405ea514da8602d0b35b84868", null ],
+    [ "addPoint", "db/da6/a06050.html#ac25d98350678032e22250cfb3e5d6f6c", null ],
+    [ "addPoint", "db/da6/a06050.html#a0b929d4a4af7056b393a4e6c90611819", null ],
+    [ "clear", "db/da6/a06050.html#ae0955a5674c3c10f5eab1eb0fff390a5", null ],
+    [ "getDerivative", "db/da6/a06050.html#a8cbe3d4cea98501bacb9f4d5e69fedef", null ],
+    [ "getPoint", "db/da6/a06050.html#af3ef54431ffd69abd9b51302ad670f87", null ],
+    [ "getPointCount", "db/da6/a06050.html#a85e1404919ead5d47edb147006232b3e", null ],
+    [ "interpolate", "db/da6/a06050.html#a1e9efb980eff0b0bf4d45b23b118a437", null ],
+    [ "isEmpty", "db/da6/a06050.html#a552b92b0ae650ee4098030fa28a91528", null ],
+    [ "setBoundaryConditions", "db/da6/a06050.html#aad89790e19eeff17d5af45f4201e9430", null ],
+    [ "sortPoints", "db/da6/a06050.html#a9e8759ad8a98c3f4108e3d59ac52577e", null ]
 ];

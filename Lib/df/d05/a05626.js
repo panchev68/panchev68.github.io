@@ -1,16 +1,9 @@
 var a05626 =
 [
-    [ "I2CPortAsync", "df/d05/a05626.html#a97738073feff35b79d6bb11c9bd2f351", null ],
-    [ "abort", "df/d05/a05626.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "df/d05/a05626.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "df/d05/a05626.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "df/d05/a05626.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "df/d05/a05626.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
-    [ "isOpened", "df/d05/a05626.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "isReady", "df/d05/a05626.html#a14c943a270b82f4b76faffc2822e1408", null ],
-    [ "masterMemRead", "df/d05/a05626.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "df/d05/a05626.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "df/d05/a05626.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "df/d05/a05626.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "df/d05/a05626.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "Handle", "df/d05/a05626.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
+    [ "Handle", "df/d05/a05626.html#a2ff88e41407c02b9858a201f579b32a1", null ],
+    [ "getPinNumber", "df/d05/a05626.html#a8d29716bb6bcc278e753e55560639c17", null ],
+    [ "getPort", "df/d05/a05626.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
+    [ "getPort", "df/d05/a05626.html#a717fa8fdec63c64bef95cffab50ed478", null ],
+    [ "operator==", "df/d05/a05626.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
 ];

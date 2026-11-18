@@ -1,26 +1,15 @@
 var a05366 =
 [
-    [ "MessageHeader", "d8/d1d/a05370.html", "d8/d1d/a05370" ],
-    [ "Command", "d8/deb/a05366.html#af1bf58d46a2365d039aa946466c931e4", [
-      [ "ECHO", "d8/deb/a05366.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409", null ],
-      [ "INPUTS", "d8/deb/a05366.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692", null ],
-      [ "OUTPUTS", "d8/deb/a05366.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70", null ]
-    ] ],
-    [ "Error", "d8/deb/a05366.html#af7acfca02d188807a9c220d5c0bfeda6", [
-      [ "OK", "d8/deb/a05366.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "COMMAND_NOT_SUPPORT", "d8/deb/a05366.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7", null ],
-      [ "EMPTY_MESSAGE", "d8/deb/a05366.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0", null ],
-      [ "INVALID_PAYLOAD_LENGTH", "d8/deb/a05366.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e", null ],
-      [ "INVALID_START_DELIMITER", "d8/deb/a05366.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c", null ]
-    ] ],
-    [ "UserProtocol", "d8/deb/a05366.html#ab11ca2634a103484248a6d8ea24a5407", null ],
-    [ "~UserProtocol", "d8/deb/a05366.html#ad2bb639951ce599fce10adfb65668d02", null ],
-    [ "build", "d8/deb/a05366.html#ae9170839094fc83686dd4af2244027fb", null ],
-    [ "echoCallback", "d8/deb/a05366.html#a3061aa5da161fa13a28466c38e0f725f", null ],
-    [ "getLastSentTimeStamp", "d8/deb/a05366.html#ad39a3a83a2a35aab8c09065f6ea63f0f", null ],
-    [ "handleIncomingMessageHeader", "d8/deb/a05366.html#aa78f9b31828d798a794fcd69e78f46e2", null ],
-    [ "handleOutputsUpdate", "d8/deb/a05366.html#a78c96c1519356f5ea3948970fff30d5c", null ],
-    [ "inputsUpdateCallback", "d8/deb/a05366.html#a26f74b072f3f808ae2a3374051efa833", null ],
-    [ "parse", "d8/deb/a05366.html#a5693bd9519902713725ab87ae72a635d", null ],
-    [ "updateNodeActivityCallback", "d8/deb/a05366.html#a9937ef06792e7b6d381e0b29d25c1f27", null ]
+    [ "Error", "d8/deb/a05366.html#a9d7546738e259f57d9e431d88a39ac23", null ],
+    [ "Handlers", "d8/deb/a05366.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
+    [ "FoE", "d8/deb/a05366.html#ad7dd21bafde30794cef6a653baacc862", null ],
+    [ "~FoE", "d8/deb/a05366.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
+    [ "FoE", "d8/deb/a05366.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
+    [ "FoE", "d8/deb/a05366.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
+    [ "handle", "d8/deb/a05366.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
+    [ "isBusy", "d8/deb/a05366.html#a4463e44a62dae7598614225dc069e03c", null ],
+    [ "operator=", "d8/deb/a05366.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
+    [ "operator=", "d8/deb/a05366.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
+    [ "reset", "d8/deb/a05366.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
+    [ "setHandlers", "d8/deb/a05366.html#a39b767747ef43947171f73021ee9dd76", null ]
 ];

@@ -1,9 +1,7 @@
 var a06066 =
 [
-    [ "Lock", "d3/d23/a06066.html#a79915981fe481334533677f3c4691e1f", null ],
-    [ "~Lock", "d3/d23/a06066.html#acca996da9f16704d9247d8d2f0bab3e1", null ],
-    [ "Lock", "d3/d23/a06066.html#a7da060988728f2b1731d04e7b4465ffb", null ],
-    [ "Lock", "d3/d23/a06066.html#a73e4ec26337a86b9060fbfd8356a083c", null ],
-    [ "operator=", "d3/d23/a06066.html#a58e51b984954b6ea0275dd7b48479bb2", null ],
-    [ "operator=", "d3/d23/a06066.html#a2af1d07230d3a75aee8b72daf7ec73bf", null ]
+    [ "Point", "d3/d23/a06066.html#af92f73fda44486edb268ec0d7bc9446b", null ],
+    [ "Point", "d3/d23/a06066.html#a0684d399017f899ed84a5cf222704904", null ],
+    [ "x", "d3/d23/a06066.html#ade6943178d200f4eecb5a7a84e593ba0", null ],
+    [ "y", "d3/d23/a06066.html#a0921a157fe3803511d1d72c3b5461ca4", null ]
 ];

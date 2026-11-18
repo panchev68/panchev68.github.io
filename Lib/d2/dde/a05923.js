@@ -1,12 +1,14 @@
 var a05923 =
 [
-    [ "Time", "d2/dde/a05923.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "d2/dde/a05923.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "d2/dde/a05923.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "d2/dde/a05923.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "d2/dde/a05923.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "d2/dde/a05923.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "d2/dde/a05923.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "d2/dde/a05923.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "d2/dde/a05923.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "Time", "d3/d20/a05927.html", "d3/d20/a05927" ],
+    [ "Date", "d7/d57/a05931.html", "d7/d57/a05931" ],
+    [ "DateTime", "d2/dde/a05923.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
+    [ "DateTime", "d2/dde/a05923.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
+    [ "isValid", "d2/dde/a05923.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
+    [ "operator<=>", "d2/dde/a05923.html#a768cad764174be4d63763ddda26b9f67", null ],
+    [ "operator==", "d2/dde/a05923.html#a3d983b842fee71216375379ddc6be3ce", null ],
+    [ "to_tm", "d2/dde/a05923.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
+    [ "toSysSeconds", "d2/dde/a05923.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
+    [ "date", "d2/dde/a05923.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
+    [ "time", "d2/dde/a05923.html#a99c6886879b06c9396a2df8bd08ce997", null ]
 ];

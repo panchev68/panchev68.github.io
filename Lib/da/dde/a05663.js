@@ -1,13 +1,12 @@
 var a05663 =
 [
-    [ "I2CPortAsync", "da/dde/a05663.html#a97738073feff35b79d6bb11c9bd2f351", null ],
+    [ "I2CPort", "da/dde/a05663.html#a5ed7014d6c1bb4669c90ada1b61bbffe", null ],
+    [ "~I2CPort", "da/dde/a05663.html#a28d64cb04bd2cd5f1648ac33b94bf4ec", null ],
     [ "abort", "da/dde/a05663.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
     [ "close", "da/dde/a05663.html#a03c62c024b148a264f9a6a0077198302", null ],
     [ "getHandle", "da/dde/a05663.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "da/dde/a05663.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "da/dde/a05663.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
     [ "isOpened", "da/dde/a05663.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "isReady", "da/dde/a05663.html#a14c943a270b82f4b76faffc2822e1408", null ],
     [ "masterMemRead", "da/dde/a05663.html#ac646e78e8e291b9116d22e6593178c3b", null ],
     [ "masterMemWrite", "da/dde/a05663.html#adb29287498169b21a8c183a469cc20f4", null ],
     [ "masterReceive", "da/dde/a05663.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],

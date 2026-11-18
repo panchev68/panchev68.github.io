@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</title>
+<title>IAR EWARM Library: Lib::BSP::EncoderTimer</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -119,98 +132,55 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/dd7/a04586.
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d0/d9d/a04583.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::EncoderTimer<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Quad-SPI (OCTOSPI) device driver for the Winbond W25Q128JVSIQ. </p>
-<p>Read, write and erase run over OCTOSPI in regular command mode: Fast Read Quad I/O for reads and Quad Page Program (1-1-4) for writes. <a class="el" href="#acc5fbed9faca7400c7d70130fbb74131" title="open()">open()</a> runs a power-up, reset and JEDEC ID probe, and the driver is present only when the probe reports the 16 MB capacity code.</p>
-<p>Deep power-down: <b>powerDown()</b> and <b>powerUp()</b> wait the datasheet time tDP / tRES1 (3 us), so the next command may follow at once. While powered down the device ignores every command except Release Power-Down, so a caller that uses <a class="el" href="#a8a0d94550896c7062f6594cd0e532007" title="enterPowerDown()">enterPowerDown()</a> must call <a class="el" href="#a686c0c59ab4f223b15aefeeab43ca2bd" title="releasePowerDown()">releasePowerDown()</a> before the next access.</p>
-<p>Program and erase waits sleep the calling task between BUSY polls once the scheduler runs. For the same device on a plain 4-wire SPI bus, see <a class="el" href="../../d6/d76/a04606.html" title="Lib::BSP::W25Q128JVSIQ">Lib::BSP::W25Q128JVSIQ</a>.</p>
-<p>The header compiles to nothing unless the HAL configuration defines <em class="arg">HAL_OSPI_MODULE_ENABLED</em>, so it is only usable on an MCU with an OCTOSPI peripheral and that module enabled.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://www.winbond.com/resource-files/W25Q128JV%20RevI%2008232021%20Plus.pdf" target="_blank">W25Q128JV datasheet, Rev I (Winbond-hosted copy)</a>, older revision; the newest found is Rev M (December 2024), not yet confirmed on winbond.com</dd></dl>
+<div class="textblock"><p>Rotary encoder on a timer in encoder mode, with a push button, polled for events from one task. </p>
+<p>Rotation, button changes and the hold time are evaluated only inside <a class="el" href="#afa10c44ad4eee7779caf46410cac1255" title="read()">read()</a>, so call it periodically. The direction comes from the timer's direction bit, so it stays correct when the counter wraps. The button is <b>active low</b>, served through <a class="el" href="../../dc/d69/a05614.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> in its worker task.</p>
+<dl class="section important"><dt>Important</dt><dd>Several steps between two <a class="el" href="#afa10c44ad4eee7779caf46410cac1255" title="read()">read()</a> calls make one event: poll faster than one detent can be turned.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Cannot be combined in one program with <a class="el" href="../../d2/dd4/a06405.html" title="Lib::BSP::EncoderPins">Lib::BSP::EncoderPins</a>, which needs its own <b>HAL_GPIO_EXTI_Callback()</b>.</dd></dl>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/FlashMemory/OSPI/W25Q128JVSIQ.hpp" target="_blank">Source</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2b/a06336.html#_a0">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/Encoder/EncoderTimer.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/de7/a06407.html#_a1">Lib::BSP::EncoderTimer</a>.</dd>
 </dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Register" id="r_Register"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d1b/a04590.html">Register</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-level instruction opcodes used to communicate with the device over OCTOSPI.  <a href="../../d6/d1b/a04590.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d1b/a04590.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer and button binding of the encoder.  <a href="../../d6/d1b/a04590.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a59ef93437c59f8f672e38905b5e11dc7" id="r_a59ef93437c59f8f672e38905b5e11dc7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> (const <a class="el" href="#a5627e540e90ee9b11c249f9dfd3596ec">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a59ef93437c59f8f672e38905b5e11dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the driver bound to the provided OCTOSPI port.  <br /></td></tr>
-<tr class="memitem:aeb4e3658c1a50d80811bddb4e5794788" id="r_aeb4e3658c1a50d80811bddb4e5794788"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aeb4e3658c1a50d80811bddb4e5794788">~W25Q128JVSIQ</a> () noexcept=default</td></tr>
-<tr class="memdesc:aeb4e3658c1a50d80811bddb4e5794788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the driver; the referenced OCTOSPI port is owned and closed by its caller, not by this class.  <br /></td></tr>
-<tr class="memitem:a8e63f6957e7d3835c28850539c92b803" id="r_a8e63f6957e7d3835c28850539c92b803"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8e63f6957e7d3835c28850539c92b803">W25Q128JVSIQ</a> (const W25Q128JVSIQ &amp;)=delete</td></tr>
-<tr class="memdesc:a8e63f6957e7d3835c28850539c92b803"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor; the referenced OCTOSPI port must have exactly one owner.  <br /></td></tr>
-<tr class="memitem:aede81ab56acac1b91b78600c0c6e82c5" id="r_aede81ab56acac1b91b78600c0c6e82c5"><td class="memItemLeft"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aede81ab56acac1b91b78600c0c6e82c5">operator=</a> (const <a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;)=delete</td></tr>
-<tr class="memdesc:aede81ab56acac1b91b78600c0c6e82c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator; the referenced OCTOSPI port must have exactly one owner.  <br /></td></tr>
-<tr class="memitem:ab86a72c21a4af20d878b815237041775" id="r_ab86a72c21a4af20d878b815237041775"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab86a72c21a4af20d878b815237041775">W25Q128JVSIQ</a> (W25Q128JVSIQ &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:ab86a72c21a4af20d878b815237041775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted move constructor; the referenced OCTOSPI port must have exactly one owner.  <br /></td></tr>
-<tr class="memitem:a042aafe50feeb5ffe960d362458e460e" id="r_a042aafe50feeb5ffe960d362458e460e"><td class="memItemLeft"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a042aafe50feeb5ffe960d362458e460e">operator=</a> (<a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a042aafe50feeb5ffe960d362458e460e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted move assignment operator; the referenced OCTOSPI port must have exactly one owner.  <br /></td></tr>
-<tr class="memitem:acc5fbed9faca7400c7d70130fbb74131" id="r_acc5fbed9faca7400c7d70130fbb74131"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acc5fbed9faca7400c7d70130fbb74131">open</a> () noexcept</td></tr>
-<tr class="memdesc:acc5fbed9faca7400c7d70130fbb74131"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the device and caches its parameters.  <br /></td></tr>
-<tr class="memitem:ab84d3fc2e1e49b6feddd226fdc925ae6" id="r_ab84d3fc2e1e49b6feddd226fdc925ae6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab84d3fc2e1e49b6feddd226fdc925ae6">close</a> () noexcept</td></tr>
-<tr class="memdesc:ab84d3fc2e1e49b6feddd226fdc925ae6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the device and powers it down.  <br /></td></tr>
-<tr class="memitem:a8a0d94550896c7062f6594cd0e532007" id="r_a8a0d94550896c7062f6594cd0e532007"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8a0d94550896c7062f6594cd0e532007">enterPowerDown</a> () noexcept</td></tr>
-<tr class="memdesc:a8a0d94550896c7062f6594cd0e532007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts an opened device into deep power-down between accesses; the port stays open.  <br /></td></tr>
-<tr class="memitem:a686c0c59ab4f223b15aefeeab43ca2bd" id="r_a686c0c59ab4f223b15aefeeab43ca2bd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a686c0c59ab4f223b15aefeeab43ca2bd">releasePowerDown</a> () noexcept</td></tr>
-<tr class="memdesc:a686c0c59ab4f223b15aefeeab43ca2bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the device from deep power-down; call before any access after <a class="el" href="#a8a0d94550896c7062f6594cd0e532007" title="enterPowerDown()">enterPowerDown()</a>.  <br /></td></tr>
-<tr class="memitem:a3f7a3b245b2a704b45e6a638a2c9c971" id="r_a3f7a3b245b2a704b45e6a638a2c9c971"><td class="memItemLeft">const <a class="el" href="#a4d44e5999bff4b46f38692666fdcc25d">Info</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3f7a3b245b2a704b45e6a638a2c9c971">getInfo</a> () const noexcept</td></tr>
-<tr class="memdesc:a3f7a3b245b2a704b45e6a638a2c9c971"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the cached device information.  <br /></td></tr>
-<tr class="memitem:a40a9ef783ecafece7202ae4ec39d4939" id="r_a40a9ef783ecafece7202ae4ec39d4939"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a40a9ef783ecafece7202ae4ec39d4939">isPresent</a> () const noexcept</td></tr>
-<tr class="memdesc:a40a9ef783ecafece7202ae4ec39d4939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the device is present and initialized.  <br /></td></tr>
-<tr class="memitem:abb4813e3ca50641c3bc3d1a367927ab8" id="r_abb4813e3ca50641c3bc3d1a367927ab8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abb4813e3ca50641c3bc3d1a367927ab8">read</a> (uint32_t addr, void *buffer, size_t size) noexcept</td></tr>
-<tr class="memdesc:abb4813e3ca50641c3bc3d1a367927ab8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads <em class="arg">size</em> bytes from the device starting at <em class="arg">addr</em> into <em class="arg">buffer</em>.  <br /></td></tr>
-<tr class="memitem:a48fee6a63474b5ad43a51157fcd0129a" id="r_a48fee6a63474b5ad43a51157fcd0129a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a48fee6a63474b5ad43a51157fcd0129a">write</a> (uint32_t addr, const void *data, size_t size) noexcept</td></tr>
-<tr class="memdesc:a48fee6a63474b5ad43a51157fcd0129a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes <em class="arg">size</em> bytes from <em class="arg">data</em> to the device starting at <em class="arg">addr</em>.  <br /></td></tr>
-<tr class="memitem:aff869cb6bde4f4f94493097c4c7e2da6" id="r_aff869cb6bde4f4f94493097c4c7e2da6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aff869cb6bde4f4f94493097c4c7e2da6">eraseSector</a> (uint32_t addr) noexcept</td></tr>
-<tr class="memdesc:aff869cb6bde4f4f94493097c4c7e2da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases the 4 KB sector that contains <em class="arg">addr</em>.  <br /></td></tr>
-<tr class="memitem:a0b3b683afc77b0c0ee69e757c581a722" id="r_a0b3b683afc77b0c0ee69e757c581a722"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0b3b683afc77b0c0ee69e757c581a722">eraseChip</a> () noexcept</td></tr>
-<tr class="memdesc:a0b3b683afc77b0c0ee69e757c581a722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases the entire device.  <br /></td></tr>
+<tr class="memitem:aaf07b62dc5be29307f86fc985c41c7ab" id="r_aaf07b62dc5be29307f86fc985c41c7ab"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> (const <a class="el" href="../../d6/d1b/a04590.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:aaf07b62dc5be29307f86fc985c41c7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to its timer and button without touching the hardware.  <br /></td></tr>
+<tr class="memitem:a449279e87494b389cfa1adba8e7f6b37" id="r_a449279e87494b389cfa1adba8e7f6b37"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a449279e87494b389cfa1adba8e7f6b37">~EncoderTimer</a> () noexcept</td></tr>
+<tr class="memdesc:a449279e87494b389cfa1adba8e7f6b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the driver if still open, so no button callback is left pointing at a destroyed object.  <br /></td></tr>
+<tr class="memitem:a99753bd300ae9ecf9544bf7ba709e3f5" id="r_a99753bd300ae9ecf9544bf7ba709e3f5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a99753bd300ae9ecf9544bf7ba709e3f5">EncoderTimer</a> (const EncoderTimer &amp;other)=delete</td></tr>
+<tr class="memdesc:a99753bd300ae9ecf9544bf7ba709e3f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns the timer and the button interrupt registration.  <br /></td></tr>
+<tr class="memitem:a7d21c22284a66c9cbf8d4260a84aef01" id="r_a7d21c22284a66c9cbf8d4260a84aef01"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7d21c22284a66c9cbf8d4260a84aef01">EncoderTimer</a> (EncoderTimer &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a7d21c22284a66c9cbf8d4260a84aef01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the bound button callback captures <em class="arg">this</em>.  <br /></td></tr>
+<tr class="memitem:a6e4f9be3709b642fa4507cda01d85fc1" id="r_a6e4f9be3709b642fa4507cda01d85fc1"><td class="memItemLeft"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6e4f9be3709b642fa4507cda01d85fc1">operator=</a> (const <a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a6e4f9be3709b642fa4507cda01d85fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns the timer and the button interrupt registration.  <br /></td></tr>
+<tr class="memitem:a8f9bc205f553a774c7a25beff08602ac" id="r_a8f9bc205f553a774c7a25beff08602ac"><td class="memItemLeft"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8f9bc205f553a774c7a25beff08602ac">operator=</a> (<a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a8f9bc205f553a774c7a25beff08602ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the bound button callback captures <em class="arg">this</em>.  <br /></td></tr>
+<tr class="memitem:a332145ce828a12688d8de9aea070c328" id="r_a332145ce828a12688d8de9aea070c328"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a332145ce828a12688d8de9aea070c328">open</a> () noexcept</td></tr>
+<tr class="memdesc:a332145ce828a12688d8de9aea070c328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer, opens the button queue and binds the button callback.  <br /></td></tr>
+<tr class="memitem:a9e37bcbed278df67dad753953c0e0505" id="r_a9e37bcbed278df67dad753953c0e0505"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9e37bcbed278df67dad753953c0e0505">close</a> () noexcept</td></tr>
+<tr class="memdesc:a9e37bcbed278df67dad753953c0e0505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unbinds the button callback, closes the queue and stops the timer.  <br /></td></tr>
+<tr class="memitem:afa10c44ad4eee7779caf46410cac1255" id="r_afa10c44ad4eee7779caf46410cac1255"><td class="memItemLeft"><a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7">EventCode</a>&#160;</td><td class="memItemRight"><a class="el" href="#afa10c44ad4eee7779caf46410cac1255">read</a> () noexcept</td></tr>
+<tr class="memdesc:afa10c44ad4eee7779caf46410cac1255"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the next pending event without blocking.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:aa64ce59f0c59f795c337dcad2b2a104e" id="r_aa64ce59f0c59f795c337dcad2b2a104e"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa64ce59f0c59f795c337dcad2b2a104e">BUTTON_HOLD_TIME</a> {2000}</td></tr>
+<tr class="memdesc:aa64ce59f0c59f795c337dcad2b2a104e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time the button must stay down to count as held.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a5627e540e90ee9b11c249f9dfd3596ec" name="a5627e540e90ee9b11c249f9dfd3596ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5627e540e90ee9b11c249f9dfd3596ec">&#9670;&#160;</a></span>Config</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a5627e540e90ee9b11c249f9dfd3596ec">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Config</a> = <a class="el" href="../../dc/d8b/a04578.html">Lib::BSP::FMEM::OSPI::Config</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Runtime configuration for driver construction; see <a class="el" href="../../dc/d8b/a04578.html" title="Lib::BSP::FMEM::OSPI::Config">Lib::BSP::FMEM::OSPI::Config</a> for field documentation. </p>
-
-</div>
-</div>
-<a id="a4d44e5999bff4b46f38692666fdcc25d" name="a4d44e5999bff4b46f38692666fdcc25d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d44e5999bff4b46f38692666fdcc25d">&#9670;&#160;</a></span>Info</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a4d44e5999bff4b46f38692666fdcc25d">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Info</a> = <a class="el" href="../../d5/d03/a04582.html">Lib::BSP::FMEM::OSPI::Info</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Device information obtained from JEDEC ID; see <a class="el" href="../../d5/d03/a04582.html" title="Lib::BSP::FMEM::OSPI::Info">Lib::BSP::FMEM::OSPI::Info</a> for field documentation. </p>
-
-</div>
-</div>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a59ef93437c59f8f672e38905b5e11dc7" name="a59ef93437c59f8f672e38905b5e11dc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59ef93437c59f8f672e38905b5e11dc7">&#9670;&#160;</a></span>W25Q128JVSIQ() <span class="overload">[1/3]</span></h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a79bb5179e93b8bb7fb1dca034f1572f7" name="a79bb5179e93b8bb7fb1dca034f1572f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79bb5179e93b8bb7fb1dca034f1572f7">&#9670;&#160;</a></span>EventCode</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,9 +189,50 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::W25Q128JVSIQ </td>
+          <td class="memname">enum class <a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7">Lib::BSP::EncoderTimer::EventCode</a> : int8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Event returned by read(). </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c" name="a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c"></a>BUTTON_PUSH&#160;</td><td class="fielddoc"><p>Button pressed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972" name="a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972"></a>BUTTON_PULL&#160;</td><td class="fielddoc"><p>Button released, also after a hold. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e" name="a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e"></a>BUTTON_HOLD&#160;</td><td class="fielddoc"><p>Button still down <a class="el" href="#aa64ce59f0c59f795c337dcad2b2a104e" title="BUTTON_HOLD_TIME">BUTTON_HOLD_TIME</a> after the push; reported once per press. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404" name="a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404"></a>ENCODER_CW&#160;</td><td class="fielddoc"><p>Encoder rotated clockwise. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b" name="a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b"></a>ENCODER_CCW&#160;</td><td class="fielddoc"><p>Encoder rotated counter-clockwise. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693" name="a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p>No event pending. </p>
+</td></tr>
+</table>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/de7/a06407.html#_a4">Lib::BSP::EncoderTimer</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aaf07b62dc5be29307f86fc985c41c7ab" name="aaf07b62dc5be29307f86fc985c41c7ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf07b62dc5be29307f86fc985c41c7ab">&#9670;&#160;</a></span>EncoderTimer() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::EncoderTimer::EncoderTimer </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a5627e540e90ee9b11c249f9dfd3596ec">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d6/d1b/a04590.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -232,18 +243,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs the driver bound to the provided OCTOSPI port. </p>
+<p>Binds the driver to its timer and button without touching the hardware. </p>
+<p>Call <a class="el" href="#a332145ce828a12688d8de9aea070c328" title="open()">open()</a> to start it.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Runtime configuration referencing the shared OCTOSPI port. </td></tr>
+    <tr><td class="paramname">config</td><td>Timer and button binding. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="aeb4e3658c1a50d80811bddb4e5794788" name="aeb4e3658c1a50d80811bddb4e5794788"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb4e3658c1a50d80811bddb4e5794788">&#9670;&#160;</a></span>~W25Q128JVSIQ()</h2>
+<a id="a449279e87494b389cfa1adba8e7f6b37" name="a449279e87494b389cfa1adba8e7f6b37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a449279e87494b389cfa1adba8e7f6b37">&#9670;&#160;</a></span>~EncoderTimer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -252,7 +264,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::~W25Q128JVSIQ </td>
+          <td class="memname">Lib::BSP::EncoderTimer::~EncoderTimer </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -260,17 +272,17 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the driver; the referenced OCTOSPI port is owned and closed by its caller, not by this class. </p>
+<p>Closes the driver if still open, so no button callback is left pointing at a destroyed object. </p>
 
 </div>
 </div>
-<a id="a8e63f6957e7d3835c28850539c92b803" name="a8e63f6957e7d3835c28850539c92b803"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e63f6957e7d3835c28850539c92b803">&#9670;&#160;</a></span>W25Q128JVSIQ() <span class="overload">[2/3]</span></h2>
+<a id="a99753bd300ae9ecf9544bf7ba709e3f5" name="a99753bd300ae9ecf9544bf7ba709e3f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99753bd300ae9ecf9544bf7ba709e3f5">&#9670;&#160;</a></span>EncoderTimer() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,9 +291,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::W25Q128JVSIQ </td>
+          <td class="memname">Lib::BSP::EncoderTimer::EncoderTimer </td>
           <td>(</td>
-          <td class="paramtype">const W25Q128JVSIQ &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const EncoderTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -292,12 +304,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deleted copy constructor; the referenced OCTOSPI port must have exactly one owner. </p>
+<p>Non-copyable: owns the timer and the button interrupt registration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="ab86a72c21a4af20d878b815237041775" name="ab86a72c21a4af20d878b815237041775"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab86a72c21a4af20d878b815237041775">&#9670;&#160;</a></span>W25Q128JVSIQ() <span class="overload">[3/3]</span></h2>
+<a id="a7d21c22284a66c9cbf8d4260a84aef01" name="a7d21c22284a66c9cbf8d4260a84aef01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d21c22284a66c9cbf8d4260a84aef01">&#9670;&#160;</a></span>EncoderTimer() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,9 +324,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::W25Q128JVSIQ </td>
+          <td class="memname">Lib::BSP::EncoderTimer::EncoderTimer </td>
           <td>(</td>
-          <td class="paramtype">W25Q128JVSIQ &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">EncoderTimer &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -319,13 +337,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deleted move constructor; the referenced OCTOSPI port must have exactly one owner. </p>
+<p>Non-movable: the bound button callback captures <em class="arg">this</em>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ab84d3fc2e1e49b6feddd226fdc925ae6" name="ab84d3fc2e1e49b6feddd226fdc925ae6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab84d3fc2e1e49b6feddd226fdc925ae6">&#9670;&#160;</a></span>close()</h2>
+<a id="a9e37bcbed278df67dad753953c0e0505" name="a9e37bcbed278df67dad753953c0e0505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e37bcbed278df67dad753953c0e0505">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -334,7 +358,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::close </td>
+          <td class="memname">bool Lib::BSP::EncoderTimer::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -347,13 +371,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the device and powers it down. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if both power-down and port close succeeded; otherwise <em class="arg">false</em>. </dd></dl>
+<p>Unbinds the button callback, closes the queue and stops the timer. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the timer stopped cleanly. </dd></dl>
 
 </div>
 </div>
-<a id="a8a0d94550896c7062f6594cd0e532007" name="a8a0d94550896c7062f6594cd0e532007"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a0d94550896c7062f6594cd0e532007">&#9670;&#160;</a></span>enterPowerDown()</h2>
+<a id="a332145ce828a12688d8de9aea070c328" name="a332145ce828a12688d8de9aea070c328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a332145ce828a12688d8de9aea070c328">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -362,7 +386,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown </td>
+          <td class="memname">bool Lib::BSP::EncoderTimer::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -375,15 +399,16 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Puts an opened device into deep power-down between accesses; the port stays open. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the device was present and the command was sent; otherwise <em class="arg">false</em>. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2b/a06336.html#a6">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
+<p>Starts the timer, opens the button queue and binds the button callback. </p>
+<p>Latches the current counter, so the first <a class="el" href="#afa10c44ad4eee7779caf46410cac1255" title="read()">read()</a> reports no spurious rotation. A failed step rolls back the ones before it. Does nothing if already open.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the driver is open afterwards. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/de7/a06407.html#a3">Lib::BSP::EncoderTimer</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="a0b3b683afc77b0c0ee69e757c581a722" name="a0b3b683afc77b0c0ee69e757c581a722"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b3b683afc77b0c0ee69e757c581a722">&#9670;&#160;</a></span>eraseChip()</h2>
+<a id="a6e4f9be3709b642fa4507cda01d85fc1" name="a6e4f9be3709b642fa4507cda01d85fc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e4f9be3709b642fa4507cda01d85fc1">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -392,160 +417,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseChip </td>
+          <td class="memname"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp; Lib::BSP::EncoderTimer::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Erases the entire device. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
-
-</div>
-</div>
-<a id="aff869cb6bde4f4f94493097c4c7e2da6" name="aff869cb6bde4f4f94493097c4c7e2da6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff869cb6bde4f4f94493097c4c7e2da6">&#9670;&#160;</a></span>eraseSector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Erases the 4 KB sector that contains <em class="arg">addr</em>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addr</td><td>Address inside the sector to erase. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2b/a06336.html#a3">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a3f7a3b245b2a704b45e6a638a2c9c971" name="a3f7a3b245b2a704b45e6a638a2c9c971"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f7a3b245b2a704b45e6a638a2c9c971">&#9670;&#160;</a></span>getInfo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="#a4d44e5999bff4b46f38692666fdcc25d">Info</a> &amp; Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::getInfo </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the cached device information. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the device Info structure. </dd></dl>
-
-</div>
-</div>
-<a id="a40a9ef783ecafece7202ae4ec39d4939" name="a40a9ef783ecafece7202ae4ec39d4939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a40a9ef783ecafece7202ae4ec39d4939">&#9670;&#160;</a></span>isPresent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the device is present and initialized. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the device is present; otherwise <em class="arg">false</em>. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2b/a06336.html#a1">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="acc5fbed9faca7400c7d70130fbb74131" name="acc5fbed9faca7400c7d70130fbb74131"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc5fbed9faca7400c7d70130fbb74131">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initializes the device and caches its parameters. </p>
-<p>Opens the OCTOSPI port, then performs a power-up, reset and JEDEC probe sequence. If the power-up or reset step fails, the OCTOSPI port opened here is closed again before returning.</p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when device is present and initialized; otherwise <em class="arg">false</em>. </dd></dl>
-
-</div>
-</div>
-<a id="aede81ab56acac1b91b78600c0c6e82c5" name="aede81ab56acac1b91b78600c0c6e82c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aede81ab56acac1b91b78600c0c6e82c5">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp; Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -556,12 +430,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deleted copy assignment operator; the referenced OCTOSPI port must have exactly one owner. </p>
+<p>Non-copyable: owns the timer and the button interrupt registration. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this driver. </dd></dl>
 
 </div>
 </div>
-<a id="a042aafe50feeb5ffe960d362458e460e" name="a042aafe50feeb5ffe960d362458e460e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a042aafe50feeb5ffe960d362458e460e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a8f9bc205f553a774c7a25beff08602ac" name="a8f9bc205f553a774c7a25beff08602ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f9bc205f553a774c7a25beff08602ac">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -570,9 +451,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp; Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::operator= </td>
+          <td class="memname"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp; Lib::BSP::EncoderTimer::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a59ef93437c59f8f672e38905b5e11dc7">W25Q128JVSIQ</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#aaf07b62dc5be29307f86fc985c41c7ab">EncoderTimer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -583,59 +464,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deleted move assignment operator; the referenced OCTOSPI port must have exactly one owner. </p>
-
-</div>
-</div>
-<a id="abb4813e3ca50641c3bc3d1a367927ab8" name="abb4813e3ca50641c3bc3d1a367927ab8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb4813e3ca50641c3bc3d1a367927ab8">&#9670;&#160;</a></span>read()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::read </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reads <em class="arg">size</em> bytes from the device starting at <em class="arg">addr</em> into <em class="arg">buffer</em>. </p>
+<p>Non-movable: the bound button callback captures <em class="arg">this</em>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">addr</td><td>Start address in device memory. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Destination buffer, not <em class="arg">nullptr</em>. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2b/a06336.html#a5">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this driver. </dd></dl>
 
 </div>
 </div>
-<a id="a686c0c59ab4f223b15aefeeab43ca2bd" name="a686c0c59ab4f223b15aefeeab43ca2bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a686c0c59ab4f223b15aefeeab43ca2bd">&#9670;&#160;</a></span>releasePowerDown()</h2>
+<a id="afa10c44ad4eee7779caf46410cac1255" name="afa10c44ad4eee7779caf46410cac1255"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa10c44ad4eee7779caf46410cac1255">&#9670;&#160;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -644,7 +485,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown </td>
+          <td class="memname"><a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7">EventCode</a> Lib::BSP::EncoderTimer::read </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -657,15 +498,17 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Wakes the device from deep power-down; call before any access after <a class="el" href="#a8a0d94550896c7062f6594cd0e532007" title="enterPowerDown()">enterPowerDown()</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> when the device was present and the command was sent; otherwise <em class="arg">false</em>. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2b/a06336.html#a7">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
+<p>Returns the next pending event without blocking. </p>
+<p>Checks in priority order: a button change, then rotation, then an expired hold time, and returns at most one event per call. Bounce repeating the same level is filtered out, so every push gets exactly one release.</p>
+<dl class="section return"><dt>Returns</dt><dd>Detected event, or <a class="el" href="#a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693" title="EventCode::NONE">EventCode::NONE</a> if nothing happened or the driver is not open. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../db/de7/a06407.html#a5">Lib::BSP::EncoderTimer</a>.</dd>
 </dl>
 
 </div>
 </div>
-<a id="a48fee6a63474b5ad43a51157fcd0129a" name="a48fee6a63474b5ad43a51157fcd0129a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48fee6a63474b5ad43a51157fcd0129a">&#9670;&#160;</a></span>write()</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="aa64ce59f0c59f795c337dcad2b2a104e" name="aa64ce59f0c59f795c337dcad2b2a104e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa64ce59f0c59f795c337dcad2b2a104e">&#9670;&#160;</a></span>BUTTON_HOLD_TIME</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -674,40 +517,17 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> Lib::BSP::EncoderTimer::BUTTON_HOLD_TIME {2000}</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes <em class="arg">size</em> bytes from <em class="arg">data</em> to the device starting at <em class="arg">addr</em>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addr</td><td>Start address in device memory. </td></tr>
-    <tr><td class="paramname">data</td><td>Source data buffer, not <em class="arg">nullptr</em>. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success; otherwise <em class="arg">false</em>. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2b/a06336.html#a4">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a>.</dd>
-</dl>
+<p>Time the button must stay down to count as held. </p>
 
 </div>
 </div>
@@ -718,7 +538,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/de6/a01063.html">BSP</a></li><li class="navelem"><a href="../../d5/d67/a01070.html">FMEM</a></li><li class="navelem"><a href="../../df/d18/a01071.html">OSPI</a></li><li class="navelem"><a href="../../df/dd7/a04586.html">W25Q128JVSIQ</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../da/d73/a01090.html">BSP</a></li><li class="navelem"><a href="../../df/dd7/a04586.html">EncoderTimer</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

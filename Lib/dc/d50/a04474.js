@@ -1,5 +1,8 @@
 var a04474 =
 [
-    [ "onCardDetect", "dc/d50/a04474.html#a4e7561f8d775ae05de344bf44f2cbc7f", null ],
-    [ "spiPort", "dc/d50/a04474.html#a67ad4df5e15c12584fe20e638078eab3", null ]
+    [ "mappingFields", "dc/d50/a04474.html#a11dd2076fb88f533f185c4b3036c605c", null ],
+    [ "nssPin", "dc/d50/a04474.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
+    [ "oePin", "dc/d50/a04474.html#ad65334adb3ad809e06b272cedcb59224", null ],
+    [ "pinCount", "dc/d50/a04474.html#a85d8e563810275243c4b75899e92dab3", null ],
+    [ "spiPort", "dc/d50/a04474.html#aff796faea898891c8271e1b1dba76858", null ]
 ];

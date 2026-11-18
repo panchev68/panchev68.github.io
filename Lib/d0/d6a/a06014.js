@@ -1,11 +1,13 @@
 var a06014 =
 [
-    [ "Parameters", "d0/d6a/a06014.html#a24b8a679899e0a92f683ab16239f32df", null ],
-    [ "Parameters", "d0/d6a/a06014.html#a4e23b99119d652c7a97a2b5047722d75", null ],
-    [ "kd", "d0/d6a/a06014.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d0/d6a/a06014.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d0/d6a/a06014.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d0/d6a/a06014.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d0/d6a/a06014.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d0/d6a/a06014.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "WolfSSLTransport", "d0/d6a/a06014.html#a902fc980deaff7372065ac354e424bd7", null ],
+    [ "~WolfSSLTransport", "d0/d6a/a06014.html#a1af1ec7c8459af557cecf30e2fce9851", null ],
+    [ "WolfSSLTransport", "d0/d6a/a06014.html#ac66ebbbe5867fdc9e41b120f0703afd9", null ],
+    [ "WolfSSLTransport", "d0/d6a/a06014.html#aee33a9d5d619aea80630e5c113bc940c", null ],
+    [ "close", "d0/d6a/a06014.html#afc96144cd745fe9fc116e7fa03ea0c00", null ],
+    [ "open", "d0/d6a/a06014.html#a34b1d6a735d69895b3381e71a3d7b24f", null ],
+    [ "operator=", "d0/d6a/a06014.html#a65c79de2e76f70c00d2a7117462aef12", null ],
+    [ "operator=", "d0/d6a/a06014.html#ac0b3753689c57f39a30e72868cac2919", null ],
+    [ "receive", "d0/d6a/a06014.html#a665163ec5d248c6f5f86737aec8901e8", null ],
+    [ "send", "d0/d6a/a06014.html#a609db5ba4b95a1e99a742291477e322b", null ]
 ];

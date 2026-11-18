@@ -1,9 +1,8 @@
 var a04866 =
 [
-    [ "Address", "d6/dd3/a04866.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
-    [ "FunctionCode", "d6/dd3/a04866.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
-    [ "close", "d6/dd3/a04866.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
-    [ "open", "d6/dd3/a04866.html#a60baa47faf417d3e58c9da926ba26d49", null ],
-    [ "sendFrame", "d6/dd3/a04866.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
-    [ "setup", "d6/dd3/a04866.html#accad19c50e45234b499d537407a53007", null ]
+    [ "ambientTemperatureCelsius", "d6/dd3/a04866.html#afe46178f50e25346cca90112dc708790", null ],
+    [ "listenDuration", "d6/dd3/a04866.html#aed97102995a3a032b9524b1e47731f17", null ],
+    [ "timeout", "d6/dd3/a04866.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
+    [ "uart", "d6/dd3/a04866.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
+    [ "uartAddress", "d6/dd3/a04866.html#a07cd324da0adf0baf2262a0b33404164", null ]
 ];

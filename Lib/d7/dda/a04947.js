@@ -1,10 +1,9 @@
 var a04947 =
 [
-    [ "WolfSSH", "d7/dda/a04947.html#acda587d771e0b88270bdf9263d156fd0", null ],
-    [ "~WolfSSH", "d7/dda/a04947.html#ad07d509cc2a825d9165ab30739d84515", null ],
-    [ "WolfSSH", "d7/dda/a04947.html#ab03771dcd75546ec452cb768b0a29da5", null ],
-    [ "WolfSSH", "d7/dda/a04947.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
-    [ "isOpen", "d7/dda/a04947.html#aac3ff36b57e422860d83792bb84c84f3", null ],
-    [ "operator=", "d7/dda/a04947.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
-    [ "operator=", "d7/dda/a04947.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
+    [ "Address", "d7/dda/a04947.html#acd001c62e8048465f6e3775f8c914bed", null ],
+    [ "FunctionCode", "d7/dda/a04947.html#aa422425db306dc5abb9819fd3a3489aa", null ],
+    [ "close", "d7/dda/a04947.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
+    [ "handleReceivedFrame", "d7/dda/a04947.html#a089411b3f62f689799fb09666cfe1ac9", null ],
+    [ "open", "d7/dda/a04947.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
+    [ "setup", "d7/dda/a04947.html#a3134cd1c55cc339a5addd412f7d4b5fb", null ]
 ];

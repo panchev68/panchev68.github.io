@@ -1,14 +1,18 @@
 var a05830 =
 [
-    [ "USBOtgPort", "dd/d81/a05830.html#a94591d5e8c2febc4e287510cbbe8fdd3", null ],
-    [ "~USBOtgPort", "dd/d81/a05830.html#a277068fa3df6459bf52aac65457f31d6", null ],
-    [ "USBOtgPort", "dd/d81/a05830.html#a996c0c11f55b66f27d118a91eb700a30", null ],
-    [ "USBOtgPort", "dd/d81/a05830.html#ab276be300ebf7d87066609fd80b78336", null ],
-    [ "getDevice", "dd/d81/a05830.html#a023ac50c5d201c51c5b288f17fc86ec9", null ],
-    [ "getHost", "dd/d81/a05830.html#a5e5a4a2c6e79efb76f4ef3bbd18fbdfa", null ],
-    [ "getRole", "dd/d81/a05830.html#a1bcb32f40cc65b5e6e7e2103f39f683f", null ],
-    [ "operator=", "dd/d81/a05830.html#a78acf6354843aa38ea86734991fe89b2", null ],
-    [ "operator=", "dd/d81/a05830.html#ab1fe3b9f1189d474ddf9fe136989041e", null ],
-    [ "release", "dd/d81/a05830.html#ae01129b71b69271e84ae03dfd2b17bb1", null ],
-    [ "setRole", "dd/d81/a05830.html#aec9af265280bdd162bad2fc3ab471564", null ]
+    [ "EventHandler", "dd/d81/a05830.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
+    [ "USBDevicePort", "dd/d81/a05830.html#a73135119d83dd3a80c4b81f5bbe8fd61", null ],
+    [ "~USBDevicePort", "dd/d81/a05830.html#a0a313f5efd10221e16714eece65dda0f", null ],
+    [ "abort", "dd/d81/a05830.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
+    [ "close", "dd/d81/a05830.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "dd/d81/a05830.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "dd/d81/a05830.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "dd/d81/a05830.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "dd/d81/a05830.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "dd/d81/a05830.html#add4fb8ab17eac13116050ae3c8237acf", null ],
+    [ "send", "dd/d81/a05830.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
+    [ "setEventHandler", "dd/d81/a05830.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
+    [ "submitReceive", "dd/d81/a05830.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
+    [ "submitSend", "dd/d81/a05830.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
+    [ "waitForEvent", "dd/d81/a05830.html#ac98dece292bb17828882e8d61e803880", null ]
 ];

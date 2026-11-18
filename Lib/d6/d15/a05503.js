@@ -1,4 +1,32 @@
 var a05503 =
 [
-    [ "display", "d6/d15/a05503.html#ae13fa0931ed5493d1ba6d2ae1e93af5c", null ]
+    [ "Config", "d0/d2f/a05507.html", "d0/d2f/a05507" ],
+    [ "Primitives", "d6/d15/a05503.html#aef631298a2b328916dd552f90947255e", null ],
+    [ "~Primitives", "d6/d15/a05503.html#a792961dc2db4f15882b93dbf2a57274e", null ],
+    [ "Primitives", "d6/d15/a05503.html#a207c75f9ec1518b8c3db5a8ce772dbd0", null ],
+    [ "Primitives", "d6/d15/a05503.html#a484c2a1c2e384483b9eaf50423b67fcf", null ],
+    [ "bezierCurve", "d6/d15/a05503.html#ab40013f957f8bea82e156f608d3062c1", null ],
+    [ "circle", "d6/d15/a05503.html#a9fe13d828f42ecaca732bcb7e46d599e", null ],
+    [ "clear", "d6/d15/a05503.html#a5650542d955ccfde8c7ca34a6c4baec5", null ],
+    [ "ellipse", "d6/d15/a05503.html#a8588de5c00fba5e201c9dbf301f1982c", null ],
+    [ "fillArc", "d6/d15/a05503.html#a4a7a389504e03401b7c8e3b2263619da", null ],
+    [ "fillArcRound", "d6/d15/a05503.html#a209a123744865e3e5c8cf937ede6e9b8", null ],
+    [ "fillCircle", "d6/d15/a05503.html#aa1eba735c8b9113d37688c16187a8746", null ],
+    [ "fillEllipse", "d6/d15/a05503.html#aab618dc79407711462fc612224fe1a61", null ],
+    [ "fillRect", "d6/d15/a05503.html#a7d12052a3691b1d75ef41c96b4b4f6ae", null ],
+    [ "fillRectRaster", "d6/d15/a05503.html#a11437fb4bf68d7ecc01873b8ed39bd06", null ],
+    [ "fillRoundRect", "d6/d15/a05503.html#a10df4231ce7708649b8678fdf1cd944d", null ],
+    [ "flush", "d6/d15/a05503.html#af5a319cc8a4a9b25e913eded17bb56a8", null ],
+    [ "getDisplay", "d6/d15/a05503.html#a4b2e715326b54ec76d05befa00b9ce62", null ],
+    [ "getPixel", "d6/d15/a05503.html#abe7dfb680c82d58037d530fcd62f30c3", null ],
+    [ "line", "d6/d15/a05503.html#afac28e58f0654e4b82bbbaf76511de90", null ],
+    [ "lineByAngle", "d6/d15/a05503.html#a5551a9bcfc4ff190df315da708080739", null ],
+    [ "operator=", "d6/d15/a05503.html#a474d4bb4c79598f574175a8e475b128c", null ],
+    [ "operator=", "d6/d15/a05503.html#a6330456ffcda4e896361e33d7481dc33", null ],
+    [ "pieSlice", "d6/d15/a05503.html#a768b645b51fb3e31c08748b9c4c1bb12", null ],
+    [ "rect", "d6/d15/a05503.html#aa1fcd5fe13fd6612f8521d927de01ede", null ],
+    [ "roundRect", "d6/d15/a05503.html#a45d3c6d27e469f191c19a8cea3fd116f", null ],
+    [ "setPixel", "d6/d15/a05503.html#aa156ae82861cde66833b99d5a870066a", null ],
+    [ "triangle", "d6/d15/a05503.html#af7237594ff6b2f390c0708bcbef760a0", null ],
+    [ "triangle", "d6/d15/a05503.html#a571aba1d6f9358532d8c2ec0bb998fae", null ]
 ];

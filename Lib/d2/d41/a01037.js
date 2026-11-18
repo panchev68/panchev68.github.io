@@ -1,6 +1,5 @@
 var a01037 =
 [
-    [ "Lib::SolarControl::MPPT", "dd/de8/a06223.html", "dd/de8/a06223" ],
-    [ "Lib::SolarControl::MPPT::ReferenceParameters", "d6/d4a/a06227.html", "d6/d4a/a06227" ],
-    [ "Lib::SolarControl::MPPT::Measurement", "dd/d85/a06231.html", "dd/d85/a06231" ]
+    [ "RTOS::Timer", "da/d0b/a06234.html", "da/d0b/a06234" ],
+    [ "RTOS::Timer::Config", "d5/db1/a06238.html", "d5/db1/a06238" ]
 ];

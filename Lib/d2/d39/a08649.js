@@ -1,4 +1,5 @@
 var a08649 =
 [
-    [ "Lib::Communication::Modbus::Protocol", "d6/d45/a04907.html", "d6/d45/a04907" ]
+    [ "Lib::XCOM::ServiceBase", "d6/deb/a06362.html", "d6/deb/a06362" ],
+    [ "Lib::XCOM::ServiceBase::Value64Handle", "da/d89/a06366.html", "da/d89/a06366" ]
 ];

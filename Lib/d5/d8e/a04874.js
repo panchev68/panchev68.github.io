@@ -1,7 +1,11 @@
 var a04874 =
 [
-    [ "Digest", "d5/d8e/a04874.html#a177e084473b0593a7a7d9bf1e0dce133", null ],
-    [ "SHA256", "d5/d8e/a04874.html#a495e4d841b6752aecbcdaa9d1c805420", null ],
-    [ "finish", "d5/d8e/a04874.html#abcfe6df3f9c2f8197fd365f99e07551f", null ],
-    [ "update", "d5/d8e/a04874.html#a79e12cbf01846349b78a18c75338c38e", null ]
+    [ "Config", "dd/d60/a04878.html", "dd/d60/a04878" ],
+    [ "Voltmeter", "d5/d8e/a04874.html#a0f038c75a30b2d6cd8382c776fddd2bb", null ],
+    [ "getVoltage", "d5/d8e/a04874.html#ac23395cb420c81ab42a23e604cf05f18", null ],
+    [ "handleValueChanged", "d5/d8e/a04874.html#a0867be0757674c033a721efb796a8e39", null ],
+    [ "registerDevice", "d5/d8e/a04874.html#a299662c9e9bdb346771579418056dccf", null ],
+    [ "setup", "d5/d8e/a04874.html#aef6d6cecbcd23016ebff9b46c2cf3ce0", null ],
+    [ "DeviceManager::DeviceBase", "d5/d8e/a04874.html#af5908117d248071190096967e686c5a3", null ],
+    [ "interpolator", "d5/d8e/a04874.html#a5cabeda795635eeccd12383109ddf96c", null ]
 ];

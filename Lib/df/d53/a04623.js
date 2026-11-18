@@ -1,22 +1,9 @@
 var a04623 =
 [
-    [ "Register", "d8/da0/a04627.html", "d8/da0/a04627" ],
-    [ "Config", "df/d53/a04623.html#a5627e540e90ee9b11c249f9dfd3596ec", null ],
-    [ "Info", "df/d53/a04623.html#a4d44e5999bff4b46f38692666fdcc25d", null ],
-    [ "W25Q128JVSIQ", "df/d53/a04623.html#a59ef93437c59f8f672e38905b5e11dc7", null ],
-    [ "~W25Q128JVSIQ", "df/d53/a04623.html#aeb4e3658c1a50d80811bddb4e5794788", null ],
-    [ "W25Q128JVSIQ", "df/d53/a04623.html#a8e63f6957e7d3835c28850539c92b803", null ],
-    [ "W25Q128JVSIQ", "df/d53/a04623.html#ab86a72c21a4af20d878b815237041775", null ],
-    [ "close", "df/d53/a04623.html#ab84d3fc2e1e49b6feddd226fdc925ae6", null ],
-    [ "enterPowerDown", "df/d53/a04623.html#a8a0d94550896c7062f6594cd0e532007", null ],
-    [ "eraseChip", "df/d53/a04623.html#a0b3b683afc77b0c0ee69e757c581a722", null ],
-    [ "eraseSector", "df/d53/a04623.html#aff869cb6bde4f4f94493097c4c7e2da6", null ],
-    [ "getInfo", "df/d53/a04623.html#a3f7a3b245b2a704b45e6a638a2c9c971", null ],
-    [ "isPresent", "df/d53/a04623.html#a40a9ef783ecafece7202ae4ec39d4939", null ],
-    [ "open", "df/d53/a04623.html#acc5fbed9faca7400c7d70130fbb74131", null ],
-    [ "operator=", "df/d53/a04623.html#aede81ab56acac1b91b78600c0c6e82c5", null ],
-    [ "operator=", "df/d53/a04623.html#a042aafe50feeb5ffe960d362458e460e", null ],
-    [ "read", "df/d53/a04623.html#abb4813e3ca50641c3bc3d1a367927ab8", null ],
-    [ "releasePowerDown", "df/d53/a04623.html#a686c0c59ab4f223b15aefeeab43ca2bd", null ],
-    [ "write", "df/d53/a04623.html#a48fee6a63474b5ad43a51157fcd0129a", null ]
+    [ "chipManufacturer", "df/d53/a04623.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
+    [ "memoryCapacity", "df/d53/a04623.html#a0ce044d51923185dc77297ec3845620b", null ],
+    [ "pagePerSector", "df/d53/a04623.html#a768e74e894621cf3033a1f4e06661b66", null ],
+    [ "pageSize", "df/d53/a04623.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
+    [ "sectorCount", "df/d53/a04623.html#ae152c07a2eeb80c6525857160e04126b", null ],
+    [ "sectorSize", "df/d53/a04623.html#a453d47437845007dcb1caa1889d1ec2b", null ]
 ];

@@ -1,13 +1,5 @@
 var a05339 =
 [
-    [ "Handlers", "dc/d54/a05339.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
-    [ "EepromEmulation", "dc/d54/a05339.html#a1146daff507a230799851b6c5f9ee835", null ],
-    [ "~EepromEmulation", "dc/d54/a05339.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
-    [ "EepromEmulation", "dc/d54/a05339.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
-    [ "EepromEmulation", "dc/d54/a05339.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
-    [ "operator=", "dc/d54/a05339.html#ac18054ff925ab9ff88d05d79a8674626", null ],
-    [ "operator=", "dc/d54/a05339.html#a8a0057afb82e294f720a93b50ad87908", null ],
-    [ "process", "dc/d54/a05339.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
-    [ "setHandlers", "dc/d54/a05339.html#a070225a3de178cf14fb35d7a18f183e0", null ],
-    [ "setReadSize", "dc/d54/a05339.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
+    [ "read", "dc/d54/a05339.html#a1d185c9a891facac570cbbdaa2157fa4", null ],
+    [ "write", "dc/d54/a05339.html#a26af4517707f2496ad3f4ab6f5e51719", null ]
 ];

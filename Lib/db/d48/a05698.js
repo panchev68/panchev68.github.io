@@ -1,11 +1,14 @@
 var a05698 =
 [
-    [ "SPIPort", "db/d48/a05698.html#a6887b333ef818d3bd80112c8ce57998d", null ],
-    [ "~SPIPort", "db/d48/a05698.html#ad6c6de84d5713ce3f16ae3047ec949a1", null ],
-    [ "abort", "db/d48/a05698.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
+    [ "OSPIPortAsync", "db/d48/a05698.html#a51c7bf376cb7e3701de6391b213701a9", null ],
+    [ "abort", "db/d48/a05698.html#a12a734c939e90c6c90510ba2c323dec0", null ],
     [ "close", "db/d48/a05698.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "command", "db/d48/a05698.html#ab13d30c818279bf38505328181fa1409", null ],
     [ "getHandle", "db/d48/a05698.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "db/d48/a05698.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isBusy", "db/d48/a05698.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
     [ "isOpened", "db/d48/a05698.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "db/d48/a05698.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "open", "db/d48/a05698.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "db/d48/a05698.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "db/d48/a05698.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

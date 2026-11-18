@@ -1,9 +1,10 @@
 var a04774 =
 [
-    [ "calculatedChecksum", "de/d04/a04774.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
-    [ "frameChecksum", "de/d04/a04774.html#afd2a7854bded2de4881565573fc0d9b1", null ],
-    [ "invalidFrameChecksum", "de/d04/a04774.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
-    [ "invalidHumidity", "de/d04/a04774.html#a97069f405d3773e81b9930425efc8d74", null ],
-    [ "invalidTemperature", "de/d04/a04774.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
-    [ "receivedTimeout", "de/d04/a04774.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
+    [ "operator==", "de/d04/a04774.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "de/d04/a04774.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "de/d04/a04774.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "de/d04/a04774.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "de/d04/a04774.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "de/d04/a04774.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "de/d04/a04774.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

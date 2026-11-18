@@ -1,8 +1,8 @@
 var a05823 =
 [
     [ "EventHandler", "de/d27/a05823.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
-    [ "USBDevicePort", "de/d27/a05823.html#a73135119d83dd3a80c4b81f5bbe8fd61", null ],
-    [ "~USBDevicePort", "de/d27/a05823.html#a0a313f5efd10221e16714eece65dda0f", null ],
+    [ "USBDevicePort", "de/d27/a05823.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
+    [ "~USBDevicePort", "de/d27/a05823.html#a380acfe834fbf265a2fdfe8e26550867", null ],
     [ "abort", "de/d27/a05823.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
     [ "close", "de/d27/a05823.html#a03c62c024b148a264f9a6a0077198302", null ],
     [ "getHandle", "de/d27/a05823.html#af92f93241be20a3c9a32286ed19dc4cf", null ],

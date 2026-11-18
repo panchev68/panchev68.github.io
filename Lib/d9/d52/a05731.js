@@ -1,11 +1,20 @@
 var a05731 =
 [
-    [ "SPIPort", "d9/d52/a05731.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
-    [ "~SPIPort", "d9/d52/a05731.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ],
-    [ "abort", "d9/d52/a05731.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
-    [ "close", "d9/d52/a05731.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d9/d52/a05731.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d9/d52/a05731.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d9/d52/a05731.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d9/d52/a05731.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "Timeout", "d9/d52/a05731.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
+    [ "SPIPort", "d9/d52/a05731.html#a903be3f889b13683ab1e357df5e48ddb", null ],
+    [ "~SPIPort", "d9/d52/a05731.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
+    [ "SPIPort", "d9/d52/a05731.html#a8335bc7cd53354957b5b059adfa4a702", null ],
+    [ "SPIPort", "d9/d52/a05731.html#ab03e262f43c766b37a67b48c85bff815", null ],
+    [ "bindBeginTransactionFunc", "d9/d52/a05731.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "d9/d52/a05731.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "d9/d52/a05731.html#ab6529e241d0728159eb3f60c7621b666", null ],
+    [ "getHandle", "d9/d52/a05731.html#a177a320faf7a48d1692b081641399447", null ],
+    [ "getHandle", "d9/d52/a05731.html#a88e71252a873f0d8d5051292a08b1336", null ],
+    [ "isBusy", "d9/d52/a05731.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "open", "d9/d52/a05731.html#af039716c9cb01db958d77f8c581627cf", null ],
+    [ "operator=", "d9/d52/a05731.html#a7ac0642f801168b819d2f19789bd9d15", null ],
+    [ "operator=", "d9/d52/a05731.html#ae10f073f8753cb6161429d0e321dfd92", null ],
+    [ "receive", "d9/d52/a05731.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "d9/d52/a05731.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "d9/d52/a05731.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

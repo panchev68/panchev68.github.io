@@ -1,19 +1,25 @@
 var a04647 =
 [
-    [ "Command", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10", [
-      [ "WRITE_ENABLE", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "WRITE_DISABLE", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
-      [ "READ_STATUS_REGISTER1", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "READ_DATA", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
-      [ "PAGE_PROGRAM", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
-      [ "SECTOR_ERASE", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "d3/df2/a04647.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "Register", "da/d47/a04651.html", "da/d47/a04651" ],
+    [ "Info", "d0/d5e/a04655.html", "d0/d5e/a04655" ],
+    [ "Config", "d3/df2/a04647.html#a91b48bf59f61c3580e5ead3149d91443", null ],
+    [ "W25Q128JVSIQ", "d3/df2/a04647.html#af1b755c474085a41e554dcb38ad9056a", null ],
+    [ "~W25Q128JVSIQ", "d3/df2/a04647.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
+    [ "close", "d3/df2/a04647.html#a949717933a1c298041adcf500a7d8f9d", null ],
+    [ "eraseChip", "d3/df2/a04647.html#a32148377b4274abf28db1beb3d12ea11", null ],
+    [ "eraseChipImpl", "d3/df2/a04647.html#a9cfe72e525626e2236219608c53725d8", null ],
+    [ "eraseSector", "d3/df2/a04647.html#a23c3062b24d15e58237ddb109c474b74", null ],
+    [ "eraseSectorImpl", "d3/df2/a04647.html#ac379792562904225e5deb12f3820112b", null ],
+    [ "getInfo", "d3/df2/a04647.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
+    [ "getStatus", "d3/df2/a04647.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
+    [ "isPresent", "d3/df2/a04647.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
+    [ "open", "d3/df2/a04647.html#a419e720a0a366e322b172d234eccd202", null ],
+    [ "read", "d3/df2/a04647.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
+    [ "readImpl", "d3/df2/a04647.html#ac37211819c0d5e4f3072dae655065868", null ],
+    [ "write", "d3/df2/a04647.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
+    [ "writeImpl", "d3/df2/a04647.html#a00a39954e6187f8b4b393ed390f97239", null ],
+    [ "info", "d3/df2/a04647.html#aca8a7487175e31060363fe99270e69a3", null ],
+    [ "nss", "d3/df2/a04647.html#a6cad70d123e273b88f244598cc93a22b", null ],
+    [ "spiPort", "d3/df2/a04647.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
+    [ "status", "d3/df2/a04647.html#af95471bb260264403e3df2dc07b80419", null ]
 ];

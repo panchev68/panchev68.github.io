@@ -1,9 +1,15 @@
 var a05363 =
 [
-    [ "address", "d3/dea/a05363.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
-    [ "channel", "d3/dea/a05363.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
-    [ "counter", "d3/dea/a05363.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
-    [ "length", "d3/dea/a05363.html#af80f349070d12d0ce2387f6d95764bfe", null ],
-    [ "priority", "d3/dea/a05363.html#a0c3726e1ac6fed602491f21449c9a740", null ],
-    [ "protocol", "d3/dea/a05363.html#ac094990b182d42c38feb302d144a6924", null ]
+    [ "Error", "d3/dea/a05363.html#a9d7546738e259f57d9e431d88a39ac23", null ],
+    [ "Handlers", "d3/dea/a05363.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
+    [ "FoE", "d3/dea/a05363.html#ad7dd21bafde30794cef6a653baacc862", null ],
+    [ "~FoE", "d3/dea/a05363.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
+    [ "FoE", "d3/dea/a05363.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
+    [ "FoE", "d3/dea/a05363.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
+    [ "handle", "d3/dea/a05363.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
+    [ "isBusy", "d3/dea/a05363.html#a4463e44a62dae7598614225dc069e03c", null ],
+    [ "operator=", "d3/dea/a05363.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
+    [ "operator=", "d3/dea/a05363.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
+    [ "reset", "d3/dea/a05363.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
+    [ "setHandlers", "d3/dea/a05363.html#a39b767747ef43947171f73021ee9dd76", null ]
 ];

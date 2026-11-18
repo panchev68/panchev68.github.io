@@ -1,9 +1,14 @@
 var a06107 =
 [
-    [ "CriticalSectionFromISR", "d0/d0b/a06107.html#a94cda37183a61f5455dc5e641bcb5109", null ],
-    [ "~CriticalSectionFromISR", "d0/d0b/a06107.html#a54e463ae72e1238776194c4cb941357b", null ],
-    [ "CriticalSectionFromISR", "d0/d0b/a06107.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
-    [ "CriticalSectionFromISR", "d0/d0b/a06107.html#a9d04ea07249455e75c39ce5450c33028", null ],
-    [ "operator=", "d0/d0b/a06107.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
-    [ "operator=", "d0/d0b/a06107.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
+    [ "Config", "dc/dda/a06111.html", "dc/dda/a06111" ],
+    [ "State", "d0/d0b/a06107.html#a7063555b30fb75832750a0361328040e", [
+      [ "ACTIVE", "d0/d0b/a06107.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
+      [ "INACTIVE", "d0/d0b/a06107.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
+      [ "DISABLED", "d0/d0b/a06107.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
+    ] ],
+    [ "Sensor", "d0/d0b/a06107.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
+    [ "getName", "d0/d0b/a06107.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
+    [ "isActive", "d0/d0b/a06107.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
+    [ "isPresent", "d0/d0b/a06107.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
+    [ "read", "d0/d0b/a06107.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
 ];

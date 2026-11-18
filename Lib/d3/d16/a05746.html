@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Timer::TimTimebase</title>
+<title>IAR EWARM Library: Lib::HAL::SPIPortAsync&lt; T_DERIVED &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -118,177 +131,212 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d3/d16/a05746.
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#friends">Friends</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="../../d2/dac/a05743.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimTimebase<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::SPIPortAsync&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Controls hardware timer blocks configured under active periodic Timebase profiles. </p>
-<p>Eliminates CPU polling overhead by mapping the hardware update interrupt (UIF) through the <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> to a task notification, so a task blocked in <a class="el" href="#a12ce8677b8ff16469cb2f21c9a1eb5bb" title="waitPeriod()">waitPeriod()</a> wakes once per period.</p>
-<p>Unlike the other timer wrappers this header does not define the HAL callback: CubeMX already generates <b>HAL_TIM_PeriodElapsedCallback()</b> in <em class="arg">main.c</em> whenever a timer is the HAL timebase, which the project relies on with FreeRTOS. Forward to this driver from that function's user-code section instead:</p>
-<div class="fragment"><div class="line"> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d7e/a00809.html#a4bdf692c90345bac5c917adfba250469">Lib_HAL_TimTimebase_PeriodElapsed</a>(<a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * htim); <span class="comment">// USER CODE BEGIN PFP ...</span></div>
-<div class="line"><a class="code hl_function" href="../../dd/d7e/a00809.html#a4bdf692c90345bac5c917adfba250469">Lib_HAL_TimTimebase_PeriodElapsed</a>(htim); <span class="comment">// USER CODE BEGIN Callback 1</span></div>
-<div class="ttc" id="aa00809_html_a4bdf692c90345bac5c917adfba250469"><div class="ttname"><a href="../../dd/d7e/a00809.html#a4bdf692c90345bac5c917adfba250469">Lib_HAL_TimTimebase_PeriodElapsed</a></div><div class="ttdeci">void Lib_HAL_TimTimebase_PeriodElapsed(TIM_HandleTypeDef *htim)</div><div class="ttdoc">C-linkage dispatch entry, called from the CubeMX-generated HAL_TIM_PeriodElapsedCallback() in interru...</div><div class="ttdef"><b>Definition</b> TimTimebase.hpp:183</div></div>
-<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
-</div><!-- fragment --><hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/TIM/TimTimebase.hpp" target="_blank">Source</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d1b/a06400.html#_a7">Lib::HAL::Timer::TimTimebase</a>.</dd>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::HAL::SPIPortAsync&lt; T_DERIVED &gt;</div><p>CRTP foundation for the interrupt-driven SPI modes. </p>
+<p>Owns everything the two modes would otherwise duplicate: the RTOS event group, the start-then-wait transfer sequence, <a class="el" href="#a3d63fe443c0e1bd35bd8cd870a0435f6" title="abort()">abort()</a>, HAL callback registration and <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> wiring. A mode specialization only supplies the three HAL calls that start a transfer (<em class="arg">startTransmit()</em>, <em class="arg">startReceive()</em> and <em class="arg">startTransmitReceive()</em>).</p>
+<p>Transfers, <a class="el" href="#a3d63fe443c0e1bd35bd8cd870a0435f6" title="abort()">abort()</a> and the lifecycle calls are task context only; the HAL callbacks that complete a transfer run in interrupt context and only set event bits.</p>
+<dl class="section important"><dt>Important</dt><dd>Requires <em class="arg">USE_HAL_SPI_REGISTER_CALLBACKS</em> set to 1 in the HAL configuration; the header fails to compile otherwise.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing <em class="arg">startTransmit()</em> taking a std::span of const bytes, <em class="arg">startReceive()</em> taking a std::span of bytes and <em class="arg">startTransmitReceive()</em> taking both, each returning <em class="arg">true</em> once the HAL accepted the transfer.</td></tr>
+  </table>
+  </dd>
 </dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/SPI/SPIPortAsync.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2c242b351c880239ebc508905c1cb177" id="r_a2c242b351c880239ebc508905c1cb177"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2c242b351c880239ebc508905c1cb177">TimTimebase</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *handle) noexcept</td></tr>
-<tr class="memdesc:a2c242b351c880239ebc508905c1cb177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the wrapper to a native timer handle and registers it with the <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a>.  <br /></td></tr>
-<tr class="memitem:a90c3f44e84cfcfed7135d75abee0a2e1" id="r_a90c3f44e84cfcfed7135d75abee0a2e1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a90c3f44e84cfcfed7135d75abee0a2e1">~TimTimebase</a> () noexcept</td></tr>
-<tr class="memdesc:a90c3f44e84cfcfed7135d75abee0a2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer before the base leaves the <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> registry.  <br /></td></tr>
-<tr class="memitem:ab552a6aca3293c0ecdd0ce26d6668663" id="r_ab552a6aca3293c0ecdd0ce26d6668663"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab552a6aca3293c0ecdd0ce26d6668663">start</a> () noexcept</td></tr>
-<tr class="memdesc:ab552a6aca3293c0ecdd0ce26d6668663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer with its update interrupt; the calling task becomes the one <a class="el" href="#a12ce8677b8ff16469cb2f21c9a1eb5bb" title="waitPeriod()">waitPeriod()</a> serves.  <br /></td></tr>
-<tr class="memitem:afffbfe2b0fcf27e6081cc6983d06e626" id="r_afffbfe2b0fcf27e6081cc6983d06e626"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afffbfe2b0fcf27e6081cc6983d06e626">stop</a> () noexcept</td></tr>
-<tr class="memdesc:afffbfe2b0fcf27e6081cc6983d06e626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer and its update interrupt.  <br /></td></tr>
-<tr class="memitem:a12ce8677b8ff16469cb2f21c9a1eb5bb" id="r_a12ce8677b8ff16469cb2f21c9a1eb5bb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a12ce8677b8ff16469cb2f21c9a1eb5bb">waitPeriod</a> (<a class="el" href="../../d5/d7c/a05726.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout=portMAX_DELAY) const noexcept</td></tr>
-<tr class="memdesc:a12ce8677b8ff16469cb2f21c9a1eb5bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called <a class="el" href="#ab552a6aca3293c0ecdd0ce26d6668663" title="start()">start()</a> until the next period completes.  <br /></td></tr>
-<tr class="memitem:a2b19392b62c66b845538ec09abd31354" id="r_a2b19392b62c66b845538ec09abd31354"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a2b19392b62c66b845538ec09abd31354 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2b19392b62c66b845538ec09abd31354">waitPeriod</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
-<tr class="memdesc:a2b19392b62c66b845538ec09abd31354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called <a class="el" href="#ab552a6aca3293c0ecdd0ce26d6668663" title="start()">start()</a> until the next period completes.  <br /></td></tr>
-<tr class="memitem:a29d9a9e5c9f5213605679a13c42aa764" id="r_a29d9a9e5c9f5213605679a13c42aa764"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a29d9a9e5c9f5213605679a13c42aa764">setPeriod</a> (uint32_t periodValue) noexcept</td></tr>
-<tr class="memdesc:a29d9a9e5c9f5213605679a13c42aa764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the timer period in the auto-reload register (<em class="arg">ARR</em>).  <br /></td></tr>
-<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../dc/df9/a05542.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memitem:a3d63fe443c0e1bd35bd8cd870a0435f6" id="r_a3d63fe443c0e1bd35bd8cd870a0435f6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3d63fe443c0e1bd35bd8cd870a0435f6">abort</a> () noexcept</td></tr>
+<tr class="memdesc:a3d63fe443c0e1bd35bd8cd870a0435f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts any ongoing transfer immediately, waking a task blocked in a transfer.  <br /></td></tr>
+<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/de2/a05578.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order.  <br /></td></tr>
+<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/de2/a05578.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
+<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
+<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/de2/a05578.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
+<tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d20/a05586.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
 <tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:a0a4806d9f5ce4953eb151c8ec4f74cb5" id="r_a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d7c/a05726.html#a0a4806d9f5ce4953eb151c8ec4f74cb5">Manager</a></td></tr>
-<tr class="memdesc:a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry routing HAL callbacks to instances.  <br /></td></tr>
+<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d20/a05586.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
+<tr class="memitem:aab4ba08bd7815d4dc0052197f9aa41dd" id="r_aab4ba08bd7815d4dc0052197f9aa41dd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d3f/a05754.html#aab4ba08bd7815d4dc0052197f9aa41dd">isBusy</a> () const noexcept</td></tr>
+<tr class="memdesc:aab4ba08bd7815d4dc0052197f9aa41dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates whether a transfer or an abort is in flight.  <br /></td></tr>
+<tr class="memitem:a6b1a1218b3072179b7f437e4bed425ed" id="r_a6b1a1218b3072179b7f437e4bed425ed"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d3f/a05754.html#a6b1a1218b3072179b7f437e4bed425ed">bindBeginTransactionFunc</a> (<a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt; void()&gt; callback) noexcept</td></tr>
+<tr class="memdesc:a6b1a1218b3072179b7f437e4bed425ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds a callback invoked immediately before a new transaction begins (e.g.  <br /></td></tr>
+<tr class="memitem:ae29dec95e0fb16ecb0358ada047b372c" id="r_ae29dec95e0fb16ecb0358ada047b372c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d3f/a05754.html#ae29dec95e0fb16ecb0358ada047b372c">bindEndTransactionFunc</a> (<a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt; void()&gt; callback) noexcept</td></tr>
+<tr class="memdesc:ae29dec95e0fb16ecb0358ada047b372c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds a callback invoked immediately after a transaction ends (e.g.  <br /></td></tr>
+<tr class="memitem:ac557450438e468ea5bf25de308bc023c" id="r_ac557450438e468ea5bf25de308bc023c"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:ac557450438e468ea5bf25de308bc023c template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d3f/a05754.html#ac557450438e468ea5bf25de308bc023c">send</a> (std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:ac557450438e468ea5bf25de308bc023c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data over SPI, waiting for the transfer to complete or fail.  <br /></td></tr>
+<tr class="memitem:a92f0a2b4df702792cbc1e97fdd843a33" id="r_a92f0a2b4df702792cbc1e97fdd843a33"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a92f0a2b4df702792cbc1e97fdd843a33 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d3f/a05754.html#a92f0a2b4df702792cbc1e97fdd843a33">receive</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a92f0a2b4df702792cbc1e97fdd843a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives data from SPI, waiting for the transfer to complete or fail.  <br /></td></tr>
+<tr class="memitem:a856e94be39c7518eed69bbde0ef8eaf8" id="r_a856e94be39c7518eed69bbde0ef8eaf8"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a856e94be39c7518eed69bbde0ef8eaf8 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d3f/a05754.html#a856e94be39c7518eed69bbde0ef8eaf8">sendReceive</a> (std::span&lt; const uint8_t &gt; txData, std::span&lt; uint8_t &gt; rxData, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a856e94be39c7518eed69bbde0ef8eaf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a full-duplex transfer: transmits and receives simultaneously, waiting for completion or failure.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ac7b1eac52b77847537b732a7e3cd0d2e" id="r_ac7b1eac52b77847537b732a7e3cd0d2e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d7c/a05726.html#ac7b1eac52b77847537b732a7e3cd0d2e">bindWorker</a> () noexcept</td></tr>
-<tr class="memdesc:ac7b1eac52b77847537b732a7e3cd0d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the calling task the one woken by hardware events; call before enabling the interrupt.  <br /></td></tr>
-<tr class="memitem:a50fe83a38ed76cc7a5f8cea7dca98f4d" id="r_a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d7c/a05726.html#a50fe83a38ed76cc7a5f8cea7dca98f4d">waitEvent</a> (<a class="el" href="../../d5/d7c/a05726.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout) const noexcept</td></tr>
-<tr class="memdesc:a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the next hardware event.  <br /></td></tr>
-<tr class="memitem:a96061f4587cc3508811475a8309ab3f0" id="r_a96061f4587cc3508811475a8309ab3f0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d5/d7c/a05726.html#a96061f4587cc3508811475a8309ab3f0">notifyWorkerFromISR</a> () noexcept</td></tr>
-<tr class="memdesc:a96061f4587cc3508811475a8309ab3f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the bound task; called from the HAL callback in interrupt context.  <br /></td></tr>
+<tr class="memitem:abce1f805b84c4710a11d7e558b87de55" id="r_abce1f805b84c4710a11d7e558b87de55"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abce1f805b84c4710a11d7e558b87de55">SPIPortAsync</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> *handle) noexcept</td></tr>
+<tr class="memdesc:abce1f805b84c4710a11d7e558b87de55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle; the port starts closed.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:ae72687d02451939bdec7c3aaba269a45" id="r_ae72687d02451939bdec7c3aaba269a45"><td class="memItemLeft">friend&#160;</td><td class="memItemRight"><a class="el" href="#ae72687d02451939bdec7c3aaba269a45">void::Lib_HAL_TimTimebase_PeriodElapsed</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *htim)</td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/de2/a05578.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> *handle) noexcept</td></tr>
+<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a HAL handle.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a0a4806d9f5ce4953eb151c8ec4f74cb5" name="a0a4806d9f5ce4953eb151c8ec4f74cb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a4806d9f5ce4953eb151c8ec4f74cb5">&#9670;&#160;</a></span>Manager</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d5/d7c/a05726.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#a2c242b351c880239ebc508905c1cb177">TimTimebase</a> &gt;::Manager</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Registry routing HAL callbacks to instances. </p>
-
-</div>
-</div>
-<a id="ad8ef8d64da7b2fb93cca36bca48241bc" name="ad8ef8d64da7b2fb93cca36bca48241bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8ef8d64da7b2fb93cca36bca48241bc">&#9670;&#160;</a></span>TickType</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d5/d7c/a05726.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#a2c242b351c880239ebc508905c1cb177">TimTimebase</a> &gt;::TickType</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Scheduler tick count type. </p>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2c242b351c880239ebc508905c1cb177" name="a2c242b351c880239ebc508905c1cb177"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c242b351c880239ebc508905c1cb177">&#9670;&#160;</a></span>TimTimebase()</h2>
+<a id="abce1f805b84c4710a11d7e558b87de55" name="abce1f805b84c4710a11d7e558b87de55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abce1f805b84c4710a11d7e558b87de55">&#9670;&#160;</a></span>SPIPortAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::Timer::TimTimebase::TimTimebase </td>
+          <td class="memname"><a class="el" href="../../d3/d16/a05746.html">Lib::HAL::SPIPortAsync</a>&lt; T_DERIVED &gt;::SPIPortAsync </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the wrapper to a native timer handle and registers it with the <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a>. </p>
+<p>Binds the port to its native handle; the port starts closed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware TIM descriptor block, for example <b>htim6</b>. </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a90c3f44e84cfcfed7135d75abee0a2e1" name="a90c3f44e84cfcfed7135d75abee0a2e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90c3f44e84cfcfed7135d75abee0a2e1">&#9670;&#160;</a></span>~TimTimebase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::Timer::TimTimebase::~TimTimebase </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the timer before the base leaves the <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> registry. </p>
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ac7b1eac52b77847537b732a7e3cd0d2e" name="ac7b1eac52b77847537b732a7e3cd0d2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7b1eac52b77847537b732a7e3cd0d2e">&#9670;&#160;</a></span>bindWorker()</h2>
+<a id="a3d63fe443c0e1bd35bd8cd870a0435f6" name="a3d63fe443c0e1bd35bd8cd870a0435f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d63fe443c0e1bd35bd8cd870a0435f6">&#9670;&#160;</a></span>abort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d3/d16/a05746.html">Lib::HAL::SPIPortAsync</a>&lt; T_DERIVED &gt;::abort </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Aborts any ongoing transfer immediately, waking a task blocked in a transfer. </p>
+<p>Task context only.</p>
+<p>The woken transfer reports failure. Asserts if called from an ISR or on a closed port.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stopped processing safely, <b>false</b> otherwise or if the port is closed. </dd></dl>
+
+</div>
+</div>
+<a id="a6b1a1218b3072179b7f437e4bed425ed" name="a6b1a1218b3072179b7f437e4bed425ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b1a1218b3072179b7f437e4bed425ed">&#9670;&#160;</a></span>bindBeginTransactionFunc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d7/d3f/a05754.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::bindBeginTransactionFunc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt; void()&gt;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds a callback invoked immediately before a new transaction begins (e.g. </p>
+<p>to assert an external chip select or acquire a shared-bus mutex).</p>
+<p>The callback is not owned, so the referenced callable must outlive every transfer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>Non-owning reference to the function called at the start of a transaction. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae29dec95e0fb16ecb0358ada047b372c" name="ae29dec95e0fb16ecb0358ada047b372c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae29dec95e0fb16ecb0358ada047b372c">&#9670;&#160;</a></span>bindEndTransactionFunc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d7/d3f/a05754.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::bindEndTransactionFunc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt; void()&gt;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds a callback invoked immediately after a transaction ends (e.g. </p>
+<p>to release an external chip select or a shared-bus mutex). It runs only once the hardware has stopped, including after a timeout.</p>
+<p>The callback is not owned, so the referenced callable must outlive every transfer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>Non-owning reference to the function called at the end of a transaction. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a03c62c024b148a264f9a6a0077198302" name="a03c62c024b148a264f9a6a0077198302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c62c024b148a264f9a6a0077198302">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -297,7 +345,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d5/d7c/a05726.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#a2c242b351c880239ebc508905c1cb177">TimTimebase</a> &gt;::bindWorker </td>
+          <td class="memname">bool <a class="el" href="../../d4/de2/a05578.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a>, <a class="el" href="../../d7/d3f/a05754.html">SPIPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#abce1f805b84c4710a11d7e558b87de55">SPIPortAsync</a>&lt; T_DERIVED &gt; &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -305,18 +353,81 @@ Friends</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Makes the calling task the one woken by hardware events; call before enabling the interrupt. </p>
-<p>Task context only; asserts if called from an ISR. </p>
+<p>Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group. </p>
+<p>Task context only; asserts when called from an interrupt.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
+
+</div>
+</div>
+<a id="a66f47e9670feddc6fb679436b07a1680" name="a66f47e9670feddc6fb679436b07a1680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66f47e9670feddc6fb679436b07a1680">&#9670;&#160;</a></span>findPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_DERIVED * <a class="el" href="../../d4/de2/a05578.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a>, <a class="el" href="../../d7/d3f/a05754.html">SPIPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#abce1f805b84c4710a11d7e558b87de55">SPIPortAsync</a>&lt; T_DERIVED &gt; &gt;::findPort </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Finds the port that owns a HAL handle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The port, or <b>nullptr</b> if no open port uses the handle. </dd></dl>
+
+</div>
+</div>
+<a id="af92f93241be20a3c9a32286ed19dc4cf" name="af92f93241be20a3c9a32286ed19dc4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92f93241be20a3c9a32286ed19dc4cf">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * <a class="el" href="../../d4/d20/a05586.html">Lib::HAL::Device</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> &gt;::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Const-qualified access to the native microcontroller hardware handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
 
 </div>
 </div>
 <a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -325,7 +436,7 @@ Friends</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * <a class="el" href="../../dc/df9/a05542.html">Lib::HAL::Device</a>&lt; <a class="el" href="#a2c242b351c880239ebc508905c1cb177">TimTimebase</a>, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> &gt;::getHandle </td>
+          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * <a class="el" href="../../d4/d20/a05586.html">Lib::HAL::Device</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -343,167 +454,101 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a id="a96061f4587cc3508811475a8309ab3f0" name="a96061f4587cc3508811475a8309ab3f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96061f4587cc3508811475a8309ab3f0">&#9670;&#160;</a></span>notifyWorkerFromISR()</h2>
+<a id="aab4ba08bd7815d4dc0052197f9aa41dd" name="aab4ba08bd7815d4dc0052197f9aa41dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4ba08bd7815d4dc0052197f9aa41dd">&#9670;&#160;</a></span>isBusy()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d5/d7c/a05726.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#a2c242b351c880239ebc508905c1cb177">TimTimebase</a> &gt;::notifyWorkerFromISR </td>
+          <td class="memname">bool <a class="el" href="../../d7/d3f/a05754.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::isBusy </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Wakes the bound task; called from the HAL callback in interrupt context. </p>
-<p>Does nothing until a task has been bound with <a class="el" href="../../d5/d7c/a05726.html#ac7b1eac52b77847537b732a7e3cd0d2e" title="bindWorker()">bindWorker()</a>. </p>
-
-</div>
-</div>
-<a id="a29d9a9e5c9f5213605679a13c42aa764" name="a29d9a9e5c9f5213605679a13c42aa764"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29d9a9e5c9f5213605679a13c42aa764">&#9670;&#160;</a></span>setPeriod()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::HAL::Timer::TimTimebase::setPeriod </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>periodValue</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Overrides the timer period in the auto-reload register (<em class="arg">ARR</em>). </p>
-<p>Without ARR preload (<em class="arg">AutoReloadPreload</em>), a value below the running counter lets it overshoot to the counter maximum before wrapping. Asserts on an uninitialized native handle, in which case nothing is written.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">periodValue</td><td>New auto-reload value in timer ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab552a6aca3293c0ecdd0ce26d6668663" name="ab552a6aca3293c0ecdd0ce26d6668663"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab552a6aca3293c0ecdd0ce26d6668663">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimTimebase::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Starts the timer with its update interrupt; the calling task becomes the one <a class="el" href="#a12ce8677b8ff16469cb2f21c9a1eb5bb" title="waitPeriod()">waitPeriod()</a> serves. </p>
-<p>Task context only. Asserts on a <em class="arg">nullptr</em> native handle.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware start sequence succeeded, <b>false</b> otherwise. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d1b/a06400.html#a9">Lib::HAL::Timer::TimTimebase</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="afffbfe2b0fcf27e6081cc6983d06e626" name="afffbfe2b0fcf27e6081cc6983d06e626"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afffbfe2b0fcf27e6081cc6983d06e626">&#9670;&#160;</a></span>stop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimTimebase::stop </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the timer and its update interrupt. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stopped safely, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a50fe83a38ed76cc7a5f8cea7dca98f4d" name="a50fe83a38ed76cc7a5f8cea7dca98f4d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50fe83a38ed76cc7a5f8cea7dca98f4d">&#9670;&#160;</a></span>waitEvent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d5/d7c/a05726.html">Lib::HAL::Timer::TimEventBase</a>&lt; <a class="el" href="#a2c242b351c880239ebc508905c1cb177">TimTimebase</a> &gt;::waitEvent </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d7c/a05726.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks the calling task until the next hardware event. </p>
-<p>Task context only. Asserts unless the caller is the task that called <a class="el" href="../../d5/d7c/a05726.html#ac7b1eac52b77847537b732a7e3cd0d2e" title="bindWorker()">bindWorker()</a>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if an event arrived, <b>false</b> on timeout. </dd></dl>
+<p>Evaluates whether a transfer or an abort is in flight. </p>
+<p>An uninitialized or failed peripheral is not busy.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral is transmitting, receiving or aborting, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="a2b19392b62c66b845538ec09abd31354" name="a2b19392b62c66b845538ec09abd31354"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b19392b62c66b845538ec09abd31354">&#9670;&#160;</a></span>waitPeriod() <span class="overload">[1/2]</span></h2>
+<a id="a8be2d6d39175f6e71f25e4a64e0e2f1b" name="a8be2d6d39175f6e71f25e4a64e0e2f1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be2d6d39175f6e71f25e4a64e0e2f1b">&#9670;&#160;</a></span>isOpened()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/de2/a05578.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a>, <a class="el" href="../../d7/d3f/a05754.html">SPIPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#abce1f805b84c4710a11d7e558b87de55">SPIPortAsync</a>&lt; T_DERIVED &gt; &gt;::isOpened </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the port is open. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="../../d4/de2/a05578.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d4/de2/a05578.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a3822bc9b87b9e299982b230e2c029f35" name="a3822bc9b87b9e299982b230e2c029f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3822bc9b87b9e299982b230e2c029f35">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d4/de2/a05578.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a>, <a class="el" href="../../d7/d3f/a05754.html">SPIPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#abce1f805b84c4710a11d7e558b87de55">SPIPortAsync</a>&lt; T_DERIVED &gt; &gt;::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opens the port: event group, peripheral, <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order. </p>
+<p>Task context only; asserts when called from an interrupt and on an unbound handle. A failure undoes the earlier steps, so the port stays closed.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
+
+</div>
+</div>
+<a id="a92f0a2b4df702792cbc1e97fdd843a33" name="a92f0a2b4df702792cbc1e97fdd843a33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92f0a2b4df702792cbc1e97fdd843a33">&#9670;&#160;</a></span>receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <div class="memtemplate">
 template&lt;typename Rep, typename Period&gt; </div>
 <table class="mlabels">
@@ -511,21 +556,25 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimTimebase::waitPeriod </td>
+          <td class="memname">bool <a class="el" href="../../d7/d3f/a05754.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::receive </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks the task that called <a class="el" href="#ab552a6aca3293c0ecdd0ce26d6668663" title="start()">start()</a> until the next period completes. </p>
-<p>Task context only. Asserts if called from another task than the one that called <a class="el" href="#ab552a6aca3293c0ecdd0ce26d6668663" title="start()">start()</a>.</p>
+<p>Receives data from SPI, waiting for the transfer to complete or fail. </p>
+<p>The transaction hooks bracket the transfer. An empty or oversized buffer asserts and returns <b>false</b>.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -535,74 +584,120 @@ template&lt;typename Rep, typename Period&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+    <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the period elapsed, <b>false</b> on timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="a12ce8677b8ff16469cb2f21c9a1eb5bb" name="a12ce8677b8ff16469cb2f21c9a1eb5bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12ce8677b8ff16469cb2f21c9a1eb5bb">&#9670;&#160;</a></span>waitPeriod() <span class="overload">[2/2]</span></h2>
+<a id="ac557450438e468ea5bf25de308bc023c" name="ac557450438e468ea5bf25de308bc023c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac557450438e468ea5bf25de308bc023c">&#9670;&#160;</a></span>send()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimTimebase::waitPeriod </td>
+          <td class="memname">bool <a class="el" href="../../d7/d3f/a05754.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::send </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d5/d7c/a05726.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks the task that called <a class="el" href="#ab552a6aca3293c0ecdd0ce26d6668663" title="start()">start()</a> until the next period completes. </p>
-<p>Task context only. Asserts if called from another task than the one that called <a class="el" href="#ab552a6aca3293c0ecdd0ce26d6668663" title="start()">start()</a>.</p>
+<p>Sends data over SPI, waiting for the transfer to complete or fail. </p>
+<p>The transaction hooks bracket the transfer. An empty or oversized buffer asserts and returns <b>false</b>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait; the default <em class="arg">portMAX_DELAY</em> waits forever. </td></tr>
+    <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the period elapsed, <b>false</b> on timeout. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d1b/a06400.html#a10">Lib::HAL::Timer::TimTimebase</a>.</dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
-<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
-<a id="ae72687d02451939bdec7c3aaba269a45" name="ae72687d02451939bdec7c3aaba269a45"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae72687d02451939bdec7c3aaba269a45">&#9670;&#160;</a></span>void::Lib_HAL_TimTimebase_PeriodElapsed</h2>
+<a id="a856e94be39c7518eed69bbde0ef8eaf8" name="a856e94be39c7518eed69bbde0ef8eaf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a856e94be39c7518eed69bbde0ef8eaf8">&#9670;&#160;</a></span>sendReceive()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void::Lib_HAL_TimTimebase_PeriodElapsed </td>
+          <td class="memname">bool <a class="el" href="../../d7/d3f/a05754.html">Lib::HAL::SPIPortBase</a>&lt; T_DERIVED &gt;::sendReceive </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>htim</em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>txData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>rxData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Performs a full-duplex transfer: transmits and receives simultaneously, waiting for completion or failure. </p>
+<p>The transaction hooks bracket the transfer. Buffers of different sizes, or an empty or oversized one, assert and return <b>false</b>.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">txData</td><td>Bytes to transmit; same size as <em class="arg">rxData</em>. </td></tr>
+    <tr><td class="paramname">rxData</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -613,7 +708,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/d6d/a01095.html">HAL</a></li><li class="navelem"><a href="../../d1/dfa/a01097.html">Timer</a></li><li class="navelem"><a href="../../d3/d16/a05746.html">TimTimebase</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../db/d32/a01122.html">HAL</a></li><li class="navelem"><a href="../../d3/d16/a05746.html">SPIPortAsync</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

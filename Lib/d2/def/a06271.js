@@ -1,9 +1,10 @@
 var a06271 =
 [
-    [ "SerialString", "d2/def/a06271.html#aa6020b729e0f58cedf044dc7ff97b00b", null ],
-    [ "SerialNumber", "d2/def/a06271.html#aed268b613b7b701d255b7d0c98dbfd58", null ],
-    [ "operator SerialString", "d2/def/a06271.html#a2a4f1521a09306606c2d5f032fdf544e", null ],
-    [ "operator uint32_t", "d2/def/a06271.html#ac46566dc9eaf2fcb21dcde82468b0652", null ],
-    [ "toString", "d2/def/a06271.html#a5f96c48e2369c3f690a6b7473ad854d1", null ],
-    [ "result", "d2/def/a06271.html#af3d33382ba6c5d600113f549fad5b91d", null ]
+    [ "VersionString", "d2/def/a06271.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
+    [ "HardwareVersion", "d2/def/a06271.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
+    [ "getSubVersion", "d2/def/a06271.html#ae5c57f2bce8b985f8190894328141480", null ],
+    [ "getValue", "d2/def/a06271.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
+    [ "operator uint32_t", "d2/def/a06271.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
+    [ "operator VersionString", "d2/def/a06271.html#aa3df38606e4bae3745c893ccbffb030c", null ],
+    [ "toString", "d2/def/a06271.html#a318575bc9f5967d830a1cb350b1e8061", null ]
 ];

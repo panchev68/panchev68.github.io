@@ -1,8 +1,6 @@
 var a06351 =
 [
-    [ "Frame", "d2/de6/a06355.html", "d2/de6/a06355" ],
-    [ "Status", "d9/d28/a06351.html#a9e9dc1e741ca0edee8938fa06d7a9c70", [
-      [ "OK", "d9/d28/a06351.html#a9e9dc1e741ca0edee8938fa06d7a9c70ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d9/d28/a06351.html#a9e9dc1e741ca0edee8938fa06d7a9c70abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "pinNRST", "d9/d28/a06351.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
+    [ "rxPort", "d9/d28/a06351.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
+    [ "txPort", "d9/d28/a06351.html#a7a30a24da1b05da04d34ae04d9601ed4", null ]
 ];

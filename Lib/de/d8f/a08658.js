@@ -1,4 +1,5 @@
 var a08658 =
 [
-    [ "Lib::Communication::Modbus::ReceiveCallback", "d9/d10/a01103.html#abfc1dda559e8602043925d03e6581d22", null ]
+    [ "Lib::XCOM::Protocol", "dc/df9/a06354.html", "dc/df9/a06354" ],
+    [ "Lib::XCOM::Protocol::Frame", "d0/d14/a06358.html", "d0/d14/a06358" ]
 ];

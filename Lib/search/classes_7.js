@@ -2,7 +2,7 @@ var searchData=
 [
   ['gamma_5fdistribution_0',['gamma_distribution',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05514.html',0,'std']]],
   ['geometric_5fdistribution_1',['geometric_distribution',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05570.html',0,'std']]],
-  ['glyph_2',['Glyph',['../d6/d94/a05479.html',1,'Lib::GUI']]],
+  ['glyph_2',['Glyph',['../dd/d2c/a05486.html',1,'Lib::GUI']]],
   ['gp_5fhash_5ftable_3',['gp_hash_table',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a11586.html',0,'__gnu_pbds']]],
   ['gp_5fhash_5ftag_4',['gp_hash_tag',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a11710.html',0,'__gnu_pbds']]],
   ['gp_5fht_5fmap_5',['gp_ht_map',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a12170.html',0,'__gnu_pbds::detail']]],
@@ -13,9 +13,9 @@ var searchData=
   ['greater_3c_20void_20_3e_10',['greater&lt; void &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06850.html',0,'std']]],
   ['greater_5fequal_11',['greater_equal',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06818.html',0,'std::greater_equal&lt; typename _Tp &gt;'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05966.html',0,'std::ranges::greater_equal']]],
   ['greater_5fequal_3c_20void_20_3e_12',['greater_equal&lt; void &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06890.html',0,'std']]],
-  ['group_13',['Group',['../d3/dac/a05307.html',1,'Lib::Errors']]],
+  ['group_13',['Group',['../db/dc8/a05314.html',1,'Lib::Errors']]],
   ['group_5fadjustor_14',['group_adjustor',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a11194.html',0,'__gnu_cxx::random_condition']]],
-  ['groupobserver_15',['GroupObserver',['../d0/d45/a05315.html',1,'Lib::Errors']]],
+  ['groupobserver_15',['GroupObserver',['../da/d4d/a05322.html',1,'Lib::Errors']]],
   ['growing_5fblocks_5ftag_16',['growing_blocks_tag',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a09066.html',0,'__gnu_parallel']]],
   ['gslice_17',['gslice',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04918.html',0,'std']]],
   ['gslice_5farray_18',['gslice_array',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a03758.html',0,'std']]]

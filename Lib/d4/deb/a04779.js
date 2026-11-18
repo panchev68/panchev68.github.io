@@ -1,12 +1,11 @@
 var a04779 =
 [
-    [ "Data", "d0/d9d/a04783.html", "d0/d9d/a04783" ],
-    [ "Color", "d4/deb/a04779.html#a50992f4d62f0c135ac06fb09295272a9", null ],
-    [ "Color", "d4/deb/a04779.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
-    [ "Color", "d4/deb/a04779.html#a484309c52934f9c23460c4fe57f45530", null ],
-    [ "clear", "d4/deb/a04779.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
-    [ "get", "d4/deb/a04779.html#a4ad28e997f34f1873bf233a5d004e340", null ],
-    [ "getPacked", "d4/deb/a04779.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
-    [ "set", "d4/deb/a04779.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
-    [ "set", "d4/deb/a04779.html#ac8926773deb153f9281f4e235896e4a0", null ]
+    [ "operator==", "d4/deb/a04779.html#a6d55cf519f280eb9c0e3a26e175a07f1", null ],
+    [ "fifoStatus1", "d4/deb/a04779.html#a8d4064983272456f2bb02cc0e9f0c920", null ],
+    [ "irqStatus1", "d4/deb/a04779.html#aa768730607ddfadbd98e83d9e2dad318", null ],
+    [ "irqStatus2", "d4/deb/a04779.html#adac7641fc9718f5eadda0e0b4ab2ed71", null ],
+    [ "operation", "d4/deb/a04779.html#a5b9150d2c316bf04c90a8e926eaf8f81", null ],
+    [ "protocol", "d4/deb/a04779.html#a7057ac56ad3d604ce1fcb392d89f6e1c", null ],
+    [ "protocolRx1", "d4/deb/a04779.html#a3286298ea7c4dc967dd97d575455c368", null ],
+    [ "status", "d4/deb/a04779.html#afd9a8486968b9512fd0de55e3d549edf", null ]
 ];

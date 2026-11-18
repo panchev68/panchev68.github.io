@@ -1,5 +1,5 @@
 var a05082 =
 [
-    [ "localAtCommand", "db/df6/a05082.html#a62c4d2c354626705c34bc850c039b5f7", null ],
-    [ "remoteAtCommand", "db/df6/a05082.html#aa56356e688d34101ce88fae45dd6fa4a", null ]
+    [ "channel", "db/df6/a05082.html#accbe3e59202cfc52dc94acb73e4342e2", null ],
+    [ "id", "db/df6/a05082.html#a0765ed0261b9be43580c85bf3aa4e8c7", null ]
 ];

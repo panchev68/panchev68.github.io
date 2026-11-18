@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::DACPortBase&lt; Derived &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::CANPort&lt; DriverMode::IT &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,101 +130,136 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/db7/a05562.
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d6/d63/a05559.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::DACPortBase&lt; Derived &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::CANPort&lt; DriverMode::IT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
-class Lib::HAL::DACPortBase&lt; Derived &gt;</div><p>CRTP foundation implementing the lifecycle and conversion policy shared by every transfer mode. </p>
-<p>Owns no state of its own, not even the native handle or channel: it reaches both through derived() and the <em class="arg">getHandle()</em> and <em class="arg">getChannel()</em> of <em class="arg">Derived</em>. Every mode implements <a class="el" href="#ae527315d8794d0bcdbd7b686839e4630" title="open()">open()</a> and <a class="el" href="#a2c3c1b081f9ff127e0f02cd3db61d4c4" title="close()">close()</a> identically and shares the same <a class="el" href="#a984f15fd9218a6fec1e7ac0d61e04e6d" title="setValue()">setValue()</a> conversion-register write, so that policy lives here once.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>High-level concrete driver class owning the native handle and channel.</td></tr>
-  </table>
-  </dd>
-</dl>
+<div class="textblock"><p>Interrupt-driven (IT) specialization. </p>
+<p>Adds the RTOS task-notification synchronization, HAL callback registration and <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> wiring that only interrupt-driven transfers need. <a class="el" href="#a591e40ed78afa5d73704475e00c55060" title="open()">open()</a> registers the instance with the <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> and makes the calling task the notification target, so <a class="el" href="#a1c4fcd17767b405bdecda984747567ed" title="waitForEvent()">waitForEvent()</a> must be called from that same task.</p>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/DAC/DACPortBase.hpp" target="_blank">Source</a> </dd></dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/CAN/CANPort-IT.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Event" id="r_Event"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d89/a05566.html">Event</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event bitmasks utilized inside the internal RTOS Task Notification context.  <a href="../../d8/d89/a05566.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5c390a543d2fb2e71dab05cd46bba5fb" id="r_a5c390a543d2fb2e71dab05cd46bba5fb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> (const DACPortBase &amp;other)=delete</td></tr>
-<tr class="memdesc:a5c390a543d2fb2e71dab05cd46bba5fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance.  <br /></td></tr>
-<tr class="memitem:a98261674f7f24cbf6ddd0b0549e2a020" id="r_a98261674f7f24cbf6ddd0b0549e2a020"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a98261674f7f24cbf6ddd0b0549e2a020">DACPortBase</a> (DACPortBase &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a98261674f7f24cbf6ddd0b0549e2a020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance.  <br /></td></tr>
-<tr class="memitem:a0b6a9ee706cd32b3028ae123bafbc9d0" id="r_a0b6a9ee706cd32b3028ae123bafbc9d0"><td class="memItemLeft"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0b6a9ee706cd32b3028ae123bafbc9d0">operator=</a> (const <a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a0b6a9ee706cd32b3028ae123bafbc9d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance.  <br /></td></tr>
-<tr class="memitem:abfba06342b098e48cbd2ecf0d159497c" id="r_abfba06342b098e48cbd2ecf0d159497c"><td class="memItemLeft"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abfba06342b098e48cbd2ecf0d159497c">operator=</a> (<a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:abfba06342b098e48cbd2ecf0d159497c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance.  <br /></td></tr>
-<tr class="memitem:ae527315d8794d0bcdbd7b686839e4630" id="r_ae527315d8794d0bcdbd7b686839e4630"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae527315d8794d0bcdbd7b686839e4630">open</a> () noexcept</td></tr>
-<tr class="memdesc:ae527315d8794d0bcdbd7b686839e4630"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the DAC peripheral with the configuration stored in its native handle.  <br /></td></tr>
-<tr class="memitem:a2c3c1b081f9ff127e0f02cd3db61d4c4" id="r_a2c3c1b081f9ff127e0f02cd3db61d4c4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2c3c1b081f9ff127e0f02cd3db61d4c4">close</a> () noexcept</td></tr>
-<tr class="memdesc:a2c3c1b081f9ff127e0f02cd3db61d4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the DAC peripheral.  <br /></td></tr>
-<tr class="memitem:a984f15fd9218a6fec1e7ac0d61e04e6d" id="r_a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a984f15fd9218a6fec1e7ac0d61e04e6d">setValue</a> (uint32_t value, <a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a> alignment=<a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327">DataAlignment::RIGHT_12_BITS</a>) noexcept</td></tr>
-<tr class="memdesc:a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the data holding register of the bound channel.  <br /></td></tr>
+<tr class="memitem:a4477b4c95db49ce0b556d568b2d879a0" id="r_a4477b4c95db49ce0b556d568b2d879a0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a> (CAN_HandleTypeDef *handle) noexcept</td></tr>
+<tr class="memdesc:a4477b4c95db49ce0b556d568b2d879a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block.  <br /></td></tr>
+<tr class="memitem:a6f6a6f1c91dc26fef9f74ef07f013b2c" id="r_a6f6a6f1c91dc26fef9f74ef07f013b2c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6f6a6f1c91dc26fef9f74ef07f013b2c">~CANPort</a> () noexcept</td></tr>
+<tr class="memdesc:a6f6a6f1c91dc26fef9f74ef07f013b2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> registry and no interrupt is left active for a destroyed object.  <br /></td></tr>
+<tr class="memitem:abe29825ceeac4153d36a08a6cb3adf7f" id="r_abe29825ceeac4153d36a08a6cb3adf7f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abe29825ceeac4153d36a08a6cb3adf7f">CANPort</a> (const CANPort &amp;other)=delete</td></tr>
+<tr class="memdesc:abe29825ceeac4153d36a08a6cb3adf7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns its task-notification binding and <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
+<tr class="memitem:af568e7e4043e0b195db174dab37c5dc9" id="r_af568e7e4043e0b195db174dab37c5dc9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af568e7e4043e0b195db174dab37c5dc9">CANPort</a> (CANPort &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:af568e7e4043e0b195db174dab37c5dc9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns its task-notification binding and <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
+<tr class="memitem:a8edeb615d6ad0c65bcf55d3d8f8fdce0" id="r_a8edeb615d6ad0c65bcf55d3d8f8fdce0"><td class="memItemLeft"><a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8edeb615d6ad0c65bcf55d3d8f8fdce0">operator=</a> (const <a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a8edeb615d6ad0c65bcf55d3d8f8fdce0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns its task-notification binding and <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
+<tr class="memitem:aa58c9c3ab70cdf4e842716686aaa8c40" id="r_aa58c9c3ab70cdf4e842716686aaa8c40"><td class="memItemLeft"><a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa58c9c3ab70cdf4e842716686aaa8c40">operator=</a> (<a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:aa58c9c3ab70cdf4e842716686aaa8c40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns its task-notification binding and <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
+<tr class="memitem:a591e40ed78afa5d73704475e00c55060" id="r_a591e40ed78afa5d73704475e00c55060"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a591e40ed78afa5d73704475e00c55060">open</a> () noexcept</td></tr>
+<tr class="memdesc:a591e40ed78afa5d73704475e00c55060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the peripheral, binds the calling task as the notification target, activates the interrupts, registers the HAL callbacks and registers this instance with the <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a>.  <br /></td></tr>
+<tr class="memitem:a4ec7ae44fe2e374d256f3fd66767dbc7" id="r_a4ec7ae44fe2e374d256f3fd66767dbc7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4ec7ae44fe2e374d256f3fd66767dbc7">close</a> () noexcept</td></tr>
+<tr class="memdesc:a4ec7ae44fe2e374d256f3fd66767dbc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters this instance from the <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a>, deactivates the interrupts, then stops the peripheral.  <br /></td></tr>
+<tr class="memitem:a1c4fcd17767b405bdecda984747567ed" id="r_a1c4fcd17767b405bdecda984747567ed"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a1c4fcd17767b405bdecda984747567ed">waitForEvent</a> (uint32_t eventMask, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:a1c4fcd17767b405bdecda984747567ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until an event is signalled from an interrupt, or the timeout elapses.  <br /></td></tr>
+<tr class="memitem:a65aa681fa591b2d0956e06e67e990b15" id="r_a65aa681fa591b2d0956e06e67e990b15"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d27/a05574.html#a65aa681fa591b2d0956e06e67e990b15">write</a> (uint32_t identifier, std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a65aa681fa591b2d0956e06e67e990b15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits a classic CAN frame to the first free transmit mailbox.  <br /></td></tr>
+<tr class="memitem:a19f3a9f56a84a6b351315710b9aa7cd4" id="r_a19f3a9f56a84a6b351315710b9aa7cd4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d27/a05574.html#a19f3a9f56a84a6b351315710b9aa7cd4">read</a> (uint32_t fifoIndex, <a class="el" href="../../d0/d5e/a05570.html">CANFrame</a> &amp;frame) noexcept</td></tr>
+<tr class="memdesc:a19f3a9f56a84a6b351315710b9aa7cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads whatever frame is currently latched in the given hardware FIFO.  <br /></td></tr>
+<tr class="memitem:ac88a1857130f01ccafcb72baae483a84" id="r_ac88a1857130f01ccafcb72baae483a84"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d27/a05574.html#ac88a1857130f01ccafcb72baae483a84">getFreeTxMailboxCount</a> () const noexcept</td></tr>
+<tr class="memdesc:ac88a1857130f01ccafcb72baae483a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports how many transmit mailboxes are currently free.  <br /></td></tr>
+<tr class="memitem:a7c5ae94d27408eb8d67405648fd2f154" id="r_a7c5ae94d27408eb8d67405648fd2f154"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d27/a05574.html#a7c5ae94d27408eb8d67405648fd2f154">getRxFifoFillLevel</a> (uint32_t fifoIndex) const noexcept</td></tr>
+<tr class="memdesc:a7c5ae94d27408eb8d67405648fd2f154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports how many frames are currently latched in the given hardware FIFO.  <br /></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">CAN_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d20/a05586.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
+<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const CAN_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d20/a05586.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a59881e4eed40d54771ce2e98b6dbda30" id="r_a59881e4eed40d54771ce2e98b6dbda30"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a59881e4eed40d54771ce2e98b6dbda30">DACPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a59881e4eed40d54771ce2e98b6dbda30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the CRTP foundation.  <br /></td></tr>
-<tr class="memitem:a3ae4ac657a106fd48d5b165820d747d2" id="r_a3ae4ac657a106fd48d5b165820d747d2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3ae4ac657a106fd48d5b165820d747d2">~DACPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a3ae4ac657a106fd48d5b165820d747d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; owns no state of its own, so there is nothing to release here.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a91a941265090b2ee4f3c05dbc2354fd9" id="r_a91a941265090b2ee4f3c05dbc2354fd9"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d27/a05574.html#a91a941265090b2ee4f3c05dbc2354fd9">MAX_CLASSIC_CAN_PAYLOAD</a></td></tr>
+<tr class="memdesc:a91a941265090b2ee4f3c05dbc2354fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum payload length of a classic (non-FD) CAN frame.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a18b5de83aaec561a43dc24a80e15bd46" name="a18b5de83aaec561a43dc24a80e15bd46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18b5de83aaec561a43dc24a80e15bd46">&#9670;&#160;</a></span>DataAlignment</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46">Lib::HAL::DACPortBase::DataAlignment</a> : uint32_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Output data alignment options for DAC value conversion. </p>
-<p>Mirrors the alignment macros defined by the STM32 HAL DAC driver. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327" name="a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327"></a>RIGHT_12_BITS&#160;</td><td class="fielddoc"><p>12-bit data, right aligned </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41" name="a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41"></a>LEFT_12_BITS&#160;</td><td class="fielddoc"><p>12-bit data, left aligned </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5" name="a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5"></a>RIGHT_8_BITS&#160;</td><td class="fielddoc"><p>8-bit data, right aligned </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5c390a543d2fb2e71dab05cd46bba5fb" name="a5c390a543d2fb2e71dab05cd46bba5fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c390a543d2fb2e71dab05cd46bba5fb">&#9670;&#160;</a></span>DACPortBase() <span class="overload">[1/3]</span></h2>
+<a id="a4477b4c95db49ce0b556d568b2d879a0" name="a4477b4c95db49ce0b556d568b2d879a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4477b4c95db49ce0b556d568b2d879a0">&#9670;&#160;</a></span>CANPort() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/db7/a05562.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::DACPortBase </td>
+          <td class="memname">Lib::HAL::CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::CANPort </td>
           <td>(</td>
-          <td class="paramtype">const DACPortBase&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">CAN_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Binds the port to a native hardware descriptor block. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6f6a6f1c91dc26fef9f74ef07f013b2c" name="a6f6a6f1c91dc26fef9f74ef07f013b2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f6a6f1c91dc26fef9f74ef07f013b2c">&#9670;&#160;</a></span>~CANPort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::~<a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> registry and no interrupt is left active for a destroyed object. </p>
+
+</div>
+</div>
+<a id="abe29825ceeac4153d36a08a6cb3adf7f" name="abe29825ceeac4153d36a08a6cb3adf7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe29825ceeac4153d36a08a6cb3adf7f">&#9670;&#160;</a></span>CANPort() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::CANPort </td>
+          <td>(</td>
+          <td class="paramtype">const CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -222,7 +270,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance. </p>
+<p>Copying is deleted: each instance owns its task-notification binding and <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -232,21 +280,19 @@ template&lt;typename Derived&gt; </div>
 
 </div>
 </div>
-<a id="a98261674f7f24cbf6ddd0b0549e2a020" name="a98261674f7f24cbf6ddd0b0549e2a020"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98261674f7f24cbf6ddd0b0549e2a020">&#9670;&#160;</a></span>DACPortBase() <span class="overload">[2/3]</span></h2>
+<a id="af568e7e4043e0b195db174dab37c5dc9" name="af568e7e4043e0b195db174dab37c5dc9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af568e7e4043e0b195db174dab37c5dc9">&#9670;&#160;</a></span>CANPort() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d0/db7/a05562.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::DACPortBase </td>
+          <td class="memname">Lib::HAL::CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::CANPort </td>
           <td>(</td>
-          <td class="paramtype">DACPortBase&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -257,91 +303,28 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance. </p>
+<p>Moving is deleted: each instance owns its task-notification binding and <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a59881e4eed40d54771ce2e98b6dbda30" name="a59881e4eed40d54771ce2e98b6dbda30"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59881e4eed40d54771ce2e98b6dbda30">&#9670;&#160;</a></span>DACPortBase() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d0/db7/a05562.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::DACPortBase </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructs the CRTP foundation. </p>
-<p>Carries no state; the native handle and channel live on <em class="arg">Derived</em>.</p>
-<p>Protected: the base only makes sense as part of a <em class="arg">Derived</em> driver. </p>
-
-</div>
-</div>
-<a id="a3ae4ac657a106fd48d5b165820d747d2" name="a3ae4ac657a106fd48d5b165820d747d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ae4ac657a106fd48d5b165820d747d2">&#9670;&#160;</a></span>~DACPortBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d0/db7/a05562.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::~<a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destroys the object; owns no state of its own, so there is nothing to release here. </p>
-<p>Protected and non-virtual: it is never destroyed through a base pointer. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a2c3c1b081f9ff127e0f02cd3db61d4c4" name="a2c3c1b081f9ff127e0f02cd3db61d4c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c3c1b081f9ff127e0f02cd3db61d4c4">&#9670;&#160;</a></span>close()</h2>
+<a id="a4ec7ae44fe2e374d256f3fd66767dbc7" name="a4ec7ae44fe2e374d256f3fd66767dbc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec7ae44fe2e374d256f3fd66767dbc7">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/db7/a05562.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::close </td>
+          <td class="memname">bool Lib::HAL::CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -354,25 +337,141 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Deinitializes the DAC peripheral. </p>
-<p>Asserts on an unbound handle.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if deinitialization succeeded, <b>false</b> otherwise. </dd></dl>
+<p>Unregisters this instance from the <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a>, deactivates the interrupts, then stops the peripheral. </p>
+<p>Task context only.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the base close sequence completed successfully, or if the port was not open. </dd></dl>
 
 </div>
 </div>
-<a id="ae527315d8794d0bcdbd7b686839e4630" name="ae527315d8794d0bcdbd7b686839e4630"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae527315d8794d0bcdbd7b686839e4630">&#9670;&#160;</a></span>open()</h2>
+<a id="ac88a1857130f01ccafcb72baae483a84" name="ac88a1857130f01ccafcb72baae483a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88a1857130f01ccafcb72baae483a84">&#9670;&#160;</a></span>getFreeTxMailboxCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/db7/a05562.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::open </td>
+          <td class="memname">uint32_t <a class="el" href="../../d3/d27/a05574.html">Lib::HAL::CANPortBase</a>&lt; <a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a>&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::getFreeTxMailboxCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports how many transmit mailboxes are currently free. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of free transmit mailboxes (<b>0</b> to <b>3</b>), or <b>0</b> if unbound. </dd></dl>
+
+</div>
+</div>
+<a id="af92f93241be20a3c9a32286ed19dc4cf" name="af92f93241be20a3c9a32286ed19dc4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92f93241be20a3c9a32286ed19dc4cf">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const CAN_HandleTypeDef * <a class="el" href="../../d4/d20/a05586.html">Lib::HAL::Device</a>&lt; <a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a>&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;, CAN_HandleTypeDef &gt;::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Const-qualified access to the native microcontroller hardware handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
+
+</div>
+</div>
+<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CAN_HandleTypeDef * <a class="el" href="../../d4/d20/a05586.html">Lib::HAL::Device</a>&lt; <a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a>&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;, CAN_HandleTypeDef &gt;::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
+
+</div>
+</div>
+<a id="a7c5ae94d27408eb8d67405648fd2f154" name="a7c5ae94d27408eb8d67405648fd2f154"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5ae94d27408eb8d67405648fd2f154">&#9670;&#160;</a></span>getRxFifoFillLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d3/d27/a05574.html">Lib::HAL::CANPortBase</a>&lt; <a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a>&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::getRxFifoFillLevel </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>fifoIndex</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports how many frames are currently latched in the given hardware FIFO. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer (<em class="arg">CAN_RX_FIFO0</em> or <em class="arg">CAN_RX_FIFO1</em>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of pending frames in the selected FIFO, or <b>0</b> if unbound. </dd></dl>
+
+</div>
+</div>
+<a id="a591e40ed78afa5d73704475e00c55060" name="a591e40ed78afa5d73704475e00c55060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a591e40ed78afa5d73704475e00c55060">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -385,27 +484,25 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the DAC peripheral with the configuration stored in its native handle. </p>
-<p>Asserts on an unbound handle.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if initialization succeeded, <b>false</b> otherwise. </dd></dl>
+<p>Starts the peripheral, binds the calling task as the notification target, activates the interrupts, registers the HAL callbacks and registers this instance with the <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a>. </p>
+<p>Task context only. A failed step undoes the earlier ones, so the port is left closed.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step of the open sequence succeeded, or if the port was already open. </dd></dl>
 
 </div>
 </div>
-<a id="a0b6a9ee706cd32b3028ae123bafbc9d0" name="a0b6a9ee706cd32b3028ae123bafbc9d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b6a9ee706cd32b3028ae123bafbc9d0">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="aa58c9c3ab70cdf4e842716686aaa8c40" name="aa58c9c3ab70cdf4e842716686aaa8c40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa58c9c3ab70cdf4e842716686aaa8c40">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp; <a class="el" href="../../d0/db7/a05562.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname"><a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a> &amp; Lib::HAL::CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a>&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a>&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -416,32 +513,30 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance. </p>
+<p>Move assignment is deleted: each instance owns its task-notification binding and <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="abfba06342b098e48cbd2ecf0d159497c" name="abfba06342b098e48cbd2ecf0d159497c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abfba06342b098e48cbd2ecf0d159497c">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a8edeb615d6ad0c65bcf55d3d8f8fdce0" name="a8edeb615d6ad0c65bcf55d3d8f8fdce0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8edeb615d6ad0c65bcf55d3d8f8fdce0">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a> &amp; <a class="el" href="../../d0/db7/a05562.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname"><a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a> &amp; Lib::HAL::CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a5c390a543d2fb2e71dab05cd46bba5fb">DACPortBase</a>&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a>&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -452,37 +547,75 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: each instance is bound to a unique <em class="arg">Derived</em> driver instance. </p>
+<p>Copy assignment is deleted: each instance owns its task-notification binding and <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="a984f15fd9218a6fec1e7ac0d61e04e6d" name="a984f15fd9218a6fec1e7ac0d61e04e6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a984f15fd9218a6fec1e7ac0d61e04e6d">&#9670;&#160;</a></span>setValue()</h2>
+<a id="a19f3a9f56a84a6b351315710b9aa7cd4" name="a19f3a9f56a84a6b351315710b9aa7cd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19f3a9f56a84a6b351315710b9aa7cd4">&#9670;&#160;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/db7/a05562.html">Lib::HAL::DACPortBase</a>&lt; Derived &gt;::setValue </td>
+          <td class="memname">bool <a class="el" href="../../d3/d27/a05574.html">Lib::HAL::CANPortBase</a>&lt; <a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a>&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::read </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>fifoIndex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a></td>          <td class="paramname"><span class="paramname"><em>alignment</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327">DataAlignment::RIGHT_12_BITS</a></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="../../d0/d5e/a05570.html">CANFrame</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads whatever frame is currently latched in the given hardware FIFO. </p>
+<p>Does not wait: it fails when the FIFO is empty. Asserts on an unbound handle and on a <em class="arg">fifoIndex</em> other than the two hardware FIFOs.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer (<em class="arg">CAN_RX_FIFO0</em> or <em class="arg">CAN_RX_FIFO1</em>). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">frame</td><td>Output structure receiving the parsed message; left unchanged on failure. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a valid frame was extracted from the selected hardware FIFO, <b>false</b> if it was empty. </dd></dl>
+
+</div>
+</div>
+<a id="a1c4fcd17767b405bdecda984747567ed" name="a1c4fcd17767b405bdecda984747567ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c4fcd17767b405bdecda984747567ed">&#9670;&#160;</a></span>waitForEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::HAL::CANPort&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::waitForEvent </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>eventMask</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -492,16 +625,81 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Writes the data holding register of the bound channel. </p>
-<p>The value reaches the output once the channel is enabled and, with a hardware trigger configured, on the next trigger. Asserts on an unbound handle and on a value outside the range implied by <em class="arg">alignment</em>.</p>
+<p>Blocks the calling task until an event is signalled from an interrupt, or the timeout elapses. </p>
+<p>Must be called from the task that called <a class="el" href="#a591e40ed78afa5d73704475e00c55060" title="open()">open()</a>, as the notification targets that task. The wait ends on the first notification of any event bit, even one outside <em class="arg">eventMask</em>; only the bits of <em class="arg">eventMask</em> are cleared on return, so unrelated pending bits are kept for a later call.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Conversion value to write, within the range implied by <em class="arg">alignment</em>. </td></tr>
-    <tr><td class="paramname">alignment</td><td>Data alignment applied to <em class="arg">value</em>. </td></tr>
+    <tr><td class="paramname">eventMask</td><td>Event bits to clear on return (e.g. <a class="el" href="../../d8/d89/a05566.html#a99320f131a3e2d516ea02cd7ef9181c2" title="Event::RX_FIFO0">Event::RX_FIFO0</a>). </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum duration to wait. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the write succeeded, <b>false</b> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Notification bits received, a combination of the <a class="el" href="../../d8/d89/a05566.html" title="Event">Event</a> bits, or <b>0</b> if the timeout elapsed. </dd></dl>
+
+</div>
+</div>
+<a id="a65aa681fa591b2d0956e06e67e990b15" name="a65aa681fa591b2d0956e06e67e990b15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65aa681fa591b2d0956e06e67e990b15">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d3/d27/a05574.html">Lib::HAL::CANPortBase</a>&lt; <a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a>&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::write </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Submits a classic CAN frame to the first free transmit mailbox. </p>
+<p>Returns as soon as the hardware accepts the frame into a mailbox. The bus transmission itself completes asynchronously and is observed through a mode-specific completion signal. An identifier below <em class="arg">0x800</em> is sent in the standard 11-bit format, any other in the extended 29-bit format. Always a data frame, never a remote frame. Asserts on an unbound handle, a payload above <a class="el" href="../../d3/d27/a05574.html#a91a941265090b2ee4f3c05dbc2354fd9" title="MAX_CLASSIC_CAN_PAYLOAD">MAX_CLASSIC_CAN_PAYLOAD</a> and an identifier above 29 bits.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>Arbitration identifier of the frame, at most 29 bits. </td></tr>
+    <tr><td class="paramname">data</td><td>Payload bytes, at most <a class="el" href="../../d3/d27/a05574.html#a91a941265090b2ee4f3c05dbc2354fd9" title="MAX_CLASSIC_CAN_PAYLOAD">MAX_CLASSIC_CAN_PAYLOAD</a> long. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware mailbox accepted the transmission, <b>false</b> if no mailbox is free or the payload is too long. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a91a941265090b2ee4f3c05dbc2354fd9" name="a91a941265090b2ee4f3c05dbc2354fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a941265090b2ee4f3c05dbc2354fd9">&#9670;&#160;</a></span>MAX_CLASSIC_CAN_PAYLOAD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../d3/d27/a05574.html">Lib::HAL::CANPortBase</a>&lt; <a class="el" href="#a4477b4c95db49ce0b556d568b2d879a0">CANPort</a>&lt; <a class="el" href="../../db/d32/a01122.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::MAX_CLASSIC_CAN_PAYLOAD</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maximum payload length of a classic (non-FD) CAN frame. </p>
 
 </div>
 </div>
@@ -512,7 +710,7 @@ template&lt;typename Derived&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/d6d/a01095.html">HAL</a></li><li class="navelem"><a href="../../d0/db7/a05562.html">DACPortBase</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../db/d32/a01122.html">HAL</a></li><li class="navelem"><a href="../../d0/db7/a05562.html">CANPort&lt; DriverMode::IT &gt;</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

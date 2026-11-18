@@ -1,11 +1,12 @@
 var a05255 =
 [
-    [ "onExtendedTransmitStatusChanged", "d5/d12/a05255.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
-    [ "onLocalAtCommand", "d5/d12/a05255.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
-    [ "onModemStatusChanged", "d5/d12/a05255.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
-    [ "onPacketReceived", "d5/d12/a05255.html#a850cfb32fb4c250ebb5d07029d996133", null ],
-    [ "onReceivePacket16bit", "d5/d12/a05255.html#a30dd6aca5f04efa028541965da0f724f", null ],
-    [ "onReceivePacket64bit", "d5/d12/a05255.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
-    [ "onRemoteATCommand", "d5/d12/a05255.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
-    [ "onTransmitStatus", "d5/d12/a05255.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
+    [ "Command", "d5/d12/a05255.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
+    [ "RemoteAtCommand", "d5/d12/a05255.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
+    [ "RemoteAtCommand", "d5/d12/a05255.html#a772786f4856c6806756c33743f038855", null ],
+    [ "close", "d5/d12/a05255.html#acfc9182b712685cd72276c7c645330ec", null ],
+    [ "open", "d5/d12/a05255.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
+    [ "operator=", "d5/d12/a05255.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
+    [ "receive", "d5/d12/a05255.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
+    [ "send", "d5/d12/a05255.html#a68565e1939553aa4b73a44d4c6adf059", null ],
+    [ "send", "d5/d12/a05255.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
 ];

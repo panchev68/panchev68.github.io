@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::Display::TouchGFX_BW&lt; T_DISPLAY &gt;</title>
+<title>IAR EWARM Library: Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -119,92 +132,77 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d22/a04494.
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../de/ddb/a04491.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::Display::TouchGFX_BW&lt; T_DISPLAY &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;PagedDisplay T_DISPLAY&gt;<br />
-class Lib::BSP::Display::TouchGFX_BW&lt; T_DISPLAY &gt;</div><p>Shows the black and white frame buffer of TouchGFX on a display that keeps its pixels in pages, such as <a class="el" href="../../df/dd2/a04486.html" title="Lib::BSP::Display::SSD1306">Lib::BSP::Display::SSD1306</a>. </p>
-<p>TouchGFX renders a 1-bit-per-pixel frame buffer row by row, eight pixels per byte with the leftmost pixel in the most significant bit. The display wants pages: a byte is a column of eight pixels with the top one in bit 0. Every 8 x 8 block of pixels is therefore turned by 90 degrees; the class does it with three masked shifts on one 64-bit word instead of moving single bits. <a class="el" href="../../d6/dea/a01094.html" title="Lib::GUI">Lib::GUI</a> is not involved, the two are alternatives. The class holds no TouchGFX type and needs no TouchGFX header, so its three connections to the framework are plain arguments:</p>
-<ul>
-<li>the frame buffer and the changed rectangle are passed to <a class="el" href="#a954a747230bf0b9cbc0a41961c137743" title="Lib::BSP::Display::TouchGFX_BW::update()">Lib::BSP::Display::TouchGFX_BW::update()</a>, called from <em class="arg">TouchGFXHAL::flushFrameBuffer()</em>; - the vertical-sync tick is the <em class="arg">onVSync</em> callback, normally <em class="arg">touchgfx::OSWrappers::signalVSync</em>, run by a software timer started with <a class="el" href="#a211165ae608dd89ad3920d9e042a5614" title="Lib::BSP::Display::TouchGFX_BW::start()">Lib::BSP::Display::TouchGFX_BW::start()</a>; - the display driver is a <a class="el" href="../../d7/d8c/a06311.html" title="Lib::BSP::Display::PagedDisplay">Lib::BSP::Display::PagedDisplay</a>.</li>
-</ul>
-<p>Only the 8 x 8 blocks that touch the changed rectangle are converted, then the whole panel is flushed. The sync period should not be shorter than one panel transfer (about 25 ms on I2C at 400 kHz), otherwise TouchGFX renders frames that are never shown.</p>
-<dl class="section important"><dt>Important</dt><dd><a class="el" href="#a954a747230bf0b9cbc0a41961c137743" title="Lib::BSP::Display::TouchGFX_BW::update()">Lib::BSP::Display::TouchGFX_BW::update()</a> blocks on the panel transfer, so it runs in the TouchGFX task, never in an interrupt. The frame buffer has to be the 1-bit one that the generated HAL owns, <em class="arg">WIDTH</em> / 8 bytes per row.</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_DISPLAY</td><td>Display driver type, see <a class="el" href="../../d7/d8c/a06311.html" title="Lib::BSP::Display::PagedDisplay">Lib::BSP::Display::PagedDisplay</a>.</td></tr>
-  </table>
-  </dd>
-</dl>
+<div class="textblock"><p>Specialized ILI9341 display driver with SPI interface. </p>
+<p>Template specialization of the generic Lib::BSP::Display::Driver class for the ILI9341 controller.</p>
+<p>Manages LCD initialization, pixel transmission via DMA-driven SPI, and display parameters such as rotation and backlight.</p>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/Display/TouchGFX_BW.hpp" target="_blank">Source</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d1b/a06326.html#_a2">Lib::BSP::Display::TouchGFX_BW</a>.</dd>
-</dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://crystalfontz.com/controllers/Ilitek/ILI9341V" target="_blank">ILI9341 controller datasheet, v1.11 (Crystalfontz copy)</a>, third-party; check ilitek.com for the official revision</dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/Display/Components/ILI9341/Driver.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/dd0/a04498.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display and vertical-sync settings.  <a href="../../dc/dd0/a04498.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware interface handles required for ILI9341 display operation.  <a href="../../dc/dd0/a04498.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a629c49ad3c29b04fe4667d8ef8409bc2" id="r_a629c49ad3c29b04fe4667d8ef8409bc2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a629c49ad3c29b04fe4667d8ef8409bc2">TouchGFX_BW</a> (const <a class="el" href="../../dc/dd0/a04498.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a629c49ad3c29b04fe4667d8ef8409bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the bridge to its display; nothing runs until <a class="el" href="#a211165ae608dd89ad3920d9e042a5614" title="Lib::BSP::Display::TouchGFX_BW::start()">Lib::BSP::Display::TouchGFX_BW::start()</a>.  <br /></td></tr>
-<tr class="memitem:ac9a06a946e2693f723ed5521164d5370" id="r_ac9a06a946e2693f723ed5521164d5370"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac9a06a946e2693f723ed5521164d5370">~TouchGFX_BW</a> () noexcept</td></tr>
-<tr class="memdesc:ac9a06a946e2693f723ed5521164d5370"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the sync timer.  <br /></td></tr>
-<tr class="memitem:ab6069b983398128553bdf718bcf716e1" id="r_ab6069b983398128553bdf718bcf716e1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab6069b983398128553bdf718bcf716e1">TouchGFX_BW</a> (const TouchGFX_BW &amp;other)=delete</td></tr>
-<tr class="memdesc:ab6069b983398128553bdf718bcf716e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the timer calls back into this object.  <br /></td></tr>
-<tr class="memitem:aca7757926274df17a33250ddf8b75db7" id="r_aca7757926274df17a33250ddf8b75db7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aca7757926274df17a33250ddf8b75db7">TouchGFX_BW</a> (TouchGFX_BW &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:aca7757926274df17a33250ddf8b75db7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the timer calls back into this object.  <br /></td></tr>
-<tr class="memitem:ab5b07ecfc9ff3420466ee1f075b7ef88" id="r_ab5b07ecfc9ff3420466ee1f075b7ef88"><td class="memItemLeft"><a class="el" href="#a629c49ad3c29b04fe4667d8ef8409bc2">TouchGFX_BW</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab5b07ecfc9ff3420466ee1f075b7ef88">operator=</a> (const <a class="el" href="#a629c49ad3c29b04fe4667d8ef8409bc2">TouchGFX_BW</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:ab5b07ecfc9ff3420466ee1f075b7ef88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the timer calls back into this object.  <br /></td></tr>
-<tr class="memitem:a7261fe75da21d4043526149b813ea1b4" id="r_a7261fe75da21d4043526149b813ea1b4"><td class="memItemLeft"><a class="el" href="#a629c49ad3c29b04fe4667d8ef8409bc2">TouchGFX_BW</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7261fe75da21d4043526149b813ea1b4">operator=</a> (<a class="el" href="#a629c49ad3c29b04fe4667d8ef8409bc2">TouchGFX_BW</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a7261fe75da21d4043526149b813ea1b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the timer calls back into this object.  <br /></td></tr>
-<tr class="memitem:a211165ae608dd89ad3920d9e042a5614" id="r_a211165ae608dd89ad3920d9e042a5614"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a211165ae608dd89ad3920d9e042a5614">start</a> () noexcept</td></tr>
-<tr class="memdesc:a211165ae608dd89ad3920d9e042a5614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer that calls the vertical-sync callback.  <br /></td></tr>
-<tr class="memitem:a4b7643e2769c427994de2c06fe67b113" id="r_a4b7643e2769c427994de2c06fe67b113"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4b7643e2769c427994de2c06fe67b113">stop</a> () noexcept</td></tr>
-<tr class="memdesc:a4b7643e2769c427994de2c06fe67b113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the sync timer; later <a class="el" href="#a211165ae608dd89ad3920d9e042a5614" title="Lib::BSP::Display::TouchGFX_BW::start()">Lib::BSP::Display::TouchGFX_BW::start()</a> can start it again.  <br /></td></tr>
-<tr class="memitem:a954a747230bf0b9cbc0a41961c137743" id="r_a954a747230bf0b9cbc0a41961c137743"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a954a747230bf0b9cbc0a41961c137743">update</a> (const uint8_t *frameBuffer) noexcept</td></tr>
-<tr class="memdesc:a954a747230bf0b9cbc0a41961c137743"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shows the whole frame buffer on the panel.  <br /></td></tr>
-<tr class="memitem:abd5c93f4750e9f09e727afd842f07987" id="r_abd5c93f4750e9f09e727afd842f07987"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abd5c93f4750e9f09e727afd842f07987">update</a> (const uint8_t *frameBuffer, const int32_t x, const int32_t y, const int32_t width, const int32_t height) noexcept</td></tr>
-<tr class="memdesc:abd5c93f4750e9f09e727afd842f07987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the 8 x 8 blocks that touch a changed rectangle and shows the frame on the panel.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a61256b69cbfde8d1058375748673cf4f" id="r_a61256b69cbfde8d1058375748673cf4f"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a61256b69cbfde8d1058375748673cf4f">convert</a> (const uint8_t *frameBuffer, const std::span&lt; uint8_t &gt; pages, const size_t left, const size_t top, const size_t right, const size_t bottom) noexcept</td></tr>
-<tr class="memdesc:a61256b69cbfde8d1058375748673cf4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a rectangle of a TouchGFX frame buffer into the pages of a display frame buffer.  <br /></td></tr>
+<tr class="memitem:a1485030ad4d5221083358bb976d4f6a9" id="r_a1485030ad4d5221083358bb976d4f6a9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1485030ad4d5221083358bb976d4f6a9">Driver</a> (const <a class="el" href="../../dc/dd0/a04498.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a1485030ad4d5221083358bb976d4f6a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to its SPI peripheral and control GPIO pins.  <br /></td></tr>
+<tr class="memitem:a02b3a6700a07d6ec290c3b84098c3389" id="r_a02b3a6700a07d6ec290c3b84098c3389"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a02b3a6700a07d6ec290c3b84098c3389">~Driver</a> () noexcept=default</td></tr>
+<tr class="memdesc:a02b3a6700a07d6ec290c3b84098c3389"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses the compiler-generated destructor; the owned SPI port and GPIO pins release themselves.  <br /></td></tr>
+<tr class="memitem:ae80e1a0a03b141829f376e2309e65a30" id="r_ae80e1a0a03b141829f376e2309e65a30"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae80e1a0a03b141829f376e2309e65a30">setup</a> () noexcept</td></tr>
+<tr class="memdesc:ae80e1a0a03b141829f376e2309e65a30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the ILI9341 display controller.  <br /></td></tr>
+<tr class="memitem:a7c3b10e802400c9d45d7467ee59a7562" id="r_a7c3b10e802400c9d45d7467ee59a7562"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7c3b10e802400c9d45d7467ee59a7562">transmitBlock</a> (const void *pixelBuffer, uint32_t x, uint32_t y, size_t width, size_t height) noexcept</td></tr>
+<tr class="memdesc:a7c3b10e802400c9d45d7467ee59a7562"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits a pixel buffer block to the display.  <br /></td></tr>
+<tr class="memitem:aa82bca6d7225f8fb51714daaa7b44ee1" id="r_aa82bca6d7225f8fb51714daaa7b44ee1"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aa82bca6d7225f8fb51714daaa7b44ee1">setRotation</a> (bool isRotated) noexcept</td></tr>
+<tr class="memdesc:aa82bca6d7225f8fb51714daaa7b44ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the display rotation mode.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ad437178ce390e39bb79d11a859533ea6" id="r_ad437178ce390e39bb79d11a859533ea6"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ad437178ce390e39bb79d11a859533ea6">WIDTH</a> = T_DISPLAY::WIDTH</td></tr>
-<tr class="memdesc:ad437178ce390e39bb79d11a859533ea6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display width in pixels.  <br /></td></tr>
-<tr class="memitem:a0bf5d737b9e0f8bc3120c1688993c569" id="r_a0bf5d737b9e0f8bc3120c1688993c569"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a0bf5d737b9e0f8bc3120c1688993c569">HEIGHT</a> = T_DISPLAY::HEIGHT</td></tr>
-<tr class="memdesc:a0bf5d737b9e0f8bc3120c1688993c569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display height in pixels.  <br /></td></tr>
-<tr class="memitem:a9a08641dd020ede297d070683055a62e" id="r_a9a08641dd020ede297d070683055a62e"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a9a08641dd020ede297d070683055a62e">FRAME_ROW_BYTES</a> = <a class="el" href="#ad437178ce390e39bb79d11a859533ea6">WIDTH</a> / 8U</td></tr>
-<tr class="memdesc:a9a08641dd020ede297d070683055a62e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes of one row of the TouchGFX frame buffer.  <br /></td></tr>
-<tr class="memitem:a726bbefe1ee4245e76d3d424c9b62d34" id="r_a726bbefe1ee4245e76d3d424c9b62d34"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a726bbefe1ee4245e76d3d424c9b62d34">FRAME_SIZE</a> = <a class="el" href="#a9a08641dd020ede297d070683055a62e">FRAME_ROW_BYTES</a> * <a class="el" href="#a0bf5d737b9e0f8bc3120c1688993c569">HEIGHT</a></td></tr>
-<tr class="memdesc:a726bbefe1ee4245e76d3d424c9b62d34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes of the whole TouchGFX frame buffer.  <br /></td></tr>
-<tr class="memitem:ab47645cfaced30b3828049abc610baef" id="r_ab47645cfaced30b3828049abc610baef"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab47645cfaced30b3828049abc610baef">DEFAULT_VSYNC_PERIOD</a> {20}</td></tr>
-<tr class="memdesc:ab47645cfaced30b3828049abc610baef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default sync period, 50 frames per second.  <br /></td></tr>
+<tr class="memitem:a79bf1506b9fed0ba6ae5d178d40eb264" id="r_a79bf1506b9fed0ba6ae5d178d40eb264"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a79bf1506b9fed0ba6ae5d178d40eb264">RESET_DELAY_LOW</a> = 10</td></tr>
+<tr class="memdesc:a79bf1506b9fed0ba6ae5d178d40eb264"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset low phase duration, in milliseconds.  <br /></td></tr>
+<tr class="memitem:acbae8d470294d5326da9d719ab6f4f2a" id="r_acbae8d470294d5326da9d719ab6f4f2a"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#acbae8d470294d5326da9d719ab6f4f2a">RESET_DELAY_HIGH</a> = 120</td></tr>
+<tr class="memdesc:acbae8d470294d5326da9d719ab6f4f2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset high phase duration, in milliseconds.  <br /></td></tr>
+<tr class="memitem:acf197197f10159e7f63f82d53703dcc2" id="r_acf197197f10159e7f63f82d53703dcc2"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#acf197197f10159e7f63f82d53703dcc2">INIT_DELAY_SHORT</a> = 100</td></tr>
+<tr class="memdesc:acf197197f10159e7f63f82d53703dcc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Short initialization delay, in milliseconds.  <br /></td></tr>
+<tr class="memitem:a1aa5f4adabfbadfbbb6a18196f57fb83" id="r_a1aa5f4adabfbadfbbb6a18196f57fb83"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a1aa5f4adabfbadfbbb6a18196f57fb83">INIT_DELAY_LONG</a> = 120</td></tr>
+<tr class="memdesc:a1aa5f4adabfbadfbbb6a18196f57fb83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Long initialization delay, in milliseconds.  <br /></td></tr>
+<tr class="memitem:a024ccec34105f85965729634e1f06e44" id="r_a024ccec34105f85965729634e1f06e44"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a024ccec34105f85965729634e1f06e44">INIT_DELAY_FINAL</a> = 150</td></tr>
+<tr class="memdesc:a024ccec34105f85965729634e1f06e44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Final initialization delay, in milliseconds.  <br /></td></tr>
+<tr class="memitem:adda573b62f37ea2a95709741b0ca584d" id="r_adda573b62f37ea2a95709741b0ca584d"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#adda573b62f37ea2a95709741b0ca584d">BACKLIGHT_OFF</a> = 0</td></tr>
+<tr class="memdesc:adda573b62f37ea2a95709741b0ca584d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backlight brightness off value.  <br /></td></tr>
+<tr class="memitem:a76de6b3d09a23481756329bea2ba5d77" id="r_a76de6b3d09a23481756329bea2ba5d77"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a76de6b3d09a23481756329bea2ba5d77">BACKLIGHT_ON</a> = 100</td></tr>
+<tr class="memdesc:a76de6b3d09a23481756329bea2ba5d77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Backlight brightness on value (100%).  <br /></td></tr>
+<tr class="memitem:a3e409cc3150b84a305bef1085ee492aa" id="r_a3e409cc3150b84a305bef1085ee492aa"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a3e409cc3150b84a305bef1085ee492aa">SPI_TIMEOUT</a> = 10</td></tr>
+<tr class="memdesc:a3e409cc3150b84a305bef1085ee492aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI command-byte transmission timeout, in milliseconds.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a5c3019cb4ef6b0af87fb89c9b1e25ca4" id="r_a5c3019cb4ef6b0af87fb89c9b1e25ca4"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a5c3019cb4ef6b0af87fb89c9b1e25ca4">setBacklight</a> (uint8_t brightness) noexcept</td></tr>
+<tr class="memdesc:a5c3019cb4ef6b0af87fb89c9b1e25ca4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the display backlight brightness.  <br /></td></tr>
+<tr class="memitem:a16f81d6e044e814af3071d70b3bfd029" id="r_a16f81d6e044e814af3071d70b3bfd029"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a16f81d6e044e814af3071d70b3bfd029">handleTransferCompleteEvent</a> () noexcept</td></tr>
+<tr class="memdesc:a16f81d6e044e814af3071d70b3bfd029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles completion of an SPI transfer.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a629c49ad3c29b04fe4667d8ef8409bc2" name="a629c49ad3c29b04fe4667d8ef8409bc2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a629c49ad3c29b04fe4667d8ef8409bc2">&#9670;&#160;</a></span>TouchGFX_BW() <span class="overload">[1/3]</span></h2>
+<a id="a1485030ad4d5221083358bb976d4f6a9" name="a1485030ad4d5221083358bb976d4f6a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1485030ad4d5221083358bb976d4f6a9">&#9670;&#160;</a></span>Driver()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::TouchGFX_BW </td>
+          <td class="memname">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Driver </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="../../dc/dd0/a04498.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
@@ -217,29 +215,27 @@ template&lt;PagedDisplay T_DISPLAY&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the bridge to its display; nothing runs until <a class="el" href="#a211165ae608dd89ad3920d9e042a5614" title="Lib::BSP::Display::TouchGFX_BW::start()">Lib::BSP::Display::TouchGFX_BW::start()</a>. </p>
+<p>Binds the driver to its SPI peripheral and control GPIO pins. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Display and vertical-sync settings. </td></tr>
+    <tr><td class="paramname">config</td><td>Hardware handles for the SPI interface and control pins. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="ac9a06a946e2693f723ed5521164d5370" name="ac9a06a946e2693f723ed5521164d5370"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9a06a946e2693f723ed5521164d5370">&#9670;&#160;</a></span>~TouchGFX_BW()</h2>
+<a id="a02b3a6700a07d6ec290c3b84098c3389" name="a02b3a6700a07d6ec290c3b84098c3389"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02b3a6700a07d6ec290c3b84098c3389">&#9670;&#160;</a></span>~Driver()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::~<a class="el" href="#a629c49ad3c29b04fe4667d8ef8409bc2">TouchGFX_BW</a> </td>
+          <td class="memname">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::~<a class="el" href="#a1485030ad4d5221083358bb976d4f6a9">Driver</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -247,236 +243,27 @@ template&lt;PagedDisplay T_DISPLAY&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the sync timer. </p>
-
-</div>
-</div>
-<a id="ab6069b983398128553bdf718bcf716e1" name="ab6069b983398128553bdf718bcf716e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6069b983398128553bdf718bcf716e1">&#9670;&#160;</a></span>TouchGFX_BW() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::TouchGFX_BW </td>
-          <td>(</td>
-          <td class="paramtype">const TouchGFX_BW&lt; T_DISPLAY &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: the timer calls back into this object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="aca7757926274df17a33250ddf8b75db7" name="aca7757926274df17a33250ddf8b75db7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca7757926274df17a33250ddf8b75db7">&#9670;&#160;</a></span>TouchGFX_BW() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::TouchGFX_BW </td>
-          <td>(</td>
-          <td class="paramtype">TouchGFX_BW&lt; T_DISPLAY &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: the timer calls back into this object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Uses the compiler-generated destructor; the owned SPI port and GPIO pins release themselves. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a61256b69cbfde8d1058375748673cf4f" name="a61256b69cbfde8d1058375748673cf4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61256b69cbfde8d1058375748673cf4f">&#9670;&#160;</a></span>convert()</h2>
+<a id="a16f81d6e044e814af3071d70b3bfd029" name="a16f81d6e044e814af3071d70b3bfd029"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16f81d6e044e814af3071d70b3bfd029">&#9670;&#160;</a></span>handleTransferCompleteEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::convert </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>frameBuffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>pages</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>top</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>right</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>bottom</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts a rectangle of a TouchGFX frame buffer into the pages of a display frame buffer. </p>
-<p>Works on whole 8 x 8 blocks: every block that contains a pixel of the rectangle is converted, so a few more pixels than asked may be refreshed, always with their current content. Pure function, it touches no display.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">frameBuffer</td><td>The 1-bit TouchGFX frame buffer, <a class="el" href="#a726bbefe1ee4245e76d3d424c9b62d34" title="Lib::BSP::Display::TouchGFX_BW::FRAME_SIZE">Lib::BSP::Display::TouchGFX_BW::FRAME_SIZE</a> bytes. </td></tr>
-    <tr><td class="paramname">pages</td><td>The page-organized frame buffer to write into, <em class="arg">WIDTH</em> * <em class="arg">HEIGHT</em> / 8 bytes. </td></tr>
-    <tr><td class="paramname">left</td><td>Column of the first changed pixel, inside the display. </td></tr>
-    <tr><td class="paramname">top</td><td>Row of the first changed pixel, inside the display. </td></tr>
-    <tr><td class="paramname">right</td><td>Column of the last changed pixel, inside the display. </td></tr>
-    <tr><td class="paramname">bottom</td><td>Row of the last changed pixel, inside the display. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ab5b07ecfc9ff3420466ee1f075b7ef88" name="ab5b07ecfc9ff3420466ee1f075b7ef88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5b07ecfc9ff3420466ee1f075b7ef88">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a629c49ad3c29b04fe4667d8ef8409bc2">TouchGFX_BW</a> &amp; <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a629c49ad3c29b04fe4667d8ef8409bc2">TouchGFX_BW</a>&lt; T_DISPLAY &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: the timer calls back into this object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-
-</div>
-</div>
-<a id="a7261fe75da21d4043526149b813ea1b4" name="a7261fe75da21d4043526149b813ea1b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7261fe75da21d4043526149b813ea1b4">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a629c49ad3c29b04fe4667d8ef8409bc2">TouchGFX_BW</a> &amp; <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a629c49ad3c29b04fe4667d8ef8409bc2">TouchGFX_BW</a>&lt; T_DISPLAY &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: the timer calls back into this object. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-
-</div>
-</div>
-<a id="a211165ae608dd89ad3920d9e042a5614" name="a211165ae608dd89ad3920d9e042a5614"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a211165ae608dd89ad3920d9e042a5614">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::start </td>
+          <td class="memname">void Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::handleTransferCompleteEvent </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -484,32 +271,95 @@ template&lt;PagedDisplay T_DISPLAY&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Starts the timer that calls the vertical-sync callback. </p>
-<p>Does nothing and succeeds when no callback was given or the timer already runs. Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the timer runs or none is needed, <b>false</b> if it could not be created or started. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d1b/a06326.html#a7">Lib::BSP::Display::TouchGFX_BW</a>.</dd>
-</dl>
+<p>Handles completion of an SPI transfer. </p>
+<p>Called when a DMA-based SPI transfer completes, allowing the driver to update state and prepare for subsequent operations. </p>
 
 </div>
 </div>
-<a id="a4b7643e2769c427994de2c06fe67b113" name="a4b7643e2769c427994de2c06fe67b113"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b7643e2769c427994de2c06fe67b113">&#9670;&#160;</a></span>stop()</h2>
+<a id="a5c3019cb4ef6b0af87fb89c9b1e25ca4" name="a5c3019cb4ef6b0af87fb89c9b1e25ca4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c3019cb4ef6b0af87fb89c9b1e25ca4">&#9670;&#160;</a></span>setBacklight()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::stop </td>
+          <td class="memname">virtual void Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::setBacklight </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>brightness</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the display backlight brightness. </p>
+<p>Controls the backlight intensity. Override in a derived class to implement hardware-specific backlight control.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">brightness</td><td>Backlight brightness level, from 0 to 100. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa82bca6d7225f8fb51714daaa7b44ee1" name="aa82bca6d7225f8fb51714daaa7b44ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa82bca6d7225f8fb51714daaa7b44ee1">&#9670;&#160;</a></span>setRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::setRotation </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isRotated</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Configures the display rotation mode. </p>
+<p>Sets the Memory Access Control register to enable or disable the 90-degree rotation of the display output.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">isRotated</td><td><em class="arg">true</em> to enable 90-degree rotation, <em class="arg">false</em> for normal orientation. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae80e1a0a03b141829f376e2309e65a30" name="ae80e1a0a03b141829f376e2309e65a30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae80e1a0a03b141829f376e2309e65a30">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::setup </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -522,122 +372,88 @@ template&lt;PagedDisplay T_DISPLAY&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the sync timer; later <a class="el" href="#a211165ae608dd89ad3920d9e042a5614" title="Lib::BSP::Display::TouchGFX_BW::start()">Lib::BSP::Display::TouchGFX_BW::start()</a> can start it again. </p>
+<p>Initializes the ILI9341 display controller. </p>
+<p>Executes the complete initialization sequence including power setup, display configuration, gamma correction, pixel format settings, and display activation. Manages timing delays and backlight control throughout the initialization process.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if initialization completed successfully, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="a954a747230bf0b9cbc0a41961c137743" name="a954a747230bf0b9cbc0a41961c137743"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a954a747230bf0b9cbc0a41961c137743">&#9670;&#160;</a></span>update() <span class="overload">[1/2]</span></h2>
+<a id="a7c3b10e802400c9d45d7467ee59a7562" name="a7c3b10e802400c9d45d7467ee59a7562"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c3b10e802400c9d45d7467ee59a7562">&#9670;&#160;</a></span>transmitBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::update </td>
+          <td class="memname">void Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::transmitBlock </td>
           <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>frameBuffer</em></span></td><td>)</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>pixelBuffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Shows the whole frame buffer on the panel. </p>
+<p>Transmits a pixel buffer block to the display. </p>
+<p>Configures the SPI interface for pixel data transmission, sets the address window for the target area, and initiates a DMA-based SPI transfer of pixel data to the display RAM.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frameBuffer</td><td>The 1-bit frame buffer of TouchGFX, <a class="el" href="#a726bbefe1ee4245e76d3d424c9b62d34" title="Lib::BSP::Display::TouchGFX_BW::FRAME_SIZE">Lib::BSP::Display::TouchGFX_BW::FRAME_SIZE</a> bytes. </td></tr>
+    <tr><td class="paramname">pixelBuffer</td><td>Pointer to the pixel data buffer (16-bit color values). </td></tr>
+    <tr><td class="paramname">x</td><td>Starting column coordinate. </td></tr>
+    <tr><td class="paramname">y</td><td>Starting row coordinate. </td></tr>
+    <tr><td class="paramname">width</td><td>Block width in pixels. </td></tr>
+    <tr><td class="paramname">height</td><td>Block height in pixels.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the frame was converted and transferred, <b>false</b> if the transfer failed. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d1b/a06326.html#a12">Lib::BSP::Display::TouchGFX_BW</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="abd5c93f4750e9f09e727afd842f07987" name="abd5c93f4750e9f09e727afd842f07987"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd5c93f4750e9f09e727afd842f07987">&#9670;&#160;</a></span>update() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::update </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>frameBuffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>height</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts the 8 x 8 blocks that touch a changed rectangle and shows the frame on the panel. </p>
-<p>The rectangle is cut to the display. An empty rectangle changes nothing and sends nothing, which saves the panel transfer when TouchGFX reports a frame without changes.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">frameBuffer</td><td>The 1-bit frame buffer of TouchGFX, <a class="el" href="#a726bbefe1ee4245e76d3d424c9b62d34" title="Lib::BSP::Display::TouchGFX_BW::FRAME_SIZE">Lib::BSP::Display::TouchGFX_BW::FRAME_SIZE</a> bytes. </td></tr>
-    <tr><td class="paramname">x</td><td>Column of the left edge of the changed rectangle. </td></tr>
-    <tr><td class="paramname">y</td><td>Row of the top edge of the changed rectangle. </td></tr>
-    <tr><td class="paramname">width</td><td>Width of the changed rectangle in pixels. </td></tr>
-    <tr><td class="paramname">height</td><td>Height of the changed rectangle in pixels. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if nothing had to be sent or the frame was transferred, <b>false</b> if the transfer failed. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>pixelBuffer != nullptr </dd>
+<dd>
+width &gt; 0 </dd>
+<dd>
+height &gt; 0 </dd>
+<dd>
+width * height &lt;= 0xffff </dd></dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="ab47645cfaced30b3828049abc610baef" name="ab47645cfaced30b3828049abc610baef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab47645cfaced30b3828049abc610baef">&#9670;&#160;</a></span>DEFAULT_VSYNC_PERIOD</h2>
+<a id="adda573b62f37ea2a95709741b0ca584d" name="adda573b62f37ea2a95709741b0ca584d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adda573b62f37ea2a95709741b0ca584d">&#9670;&#160;</a></span>BACKLIGHT_OFF</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::DEFAULT_VSYNC_PERIOD {20}</td>
+          <td class="memname">uint8_t Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::BACKLIGHT_OFF = 0</td>
         </tr>
       </table>
   </td>
@@ -647,23 +463,21 @@ template&lt;PagedDisplay T_DISPLAY&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Default sync period, 50 frames per second. </p>
+<p>Backlight brightness off value. </p>
 
 </div>
 </div>
-<a id="a9a08641dd020ede297d070683055a62e" name="a9a08641dd020ede297d070683055a62e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a08641dd020ede297d070683055a62e">&#9670;&#160;</a></span>FRAME_ROW_BYTES</h2>
+<a id="a76de6b3d09a23481756329bea2ba5d77" name="a76de6b3d09a23481756329bea2ba5d77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76de6b3d09a23481756329bea2ba5d77">&#9670;&#160;</a></span>BACKLIGHT_ON</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::FRAME_ROW_BYTES = <a class="el" href="#ad437178ce390e39bb79d11a859533ea6">WIDTH</a> / 8U</td>
+          <td class="memname">uint8_t Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::BACKLIGHT_ON = 100</td>
         </tr>
       </table>
   </td>
@@ -673,23 +487,21 @@ template&lt;PagedDisplay T_DISPLAY&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Bytes of one row of the TouchGFX frame buffer. </p>
+<p>Backlight brightness on value (100%). </p>
 
 </div>
 </div>
-<a id="a726bbefe1ee4245e76d3d424c9b62d34" name="a726bbefe1ee4245e76d3d424c9b62d34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a726bbefe1ee4245e76d3d424c9b62d34">&#9670;&#160;</a></span>FRAME_SIZE</h2>
+<a id="a024ccec34105f85965729634e1f06e44" name="a024ccec34105f85965729634e1f06e44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a024ccec34105f85965729634e1f06e44">&#9670;&#160;</a></span>INIT_DELAY_FINAL</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::FRAME_SIZE = <a class="el" href="#a9a08641dd020ede297d070683055a62e">FRAME_ROW_BYTES</a> * <a class="el" href="#a0bf5d737b9e0f8bc3120c1688993c569">HEIGHT</a></td>
+          <td class="memname">uint32_t Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::INIT_DELAY_FINAL = 150</td>
         </tr>
       </table>
   </td>
@@ -699,23 +511,21 @@ template&lt;PagedDisplay T_DISPLAY&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Bytes of the whole TouchGFX frame buffer. </p>
+<p>Final initialization delay, in milliseconds. </p>
 
 </div>
 </div>
-<a id="a0bf5d737b9e0f8bc3120c1688993c569" name="a0bf5d737b9e0f8bc3120c1688993c569"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0bf5d737b9e0f8bc3120c1688993c569">&#9670;&#160;</a></span>HEIGHT</h2>
+<a id="a1aa5f4adabfbadfbbb6a18196f57fb83" name="a1aa5f4adabfbadfbbb6a18196f57fb83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1aa5f4adabfbadfbbb6a18196f57fb83">&#9670;&#160;</a></span>INIT_DELAY_LONG</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::HEIGHT = T_DISPLAY::HEIGHT</td>
+          <td class="memname">uint32_t Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::INIT_DELAY_LONG = 120</td>
         </tr>
       </table>
   </td>
@@ -725,23 +535,21 @@ template&lt;PagedDisplay T_DISPLAY&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Display height in pixels. </p>
+<p>Long initialization delay, in milliseconds. </p>
 
 </div>
 </div>
-<a id="ad437178ce390e39bb79d11a859533ea6" name="ad437178ce390e39bb79d11a859533ea6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad437178ce390e39bb79d11a859533ea6">&#9670;&#160;</a></span>WIDTH</h2>
+<a id="acf197197f10159e7f63f82d53703dcc2" name="acf197197f10159e7f63f82d53703dcc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf197197f10159e7f63f82d53703dcc2">&#9670;&#160;</a></span>INIT_DELAY_SHORT</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d4/d22/a04494.html">Lib::BSP::Display::TouchGFX_BW</a>&lt; T_DISPLAY &gt;::WIDTH = T_DISPLAY::WIDTH</td>
+          <td class="memname">uint32_t Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::INIT_DELAY_SHORT = 100</td>
         </tr>
       </table>
   </td>
@@ -751,7 +559,79 @@ template&lt;PagedDisplay T_DISPLAY&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Display width in pixels. </p>
+<p>Short initialization delay, in milliseconds. </p>
+
+</div>
+</div>
+<a id="acbae8d470294d5326da9d719ab6f4f2a" name="acbae8d470294d5326da9d719ab6f4f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbae8d470294d5326da9d719ab6f4f2a">&#9670;&#160;</a></span>RESET_DELAY_HIGH</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::RESET_DELAY_HIGH = 120</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset high phase duration, in milliseconds. </p>
+
+</div>
+</div>
+<a id="a79bf1506b9fed0ba6ae5d178d40eb264" name="a79bf1506b9fed0ba6ae5d178d40eb264"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79bf1506b9fed0ba6ae5d178d40eb264">&#9670;&#160;</a></span>RESET_DELAY_LOW</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::RESET_DELAY_LOW = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset low phase duration, in milliseconds. </p>
+
+</div>
+</div>
+<a id="a3e409cc3150b84a305bef1085ee492aa" name="a3e409cc3150b84a305bef1085ee492aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e409cc3150b84a305bef1085ee492aa">&#9670;&#160;</a></span>SPI_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SPI_TIMEOUT = 10</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>SPI command-byte transmission timeout, in milliseconds. </p>
 
 </div>
 </div>
@@ -762,7 +642,7 @@ template&lt;PagedDisplay T_DISPLAY&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/de6/a01063.html">BSP</a></li><li class="navelem"><a href="../../d9/db3/a01064.html">Display</a></li><li class="navelem"><a href="../../d4/d22/a04494.html">TouchGFX_BW</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../da/d73/a01090.html">BSP</a></li><li class="navelem"><a href="../../d6/d0d/a01091.html">Display</a></li><li class="navelem"><a href="../../d4/d22/a04494.html">Driver&lt; Controller::ILI9341 &gt;</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

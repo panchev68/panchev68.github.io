@@ -1,17 +1,8 @@
 var a05486 =
 [
-    [ "ADCPort", "dd/d2c/a05486.html#ad3590b6cb223a01016ad98732fcce676", null ],
-    [ "~ADCPort", "dd/d2c/a05486.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
-    [ "ADCPort", "dd/d2c/a05486.html#a9e044644fe3be9918072830d224a30df", null ],
-    [ "ADCPort", "dd/d2c/a05486.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
-    [ "close", "dd/d2c/a05486.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
-    [ "getHandle", "dd/d2c/a05486.html#a5614da14358698185ca50bab6f0ffb90", null ],
-    [ "getHandle", "dd/d2c/a05486.html#a67ec812f689c32e443b0f0b0693c358a", null ],
-    [ "getValue", "dd/d2c/a05486.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "dd/d2c/a05486.html#aed764265c454323ee0b2d718d2f447cb", null ],
-    [ "operator=", "dd/d2c/a05486.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
-    [ "operator=", "dd/d2c/a05486.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
-    [ "poll", "dd/d2c/a05486.html#a7f4263cc22040a8ca759022ba6097646", null ],
-    [ "start", "dd/d2c/a05486.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
-    [ "stop", "dd/d2c/a05486.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
+    [ "isSet", "dd/d2c/a05486.html#ae6f8f68f57700d79a72e26081bf75543", null ],
+    [ "bytes", "dd/d2c/a05486.html#a6a98e0fa6690c8bcb1e9c5c0482d5867", null ],
+    [ "height", "dd/d2c/a05486.html#a42bb71b2b248a369bfc59775e0db8367", null ],
+    [ "layout", "dd/d2c/a05486.html#a4e35e0da1f33d02ad712520d84633e72", null ],
+    [ "width", "dd/d2c/a05486.html#ac5a0674021000edab1d4e0edd3861507", null ]
 ];

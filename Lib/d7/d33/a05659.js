@@ -1,7 +1,7 @@
 var a05659 =
 [
-    [ "I2CPort", "d7/d33/a05659.html#a5ed7014d6c1bb4669c90ada1b61bbffe", null ],
-    [ "~I2CPort", "d7/d33/a05659.html#a28d64cb04bd2cd5f1648ac33b94bf4ec", null ],
+    [ "I2CPort", "d7/d33/a05659.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
+    [ "~I2CPort", "d7/d33/a05659.html#aa13047282a809658f54818a9b352d7bf", null ],
     [ "abort", "d7/d33/a05659.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
     [ "close", "d7/d33/a05659.html#a03c62c024b148a264f9a6a0077198302", null ],
     [ "getHandle", "d7/d33/a05659.html#af92f93241be20a3c9a32286ed19dc4cf", null ],

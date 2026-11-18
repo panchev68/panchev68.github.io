@@ -1,12 +1,14 @@
 var a05406 =
 [
-    [ "Config", "d3/d53/a05410.html", "d3/d53/a05410" ],
-    [ "ViewportScope", "dd/d15/a05414.html", "dd/d15/a05414" ],
-    [ "bind", "d5/d43/a05406.html#ab97e6f8f2b368533fe0a40ad5c353f2c", null ],
-    [ "clear", "d5/d43/a05406.html#aa06d22a1795a1ed05102338fe3f06b3f", null ],
-    [ "flush", "d5/d43/a05406.html#a7beed38f320353f422e70d9a209c4c5c", null ],
-    [ "getCanvas", "d5/d43/a05406.html#a25647b80401b91267564b71671e479fa", null ],
-    [ "getDisplay", "d5/d43/a05406.html#a4bfe72de47e228e7f12d63366b27cb51", null ],
-    [ "getPrimitives", "d5/d43/a05406.html#a4d9f5800faa647f6ddfb8a0c95223d58", null ],
-    [ "setup", "d5/d43/a05406.html#a48271a82a8ee7fb036692180987ef703", null ]
+    [ "PortString", "d5/d43/a05406.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
+    [ "Port", "d5/d43/a05406.html#a0cdcdcee9376806af5c6778670685c80", null ],
+    [ "Port", "d5/d43/a05406.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
+    [ "fromString", "d5/d43/a05406.html#af096519c074646658fc5d42017770060", null ],
+    [ "get", "d5/d43/a05406.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
+    [ "get", "d5/d43/a05406.html#a74efeaeccbeb41630891ddb4725470a5", null ],
+    [ "operator uint16_t", "d5/d43/a05406.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
+    [ "operator<=>", "d5/d43/a05406.html#a5db32af54d9bdde977000618e7b6d476", null ],
+    [ "operator=", "d5/d43/a05406.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
+    [ "set", "d5/d43/a05406.html#a1de553c3b996aee8be2112632f45ee1b", null ],
+    [ "toString", "d5/d43/a05406.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
 ];

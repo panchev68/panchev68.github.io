@@ -1,10 +1,18 @@
 var a04887 =
 [
-    [ "RxMessage", "de/d63/a04887.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
-    [ "RxMessage", "de/d63/a04887.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
-    [ "getData", "de/d63/a04887.html#a211378ed57e780728a164371a88e9913", null ],
-    [ "getId", "de/d63/a04887.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
-    [ "data", "de/d63/a04887.html#ad7fd7612128273e1c546b6344e7410b3", null ],
-    [ "id", "de/d63/a04887.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
-    [ "length", "de/d63/a04887.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
+    [ "RxMessage", "d3/d3a/a04891.html", "d3/d3a/a04891" ],
+    [ "Node", "d7/d46/a04895.html", "d7/d46/a04895" ],
+    [ "Diagnostic", "d0/d0b/a04899.html", "d0/d0b/a04899" ],
+    [ "ServiceBase", "de/d63/a04887.html#acbfceb92cefef5281785b7d5db81df5d", null ],
+    [ "~ServiceBase", "de/d63/a04887.html#a6594894f460fcebe7b8705a3ebca6938", null ],
+    [ "errorCallback", "de/d63/a04887.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
+    [ "getDiagnostic", "de/d63/a04887.html#aa6e2069cd0ca82608d533788d367dddf", null ],
+    [ "messageReceivedCallback", "de/d63/a04887.html#abe37221a89d42b0ec836894d481128b4", null ],
+    [ "receive", "de/d63/a04887.html#a24358bc730156fbe1517606352fbf513", null ],
+    [ "send", "de/d63/a04887.html#a9e61e58322c0a574320d57ad9da13966", null ],
+    [ "send", "de/d63/a04887.html#ae9698dff358c5494704ad558fcf82d22", null ],
+    [ "send", "de/d63/a04887.html#a26cd3541d7c850c5151fe7281e917a94", null ],
+    [ "start", "de/d63/a04887.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
+    [ "stop", "de/d63/a04887.html#a3d0252842f197249fff9649618458fee", null ],
+    [ "taskFn", "de/d63/a04887.html#a3f461c3e0f637c2be89463249c736b46", null ]
 ];

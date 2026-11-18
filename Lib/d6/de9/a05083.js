@@ -1,5 +1,6 @@
 var a05083 =
 [
-    [ "firmwareVersion", "d6/de9/a05083.html#a8a213038d3ef462ae46b408da218a1eb", null ],
-    [ "hardwareVersion", "d6/de9/a05083.html#adfbefffe4f1c4d33955752b2c3cd85e5", null ]
+    [ "getIdentifier", "d6/de9/a05083.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
+    [ "setIdentifier", "d6/de9/a05083.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
+    [ "identifier", "d6/de9/a05083.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
 ];

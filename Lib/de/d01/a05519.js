@@ -1,9 +1,12 @@
 var a05519 =
 [
-    [ "alignment", "de/d01/a05519.html#af07ad322a750d286737a52e1bdddfb31", null ],
-    [ "font", "de/d01/a05519.html#ab5edca785b9579756e559d327c812754", null ],
-    [ "isOn", "de/d01/a05519.html#af2039fbf263f5e338ac2a40e86e86efd", null ],
-    [ "position", "de/d01/a05519.html#a54029d4f028b9841cd01c51b4f5ad669", null ],
-    [ "scale", "de/d01/a05519.html#a3a3b00eeb965dc88b5d63ace306a7da5", null ],
-    [ "width", "de/d01/a05519.html#a6016e5ae8576459b5a2c9d45cd131d0f", null ]
+    [ "Config", "d9/d91/a05523.html", "d9/d91/a05523" ],
+    [ "String", "de/d01/a05519.html#a02e7031d052fd64ada91ddf82c047f0d", null ],
+    [ "~String", "de/d01/a05519.html#ae4eac8a55ae2b96f37bc4b470086a3bc", null ],
+    [ "draw", "de/d01/a05519.html#a973689dcf4975dbf536efd76124157b2", null ],
+    [ "getPosition", "de/d01/a05519.html#aafd56a564c109bd6f063eb995f51f2aa", null ],
+    [ "getText", "de/d01/a05519.html#a7049cc089883b2f7e46c105730400657", null ],
+    [ "setNumber", "de/d01/a05519.html#a502382f585a9950a50f64f8779f9ef1f", null ],
+    [ "setPosition", "de/d01/a05519.html#acd2dba5259282eb5ed774ce352fe3fdf", null ],
+    [ "setText", "de/d01/a05519.html#a21e008bc3a46b3fef88ad96d13b06515", null ]
 ];

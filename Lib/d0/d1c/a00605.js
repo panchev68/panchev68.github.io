@@ -1,6 +1,6 @@
 var a00605 =
 [
-    [ "Lib::GUI::Display", "d3/dd4/a05455.html", "d3/dd4/a05455" ],
-    [ "Lib::GUI::Display::Config", "db/d24/a05459.html", "db/d24/a05459" ],
-    [ "Lib::GUI::Display::Viewport", "da/d34/a05463.html", "da/d34/a05463" ]
+    [ "Lib::GUI::Context", "d1/db8/a05450.html", "d1/db8/a05450" ],
+    [ "Lib::GUI::Context::Config", "db/d2b/a05454.html", "db/d2b/a05454" ],
+    [ "Lib::GUI::Context::ViewportScope", "de/d5f/a05458.html", "de/d5f/a05458" ]
 ];

@@ -1,18 +1,13 @@
 var a05819 =
 [
-    [ "EventHandler", "d0/d47/a05819.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
-    [ "USBDevicePort", "d0/d47/a05819.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
-    [ "~USBDevicePort", "d0/d47/a05819.html#a380acfe834fbf265a2fdfe8e26550867", null ],
-    [ "abort", "d0/d47/a05819.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
-    [ "close", "d0/d47/a05819.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d0/d47/a05819.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d0/d47/a05819.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d0/d47/a05819.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d0/d47/a05819.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d0/d47/a05819.html#add4fb8ab17eac13116050ae3c8237acf", null ],
-    [ "send", "d0/d47/a05819.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
-    [ "setEventHandler", "d0/d47/a05819.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
-    [ "submitReceive", "d0/d47/a05819.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
-    [ "submitSend", "d0/d47/a05819.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
-    [ "waitForEvent", "d0/d47/a05819.html#ac98dece292bb17828882e8d61e803880", null ]
+    [ "UARTPortBase", "d0/d47/a05819.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
+    [ "UARTPortBase", "d0/d47/a05819.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
+    [ "UARTPortBase", "d0/d47/a05819.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
+    [ "~UARTPortBase", "d0/d47/a05819.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
+    [ "close", "d0/d47/a05819.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
+    [ "isBusy", "d0/d47/a05819.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "open", "d0/d47/a05819.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
+    [ "operator=", "d0/d47/a05819.html#ad0321a4f1297088a60c64e263c8c6816", null ],
+    [ "operator=", "d0/d47/a05819.html#af29977f244357cb79e8203dbd192840c", null ],
+    [ "setBaudRate", "d0/d47/a05819.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

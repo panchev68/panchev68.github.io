@@ -1,13 +1,18 @@
 var a04890 =
 [
-    [ "WolfSSHServer", "d1/d0b/a04890.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
-    [ "~WolfSSHServer", "d1/d0b/a04890.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
-    [ "WolfSSHServer", "d1/d0b/a04890.html#ad8f53deb42abb7890bd933f530e30e99", null ],
-    [ "WolfSSHServer", "d1/d0b/a04890.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
-    [ "accept", "d1/d0b/a04890.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
-    [ "operator=", "d1/d0b/a04890.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
-    [ "operator=", "d1/d0b/a04890.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
-    [ "read", "d1/d0b/a04890.html#ac07508d68f41b64e463fdd58db57558b", null ],
-    [ "send", "d1/d0b/a04890.html#a034957692d48053e848ee6d77605fe2f", null ],
-    [ "shutdown", "d1/d0b/a04890.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
+    [ "RxMessage", "d8/dd4/a04894.html", "d8/dd4/a04894" ],
+    [ "Node", "da/dd2/a04898.html", "da/dd2/a04898" ],
+    [ "Diagnostic", "d8/de5/a04902.html", "d8/de5/a04902" ],
+    [ "ServiceBase", "d1/d0b/a04890.html#acbfceb92cefef5281785b7d5db81df5d", null ],
+    [ "~ServiceBase", "d1/d0b/a04890.html#a6594894f460fcebe7b8705a3ebca6938", null ],
+    [ "errorCallback", "d1/d0b/a04890.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
+    [ "getDiagnostic", "d1/d0b/a04890.html#aa6e2069cd0ca82608d533788d367dddf", null ],
+    [ "messageReceivedCallback", "d1/d0b/a04890.html#abe37221a89d42b0ec836894d481128b4", null ],
+    [ "receive", "d1/d0b/a04890.html#a24358bc730156fbe1517606352fbf513", null ],
+    [ "send", "d1/d0b/a04890.html#a9e61e58322c0a574320d57ad9da13966", null ],
+    [ "send", "d1/d0b/a04890.html#ae9698dff358c5494704ad558fcf82d22", null ],
+    [ "send", "d1/d0b/a04890.html#a26cd3541d7c850c5151fe7281e917a94", null ],
+    [ "start", "d1/d0b/a04890.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
+    [ "stop", "d1/d0b/a04890.html#a3d0252842f197249fff9649618458fee", null ],
+    [ "taskFn", "d1/d0b/a04890.html#a3f461c3e0f637c2be89463249c736b46", null ]
 ];

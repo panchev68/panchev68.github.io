@@ -1,15 +1,19 @@
 var a05631 =
 [
-    [ "Config", "dc/d03/a05631.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
-    [ "Handle", "dc/d03/a05631.html#ade0f87f7318848ef033a913d2442a32e", null ],
-    [ "Port", "dc/d03/a05631.html#ad4395b6d9b762e123ebbb09110c3a99f", null ],
-    [ "~Port", "dc/d03/a05631.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
-    [ "Port", "dc/d03/a05631.html#adbcc85448b423ac51fae90db4cb3a5f4", null ],
-    [ "Port", "dc/d03/a05631.html#af0271c4483ea3f5cebaa37054062a428", null ],
-    [ "operator=", "dc/d03/a05631.html#a451d09420f0a1f54df4073cdeb4ae623", null ],
-    [ "operator=", "dc/d03/a05631.html#a8e39b404c71b26364658b90ae25a398d", null ],
-    [ "read", "dc/d03/a05631.html#adce8df0019ea415a350cf833ac481fc2", null ],
-    [ "setPullupPulldown", "dc/d03/a05631.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
-    [ "setup", "dc/d03/a05631.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
-    [ "write", "dc/d03/a05631.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
+    [ "Output", "dc/d03/a05631.html#a1281e0a7881e9bbc4c5ab50eff8991a3", null ],
+    [ "~Output", "dc/d03/a05631.html#aa9c1a46117aa84b973279d61e591a610", null ],
+    [ "Output", "dc/d03/a05631.html#a2e5b8d5672d2476d29d0474439f58c30", null ],
+    [ "Output", "dc/d03/a05631.html#ab0a0cbf5fea7eaa9a5c04405b63cd798", null ],
+    [ "isHigh", "dc/d03/a05631.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "dc/d03/a05631.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "dc/d03/a05631.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "dc/d03/a05631.html#a8ee7e17225987004c3c73099e78d8b78", null ],
+    [ "operator=", "dc/d03/a05631.html#a3187afa0ce2671083228b6b536d45d4b", null ],
+    [ "operator=", "dc/d03/a05631.html#a13bc8e6bba332c350095666b72e568aa", null ],
+    [ "read", "dc/d03/a05631.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "setHigh", "dc/d03/a05631.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11", null ],
+    [ "setLow", "dc/d03/a05631.html#a0fc44f31312833d252e8aef8a1c4e361", null ],
+    [ "toggle", "dc/d03/a05631.html#ad11ab03ddf964b154331b7ffc708e4c2", null ],
+    [ "write", "dc/d03/a05631.html#a52416b95040bffe9915b005b33bc3600", null ],
+    [ "handle", "dc/d03/a05631.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

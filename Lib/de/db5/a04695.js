@@ -1,19 +1,11 @@
 var a04695 =
 [
-    [ "Config", "df/d5e/a04699.html", "df/d5e/a04699" ],
-    [ "IS62WV51216", "de/db5/a04695.html#a7921fa0f977faf912d2049453fd4c308", null ],
-    [ "~IS62WV51216", "de/db5/a04695.html#a8bbb723bb8da60c1ded7fa4770488e41", null ],
-    [ "close", "de/db5/a04695.html#ab7d16cfbd2da4ddbf5fe344a3eace30f", null ],
-    [ "getSize", "de/db5/a04695.html#a5d44f7cbee5d1bc849cb54ef47f257a3", null ],
-    [ "isRangeValid", "de/db5/a04695.html#a1b6c9da4691865cdfa1b28945756e9e5", null ],
-    [ "onMemoryChanged", "de/db5/a04695.html#a4b6251a86a54f6053c2b89c00ba6a744", null ],
-    [ "open", "de/db5/a04695.html#afa482d28208b65335930cb3722de8871", null ],
-    [ "read", "de/db5/a04695.html#a2b3f4b448d2b7076918a849936826646", null ],
-    [ "read", "de/db5/a04695.html#a71a6069370565b21f326cb1f4e446a71", null ],
-    [ "toAbsoluteAddress", "de/db5/a04695.html#a627f5ee3afe264e55f1cc04cafae392d", null ],
-    [ "write", "de/db5/a04695.html#abb442f01943c59f8ce352f5f92d959b1", null ],
-    [ "write", "de/db5/a04695.html#abd6c3b651e745ff59409e2f5cf7acb44", null ],
-    [ "baseAddress", "de/db5/a04695.html#a0d15eea85e078fd1ca516727c0e8ca8a", null ],
-    [ "mutex", "de/db5/a04695.html#a0d53d69589f382b51186fd40078d3d7a", null ],
-    [ "sizeBytes", "de/db5/a04695.html#af112bc4831d358a9018b8a296e932392", null ]
+    [ "Files", "de/db5/a04695.html#a32bb043cb678f854f5dc82cba11ce9b5", null ],
+    [ "exists", "de/db5/a04695.html#acdeb9b2ee2aa50ce02467af8f47f6efc", null ],
+    [ "getFreeSpace", "de/db5/a04695.html#a42a3c07dbf7258cf065d87c71b70789e", null ],
+    [ "getSize", "de/db5/a04695.html#a55ba36349934ad39c2b7a49be4d94d9d", null ],
+    [ "getStorage", "de/db5/a04695.html#aaec7f88b45cdde1197ee733af3b68a87", null ],
+    [ "read", "de/db5/a04695.html#a784a6d3798784d545630794b0d373972", null ],
+    [ "remove", "de/db5/a04695.html#a4b8b47fe473b142b38344e359b9c2f6b", null ],
+    [ "write", "de/db5/a04695.html#a4c6ad03d6f8d73995700115490d2f279", null ]
 ];

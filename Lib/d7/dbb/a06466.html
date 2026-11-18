@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Task</title>
+<title>IAR EWARM Library: Lib::HAL::Timer::TimOutputCompare</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -116,63 +129,84 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/dbb/a06466.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Task</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOutputCompare</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows creating an <a class="el" href="../../d7/dbb/a06466.html" title="RTOS::Task">RTOS::Task</a>, synchronizing it with notification event bits, and stopping it.</p>
-<p>Shows creating an <a class="el" href="../../d7/dbb/a06466.html" title="RTOS::Task">RTOS::Task</a>, synchronizing it with notification event bits, and stopping it.A worker task waits for an event bit and a controller fires that bit. The controller can be another task, using <a class="el" href="../../dc/d40/a06134.html#a4732602e81ec507a9370a1dd41be78f8" title="RTOS::Task::Notify::fireEvent()">RTOS::Task::Notify::fireEvent()</a>, or an ISR, using <a class="el" href="../../dc/d40/a06134.html#a742840c973b7a2ce22645d9ae4f8d51a" title="RTOS::Task::Notify::fireEventFromISR()">RTOS::Task::Notify::fireEventFromISR()</a>. The entry callable is stored in place inside the task wrapper, so a capturing lambda such as '[this]' needs no heap allocation. It must be trivially copyable and fit <a class="el" href="../../d8/d2f/a06122.html#a5b5ac88638f4130500b5e1647fbc15a1" title="RTOS::Task::ENTRY_CAPACITY">RTOS::Task::ENTRY_CAPACITY</a> bytes. Receiving calls such as <a class="el" href="../../dc/d40/a06134.html#a1eafe4fed845fcf63255a0cd6b71e5a1" title="RTOS::Task::Notify::waitForBits()">RTOS::Task::Notify::waitForBits()</a> must run in the task itself.</p>
+<p>Generates a timed event with <a class="el" href="../../d7/dbb/a06466.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>.</p>
+<p>Generates a timed event with <a class="el" href="../../d7/dbb/a06466.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>. The timer raises an interrupt when its counter matches the compare value of the channel, which wakes the task blocked in <a class="el" href="../../d6/d64/a05779.html#a18804c13963fca99f8037034a6d4e7ec" title="Lib::HAL::Timer::TimOutputCompare::waitCompare()">Lib::HAL::Timer::TimOutputCompare::waitCompare()</a>. The task then sets the next compare value with <a class="el" href="../../d6/d64/a05779.html#a14b6982f85b9be41e24886a8a1c7445d" title="Lib::HAL::Timer::TimOutputCompare::setCompare()">Lib::HAL::Timer::TimOutputCompare::setCompare()</a>. Call <a class="el" href="../../d6/d64/a05779.html#a63482b7958cd7171218c959b2b5df044" title="Lib::HAL::Timer::TimOutputCompare::start()">Lib::HAL::Timer::TimOutputCompare::start()</a> from the waiting task, because it binds that task.</p>
+<p>The header defines the HAL callback <b>HAL_TIM_OC_DelayElapsedCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; the compare value is changed in the task.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="task_usage_worker"></a>
-Worker task with event bits</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d59/a01001.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d8d/a01007.html">Lib/RTOS/FreeRTOS/TickCounter.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timoc_usage_hw"></a>
+Hardware and CubeMX assumptions</h3>
+<ul>
+<li>Timer channel (here <em class="arg">TIM4</em>, <em class="arg">TIM_CHANNEL_2</em>) set to Output Compare mode with its interrupt enabled in the NVIC. The output pin is optional for this use.</li>
+<li>Timer clock and prescaler are set in CubeMX; the compare value is in timer ticks.</li>
+<li>One <a class="el" href="../../d7/dbb/a06466.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a> per timer handle.</li>
+</ul>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timoc_usage_delay"></a>
+Scheduling a compare event in a task</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d2d/a00815.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d7c/a01073.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>Worker {</div>
+<div class="line"><span class="keyword">class </span>DelayedEvent final {</div>
 <div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t WORK_BIT = 0x01U; <span class="comment">///&lt; Event bit requesting one unit of work.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a0" name="_a0"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        task.setup({<span class="stringliteral">&quot;Worker&quot;</span>, 256, <a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>});</div>
-<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> requestWork() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(task.notify.fireEvent(WORK_BIT));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a>() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">return</span> task.stop();</div>
+<div class="line">    <span class="keyword">explicit</span> DelayedEvent(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
+<div class="line">        compare(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a>),</div>
+<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d3/dc0/a06211.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Delayed&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d6/d4c/a06195.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">private</span>:</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d8/d2f/a06122.html">RTOS::Task</a> task;</div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d6/d64/a05779.html">Lib::HAL::Timer::TimOutputCompare</a> compare; <span class="comment">// Constructed before the task starts using it.</span></div>
+<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d8/d67/a06191.html">RTOS::Task</a> task;                           <span class="comment">// Must stay the last member.</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!compare.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d6/d64/a05779.html#a63482b7958cd7171218c959b2b5df044">start</a>()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;DelayedEvent: output compare failed to start&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
 <div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keywordflow">if</span> (task.<a id="a4" name="a4"></a><a class="code hl_variable" href="../../d8/d2f/a06122.html#a685a41d4d36b20105207a99ea2b7a100">notify</a>.<a id="a5" name="a5"></a><a class="code hl_function" href="../../dc/d40/a06134.html#a1eafe4fed845fcf63255a0cd6b71e5a1">waitForBits</a>(WORK_BIT, <a id="_a6" name="_a6"></a><a class="code hl_function" href="../../de/d33/a06154.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a>(500ms))) {</div>
-<div class="line">                <span class="comment">// Perform the requested work.</span></div>
+<div class="line">            <span class="comment">// Fire 1000 ticks after the current counter value.</span></div>
+<div class="line">            compare.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d6/d64/a05779.html#a14b6982f85b9be41e24886a8a1c7445d">setCompare</a>(compare.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d6/d64/a05779.html#afaf7f01f359523e9b30110fdbf8b175b">getCounter</a>() + 1000U);</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">if</span> (compare.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d6/d64/a05779.html#a18804c13963fca99f8037034a6d4e7ec">waitCompare</a>(<a id="_a10" name="_a10"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500))) {</div>
+<div class="line">                <span class="comment">// The compare event fired; run the delayed action here.</span></div>
 <div class="line">            }</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">};</div>
 <div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa01001_html"><div class="ttname"><a href="../../df/d59/a01001.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
-<div class="ttc" id="aa01007_html"><div class="ttname"><a href="../../d6/d8d/a01007.html">TickCounter.hpp</a></div><div class="ttdoc">Converts between scheduler ticks, milliseconds, seconds and std::chrono::duration values.</div></div>
-<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
-<div class="ttc" id="aa01692_html_aaf6b4883d69cf5ba182f4f29a103cc4b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf6b4883d69cf5ba182f4f29a103cc4b">end</a></div><div class="ttdeci">constexpr auto end(_Container &amp;__cont) -&gt; decltype(__cont.end())</div></div>
-<div class="ttc" id="aa06122_html"><div class="ttname"><a href="../../d8/d2f/a06122.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
-<div class="ttc" id="aa06122_html_a685a41d4d36b20105207a99ea2b7a100"><div class="ttname"><a href="../../d8/d2f/a06122.html#a685a41d4d36b20105207a99ea2b7a100">RTOS::Task::notify</a></div><div class="ttdeci">Notify notify</div><div class="ttdoc">Task notification controller.</div><div class="ttdef"><b>Definition</b> Task.hpp:661</div></div>
-<div class="ttc" id="aa06126_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../dc/d1e/a06126.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:89</div></div>
-<div class="ttc" id="aa06134_html_a1eafe4fed845fcf63255a0cd6b71e5a1"><div class="ttname"><a href="../../dc/d40/a06134.html#a1eafe4fed845fcf63255a0cd6b71e5a1">RTOS::Task::Notify::waitForBits</a></div><div class="ttdeci">bool waitForBits(Bits bitsToWaitFor, TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the calling task until any of the given bits is set or the timeout expires.</div><div class="ttdef"><b>Definition</b> Task.hpp:394</div></div>
-<div class="ttc" id="aa06154_html_ad6656fb17699eab5dc474d46e3e29234"><div class="ttname"><a href="../../de/d33/a06154.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a></div><div class="ttdeci">static constexpr TickType toTicks(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Converts a std::chrono::duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:237</div></div>
+<div class="ttc" id="aa00815_html"><div class="ttname"><a href="../../d8/d2d/a00815.html">TimOutputCompare.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware Output Compare interface using STM32 Timers.</div></div>
+<div class="ttc" id="aa01073_html"><div class="ttname"><a href="../../d9/d7c/a01073.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01114_html_ga33e02d43345a7ac5886f01b39e4f7ccd"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a></div><div class="ttdeci">#define TIM_CHANNEL_2</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa05779_html"><div class="ttname"><a href="../../d6/d64/a05779.html">Lib::HAL::Timer::TimOutputCompare</a></div><div class="ttdoc">Controls one hardware timer channel configured under an active output compare profile.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:40</div></div>
+<div class="ttc" id="aa05779_html_a14b6982f85b9be41e24886a8a1c7445d"><div class="ttname"><a href="../../d6/d64/a05779.html#a14b6982f85b9be41e24886a8a1c7445d">Lib::HAL::Timer::TimOutputCompare::setCompare</a></div><div class="ttdeci">void setCompare(uint32_t compareValue) noexcept</div><div class="ttdoc">Sets the counter value at which the output changes state, in the channel&#39;s CCRx register.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:148</div></div>
+<div class="ttc" id="aa05779_html_a18804c13963fca99f8037034a6d4e7ec"><div class="ttname"><a href="../../d6/d64/a05779.html#a18804c13963fca99f8037034a6d4e7ec">Lib::HAL::Timer::TimOutputCompare::waitCompare</a></div><div class="ttdeci">bool waitCompare(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the counter next matches the compare value.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:119</div></div>
+<div class="ttc" id="aa05779_html_a63482b7958cd7171218c959b2b5df044"><div class="ttname"><a href="../../d6/d64/a05779.html#a63482b7958cd7171218c959b2b5df044">Lib::HAL::Timer::TimOutputCompare::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the channel with its compare interrupt; the calling task becomes the one waitCompare() serves.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:81</div></div>
+<div class="ttc" id="aa05779_html_afaf7f01f359523e9b30110fdbf8b175b"><div class="ttname"><a href="../../d6/d64/a05779.html#afaf7f01f359523e9b30110fdbf8b175b">Lib::HAL::Timer::TimOutputCompare::getCounter</a></div><div class="ttdeci">uint32_t getCounter() const noexcept</div><div class="ttdoc">Reads the running counter.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:167</div></div>
+<div class="ttc" id="aa06191_html"><div class="ttname"><a href="../../d8/d67/a06191.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
+<div class="ttc" id="aa06195_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../d6/d4c/a06195.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:89</div></div>
+<div class="ttc" id="aa06211_html"><div class="ttname"><a href="../../d3/dc0/a06211.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:638</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timoc_usage_stop"></a>
+Stopping</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d2d/a00815.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> cancelDelay(<a class="code hl_class" href="../../d6/d64/a05779.html">Lib::HAL::Timer::TimOutputCompare</a> &amp; compare) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(compare.stop());</div>
+<div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

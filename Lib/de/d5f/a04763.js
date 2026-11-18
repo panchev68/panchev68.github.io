@@ -1,8 +1,6 @@
 var a04763 =
 [
-    [ "operator==", "de/d5f/a04763.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
-    [ "inPhaseMax", "de/d5f/a04763.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
-    [ "inPhaseMin", "de/d5f/a04763.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
-    [ "quadratureMax", "de/d5f/a04763.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
-    [ "quadratureMin", "de/d5f/a04763.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
+    [ "operator==", "de/d5f/a04763.html#aaffc1273857ce092dc8ef57f2f569797", null ],
+    [ "address", "de/d5f/a04763.html#ad4d0d62f304ebdd08f759f363dd3932a", null ],
+    [ "value", "de/d5f/a04763.html#ac1e3de78a37a7229dfb525e2b82a1b4b", null ]
 ];

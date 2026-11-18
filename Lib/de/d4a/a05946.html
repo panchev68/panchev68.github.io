@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::TimePeriod</title>
+<title>IAR EWARM Library: Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,73 +130,62 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d4a/a05946.
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../d3/d4c/a05943.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Helper::TimePeriod<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Stopwatch based on the RTOS tick counter. </p>
-<p>Records a start tick and computes elapsed ticks. The unsigned tick subtraction stays correct across a single wraparound of the tick counter. Callers in an interrupt must use the FromISR method variants.</p>
-<hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/TimePeriod.hpp" target="_blank">Source</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d58/a06424.html#_a0">Lib::Helper::TimePeriod</a>.</dd>
+<div class="textblock"><div class="compoundTemplParams">template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt;<br />
+requires ((T_WINDOW_SIZE &gt; 0U) &amp;&amp; std::is_arithmetic_v&lt;T&gt; &amp;&amp; std::is_signed_v&lt;T&gt;)<br />
+class Lib::Helper::FindPeaks&lt; T_WINDOW_SIZE, T &gt;</div><p>Peak detector over a fixed-size sliding window. </p>
+<p>The detector keeps the most recent <em class="arg">T_WINDOW_SIZE</em> samples in a circular buffer and feeds the delta between the newest sample and the one <em class="arg">T_WINDOW_SIZE</em> samples earlier into a leaky accumulator (each step halves the previous value). It records the largest and the smallest accumulated values together with their sample positions.</p>
+<p>The sample type must be signed, since deltas between samples may be negative. The caller must keep the sample range such that twice the largest delta fits into <em class="arg">T</em>. The instance is a literal type.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_WINDOW_SIZE</td><td>Distance, in samples, between the two samples compared per step; must be greater than 0. </td></tr>
+    <tr><td class="paramname">T</td><td>Signed arithmetic sample type.</td></tr>
+  </table>
+  </dd>
 </dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/FindPeaks.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:PeakInfo" id="r_PeakInfo"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d1/de1/a05950.html">PeakInfo</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detected peak: accumulated value and the position of the sample where it was recorded, counted from the last reset.  <a href="../../d1/de1/a05950.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a096466d88bfa78ef18f074937a43f63f" id="r_a096466d88bfa78ef18f074937a43f63f"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a096466d88bfa78ef18f074937a43f63f">TimePeriod</a> ()=default</td></tr>
-<tr class="memdesc:a096466d88bfa78ef18f074937a43f63f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a stopped stopwatch.  <br /></td></tr>
-<tr class="memitem:afc371b1b7ae3ad092d6048dc93bca6d5" id="r_afc371b1b7ae3ad092d6048dc93bca6d5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afc371b1b7ae3ad092d6048dc93bca6d5">start</a> () noexcept</td></tr>
-<tr class="memdesc:afc371b1b7ae3ad092d6048dc93bca6d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts or restarts the stopwatch from task context.  <br /></td></tr>
-<tr class="memitem:ad2011c05fa06aa25c0d3046d9e495740" id="r_ad2011c05fa06aa25c0d3046d9e495740"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad2011c05fa06aa25c0d3046d9e495740">startFromISR</a> () noexcept</td></tr>
-<tr class="memdesc:ad2011c05fa06aa25c0d3046d9e495740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts or restarts the stopwatch from ISR context.  <br /></td></tr>
-<tr class="memitem:a12059cd59e97f3575d46ed98120763a2" id="r_a12059cd59e97f3575d46ed98120763a2"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a12059cd59e97f3575d46ed98120763a2">stop</a> (uint32_t &amp;ticks) noexcept</td></tr>
-<tr class="memdesc:a12059cd59e97f3575d46ed98120763a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the stopwatch and reports the elapsed ticks, from task context.  <br /></td></tr>
-<tr class="memitem:a31d84fe4ec67de8d3610f1ee0c827b83" id="r_a31d84fe4ec67de8d3610f1ee0c827b83"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a31d84fe4ec67de8d3610f1ee0c827b83">stopFromISR</a> (uint32_t &amp;ticks) noexcept</td></tr>
-<tr class="memdesc:a31d84fe4ec67de8d3610f1ee0c827b83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the stopwatch and reports the elapsed ticks, from ISR context.  <br /></td></tr>
-<tr class="memitem:a702f4bcc03c1b60bcb212b5276fa13fb" id="r_a702f4bcc03c1b60bcb212b5276fa13fb"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a702f4bcc03c1b60bcb212b5276fa13fb">reset</a> () noexcept</td></tr>
-<tr class="memdesc:a702f4bcc03c1b60bcb212b5276fa13fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the stopwatch without reading the elapsed time.  <br /></td></tr>
-<tr class="memitem:aa4477fa15b16c620396b69b2935bf2de" id="r_aa4477fa15b16c620396b69b2935bf2de"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aa4477fa15b16c620396b69b2935bf2de">isRunning</a> () const noexcept</td></tr>
-<tr class="memdesc:aa4477fa15b16c620396b69b2935bf2de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries whether the stopwatch is currently running.  <br /></td></tr>
-<tr class="memitem:ada4c0a6cd0114194a6667e555b90a36a" id="r_ada4c0a6cd0114194a6667e555b90a36a"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ada4c0a6cd0114194a6667e555b90a36a">elapsed</a> () const noexcept</td></tr>
-<tr class="memdesc:ada4c0a6cd0114194a6667e555b90a36a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the ticks elapsed since start, from task context.  <br /></td></tr>
-<tr class="memitem:ae540ca7df9f089b8222259dc40b38cf1" id="r_ae540ca7df9f089b8222259dc40b38cf1"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae540ca7df9f089b8222259dc40b38cf1">elapsedFromISR</a> () const noexcept</td></tr>
-<tr class="memdesc:ae540ca7df9f089b8222259dc40b38cf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the ticks elapsed since start, from ISR context.  <br /></td></tr>
-<tr class="memitem:aea37e1feea05928a3dfd98f79e82c449" id="r_aea37e1feea05928a3dfd98f79e82c449"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#aea37e1feea05928a3dfd98f79e82c449">elapsedTime</a> () const noexcept</td></tr>
-<tr class="memdesc:aea37e1feea05928a3dfd98f79e82c449"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the time elapsed since start, from task context.  <br /></td></tr>
-<tr class="memitem:ab6c5330c006db5e62d55de83a3308e1d" id="r_ab6c5330c006db5e62d55de83a3308e1d"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab6c5330c006db5e62d55de83a3308e1d">elapsedTimeFromISR</a> () const noexcept</td></tr>
-<tr class="memdesc:ab6c5330c006db5e62d55de83a3308e1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the time elapsed since start, from ISR context.  <br /></td></tr>
+<tr class="memitem:a1dcc2d44df31b363f9f06b9daf3af302" id="r_a1dcc2d44df31b363f9f06b9daf3af302"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a1dcc2d44df31b363f9f06b9daf3af302">FindPeaks</a> () noexcept=default</td></tr>
+<tr class="memdesc:a1dcc2d44df31b363f9f06b9daf3af302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the detector in the reset state.  <br /></td></tr>
+<tr class="memitem:a176df2aab4c0e044fe550ca813f88168" id="r_a176df2aab4c0e044fe550ca813f88168"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a176df2aab4c0e044fe550ca813f88168">reset</a> () noexcept</td></tr>
+<tr class="memdesc:a176df2aab4c0e044fe550ca813f88168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the detector to its initial state: clears the accumulator, the peaks and the sample counter.  <br /></td></tr>
+<tr class="memitem:af68c408bdc213c13c758fceb90fdf51e" id="r_af68c408bdc213c13c758fceb90fdf51e"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#af68c408bdc213c13c758fceb90fdf51e">addSample</a> (T sample) noexcept</td></tr>
+<tr class="memdesc:af68c408bdc213c13c758fceb90fdf51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a sample and updates the peaks.  <br /></td></tr>
+<tr class="memitem:ad7c36f4ffcb651dcb65c75c1bca49333" id="r_ad7c36f4ffcb651dcb65c75c1bca49333"><td class="memItemLeft">constexpr <a class="el" href="../../d1/de1/a05950.html">PeakInfo</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad7c36f4ffcb651dcb65c75c1bca49333">getRisingPeak</a> () const noexcept</td></tr>
+<tr class="memdesc:ad7c36f4ffcb651dcb65c75c1bca49333"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the recorded rising peak.  <br /></td></tr>
+<tr class="memitem:a428ad1bcf05a01386c183e7ff0719b87" id="r_a428ad1bcf05a01386c183e7ff0719b87"><td class="memItemLeft">constexpr <a class="el" href="../../d1/de1/a05950.html">PeakInfo</a>&#160;</td><td class="memItemRight"><a class="el" href="#a428ad1bcf05a01386c183e7ff0719b87">getFallingPeak</a> () const noexcept</td></tr>
+<tr class="memdesc:a428ad1bcf05a01386c183e7ff0719b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the recorded falling peak.  <br /></td></tr>
+<tr class="memitem:a65428faaf92c61bce62ff8de3af8f44a" id="r_a65428faaf92c61bce62ff8de3af8f44a"><td class="memItemLeft">constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a65428faaf92c61bce62ff8de3af8f44a">getCount</a> () const noexcept</td></tr>
+<tr class="memdesc:a65428faaf92c61bce62ff8de3af8f44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of samples added since the last reset.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a0b47d84cbdd58474013fe3b38dce4974" name="a0b47d84cbdd58474013fe3b38dce4974"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b47d84cbdd58474013fe3b38dce4974">&#9670;&#160;</a></span>TickType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a0b47d84cbdd58474013fe3b38dce4974">Lib::Helper::TimePeriod::TickType</a> = <a class="el" href="../../de/d33/a06154.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Scheduler tick count type. </p>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a096466d88bfa78ef18f074937a43f63f" name="a096466d88bfa78ef18f074937a43f63f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a096466d88bfa78ef18f074937a43f63f">&#9670;&#160;</a></span>TimePeriod()</h2>
+<a id="a1dcc2d44df31b363f9f06b9daf3af302" name="a1dcc2d44df31b363f9f06b9daf3af302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dcc2d44df31b363f9f06b9daf3af302">&#9670;&#160;</a></span>FindPeaks()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Helper::TimePeriod::TimePeriod </td>
+          <td class="memname"><a class="el" href="../../de/d4a/a05946.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::FindPeaks </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -191,143 +193,65 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a stopped stopwatch. </p>
+<p>Initializes the detector in the reset state. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ada4c0a6cd0114194a6667e555b90a36a" name="ada4c0a6cd0114194a6667e555b90a36a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada4c0a6cd0114194a6667e555b90a36a">&#9670;&#160;</a></span>elapsed()</h2>
+<a id="af68c408bdc213c13c758fceb90fdf51e" name="af68c408bdc213c13c758fceb90fdf51e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af68c408bdc213c13c758fceb90fdf51e">&#9670;&#160;</a></span>addSample()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::Helper::TimePeriod::elapsed </td>
+          <td class="memname">void <a class="el" href="../../de/d4a/a05946.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::addSample </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>sample</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the ticks elapsed since start, from task context. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of RTOS ticks elapsed since start, or <b>0</b> if not running. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d58/a06424.html#a4">Lib::Helper::TimePeriod</a>.</dd>
+<p>Adds a sample and updates the peaks. </p>
+<p>Once <em class="arg">T_WINDOW_SIZE</em> earlier samples exist, the delta to the sample <em class="arg">T_WINDOW_SIZE</em> steps back is added to half the previous accumulator, and the result is compared against the recorded peaks.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sample</td><td>New sample value. </td></tr>
+  </table>
+  </dd>
 </dl>
 
 </div>
 </div>
-<a id="ae540ca7df9f089b8222259dc40b38cf1" name="ae540ca7df9f089b8222259dc40b38cf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae540ca7df9f089b8222259dc40b38cf1">&#9670;&#160;</a></span>elapsedFromISR()</h2>
+<a id="a65428faaf92c61bce62ff8de3af8f44a" name="a65428faaf92c61bce62ff8de3af8f44a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65428faaf92c61bce62ff8de3af8f44a">&#9670;&#160;</a></span>getCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::Helper::TimePeriod::elapsedFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the ticks elapsed since start, from ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of RTOS ticks elapsed since start, or <b>0</b> if not running. </dd></dl>
-
-</div>
-</div>
-<a id="aea37e1feea05928a3dfd98f79e82c449" name="aea37e1feea05928a3dfd98f79e82c449"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea37e1feea05928a3dfd98f79e82c449">&#9670;&#160;</a></span>elapsedTime()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> Lib::Helper::TimePeriod::elapsedTime </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the time elapsed since start, from task context. </p>
-<dl class="section return"><dt>Returns</dt><dd>Elapsed time with tick granularity, or zero if not running. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d58/a06424.html#a6">Lib::Helper::TimePeriod</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="ab6c5330c006db5e62d55de83a3308e1d" name="ab6c5330c006db5e62d55de83a3308e1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6c5330c006db5e62d55de83a3308e1d">&#9670;&#160;</a></span>elapsedTimeFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> Lib::Helper::TimePeriod::elapsedTimeFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the time elapsed since start, from ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>Elapsed time with tick granularity, or zero if not running. </dd></dl>
-
-</div>
-</div>
-<a id="aa4477fa15b16c620396b69b2935bf2de" name="aa4477fa15b16c620396b69b2935bf2de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa4477fa15b16c620396b69b2935bf2de">&#9670;&#160;</a></span>isRunning()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Helper::TimePeriod::isRunning </td>
+          <td class="memname">size_t <a class="el" href="../../de/d4a/a05946.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::getCount </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -340,22 +264,84 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Queries whether the stopwatch is currently running. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if running, otherwise <b>false</b>. </dd></dl>
+<p>Returns the number of samples added since the last reset. </p>
+<dl class="section return"><dt>Returns</dt><dd>Count of processed samples; wraps at <em class="arg">SIZE_MAX</em>. </dd></dl>
 
 </div>
 </div>
-<a id="a702f4bcc03c1b60bcb212b5276fa13fb" name="a702f4bcc03c1b60bcb212b5276fa13fb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a702f4bcc03c1b60bcb212b5276fa13fb">&#9670;&#160;</a></span>reset()</h2>
+<a id="a428ad1bcf05a01386c183e7ff0719b87" name="a428ad1bcf05a01386c183e7ff0719b87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a428ad1bcf05a01386c183e7ff0719b87">&#9670;&#160;</a></span>getFallingPeak()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Helper::TimePeriod::reset </td>
+          <td class="memname"><a class="el" href="../../d1/de1/a05950.html">PeakInfo</a> <a class="el" href="../../de/d4a/a05946.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::getFallingPeak </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the recorded falling peak. </p>
+<dl class="section return"><dt>Returns</dt><dd>Smallest accumulated value and its position; <em class="arg">value</em> is <b>std::numeric_limits&lt;T&gt;::max()</b> if none was recorded. </dd></dl>
+
+</div>
+</div>
+<a id="ad7c36f4ffcb651dcb65c75c1bca49333" name="ad7c36f4ffcb651dcb65c75c1bca49333"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7c36f4ffcb651dcb65c75c1bca49333">&#9670;&#160;</a></span>getRisingPeak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/de1/a05950.html">PeakInfo</a> <a class="el" href="../../de/d4a/a05946.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::getRisingPeak </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the recorded rising peak. </p>
+<dl class="section return"><dt>Returns</dt><dd>Largest accumulated value and its position; <em class="arg">value</em> is <b>std::numeric_limits&lt;T&gt;::lowest()</b> if none was recorded. </dd></dl>
+
+</div>
+</div>
+<a id="a176df2aab4c0e044fe550ca813f88168" name="a176df2aab4c0e044fe550ca813f88168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a176df2aab4c0e044fe550ca813f88168">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t T_WINDOW_SIZE = 3U, typename T = int&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../de/d4a/a05946.html">Lib::Helper::FindPeaks</a>&lt; T_WINDOW_SIZE, T &gt;::reset </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -368,136 +354,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the stopwatch without reading the elapsed time. </p>
-<p>The last start tick is kept; a subsequent <a class="el" href="#afc371b1b7ae3ad092d6048dc93bca6d5" title="start()">start()</a> overwrites it. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d58/a06424.html#a8">Lib::Helper::TimePeriod</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="afc371b1b7ae3ad092d6048dc93bca6d5" name="afc371b1b7ae3ad092d6048dc93bca6d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc371b1b7ae3ad092d6048dc93bca6d5">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Helper::TimePeriod::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Starts or restarts the stopwatch from task context. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d58/a06424.html#a1">Lib::Helper::TimePeriod</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="ad2011c05fa06aa25c0d3046d9e495740" name="ad2011c05fa06aa25c0d3046d9e495740"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2011c05fa06aa25c0d3046d9e495740">&#9670;&#160;</a></span>startFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Helper::TimePeriod::startFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Starts or restarts the stopwatch from ISR context. </p>
-
-</div>
-</div>
-<a id="a12059cd59e97f3575d46ed98120763a2" name="a12059cd59e97f3575d46ed98120763a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a12059cd59e97f3575d46ed98120763a2">&#9670;&#160;</a></span>stop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Helper::TimePeriod::stop </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t &amp;</td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the stopwatch and reports the elapsed ticks, from task context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">ticks</td><td>Receives the elapsed ticks; left unchanged when the stopwatch was not running. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the stopwatch was running and <em class="arg">ticks</em> was set, otherwise <b>false</b>. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d58/a06424.html#a7">Lib::Helper::TimePeriod</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a31d84fe4ec67de8d3610f1ee0c827b83" name="a31d84fe4ec67de8d3610f1ee0c827b83"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31d84fe4ec67de8d3610f1ee0c827b83">&#9670;&#160;</a></span>stopFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Helper::TimePeriod::stopFromISR </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t &amp;</td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the stopwatch and reports the elapsed ticks, from ISR context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">ticks</td><td>Receives the elapsed ticks; left unchanged when the stopwatch was not running. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the stopwatch was running and <em class="arg">ticks</em> was set, otherwise <b>false</b>. </dd></dl>
+<p>Resets the detector to its initial state: clears the accumulator, the peaks and the sample counter. </p>
+<p>Stored samples are not cleared: a slot is only read back after it has been overwritten again. </p>
 
 </div>
 </div>
@@ -508,7 +366,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../d5/d17/a01098.html">Helper</a></li><li class="navelem"><a href="../../de/d4a/a05946.html">TimePeriod</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../d6/dc4/a01125.html">Helper</a></li><li class="navelem"><a href="../../de/d4a/a05946.html">FindPeaks</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

@@ -1,19 +1,11 @@
 var a04782 =
 [
-    [ "Config", "dd/dec/a04786.html", "dd/dec/a04786" ],
-    [ "Resolution", "db/da6/a04782.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
-      [ "BITS_9", "db/da6/a04782.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
-      [ "BITS_10", "db/da6/a04782.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
-      [ "BITS_11", "db/da6/a04782.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
-      [ "BITS_12", "db/da6/a04782.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
-    ] ],
-    [ "DS18B20", "db/da6/a04782.html#a6e8835c62b13a615346d69068ee41c97", null ],
-    [ "~DS18B20", "db/da6/a04782.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
-    [ "close", "db/da6/a04782.html#aab038c628d13a5369429107b4be42b3d", null ],
-    [ "getResolution", "db/da6/a04782.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
-    [ "isGenuineDevice", "db/da6/a04782.html#ae8e710761fe8b7931ba5d6893456b4a2", null ],
-    [ "isPresent", "db/da6/a04782.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
-    [ "open", "db/da6/a04782.html#a1dc439d417a53a57d054f811cf33402d", null ],
-    [ "readRom", "db/da6/a04782.html#a26a1ebc99132937ee58668fd12c26263", null ],
-    [ "readTemperatureCelsius", "db/da6/a04782.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
+    [ "operator==", "db/da6/a04782.html#a6d55cf519f280eb9c0e3a26e175a07f1", null ],
+    [ "fifoStatus1", "db/da6/a04782.html#a8d4064983272456f2bb02cc0e9f0c920", null ],
+    [ "irqStatus1", "db/da6/a04782.html#aa768730607ddfadbd98e83d9e2dad318", null ],
+    [ "irqStatus2", "db/da6/a04782.html#adac7641fc9718f5eadda0e0b4ab2ed71", null ],
+    [ "operation", "db/da6/a04782.html#a5b9150d2c316bf04c90a8e926eaf8f81", null ],
+    [ "protocol", "db/da6/a04782.html#a7057ac56ad3d604ce1fcb392d89f6e1c", null ],
+    [ "protocolRx1", "db/da6/a04782.html#a3286298ea7c4dc967dd97d575455c368", null ],
+    [ "status", "db/da6/a04782.html#afd9a8486968b9512fd0de55e3d549edf", null ]
 ];

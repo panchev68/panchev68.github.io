@@ -1,4 +1,4 @@
 var a00932 =
 [
-    [ "Lib::Helper::StringHelper", "dd/d3d/a05967.html", null ]
+    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "de/d73/a05970.html", "de/d73/a05970" ]
 ];

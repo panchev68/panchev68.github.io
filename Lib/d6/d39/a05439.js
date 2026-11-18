@@ -1,9 +1,26 @@
 var a05439 =
 [
-    [ "FontScope", "d6/d39/a05439.html#afb51acf5f900afa24daddd98d53a4f16", null ],
-    [ "~FontScope", "d6/d39/a05439.html#a7ba17ca2985cf1fd5ee2c2cba69cae96", null ],
-    [ "FontScope", "d6/d39/a05439.html#ae2ac273810904a0e55683d3f687a075e", null ],
-    [ "FontScope", "d6/d39/a05439.html#abfadcacb673353bcec5428ce22f232fe", null ],
-    [ "operator=", "d6/d39/a05439.html#adc1fb9cebc3b57c497930841e36c23ce", null ],
-    [ "operator=", "d6/d39/a05439.html#a14b3211ff5f705efaa52316e61ec4faa", null ]
+    [ "FontScope", "dd/d83/a05443.html", "dd/d83/a05443" ],
+    [ "Canvas", "d6/d39/a05439.html#a47465a0e29e0e3831343f26b1d20e4a0", null ],
+    [ "~Canvas", "d6/d39/a05439.html#a6dc741ba0c68fd152bca62d204e8f884", null ],
+    [ "clear", "d6/d39/a05439.html#a776010b076475500a9f2314d2bfb3252", null ],
+    [ "drawChar", "d6/d39/a05439.html#ae942d2f6c96b143932eb02960b29b48a", null ],
+    [ "drawChar", "d6/d39/a05439.html#a569b76684862846384a496d7fd999f8d", null ],
+    [ "drawNumber", "d6/d39/a05439.html#a6493d161927b43d0523c3995deb6d609", null ],
+    [ "drawText", "d6/d39/a05439.html#a0cc7f97c3a72d55f0328a4870965e0e4", null ],
+    [ "drawText", "d6/d39/a05439.html#a624e4c3ee3789a8cdb7fecd77de901d7", null ],
+    [ "drawTextAligned", "d6/d39/a05439.html#a61b20bea7a4bc5fc203cefd8450d3a12", null ],
+    [ "flush", "d6/d39/a05439.html#a090647cea78a53ccfcd3106bc7bc59e6", null ],
+    [ "getFont", "d6/d39/a05439.html#a97696d7c379db51ff00b0b650bd74585", null ],
+    [ "getFont", "d6/d39/a05439.html#ab4d7400cf18c7ae594b33cfdf1a78f7f", null ],
+    [ "getGlyphSpacing", "d6/d39/a05439.html#aa3d8970999574ca16da5e7012a625853", null ],
+    [ "getHeight", "d6/d39/a05439.html#a3049414bb5f239593a8084a0e6c10848", null ],
+    [ "getLineSpacing", "d6/d39/a05439.html#a9726bc61dfb91913f1fc1db6c7f33e80", null ],
+    [ "getPrimitives", "d6/d39/a05439.html#a080ad1be098f5a1f891a62b5e8320862", null ],
+    [ "getTextHeight", "d6/d39/a05439.html#a3c0b5198eff2d8f83ac71070553403ed", null ],
+    [ "getTextWidth", "d6/d39/a05439.html#ae700883e2059adf653de50f17e24ef13", null ],
+    [ "getWidth", "d6/d39/a05439.html#a0ff7b181cfe9970d68d26ab7d212da4f", null ],
+    [ "setFont", "d6/d39/a05439.html#a3956389dbb3fcee581093bc4120a2a6d", null ],
+    [ "setGlyphSpacing", "d6/d39/a05439.html#afbfda345cbd7b4882c40132f0db0214a", null ],
+    [ "setLineSpacing", "d6/d39/a05439.html#aa98953d5b8cfbad7e72eb83516dec479", null ]
 ];

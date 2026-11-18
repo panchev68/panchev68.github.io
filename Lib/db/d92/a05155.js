@@ -1,6 +1,16 @@
 var a05155 =
 [
-    [ "AtCommandString", "db/d92/a05155.html#aececd161348c75d93c06ea6da2f4cd23", null ],
-    [ "AtCommandString", "db/d92/a05155.html#aeda6a28d5f8d19ea98ec29f1795507be", null ],
-    [ "operator uint16_t", "db/d92/a05155.html#a5bfb355d92f981a786da2146384333c5", null ]
+    [ "Command", "db/d92/a05155.html#aeec1806cc51651aec7c65df97f20824f", [
+      [ "INPUTS", "db/d92/a05155.html#aeec1806cc51651aec7c65df97f20824fac7cab40575826be2d11c65614ca65692", null ],
+      [ "GET_PARAMETERS", "db/d92/a05155.html#aeec1806cc51651aec7c65df97f20824fad87e3170f16eba85483569bdf04166c1", null ],
+      [ "OUTPUTS", "db/d92/a05155.html#aeec1806cc51651aec7c65df97f20824fa1ca47bf72b5f3be73e90beeed7a36a70", null ],
+      [ "SET_PARAMETERS", "db/d92/a05155.html#aeec1806cc51651aec7c65df97f20824fa8e883255aa1108c276e166cd0bde2307", null ]
+    ] ],
+    [ "UserProtocol", "db/d92/a05155.html#aa1cf835574b826afcd369ebf2d028ea7", null ],
+    [ "~UserProtocol", "db/d92/a05155.html#ad7f787cb3b60753ed4352d4a34e8a9a7", null ],
+    [ "handleGetParameters", "db/d92/a05155.html#a1675e1b5fd15fd1500a5d996f87dfd46", null ],
+    [ "handleInputsUpdate", "db/d92/a05155.html#a667d3ff5b042410546dc2212f46897b3", null ],
+    [ "handleOutputsUpdate", "db/d92/a05155.html#a0da8607e6d55446f6dfa2edb7431481f", null ],
+    [ "handleSetParameters", "db/d92/a05155.html#afc05283afd3c88f8eee7d0c94e969ab4", null ],
+    [ "parse", "db/d92/a05155.html#a4d3b6c9250019cb601e8256f0167da64", null ]
 ];

@@ -1,19 +1,17 @@
 var a05590 =
 [
-    [ "Output", "de/dd0/a05590.html#a1281e0a7881e9bbc4c5ab50eff8991a3", null ],
-    [ "~Output", "de/dd0/a05590.html#aa9c1a46117aa84b973279d61e591a610", null ],
-    [ "Output", "de/dd0/a05590.html#a2e5b8d5672d2476d29d0474439f58c30", null ],
-    [ "Output", "de/dd0/a05590.html#ab0a0cbf5fea7eaa9a5c04405b63cd798", null ],
-    [ "isHigh", "de/dd0/a05590.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "de/dd0/a05590.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "de/dd0/a05590.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "de/dd0/a05590.html#a8ee7e17225987004c3c73099e78d8b78", null ],
-    [ "operator=", "de/dd0/a05590.html#a3187afa0ce2671083228b6b536d45d4b", null ],
-    [ "operator=", "de/dd0/a05590.html#a13bc8e6bba332c350095666b72e568aa", null ],
-    [ "read", "de/dd0/a05590.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "setHigh", "de/dd0/a05590.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11", null ],
-    [ "setLow", "de/dd0/a05590.html#a0fc44f31312833d252e8aef8a1c4e361", null ],
-    [ "toggle", "de/dd0/a05590.html#ad11ab03ddf964b154331b7ffc708e4c2", null ],
-    [ "write", "de/dd0/a05590.html#a52416b95040bffe9915b005b33bc3600", null ],
-    [ "handle", "de/dd0/a05590.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "DataAlignment", "de/dd0/a05590.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "de/dd0/a05590.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
+    [ "~DACPort", "de/dd0/a05590.html#ac832156b805caf8041f1097ecf576ec2", null ],
+    [ "DACPort", "de/dd0/a05590.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
+    [ "DACPort", "de/dd0/a05590.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
+    [ "close", "de/dd0/a05590.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "getChannel", "de/dd0/a05590.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
+    [ "getHandle", "de/dd0/a05590.html#a8931efb843554302b191363c4a0bfa41", null ],
+    [ "open", "de/dd0/a05590.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "de/dd0/a05590.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
+    [ "operator=", "de/dd0/a05590.html#a947c4407f00f40ef2d244a914699c60e", null ],
+    [ "setValue", "de/dd0/a05590.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "de/dd0/a05590.html#a0fb9b03d74076c644c02fd75613c0748", null ],
+    [ "stop", "de/dd0/a05590.html#aeb4d00954e883a85534eb2da3acd379f", null ]
 ];

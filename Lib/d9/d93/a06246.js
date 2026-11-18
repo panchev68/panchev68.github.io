@@ -1,11 +1,10 @@
 var a06246 =
 [
-    [ "FirmwareString", "d9/d93/a06246.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "VersionString", "d9/d93/a06246.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Firmware", "d9/d93/a06246.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "getSubVersion", "d9/d93/a06246.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator FirmwareString", "d9/d93/a06246.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "d9/d93/a06246.html#a7dcca38967251869c5bf305173fc13ee", null ],
-    [ "operator VersionString", "d9/d93/a06246.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d9/d93/a06246.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "maxPowerRef", "d9/d93/a06246.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
+    [ "mppCurrentRef", "d9/d93/a06246.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
+    [ "mppVoltageRef", "d9/d93/a06246.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
+    [ "referenceIrradiance", "d9/d93/a06246.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
+    [ "temperatureCoefficient", "d9/d93/a06246.html#a199180804d52f432b3f8a4861146f827", null ],
+    [ "toleranceFactor", "d9/d93/a06246.html#a94dbf0194f1c0097467e34c0605131d4", null ],
+    [ "updateInterval", "d9/d93/a06246.html#a9a72ac9a78c42013979d67300e60de6d", null ]
 ];

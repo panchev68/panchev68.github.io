@@ -1,11 +1,13 @@
 var a05170 =
 [
-    [ "Message", "dc/ddd/a05170.html#adf2fad29193213811e051ef8d5f227a7", null ],
-    [ "Message", "dc/ddd/a05170.html#a68d2a5b54227d976281ef2c06d063d87", null ],
-    [ "Message", "dc/ddd/a05170.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
-    [ "data", "dc/ddd/a05170.html#abc7d722b3924f3002a908d282429e590", null ],
-    [ "empty", "dc/ddd/a05170.html#a09e2a403173178d77de083ae66a831fe", null ],
-    [ "operator std::vector< uint8_t >", "dc/ddd/a05170.html#aa265929307138945bf4e16749958a7f8", null ],
-    [ "size", "dc/ddd/a05170.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
-    [ "view", "dc/ddd/a05170.html#a99d9247c3097add390da201d0083e524", null ]
+    [ "Config", "d3/d14/a05174.html", "d3/d14/a05174" ],
+    [ "ComDriver", "dc/ddd/a05170.html#ababf68659e9af31a588761f3b7019ee4", null ],
+    [ "ComDriver", "dc/ddd/a05170.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
+    [ "~ComDriver", "dc/ddd/a05170.html#ac84fd480c15423c989d3f9f367f99045", null ],
+    [ "init", "dc/ddd/a05170.html#a43649d6474cd7c536e4e76c7a3374725", null ],
+    [ "operator=", "dc/ddd/a05170.html#a39956162d031d237c8741f20d1de0b4d", null ],
+    [ "reset", "dc/ddd/a05170.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
+    [ "send", "dc/ddd/a05170.html#adb3898389cd892854bac73d239b647fc", null ],
+    [ "diagnostic", "dc/ddd/a05170.html#a567a1a6ed97de4267cfec4531f60a373", null ],
+    [ "xrst", "dc/ddd/a05170.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
 ];

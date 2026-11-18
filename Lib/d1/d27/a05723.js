@@ -1,6 +1,7 @@
 var a05723 =
 [
-    [ "hours", "d1/d27/a05723.html#a437ac5c570358c9a7f7f0ead962efd15", null ],
-    [ "minutes", "d1/d27/a05723.html#a2ebd665fed7747e94644f3670cef570a", null ],
-    [ "seconds", "d1/d27/a05723.html#a869962a23dd18f21cc9b54289c3d97ca", null ]
+    [ "day", "d1/d27/a05723.html#a4e0afef93919b9d81fb11880e985faf7", null ],
+    [ "month", "d1/d27/a05723.html#a81707050dd28eeb1de5e1bf17bc64ca0", null ],
+    [ "weekDay", "d1/d27/a05723.html#a30dfc2209d0abdafbba3e90c6a5c24c8", null ],
+    [ "year", "d1/d27/a05723.html#aacc37a4b6ca5a085f338d84b26cf1595", null ]
 ];

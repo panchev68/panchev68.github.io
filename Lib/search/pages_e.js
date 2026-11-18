@@ -39,5 +39,6 @@ var searchData=
   ['program_20a_20word_20once_36',['Program a word once',['../X:/Lib/IAR/Project/Examples/Lib_HAL_OTP.dox#otp_usage_write',1,'']]],
   ['program_20one_20word_37',['Program one word',['../X:/Lib/IAR/Project/Examples/Lib_HAL_FlashInterface.dox#flash_usage_word',1,'']]],
   ['protecting_20shared_20data_38',['Protecting shared data',['../X:/Lib/IAR/Project/Examples/RTOS_Kernel.dox#kernel_usage_critical',1,'']]],
-  ['pulse_20from_20a_20task_39',['Generating a delayed pulse from a task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOnePulse.dox#timop_usage_pulse',1,'']]]
+  ['publishing_39',['Publishing',['../X:/Lib/IAR/Project/Examples/Lib_MQTT_Client.dox#mqtt_usage_publish',1,'']]],
+  ['pulse_20from_20a_20task_40',['Generating a delayed pulse from a task',['../X:/Lib/IAR/Project/Examples/Lib_HAL_TimOnePulse.dox#timop_usage_pulse',1,'']]]
 ];

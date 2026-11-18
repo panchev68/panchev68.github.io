@@ -1,9 +1,10 @@
 var a04478 =
 [
-    [ "Config", "d7/d2e/a04482.html", "d7/d2e/a04482" ],
-    [ "Driver", "d1/d6c/a04478.html#a1d8e503b6726e6008abf411810b2191d", null ],
-    [ "~Driver", "d1/d6c/a04478.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
-    [ "handleTransferCompleteEvent", "d1/d6c/a04478.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
-    [ "setup", "d1/d6c/a04478.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
-    [ "transmitBlock", "d1/d6c/a04478.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
+    [ "PortBase", "d1/d6c/a04478.html#a5350d276e1d3d6505501c1a194798ee1", null ],
+    [ "~PortBase", "d1/d6c/a04478.html#ae97ed92776c4c9fec031848b9d223290", null ],
+    [ "getSpiHandle", "d1/d6c/a04478.html#a1677aa107627ab40c3a7a3a495722c77", null ],
+    [ "postUpdateCallback", "d1/d6c/a04478.html#af0d8329309d89f85d0432a205da0410c", null ],
+    [ "preUpdateCallback", "d1/d6c/a04478.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
+    [ "setup", "d1/d6c/a04478.html#a819a0deaed30808011035c3403fbf93c", null ],
+    [ "update", "d1/d6c/a04478.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
 ];

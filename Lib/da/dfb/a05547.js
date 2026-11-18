@@ -1,13 +1,12 @@
 var a05547 =
 [
-    [ "BackupRamDomain", "da/dfb/a05547.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
-    [ "~BackupRamDomain", "da/dfb/a05547.html#a3b301936cae87db14bef527c0a5629af", null ],
-    [ "BackupRamDomain", "da/dfb/a05547.html#abf039272ad85b43415d4df28c8c0a051", null ],
-    [ "BackupRamDomain", "da/dfb/a05547.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
-    [ "close", "da/dfb/a05547.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
-    [ "open", "da/dfb/a05547.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
-    [ "operator=", "da/dfb/a05547.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
-    [ "operator=", "da/dfb/a05547.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
-    [ "readRegister", "da/dfb/a05547.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
-    [ "writeRegister", "da/dfb/a05547.html#acc5002942f221da40872cb7be92706a9", null ]
+    [ "ADCPortBase", "da/dfb/a05547.html#a4434447d51727d630ac97c35686a4ec0", null ],
+    [ "ADCPortBase", "da/dfb/a05547.html#a0ad5d61e73944a97373bfae0962076a5", null ],
+    [ "ADCPortBase", "da/dfb/a05547.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
+    [ "~ADCPortBase", "da/dfb/a05547.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
+    [ "close", "da/dfb/a05547.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getValue", "da/dfb/a05547.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "da/dfb/a05547.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "da/dfb/a05547.html#a283bca78dae75fbe3786f0ddfcb865f3", null ],
+    [ "operator=", "da/dfb/a05547.html#a0fcfa429879f8263683b639ed5e74c96", null ]
 ];

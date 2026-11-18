@@ -1,4 +1,4 @@
 var a00749 =
 [
-    [ "Lib::HAL::IndependentWatchdog", "d2/d44/a05675.html", "d2/d44/a05675" ]
+    [ "Lib::HAL::IndependentWatchdog", "d3/ddb/a05679.html", "d3/ddb/a05679" ]
 ];

@@ -1,10 +1,7 @@
 var a06250 =
 [
-    [ "VersionString", "dd/d9a/a06250.html#a86d520da943edfbb98a592e47cd30177", null ],
-    [ "VersionBase", "dd/d9a/a06250.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
-    [ "getSubVersion", "dd/d9a/a06250.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "dd/d9a/a06250.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
-    [ "operator uint32_t", "dd/d9a/a06250.html#afca34523d727d800376b4959573f80bf", null ],
-    [ "operator VersionString", "dd/d9a/a06250.html#a3e56152954887db7681501c597507ae4", null ],
-    [ "toString", "dd/d9a/a06250.html#a1288aa2ce9764268fe7751f879f27a00", null ]
+    [ "current", "dd/d9a/a06250.html#a03c2002021ee39257b3712ebb21f9804", null ],
+    [ "irradiance", "dd/d9a/a06250.html#aeb4a3f32aa352d29093581039d36dd08", null ],
+    [ "temperature", "dd/d9a/a06250.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
+    [ "voltage", "dd/d9a/a06250.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
 ];

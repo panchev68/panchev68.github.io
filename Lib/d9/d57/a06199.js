@@ -1,31 +1,14 @@
 var a06199 =
 [
-    [ "Config", "d4/d7a/a06203.html", "d4/d7a/a06203" ],
-    [ "TickType", "d9/d57/a06199.html#adc76fba01b70e91209e1f25d9dd7f1ce", null ],
-    [ "TickClient", "d9/d57/a06199.html#a3e885923e858b4dbbb6896a511cb5166", null ],
-    [ "~TickClient", "d9/d57/a06199.html#aa081d1530901d0d5cca0f29807ada39a", null ],
-    [ "TickClient", "d9/d57/a06199.html#a6a64e7b4307315ae1a1a0e8ee2214b4b", null ],
-    [ "TickClient", "d9/d57/a06199.html#a32f321fa2b51b5909c7f4a3302e1bc77", null ],
-    [ "changePeriod", "d9/d57/a06199.html#a0db43688ea792433fe8d94ebfcab20ca", null ],
-    [ "changePeriod", "d9/d57/a06199.html#aef2ed6cb01e9bb34542b767662c88bd3", null ],
-    [ "changePeriodFromISR", "d9/d57/a06199.html#a7c8017e24f2f8306cca30515802f61de", null ],
-    [ "changePeriodFromISR", "d9/d57/a06199.html#ad20836d70197059eab8a5694eededa40", null ],
-    [ "getExpiryTime", "d9/d57/a06199.html#af5207bfd2383a7f0cf5bc9d5e370acba", null ],
-    [ "getPeriod", "d9/d57/a06199.html#ae8047f3e345b144287a23699cfebebcc", null ],
-    [ "isActive", "d9/d57/a06199.html#a084f884000ac866e97a7de170367ac6f", null ],
-    [ "isStarted", "d9/d57/a06199.html#aa3419504803e71b4605ae5f4765608db", null ],
-    [ "isValid", "d9/d57/a06199.html#a408eb1aee05259b64d9d520fecbad54f", null ],
-    [ "operator=", "d9/d57/a06199.html#a8cbfad05ae465784059e104778632821", null ],
-    [ "operator=", "d9/d57/a06199.html#a206dc99dd3e2606043f77ede19d83bf5", null ],
-    [ "reset", "d9/d57/a06199.html#a7a4396772c0f38c13c4159eda24dad0d", null ],
-    [ "resetFromISR", "d9/d57/a06199.html#abc6e0b22a8ccbaefc9c2c961b59b81f1", null ],
-    [ "resetFromISR", "d9/d57/a06199.html#ad88e49d6dba20d768779b274c73eeaaf", null ],
-    [ "setup", "d9/d57/a06199.html#af079f0ff38c9abbb17860ae663c665df", null ],
-    [ "setup", "d9/d57/a06199.html#a95568f125f0eac00c1b1668b017ae662", null ],
-    [ "start", "d9/d57/a06199.html#a59730ccf7ef04d00837d566cd5184305", null ],
-    [ "startFromISR", "d9/d57/a06199.html#a7c3baef45d5c6e812ec90241dd97ff6c", null ],
-    [ "startFromISR", "d9/d57/a06199.html#adf87e93a9e774ae37b684423c1f2acde", null ],
-    [ "stop", "d9/d57/a06199.html#a63fcbf5699a2025dba2c058bc0715c62", null ],
-    [ "stopFromISR", "d9/d57/a06199.html#ab9f24e9be6431fa9de927ef5b39ce61e", null ],
-    [ "stopFromISR", "d9/d57/a06199.html#a950094a7c5c23bac35a8dfa0472dbd02", null ]
+    [ "Label", "d9/d57/a06199.html#a98d823750bde45aebd4db31f4086821e", [
+      [ "RUNNING", "d9/d57/a06199.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
+      [ "READY", "d9/d57/a06199.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "BLOCKED", "d9/d57/a06199.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
+      [ "SUSPENDED", "d9/d57/a06199.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
+      [ "DELETED", "d9/d57/a06199.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
+      [ "INVALID", "d9/d57/a06199.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
+    ] ],
+    [ "State", "d9/d57/a06199.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
+    [ "get", "d9/d57/a06199.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
+    [ "operator Label", "d9/d57/a06199.html#a3c30086da2d01872c5cdccdba1874c74", null ]
 ];

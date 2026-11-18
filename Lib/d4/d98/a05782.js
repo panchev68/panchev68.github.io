@@ -1,18 +1,18 @@
 var a05782 =
 [
-    [ "EventHandler", "d4/d98/a05782.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
-    [ "USBDevicePort", "d4/d98/a05782.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
-    [ "~USBDevicePort", "d4/d98/a05782.html#a380acfe834fbf265a2fdfe8e26550867", null ],
-    [ "abort", "d4/d98/a05782.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
-    [ "close", "d4/d98/a05782.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d4/d98/a05782.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "Manager", "d4/d98/a05782.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d4/d98/a05782.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimOutputCompare", "d4/d98/a05782.html#a147e928fad995991b23e7d01fe3858fd", null ],
+    [ "~TimOutputCompare", "d4/d98/a05782.html#ad51108ace6896dca15950c5bbfd3002b", null ],
+    [ "bindWorker", "d4/d98/a05782.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getCounter", "d4/d98/a05782.html#afaf7f01f359523e9b30110fdbf8b175b", null ],
     [ "getHandle", "d4/d98/a05782.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d4/d98/a05782.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d4/d98/a05782.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d4/d98/a05782.html#add4fb8ab17eac13116050ae3c8237acf", null ],
-    [ "send", "d4/d98/a05782.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
-    [ "setEventHandler", "d4/d98/a05782.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
-    [ "submitReceive", "d4/d98/a05782.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
-    [ "submitSend", "d4/d98/a05782.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
-    [ "waitForEvent", "d4/d98/a05782.html#ac98dece292bb17828882e8d61e803880", null ]
+    [ "notifyWorkerFromISR", "d4/d98/a05782.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "setCompare", "d4/d98/a05782.html#a14b6982f85b9be41e24886a8a1c7445d", null ],
+    [ "start", "d4/d98/a05782.html#a63482b7958cd7171218c959b2b5df044", null ],
+    [ "stop", "d4/d98/a05782.html#aac2ec3db8ef26406c23bea924b96997b", null ],
+    [ "waitCompare", "d4/d98/a05782.html#a040290a0bf889a08fc0248b637b69e71", null ],
+    [ "waitCompare", "d4/d98/a05782.html#a18804c13963fca99f8037034a6d4e7ec", null ],
+    [ "waitEvent", "d4/d98/a05782.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d4/d98/a05782.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
 ];

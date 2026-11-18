@@ -1,15 +1,13 @@
 var a05322 =
 [
-    [ "Error", "da/d4d/a05322.html#a9d7546738e259f57d9e431d88a39ac23", null ],
-    [ "Handlers", "da/d4d/a05322.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
-    [ "FoE", "da/d4d/a05322.html#ad7dd21bafde30794cef6a653baacc862", null ],
-    [ "~FoE", "da/d4d/a05322.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
-    [ "FoE", "da/d4d/a05322.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
-    [ "FoE", "da/d4d/a05322.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
-    [ "handle", "da/d4d/a05322.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
-    [ "isBusy", "da/d4d/a05322.html#a4463e44a62dae7598614225dc069e03c", null ],
-    [ "operator=", "da/d4d/a05322.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
-    [ "operator=", "da/d4d/a05322.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
-    [ "reset", "da/d4d/a05322.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
-    [ "setHandlers", "da/d4d/a05322.html#a39b767747ef43947171f73021ee9dd76", null ]
+    [ "GroupObserver", "da/d4d/a05322.html#ae0be7f919e6ca6463be926040e243dc2", null ],
+    [ "GroupObserver", "da/d4d/a05322.html#abf7c708193eb24c533d89a68065f5c2e", null ],
+    [ "GroupObserver", "da/d4d/a05322.html#a391e96debfa29546d2a1a4a905e48559", null ],
+    [ "check", "da/d4d/a05322.html#a62a61f576a7da92378d07601ab84c86b", null ],
+    [ "forEach", "da/d4d/a05322.html#a0bc7d57fe41425f15a2d06cdd4d12a03", null ],
+    [ "getGroup", "da/d4d/a05322.html#ad46566158066e38be9c6b52569ed95b0", null ],
+    [ "matches", "da/d4d/a05322.html#af4fa18de8bd3a0f30d101d8451bc3127", null ],
+    [ "number", "da/d4d/a05322.html#a21efb6d92b106ecb679f58b9d826aadd", null ],
+    [ "operator const Group *", "da/d4d/a05322.html#a38eb70d1a029f0026c698ce34b4bc9a0", null ],
+    [ "read", "da/d4d/a05322.html#a51117f0d8d5bbb482a585d7af71a390a", null ]
 ];

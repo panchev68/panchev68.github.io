@@ -1,6 +1,6 @@
 var a05327 =
 [
-    [ "afterWrite", "d0/d31/a05327.html#a53e4f89f1542245add410f8b0f52b0bd", null ],
-    [ "beforeRead", "d0/d31/a05327.html#a214b45de3b2b1b03564e40ad91392018", null ],
-    [ "beforeWrite", "d0/d31/a05327.html#a19848fcaef19f48fd52d8d89e26be851", null ]
+    [ "code", "d0/d31/a05327.html#a4d8eace811bd06ebbd23b48cdcd55a97", null ],
+    [ "index", "d0/d31/a05327.html#a3c1fc7598e3500d7f06ac23818fd80a3", null ],
+    [ "name", "d0/d31/a05327.html#adb71631f3f01cfe4b407c729d606608c", null ]
 ];

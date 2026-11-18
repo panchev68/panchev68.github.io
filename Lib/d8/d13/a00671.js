@@ -1,4 +1,4 @@
 var a00671 =
 [
-    [ "Lib::HAL::Device&lt; T_DEVICE, T_HANDLE &gt;", "de/d98/a05579.html", "de/d98/a05579" ]
+    [ "Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;", "d4/de2/a05578.html", "d4/de2/a05578" ]
 ];

@@ -1,7 +1,9 @@
 var a06023 =
 [
-    [ "estimatedError", "dd/d51/a06023.html#aa627467e596e97925629cac77c51da24", null ],
-    [ "processNoise", "dd/d51/a06023.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
-    [ "sensorNoise", "dd/d51/a06023.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
-    [ "value", "dd/d51/a06023.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
+    [ "Config", "db/dc9/a06027.html", "db/dc9/a06027" ],
+    [ "Kalman", "dd/d51/a06023.html#a3e7cb33fc02e4a9f5cfd0b36a190e1cb", null ],
+    [ "~Kalman", "dd/d51/a06023.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
+    [ "operator()", "dd/d51/a06023.html#a58b5b7eb34e36d03a11115994cbea0cb", null ],
+    [ "reset", "dd/d51/a06023.html#a677e8869d39da510437c9dd8adf43848", null ],
+    [ "setParam", "dd/d51/a06023.html#a086aa45da9c828d66507b2a2ce2c2f09", null ]
 ];

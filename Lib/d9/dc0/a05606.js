@@ -1,13 +1,17 @@
 var a05606 =
 [
-    [ "UARTPort", "d9/dc0/a05606.html#a074ec6b19b1073304ca2513d11d43247", null ],
-    [ "~UARTPort", "d9/dc0/a05606.html#a864254902b1d7b3afa27a66ccd465c69", null ],
-    [ "abort", "d9/dc0/a05606.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "d9/dc0/a05606.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d9/dc0/a05606.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d9/dc0/a05606.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d9/dc0/a05606.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d9/dc0/a05606.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d9/dc0/a05606.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "d9/dc0/a05606.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
+    [ "DataAlignment", "d9/dc0/a05606.html#a18b5de83aaec561a43dc24a80e15bd46", [
+      [ "RIGHT_12_BITS", "d9/dc0/a05606.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
+      [ "LEFT_12_BITS", "d9/dc0/a05606.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
+      [ "RIGHT_8_BITS", "d9/dc0/a05606.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
+    ] ],
+    [ "DACPortBase", "d9/dc0/a05606.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
+    [ "DACPortBase", "d9/dc0/a05606.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
+    [ "DACPortBase", "d9/dc0/a05606.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
+    [ "~DACPortBase", "d9/dc0/a05606.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
+    [ "close", "d9/dc0/a05606.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "open", "d9/dc0/a05606.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "d9/dc0/a05606.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
+    [ "operator=", "d9/dc0/a05606.html#abfba06342b098e48cbd2ecf0d159497c", null ],
+    [ "setValue", "d9/dc0/a05606.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
 ];

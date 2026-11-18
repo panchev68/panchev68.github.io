@@ -1,5 +1,5 @@
 var a00296 =
 [
-    [ "Lib::BSP::EncoderTimer", "d0/d61/a04579.html", "d0/d61/a04579" ],
-    [ "Lib::BSP::EncoderTimer::Config", "d0/d9d/a04583.html", "d0/d9d/a04583" ]
+    [ "Lib::BSP::EncoderPins", "d0/d15/a04574.html", "d0/d15/a04574" ],
+    [ "Lib::BSP::EncoderPins::Config", "dc/d8b/a04578.html", "dc/d8b/a04578" ]
 ];

@@ -1,15 +1,13 @@
 var a04750 =
 [
-    [ "Ring", "d2/d6c/a04754.html", "d2/d6c/a04754" ],
-    [ "Slice", "dc/d64/a04750.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
-    [ "SK6812", "dc/d64/a04750.html#a713fbeedeb85ff82f1097b206afd7918", null ],
-    [ "SK6812", "dc/d64/a04750.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
-    [ "SK6812", "dc/d64/a04750.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
-    [ "clear", "dc/d64/a04750.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
-    [ "getColor", "dc/d64/a04750.html#a1a0907fe121161268c1b859d90232628", null ],
-    [ "operator=", "dc/d64/a04750.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
-    [ "operator=", "dc/d64/a04750.html#aa21ec5517b393c1649c2045e822978e7", null ],
-    [ "setColor", "dc/d64/a04750.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
-    [ "setColor", "dc/d64/a04750.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
-    [ "setColor", "dc/d64/a04750.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
+    [ "Bytes", "dc/d64/a04750.html#aaa924b52936a11a36f991b92270eb1b6", null ],
+    [ "Digest", "dc/d64/a04750.html#a97d15161e3e4d29994672b77e28ea856", null ],
+    [ "Message", "dc/d64/a04750.html#a8ba002cb2db8c1b57b6534f88d77e2ab", null ],
+    [ "Uid", "dc/d64/a04750.html#ab823c89537a28891f90d448eeb6122c1", null ],
+    [ "Result", "dc/d64/a04750.html#ae690657e7ab3cf073f0d03abc2ee488b", [
+      [ "VALID", "dc/d64/a04750.html#ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea", null ],
+      [ "BAD_FORMAT", "dc/d64/a04750.html#ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a", null ],
+      [ "UNKNOWN_KEY", "dc/d64/a04750.html#ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb", null ],
+      [ "BAD_SIGNATURE", "dc/d64/a04750.html#ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a", null ]
+    ] ]
 ];

@@ -1,5 +1,10 @@
 var a06243 =
 [
-    [ "current", "d8/de8/a06243.html#a2e9a3fd94c50f6eec80b37bc5f23f415", null ],
-    [ "voltage", "d8/de8/a06243.html#a1e7c41cc6f1e458a928298f16e3913df", null ]
+    [ "maxPowerRef", "d8/de8/a06243.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
+    [ "mppCurrentRef", "d8/de8/a06243.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
+    [ "mppVoltageRef", "d8/de8/a06243.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
+    [ "referenceIrradiance", "d8/de8/a06243.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
+    [ "temperatureCoefficient", "d8/de8/a06243.html#a199180804d52f432b3f8a4861146f827", null ],
+    [ "toleranceFactor", "d8/de8/a06243.html#a94dbf0194f1c0097467e34c0605131d4", null ],
+    [ "updateInterval", "d8/de8/a06243.html#a9a72ac9a78c42013979d67300e60de6d", null ]
 ];

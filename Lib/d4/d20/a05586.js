@@ -1,14 +1,8 @@
 var a05586 =
 [
-    [ "Input", "d4/d20/a05586.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
-    [ "~Input", "d4/d20/a05586.html#a95f707a268014333f78d7378dd579ea4", null ],
-    [ "Input", "d4/d20/a05586.html#aba23478206e067c578a2081a0ba4d1ee", null ],
-    [ "Input", "d4/d20/a05586.html#a01d95887913602ed10325b5b07f8cef5", null ],
-    [ "isHigh", "d4/d20/a05586.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d4/d20/a05586.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d4/d20/a05586.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "d4/d20/a05586.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
-    [ "operator=", "d4/d20/a05586.html#aac4da8195bb51d393df961046635bfc0", null ],
-    [ "read", "d4/d20/a05586.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "handle", "d4/d20/a05586.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "Device", "d4/d20/a05586.html#acdeffbad9eb409804cbc72fa86794a97", null ],
+    [ "~Device", "d4/d20/a05586.html#a231e1d150464ec12c66e5578ff0c3128", null ],
+    [ "getHandle", "d4/d20/a05586.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d4/d20/a05586.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "DeviceManager< T_DEVICE, T_HANDLE >", "d4/d20/a05586.html#ad317e84715f53c3ea50d6b4113c92403", null ]
 ];

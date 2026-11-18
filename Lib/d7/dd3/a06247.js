@@ -1,14 +1,7 @@
 var a06247 =
 [
-    [ "Bitset", "d7/dd3/a06247.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "d7/dd3/a06247.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "d7/dd3/a06247.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d7/dd3/a06247.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Configuration", "d7/dd3/a06247.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "d7/dd3/a06247.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "d7/dd3/a06247.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "d7/dd3/a06247.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "d7/dd3/a06247.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "d7/dd3/a06247.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "current", "d7/dd3/a06247.html#a03c2002021ee39257b3712ebb21f9804", null ],
+    [ "irradiance", "d7/dd3/a06247.html#aeb4a3f32aa352d29093581039d36dd08", null ],
+    [ "temperature", "d7/dd3/a06247.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
+    [ "voltage", "d7/dd3/a06247.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
 ];

@@ -1,29 +1,7 @@
 var a06114 =
 [
-    [ "Handle", "de/d8c/a06114.html#a4b0fa065d254b79172dce084d987b8d4", null ],
-    [ "TickType", "de/d8c/a06114.html#a052c7fc009c89fd8f8542c6014405b43", null ],
-    [ "SemaphoreCounting", "de/d8c/a06114.html#a34360dc9fc24d07df2ef16080a21c61e", null ],
-    [ "SemaphoreCounting", "de/d8c/a06114.html#a28b01c517b6b58ec1c1dcdff28c2a50c", null ],
-    [ "SemaphoreCounting", "de/d8c/a06114.html#a7e497551b91db5e404470925688a3ea2", null ],
-    [ "close", "de/d8c/a06114.html#ac6a74e3af35fe243ff32a8ae89fd4214", null ],
-    [ "createStatic", "de/d8c/a06114.html#a4a3a3bf0955b317a1d871ee838f5ea59", null ],
-    [ "getCount", "de/d8c/a06114.html#ac1348d8967c750e28e7a6ba4f84d6061", null ],
-    [ "getCountFromISR", "de/d8c/a06114.html#aa25056dd49c8d19a9f388b97f02c5291", null ],
-    [ "getDerived", "de/d8c/a06114.html#a431358a0063bbdcb40d09537a2babe3a", null ],
-    [ "getHandle", "de/d8c/a06114.html#a9cd3c80279acde60a0701a674eecc148", null ],
-    [ "getInitialCount", "de/d8c/a06114.html#abe4488af469ef47e32e09e2d38a602b1", null ],
-    [ "getMaxCount", "de/d8c/a06114.html#addd31c2ffd410bd866e7365497d65280", null ],
-    [ "getRemainingCapacity", "de/d8c/a06114.html#a1bf7a6046c23fcaf2dcab086b735f624", null ],
-    [ "give", "de/d8c/a06114.html#a5682e0c5d8eb6b2076978634963b4020", null ],
-    [ "giveFromISR", "de/d8c/a06114.html#adc665ae88781c6a32668f430f0425eac", null ],
-    [ "isAtMaxCount", "de/d8c/a06114.html#aa49210c40edb460f5b64e0a7db0d87e8", null ],
-    [ "isEmpty", "de/d8c/a06114.html#a7d8026113d6006885360edd9ff77068d", null ],
-    [ "isOpen", "de/d8c/a06114.html#a8fe23c2cca8f01687c58c3aa1b257649", null ],
-    [ "open", "de/d8c/a06114.html#abc57684576686004799b4afa06460768", null ],
-    [ "operator=", "de/d8c/a06114.html#a1ef840e684e45e8065fa31c8b3690d52", null ],
-    [ "operator=", "de/d8c/a06114.html#ac13d24083bc909c7813fb3367712fe95", null ],
-    [ "take", "de/d8c/a06114.html#a0c09ee6fc8a221b811abbd57ac9d0071", null ],
-    [ "takeFromISR", "de/d8c/a06114.html#a351bf0854e0c48d82c1a078a39e02879", null ],
-    [ "tryTake", "de/d8c/a06114.html#a99e434d16d327ee8039d19a7feb75f8b", null ],
-    [ "semaphoreHandle", "de/d8c/a06114.html#a9f2ff1e57e66e99707d4107fa4c19812", null ]
+    [ "isInverted", "de/d8c/a06114.html#a527ce99ad9135c5ee638b478e35031de", null ],
+    [ "isPresent", "de/d8c/a06114.html#adeb1badd28d6911fa7c0422e5278feef", null ],
+    [ "name", "de/d8c/a06114.html#aa93f171d58ca1b53c5c589d81d12bf17", null ],
+    [ "source", "de/d8c/a06114.html#a13e98c772a216681f6a95506ba77144a", null ]
 ];

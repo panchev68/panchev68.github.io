@@ -1,8 +1,10 @@
 var a05495 =
 [
-    [ "operator+", "db/d0d/a05495.html#afea485ddd7d9ad7eb8f3b2a11a1f2cc4", null ],
-    [ "operator-", "db/d0d/a05495.html#a8d93933f3fe06d9c91e45ded1cdd51d3", null ],
-    [ "operator==", "db/d0d/a05495.html#ad2316ce881d00d98ae0bef9a2bc9b780", null ],
-    [ "x", "db/d0d/a05495.html#a511c6d0854551692b8c2551bd3c55174", null ],
-    [ "y", "db/d0d/a05495.html#a17369fdb671c6302d70f2714e31560f0", null ]
+    [ "font", "db/d0d/a05495.html#a2c3e1b6f550a2d80e71d282a25b6cff0", null ],
+    [ "height", "db/d0d/a05495.html#a6e78f99e5d65f305938c1e8626f89c2d", null ],
+    [ "items", "db/d0d/a05495.html#a19ff97a7731479d5305472a41eec6ef2", null ],
+    [ "scale", "db/d0d/a05495.html#af17da82f2f476f88d591253fbfff920b", null ],
+    [ "width", "db/d0d/a05495.html#ad685942ca97f523f6413bca2e202584a", null ],
+    [ "x", "db/d0d/a05495.html#adf4e46d8ec8c73c8c2715cbd25eb6599", null ],
+    [ "y", "db/d0d/a05495.html#ae98dfadd8efc895e551adccb18ea6357", null ]
 ];

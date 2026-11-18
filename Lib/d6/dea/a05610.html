@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::HASHPortBase&lt; Derived &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::FlashInterface</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -118,87 +131,113 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/dea/a05610.
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../db/de6/a05607.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::HASHPortBase&lt; Derived &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::FlashInterface<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
-class Lib::HAL::HASHPortBase&lt; Derived &gt;</div><p>Shared lifecycle of the HASH port specializations. </p>
-<dl class="section important"><dt>Important</dt><dd>The handle must be configured for 8-bit data (<em class="arg">HASH_DATATYPE_8B</em>, byte swapping): with <em class="arg">HASH_DATATYPE_32B</em> a byte stream on a little-endian core does not hash as in FIPS 180-4. <a class="el" href="#ae9dc794f4ad8b52c9c6ecdd73468f030" title="open()">open()</a> asserts this.</dd></dl>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>Concrete mode specialization, providing <em class="arg">getHandle()</em>.</td></tr>
-  </table>
-  </dd>
-</dl>
+<div class="textblock"><p>Stateless facade over the internal Flash controller. </p>
+<p>Erasing and programming need the controller unlocked, see <a class="el" href="#a0f5c36a802a9b6cf15aacf3d104cb445" title="unlock()">unlock()</a>. The HAL calls block until the operation ends. The programming granularity follows the family: a 32-bit word where the HAL offers <em class="arg">FLASH_TYPEPROGRAM_WORD</em>, a 64-bit doubleword where it offers <em class="arg">FLASH_TYPEPROGRAM_DOUBLEWORD</em>. Families with other granularities (for example quad-word) are not supported yet and every programming call returns <em class="arg">false</em> there.</p>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/HASH/HASHPortBase.hpp" target="_blank">Source</a> </dd></dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/Flash/FlashInterface.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/de4/a06439.html#_a1">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a402b74d9e249e868a6fb33cc93e1c08a" id="r_a402b74d9e249e868a6fb33cc93e1c08a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a402b74d9e249e868a6fb33cc93e1c08a">HASHPortBase</a> (const HASHPortBase &amp;other)=delete</td></tr>
-<tr class="memdesc:a402b74d9e249e868a6fb33cc93e1c08a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: an instance is bound to one peripheral.  <br /></td></tr>
-<tr class="memitem:a7309c31d1f17d06b52ed35b24816f30f" id="r_a7309c31d1f17d06b52ed35b24816f30f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7309c31d1f17d06b52ed35b24816f30f">HASHPortBase</a> (HASHPortBase &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a7309c31d1f17d06b52ed35b24816f30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: an instance is bound to one peripheral.  <br /></td></tr>
-<tr class="memitem:a50692e19ce033e67c57e1581aeff1be4" id="r_a50692e19ce033e67c57e1581aeff1be4"><td class="memItemLeft"><a class="el" href="#a402b74d9e249e868a6fb33cc93e1c08a">HASHPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a50692e19ce033e67c57e1581aeff1be4">operator=</a> (const <a class="el" href="#a402b74d9e249e868a6fb33cc93e1c08a">HASHPortBase</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a50692e19ce033e67c57e1581aeff1be4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: an instance is bound to one peripheral.  <br /></td></tr>
-<tr class="memitem:a910cff9c471be2aa82ac50da02b2027e" id="r_a910cff9c471be2aa82ac50da02b2027e"><td class="memItemLeft"><a class="el" href="#a402b74d9e249e868a6fb33cc93e1c08a">HASHPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a910cff9c471be2aa82ac50da02b2027e">operator=</a> (<a class="el" href="#a402b74d9e249e868a6fb33cc93e1c08a">HASHPortBase</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a910cff9c471be2aa82ac50da02b2027e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: an instance is bound to one peripheral.  <br /></td></tr>
-<tr class="memitem:ae9dc794f4ad8b52c9c6ecdd73468f030" id="r_ae9dc794f4ad8b52c9c6ecdd73468f030"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae9dc794f4ad8b52c9c6ecdd73468f030">open</a> () noexcept</td></tr>
-<tr class="memdesc:ae9dc794f4ad8b52c9c6ecdd73468f030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the peripheral with the configuration already in the handle; harmless after <b>MX_HASH_Init()</b>.  <br /></td></tr>
-<tr class="memitem:aea9707fb978271d6f7346e2eacd3d206" id="r_aea9707fb978271d6f7346e2eacd3d206"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aea9707fb978271d6f7346e2eacd3d206">close</a> () noexcept</td></tr>
-<tr class="memdesc:aea9707fb978271d6f7346e2eacd3d206"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the peripheral.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a5531b582e165f72dba557a380442c238" id="r_a5531b582e165f72dba557a380442c238"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5531b582e165f72dba557a380442c238">SHA256_DIGEST_SIZE</a> = 32U</td></tr>
-<tr class="memdesc:a5531b582e165f72dba557a380442c238"><td class="mdescLeft">&#160;</td><td class="mdescRight">SHA-256 digest length, in bytes.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a362af192b07fc68f58947d01ce37d8f2" id="r_a362af192b07fc68f58947d01ce37d8f2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a362af192b07fc68f58947d01ce37d8f2">HASHPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a362af192b07fc68f58947d01ce37d8f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only a mode specialization constructs the base; the peripheral is not touched.  <br /></td></tr>
-<tr class="memitem:a97d7a142991358197ddc449c08d06925" id="r_a97d7a142991358197ddc449c08d06925"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a97d7a142991358197ddc449c08d06925">~HASHPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a97d7a142991358197ddc449c08d06925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-virtual and protected: never deleted through a base pointer.  <br /></td></tr>
+<tr class="memitem:a8d095be00ec32cc8d562d8de4f5285b9" id="r_a8d095be00ec32cc8d562d8de4f5285b9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> ()=default</td></tr>
+<tr class="memdesc:a8d095be00ec32cc8d562d8de4f5285b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the facade.  <br /></td></tr>
+<tr class="memitem:a21441fdc8ee265dd3125df9d4e9939f1" id="r_a21441fdc8ee265dd3125df9d4e9939f1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a21441fdc8ee265dd3125df9d4e9939f1">~FlashInterface</a> ()=default</td></tr>
+<tr class="memdesc:a21441fdc8ee265dd3125df9d4e9939f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the facade.  <br /></td></tr>
+<tr class="memitem:a3b934e9e562900d0d933cf2628a1f6ff" id="r_a3b934e9e562900d0d933cf2628a1f6ff"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3b934e9e562900d0d933cf2628a1f6ff">FlashInterface</a> (const FlashInterface &amp;other)=delete</td></tr>
+<tr class="memdesc:a3b934e9e562900d0d933cf2628a1f6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a1c805cbd8158ca094182032c42fa8a68" id="r_a1c805cbd8158ca094182032c42fa8a68"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1c805cbd8158ca094182032c42fa8a68">FlashInterface</a> (FlashInterface &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a1c805cbd8158ca094182032c42fa8a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a3d3605babb7dc3b9f118bf52dc3e62c6" id="r_a3d3605babb7dc3b9f118bf52dc3e62c6"><td class="memItemLeft"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3d3605babb7dc3b9f118bf52dc3e62c6">operator=</a> (const <a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a3d3605babb7dc3b9f118bf52dc3e62c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a2e5471c04f3069860252fdf10e53270a" id="r_a2e5471c04f3069860252fdf10e53270a"><td class="memItemLeft"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2e5471c04f3069860252fdf10e53270a">operator=</a> (<a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a2e5471c04f3069860252fdf10e53270a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a0f5c36a802a9b6cf15aacf3d104cb445" id="r_a0f5c36a802a9b6cf15aacf3d104cb445"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a> () noexcept</td></tr>
+<tr class="memdesc:a0f5c36a802a9b6cf15aacf3d104cb445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks the Flash control register so that erase and program operations are accepted.  <br /></td></tr>
+<tr class="memitem:a076081c699cb3dcf3a7f5890c6c4f568" id="r_a076081c699cb3dcf3a7f5890c6c4f568"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a076081c699cb3dcf3a7f5890c6c4f568">lock</a> () noexcept</td></tr>
+<tr class="memdesc:a076081c699cb3dcf3a7f5890c6c4f568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the Flash control register against accidental erase and program operations.  <br /></td></tr>
+<tr class="memitem:a31fec472e71d387e0e9a5ade75e5ae24" id="r_a31fec472e71d387e0e9a5ade75e5ae24"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a31fec472e71d387e0e9a5ade75e5ae24">eraseSector</a> (uint32_t sectorIndex, uint32_t voltageRange) noexcept</td></tr>
+<tr class="memdesc:a31fec472e71d387e0e9a5ade75e5ae24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases one sector (sector-based families) or one page (page-based families).  <br /></td></tr>
+<tr class="memitem:ad771befb1be3db0d319c46507a7896ca" id="r_ad771befb1be3db0d319c46507a7896ca"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad771befb1be3db0d319c46507a7896ca">writeWord</a> (uint32_t address, uint32_t data) noexcept</td></tr>
+<tr class="memdesc:ad771befb1be3db0d319c46507a7896ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Programs one 32-bit word.  <br /></td></tr>
+<tr class="memitem:ae33402652ac23992b9eb28ed57ca35e8" id="r_ae33402652ac23992b9eb28ed57ca35e8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae33402652ac23992b9eb28ed57ca35e8">writeBuffer</a> (uint32_t startAddress, const uint32_t *dataPointer, uint32_t wordLength) noexcept</td></tr>
+<tr class="memdesc:ae33402652ac23992b9eb28ed57ca35e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Programs a buffer of 32-bit words into consecutive flash addresses.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="add4d9f33ecf447251492399927b27da5" name="add4d9f33ecf447251492399927b27da5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add4d9f33ecf447251492399927b27da5">&#9670;&#160;</a></span>Sha256Digest</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d6/dea/a05610.html">Lib::HAL::HASHPortBase</a>&lt; Derived &gt;::Sha256Digest = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a5531b582e165f72dba557a380442c238">SHA256_DIGEST_SIZE</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Big-endian SHA-256 digest bytes. </p>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a402b74d9e249e868a6fb33cc93e1c08a" name="a402b74d9e249e868a6fb33cc93e1c08a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a402b74d9e249e868a6fb33cc93e1c08a">&#9670;&#160;</a></span>HASHPortBase() <span class="overload">[1/3]</span></h2>
+<a id="a8d095be00ec32cc8d562d8de4f5285b9" name="a8d095be00ec32cc8d562d8de4f5285b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d095be00ec32cc8d562d8de4f5285b9">&#9670;&#160;</a></span>FlashInterface() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/dea/a05610.html">Lib::HAL::HASHPortBase</a>&lt; Derived &gt;::HASHPortBase </td>
+          <td class="memname">Lib::HAL::FlashInterface::FlashInterface </td>
           <td>(</td>
-          <td class="paramtype">const HASHPortBase&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the facade. </p>
+<p>No hardware is touched until a method is called. </p>
+
+</div>
+</div>
+<a id="a21441fdc8ee265dd3125df9d4e9939f1" name="a21441fdc8ee265dd3125df9d4e9939f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21441fdc8ee265dd3125df9d4e9939f1">&#9670;&#160;</a></span>~FlashInterface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::FlashInterface::~FlashInterface </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the facade. </p>
+<p>The controller is left as it is, <a class="el" href="#a076081c699cb3dcf3a7f5890c6c4f568" title="lock()">lock()</a> is not called. </p>
+
+</div>
+</div>
+<a id="a3b934e9e562900d0d933cf2628a1f6ff" name="a3b934e9e562900d0d933cf2628a1f6ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b934e9e562900d0d933cf2628a1f6ff">&#9670;&#160;</a></span>FlashInterface() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::FlashInterface::FlashInterface </td>
+          <td>(</td>
+          <td class="paramtype">const FlashInterface &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -209,7 +248,7 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: an instance is bound to one peripheral. </p>
+<p>Copying is deleted: the facade stands for the single process-wide Flash controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -219,21 +258,19 @@ template&lt;typename Derived&gt; </div>
 
 </div>
 </div>
-<a id="a7309c31d1f17d06b52ed35b24816f30f" name="a7309c31d1f17d06b52ed35b24816f30f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7309c31d1f17d06b52ed35b24816f30f">&#9670;&#160;</a></span>HASHPortBase() <span class="overload">[2/3]</span></h2>
+<a id="a1c805cbd8158ca094182032c42fa8a68" name="a1c805cbd8158ca094182032c42fa8a68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c805cbd8158ca094182032c42fa8a68">&#9670;&#160;</a></span>FlashInterface() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/dea/a05610.html">Lib::HAL::HASHPortBase</a>&lt; Derived &gt;::HASHPortBase </td>
+          <td class="memname">Lib::HAL::FlashInterface::FlashInterface </td>
           <td>(</td>
-          <td class="paramtype">HASHPortBase&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">FlashInterface &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -244,88 +281,70 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is deleted: an instance is bound to one peripheral. </p>
+<p>Moving is deleted: the facade stands for the single process-wide Flash controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a362af192b07fc68f58947d01ce37d8f2" name="a362af192b07fc68f58947d01ce37d8f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a362af192b07fc68f58947d01ce37d8f2">&#9670;&#160;</a></span>HASHPortBase() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d6/dea/a05610.html">Lib::HAL::HASHPortBase</a>&lt; Derived &gt;::HASHPortBase </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Only a mode specialization constructs the base; the peripheral is not touched. </p>
-
-</div>
-</div>
-<a id="a97d7a142991358197ddc449c08d06925" name="a97d7a142991358197ddc449c08d06925"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97d7a142991358197ddc449c08d06925">&#9670;&#160;</a></span>~HASHPortBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d6/dea/a05610.html">Lib::HAL::HASHPortBase</a>&lt; Derived &gt;::~<a class="el" href="#a402b74d9e249e868a6fb33cc93e1c08a">HASHPortBase</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-virtual and protected: never deleted through a base pointer. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aea9707fb978271d6f7346e2eacd3d206" name="aea9707fb978271d6f7346e2eacd3d206"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea9707fb978271d6f7346e2eacd3d206">&#9670;&#160;</a></span>close()</h2>
+<a id="a31fec472e71d387e0e9a5ade75e5ae24" name="a31fec472e71d387e0e9a5ade75e5ae24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31fec472e71d387e0e9a5ade75e5ae24">&#9670;&#160;</a></span>eraseSector()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d6/dea/a05610.html">Lib::HAL::HASHPortBase</a>&lt; Derived &gt;::close </td>
+          <td class="memname">bool Lib::HAL::FlashInterface::eraseSector </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>sectorIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>voltageRange</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erases one sector (sector-based families) or one page (page-based families). </p>
+<p>Blocks until the erase ends. The controller must be unlocked, see <a class="el" href="#a0f5c36a802a9b6cf15aacf3d104cb445" title="unlock()">unlock()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sectorIndex</td><td>Sector or page number to erase (e.g. <em class="arg">FLASH_SECTOR_5</em>). </td></tr>
+    <tr><td class="paramname">voltageRange</td><td>Supply voltage range, typically <em class="arg">FLASH_VOLTAGE_RANGE_3</em>. Ignored on page-based families. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the erase finished successfully, <b>false</b> on a HAL error. Always <b>false</b> if the HAL has no sector or page erase. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/de4/a06439.html#a3">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a076081c699cb3dcf3a7f5890c6c4f568" name="a076081c699cb3dcf3a7f5890c6c4f568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a076081c699cb3dcf3a7f5890c6c4f568">&#9670;&#160;</a></span>lock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::FlashInterface::lock </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -338,24 +357,92 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Deinitializes the peripheral. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL deinitialized it, <b>false</b> otherwise. </dd></dl>
+<p>Locks the Flash control register against accidental erase and program operations. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the controller is locked, <b>false</b> otherwise. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/de4/a06439.html#a6">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="ae9dc794f4ad8b52c9c6ecdd73468f030" name="ae9dc794f4ad8b52c9c6ecdd73468f030"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9dc794f4ad8b52c9c6ecdd73468f030">&#9670;&#160;</a></span>open()</h2>
+<a id="a3d3605babb7dc3b9f118bf52dc3e62c6" name="a3d3605babb7dc3b9f118bf52dc3e62c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d3605babb7dc3b9f118bf52dc3e62c6">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d6/dea/a05610.html">Lib::HAL::HASHPortBase</a>&lt; Derived &gt;::open </td>
+          <td class="memname"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp; Lib::HAL::FlashInterface::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the facade stands for the single process-wide Flash controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="a2e5471c04f3069860252fdf10e53270a" name="a2e5471c04f3069860252fdf10e53270a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e5471c04f3069860252fdf10e53270a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp; Lib::HAL::FlashInterface::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the facade stands for the single process-wide Flash controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="a0f5c36a802a9b6cf15aacf3d104cb445" name="a0f5c36a802a9b6cf15aacf3d104cb445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f5c36a802a9b6cf15aacf3d104cb445">&#9670;&#160;</a></span>unlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::FlashInterface::unlock </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -368,108 +455,100 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the peripheral with the configuration already in the handle; harmless after <b>MX_HASH_Init()</b>. </p>
-<p>Asserts a non-<em class="arg">nullptr</em> handle configured for <em class="arg">HASH_DATATYPE_8B</em>.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the configuration, <b>false</b> otherwise. </dd></dl>
+<p>Unlocks the Flash control register so that erase and program operations are accepted. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the controller accepted the unlock sequence, <b>false</b> otherwise. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/de4/a06439.html#a2">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a50692e19ce033e67c57e1581aeff1be4" name="a50692e19ce033e67c57e1581aeff1be4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50692e19ce033e67c57e1581aeff1be4">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="ae33402652ac23992b9eb28ed57ca35e8" name="ae33402652ac23992b9eb28ed57ca35e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae33402652ac23992b9eb28ed57ca35e8">&#9670;&#160;</a></span>writeBuffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a402b74d9e249e868a6fb33cc93e1c08a">HASHPortBase</a> &amp; <a class="el" href="../../d6/dea/a05610.html">Lib::HAL::HASHPortBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname">bool Lib::HAL::FlashInterface::writeBuffer </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a402b74d9e249e868a6fb33cc93e1c08a">HASHPortBase</a>&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>startAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const uint32_t *</td>          <td class="paramname"><span class="paramname"><em>dataPointer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>wordLength</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: an instance is bound to one peripheral. </p>
+<p>Programs a buffer of 32-bit words into consecutive flash addresses. </p>
+<p>On doubleword families the words are paired into full doublewords. An unaligned start or an odd trailing word goes through <a class="el" href="#ad771befb1be3db0d319c46507a7896ca" title="writeWord()">writeWord()</a>, which preserves the neighbouring half. The controller must be unlocked, see <a class="el" href="#a0f5c36a802a9b6cf15aacf3d104cb445" title="unlock()">unlock()</a>. Asserts on a null buffer, an empty length and a start address that is not 4-byte aligned.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+    <tr><td class="paramname">startAddress</td><td>Flash address of the first word, 4-byte aligned. </td></tr>
+    <tr><td class="paramname">dataPointer</td><td>Source words; must not be <em class="arg">nullptr</em>. </td></tr>
+    <tr><td class="paramname">wordLength</td><td>Number of 32-bit words to program; must not be <em class="arg">0</em>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every word was programmed. Always <b>false</b> if the family's program granularity is unsupported. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/de4/a06439.html#a5">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a910cff9c471be2aa82ac50da02b2027e" name="a910cff9c471be2aa82ac50da02b2027e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a910cff9c471be2aa82ac50da02b2027e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="ad771befb1be3db0d319c46507a7896ca" name="ad771befb1be3db0d319c46507a7896ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad771befb1be3db0d319c46507a7896ca">&#9670;&#160;</a></span>writeWord()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a402b74d9e249e868a6fb33cc93e1c08a">HASHPortBase</a> &amp; <a class="el" href="../../d6/dea/a05610.html">Lib::HAL::HASHPortBase</a>&lt; Derived &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname">bool Lib::HAL::FlashInterface::writeWord </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a402b74d9e249e868a6fb33cc93e1c08a">HASHPortBase</a>&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: an instance is bound to one peripheral. </p>
+<p>Programs one 32-bit word. </p>
+<p>On doubleword families the hardware programs 8 bytes at once, so the other half of the doubleword is read back and written unchanged. It must still be erased (all ones) or hold the value already there. The controller must be unlocked, see <a class="el" href="#a0f5c36a802a9b6cf15aacf3d104cb445" title="unlock()">unlock()</a>. Asserts on an address that is not 4-byte aligned.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+    <tr><td class="paramname">address</td><td>Flash address, 4-byte aligned. </td></tr>
+    <tr><td class="paramname">data</td><td>Value to program. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a5531b582e165f72dba557a380442c238" name="a5531b582e165f72dba557a380442c238"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5531b582e165f72dba557a380442c238">&#9670;&#160;</a></span>SHA256_DIGEST_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../d6/dea/a05610.html">Lib::HAL::HASHPortBase</a>&lt; Derived &gt;::SHA256_DIGEST_SIZE = 32U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>SHA-256 digest length, in bytes. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the word was programmed. Always <b>false</b> if the family's program granularity is unsupported. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d7/de4/a06439.html#a7">Lib::HAL::FlashInterface</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -480,7 +559,7 @@ template&lt;typename Derived&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/d6d/a01095.html">HAL</a></li><li class="navelem"><a href="../../d6/dea/a05610.html">HASHPortBase</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../db/d32/a01122.html">HAL</a></li><li class="navelem"><a href="../../d6/dea/a05610.html">FlashInterface</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

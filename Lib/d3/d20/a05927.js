@@ -1,18 +1,12 @@
 var a05927 =
 [
-    [ "DateString", "d3/d20/a05927.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
-    [ "Date", "d3/d20/a05927.html#a93def70969fc16974f55e56219a01b0f", null ],
-    [ "Date", "d3/d20/a05927.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
-    [ "getDayOfWeek", "d3/d20/a05927.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
-    [ "getDayOfYear", "d3/d20/a05927.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
-    [ "isValid", "d3/d20/a05927.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
-    [ "operator<=>", "d3/d20/a05927.html#a7a7ccaefa33e38ba99be918a93731119", null ],
-    [ "operator==", "d3/d20/a05927.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
-    [ "toString", "d3/d20/a05927.html#a70ecfff686d88d444a44393965b296e5", null ],
-    [ "toSysDays", "d3/d20/a05927.html#a59f67718a1b057bca29012a393547479", null ],
-    [ "toYearMonthDay", "d3/d20/a05927.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
-    [ "DateTime", "d3/d20/a05927.html#ae3d4a8787eced68c65a23f5906c11add", null ],
-    [ "day", "d3/d20/a05927.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
-    [ "month", "d3/d20/a05927.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
-    [ "year", "d3/d20/a05927.html#a1026d89f27e48fd23eccde7a9850b302", null ]
+    [ "Time", "d3/d20/a05927.html#a09c1a289db437e3ca338e958ea1101fe", null ],
+    [ "Time", "d3/d20/a05927.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
+    [ "isValid", "d3/d20/a05927.html#aad60c63a33a981ba3174a5360f508caa", null ],
+    [ "operator<=>", "d3/d20/a05927.html#a439444313b0351de56cc2f43dc39b9b4", null ],
+    [ "operator==", "d3/d20/a05927.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
+    [ "toDuration", "d3/d20/a05927.html#a3f5be273bd672ae87b52a229edec304f", null ],
+    [ "hours", "d3/d20/a05927.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
+    [ "minutes", "d3/d20/a05927.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
+    [ "seconds", "d3/d20/a05927.html#acffd8038132dc5a2078816b9d0dae829", null ]
 ];

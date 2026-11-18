@@ -1,9 +1,5 @@
 var a04614 =
 [
-    [ "chipManufacturer", "d2/dc4/a04614.html#a0699528d9734e0f26fa0ba87d7132204", null ],
-    [ "memoryCapacity", "d2/dc4/a04614.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
-    [ "pagePerSector", "d2/dc4/a04614.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
-    [ "pageSize", "d2/dc4/a04614.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
-    [ "sectorCount", "d2/dc4/a04614.html#a8e623c67b780e827d65e722809156e96", null ],
-    [ "sectorSize", "d2/dc4/a04614.html#a61bb395a7747150174a9b64ececfb178", null ]
+    [ "nssPin", "d2/dc4/a04614.html#a17d403b44dd249cb67c2cc77a8734e78", null ],
+    [ "spiHandle", "d2/dc4/a04614.html#a64f95c007499d4922e5fbf9abcf0eb31", null ]
 ];

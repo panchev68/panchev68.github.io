@@ -1,18 +1,17 @@
 var a05787 =
 [
-    [ "Config", "d8/df0/a05791.html", "d8/df0/a05791" ],
-    [ "StreamSerialPort", "d0/d25/a05787.html#a273a38e15bd84ddcb1ab16c18bcb563a", null ],
-    [ "~StreamSerialPort", "d0/d25/a05787.html#a82213704bb45f3f325b198dc0eb1ecab", null ],
-    [ "StreamSerialPort", "d0/d25/a05787.html#a4385588b551ca7105aacb5fa1b83da65", null ],
-    [ "StreamSerialPort", "d0/d25/a05787.html#a4dbd8a6587109d4ce29242ec1ddfdec0", null ],
-    [ "close", "d0/d25/a05787.html#af4d1dbc5fcd691c510918d277281ee6e", null ],
-    [ "discardInput", "d0/d25/a05787.html#ad313993195f0d6ea829d9c7b61df667f", null ],
-    [ "getDroppedCount", "d0/d25/a05787.html#a32276aa918b5679e4f0e8df69175063f", null ],
-    [ "isOpen", "d0/d25/a05787.html#a6fe88c556292e95190f066d34a6455a9", null ],
-    [ "open", "d0/d25/a05787.html#a1b052f09718429b991946fea7724f411", null ],
-    [ "operator=", "d0/d25/a05787.html#a49b22bf81050b4ee173b0cb712fce161", null ],
-    [ "operator=", "d0/d25/a05787.html#a5d8430086822b05225d0b3f4372238b2", null ],
-    [ "read", "d0/d25/a05787.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a", null ],
-    [ "write", "d0/d25/a05787.html#a0a35058ffe6e3bb6d1a5a9fb335c3588", null ],
-    [ "write", "d0/d25/a05787.html#aa11ae6544b3fe4193e42a03891973953", null ]
+    [ "Manager", "d0/d25/a05787.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d0/d25/a05787.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimTimebase", "d0/d25/a05787.html#a2c242b351c880239ebc508905c1cb177", null ],
+    [ "~TimTimebase", "d0/d25/a05787.html#a90c3f44e84cfcfed7135d75abee0a2e1", null ],
+    [ "bindWorker", "d0/d25/a05787.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getHandle", "d0/d25/a05787.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "d0/d25/a05787.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "setPeriod", "d0/d25/a05787.html#a29d9a9e5c9f5213605679a13c42aa764", null ],
+    [ "start", "d0/d25/a05787.html#ab552a6aca3293c0ecdd0ce26d6668663", null ],
+    [ "stop", "d0/d25/a05787.html#afffbfe2b0fcf27e6081cc6983d06e626", null ],
+    [ "waitEvent", "d0/d25/a05787.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "waitPeriod", "d0/d25/a05787.html#a2b19392b62c66b845538ec09abd31354", null ],
+    [ "waitPeriod", "d0/d25/a05787.html#a12ce8677b8ff16469cb2f21c9a1eb5bb", null ],
+    [ "void::Lib_HAL_TimTimebase_PeriodElapsed", "d0/d25/a05787.html#ae72687d02451939bdec7c3aaba269a45", null ]
 ];

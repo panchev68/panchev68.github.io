@@ -1,15 +1,9 @@
 var a06311 =
 [
-    [ "bulkInFifoWords", "d7/d8c/a06311.html#a0ed8db5411c1921c529630d3a44f7360", null ],
-    [ "ep0FifoWords", "d7/d8c/a06311.html#abe18c856018762f3999b3364d7007211", null ],
-    [ "manufacturer", "d7/d8c/a06311.html#a744ec90dd85932ef887d50642ebe38d7", null ],
-    [ "notifyFifoWords", "d7/d8c/a06311.html#a9c483b42f1b4a8e9b20622f07d264bdf", null ],
-    [ "port", "d7/d8c/a06311.html#aaf78772f776ce31d0da23466cc5000f9", null ],
-    [ "product", "d7/d8c/a06311.html#ab780a9d88218c535e886fb1f2062438e", null ],
-    [ "productId", "d7/d8c/a06311.html#a79f4483e676366581d5b0d0dfde54302", null ],
-    [ "releaseNumber", "d7/d8c/a06311.html#a9cad8695fc2df220e8e749ca17a46b1e", null ],
-    [ "rxBufferSize", "d7/d8c/a06311.html#ade2ac000564c55d1878eb4fb1755891f", null ],
-    [ "rxFifoWords", "d7/d8c/a06311.html#a230b63ee56cf949511afd69dcfbc7b07", null ],
-    [ "serialNumber", "d7/d8c/a06311.html#a9fb3962389441b192d0dbf27d5c7d570", null ],
-    [ "vendorId", "d7/d8c/a06311.html#a901d8fbdeedadd519352ef01e124ebaa", null ]
+    [ "VersionString", "d7/d8c/a06311.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
+    [ "Hardware", "d7/d8c/a06311.html#a5df26239c512941c15b1473b41fd41e6", null ],
+    [ "getSubVersion", "d7/d8c/a06311.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
+    [ "operator uint32_t", "d7/d8c/a06311.html#ad9b45ee76c12709fe9ef566466c9f721", null ],
+    [ "operator VersionString", "d7/d8c/a06311.html#a9e770d09f97bafa86fcc361a02339e2b", null ],
+    [ "subVersion", "d7/d8c/a06311.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
 ];

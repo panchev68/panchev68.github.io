@@ -1,13 +1,11 @@
 var a05007 =
 [
-    [ "Tag", "db/d5b/a05007.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
-    [ "WolfSSLAesGcm", "db/d5b/a05007.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
-    [ "~WolfSSLAesGcm", "db/d5b/a05007.html#a032c38854a99ed5c5a281809583c4bad", null ],
-    [ "WolfSSLAesGcm", "db/d5b/a05007.html#a0948de3456c47ec4fcfdda7f14014566", null ],
-    [ "WolfSSLAesGcm", "db/d5b/a05007.html#ae6206c63d09568b82e1efae3379c82d7", null ],
-    [ "decrypt", "db/d5b/a05007.html#a70889db1697fa4212becb3acfb87a2a4", null ],
-    [ "encrypt", "db/d5b/a05007.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
-    [ "open", "db/d5b/a05007.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
-    [ "operator=", "db/d5b/a05007.html#ab46183fdc3c915e95383d1216aac9109", null ],
-    [ "operator=", "db/d5b/a05007.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
+    [ "WolfSSLRandom", "db/d5b/a05007.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
+    [ "~WolfSSLRandom", "db/d5b/a05007.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
+    [ "WolfSSLRandom", "db/d5b/a05007.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
+    [ "WolfSSLRandom", "db/d5b/a05007.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
+    [ "generate", "db/d5b/a05007.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
+    [ "native", "db/d5b/a05007.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
+    [ "operator=", "db/d5b/a05007.html#a2b57fbc329feeb209aa7f41b29608488", null ],
+    [ "operator=", "db/d5b/a05007.html#a61facc5365a377d384371cb51442e897", null ]
 ];

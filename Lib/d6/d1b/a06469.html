@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::Convert::HexHelper</title>
+<title>IAR EWARM Library: Lib::HAL::Timer::TimOutputCompare</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,72 +129,84 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d1b/a06469.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Convert::HexHelper</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOutputCompare</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows the lightweight conversion helpers of <a class="el" href="../../d6/d1b/a06469.html" title="Lib::Helper::Convert::HexHelper">Lib::Helper::Convert::HexHelper</a>, which turn a nibble into its ASCII hex digit, a value from <b>0</b> to <b>99</b> packed into 8-bit BCD, a decimal value packed into 32-bit BCD, and an ASCII hex digit back to its numeric nibble.</p>
-<p>Shows the lightweight conversion helpers of <a class="el" href="../../d6/d1b/a06469.html" title="Lib::Helper::Convert::HexHelper">Lib::Helper::Convert::HexHelper</a>, which turn a nibble into its ASCII hex digit, a value from <b>0</b> to <b>99</b> packed into 8-bit BCD, a decimal value packed into 32-bit BCD, and an ASCII hex digit back to its numeric nibble.The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs. <a class="el" href="../../db/d12/a05903.html#adc4e23573cc8d30952b34baa738a7829" title="Lib::Helper::Convert::HexHelper::toBcd()">Lib::Helper::Convert::HexHelper::toBcd()</a> and <a class="el" href="../../db/d12/a05903.html#a0ff1064b777a7e7bcc333deb8863d171" title="Lib::Helper::Convert::HexHelper::toBcd8()">Lib::Helper::Convert::HexHelper::toBcd8()</a> assert on a value above their capacity in debug builds. <a class="el" href="../../db/d12/a05903.html#ad25faac730a1cf9e48849a2e2c672b18" title="Lib::Helper::Convert::HexHelper::fromAscii()">Lib::Helper::Convert::HexHelper::fromAscii()</a> returns <a class="el" href="../../db/d12/a05903.html#a6bf7a4038d9764ca11bac42597dcc0a7" title="Lib::Helper::Convert::HexHelper::INVALID_NIBBLE">Lib::Helper::Convert::HexHelper::INVALID_NIBBLE</a> for a non-hex character, and asserts on it in debug builds.</p>
+<p>Generates a timed event with <a class="el" href="../../d6/d1b/a06469.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>.</p>
+<p>Generates a timed event with <a class="el" href="../../d6/d1b/a06469.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>. The timer raises an interrupt when its counter matches the compare value of the channel, which wakes the task blocked in <a class="el" href="../../d4/d98/a05782.html#a18804c13963fca99f8037034a6d4e7ec" title="Lib::HAL::Timer::TimOutputCompare::waitCompare()">Lib::HAL::Timer::TimOutputCompare::waitCompare()</a>. The task then sets the next compare value with <a class="el" href="../../d4/d98/a05782.html#a14b6982f85b9be41e24886a8a1c7445d" title="Lib::HAL::Timer::TimOutputCompare::setCompare()">Lib::HAL::Timer::TimOutputCompare::setCompare()</a>. Call <a class="el" href="../../d4/d98/a05782.html#a63482b7958cd7171218c959b2b5df044" title="Lib::HAL::Timer::TimOutputCompare::start()">Lib::HAL::Timer::TimOutputCompare::start()</a> from the waiting task, because it binds that task.</p>
+<p>The header defines the HAL callback <b>HAL_TIM_OC_DelayElapsedCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; the compare value is changed in the task.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_nibble"></a>
-Nibble to ASCII</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="timoc_usage_hw"></a>
+Hardware and CubeMX assumptions</h3>
+<ul>
+<li>Timer channel (here <em class="arg">TIM4</em>, <em class="arg">TIM_CHANNEL_2</em>) set to Output Compare mode with its interrupt enabled in the NVIC. The output pin is optional for this use.</li>
+<li>Timer clock and prescaler are set in CubeMX; the compare value is in timer ticks.</li>
+<li>One <a class="el" href="../../d6/d1b/a06469.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a> per timer handle.</li>
+</ul>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timoc_usage_delay"></a>
+Scheduling a compare event in a task</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d60/a00818.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d80/a01076.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printNibbleAsAscii() {</div>
-<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d12/a05903.html">Lib::Helper::Convert::HexHelper</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> c = HexHelper::toAscii(0xAU);</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Nibble 0xA -&gt; &quot;</span> &lt;&lt; c &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
-<div class="ttc" id="aa00899_html"><div class="ttname"><a href="../../d3/d8a/a00899.html">HexHelper.hpp</a></div><div class="ttdoc">Declares Lib::Helper::Convert::HexHelper, the hexadecimal and BCD conversion helpers.</div></div>
-<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
-<div class="ttc" id="aa05903_html"><div class="ttname"><a href="../../db/d12/a05903.html">Lib::Helper::Convert::HexHelper</a></div><div class="ttdoc">Static constexpr conversion utilities between numeric values, ASCII hex characters and packed BCD.</div><div class="ttdef"><b>Definition</b> HexHelper.hpp:31</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">Nibble 0xA -&gt; A</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_bcd"></a>
-Packing decimal values into BCD</h3>
-<p><a class="el" href="../../db/d12/a05903.html#a0ff1064b777a7e7bcc333deb8863d171" title="Lib::Helper::Convert::HexHelper::toBcd8()">Lib::Helper::Convert::HexHelper::toBcd8()</a> packs <b>0</b> to <b>99</b> into one byte, and <a class="el" href="../../db/d12/a05903.html#adc4e23573cc8d30952b34baa738a7829" title="Lib::Helper::Convert::HexHelper::toBcd()">Lib::Helper::Convert::HexHelper::toBcd()</a> packs up to <b>8</b> decimal digits into 32 bits.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
-<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printPackedBcd() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../db/d12/a05903.html">Lib::Helper::Convert::HexHelper</a>;</div>
+<div class="line"><span class="keyword">class </span>DelayedEvent final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint8_t bcd8 = HexHelper::toBcd8(42U);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;BCD8(42) -&gt; 0x&quot;</span> &lt;&lt; <a id="a2" name="a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex &lt;&lt; static_cast&lt;int&gt;</a>(bcd8) &lt;&lt; <a id="_a3" name="_a3"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint32_t bcd32 = HexHelper::toBcd(1234U);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;BCD32(1234) -&gt; 0x&quot;</span> &lt;&lt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex</a> &lt;&lt; bcd32 &lt;&lt; <a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa01692_html_a0fc906aec6c2cb724b0aad05ee44de0d"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a0fc906aec6c2cb724b0aad05ee44de0d">std::hex</a></div><div class="ttdeci">ios_base &amp; hex(ios_base &amp;__base)</div></div>
-<div class="ttc" id="aa01692_html_a8e1042ae25efda13674517f13a10c44c"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a8e1042ae25efda13674517f13a10c44c">std::dec</a></div><div class="ttdeci">ios_base &amp; dec(ios_base &amp;__base)</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">BCD8(42) -&gt; 0x42</div>
-<div class="line">BCD32(1234) -&gt; 0x1234</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="hexhelper_usage_parse"></a>
-ASCII to nibble</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8a/a00899.html">Lib/Helper/Convert/HexHelper.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printAsciiAsNibble() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../db/d12/a05903.html">Lib::Helper::Convert::HexHelper</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint8_t nibble = HexHelper::fromAscii(<span class="charliteral">&#39;F&#39;</span>);</div>
-<div class="line">    <span class="keywordflow">if</span> (nibble != HexHelper::INVALID_NIBBLE) {</div>
-<div class="line">        <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;&#39;F&#39; -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(nibble) &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    <span class="keyword">explicit</span> DelayedEvent(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
+<div class="line">        compare(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a>),</div>
+<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d6/d0b/a06214.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Delayed&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../df/d12/a06198.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
 <div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d4/d98/a05782.html">Lib::HAL::Timer::TimOutputCompare</a> compare; <span class="comment">// Constructed before the task starts using it.</span></div>
+<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d8/df6/a06194.html">RTOS::Task</a> task;                           <span class="comment">// Must stay the last member.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!compare.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d4/d98/a05782.html#a63482b7958cd7171218c959b2b5df044">start</a>()) {</div>
+<div class="line">            assert(!<span class="stringliteral">&quot;DelayedEvent: output compare failed to start&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="comment">// Fire 1000 ticks after the current counter value.</span></div>
+<div class="line">            compare.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d4/d98/a05782.html#a14b6982f85b9be41e24886a8a1c7445d">setCompare</a>(compare.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d4/d98/a05782.html#afaf7f01f359523e9b30110fdbf8b175b">getCounter</a>() + 1000U);</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">if</span> (compare.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d4/d98/a05782.html#a18804c13963fca99f8037034a6d4e7ec">waitCompare</a>(<a id="_a10" name="_a10"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500))) {</div>
+<div class="line">                <span class="comment">// The compare event fired; run the delayed action here.</span></div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00818_html"><div class="ttname"><a href="../../d3/d60/a00818.html">TimOutputCompare.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware Output Compare interface using STM32 Timers.</div></div>
+<div class="ttc" id="aa01076_html"><div class="ttname"><a href="../../d6/d80/a01076.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01114_html_ga33e02d43345a7ac5886f01b39e4f7ccd"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a></div><div class="ttdeci">#define TIM_CHANNEL_2</div></div>
+<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa05782_html"><div class="ttname"><a href="../../d4/d98/a05782.html">Lib::HAL::Timer::TimOutputCompare</a></div><div class="ttdoc">Controls one hardware timer channel configured under an active output compare profile.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:40</div></div>
+<div class="ttc" id="aa05782_html_a14b6982f85b9be41e24886a8a1c7445d"><div class="ttname"><a href="../../d4/d98/a05782.html#a14b6982f85b9be41e24886a8a1c7445d">Lib::HAL::Timer::TimOutputCompare::setCompare</a></div><div class="ttdeci">void setCompare(uint32_t compareValue) noexcept</div><div class="ttdoc">Sets the counter value at which the output changes state, in the channel&#39;s CCRx register.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:148</div></div>
+<div class="ttc" id="aa05782_html_a18804c13963fca99f8037034a6d4e7ec"><div class="ttname"><a href="../../d4/d98/a05782.html#a18804c13963fca99f8037034a6d4e7ec">Lib::HAL::Timer::TimOutputCompare::waitCompare</a></div><div class="ttdeci">bool waitCompare(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the counter next matches the compare value.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:119</div></div>
+<div class="ttc" id="aa05782_html_a63482b7958cd7171218c959b2b5df044"><div class="ttname"><a href="../../d4/d98/a05782.html#a63482b7958cd7171218c959b2b5df044">Lib::HAL::Timer::TimOutputCompare::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the channel with its compare interrupt; the calling task becomes the one waitCompare() serves.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:81</div></div>
+<div class="ttc" id="aa05782_html_afaf7f01f359523e9b30110fdbf8b175b"><div class="ttname"><a href="../../d4/d98/a05782.html#afaf7f01f359523e9b30110fdbf8b175b">Lib::HAL::Timer::TimOutputCompare::getCounter</a></div><div class="ttdeci">uint32_t getCounter() const noexcept</div><div class="ttdoc">Reads the running counter.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:167</div></div>
+<div class="ttc" id="aa06194_html"><div class="ttname"><a href="../../d8/df6/a06194.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:53</div></div>
+<div class="ttc" id="aa06198_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../df/d12/a06198.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:86</div></div>
+<div class="ttc" id="aa06214_html"><div class="ttname"><a href="../../d6/d0b/a06214.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:631</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timoc_usage_stop"></a>
+Stopping</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d60/a00818.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> cancelDelay(<a class="code hl_class" href="../../d4/d98/a05782.html">Lib::HAL::Timer::TimOutputCompare</a> &amp; compare) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(compare.stop());</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line"><span class="charliteral">&#39;F&#39;</span> -&gt; 15</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

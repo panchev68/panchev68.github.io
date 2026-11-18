@@ -1,5 +1,9 @@
 var a04490 =
 [
-    [ "i2cPort", "d5/d47/a04490.html#a3b55875b743fb08270235d09326f8b6a", null ],
-    [ "isAlternateAddress", "d5/d47/a04490.html#a3c0de4348ea532681819d86b1056ea11", null ]
+    [ "DriverBase", "d5/d47/a04490.html#a329188c9f70a21a0f421598a6fa4aea6", null ],
+    [ "~DriverBase", "d5/d47/a04490.html#a485ac6dbe46e3f7568c6ef46aeb78939", null ],
+    [ "canTransferBlock", "d5/d47/a04490.html#ad55213b27726f017dcbc465586c2b468", null ],
+    [ "getTransferActive", "d5/d47/a04490.html#abee35beb9e71effa911fc8fc30b2fbf7", null ],
+    [ "handleTransferCompleteEvent", "d5/d47/a04490.html#aee5a5b357b886ee353e04fb06a4c0ada", null ],
+    [ "setTransferActive", "d5/d47/a04490.html#af67616fc7d8d9dd4e3c92389d14bc58f", null ]
 ];

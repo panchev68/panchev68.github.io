@@ -1,7 +1,7 @@
 var a05803 =
 [
-    [ "UARTPort", "d5/d41/a05803.html#a074ec6b19b1073304ca2513d11d43247", null ],
-    [ "~UARTPort", "d5/d41/a05803.html#a864254902b1d7b3afa27a66ccd465c69", null ],
+    [ "UARTPort", "d5/d41/a05803.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
+    [ "~UARTPort", "d5/d41/a05803.html#a379b29de4717643896518dcc44558b2d", null ],
     [ "abort", "d5/d41/a05803.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
     [ "close", "d5/d41/a05803.html#a03c62c024b148a264f9a6a0077198302", null ],
     [ "getHandle", "d5/d41/a05803.html#af92f93241be20a3c9a32286ed19dc4cf", null ],

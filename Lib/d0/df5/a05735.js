@@ -1,7 +1,7 @@
 var a05735 =
 [
-    [ "SPIPort", "d0/df5/a05735.html#a6887b333ef818d3bd80112c8ce57998d", null ],
-    [ "~SPIPort", "d0/df5/a05735.html#ad6c6de84d5713ce3f16ae3047ec949a1", null ],
+    [ "SPIPort", "d0/df5/a05735.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
+    [ "~SPIPort", "d0/df5/a05735.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ],
     [ "abort", "d0/df5/a05735.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
     [ "close", "d0/df5/a05735.html#a03c62c024b148a264f9a6a0077198302", null ],
     [ "getHandle", "d0/df5/a05735.html#af92f93241be20a3c9a32286ed19dc4cf", null ],

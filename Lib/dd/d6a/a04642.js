@@ -1,13 +1,11 @@
 var a04642 =
 [
-    [ "Power", "dd/d6a/a04642.html#af2064ef23cdc3d14a2a9a5e5c9ab2b8e", null ],
-    [ "hardReset", "dd/d6a/a04642.html#a4a97d410838feb9faea50b34948d313d", null ],
-    [ "isAsleep", "dd/d6a/a04642.html#a146b6c17667d99ba4b4d919d98959641", null ],
-    [ "isOn", "dd/d6a/a04642.html#a2cc49b087c846d65af5aaab43d0b4803", null ],
-    [ "isStatusHigh", "dd/d6a/a04642.html#acfea3f32a8e3c53a7ce0118d81ed3d20", null ],
-    [ "off", "dd/d6a/a04642.html#a00662a719223d2d8dea3e0567d1cc7a8", null ],
-    [ "on", "dd/d6a/a04642.html#a9ef3fdbe071a7ca9a6d48b660c068c44", null ],
-    [ "setSavingMode", "dd/d6a/a04642.html#a181f9d4d8e952e84f202734e77c8cb85", null ],
-    [ "sleep", "dd/d6a/a04642.html#a3100efc86fbfd79c1db3d66caeda4b3e", null ],
-    [ "wakeUp", "dd/d6a/a04642.html#aca2cbd553202896c84c23e75d49ddd9e", null ]
+    [ "capacityBytes", "dd/d6a/a04642.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
+    [ "chipId", "dd/d6a/a04642.html#a51f97ba3d60d343706487241e08e252e", null ],
+    [ "manufacturerId", "dd/d6a/a04642.html#a5c3278897e2a6732479c70a4efed141c", null ],
+    [ "pageCount", "dd/d6a/a04642.html#af9ad76ca92b33af38466c11344584476", null ],
+    [ "pageSize", "dd/d6a/a04642.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
+    [ "pagesPerSector", "dd/d6a/a04642.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
+    [ "sectorCount", "dd/d6a/a04642.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
+    [ "sectorSize", "dd/d6a/a04642.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
 ];

@@ -1,8 +1,9 @@
 var a06123 =
 [
-    [ "allocations", "d4/d17/a06123.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "d4/d17/a06123.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "d4/d17/a06123.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "d4/d17/a06123.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "d4/d17/a06123.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "CriticalSectionFromISR", "d4/d17/a06123.html#a94cda37183a61f5455dc5e641bcb5109", null ],
+    [ "~CriticalSectionFromISR", "d4/d17/a06123.html#a54e463ae72e1238776194c4cb941357b", null ],
+    [ "CriticalSectionFromISR", "d4/d17/a06123.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
+    [ "CriticalSectionFromISR", "d4/d17/a06123.html#a9d04ea07249455e75c39ce5450c33028", null ],
+    [ "operator=", "d4/d17/a06123.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
+    [ "operator=", "d4/d17/a06123.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
 ];

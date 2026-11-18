@@ -1,8 +1,8 @@
 var a05847 =
 [
     [ "EventHandler", "d8/d07/a05847.html#a10761412c20341dee385767eac673248", null ],
-    [ "USBHostPort", "d8/d07/a05847.html#a91ab9877db9cf87b15fe9118bf39ed92", null ],
-    [ "~USBHostPort", "d8/d07/a05847.html#a4c01d7a9aa859df6f11e05b804af766d", null ],
+    [ "USBHostPort", "d8/d07/a05847.html#a8c4ffe96e057ebee8d694a33d50ca85a", null ],
+    [ "~USBHostPort", "d8/d07/a05847.html#a56f4dd3a3342b8ec3066733c10f723f1", null ],
     [ "close", "d8/d07/a05847.html#a03c62c024b148a264f9a6a0077198302", null ],
     [ "getHandle", "d8/d07/a05847.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d8/d07/a05847.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],

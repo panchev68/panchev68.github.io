@@ -1,6 +1,13 @@
 var a04834 =
 [
-    [ "adc", "d4/de4/a04834.html#ae24f670ce2f09cfb8b26a173364eaefb", null ],
-    [ "channel", "d4/de4/a04834.html#a50bc9c3fb0cbb385eca0784f32858280", null ],
-    [ "periodMs", "d4/de4/a04834.html#ad839d16fe06238279ff23042e3761f0c", null ]
+    [ "Config", "da/d67/a04838.html", "da/d67/a04838" ],
+    [ "TMP102", "d4/de4/a04834.html#a949aef107b50c3194360a1211fc77380", null ],
+    [ "configureAlert", "d4/de4/a04834.html#ad9a264b10f99d9f65ad8c08b872fb4fb", null ],
+    [ "enterSleepMode", "d4/de4/a04834.html#aaf751d7c9bc24731e6fe8347ec8772ce", null ],
+    [ "exitSleepMode", "d4/de4/a04834.html#ac7ab933572bb11b6d0193a5e9ab370e9", null ],
+    [ "init", "d4/de4/a04834.html#aad208b4242276623b58c7e690d0be566", null ],
+    [ "readTemperature", "d4/de4/a04834.html#a8bad032159a78dfb379d94fd21f9a14e", null ],
+    [ "setTHigh", "d4/de4/a04834.html#a31909d75566cc264aeee9cc68c96c6a8", null ],
+    [ "setTLow", "d4/de4/a04834.html#abe3ff96789b3357515f28158f06aa714", null ],
+    [ "triggerOneShot", "d4/de4/a04834.html#a911c4aa4ba809f4461cd5d1c2586670c", null ]
 ];

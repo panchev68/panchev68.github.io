@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::Convert::Bcd</title>
+<title>IAR EWARM Library: Lib::BSP::INA219</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -116,87 +129,88 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('db/d70/a06410.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Convert::Bcd</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::INA219</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows converting packed BCD values to a string, a single ASCII digit and a numeric decimal value with <a class="el" href="../../db/d70/a06410.html" title="Lib::Helper::Convert::Bcd">Lib::Helper::Convert::Bcd</a>.</p>
-<p>Shows converting packed BCD values to a string, a single ASCII digit and a numeric decimal value with Lib::Helper::Convert::Bcd.The helpers are 'static constexpr' and do not touch the RTOS, so they are safe from tasks and ISRs. In debug builds <a class="el" href="../../d3/d9f/a05854.html#a80040dcbd66043680f5816ef3c803548" title="Lib::Helper::Convert::Bcd::toHex()">Lib::Helper::Convert::Bcd::toHex()</a> and <a class="el" href="../../d3/d9f/a05854.html#ac378c88aeb98cda33147af9b58972d59" title="Lib::Helper::Convert::Bcd::toString()">Lib::Helper::Convert::Bcd::toString()</a> assert on a nibble outside 0 to 9. Release builds return <a class="el" href="../../d3/d9f/a05854.html#ac586158913763067b5249cc245ac87c1" title="Lib::Helper::Convert::Bcd::INVALID_VALUE">Lib::Helper::Convert::Bcd::INVALID_VALUE</a> from toHex(), <a class="el" href="../../d3/d9f/a05854.html#a6ae8dbcfa90bb81fb27b4b128b61ba24" title="Lib::Helper::Convert::Bcd::INVALID_CHARACTER">Lib::Helper::Convert::Bcd::INVALID_CHARACTER</a> from toAsc() and an all-NUL buffer from toString(). Check untrusted input with <a class="el" href="../../d3/d9f/a05854.html#a57f48aee3deb0a51f57ffebbf6d931c6" title="Lib::Helper::Convert::Bcd::isValid()">Lib::Helper::Convert::Bcd::isValid()</a> first.</p>
+<p>Demonstrates two <a class="el" href="../../db/d70/a06410.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.</p>
+<p>Demonstrates two <a class="el" href="../../db/d70/a06410.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.The battery channel reports signed current, so power turns negative while charging. The motor channel uses <a class="el" href="../../da/d95/a04435.html#a12dbe47287cc8ea3e6057097e7679d5baab6c31432785221bae58327ef5f6ea58" title="Lib::BSP::INA219::Polarity::POSITIVE">Lib::BSP::INA219::Polarity::POSITIVE</a> with a 20 mA offset to hide noise around zero. A reading comes back as <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on a bus failure or when the shunt ADC saturates. Both monitors are initialized before the task starts and then used only from that task, since the driver is not thread-safe. With 128-sample averaging each result takes tens of milliseconds, so polling faster than a few times per second gains nothing.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_string"></a>
-Digits to string</h3>
-<p><a class="el" href="../../d3/d9f/a05854.html#ac378c88aeb98cda33147af9b58972d59" title="Lib::Helper::Convert::Bcd::toString()">Lib::Helper::Convert::Bcd::toString()</a> returns a fixed, NUL-terminated buffer of <a class="el" href="../../d3/d9f/a05854.html#a6d4a05d6f245e02cf8f764801f23f0fc" title="Lib::Helper::Convert::Bcd::Digits">Lib::Helper::Convert::Bcd::Digits</a>, so the result is printed through 'data()'.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d69/a00878.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="ina219_usage_task"></a>
+Battery and motor channels polled from one task</h3>
+<p><a class="el" href="../../da/d95/a04435.html#a1b96174980d4785dbabfcaa110656cbe" title="Lib::BSP::INA219::init()">Lib::BSP::INA219::init()</a> configures both monitors before the task starts. <a class="el" href="../../da/d95/a04435.html#a1aa8cad61e1ccdb3899c6929726963fd" title="Lib::BSP::INA219::readVoltage()">Lib::BSP::INA219::readVoltage()</a> and <a class="el" href="../../da/d95/a04435.html#abb224ceec2374ac08e8ea58d3c898ab6" title="Lib::BSP::INA219::readCurrent()">Lib::BSP::INA219::readCurrent()</a> each return <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html" title="std::optional">std::optional</a>, so check for a value before using it.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dd7/a00248.html">Lib/BSP/CurrentAndPowerMonitor/INA219.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/dfa/a00746.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d7b/a00986.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/dd8/a01022.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printBcdDigits() {</div>
-<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d3/d9f/a05854.html">Lib::Helper::Convert::Bcd</a>;</div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a> hi2c1; <span class="comment">// Generated by CubeMX in main.c.</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint16_t bcdValue = 0x1234;</div>
-<div class="line">    <span class="keyword">const</span> Bcd::Digits digits = Bcd::toString(bcdValue);</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;toString(0x1234) = &quot;</span> &lt;&lt; digits.data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00878_html"><div class="ttname"><a href="../../d5/d69/a00878.html">Bcd.hpp</a></div><div class="ttdoc">Binary Coded Decimal (BCD) conversion helpers for 16-bit values.</div></div>
-<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
-<div class="ttc" id="aa05854_html"><div class="ttname"><a href="../../d3/d9f/a05854.html">Lib::Helper::Convert::Bcd</a></div><div class="ttdoc">Static helpers that turn 16-bit BCD values into decimal strings, ASCII digits and numeric values.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:33</div></div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line">toString(0x1234) = 1234</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_ascii"></a>
-Single digit to ASCII</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d69/a00878.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
+<div class="line"><span class="keyword">class </span>PowerMonitor final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printBcdDigitAsAscii() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d3/d9f/a05854.html">Lib::Helper::Convert::Bcd</a>;</div>
+<div class="line">    <span class="keyword">using </span>Monitor = <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../da/d95/a04435.html">Lib::BSP::INA219&lt;Lib::HAL::DriverMode::BLOCKING&gt;</a>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> ch = Bcd::toAsc(0x05);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;toAsc(0x05) = &quot;</span> &lt;&lt; ch &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line"><a id="a0" name="a0"></a><a class="code hl_function" href="../../d3/d9f/a05854.html#a0040e3e357251de248c5e740c1af493b">toAsc</a>(0x05) = 5</div>
-<div class="ttc" id="aa05854_html_a0040e3e357251de248c5e740c1af493b"><div class="ttname"><a href="../../d3/d9f/a05854.html#a0040e3e357251de248c5e740c1af493b">Lib::Helper::Convert::Bcd::toAsc</a></div><div class="ttdeci">static constexpr char toAsc(uint8_t bcd) noexcept</div><div class="ttdoc">Convert a single BCD digit to its ASCII character.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:101</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_hex"></a>
-BCD to numeric decimal value</h3>
-<p><a class="el" href="../../d3/d9f/a05854.html#a80040dcbd66043680f5816ef3c803548" title="Lib::Helper::Convert::Bcd::toHex()">Lib::Helper::Convert::Bcd::toHex()</a> reads the packed BCD digits as a decimal number, so <b>0x0102</b> yields <b>102</b>.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d69/a00878.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printBcdAsDecimal() {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d3/d9f/a05854.html">Lib::Helper::Convert::Bcd</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint16_t num = Bcd::toHex(0x0102);</div>
-<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;toHex(0x0102) = &quot;</span> &lt;&lt; num &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
-<div class="line">}</div>
-</div><!-- fragment --><p>Result:</p>
-<div class="fragment"><div class="line"><a id="a1" name="a1"></a><a class="code hl_function" href="../../d3/d9f/a05854.html#a80040dcbd66043680f5816ef3c803548">toHex</a>(0x0102) = 102</div>
-<div class="ttc" id="aa05854_html_a80040dcbd66043680f5816ef3c803548"><div class="ttname"><a href="../../d3/d9f/a05854.html#a80040dcbd66043680f5816ef3c803548">Lib::Helper::Convert::Bcd::toHex</a></div><div class="ttdeci">static constexpr uint16_t toHex(uint16_t bcd) noexcept</div><div class="ttdoc">Convert a 16-bit BCD value to its numeric value.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:120</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="bcd_usage_invalid"></a>
-Rejecting malformed input</h3>
-<p>The nibble <b>0xA</b> is not a decimal digit, so <b>0x12A4</b> is malformed. <a class="el" href="../../d3/d9f/a05854.html#a57f48aee3deb0a51f57ffebbf6d931c6" title="Lib::Helper::Convert::Bcd::isValid()">Lib::Helper::Convert::Bcd::isValid()</a> reports it without side effects, and <a class="el" href="../../d3/d9f/a05854.html#a80040dcbd66043680f5816ef3c803548" title="Lib::Helper::Convert::Bcd::toHex()">Lib::Helper::Convert::Bcd::toHex()</a> should only be called after it returns <em class="arg">true</em>.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d69/a00878.html">Lib/Helper/Convert/Bcd.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> acceptBcd(uint16_t raw, uint16_t &amp; decimal) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../d3/d9f/a05854.html">Lib::Helper::Convert::Bcd</a>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!Bcd::isValid(raw)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Bcd::isValid(0x12A4) is false.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> <a id="_a2" name="_a2"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a>() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">if</span> (!battery.init() || !motor.init()) {</div>
+<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">        }</div>
+<div class="line">        task.setup({<span class="stringliteral">&quot;Power&quot;</span>, 256, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d6/d4c/a06195.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a>});</div>
+<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    decimal = Bcd::toHex(raw);</div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">    Lib::HAL::I2CPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; i2cPort{&amp;hi2c1}; <span class="comment">///&lt; Bus shared by both monitors.</span></div>
+<div class="line"> </div>
+<div class="line">    Monitor battery{{</div>
+<div class="line">        .i2cPort = i2cPort,</div>
+<div class="line">        .i2cAddr = 0x40,</div>
+<div class="line">        .shuntResistorOhms = 0.1F,</div>
+<div class="line">    }}; <span class="comment">///&lt; Charge and discharge: signed current.</span></div>
+<div class="line"> </div>
+<div class="line">    Monitor motor{{</div>
+<div class="line">        .i2cPort = i2cPort,</div>
+<div class="line">        .i2cAddr = 0x41,</div>
+<div class="line">        .shuntResistorOhms = 0.01F,</div>
+<div class="line">        .correction = {.polarity = Monitor::Polarity::POSITIVE, .offsetAmperes = 0.02F},</div>
+<div class="line">    }}; <span class="comment">///&lt; Load only: magnitude above a 20 mA noise floor.</span></div>
+<div class="line"> </div>
+<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d8/d67/a06191.html">RTOS::Task</a> task;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">            <span class="keyword">const</span> <a id="_a5" name="_a5"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> volts = battery.readVoltage();</div>
+<div class="line">            <span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> amperes = battery.readCurrent();</div>
+<div class="line">            <span class="keywordflow">if</span> (volts &amp;&amp; amperes) {</div>
+<div class="line">                [[maybe_unused]] <span class="keyword">const</span> <span class="keywordtype">float</span> watts = *volts * *amperes; <span class="comment">// Negative while charging.</span></div>
+<div class="line">            }</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;float&gt;</a> motorAmperes = motor.readCurrent(); !motorAmperes) {</div>
+<div class="line">                <span class="comment">// Bus failure or shunt saturated: the true current is above the +-320 mV range.</span></div>
+<div class="line">            }</div>
+<div class="line"> </div>
+<div class="line">            <a id="a6" name="a6"></a><a class="code hl_function" href="../../d9/d17/a01129.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(250ms);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
+<div class="ttc" id="aa00248_html"><div class="ttname"><a href="../../dd/dd7/a00248.html">INA219.hpp</a></div><div class="ttdoc">Declares the BSP driver template for the INA219 current and power monitor on a HAL I2C port.</div></div>
+<div class="ttc" id="aa00746_html"><div class="ttname"><a href="../../d4/dfa/a00746.html">I2C.hpp</a></div><div class="ttdoc">Public umbrella include for the I2C subsystem, exposing the master-only Lib::HAL::I2CPort in all thre...</div></div>
+<div class="ttc" id="aa00986_html"><div class="ttname"><a href="../../d3/d7b/a00986.html">Kernel.hpp</a></div><div class="ttdoc">RAII-based wrapper for FreeRTOS kernel control primitives.</div></div>
+<div class="ttc" id="aa01022_html"><div class="ttname"><a href="../../d1/dd8/a01022.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
+<div class="ttc" id="aa01129_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d9/d17/a01129.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:610</div></div>
+<div class="ttc" id="aa01452_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/dd/d1c/a01452.html">I2C_HandleTypeDef</a></div></div>
+<div class="ttc" id="aa01692_html_aaaba74cd3497aa42ebee164091d89fce"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaaba74cd3497aa42ebee164091d89fce">begin</a></div><div class="ttdeci">constexpr auto begin(_Container &amp;__cont) -&gt; decltype(__cont.begin())</div></div>
+<div class="ttc" id="aa04435_html"><div class="ttname"><a href="../../da/d95/a04435.html">Lib::BSP::INA219</a></div><div class="ttdoc">Driver for the INA219 high-side current and power monitor.</div><div class="ttdef"><b>Definition</b> INA219.hpp:40</div></div>
+<div class="ttc" id="aa06191_html"><div class="ttname"><a href="../../d8/d67/a06191.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
+<div class="ttc" id="aa06195_html_a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a"><div class="ttname"><a href="../../d6/d4c/a06195.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a></div><div class="ttdeci">@ LOW</div><div class="ttdoc">Low priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:88</div></div>
+<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

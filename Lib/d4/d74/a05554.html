@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::DACPort&lt; DriverMode::IT &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::BackupRamDomain</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,86 +130,45 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d74/a05554.
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="../../de/ddf/a05551.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::DACPort&lt; DriverMode::IT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::BackupRamDomain<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Interrupt-driven (IT) specialization: enables the channel underrun interrupt. </p>
-<p>Values are written through <a class="el" href="../../d0/db7/a05562.html#a984f15fd9218a6fec1e7ac0d61e04e6d" title="setValue()">setValue()</a> as in the blocking variant. The DAC raises no interrupt when a value reaches the output; its only channel interrupt is the DMA underrun flag, set when a trigger arrives while DMA requests are enabled and the previous request was not served. This port reports it as <a class="el" href="../../da/d7e/a05558.html#ac2b8715583f48fd05fb6668fcd90aed9" title="Event::UNDERRUN">Event::UNDERRUN</a>, observed through <a class="el" href="#aaf7fd403bcd529d8c30a8ef723bee287" title="waitForUnderrun()">waitForUnderrun()</a>.</p>
-<dl class="section important"><dt>Important</dt><dd>Requires <em class="arg">USE_HAL_DAC_REGISTER_CALLBACKS</em> set to <em class="arg">1</em> in the HAL configuration; the header fails to compile otherwise.</dd></dl>
+<div class="textblock"><p>Stateless facade over the backup domain write gate and the backup data registers. </p>
+<p>The registers are accessed directly, so neither an RTC handle nor the RTC HAL module is needed. Writes take effect only between <a class="el" href="#a75eda4bb9a1e9d88118cacebbb8992a3" title="open()">open()</a> and <a class="el" href="#a0e38a00a0e42d1e9718b0e5ab46c9223" title="close()">close()</a>; reads are always allowed. The backup data registers belong to the TAMP block, or to the RTC block on families without TAMP. They keep their content across low-power modes and, with a backup supply, across a power loss.</p>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/DAC/DACPort-IT.hpp" target="_blank">Source</a> </dd></dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/BackupRamDomain/BackupRamDomain.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/dac/a06431.html#_a0">Lib::HAL::BackupRamDomain</a>.</dd>
+</dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Event" id="r_Event"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../da/d7e/a05558.html">Event</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event bitmasks used inside the internal RTOS event group.  <a href="../../da/d7e/a05558.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae36ab0485cc108ac7f0082068d118518" id="r_ae36ab0485cc108ac7f0082068d118518"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> (DAC_HandleTypeDef *handle, uint32_t channel) noexcept</td></tr>
-<tr class="memdesc:ae36ab0485cc108ac7f0082068d118518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native hardware descriptor block and hardware channel.  <br /></td></tr>
-<tr class="memitem:a38af62d642471553e5aa356e673ad171" id="r_a38af62d642471553e5aa356e673ad171"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a38af62d642471553e5aa356e673ad171">~DACPort</a> () noexcept</td></tr>
-<tr class="memdesc:a38af62d642471553e5aa356e673ad171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if still open: stops the channel and releases the event group and <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
-<tr class="memitem:afe60fcad137acbac62467215f81e262a" id="r_afe60fcad137acbac62467215f81e262a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afe60fcad137acbac62467215f81e262a">DACPort</a> (const DACPort &amp;other)=delete</td></tr>
-<tr class="memdesc:afe60fcad137acbac62467215f81e262a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns its RTOS event group and <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
-<tr class="memitem:a6befbf3fd6e387b958c474127b15a55e" id="r_a6befbf3fd6e387b958c474127b15a55e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6befbf3fd6e387b958c474127b15a55e">DACPort</a> (DACPort &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a6befbf3fd6e387b958c474127b15a55e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns its RTOS event group and <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
-<tr class="memitem:a8669eba366ce1c94494df43dfaccc690" id="r_a8669eba366ce1c94494df43dfaccc690"><td class="memItemLeft"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8669eba366ce1c94494df43dfaccc690">operator=</a> (const <a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a8669eba366ce1c94494df43dfaccc690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns its RTOS event group and <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
-<tr class="memitem:ae0483104f828bd3464839de4f4880b4a" id="r_ae0483104f828bd3464839de4f4880b4a"><td class="memItemLeft"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae0483104f828bd3464839de4f4880b4a">operator=</a> (<a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ae0483104f828bd3464839de4f4880b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns its RTOS event group and <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot.  <br /></td></tr>
-<tr class="memitem:a6a948fd07814c8d346d20ad52d5e68d5" id="r_a6a948fd07814c8d346d20ad52d5e68d5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6a948fd07814c8d346d20ad52d5e68d5">open</a> () noexcept</td></tr>
-<tr class="memdesc:a6a948fd07814c8d346d20ad52d5e68d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the event group, initializes the peripheral, registers the underrun callback and this instance.  <br /></td></tr>
-<tr class="memitem:a2b221635f62446099dbe5e86e8065288" id="r_a2b221635f62446099dbe5e86e8065288"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2b221635f62446099dbe5e86e8065288">close</a> () noexcept</td></tr>
-<tr class="memdesc:a2b221635f62446099dbe5e86e8065288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the channel, unregisters this instance and its callback, deinitializes the peripheral and closes the event group.  <br /></td></tr>
-<tr class="memitem:a6c386654350eba5ab306e4764474af96" id="r_a6c386654350eba5ab306e4764474af96"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6c386654350eba5ab306e4764474af96">start</a> () noexcept</td></tr>
-<tr class="memdesc:a6c386654350eba5ab306e4764474af96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the channel output and its underrun interrupt.  <br /></td></tr>
-<tr class="memitem:a5b866d4c61c5c1dcc7b58063edd6e45d" id="r_a5b866d4c61c5c1dcc7b58063edd6e45d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5b866d4c61c5c1dcc7b58063edd6e45d">stop</a> () noexcept</td></tr>
-<tr class="memdesc:a5b866d4c61c5c1dcc7b58063edd6e45d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the channel underrun interrupt and the channel output.  <br /></td></tr>
-<tr class="memitem:aaf7fd403bcd529d8c30a8ef723bee287" id="r_aaf7fd403bcd529d8c30a8ef723bee287"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaf7fd403bcd529d8c30a8ef723bee287">waitForUnderrun</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
-<tr class="memdesc:aaf7fd403bcd529d8c30a8ef723bee287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the channel reports an underrun.  <br /></td></tr>
-<tr class="memitem:abb9c3299abda744064d8d8e8d44f825b" id="r_abb9c3299abda744064d8d8e8d44f825b"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#abb9c3299abda744064d8d8e8d44f825b">getChannel</a> () const noexcept</td></tr>
-<tr class="memdesc:abb9c3299abda744064d8d8e8d44f825b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the hardware channel configured for this port instance.  <br /></td></tr>
-<tr class="memitem:a984f15fd9218a6fec1e7ac0d61e04e6d" id="r_a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d0/db7/a05562.html#a984f15fd9218a6fec1e7ac0d61e04e6d">setValue</a> (uint32_t value, <a class="el" href="../../d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a> alignment=DataAlignment::RIGHT_12_BITS) noexcept</td></tr>
-<tr class="memdesc:a984f15fd9218a6fec1e7ac0d61e04e6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the data holding register of the bound channel.  <br /></td></tr>
-<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">DAC_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../dc/df9/a05542.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
-<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const DAC_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../dc/df9/a05542.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
+<tr class="memitem:a1cb02fe127fbd828d79a74dc4d4ebcb3" id="r_a1cb02fe127fbd828d79a74dc4d4ebcb3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> ()=default</td></tr>
+<tr class="memdesc:a1cb02fe127fbd828d79a74dc4d4ebcb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the facade.  <br /></td></tr>
+<tr class="memitem:a3b301936cae87db14bef527c0a5629af" id="r_a3b301936cae87db14bef527c0a5629af"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3b301936cae87db14bef527c0a5629af">~BackupRamDomain</a> ()=default</td></tr>
+<tr class="memdesc:a3b301936cae87db14bef527c0a5629af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the facade.  <br /></td></tr>
+<tr class="memitem:abf039272ad85b43415d4df28c8c0a051" id="r_abf039272ad85b43415d4df28c8c0a051"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abf039272ad85b43415d4df28c8c0a051">BackupRamDomain</a> (const BackupRamDomain &amp;other)=delete</td></tr>
+<tr class="memdesc:abf039272ad85b43415d4df28c8c0a051"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the facade stands for the single process-wide backup domain.  <br /></td></tr>
+<tr class="memitem:af604f32af7890cccdb80c4f97e2b6eb9" id="r_af604f32af7890cccdb80c4f97e2b6eb9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af604f32af7890cccdb80c4f97e2b6eb9">BackupRamDomain</a> (BackupRamDomain &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:af604f32af7890cccdb80c4f97e2b6eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the facade stands for the single process-wide backup domain.  <br /></td></tr>
+<tr class="memitem:a8e1d5f45dba88392d588bac17ef3ee9c" id="r_a8e1d5f45dba88392d588bac17ef3ee9c"><td class="memItemLeft"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8e1d5f45dba88392d588bac17ef3ee9c">operator=</a> (const <a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a8e1d5f45dba88392d588bac17ef3ee9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the facade stands for the single process-wide backup domain.  <br /></td></tr>
+<tr class="memitem:a675d9fc47e5f2315cdc7199d34015dc6" id="r_a675d9fc47e5f2315cdc7199d34015dc6"><td class="memItemLeft"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a675d9fc47e5f2315cdc7199d34015dc6">operator=</a> (<a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a675d9fc47e5f2315cdc7199d34015dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the facade stands for the single process-wide backup domain.  <br /></td></tr>
+<tr class="memitem:a75eda4bb9a1e9d88118cacebbb8992a3" id="r_a75eda4bb9a1e9d88118cacebbb8992a3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a75eda4bb9a1e9d88118cacebbb8992a3">open</a> ()</td></tr>
+<tr class="memdesc:a75eda4bb9a1e9d88118cacebbb8992a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one.  <br /></td></tr>
+<tr class="memitem:a0e38a00a0e42d1e9718b0e5ab46c9223" id="r_a0e38a00a0e42d1e9718b0e5ab46c9223"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0e38a00a0e42d1e9718b0e5ab46c9223">close</a> ()</td></tr>
+<tr class="memdesc:a0e38a00a0e42d1e9718b0e5ab46c9223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the Backup SRAM clock, where the device has one, and closes the write gate to the backup domain.  <br /></td></tr>
+<tr class="memitem:a90b19ee3b4f06e4874a36f9f25b22ce6" id="r_a90b19ee3b4f06e4874a36f9f25b22ce6"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a90b19ee3b4f06e4874a36f9f25b22ce6">readRegister</a> (uint32_t backupRegisterIndex) const</td></tr>
+<tr class="memdesc:a90b19ee3b4f06e4874a36f9f25b22ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a backup data register.  <br /></td></tr>
+<tr class="memitem:acc5002942f221da40872cb7be92706a9" id="r_acc5002942f221da40872cb7be92706a9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acc5002942f221da40872cb7be92706a9">writeRegister</a> (uint32_t backupRegisterIndex, uint32_t value)</td></tr>
+<tr class="memdesc:acc5002942f221da40872cb7be92706a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a backup data register.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a18b5de83aaec561a43dc24a80e15bd46" name="a18b5de83aaec561a43dc24a80e15bd46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18b5de83aaec561a43dc24a80e15bd46">&#9670;&#160;</a></span>DataAlignment</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="../../d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46">Lib::HAL::DACPortBase::DataAlignment</a> : uint32_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Output data alignment options for DAC value conversion. </p>
-<p>Mirrors the alignment macros defined by the STM32 HAL DAC driver. </p>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae36ab0485cc108ac7f0082068d118518" name="ae36ab0485cc108ac7f0082068d118518"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae36ab0485cc108ac7f0082068d118518">&#9670;&#160;</a></span>DACPort() <span class="overload">[1/3]</span></h2>
+<a id="a1cb02fe127fbd828d79a74dc4d4ebcb3" name="a1cb02fe127fbd828d79a74dc4d4ebcb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">&#9670;&#160;</a></span>BackupRamDomain() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -205,46 +177,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::DACPort </td>
-          <td>(</td>
-          <td class="paramtype">DAC_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Binds the port to a native hardware descriptor block and hardware channel. </p>
-<p>Asserts on a channel the device does not have.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
-    <tr><td class="paramname">channel</td><td>Target hardware channel (<em class="arg">DAC_CHANNEL_1</em> or <em class="arg">DAC_CHANNEL_2</em>). </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a38af62d642471553e5aa356e673ad171" name="a38af62d642471553e5aa356e673ad171"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38af62d642471553e5aa356e673ad171">&#9670;&#160;</a></span>~DACPort()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::~<a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> </td>
+          <td class="memname">Lib::HAL::BackupRamDomain::BackupRamDomain </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -252,17 +185,18 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the port if still open: stops the channel and releases the event group and <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot. </p>
+<p>Creates the facade. </p>
+<p>No hardware is touched until <a class="el" href="#a75eda4bb9a1e9d88118cacebbb8992a3" title="open()">open()</a> is called. </p>
 
 </div>
 </div>
-<a id="afe60fcad137acbac62467215f81e262a" name="afe60fcad137acbac62467215f81e262a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe60fcad137acbac62467215f81e262a">&#9670;&#160;</a></span>DACPort() <span class="overload">[2/3]</span></h2>
+<a id="a3b301936cae87db14bef527c0a5629af" name="a3b301936cae87db14bef527c0a5629af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b301936cae87db14bef527c0a5629af">&#9670;&#160;</a></span>~BackupRamDomain()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -271,9 +205,37 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::DACPort </td>
+          <td class="memname">Lib::HAL::BackupRamDomain::~BackupRamDomain </td>
           <td>(</td>
-          <td class="paramtype">const DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the facade. </p>
+<p>The write gate is left as it is, <a class="el" href="#a0e38a00a0e42d1e9718b0e5ab46c9223" title="close()">close()</a> is not called. </p>
+
+</div>
+</div>
+<a id="abf039272ad85b43415d4df28c8c0a051" name="abf039272ad85b43415d4df28c8c0a051"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf039272ad85b43415d4df28c8c0a051">&#9670;&#160;</a></span>BackupRamDomain() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::BackupRamDomain::BackupRamDomain </td>
+          <td>(</td>
+          <td class="paramtype">const BackupRamDomain &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -284,7 +246,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copying is deleted: each instance owns its RTOS event group and <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot. </p>
+<p>Copying is deleted: the facade stands for the single process-wide backup domain. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -294,8 +256,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a6befbf3fd6e387b958c474127b15a55e" name="a6befbf3fd6e387b958c474127b15a55e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6befbf3fd6e387b958c474127b15a55e">&#9670;&#160;</a></span>DACPort() <span class="overload">[3/3]</span></h2>
+<a id="af604f32af7890cccdb80c4f97e2b6eb9" name="af604f32af7890cccdb80c4f97e2b6eb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af604f32af7890cccdb80c4f97e2b6eb9">&#9670;&#160;</a></span>BackupRamDomain() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -304,9 +266,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::DACPort </td>
+          <td class="memname">Lib::HAL::BackupRamDomain::BackupRamDomain </td>
           <td>(</td>
-          <td class="paramtype">DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">BackupRamDomain &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -317,7 +279,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Moving is deleted: each instance owns its RTOS event group and <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot. </p>
+<p>Moving is deleted: the facade stands for the single process-wide backup domain. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -328,8 +290,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a2b221635f62446099dbe5e86e8065288" name="a2b221635f62446099dbe5e86e8065288"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b221635f62446099dbe5e86e8065288">&#9670;&#160;</a></span>close()</h2>
+<a id="a0e38a00a0e42d1e9718b0e5ab46c9223" name="a0e38a00a0e42d1e9718b0e5ab46c9223"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e38a00a0e42d1e9718b0e5ab46c9223">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -338,7 +300,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::close </td>
+          <td class="memname">bool Lib::HAL::BackupRamDomain::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -346,19 +308,21 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the channel, unregisters this instance and its callback, deinitializes the peripheral and closes the event group. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
+<p>Disables the Backup SRAM clock, where the device has one, and closes the write gate to the backup domain. </p>
+<p>The backup domain is shared with the RTC, so closing the gate also blocks RTC writes until the next <a class="el" href="#a75eda4bb9a1e9d88118cacebbb8992a3" title="open()">open()</a>.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> once the gate is closed. The HAL reports no failure here, so it is always <b>true</b>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/dac/a06431.html#a5">Lib::HAL::BackupRamDomain</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="abb9c3299abda744064d8d8e8d44f825b" name="abb9c3299abda744064d8d8e8d44f825b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb9c3299abda744064d8d8e8d44f825b">&#9670;&#160;</a></span>getChannel()</h2>
+<a id="a75eda4bb9a1e9d88118cacebbb8992a3" name="a75eda4bb9a1e9d88118cacebbb8992a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75eda4bb9a1e9d88118cacebbb8992a3">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -367,63 +331,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::getChannel </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fetches the hardware channel configured for this port instance. </p>
-<dl class="section return"><dt>Returns</dt><dd>Hardware channel identifier (<em class="arg">DAC_CHANNEL_1</em> or <em class="arg">DAC_CHANNEL_2</em>). </dd></dl>
-
-</div>
-</div>
-<a id="af92f93241be20a3c9a32286ed19dc4cf" name="af92f93241be20a3c9a32286ed19dc4cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af92f93241be20a3c9a32286ed19dc4cf">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const DAC_HandleTypeDef * <a class="el" href="../../dc/df9/a05542.html">Lib::HAL::Device</a>&lt; <a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a>&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;, DAC_HandleTypeDef &gt;::getHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
-
-</div>
-</div>
-<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">DAC_HandleTypeDef * <a class="el" href="../../dc/df9/a05542.html">Lib::HAL::Device</a>&lt; <a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a>&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;, DAC_HandleTypeDef &gt;::getHandle </td>
+          <td class="memname">bool Lib::HAL::BackupRamDomain::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -431,18 +339,21 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle, or <b>nullptr</b> if none was bound. </dd></dl>
+<p>Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one. </p>
+<p>Also enables the PWR peripheral clock.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> once the gate is open. The HAL reports no failure here, so it is always <b>true</b>. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/dac/a06431.html#a1">Lib::HAL::BackupRamDomain</a>.</dd>
+</dl>
 
 </div>
 </div>
-<a id="a6a948fd07814c8d346d20ad52d5e68d5" name="a6a948fd07814c8d346d20ad52d5e68d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a948fd07814c8d346d20ad52d5e68d5">&#9670;&#160;</a></span>open()</h2>
+<a id="a675d9fc47e5f2315cdc7199d34015dc6" name="a675d9fc47e5f2315cdc7199d34015dc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a675d9fc47e5f2315cdc7199d34015dc6">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -451,38 +362,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::open </td>
+          <td class="memname"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp; Lib::HAL::BackupRamDomain::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Opens the event group, initializes the peripheral, registers the underrun callback and this instance. </p>
-<p>Task context only. Any step that fails rolls back the ones already completed.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step of the open sequence succeeded, or if the port was already open. </dd></dl>
-
-</div>
-</div>
-<a id="a8669eba366ce1c94494df43dfaccc690" name="a8669eba366ce1c94494df43dfaccc690"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8669eba366ce1c94494df43dfaccc690">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp; Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a>&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -493,7 +375,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copy assignment is deleted: each instance owns its RTOS event group and <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot. </p>
+<p>Move assignment is deleted: the facade stands for the single process-wide backup domain. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -504,8 +386,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae0483104f828bd3464839de4f4880b4a" name="ae0483104f828bd3464839de4f4880b4a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0483104f828bd3464839de4f4880b4a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a8e1d5f45dba88392d588bac17ef3ee9c" name="a8e1d5f45dba88392d588bac17ef3ee9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e1d5f45dba88392d588bac17ef3ee9c">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -514,9 +396,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a> &amp; Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td class="memname"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp; Lib::HAL::BackupRamDomain::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a>&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -527,7 +409,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Move assignment is deleted: each instance owns its RTOS event group and <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot. </p>
+<p>Copy assignment is deleted: the facade stands for the single process-wide backup domain. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Source object. </td></tr>
@@ -538,8 +420,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a984f15fd9218a6fec1e7ac0d61e04e6d" name="a984f15fd9218a6fec1e7ac0d61e04e6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a984f15fd9218a6fec1e7ac0d61e04e6d">&#9670;&#160;</a></span>setValue()</h2>
+<a id="a90b19ee3b4f06e4874a36f9f25b22ce6" name="a90b19ee3b4f06e4874a36f9f25b22ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b19ee3b4f06e4874a36f9f25b22ce6">&#9670;&#160;</a></span>readRegister()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -548,126 +430,72 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d0/db7/a05562.html">Lib::HAL::DACPortBase</a>&lt; <a class="el" href="#ae36ab0485cc108ac7f0082068d118518">DACPort</a>&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt; &gt;::setValue </td>
+          <td class="memname">uint32_t Lib::HAL::BackupRamDomain::readRegister </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>backupRegisterIndex</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads a backup data register. </p>
+<p>Asserts on an index beyond the device's register count.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">backupRegisterIndex</td><td>Zero-based register number (<em class="arg">0</em> is <em class="arg">BKP0R</em>, e.g. <em class="arg">RTC_BKP_DR0</em>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Content of the register. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/dac/a06431.html#a3">Lib::HAL::BackupRamDomain</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="acc5002942f221da40872cb7be92706a9" name="acc5002942f221da40872cb7be92706a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5002942f221da40872cb7be92706a9">&#9670;&#160;</a></span>writeRegister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::HAL::BackupRamDomain::writeRegister </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>backupRegisterIndex</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="../../d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46">DataAlignment</a></td>          <td class="paramname"><span class="paramname"><em>alignment</em></span><span class="paramdefsep"> = </span><span class="paramdefval">DataAlignment::RIGHT_12_BITS</span>&#160;)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes the data holding register of the bound channel. </p>
-<p>The value reaches the output once the channel is enabled and, with a hardware trigger configured, on the next trigger. Asserts on an unbound handle and on a value outside the range implied by <em class="arg">alignment</em>.</p>
+<p>Writes a backup data register. </p>
+<p>The write gate must be open, see <a class="el" href="#a75eda4bb9a1e9d88118cacebbb8992a3" title="open()">open()</a>.</p>
+<p>Asserts on an index beyond the device's register count. A write with the gate closed is silently ignored by the hardware.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Conversion value to write, within the range implied by <em class="arg">alignment</em>. </td></tr>
-    <tr><td class="paramname">alignment</td><td>Data alignment applied to <em class="arg">value</em>. </td></tr>
+    <tr><td class="paramname">backupRegisterIndex</td><td>Zero-based register number (<em class="arg">0</em> is <em class="arg">BKP0R</em>, e.g. <em class="arg">RTC_BKP_DR0</em>). </td></tr>
+    <tr><td class="paramname">value</td><td>Value to store. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the write succeeded, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a6c386654350eba5ab306e4764474af96" name="a6c386654350eba5ab306e4764474af96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c386654350eba5ab306e4764474af96">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Enables the channel output and its underrun interrupt. </p>
-<p>Stale underrun events from an earlier run are cleared first. Asserts if the port is not open.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the channel was enabled, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a5b866d4c61c5c1dcc7b58063edd6e45d" name="a5b866d4c61c5c1dcc7b58063edd6e45d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b866d4c61c5c1dcc7b58063edd6e45d">&#9670;&#160;</a></span>stop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::stop </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Disables the channel underrun interrupt and the channel output. </p>
-<p>Asserts on an unbound handle.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the channel was disabled, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="aaf7fd403bcd529d8c30a8ef723bee287" name="aaf7fd403bcd529d8c30a8ef723bee287"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf7fd403bcd529d8c30a8ef723bee287">&#9670;&#160;</a></span>waitForUnderrun()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::DACPort&lt; <a class="el" href="../../de/d6d/a01095.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::waitForUnderrun </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Blocks the calling task until the channel reports an underrun. </p>
-<p>Task context only.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum duration to wait. </td></tr>
-  </table>
-  </dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/dac/a06431.html#a4">Lib::HAL::BackupRamDomain</a>.</dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if an underrun was reported before the timeout, <b>false</b> otherwise; the event is consumed. </dd></dl>
 
 </div>
 </div>
@@ -678,7 +506,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/d6d/a01095.html">HAL</a></li><li class="navelem"><a href="../../d4/d74/a05554.html">DACPort&lt; DriverMode::IT &gt;</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../db/d32/a01122.html">HAL</a></li><li class="navelem"><a href="../../d4/d74/a05554.html">BackupRamDomain</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

@@ -1,7 +1,6 @@
 var a05198 =
 [
-    [ "writeTo", "da/dac/a05198.html#a7822cbb27fa7495fd67556a0afaed75f", null ],
-    [ "atCommand", "da/dac/a05198.html#ae3e6e306d54297473f78f320425df58b", null ],
-    [ "frameId", "da/dac/a05198.html#af2345c092e4bb001e18ac86d718196a4", null ],
-    [ "parameterValue", "da/dac/a05198.html#a060767a4f172791aa4d493bf2ba4ac6d", null ]
+    [ "lengthLSB", "da/dac/a05198.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
+    [ "lengthMSB", "da/dac/a05198.html#a975df99244301d7a71b2c326555ba6fd", null ],
+    [ "startDelimiter", "da/dac/a05198.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
 ];

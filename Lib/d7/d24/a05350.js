@@ -1,19 +1,15 @@
 var a05350 =
 [
-    [ "AddressString", "d7/d24/a05350.html#a4bd1cdcefe0490f36b31a3dd12dbb8c9", null ],
-    [ "IpAddress", "d7/d24/a05350.html#a14871d2fd0997a7192dbfa9efb391866", null ],
-    [ "IpAddress", "d7/d24/a05350.html#ad2648b0f73ef692addbd78f8b6a89e83", null ],
-    [ "IpAddress", "d7/d24/a05350.html#a969426d705b94a3bb6a04bc46e2194e5", null ],
-    [ "IpAddress", "d7/d24/a05350.html#ac1bc670d3fdcf3a73cde02df85874f9a", null ],
-    [ "~IpAddress", "d7/d24/a05350.html#a91c1c230613abcd87e0e6e643231cdac", null ],
-    [ "IpAddress", "d7/d24/a05350.html#a121d3d9a5d1d5288d582bbf6c925f23a", null ],
-    [ "data", "d7/d24/a05350.html#a4c0fc88456d713ebc87705c39a7a5fa2", null ],
-    [ "fromString", "d7/d24/a05350.html#aa8258817877631b9f96b9e16451a4027", null ],
-    [ "get", "d7/d24/a05350.html#a5407112eb57277910f2696486f34d87b", null ],
-    [ "operator[]", "d7/d24/a05350.html#a008326accb852006dc00f15e9ea5fb02", null ],
-    [ "set", "d7/d24/a05350.html#a3b95e7ad2bf59d4967e7a741aea271a5", null ],
-    [ "set", "d7/d24/a05350.html#a95fd8cae114a9d4e9f160927f60a7880", null ],
-    [ "set", "d7/d24/a05350.html#ac055a400e34b3e1927421c0243ba509d", null ],
-    [ "size", "d7/d24/a05350.html#a18a251f6c463c27b3f0de2c9316a54c2", null ],
-    [ "toString", "d7/d24/a05350.html#adc079b389a5a25b969af193bd5c9ad4a", null ]
+    [ "dnsIp", "d7/d24/a05350.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
+    [ "dnsName", "d7/d24/a05350.html#a2b21f67fcea486054df4fbece648ef7f", null ],
+    [ "gateway", "d7/d24/a05350.html#ae526dc3391066f8447e665e962d7f3e1", null ],
+    [ "hasDnsIp", "d7/d24/a05350.html#ab1307f2487c4d9d8a056679335c62d47", null ],
+    [ "hasDnsName", "d7/d24/a05350.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
+    [ "hasGateway", "d7/d24/a05350.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
+    [ "hasIp", "d7/d24/a05350.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
+    [ "hasMac", "d7/d24/a05350.html#a44b23d072f52c270d4c722d93a8b6117", null ],
+    [ "hasSubnet", "d7/d24/a05350.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
+    [ "ip", "d7/d24/a05350.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
+    [ "mac", "d7/d24/a05350.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
+    [ "subnet", "d7/d24/a05350.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
 ];

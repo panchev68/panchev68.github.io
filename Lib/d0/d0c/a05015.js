@@ -1,14 +1,7 @@
 var a05015 =
 [
-    [ "SharedSecret", "d0/d0c/a05015.html#a7fbb5355ccfc526d83b2d67eadb425c8", null ],
-    [ "WolfSSLEcc", "d0/d0c/a05015.html#a19debb4d33bed3fade556263320330f7", null ],
-    [ "~WolfSSLEcc", "d0/d0c/a05015.html#ab882988b2ec1b1494dbe8f30062bd13e", null ],
-    [ "WolfSSLEcc", "d0/d0c/a05015.html#acfed6fbd26a4fb663e7aec5f8408e3f4", null ],
-    [ "WolfSSLEcc", "d0/d0c/a05015.html#ab7483aff9567983a99ff831e7bfcf284", null ],
-    [ "generateKey", "d0/d0c/a05015.html#a17edfaa1f02adf3fdd3a15dacc409b5d", null ],
-    [ "operator=", "d0/d0c/a05015.html#a3309d37d1e7115e7a81b80cee385c0f3", null ],
-    [ "operator=", "d0/d0c/a05015.html#a251a0fe821d569d4e0f785056ced42d7", null ],
-    [ "sharedSecret", "d0/d0c/a05015.html#a6c37442161fbe64b4d931ffc6a6f8997", null ],
-    [ "sign", "d0/d0c/a05015.html#ad2b17e604dc8ee9188ffc9a54dc87b46", null ],
-    [ "verify", "d0/d0c/a05015.html#a22a3ef4290390aa55282ade89d4bd8e4", null ]
+    [ "Key", "d0/d0c/a05015.html#a01aa89923019ee3bf5249396252577a0", null ],
+    [ "Nonce", "d0/d0c/a05015.html#ae4ce9fb8d76a85f4786b936d4bdb3327", null ],
+    [ "Tag", "d0/d0c/a05015.html#a73ebbac632c0982dc3eeb3880cd7febc", null ],
+    [ "WolfSSLChaCha20Poly1305", "d0/d0c/a05015.html#af47892a2a6a403161bf652674b3fbaf8", null ]
 ];

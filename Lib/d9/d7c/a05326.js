@@ -1,9 +1,12 @@
 var a05326 =
 [
-    [ "address", "d9/d7c/a05326.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
-    [ "channel", "d9/d7c/a05326.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
-    [ "counter", "d9/d7c/a05326.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
-    [ "length", "d9/d7c/a05326.html#af80f349070d12d0ce2387f6d95764bfe", null ],
-    [ "priority", "d9/d7c/a05326.html#a0c3726e1ac6fed602491f21449c9a740", null ],
-    [ "protocol", "d9/d7c/a05326.html#ac094990b182d42c38feb302d144a6924", null ]
+    [ "size", "d9/d7c/a05326.html#a7306fdc8fa82a6f3d142e23b25af606d", null ],
+    [ "access", "d9/d7c/a05326.html#a689087c28b07b550c6eae081e7594f72", null ],
+    [ "bitLength", "d9/d7c/a05326.html#a9720d19e5c0b0e8f1be49ac104234370", null ],
+    [ "dataType", "d9/d7c/a05326.html#a0f18ed5e1c01a3298b9a235b433b363a", null ],
+    [ "index", "d9/d7c/a05326.html#ab2f3134366cf4e85eb20119de70393e3", null ],
+    [ "name", "d9/d7c/a05326.html#a2497e7c2ce49cc0f0fe4601dd78aba7b", null ],
+    [ "readData", "d9/d7c/a05326.html#abb1278c8d325465c3e21817c2e559f7f", null ],
+    [ "subIndex", "d9/d7c/a05326.html#a5e7dc405b23d4a2c9c30824dbd1aa348", null ],
+    [ "writeData", "d9/d7c/a05326.html#ac54a16495fbb3e297360ce4281c1420f", null ]
 ];

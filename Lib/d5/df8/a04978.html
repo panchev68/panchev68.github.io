@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Crypto::WolfSSLEcc</title>
+<title>IAR EWARM Library: MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -120,84 +133,86 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/df8/a04978.
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../de/d42/a04975.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSLEcc<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>ECDSA signatures and ECDHE key agreement on the SECP256R1 curve, on wolfCrypt (CubeMX: ECC Support). </p>
-<p>A key is created with <a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d" title="generateKey()">generateKey()</a>, which also attaches the generator to the key: wolfCrypt's timing resistant ECDHE needs it for <a class="el" href="#a6c37442161fbe64b4d931ffc6a6f8997" title="sharedSecret()">sharedSecret()</a>. Signatures are DER encoded and cover a caller-supplied digest.</p>
-<dl class="section important"><dt>Important</dt><dd>The <a class="el" href="../../d6/d5a/a04966.html" title="WolfSSLRandom">WolfSSLRandom</a> passed to generateKey() must outlive the key, or be replaced by a later generateKey() call.</dd>
-<dd>
-There is no import or export of public keys yet: <a class="el" href="#a22a3ef4290390aa55282ade89d4bd8e4" title="verify()">verify()</a> and <a class="el" href="#a6c37442161fbe64b4d931ffc6a6f8997" title="sharedSecret()">sharedSecret()</a> work only with keys generated in this program.</dd>
-<dd>
-Not thread-safe: give each task its own instance, or guard a shared one with an <a class="el" href="../../d1/d9c/a06450.html" title="RTOS::Mutex">RTOS::Mutex</a>.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Crypto/WolfSSL.hpp" target="_blank">Source</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d67/a06352.html#_a9">Lib::Crypto::WolfSSL</a>.</dd>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt;<br />
+requires (T_CAPACITY &gt; 0U)<br />
+class MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;</div><p>Non-owning, fixed-capacity collection of <a class="el" href="../../de/d0a/a06421.html" title="FunctionRef">FunctionRef</a> subscribers sharing one Ret(Args...) signature. </p>
+<p>Invokes all subscribers in registration order, without heap allocation, RTTI or virtual dispatch. Subscribers are stored contiguously in a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html" title="std::array">std::array</a>. Return values of the individual subscribers are discarded, matching event-style usage. A subscriber must not add or remove subscribers of the same instance while it is being invoked, since removal shifts the list and would skip the next entry.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Ret</td><td>Return type of each bound subscriber. </td></tr>
+    <tr><td class="paramname">Args</td><td>Parameter types of each bound subscriber. </td></tr>
+    <tr><td class="paramname">T_CAPACITY</td><td>Maximum number of subscriber delegates; must be greater than 0.</td></tr>
+  </table>
+  </dd>
 </dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Core/MulticastDelegate.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a19debb4d33bed3fade556263320330f7" id="r_a19debb4d33bed3fade556263320330f7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> () noexcept</td></tr>
-<tr class="memdesc:a19debb4d33bed3fade556263320330f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the ECC context without a key.  <br /></td></tr>
-<tr class="memitem:ab882988b2ec1b1494dbe8f30062bd13e" id="r_ab882988b2ec1b1494dbe8f30062bd13e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab882988b2ec1b1494dbe8f30062bd13e">~WolfSSLEcc</a> () noexcept</td></tr>
-<tr class="memdesc:ab882988b2ec1b1494dbe8f30062bd13e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfCrypt ECC context.  <br /></td></tr>
-<tr class="memitem:acfed6fbd26a4fb663e7aec5f8408e3f4" id="r_acfed6fbd26a4fb663e7aec5f8408e3f4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acfed6fbd26a4fb663e7aec5f8408e3f4">WolfSSLEcc</a> (const WolfSSLEcc &amp;)=delete</td></tr>
-<tr class="memdesc:acfed6fbd26a4fb663e7aec5f8408e3f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:a3309d37d1e7115e7a81b80cee385c0f3" id="r_a3309d37d1e7115e7a81b80cee385c0f3"><td class="memItemLeft"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3309d37d1e7115e7a81b80cee385c0f3">operator=</a> (const <a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a3309d37d1e7115e7a81b80cee385c0f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:ab7483aff9567983a99ff831e7bfcf284" id="r_ab7483aff9567983a99ff831e7bfcf284"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab7483aff9567983a99ff831e7bfcf284">WolfSSLEcc</a> (WolfSSLEcc &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:ab7483aff9567983a99ff831e7bfcf284"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:a251a0fe821d569d4e0f785056ced42d7" id="r_a251a0fe821d569d4e0f785056ced42d7"><td class="memItemLeft"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a251a0fe821d569d4e0f785056ced42d7">operator=</a> (<a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a251a0fe821d569d4e0f785056ced42d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns a wolfCrypt context holding the key.  <br /></td></tr>
-<tr class="memitem:a17edfaa1f02adf3fdd3a15dacc409b5d" id="r_a17edfaa1f02adf3fdd3a15dacc409b5d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d">generateKey</a> (<a class="el" href="../../d6/d5a/a04966.html">WolfSSLRandom</a> &amp;rng) noexcept</td></tr>
-<tr class="memdesc:a17edfaa1f02adf3fdd3a15dacc409b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a new key pair, replacing any key this instance held, and attaches the generator to it.  <br /></td></tr>
-<tr class="memitem:ad2b17e604dc8ee9188ffc9a54dc87b46" id="r_ad2b17e604dc8ee9188ffc9a54dc87b46"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad2b17e604dc8ee9188ffc9a54dc87b46">sign</a> (std::span&lt; const uint8_t &gt; digest, <a class="el" href="../../d6/d5a/a04966.html">WolfSSLRandom</a> &amp;rng, std::span&lt; uint8_t &gt; signature, size_t &amp;signatureLength) noexcept</td></tr>
-<tr class="memdesc:ad2b17e604dc8ee9188ffc9a54dc87b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signs a message digest with the private key.  <br /></td></tr>
-<tr class="memitem:a22a3ef4290390aa55282ade89d4bd8e4" id="r_a22a3ef4290390aa55282ade89d4bd8e4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a22a3ef4290390aa55282ade89d4bd8e4">verify</a> (std::span&lt; const uint8_t &gt; signature, std::span&lt; const uint8_t &gt; digest, bool &amp;valid) noexcept</td></tr>
-<tr class="memdesc:a22a3ef4290390aa55282ade89d4bd8e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies a signature over a message digest with the public key.  <br /></td></tr>
-<tr class="memitem:a6c37442161fbe64b4d931ffc6a6f8997" id="r_a6c37442161fbe64b4d931ffc6a6f8997"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6c37442161fbe64b4d931ffc6a6f8997">sharedSecret</a> (<a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;peerPublicKey, <a class="el" href="#a7fbb5355ccfc526d83b2d67eadb425c8">SharedSecret</a> &amp;secret) noexcept</td></tr>
-<tr class="memdesc:a6c37442161fbe64b4d931ffc6a6f8997"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derives the ECDHE shared secret from the private key and a peer's public key.  <br /></td></tr>
+<tr class="memitem:a97c8b763c044a223aedb0c06d3d0ac1b" id="r_a97c8b763c044a223aedb0c06d3d0ac1b"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a97c8b763c044a223aedb0c06d3d0ac1b">MulticastDelegate</a> () noexcept=default</td></tr>
+<tr class="memdesc:a97c8b763c044a223aedb0c06d3d0ac1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty multicast delegate with no subscribers.  <br /></td></tr>
+<tr class="memitem:a7b2551280da180b1f1dda5c6981737cd" id="r_a7b2551280da180b1f1dda5c6981737cd"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a7b2551280da180b1f1dda5c6981737cd">add</a> (const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;subscriber) noexcept</td></tr>
+<tr class="memdesc:a7b2551280da180b1f1dda5c6981737cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a subscriber delegate at the end of the invocation list.  <br /></td></tr>
+<tr class="memitem:adb01252450a4c8f5a57794062eef97da" id="r_adb01252450a4c8f5a57794062eef97da"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#adb01252450a4c8f5a57794062eef97da">remove</a> (const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;subscriber) noexcept</td></tr>
+<tr class="memdesc:adb01252450a4c8f5a57794062eef97da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first subscriber delegate equal to <em class="arg">subscriber</em>.  <br /></td></tr>
+<tr class="memitem:a6dbac05fdf70d7b6ea7c1223f90eb0f3" id="r_a6dbac05fdf70d7b6ea7c1223f90eb0f3"><td class="memItemLeft">constexpr <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6dbac05fdf70d7b6ea7c1223f90eb0f3">operator+=</a> (const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;subscriber) noexcept</td></tr>
+<tr class="memdesc:a6dbac05fdf70d7b6ea7c1223f90eb0f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers a subscriber delegate, the C#-style addition operator.  <br /></td></tr>
+<tr class="memitem:abf65efccd32893eb2f7b5adfc53f8536" id="r_abf65efccd32893eb2f7b5adfc53f8536"><td class="memItemLeft">constexpr <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abf65efccd32893eb2f7b5adfc53f8536">operator-=</a> (const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;subscriber) noexcept</td></tr>
+<tr class="memdesc:abf65efccd32893eb2f7b5adfc53f8536"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the first subscriber delegate equal to <em class="arg">subscriber</em>, the C#-style subtraction operator.  <br /></td></tr>
+<tr class="memitem:abfd30810b143472b8393b53f898dbcd5" id="r_abfd30810b143472b8393b53f898dbcd5"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#abfd30810b143472b8393b53f898dbcd5">invoke</a> (Args... args) const noexcept</td></tr>
+<tr class="memdesc:abfd30810b143472b8393b53f898dbcd5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes every registered subscriber in registration order.  <br /></td></tr>
+<tr class="memitem:a3ce770a13a2e2797a7e25e94bde9a97b" id="r_a3ce770a13a2e2797a7e25e94bde9a97b"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a3ce770a13a2e2797a7e25e94bde9a97b">operator()</a> (Args... args) const noexcept</td></tr>
+<tr class="memdesc:a3ce770a13a2e2797a7e25e94bde9a97b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes every registered subscriber in registration order.  <br /></td></tr>
+<tr class="memitem:abbfe045521bcf97ffee6e1cbf7e6953b" id="r_abbfe045521bcf97ffee6e1cbf7e6953b"><td class="memItemLeft">constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#abbfe045521bcf97ffee6e1cbf7e6953b">clear</a> () noexcept</td></tr>
+<tr class="memdesc:abbfe045521bcf97ffee6e1cbf7e6953b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all registered subscribers, returning the instance to its default-constructed, empty state.  <br /></td></tr>
+<tr class="memitem:a79a257c4883e94ef0e08c23ad8d4fa7c" id="r_a79a257c4883e94ef0e08c23ad8d4fa7c"><td class="memItemLeft">constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a79a257c4883e94ef0e08c23ad8d4fa7c">size</a> () const noexcept</td></tr>
+<tr class="memdesc:a79a257c4883e94ef0e08c23ad8d4fa7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current number of registered subscribers.  <br /></td></tr>
+<tr class="memitem:a7e9bae0d6658cf7e1eb8e4a4bfd3478b" id="r_a7e9bae0d6658cf7e1eb8e4a4bfd3478b"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a7e9bae0d6658cf7e1eb8e4a4bfd3478b">isEmpty</a> () const noexcept</td></tr>
+<tr class="memdesc:a7e9bae0d6658cf7e1eb8e4a4bfd3478b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether no subscribers are currently registered.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ae3da827199d0e9dbd72b6071bedc5eb5" id="r_ae3da827199d0e9dbd72b6071bedc5eb5"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae3da827199d0e9dbd72b6071bedc5eb5">KEY_SIZE</a> = 32U</td></tr>
-<tr class="memdesc:ae3da827199d0e9dbd72b6071bedc5eb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">SECP256R1 private key and coordinate size, in bytes.  <br /></td></tr>
-<tr class="memitem:a406a42f736a7a6910058c8d68f89c777" id="r_a406a42f736a7a6910058c8d68f89c777"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a406a42f736a7a6910058c8d68f89c777">MAX_SIGNATURE_SIZE</a> = ECC_MAX_SIG_SIZE</td></tr>
-<tr class="memdesc:a406a42f736a7a6910058c8d68f89c777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest DER-encoded signature, in bytes.  <br /></td></tr>
-<tr class="memitem:a0f359df6288584ab5bdd4b23b8ee6d6d" id="r_a0f359df6288584ab5bdd4b23b8ee6d6d"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a0f359df6288584ab5bdd4b23b8ee6d6d">SHARED_SECRET_SIZE</a> = <a class="el" href="#ae3da827199d0e9dbd72b6071bedc5eb5">KEY_SIZE</a></td></tr>
-<tr class="memdesc:a0f359df6288584ab5bdd4b23b8ee6d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">ECDHE shared secret length, in bytes.  <br /></td></tr>
+<tr class="memitem:a27c5ea0de4eb9b630bfa31e5dfb1c762" id="r_a27c5ea0de4eb9b630bfa31e5dfb1c762"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a27c5ea0de4eb9b630bfa31e5dfb1c762">CAPACITY</a> = T_CAPACITY</td></tr>
+<tr class="memdesc:a27c5ea0de4eb9b630bfa31e5dfb1c762"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of subscribers this instance can hold.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a7fbb5355ccfc526d83b2d67eadb425c8" name="a7fbb5355ccfc526d83b2d67eadb425c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fbb5355ccfc526d83b2d67eadb425c8">&#9670;&#160;</a></span>SharedSecret</h2>
+<a id="a3f40221ae5736ac688a612345a14a8e4" name="a3f40221ae5736ac688a612345a14a8e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f40221ae5736ac688a612345a14a8e4">&#9670;&#160;</a></span>Subscriber</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a7fbb5355ccfc526d83b2d67eadb425c8">Lib::Crypto::WolfSSLEcc::SharedSecret</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a0f359df6288584ab5bdd4b23b8ee6d6d">SHARED_SECRET_SIZE</a>&gt;</td>
+          <td class="memname">using <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;::Subscriber = <a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt;Ret(Args...)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>ECDHE shared secret. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d67/a06352.html#_a11">Lib::Crypto::WolfSSL</a>.</dd>
-</dl>
+<p>Subscriber function reference type for this signature. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a19debb4d33bed3fade556263320330f7" name="a19debb4d33bed3fade556263320330f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19debb4d33bed3fade556263320330f7">&#9670;&#160;</a></span>WolfSSLEcc() <span class="overload">[1/3]</span></h2>
+<a id="a97c8b763c044a223aedb0c06d3d0ac1b" name="a97c8b763c044a223aedb0c06d3d0ac1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c8b763c044a223aedb0c06d3d0ac1b">&#9670;&#160;</a></span>MulticastDelegate()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLEcc::WolfSSLEcc </td>
+          <td class="memname"><a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;::MulticastDelegate </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -205,345 +220,337 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Prepares the ECC context without a key. </p>
-<p>Call <a class="el" href="#a17edfaa1f02adf3fdd3a15dacc409b5d" title="generateKey()">generateKey()</a> before signing, verifying or deriving a shared secret. </p>
-
-</div>
-</div>
-<a id="ab882988b2ec1b1494dbe8f30062bd13e" name="ab882988b2ec1b1494dbe8f30062bd13e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab882988b2ec1b1494dbe8f30062bd13e">&#9670;&#160;</a></span>~WolfSSLEcc()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSLEcc::~WolfSSLEcc </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Releases the wolfCrypt ECC context. </p>
-
-</div>
-</div>
-<a id="acfed6fbd26a4fb663e7aec5f8408e3f4" name="acfed6fbd26a4fb663e7aec5f8408e3f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfed6fbd26a4fb663e7aec5f8408e3f4">&#9670;&#160;</a></span>WolfSSLEcc() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSLEcc::WolfSSLEcc </td>
-          <td>(</td>
-          <td class="paramtype">const WolfSSLEcc &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: owns a wolfCrypt context holding the key. </p>
-
-</div>
-</div>
-<a id="ab7483aff9567983a99ff831e7bfcf284" name="ab7483aff9567983a99ff831e7bfcf284"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7483aff9567983a99ff831e7bfcf284">&#9670;&#160;</a></span>WolfSSLEcc() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Crypto::WolfSSLEcc::WolfSSLEcc </td>
-          <td>(</td>
-          <td class="paramtype">WolfSSLEcc &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: owns a wolfCrypt context holding the key. </p>
+<p>Constructs an empty multicast delegate with no subscribers. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a17edfaa1f02adf3fdd3a15dacc409b5d" name="a17edfaa1f02adf3fdd3a15dacc409b5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17edfaa1f02adf3fdd3a15dacc409b5d">&#9670;&#160;</a></span>generateKey()</h2>
+<a id="a7b2551280da180b1f1dda5c6981737cd" name="a7b2551280da180b1f1dda5c6981737cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b2551280da180b1f1dda5c6981737cd">&#9670;&#160;</a></span>add()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLEcc::generateKey </td>
+          <td class="memname">bool <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;::add </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d6/d5a/a04966.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>subscriber</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generates a new key pair, replacing any key this instance held, and attaches the generator to it. </p>
+<p>Registers a subscriber delegate at the end of the invocation list. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rng</td><td>Seeded random generator; must outlive the key. </td></tr>
+    <tr><td class="paramname">subscriber</td><td>Bound delegate to add; must satisfy FunctionRef::isBound(). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d67/a06352.html#a10">Lib::Crypto::WolfSSL</a>.</dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the subscriber was added, <b>false</b> if <a class="el" href="#a27c5ea0de4eb9b630bfa31e5dfb1c762" title="CAPACITY">CAPACITY</a> subscribers are registered. </dd></dl>
 
 </div>
 </div>
-<a id="a3309d37d1e7115e7a81b80cee385c0f3" name="a3309d37d1e7115e7a81b80cee385c0f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3309d37d1e7115e7a81b80cee385c0f3">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="abbfe045521bcf97ffee6e1cbf7e6953b" name="abbfe045521bcf97ffee6e1cbf7e6953b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbfe045521bcf97ffee6e1cbf7e6953b">&#9670;&#160;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp; Lib::Crypto::WolfSSLEcc::operator= </td>
+          <td class="memname">void <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;::clear </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: owns a wolfCrypt context holding the key. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Removes all registered subscribers, returning the instance to its default-constructed, empty state. </p>
 
 </div>
 </div>
-<a id="a251a0fe821d569d4e0f785056ced42d7" name="a251a0fe821d569d4e0f785056ced42d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a251a0fe821d569d4e0f785056ced42d7">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="abfd30810b143472b8393b53f898dbcd5" name="abfd30810b143472b8393b53f898dbcd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfd30810b143472b8393b53f898dbcd5">&#9670;&#160;</a></span>invoke()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp; Lib::Crypto::WolfSSLEcc::operator= </td>
+          <td class="memname">void <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;::invoke </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype">Args...</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: owns a wolfCrypt context holding the key. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a6c37442161fbe64b4d931ffc6a6f8997" name="a6c37442161fbe64b4d931ffc6a6f8997"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c37442161fbe64b4d931ffc6a6f8997">&#9670;&#160;</a></span>sharedSecret()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLEcc::sharedSecret </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a19debb4d33bed3fade556263320330f7">WolfSSLEcc</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>peerPublicKey</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#a7fbb5355ccfc526d83b2d67eadb425c8">SharedSecret</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>secret</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Derives the ECDHE shared secret from the private key and a peer's public key. </p>
-<p>Both sides get the same secret; hash it before using it as a symmetric key.</p>
+<p>Invokes every registered subscriber in registration order. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">peerPublicKey</td><td>Instance holding the peer's key; its private part is not used. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">secret</td><td>Derived shared secret. </td></tr>
+    <tr><td class="paramname">args</td><td>Arguments passed to every subscriber (each receives the same lvalue copies). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> if either context failed to initialize, no key was generated, or wolfCrypt reported a failure. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d67/a06352.html#a12">Lib::Crypto::WolfSSL</a>.</dd>
-</dl>
 
 </div>
 </div>
-<a id="ad2b17e604dc8ee9188ffc9a54dc87b46" name="ad2b17e604dc8ee9188ffc9a54dc87b46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2b17e604dc8ee9188ffc9a54dc87b46">&#9670;&#160;</a></span>sign()</h2>
+<a id="a7e9bae0d6658cf7e1eb8e4a4bfd3478b" name="a7e9bae0d6658cf7e1eb8e4a4bfd3478b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e9bae0d6658cf7e1eb8e4a4bfd3478b">&#9670;&#160;</a></span>isEmpty()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLEcc::sign </td>
+          <td class="memname">bool <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;::isEmpty </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d6/d5a/a04966.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>signatureLength</em></span>&#160;)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Signs a message digest with the private key. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">digest</td><td>Digest to sign, such as a SHA-256 digest. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">rng</td><td>Seeded random generator. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">signature</td><td>Destination; should hold <a class="el" href="#a406a42f736a7a6910058c8d68f89c777" title="MAX_SIGNATURE_SIZE">MAX_SIGNATURE_SIZE</a> bytes. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">signatureLength</td><td>Length of the DER signature written. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> on success, <em class="arg">false</em> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d67/a06352.html#a13">Lib::Crypto::WolfSSL</a>.</dd>
-</dl>
+<p>Checks whether no subscribers are currently registered. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <a class="el" href="#a79a257c4883e94ef0e08c23ad8d4fa7c" title="size()">size()</a> is 0, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="a22a3ef4290390aa55282ade89d4bd8e4" name="a22a3ef4290390aa55282ade89d4bd8e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22a3ef4290390aa55282ade89d4bd8e4">&#9670;&#160;</a></span>verify()</h2>
+<a id="a3ce770a13a2e2797a7e25e94bde9a97b" name="a3ce770a13a2e2797a7e25e94bde9a97b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ce770a13a2e2797a7e25e94bde9a97b">&#9670;&#160;</a></span>operator()()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLEcc::verify </td>
+          <td class="memname">void <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>() </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>digest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool &amp;</td>          <td class="paramname"><span class="paramname"><em>valid</em></span>&#160;)</td>
+          <td class="paramtype">Args...</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Verifies a signature over a message digest with the public key. </p>
-<p>A wrong signature is not an error: the check runs and reports it through <em class="arg">valid</em>.</p>
+<p>Invokes every registered subscriber in registration order. </p>
+<p>Equivalent to <a class="el" href="#abfd30810b143472b8393b53f898dbcd5" title="invoke()">invoke()</a> with the same arguments.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">signature</td><td>DER signature to verify. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">digest</td><td>Digest the signature should cover. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">valid</td><td><em class="arg">true</em> if the signature matches; meaningful only when this method returns <em class="arg">true</em>. </td></tr>
+    <tr><td class="paramname">args</td><td>Arguments passed to every subscriber. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">true</em> if the check ran, <em class="arg">false</em> if the context failed to initialize or wolfCrypt reported a failure. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d67/a06352.html#a14">Lib::Crypto::WolfSSL</a>.</dd>
+
+</div>
+</div>
+<a id="a6dbac05fdf70d7b6ea7c1223f90eb0f3" name="a6dbac05fdf70d7b6ea7c1223f90eb0f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dbac05fdf70d7b6ea7c1223f90eb0f3">&#9670;&#160;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a> &amp; <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>subscriber</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registers a subscriber delegate, the C#-style addition operator. </p>
+<p>Equivalent to <a class="el" href="#a7b2551280da180b1f1dda5c6981737cd" title="add()">add()</a>; exceeding <a class="el" href="#a27c5ea0de4eb9b630bfa31e5dfb1c762" title="CAPACITY">CAPACITY</a> is treated as a programming error and asserted.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subscriber</td><td>Bound delegate to add; must satisfy FunctionRef::isBound(). </td></tr>
+  </table>
+  </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this multicast delegate. </dd></dl>
+
+</div>
+</div>
+<a id="abf65efccd32893eb2f7b5adfc53f8536" name="abf65efccd32893eb2f7b5adfc53f8536"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf65efccd32893eb2f7b5adfc53f8536">&#9670;&#160;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a> &amp; <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>-= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>subscriber</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the first subscriber delegate equal to <em class="arg">subscriber</em>, the C#-style subtraction operator. </p>
+<p>Equivalent to <a class="el" href="#adb01252450a4c8f5a57794062eef97da" title="remove()">remove()</a>; removing a delegate that is not registered is a no-op.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subscriber</td><td>Delegate to remove; compared with the equality operator of <a class="el" href="../../de/d0a/a06421.html" title="FunctionRef">FunctionRef</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this multicast delegate. </dd></dl>
+
+</div>
+</div>
+<a id="adb01252450a4c8f5a57794062eef97da" name="adb01252450a4c8f5a57794062eef97da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb01252450a4c8f5a57794062eef97da">&#9670;&#160;</a></span>remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;::remove </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a3f40221ae5736ac688a612345a14a8e4">Subscriber</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>subscriber</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the first subscriber delegate equal to <em class="arg">subscriber</em>. </p>
+<p>Subscribers after the removed entry move down by one slot, keeping the invocation order and the active entries contiguous at the front of the storage.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subscriber</td><td>Delegate to remove; compared with the equality operator of <a class="el" href="../../de/d0a/a06421.html" title="FunctionRef">FunctionRef</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a matching subscriber was found and removed, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a79a257c4883e94ef0e08c23ad8d4fa7c" name="a79a257c4883e94ef0e08c23ad8d4fa7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a257c4883e94ef0e08c23ad8d4fa7c">&#9670;&#160;</a></span>size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the current number of registered subscribers. </p>
+<dl class="section return"><dt>Returns</dt><dd>Subscriber count in the range [0, CAPACITY]. </dd></dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="ae3da827199d0e9dbd72b6071bedc5eb5" name="ae3da827199d0e9dbd72b6071bedc5eb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3da827199d0e9dbd72b6071bedc5eb5">&#9670;&#160;</a></span>KEY_SIZE</h2>
+<a id="a27c5ea0de4eb9b630bfa31e5dfb1c762" name="a27c5ea0de4eb9b630bfa31e5dfb1c762"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27c5ea0de4eb9b630bfa31e5dfb1c762">&#9670;&#160;</a></span>CAPACITY</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename Ret, typename... Args, size_t T_CAPACITY&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::Crypto::WolfSSLEcc::KEY_SIZE = 32U</td>
+          <td class="memname">size_t <a class="el" href="../../d3/d64/a04974.html">MulticastDelegate</a>&lt; Ret(Args...), T_CAPACITY &gt;::CAPACITY = T_CAPACITY</td>
         </tr>
       </table>
   </td>
@@ -553,55 +560,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>SECP256R1 private key and coordinate size, in bytes. </p>
-
-</div>
-</div>
-<a id="a406a42f736a7a6910058c8d68f89c777" name="a406a42f736a7a6910058c8d68f89c777"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a406a42f736a7a6910058c8d68f89c777">&#9670;&#160;</a></span>MAX_SIGNATURE_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::Crypto::WolfSSLEcc::MAX_SIGNATURE_SIZE = ECC_MAX_SIG_SIZE</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Largest DER-encoded signature, in bytes. </p>
-
-</div>
-</div>
-<a id="a0f359df6288584ab5bdd4b23b8ee6d6d" name="a0f359df6288584ab5bdd4b23b8ee6d6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f359df6288584ab5bdd4b23b8ee6d6d">&#9670;&#160;</a></span>SHARED_SECRET_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::Crypto::WolfSSLEcc::SHARED_SECRET_SIZE = <a class="el" href="#ae3da827199d0e9dbd72b6071bedc5eb5">KEY_SIZE</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>ECDHE shared secret length, in bytes. </p>
+<p>Maximum number of subscribers this instance can hold. </p>
 
 </div>
 </div>
@@ -612,7 +571,7 @@ Static Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../d6/d9a/a01083.html">Crypto</a></li><li class="navelem"><a href="../../d5/df8/a04978.html">WolfSSLEcc</a></li>
+    <li class="navelem"><a href="../../d5/df8/a04978.html">MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

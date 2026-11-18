@@ -1,8 +1,7 @@
 var a04446 =
 [
-    [ "mappingFields", "dc/da0/a04446.html#a11dd2076fb88f533f185c4b3036c605c", null ],
-    [ "nssPin", "dc/da0/a04446.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
-    [ "oePin", "dc/da0/a04446.html#ad65334adb3ad809e06b272cedcb59224", null ],
-    [ "pinCount", "dc/da0/a04446.html#a85d8e563810275243c4b75899e92dab3", null ],
-    [ "spiPort", "dc/da0/a04446.html#aff796faea898891c8271e1b1dba76858", null ]
+    [ "correction", "dc/da0/a04446.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
+    [ "i2cAddr", "dc/da0/a04446.html#ae3266da82296416f02f68de0c610a2f9", null ],
+    [ "i2cPort", "dc/da0/a04446.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
+    [ "shuntResistorOhms", "dc/da0/a04446.html#a9808e99c30c4516f65cdae3a889ec038", null ]
 ];

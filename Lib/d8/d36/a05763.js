@@ -1,15 +1,14 @@
 var a05763 =
 [
-    [ "Manager", "d8/d36/a05763.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "d8/d36/a05763.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimEventBase", "d8/d36/a05763.html#ae4e4ea4622adc3ec78740bcbb5de40c7", null ],
-    [ "TimEventBase", "d8/d36/a05763.html#a5bc4465b338b0255addd68424099b237", null ],
-    [ "TimEventBase", "d8/d36/a05763.html#a16a104e17a6f13f616dc2f0a20f42653", null ],
-    [ "~TimEventBase", "d8/d36/a05763.html#a5005179511e8564eef47bc3da1d74925", null ],
-    [ "bindWorker", "d8/d36/a05763.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
-    [ "getHandle", "d8/d36/a05763.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "notifyWorkerFromISR", "d8/d36/a05763.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "operator=", "d8/d36/a05763.html#a85bb87c2ebb0260e1e4503471892deaa", null ],
-    [ "operator=", "d8/d36/a05763.html#a252859ce5916b5a86188c2929fc271a4", null ],
-    [ "waitEvent", "d8/d36/a05763.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ]
+    [ "TimEncoder", "d8/d36/a05763.html#a865f1c850a27e5a21c65997eddc230e6", null ],
+    [ "~TimEncoder", "d8/d36/a05763.html#a75c39486905ce140625f8ede68cf6b1c", null ],
+    [ "TimEncoder", "d8/d36/a05763.html#ab1d7d4c14ddad06846dbb8f3f39f57e2", null ],
+    [ "TimEncoder", "d8/d36/a05763.html#a6ac1197149221d77d1967fbc9bf30371", null ],
+    [ "close", "d8/d36/a05763.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
+    [ "isClockwise", "d8/d36/a05763.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
+    [ "open", "d8/d36/a05763.html#a0332945ce02a55fb6e624309d4613697", null ],
+    [ "operator=", "d8/d36/a05763.html#a5f081d643e5f193b16d632bca48547f3", null ],
+    [ "operator=", "d8/d36/a05763.html#a65f9304f38d0afcedc9c8bcaeae935c7", null ],
+    [ "read", "d8/d36/a05763.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
+    [ "write", "d8/d36/a05763.html#aa31e675a06e5e104834e47423daa2b5f", null ]
 ];

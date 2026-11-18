@@ -1,15 +1,19 @@
 var a05306 =
 [
-    [ "dnsIp", "d2/d63/a05306.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
-    [ "dnsName", "d2/d63/a05306.html#a2b21f67fcea486054df4fbece648ef7f", null ],
-    [ "gateway", "d2/d63/a05306.html#ae526dc3391066f8447e665e962d7f3e1", null ],
-    [ "hasDnsIp", "d2/d63/a05306.html#ab1307f2487c4d9d8a056679335c62d47", null ],
-    [ "hasDnsName", "d2/d63/a05306.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
-    [ "hasGateway", "d2/d63/a05306.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
-    [ "hasIp", "d2/d63/a05306.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
-    [ "hasMac", "d2/d63/a05306.html#a44b23d072f52c270d4c722d93a8b6117", null ],
-    [ "hasSubnet", "d2/d63/a05306.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
-    [ "ip", "d2/d63/a05306.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
-    [ "mac", "d2/d63/a05306.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
-    [ "subnet", "d2/d63/a05306.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
+    [ "State", "d2/d63/a05306.html#ac97d949e755c3b10315681da95176f7b", null ],
+    [ "~SimpleError", "d2/d63/a05306.html#a7c535e7cce0af47da08a363f2770e2d3", null ],
+    [ "clear", "d2/d63/a05306.html#a29a3344a3bb2dbbfaf71fbd851d5806e", null ],
+    [ "disable", "d2/d63/a05306.html#af9f860d5fb0bc9ff863d4ae98c6ef2f7", null ],
+    [ "enable", "d2/d63/a05306.html#a88d3d3da71f0e2492b08fdd668cd48f9", null ],
+    [ "getCaption", "d2/d63/a05306.html#a487c111cdf645891f0eeb29bb9c2f47c", null ],
+    [ "getGroup", "d2/d63/a05306.html#acdbb516e56181e2fd2bae4b4fed468bc", null ],
+    [ "getId", "d2/d63/a05306.html#ad6f2187166f4193448442ffc02b24c24", null ],
+    [ "getState", "d2/d63/a05306.html#a0ebb8e7fff7af6fea43ff768a0c6a539", null ],
+    [ "operator bool", "d2/d63/a05306.html#a39a5f8631f5713cc8f2ca156543730bc", null ],
+    [ "operator=", "d2/d63/a05306.html#a41ca9532f4b665090473c250d9e75e82", null ],
+    [ "operator=", "d2/d63/a05306.html#a30ca9da7743071ed024847752e03fb3c", null ],
+    [ "reset", "d2/d63/a05306.html#a1445698f47acd7ded509fd49018195d9", null ],
+    [ "set", "d2/d63/a05306.html#a99694248f4f6aab1e752d95d5d775392", null ],
+    [ "setGroup", "d2/d63/a05306.html#a1455d282ed73d25fb067ca510d87a14c", null ],
+    [ "Dispatcher", "d2/d63/a05306.html#a5d3b867dd215d4353be753385d68ee19", null ]
 ];

@@ -1,6 +1,9 @@
 var a04626 =
 [
-    [ "accuracy", "de/da0/a04626.html#ad3d2682afcb43e675b8f3cbabc396c5a", null ],
-    [ "latitude", "de/da0/a04626.html#ae085bdce89024977660a075ff6c32e28", null ],
-    [ "longitude", "de/da0/a04626.html#a598eac7a26a3bed28cafe3a51274e95d", null ]
+    [ "chipManufacturer", "de/da0/a04626.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
+    [ "memoryCapacity", "de/da0/a04626.html#a0ce044d51923185dc77297ec3845620b", null ],
+    [ "pagePerSector", "de/da0/a04626.html#a768e74e894621cf3033a1f4e06661b66", null ],
+    [ "pageSize", "de/da0/a04626.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
+    [ "sectorCount", "de/da0/a04626.html#ae152c07a2eeb80c6525857160e04126b", null ],
+    [ "sectorSize", "de/da0/a04626.html#a453d47437845007dcb1caa1889d1ec2b", null ]
 ];

@@ -1,9 +1,14 @@
 var a05134 =
 [
-    [ "writeTo", "d2/dc4/a05134.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
-    [ "atCommand", "d2/dc4/a05134.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
-    [ "dstAddr", "d2/dc4/a05134.html#a15159440eb1dacb4ae4b49aa36144863", null ],
-    [ "frameId", "d2/dc4/a05134.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
-    [ "parameters", "d2/dc4/a05134.html#a69a8b0f293677febe578417b21dbba6b", null ],
-    [ "remoteCommandOption", "d2/dc4/a05134.html#ae4922577edd7679e2964fb14f35bc919", null ]
+    [ "SerialNumber", "d4/d85/a05138.html", "d4/d85/a05138" ],
+    [ "ackFailures", "d2/dc4/a05134.html#aa36464587f33788505f069d1c46ec004", null ],
+    [ "ccaFailures", "d2/dc4/a05134.html#a51e5f54e9e1224b2389b126cd7602d65", null ],
+    [ "channel", "d2/dc4/a05134.html#a910133d925087a409f8f8357447b9e3a", null ],
+    [ "firmwareVersion", "d2/dc4/a05134.html#a919225b632587966d3cdbd15ca30f0d3", null ],
+    [ "hardwareVersion", "d2/dc4/a05134.html#a2efd702c930d16f10c2672244503d676", null ],
+    [ "nodeIdentifier", "d2/dc4/a05134.html#a1980717ff0972ddb91d6d59e8bd1a38e", null ],
+    [ "panId", "d2/dc4/a05134.html#ad1515643697ad647030e33ba97d79968", null ],
+    [ "serialNumber", "d2/dc4/a05134.html#a5e4e85516315320363b69f902c64a5b7", null ],
+    [ "temperature", "d2/dc4/a05134.html#aece1486ed1a9e85c4aa022f9634a3884", null ],
+    [ "voltage", "d2/dc4/a05134.html#a9ee4423766190b01b3381ae41455bf2d", null ]
 ];

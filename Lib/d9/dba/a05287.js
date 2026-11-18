@@ -1,10 +1,8 @@
 var a05287 =
 [
-    [ "Frame0x97", "d9/dba/a05287.html#a8d6d58095dc72605b19af99d9a4c2097", null ],
-    [ "atCommand", "d9/dba/a05287.html#a965406599165a7744ecbe01f6054fc9d", null ],
-    [ "commandStatus", "d9/dba/a05287.html#a1ffffd99f0fd3d9c4529ae8fd2d2f069", null ],
-    [ "frameId", "d9/dba/a05287.html#ae5cbfb88fbca17299b374c0b207128d0", null ],
-    [ "parameters", "d9/dba/a05287.html#a0716b11170a5695a6ff94920635fb32f", null ],
-    [ "srcAddr16", "d9/dba/a05287.html#a4dcf22e4dd07f8d0c0764bebb9e23721", null ],
-    [ "srcAddr64", "d9/dba/a05287.html#a146e6de04eded1ed1426630c73a3ad17", null ]
+    [ "Frame0x90", "d9/dba/a05287.html#a22052cd3212328570ef5c6d06ef34390", null ],
+    [ "options", "d9/dba/a05287.html#a5c602af5052ef25f33461908061ad07f", null ],
+    [ "rfData", "d9/dba/a05287.html#a0a12c77e30ed809310066e0b8ca02ef4", null ],
+    [ "srcAddr16", "d9/dba/a05287.html#a6bca75cd72e3dbbce9c1bc53b4723b78", null ],
+    [ "srcAddr64", "d9/dba/a05287.html#a8c9867ba7149b30c68d2c80449ece42a", null ]
 ];

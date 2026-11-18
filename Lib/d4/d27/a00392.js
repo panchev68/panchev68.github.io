@@ -1,4 +1,4 @@
 var a00392 =
 [
-    [ "MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;", "d9/d75/a04934.html", "d9/d75/a04934" ]
+    [ "Lib::Communication::Modbus::Master", "d5/de6/a04910.html", "d5/de6/a04910" ]
 ];

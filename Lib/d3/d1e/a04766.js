@@ -1,6 +1,6 @@
 var a04766 =
 [
-    [ "pinHandle", "d3/d1e/a04766.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
-    [ "timerHandler", "d3/d1e/a04766.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
-    [ "updatePeriod", "d3/d1e/a04766.html#a08c430ab4ab176b490c190835f89b3b0", null ]
+    [ "operator==", "d3/d1e/a04766.html#aaffc1273857ce092dc8ef57f2f569797", null ],
+    [ "address", "d3/d1e/a04766.html#ad4d0d62f304ebdd08f759f363dd3932a", null ],
+    [ "value", "d3/d1e/a04766.html#ac1e3de78a37a7229dfb525e2b82a1b4b", null ]
 ];

@@ -1,6 +1,8 @@
 var a06087 =
 [
-    [ "name", "df/df6/a06087.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
-    [ "output", "df/df6/a06087.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
-    [ "rotateTime", "df/df6/a06087.html#aad96d287e9891431e5a7c99935482563", null ]
+    [ "isFirst", "df/df6/a06087.html#aea5ee79d7c141aaf127b47db327805d0", null ],
+    [ "isLast", "df/df6/a06087.html#a1e6fc88a5e7cf2768bebc548c1900aad", null ],
+    [ "payload", "df/df6/a06087.html#a65705587cfb4030db694cc5cb657540c", null ],
+    [ "topic", "df/df6/a06087.html#ae24723574e9e74a61e7bdc4bd932f53d", null ],
+    [ "totalSize", "df/df6/a06087.html#a44fcd8dd4b08571d3f194eace422efce", null ]
 ];

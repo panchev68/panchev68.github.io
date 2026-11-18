@@ -1,14 +1,9 @@
 var a04910 =
 [
-    [ "SharedSecret", "d5/de6/a04910.html#a7fbb5355ccfc526d83b2d67eadb425c8", null ],
-    [ "WolfSSLEcc", "d5/de6/a04910.html#a19debb4d33bed3fade556263320330f7", null ],
-    [ "~WolfSSLEcc", "d5/de6/a04910.html#ab882988b2ec1b1494dbe8f30062bd13e", null ],
-    [ "WolfSSLEcc", "d5/de6/a04910.html#acfed6fbd26a4fb663e7aec5f8408e3f4", null ],
-    [ "WolfSSLEcc", "d5/de6/a04910.html#ab7483aff9567983a99ff831e7bfcf284", null ],
-    [ "generateKey", "d5/de6/a04910.html#a17edfaa1f02adf3fdd3a15dacc409b5d", null ],
-    [ "operator=", "d5/de6/a04910.html#a3309d37d1e7115e7a81b80cee385c0f3", null ],
-    [ "operator=", "d5/de6/a04910.html#a251a0fe821d569d4e0f785056ced42d7", null ],
-    [ "sharedSecret", "d5/de6/a04910.html#a6c37442161fbe64b4d931ffc6a6f8997", null ],
-    [ "sign", "d5/de6/a04910.html#ad2b17e604dc8ee9188ffc9a54dc87b46", null ],
-    [ "verify", "d5/de6/a04910.html#a22a3ef4290390aa55282ade89d4bd8e4", null ]
+    [ "Address", "d5/de6/a04910.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
+    [ "FunctionCode", "d5/de6/a04910.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
+    [ "close", "d5/de6/a04910.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
+    [ "open", "d5/de6/a04910.html#a60baa47faf417d3e58c9da926ba26d49", null ],
+    [ "sendFrame", "d5/de6/a04910.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
+    [ "setup", "d5/de6/a04910.html#accad19c50e45234b499d537407a53007", null ]
 ];

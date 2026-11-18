@@ -1,11 +1,9 @@
 var a04595 =
 [
-    [ "capacityBytes", "dd/dec/a04595.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
-    [ "chipId", "dd/dec/a04595.html#a51f97ba3d60d343706487241e08e252e", null ],
-    [ "manufacturerId", "dd/dec/a04595.html#a5c3278897e2a6732479c70a4efed141c", null ],
-    [ "pageCount", "dd/dec/a04595.html#af9ad76ca92b33af38466c11344584476", null ],
-    [ "pageSize", "dd/dec/a04595.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
-    [ "pagesPerSector", "dd/dec/a04595.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
-    [ "sectorCount", "dd/dec/a04595.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
-    [ "sectorSize", "dd/dec/a04595.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
+    [ "pinIRQ", "dd/dec/a04595.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
+    [ "pinNSS", "dd/dec/a04595.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
+    [ "pinReset", "dd/dec/a04595.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
+    [ "pinSync0", "dd/dec/a04595.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
+    [ "pinSync1", "dd/dec/a04595.html#a3358fa1b35628a6d324f9be9d4624338", null ],
+    [ "spiHandle", "dd/dec/a04595.html#aed57b8892979041579d2eb130d453151", null ]
 ];

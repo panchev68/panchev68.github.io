@@ -1,18 +1,18 @@
 var a05750 =
 [
-    [ "Config", "d7/d3f/a05754.html", "d7/d3f/a05754" ],
-    [ "StreamSerialPort", "d7/d55/a05750.html#a273a38e15bd84ddcb1ab16c18bcb563a", null ],
-    [ "~StreamSerialPort", "d7/d55/a05750.html#a82213704bb45f3f325b198dc0eb1ecab", null ],
-    [ "StreamSerialPort", "d7/d55/a05750.html#a4385588b551ca7105aacb5fa1b83da65", null ],
-    [ "StreamSerialPort", "d7/d55/a05750.html#a4dbd8a6587109d4ce29242ec1ddfdec0", null ],
-    [ "close", "d7/d55/a05750.html#af4d1dbc5fcd691c510918d277281ee6e", null ],
-    [ "discardInput", "d7/d55/a05750.html#ad313993195f0d6ea829d9c7b61df667f", null ],
-    [ "getDroppedCount", "d7/d55/a05750.html#a32276aa918b5679e4f0e8df69175063f", null ],
-    [ "isOpen", "d7/d55/a05750.html#a6fe88c556292e95190f066d34a6455a9", null ],
-    [ "open", "d7/d55/a05750.html#a1b052f09718429b991946fea7724f411", null ],
-    [ "operator=", "d7/d55/a05750.html#a49b22bf81050b4ee173b0cb712fce161", null ],
-    [ "operator=", "d7/d55/a05750.html#a5d8430086822b05225d0b3f4372238b2", null ],
-    [ "read", "d7/d55/a05750.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a", null ],
-    [ "write", "d7/d55/a05750.html#a0a35058ffe6e3bb6d1a5a9fb335c3588", null ],
-    [ "write", "d7/d55/a05750.html#aa11ae6544b3fe4193e42a03891973953", null ]
+    [ "Timeout", "d7/d55/a05750.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
+    [ "SPIPortBase", "d7/d55/a05750.html#af7d9dc0b540fee5b78bdf3853a203937", null ],
+    [ "SPIPortBase", "d7/d55/a05750.html#a3d58a47067dbf8b77d78250373234f6d", null ],
+    [ "SPIPortBase", "d7/d55/a05750.html#afa9b12cc40b3d5af68b16f594f5a92f7", null ],
+    [ "~SPIPortBase", "d7/d55/a05750.html#a88e5899dd8db4b887c6afbf89dcbed77", null ],
+    [ "bindBeginTransactionFunc", "d7/d55/a05750.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "d7/d55/a05750.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "d7/d55/a05750.html#ab6529e241d0728159eb3f60c7621b666", null ],
+    [ "isBusy", "d7/d55/a05750.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "open", "d7/d55/a05750.html#af039716c9cb01db958d77f8c581627cf", null ],
+    [ "operator=", "d7/d55/a05750.html#a33e5060aa4a9e4755b6786700276a5bf", null ],
+    [ "operator=", "d7/d55/a05750.html#ae6957396d6689ed6ebcffc3b11177118", null ],
+    [ "receive", "d7/d55/a05750.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "d7/d55/a05750.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "d7/d55/a05750.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

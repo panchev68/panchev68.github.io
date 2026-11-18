@@ -1,10 +1,14 @@
 var a06202 =
 [
-    [ "VersionString", "dd/d7d/a06202.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "dd/d7d/a06202.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getSubVersion", "dd/d7d/a06202.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "dd/d7d/a06202.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "dd/d7d/a06202.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "dd/d7d/a06202.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "dd/d7d/a06202.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "Label", "dd/d7d/a06202.html#a98d823750bde45aebd4db31f4086821e", [
+      [ "RUNNING", "dd/d7d/a06202.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
+      [ "READY", "dd/d7d/a06202.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "BLOCKED", "dd/d7d/a06202.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
+      [ "SUSPENDED", "dd/d7d/a06202.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
+      [ "DELETED", "dd/d7d/a06202.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
+      [ "INVALID", "dd/d7d/a06202.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
+    ] ],
+    [ "State", "dd/d7d/a06202.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
+    [ "get", "dd/d7d/a06202.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
+    [ "operator Label", "dd/d7d/a06202.html#a3c30086da2d01872c5cdccdba1874c74", null ]
 ];

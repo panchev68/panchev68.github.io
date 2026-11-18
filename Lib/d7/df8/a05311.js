@@ -1,18 +1,7 @@
 var a05311 =
 [
-    [ "Observer", "d7/df8/a05311.html#afe02160d2037b3473348b6a8101ce02b", null ],
-    [ "Observer", "d7/df8/a05311.html#a9f77eb8776932e4e0191d50f3703f0ff", null ],
-    [ "Observer", "d7/df8/a05311.html#afc4ae49baad10a972ffdb6c524333fe2", null ],
-    [ "Observer", "d7/df8/a05311.html#adc48af5af4516461e5f6d18b3cbd825a", null ],
-    [ "Observer", "d7/df8/a05311.html#ad82de88a0dfd9483e5d22acbba9d4e13", null ],
-    [ "~Observer", "d7/df8/a05311.html#a9697518dee56240bb69c649f98c7ea00", null ],
-    [ "check", "d7/df8/a05311.html#a62a61f576a7da92378d07601ab84c86b", null ],
-    [ "forEach", "d7/df8/a05311.html#a0bc7d57fe41425f15a2d06cdd4d12a03", null ],
-    [ "getGroup", "d7/df8/a05311.html#ad46566158066e38be9c6b52569ed95b0", null ],
-    [ "matches", "d7/df8/a05311.html#af4fa18de8bd3a0f30d101d8451bc3127", null ],
-    [ "number", "d7/df8/a05311.html#a21efb6d92b106ecb679f58b9d826aadd", null ],
-    [ "operator const Group *", "d7/df8/a05311.html#a38eb70d1a029f0026c698ce34b4bc9a0", null ],
-    [ "operator=", "d7/df8/a05311.html#af81560f6bffed718145291161ce0cbb7", null ],
-    [ "operator=", "d7/df8/a05311.html#a01b7acf596bb8d3c1566060b17df2974", null ],
-    [ "read", "d7/df8/a05311.html#a51117f0d8d5bbb482a585d7af71a390a", null ]
+    [ "Group", "d7/df8/a05311.html#a48b74757679d549dd7d08383435d59b5", null ],
+    [ "~Group", "d7/df8/a05311.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
+    [ "getCaption", "d7/df8/a05311.html#a6b28a1279997058ac197a0579f4c818d", null ],
+    [ "tag", "d7/df8/a05311.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
 ];

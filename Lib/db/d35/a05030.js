@@ -1,16 +1,13 @@
 var a05030 =
 [
-    [ "MacAddress", "db/d20/a05034.html", "db/d20/a05034" ],
-    [ "NetworkInfo", "d5/dbd/a05038.html", "d5/dbd/a05038" ],
-    [ "Discovery", "de/dda/a05042.html", "de/dda/a05042" ],
-    [ "Versions", "d8/d5f/a05046.html", "d8/d5f/a05046" ],
-    [ "Monitor", "da/df4/a05050.html", "da/df4/a05050" ],
-    [ "MacDiagnostic", "d1/d09/a05054.html", "d1/d09/a05054" ],
-    [ "destMacAddress", "db/d35/a05030.html#a2202bf139fcaadc9e3a2a004fe6b12fc", null ],
-    [ "discovery", "db/d35/a05030.html#a97b6260d13c3747f87dc0bc37e6acd99", null ],
-    [ "macAddress", "db/d35/a05030.html#ab2a76fe0ca955df089155d2fd9307e55", null ],
-    [ "macDiagnostic", "db/d35/a05030.html#af5eac088239deecbb5f3a75c2da6edea", null ],
-    [ "monitor", "db/d35/a05030.html#a4390ea32a7336912f66f7e557589550f", null ],
-    [ "networkInfo", "db/d35/a05030.html#a79267193fdf738c8909b97c6f9884589", null ],
-    [ "versions", "db/d35/a05030.html#a8af2e6c665db207944c0e30fdf610763", null ]
+    [ "Config", "db/d20/a05034.html", "db/d20/a05034" ],
+    [ "WolfSSLDh", "db/d35/a05030.html#acaf8aa4b45471efcfd3e472780e7b31f", null ],
+    [ "~WolfSSLDh", "db/d35/a05030.html#a6d03ea454eff6ec49352184b945a04e2", null ],
+    [ "WolfSSLDh", "db/d35/a05030.html#aabb6311ca11dc1faceab33055d97c824", null ],
+    [ "WolfSSLDh", "db/d35/a05030.html#a0d9f73abb840322aea3f49d8eac3f8ce", null ],
+    [ "agree", "db/d35/a05030.html#a76b96df40bf320de9d7254054ad2ab18", null ],
+    [ "generateKeyPair", "db/d35/a05030.html#ae0c35d84959cb6078b1d7ce38d4c2c02", null ],
+    [ "open", "db/d35/a05030.html#ad8c4f4476d3d1e1746d3db4fe86cf82a", null ],
+    [ "operator=", "db/d35/a05030.html#a2e951b9b4363af4a96e6e7426382c1d3", null ],
+    [ "operator=", "db/d35/a05030.html#a050501c01119e2aa82565a060075ee61", null ]
 ];

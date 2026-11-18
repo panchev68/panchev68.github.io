@@ -1,6 +1,5 @@
 var a04803 =
 [
-    [ "pinHandle", "d9/d62/a04803.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
-    [ "timerHandler", "d9/d62/a04803.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
-    [ "updatePeriod", "d9/d62/a04803.html#a08c430ab4ab176b490c190835f89b3b0", null ]
+    [ "channel", "d9/d62/a04803.html#aa0967939bfb313185c18cc470150b853", null ],
+    [ "handle", "d9/d62/a04803.html#a373f87e5f5c75c7a49f16724225066b1", null ]
 ];

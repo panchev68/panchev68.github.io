@@ -1,14 +1,7 @@
 var a05362 =
 [
-    [ "PortString", "d2/da8/a05362.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
-    [ "Port", "d2/da8/a05362.html#a0cdcdcee9376806af5c6778670685c80", null ],
-    [ "Port", "d2/da8/a05362.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
-    [ "fromString", "d2/da8/a05362.html#af096519c074646658fc5d42017770060", null ],
-    [ "get", "d2/da8/a05362.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
-    [ "get", "d2/da8/a05362.html#a74efeaeccbeb41630891ddb4725470a5", null ],
-    [ "operator uint16_t", "d2/da8/a05362.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
-    [ "operator<=>", "d2/da8/a05362.html#a5db32af54d9bdde977000618e7b6d476", null ],
-    [ "operator=", "d2/da8/a05362.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
-    [ "set", "d2/da8/a05362.html#a1de553c3b996aee8be2112632f45ee1b", null ],
-    [ "toString", "d2/da8/a05362.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
+    [ "close", "d2/da8/a05362.html#ab9d284c5cdff31383f99dea75c7f9e89", null ],
+    [ "open", "d2/da8/a05362.html#a2f27b571e2674aeb90f9773efe5d47c5", null ],
+    [ "read", "d2/da8/a05362.html#a53a2f54f254565a80c92924936564fb0", null ],
+    [ "write", "d2/da8/a05362.html#ae649720e51a2f29cd3f226e0c91e40f4", null ]
 ];

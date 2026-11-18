@@ -1,13 +1,8 @@
 var a04790 =
 [
-    [ "Config", "de/d4c/a04794.html", "de/d4c/a04794" ],
-    [ "TMP102", "d6/d56/a04790.html#a949aef107b50c3194360a1211fc77380", null ],
-    [ "configureAlert", "d6/d56/a04790.html#ad9a264b10f99d9f65ad8c08b872fb4fb", null ],
-    [ "enterSleepMode", "d6/d56/a04790.html#aaf751d7c9bc24731e6fe8347ec8772ce", null ],
-    [ "exitSleepMode", "d6/d56/a04790.html#ac7ab933572bb11b6d0193a5e9ab370e9", null ],
-    [ "init", "d6/d56/a04790.html#aad208b4242276623b58c7e690d0be566", null ],
-    [ "readTemperature", "d6/d56/a04790.html#a8bad032159a78dfb379d94fd21f9a14e", null ],
-    [ "setTHigh", "d6/d56/a04790.html#a31909d75566cc264aeee9cc68c96c6a8", null ],
-    [ "setTLow", "d6/d56/a04790.html#abe3ff96789b3357515f28158f06aa714", null ],
-    [ "triggerOneShot", "d6/d56/a04790.html#a911c4aa4ba809f4461cd5d1c2586670c", null ]
+    [ "operator==", "d6/d56/a04790.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
+    [ "blue", "d6/d56/a04790.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
+    [ "green", "d6/d56/a04790.html#aaac4b49f8ced6f8a10842162f110217d", null ],
+    [ "red", "d6/d56/a04790.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
+    [ "white", "d6/d56/a04790.html#a272f822cae4bd3b8e993080e2317636e", null ]
 ];

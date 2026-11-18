@@ -1,11 +1,12 @@
 var a05003 =
 [
-    [ "WolfSSLRandom", "d7/d3c/a05003.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
-    [ "~WolfSSLRandom", "d7/d3c/a05003.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
-    [ "WolfSSLRandom", "d7/d3c/a05003.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
-    [ "WolfSSLRandom", "d7/d3c/a05003.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
-    [ "generate", "d7/d3c/a05003.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
-    [ "native", "d7/d3c/a05003.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
-    [ "operator=", "d7/d3c/a05003.html#a2b57fbc329feeb209aa7f41b29608488", null ],
-    [ "operator=", "d7/d3c/a05003.html#a61facc5365a377d384371cb51442e897", null ]
+    [ "Digest", "d7/d3c/a05003.html#ae6533eeb24732d598c786e990b0ce82b", null ],
+    [ "WolfSSLSHA256", "d7/d3c/a05003.html#a8f2c459bcc74bbdc491240db0f521ccd", null ],
+    [ "~WolfSSLSHA256", "d7/d3c/a05003.html#a620161254dd9ca7e42a2f0b9798f8183", null ],
+    [ "WolfSSLSHA256", "d7/d3c/a05003.html#ac39e90d775c56d5a9b1687171716062b", null ],
+    [ "WolfSSLSHA256", "d7/d3c/a05003.html#a22497c39de4e0ee61b131f66c1b5eba4", null ],
+    [ "finish", "d7/d3c/a05003.html#a895fb7dee0bfd3914e319bc385f61a00", null ],
+    [ "operator=", "d7/d3c/a05003.html#a74d113ca6e8dc2b3fb10b5c6ec2f561e", null ],
+    [ "operator=", "d7/d3c/a05003.html#a72a5c7983a98133e879c4dc9e7bf1680", null ],
+    [ "update", "d7/d3c/a05003.html#a01e3e0e3e2d58bdd234797c040bc8321", null ]
 ];

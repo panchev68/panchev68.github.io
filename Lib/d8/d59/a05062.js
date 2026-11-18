@@ -1,20 +1,9 @@
 var a05062 =
 [
-    [ "Channel", "d7/dc7/a05066.html", "d7/dc7/a05066" ],
-    [ "ChannelArray", "d8/d59/a05062.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
-    [ "QualityMode", "d8/d59/a05062.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
-    [ "Error", "d8/d59/a05062.html#acb54f9ec6751a18eda393e2c5bd0675c", [
-      [ "NONE", "d8/d59/a05062.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "MODULE_IS_NOT_CONNECTED", "d8/d59/a05062.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
-      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d8/d59/a05062.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
-    ] ],
-    [ "ChannelScanner", "d8/d59/a05062.html#a4e65a2b73399e5ba18d5090993f64487", null ],
-    [ "ChannelScanner", "d8/d59/a05062.html#a1b11f5df668c4629836c71101e686990", null ],
-    [ "close", "d8/d59/a05062.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "getChannels", "d8/d59/a05062.html#a124a962ad28c0688ab38329f7a7b034e", null ],
-    [ "isRunning", "d8/d59/a05062.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d8/d59/a05062.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "d8/d59/a05062.html#aed5af8462cac9a996e73489e369434d3", null ],
-    [ "update", "d8/d59/a05062.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
-    [ "onError", "d8/d59/a05062.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
+    [ "Counter", "d8/d59/a05062.html#a979dd53107c70679957a49b352e309e4", null ],
+    [ "Counter", "d8/d59/a05062.html#aa0fcdac4118821433a18e704d608605d", null ],
+    [ "clear", "d8/d59/a05062.html#a5f4c68779359a4681b48228f57296c09", null ],
+    [ "operator uint32_t", "d8/d59/a05062.html#a32d48ad9be69d1fb44852223025c4efe", null ],
+    [ "operator++", "d8/d59/a05062.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
+    [ "operator=", "d8/d59/a05062.html#aebee6561b906ea1271070b47c2610fe2", null ]
 ];

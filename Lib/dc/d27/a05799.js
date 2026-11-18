@@ -1,13 +1,18 @@
 var a05799 =
 [
-    [ "UARTPort", "dc/d27/a05799.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
-    [ "~UARTPort", "dc/d27/a05799.html#a379b29de4717643896518dcc44558b2d", null ],
-    [ "abort", "dc/d27/a05799.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "dc/d27/a05799.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "dc/d27/a05799.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "dc/d27/a05799.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "dc/d27/a05799.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "dc/d27/a05799.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "dc/d27/a05799.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "dc/d27/a05799.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
+    [ "UARTPort", "dc/d27/a05799.html#a066a22aae400d51f9a8552f6b1757c30", null ],
+    [ "~UARTPort", "dc/d27/a05799.html#ae57a4a21992efbdd20a759373b79c5de", null ],
+    [ "UARTPort", "dc/d27/a05799.html#a727c4f59d0a03dd2884faf4f6a36928f", null ],
+    [ "UARTPort", "dc/d27/a05799.html#a3356806008458666dc1ede53fc85db70", null ],
+    [ "close", "dc/d27/a05799.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
+    [ "getDirection", "dc/d27/a05799.html#abc3c117eef840882dd94aee07d684a11", null ],
+    [ "getHandle", "dc/d27/a05799.html#a1a803a307b6fe9ff6e9e595f15c66de8", null ],
+    [ "getHandle", "dc/d27/a05799.html#a4d6a362058e35bbfc0c72a9c5f1a46a5", null ],
+    [ "isBusy", "dc/d27/a05799.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "open", "dc/d27/a05799.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
+    [ "operator=", "dc/d27/a05799.html#aebdaa74531eaac591e9bc7c474cdb302", null ],
+    [ "operator=", "dc/d27/a05799.html#a700d1ad959852be2e5140408dbde5ab4", null ],
+    [ "receive", "dc/d27/a05799.html#a2ac76b4dc3247a959deab8ec3f4403a4", null ],
+    [ "send", "dc/d27/a05799.html#abdc90f4e574528b9dcd4c9e2c749dea8", null ],
+    [ "setBaudRate", "dc/d27/a05799.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

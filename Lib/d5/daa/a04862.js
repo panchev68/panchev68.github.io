@@ -1,13 +1,16 @@
 var a04862 =
 [
-    [ "Tag", "d5/daa/a04862.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
-    [ "WolfSSLAesGcm", "d5/daa/a04862.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
-    [ "~WolfSSLAesGcm", "d5/daa/a04862.html#a032c38854a99ed5c5a281809583c4bad", null ],
-    [ "WolfSSLAesGcm", "d5/daa/a04862.html#a0948de3456c47ec4fcfdda7f14014566", null ],
-    [ "WolfSSLAesGcm", "d5/daa/a04862.html#ae6206c63d09568b82e1efae3379c82d7", null ],
-    [ "decrypt", "d5/daa/a04862.html#a70889db1697fa4212becb3acfb87a2a4", null ],
-    [ "encrypt", "d5/daa/a04862.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
-    [ "open", "d5/daa/a04862.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
-    [ "operator=", "d5/daa/a04862.html#ab46183fdc3c915e95383d1216aac9109", null ],
-    [ "operator=", "d5/daa/a04862.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
+    [ "Config", "d6/dd3/a04866.html", "d6/dd3/a04866" ],
+    [ "TransducerDiagnostics", "d4/db9/a04870.html", "d4/db9/a04870" ],
+    [ "PGA460TPWRQ1", "d5/daa/a04862.html#af23eb94dd6b27d2f4b97126ec7c3ff6e", null ],
+    [ "PGA460TPWRQ1", "d5/daa/a04862.html#ab0901e6176d41517bb48f19722c9721b", null ],
+    [ "PGA460TPWRQ1", "d5/daa/a04862.html#ab58650dd060801861ed9ffdd08be491b", null ],
+    [ "close", "d5/daa/a04862.html#a52d6efacbe935389fa51f1f75670476f", null ],
+    [ "open", "d5/daa/a04862.html#a50accfabb3897779a4b26e4c6b8e7566", null ],
+    [ "operator=", "d5/daa/a04862.html#a3e3603ffff316bc5f0bfd3fbfa8f3ac9", null ],
+    [ "operator=", "d5/daa/a04862.html#a8e49edb5b10188a09823c4a7c0c3bba7", null ],
+    [ "readDistance", "d5/daa/a04862.html#ab5b14fe14cfea3451683b86f1cc54952", null ],
+    [ "readRegister", "d5/daa/a04862.html#a2d489995d894aaeddbace0f34825674e", null ],
+    [ "readTransducerDiagnostics", "d5/daa/a04862.html#ad06b5c6df4a4916a991419d66d6cf3f4", null ],
+    [ "writeRegister", "d5/daa/a04862.html#a393f06f504869258b353566ff562f476", null ]
 ];

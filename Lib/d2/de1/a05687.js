@@ -1,7 +1,7 @@
 var a05687 =
 [
-    [ "OSPIPort", "d2/de1/a05687.html#a14ccf4bafc49e1e7c3810bc249cc5748", null ],
-    [ "~OSPIPort", "d2/de1/a05687.html#a50dab62adbe482ae17aa805e97c7f3ce", null ],
+    [ "OSPIPort", "d2/de1/a05687.html#a8c1f23febaf9293e008f91a9d6ad5b17", null ],
+    [ "~OSPIPort", "d2/de1/a05687.html#a88592dfaa7cbb4efa05747483c911d6f", null ],
     [ "abort", "d2/de1/a05687.html#a12a734c939e90c6c90510ba2c323dec0", null ],
     [ "close", "d2/de1/a05687.html#a03c62c024b148a264f9a6a0077198302", null ],
     [ "command", "d2/de1/a05687.html#ab13d30c818279bf38505328181fa1409", null ],

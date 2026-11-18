@@ -1,9 +1,9 @@
 var a05370 =
 [
-    [ "command", "d8/d1d/a05370.html#af08112845cd66edc31d068ebd37b83ca", null ],
-    [ "delimiter", "d8/d1d/a05370.html#a4a5572bd4e22f6a1de87a3ad3d4ebad8", null ],
-    [ "id", "d8/d1d/a05370.html#a38a95e9ff32ffbe026a54b59e0133d60", null ],
-    [ "length", "d8/d1d/a05370.html#a8d832b6579b4ecbc8f9555ab3e14aa21", null ],
-    [ "option", "d8/d1d/a05370.html#afef42cfd87d0013b3e3ff843a1cc5d36", null ],
-    [ "timestamp", "d8/d1d/a05370.html#a3665c6cb45f55219bf365da4619f7ab9", null ]
+    [ "address", "d8/d1d/a05370.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
+    [ "channel", "d8/d1d/a05370.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
+    [ "counter", "d8/d1d/a05370.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
+    [ "length", "d8/d1d/a05370.html#af80f349070d12d0ce2387f6d95764bfe", null ],
+    [ "priority", "d8/d1d/a05370.html#a0c3726e1ac6fed602491f21449c9a740", null ],
+    [ "protocol", "d8/d1d/a05370.html#ac094990b182d42c38feb302d144a6924", null ]
 ];

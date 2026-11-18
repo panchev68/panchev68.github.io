@@ -1,30 +1,23 @@
 var a06099 =
 [
-    [ "Bits", "df/d93/a06099.html#a27fe7bec268decd9b548d4ad2375ca34", null ],
-    [ "Handle", "df/d93/a06099.html#a8f85547a426b02f14d6e4ea12fe668d3", null ],
-    [ "TickType", "df/d93/a06099.html#ad148e5ad55c065d22eaa6d5c10ce0768", null ],
-    [ "EventGroup", "df/d93/a06099.html#a56df016b3829e560ce9e75a007e6e26c", null ],
-    [ "EventGroup", "df/d93/a06099.html#ae83c0e347985e554dbffd399d6749c28", null ],
-    [ "~EventGroup", "df/d93/a06099.html#a28986dc28cf1e996b6c98f1020f26294", null ],
-    [ "EventGroup", "df/d93/a06099.html#a674ca6cf44432becf24267dda94e547d", null ],
-    [ "clearAllEvents", "df/d93/a06099.html#a9e46ac55649d284c4950d9c85142bdcf", null ],
-    [ "clearBits", "df/d93/a06099.html#a564e679e348f400f7840978d5ae63d7f", null ],
-    [ "clearBitsFromISR", "df/d93/a06099.html#a32ff3286f958a78cacaa0f4b80b9711b", null ],
-    [ "clearFromISR", "df/d93/a06099.html#a1a5e45f94b4b856ab55ff24bdef9595d", null ],
-    [ "close", "df/d93/a06099.html#a86f5d90cf8de78fe435b35460bef5edd", null ],
-    [ "createStatic", "df/d93/a06099.html#ae027cdcf3b41026b6a3cb3a70310c298", null ],
-    [ "getBits", "df/d93/a06099.html#ad61d21c064aaec70b93bbe5a12ce9436", null ],
-    [ "getBitsFromISR", "df/d93/a06099.html#ac0074ec5d598a7d397984ff86e110e4a", null ],
-    [ "getHandle", "df/d93/a06099.html#aec13a03913c66d345ec02187dbe579ec", null ],
-    [ "isOpen", "df/d93/a06099.html#a14d4bddd8e6249a20ac2ae9f18e2caee", null ],
-    [ "open", "df/d93/a06099.html#ae966e8d3efe519e3138fedaa3108a300", null ],
-    [ "operator=", "df/d93/a06099.html#a81801feadd715f46e582f2bd0c8d2c99", null ],
-    [ "operator=", "df/d93/a06099.html#a2576c192353ebd4e1261f2a0908f1946", null ],
-    [ "setBits", "df/d93/a06099.html#a154c164a4617cf8553683bb42f04ff11", null ],
-    [ "setBitsFromISR", "df/d93/a06099.html#a13c55cc45daa6d96a1f21460a4c71626", null ],
-    [ "setBitsFromISR", "df/d93/a06099.html#a8145a3ffbcf914aa872e193c0368e43b", null ],
-    [ "sync", "df/d93/a06099.html#af47921ebb5a21fcedea78389027fec71", null ],
-    [ "sync", "df/d93/a06099.html#aa6e6dd0a0b50af7c854cce6e6f0be0c9", null ],
-    [ "wait", "df/d93/a06099.html#a98eed0f8fde6aee2a7c1df202f1807fa", null ],
-    [ "wait", "df/d93/a06099.html#ac933f049ba3d9d3e242bdc243dea3482", null ]
+    [ "Config", "d2/da1/a06103.html", "d2/da1/a06103" ],
+    [ "Command", "df/d93/a06099.html#a0b7ad8b7773fc15de07047754f3794f9", [
+      [ "OFF", "df/d93/a06099.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
+      [ "ON", "df/d93/a06099.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
+    ] ],
+    [ "Status", "df/d93/a06099.html#a9f826713fcf7511db5c43ef6f27173af", [
+      [ "IS_OFF", "df/d93/a06099.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
+      [ "IS_ON", "df/d93/a06099.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
+      [ "IN_MOTION", "df/d93/a06099.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
+    ] ],
+    [ "RotationCylinder", "df/d93/a06099.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
+    [ "RotationCylinder", "df/d93/a06099.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
+    [ "command", "df/d93/a06099.html#a8ca6acca72dbe8c542856371e956e058", null ],
+    [ "getName", "df/d93/a06099.html#a480be139cc8704be72afb69d2456281f", null ],
+    [ "getStatus", "df/d93/a06099.html#aba16d8727149fd2debf8b51fff5438bd", null ],
+    [ "isOff", "df/d93/a06099.html#a90f1e56010dee19b0f66350351127712", null ],
+    [ "isOn", "df/d93/a06099.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
+    [ "operator=", "df/d93/a06099.html#a44c71110f315e89203746b05fd4ab10a", null ],
+    [ "setup", "df/d93/a06099.html#a659c7989f745a79aeecb1c24004acba6", null ],
+    [ "update", "df/d93/a06099.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
 ];

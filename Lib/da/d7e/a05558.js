@@ -1,12 +1,19 @@
 var a05558 =
 [
-    [ "WindowWatchdog", "da/d7e/a05558.html#aedbc081389ab6197c5a334fcff249dc9", null ],
-    [ "~WindowWatchdog", "da/d7e/a05558.html#abf0355eeac54b8e2df2436417ae430c8", null ],
-    [ "WindowWatchdog", "da/d7e/a05558.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
-    [ "WindowWatchdog", "da/d7e/a05558.html#a94de72071a208a3a396313415af9df3a", null ],
-    [ "open", "da/d7e/a05558.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
-    [ "operator=", "da/d7e/a05558.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
-    [ "operator=", "da/d7e/a05558.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
-    [ "refresh", "da/d7e/a05558.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
-    [ "setWindow", "da/d7e/a05558.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
+    [ "CANPort", "da/d7e/a05558.html#adc087231856d1ec6bde6f97494503899", null ],
+    [ "~CANPort", "da/d7e/a05558.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
+    [ "CANPort", "da/d7e/a05558.html#afceeecde4eb91455d12a7305342e889a", null ],
+    [ "CANPort", "da/d7e/a05558.html#a91653fb9445c55c224e60742c91718a2", null ],
+    [ "close", "da/d7e/a05558.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
+    [ "getFreeTxMailboxCount", "da/d7e/a05558.html#ac88a1857130f01ccafcb72baae483a84", null ],
+    [ "getHandle", "da/d7e/a05558.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
+    [ "getHandle", "da/d7e/a05558.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
+    [ "getRxFifoFillLevel", "da/d7e/a05558.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
+    [ "open", "da/d7e/a05558.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
+    [ "operator=", "da/d7e/a05558.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
+    [ "operator=", "da/d7e/a05558.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
+    [ "read", "da/d7e/a05558.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
+    [ "readBlocking", "da/d7e/a05558.html#a49854c8fa3a47517562c6761363bb281", null ],
+    [ "write", "da/d7e/a05558.html#a65aa681fa591b2d0956e06e67e990b15", null ],
+    [ "writeBlocking", "da/d7e/a05558.html#a290a918dfefeea6aab3500acb68b90de", null ]
 ];

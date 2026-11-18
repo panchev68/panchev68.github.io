@@ -1,9 +1,8 @@
 var a06238 =
 [
-    [ "VersionString", "d5/db1/a06238.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Base", "d5/db1/a06238.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
-    [ "getSubVersion", "d5/db1/a06238.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "d5/db1/a06238.html#a463ebb1b62a72aab04d6b128c567109a", null ],
-    [ "operator VersionString", "d5/db1/a06238.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d5/db1/a06238.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "Config", "d5/db1/a06238.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
+    [ "callback", "d5/db1/a06238.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
+    [ "mode", "d5/db1/a06238.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
+    [ "name", "d5/db1/a06238.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
+    [ "period", "d5/db1/a06238.html#ae81cad8de025f71497b5b241c41da1eb", null ]
 ];

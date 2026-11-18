@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::JaggedArrayBase&lt; T_ELEMENT &gt;</title>
+<title>IAR EWARM Library: Lib::Helper::crc16</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -118,170 +131,83 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d90/a05918.
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="../../d1/d77/a05915.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Helper::JaggedArrayBase&lt; T_ELEMENT &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::crc16<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_ELEMENT&gt;<br />
-class Lib::Helper::JaggedArrayBase&lt; T_ELEMENT &gt;</div><p>Non-owning container that stores unique, non-null pointers to elements of type <em class="arg">T_ELEMENT</em>. </p>
-<p>The container never takes ownership of the pointees; clients are responsible for their lifetime. Copying and moving only duplicate or transfer the pointer list, never the pointees. The destructor is not virtual (no vtable pointer per instance), so a derived class must not be destroyed through a <a class="el" href="../../d5/d90/a05918.html" title="JaggedArrayBase">JaggedArrayBase</a> pointer.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_ELEMENT</td><td>Type of the stored element or row object.</td></tr>
-  </table>
-  </dd>
-</dl>
+<div class="textblock"><p>Helper type that computes a 16-bit CRC for provided data views. </p>
+<p>The helper provides a lightweight view-based interface that computes the CRC on demand when the instance is converted to <em class="arg">uint16_t</em>. The algorithm divides the message by polynomial 0x1021 MSB-first, with a zero initial value and no final XOR, matching CRC-16/XMODEM (CRC-16/CCITT, zero init): the check value over the ASCII string <em class="arg">123456789</em> is <em class="arg">0x31C3</em>. The CRC is computed byte-wise from a 256-entry table generated at compile time and stored as constant data.</p>
+<p>Create an instance with a character view, a byte span or a byte vector and obtain the CRC by converting the instance to <em class="arg">uint16_t</em>. The type is a trivially copyable, non-owning view; the viewed bytes must outlive it. It declares no destructor on purpose: a user-declared one, even defaulted, makes the class non-literal on this toolchain and would prevent constant evaluation.</p>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/JaggedArray.hpp" target="_blank">Source</a> </dd></dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/crc16.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ae79ec88b260154126e7ec280a136c14a" id="r_ae79ec88b260154126e7ec280a136c14a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae79ec88b260154126e7ec280a136c14a">JaggedArrayBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:ae79ec88b260154126e7ec280a136c14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an empty container.  <br /></td></tr>
-<tr class="memitem:aad62165791d6f4a1dc86fcc987e9ede5" id="r_aad62165791d6f4a1dc86fcc987e9ede5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aad62165791d6f4a1dc86fcc987e9ede5">addItems</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01874.html">std::initializer_list</a>&lt; T_ELEMENT * &gt; items) noexcept</td></tr>
-<tr class="memdesc:aad62165791d6f4a1dc86fcc987e9ede5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds every non-null item of the list that is not already present.  <br /></td></tr>
-<tr class="memitem:ab01ffb199ea0f9fe77f7b309f8ceb589" id="r_ab01ffb199ea0f9fe77f7b309f8ceb589"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab01ffb199ea0f9fe77f7b309f8ceb589">addItem</a> (T_ELEMENT *item) noexcept</td></tr>
-<tr class="memdesc:ab01ffb199ea0f9fe77f7b309f8ceb589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a single item if it is non-null and not already present.  <br /></td></tr>
-<tr class="memitem:a819041f4264ebfce07665c548d5dd7bc" id="r_a819041f4264ebfce07665c548d5dd7bc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a819041f4264ebfce07665c548d5dd7bc">removeItem</a> (const T_ELEMENT *item) noexcept</td></tr>
-<tr class="memdesc:a819041f4264ebfce07665c548d5dd7bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the given pointer from the container; the pointee is not destroyed.  <br /></td></tr>
-<tr class="memitem:aa9ba9220e9ab7f49a0ebe1093655395d" id="r_aa9ba9220e9ab7f49a0ebe1093655395d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa9ba9220e9ab7f49a0ebe1093655395d">clearItems</a> () noexcept</td></tr>
-<tr class="memdesc:aa9ba9220e9ab7f49a0ebe1093655395d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes all stored pointers; the pointees are not destroyed.  <br /></td></tr>
-<tr class="memitem:a4052852c38f6aa93775e1fb6ee3a809e" id="r_a4052852c38f6aa93775e1fb6ee3a809e"><td class="memItemLeft">T_ELEMENT &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4052852c38f6aa93775e1fb6ee3a809e">operator[]</a> (size_t index) noexcept</td></tr>
-<tr class="memdesc:a4052852c38f6aa93775e1fb6ee3a809e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the element behind the stored pointer at <em class="arg">index</em>.  <br /></td></tr>
-<tr class="memitem:a9d9609556da53ac88ac8b389fefb1a0d" id="r_a9d9609556da53ac88ac8b389fefb1a0d"><td class="memItemLeft">const T_ELEMENT &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a9d9609556da53ac88ac8b389fefb1a0d">operator[]</a> (size_t index) const noexcept</td></tr>
-<tr class="memdesc:a9d9609556da53ac88ac8b389fefb1a0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the element behind the stored pointer at <em class="arg">index</em>.  <br /></td></tr>
-<tr class="memitem:afca6ed09d7865e2bac45430fda768aae" id="r_afca6ed09d7865e2bac45430fda768aae"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#afca6ed09d7865e2bac45430fda768aae">getSize</a> () const noexcept</td></tr>
-<tr class="memdesc:afca6ed09d7865e2bac45430fda768aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of stored pointers.  <br /></td></tr>
-<tr class="memitem:a718f7db994c254bce01246ea32b1d653" id="r_a718f7db994c254bce01246ea32b1d653"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; T_ELEMENT * &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a718f7db994c254bce01246ea32b1d653">getElements</a> () noexcept</td></tr>
-<tr class="memdesc:a718f7db994c254bce01246ea32b1d653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying pointer list for direct access.  <br /></td></tr>
-<tr class="memitem:a428409a8385b8547bfa65d04a71565b1" id="r_a428409a8385b8547bfa65d04a71565b1"><td class="memItemLeft">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; T_ELEMENT * &gt; &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a428409a8385b8547bfa65d04a71565b1">getElements</a> () const noexcept</td></tr>
-<tr class="memdesc:a428409a8385b8547bfa65d04a71565b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying pointer list for read-only access.  <br /></td></tr>
+<tr class="memitem:a16dcfcb05534bbfc610e1f6813d4fee8" id="r_a16dcfcb05534bbfc610e1f6813d4fee8"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a16dcfcb05534bbfc610e1f6813d4fee8">crc16</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> data) noexcept</td></tr>
+<tr class="memdesc:a16dcfcb05534bbfc610e1f6813d4fee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a CRC helper from a character view of the data.  <br /></td></tr>
+<tr class="memitem:a4aa206f42a25f1a4e058ad60dc6e175b" id="r_a4aa206f42a25f1a4e058ad60dc6e175b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4aa206f42a25f1a4e058ad60dc6e175b">crc16</a> (std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a4aa206f42a25f1a4e058ad60dc6e175b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a CRC helper from a byte view of the data.  <br /></td></tr>
+<tr class="memitem:ae6c95a04975dccf8b6e9001cc8d0535c" id="r_ae6c95a04975dccf8b6e9001cc8d0535c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae6c95a04975dccf8b6e9001cc8d0535c">crc16</a> (const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;data) noexcept</td></tr>
+<tr class="memdesc:ae6c95a04975dccf8b6e9001cc8d0535c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a CRC helper from a standard vector of bytes.  <br /></td></tr>
+<tr class="memitem:abac152733a66bebdb4f969523dc9dbe1" id="r_abac152733a66bebdb4f969523dc9dbe1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abac152733a66bebdb4f969523dc9dbe1">crc16</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:abac152733a66bebdb4f969523dc9dbe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted: binding to a temporary vector would leave the stored view dangling immediately after construction.  <br /></td></tr>
+<tr class="memitem:a8aaf19a4e71b7be0d80fff9843c9c272" id="r_a8aaf19a4e71b7be0d80fff9843c9c272"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a8aaf19a4e71b7be0d80fff9843c9c272">operator uint16_t</a> () const noexcept</td></tr>
+<tr class="memdesc:a8aaf19a4e71b7be0d80fff9843c9c272"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes and returns the 16-bit CRC value for the provided data view on demand.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:a319cd6aae084f711db14582ed55929a5" id="r_a319cd6aae084f711db14582ed55929a5"><td class="memItemLeft"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; T_ELEMENT * &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a319cd6aae084f711db14582ed55929a5">elementList</a></td></tr>
-<tr class="memdesc:a319cd6aae084f711db14582ed55929a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning list of unique, non-null element pointers.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a5c712d9e3f6e47445c39ba3308938633" id="r_a5c712d9e3f6e47445c39ba3308938633"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5c712d9e3f6e47445c39ba3308938633">size</a> () noexcept</td></tr>
+<tr class="memdesc:a5c712d9e3f6e47445c39ba3308938633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the size in bytes of the CRC value produced by this helper.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae79ec88b260154126e7ec280a136c14a" name="ae79ec88b260154126e7ec280a136c14a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae79ec88b260154126e7ec280a136c14a">&#9670;&#160;</a></span>JaggedArrayBase()</h2>
+<a id="a16dcfcb05534bbfc610e1f6813d4fee8" name="a16dcfcb05534bbfc610e1f6813d4fee8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16dcfcb05534bbfc610e1f6813d4fee8">&#9670;&#160;</a></span>crc16() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;::JaggedArrayBase </td>
+          <td class="memname">Lib::Helper::crc16::crc16 </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes an empty container. </p>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ab01ffb199ea0f9fe77f7b309f8ceb589" name="ab01ffb199ea0f9fe77f7b309f8ceb589"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab01ffb199ea0f9fe77f7b309f8ceb589">&#9670;&#160;</a></span>addItem()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;::addItem </td>
-          <td>(</td>
-          <td class="paramtype">T_ELEMENT *</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Adds a single item if it is non-null and not already present. </p>
+<p>Constructs a CRC helper from a character view of the data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">item</td><td>Pointer to the element to add. </td></tr>
+    <tr><td class="paramname">data</td><td>View of the input bytes to compute the CRC over. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the item was added, <b>false</b> if it is <b>nullptr</b> or already present. </dd></dl>
 
 </div>
 </div>
-<a id="aad62165791d6f4a1dc86fcc987e9ede5" name="aad62165791d6f4a1dc86fcc987e9ede5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad62165791d6f4a1dc86fcc987e9ede5">&#9670;&#160;</a></span>addItems()</h2>
+<a id="a4aa206f42a25f1a4e058ad60dc6e175b" name="a4aa206f42a25f1a4e058ad60dc6e175b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aa206f42a25f1a4e058ad60dc6e175b">&#9670;&#160;</a></span>crc16() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;::addItems </td>
+          <td class="memname">Lib::Helper::crc16::crc16 </td>
           <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01874.html">std::initializer_list</a>&lt; T_ELEMENT * &gt;</td>          <td class="paramname"><span class="paramname"><em>items</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Adds every non-null item of the list that is not already present. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">items</td><td>Pointers to add; <em class="arg">nullptr</em> and duplicates are rejected. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if all items were added, <b>false</b> if at least one was rejected. </dd></dl>
-
-</div>
-</div>
-<a id="aa9ba9220e9ab7f49a0ebe1093655395d" name="aa9ba9220e9ab7f49a0ebe1093655395d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9ba9220e9ab7f49a0ebe1093655395d">&#9670;&#160;</a></span>clearItems()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;::clearItems </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -292,23 +218,89 @@ template&lt;typename T_ELEMENT&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Removes all stored pointers; the pointees are not destroyed. </p>
+<p>Constructs a CRC helper from a byte view of the data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>View of the input bytes to compute the CRC over. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a428409a8385b8547bfa65d04a71565b1" name="a428409a8385b8547bfa65d04a71565b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a428409a8385b8547bfa65d04a71565b1">&#9670;&#160;</a></span>getElements() <span class="overload">[1/2]</span></h2>
+<a id="ae6c95a04975dccf8b6e9001cc8d0535c" name="ae6c95a04975dccf8b6e9001cc8d0535c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6c95a04975dccf8b6e9001cc8d0535c">&#9670;&#160;</a></span>crc16() <span class="overload">[3/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; T_ELEMENT * &gt; &amp; <a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;::getElements </td>
+          <td class="memname">Lib::Helper::crc16::crc16 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a CRC helper from a standard vector of bytes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Vector containing the input bytes to compute the CRC. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abac152733a66bebdb4f969523dc9dbe1" name="abac152733a66bebdb4f969523dc9dbe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abac152733a66bebdb4f969523dc9dbe1">&#9670;&#160;</a></span>crc16() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Helper::crc16::crc16 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; uint8_t &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted: binding to a temporary vector would leave the stored view dangling immediately after construction. </p>
+<p>The helper does not own the underlying bytes, so a temporary must not be bound. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a8aaf19a4e71b7be0d80fff9843c9c272" name="a8aaf19a4e71b7be0d80fff9843c9c272"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aaf19a4e71b7be0d80fff9843c9c272">&#9670;&#160;</a></span>operator uint16_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Helper::crc16::operator uint16_t </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -316,29 +308,28 @@ template&lt;typename T_ELEMENT&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the underlying pointer list for read-only access. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to the internal pointer vector. </dd></dl>
+<p>Computes and returns the 16-bit CRC value for the provided data view on demand. </p>
+<p>The incoming byte is XORed with the byte leaving the high end of the register to select the table entry, which is the byte-wise equivalent of the direct bit-by-bit division.</p>
+<dl class="section return"><dt>Returns</dt><dd>Computed 16-bit CRC value; <b>0</b> for an empty view. </dd></dl>
 
 </div>
 </div>
-<a id="a718f7db994c254bce01246ea32b1d653" name="a718f7db994c254bce01246ea32b1d653"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a718f7db994c254bce01246ea32b1d653">&#9670;&#160;</a></span>getElements() <span class="overload">[2/2]</span></h2>
+<a id="a5c712d9e3f6e47445c39ba3308938633" name="a5c712d9e3f6e47445c39ba3308938633"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c712d9e3f6e47445c39ba3308938633">&#9670;&#160;</a></span>size()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt; T_ELEMENT * &gt; &amp; <a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;::getElements </td>
+          <td class="memname">constexpr size_t Lib::Helper::crc16::size </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -346,179 +337,13 @@ template&lt;typename T_ELEMENT&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the underlying pointer list for direct access. </p>
-<p>Callers inserting through this reference must keep the pointers non-null and unique themselves.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the internal pointer vector. </dd></dl>
-
-</div>
-</div>
-<a id="afca6ed09d7865e2bac45430fda768aae" name="afca6ed09d7865e2bac45430fda768aae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afca6ed09d7865e2bac45430fda768aae">&#9670;&#160;</a></span>getSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;::getSize </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of stored pointers. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of stored pointers. </dd></dl>
-
-</div>
-</div>
-<a id="a9d9609556da53ac88ac8b389fefb1a0d" name="a9d9609556da53ac88ac8b389fefb1a0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d9609556da53ac88ac8b389fefb1a0d">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T_ELEMENT &amp; <a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>[] </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Accesses the element behind the stored pointer at <em class="arg">index</em>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">index</td><td>Position to access; must be less than <a class="el" href="#afca6ed09d7865e2bac45430fda768aae" title="getSize()">getSize()</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to the element at <em class="arg">index</em>. </dd></dl>
-
-</div>
-</div>
-<a id="a4052852c38f6aa93775e1fb6ee3a809e" name="a4052852c38f6aa93775e1fb6ee3a809e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4052852c38f6aa93775e1fb6ee3a809e">&#9670;&#160;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T_ELEMENT &amp; <a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>[] </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Accesses the element behind the stored pointer at <em class="arg">index</em>. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">index</td><td>Position to access; must be less than <a class="el" href="#afca6ed09d7865e2bac45430fda768aae" title="getSize()">getSize()</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the element at <em class="arg">index</em>. </dd></dl>
-
-</div>
-</div>
-<a id="a819041f4264ebfce07665c548d5dd7bc" name="a819041f4264ebfce07665c548d5dd7bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a819041f4264ebfce07665c548d5dd7bc">&#9670;&#160;</a></span>removeItem()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;::removeItem </td>
-          <td>(</td>
-          <td class="paramtype">const T_ELEMENT *</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes the given pointer from the container; the pointee is not destroyed. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">item</td><td>Pointer to remove. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the pointer was found and removed, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a319cd6aae084f711db14582ed55929a5" name="a319cd6aae084f711db14582ed55929a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a319cd6aae084f711db14582ed55929a5">&#9670;&#160;</a></span>elementList</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_ELEMENT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html">std::vector</a>&lt;T_ELEMENT *&gt; <a class="el" href="../../d5/d90/a05918.html">Lib::Helper::JaggedArrayBase</a>&lt; T_ELEMENT &gt;::elementList</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-owning list of unique, non-null element pointers. </p>
+<p>Returns the size in bytes of the CRC value produced by this helper. </p>
+<dl class="section return"><dt>Returns</dt><dd>Size of the CRC in bytes (always <b>sizeof(uint16_t)</b>). </dd></dl>
 
 </div>
 </div>
@@ -529,7 +354,7 @@ template&lt;typename T_ELEMENT&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../d5/d17/a01098.html">Helper</a></li><li class="navelem"><a href="../../d5/d90/a05918.html">JaggedArrayBase</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../d6/dc4/a01125.html">Helper</a></li><li class="navelem"><a href="../../d5/d90/a05918.html">crc16</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

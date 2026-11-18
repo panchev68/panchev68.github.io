@@ -1,4 +1,4 @@
 var a00806 =
 [
-    [ "Lib::HAL::Timer::TimEventBase&lt; T_DERIVED &gt;", "d8/d36/a05763.html", "d8/d36/a05763" ]
+    [ "Lib::HAL::Timer::TimEncoder", "d7/dce/a05766.html", "d7/dce/a05766" ]
 ];

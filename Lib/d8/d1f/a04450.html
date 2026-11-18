@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::DigitalPeripheralBase::PortBase&lt; T_DERIVED &gt;</title>
+<title>IAR EWARM Library: Lib::BSP::DeviceManager</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,246 +130,91 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/d1f/a04450.
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d6/df1/a04447.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::DigitalPeripheralBase::PortBase&lt; T_DERIVED &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::DeviceManager</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
-class Lib::BSP::DigitalPeripheralBase::PortBase&lt; T_DERIVED &gt;</div><p>Common interface of the input and the output port, dispatched through CRTP instead of virtual calls. </p>
-<p>Lib::BSP::DigitalPeripheralBase::serve() takes this type so it can drive either port without runtime polymorphism; every method just forwards to the same-named method of <em class="arg">T_DERIVED</em>, which hides it in the derived class's own scope.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Concrete port providing <em class="arg">setup()</em>, <em class="arg">preUpdateCallback()</em>, <em class="arg">update()</em>, <em class="arg">postUpdateCallback()</em> and <em class="arg">getSpiHandle()</em>. </td></tr>
+<div class="textblock"><p>Singleton registry that drives periodic tick events for every registered BSP device. </p>
+<p>Devices register and unregister themselves automatically through <a class="el" href="../../de/d70/a04454.html" title="DeviceBase">DeviceBase</a>. <a class="el" href="#a38ac04455caa48c44920c4fea381147d" title="setup()">setup()</a> calls every registered device's own <a class="el" href="#a38ac04455caa48c44920c4fea381147d" title="setup()">setup()</a> once and then starts the single shared FreeRTOS timer that dispatches <a class="el" href="../../de/d70/a04454.html#a3a024a69ffe1d880ec5fedbf8428726a" title="DeviceBase::handleTickEvent()">DeviceBase::handleTickEvent()</a> to all of them at regular intervals.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/DeviceManager.hpp" target="_blank">Source</a> </dd></dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:DeviceBase" id="r_DeviceBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d70/a04454.html">DeviceBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for a device managed by <a class="el" href="../../d8/d1f/a04450.html" title="DeviceManager">DeviceManager</a>, dispatched through FunctionRef callbacks instead of virtual calls.  <a href="../../de/d70/a04454.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a38ac04455caa48c44920c4fea381147d" id="r_a38ac04455caa48c44920c4fea381147d"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a38ac04455caa48c44920c4fea381147d">setup</a> (<a class="el" href="../../da/d0b/a06234.html#ad723310c96803c284ff978231bdcdb67">RTOS::Timer::TickType</a> period=<a class="el" href="#a5c379749d676f4a60fdc91a50ff5dd34">DEFAULT_PERIOD</a>) noexcept</td></tr>
+<tr class="memdesc:a38ac04455caa48c44920c4fea381147d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes every registered device and starts the shared periodic tick timer.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a5c379749d676f4a60fdc91a50ff5dd34" id="r_a5c379749d676f4a60fdc91a50ff5dd34"><td class="memItemLeft">static constexpr <a class="el" href="../../da/d0b/a06234.html#ad723310c96803c284ff978231bdcdb67">RTOS::Timer::TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5c379749d676f4a60fdc91a50ff5dd34">DEFAULT_PERIOD</a> = 1U</td></tr>
+<tr class="memdesc:a5c379749d676f4a60fdc91a50ff5dd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default tick period, in RTOS ticks.  <br /></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a38ac04455caa48c44920c4fea381147d" name="a38ac04455caa48c44920c4fea381147d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38ac04455caa48c44920c4fea381147d">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::DeviceManager::setup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d0b/a06234.html#ad723310c96803c284ff978231bdcdb67">RTOS::Timer::TickType</a></td>          <td class="paramname"><span class="paramname"><em>period</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a5c379749d676f4a60fdc91a50ff5dd34">DEFAULT_PERIOD</a></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes every registered device and starts the shared periodic tick timer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td>Interval between two ticks, in RTOS ticks. </td></tr>
   </table>
   </dd>
 </dl>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a819a0deaed30808011035c3403fbf93c" id="r_a819a0deaed30808011035c3403fbf93c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a819a0deaed30808011035c3403fbf93c">setup</a> () noexcept</td></tr>
-<tr class="memdesc:a819a0deaed30808011035c3403fbf93c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brings the pins and buffers into their idle state, without touching the SPI bus.  <br /></td></tr>
-<tr class="memitem:a1d3c38e42b94c8d721e78fa712c003b9" id="r_a1d3c38e42b94c8d721e78fa712c003b9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1d3c38e42b94c8d721e78fa712c003b9">preUpdateCallback</a> () noexcept</td></tr>
-<tr class="memdesc:a1d3c38e42b94c8d721e78fa712c003b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the SPI timing of this port and opens the bus for it.  <br /></td></tr>
-<tr class="memitem:a0dbdc066a75d16333220b562e8d17b2a" id="r_a0dbdc066a75d16333220b562e8d17b2a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0dbdc066a75d16333220b562e8d17b2a">update</a> () noexcept</td></tr>
-<tr class="memdesc:a0dbdc066a75d16333220b562e8d17b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs one SPI exchange with the expander chain.  <br /></td></tr>
-<tr class="memitem:af0d8329309d89f85d0432a205da0410c" id="r_af0d8329309d89f85d0432a205da0410c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af0d8329309d89f85d0432a205da0410c">postUpdateCallback</a> () noexcept</td></tr>
-<tr class="memdesc:af0d8329309d89f85d0432a205da0410c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the bus so that the other port can take it over.  <br /></td></tr>
-<tr class="memitem:a1677aa107627ab40c3a7a3a495722c77" id="r_a1677aa107627ab40c3a7a3a495722c77"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a1677aa107627ab40c3a7a3a495722c77">getSpiHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:a1677aa107627ab40c3a7a3a495722c77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the native SPI handle of the port.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a5350d276e1d3d6505501c1a194798ee1" id="r_a5350d276e1d3d6505501c1a194798ee1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5350d276e1d3d6505501c1a194798ee1">PortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a5350d276e1d3d6505501c1a194798ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Only reachable through a derived port.  <br /></td></tr>
-<tr class="memitem:ae97ed92776c4c9fec031848b9d223290" id="r_ae97ed92776c4c9fec031848b9d223290"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae97ed92776c4c9fec031848b9d223290">~PortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:ae97ed92776c4c9fec031848b9d223290"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-virtual; never deleted through a <a class="el" href="../../d8/d1f/a04450.html" title="Lib::BSP::DigitalPeripheralBase::PortBase">Lib::BSP::DigitalPeripheralBase::PortBase</a> pointer.  <br /></td></tr>
-</table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a5350d276e1d3d6505501c1a194798ee1" name="a5350d276e1d3d6505501c1a194798ee1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5350d276e1d3d6505501c1a194798ee1">&#9670;&#160;</a></span>PortBase()</h2>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if every device was initialized and the tick timer was created and started; <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a5c379749d676f4a60fdc91a50ff5dd34" name="a5c379749d676f4a60fdc91a50ff5dd34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c379749d676f4a60fdc91a50ff5dd34">&#9670;&#160;</a></span>DEFAULT_PERIOD</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d1f/a04450.html">Lib::BSP::DigitalPeripheralBase::PortBase</a>&lt; T_DERIVED &gt;::PortBase </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="../../da/d0b/a06234.html#ad723310c96803c284ff978231bdcdb67">RTOS::Timer::TickType</a> Lib::BSP::DeviceManager::DEFAULT_PERIOD = 1U</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Only reachable through a derived port. </p>
-
-</div>
-</div>
-<a id="ae97ed92776c4c9fec031848b9d223290" name="ae97ed92776c4c9fec031848b9d223290"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae97ed92776c4c9fec031848b9d223290">&#9670;&#160;</a></span>~PortBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/d1f/a04450.html">Lib::BSP::DigitalPeripheralBase::PortBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a5350d276e1d3d6505501c1a194798ee1">PortBase</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-virtual; never deleted through a <a class="el" href="../../d8/d1f/a04450.html" title="Lib::BSP::DigitalPeripheralBase::PortBase">Lib::BSP::DigitalPeripheralBase::PortBase</a> pointer. </p>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a1677aa107627ab40c3a7a3a495722c77" name="a1677aa107627ab40c3a7a3a495722c77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1677aa107627ab40c3a7a3a495722c77">&#9670;&#160;</a></span>getSpiHandle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * <a class="el" href="../../d8/d1f/a04450.html">Lib::BSP::DigitalPeripheralBase::PortBase</a>&lt; T_DERIVED &gt;::getSpiHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the native SPI handle of the port. </p>
-<dl class="section return"><dt>Returns</dt><dd>SPI handle given in the configuration. </dd></dl>
-
-</div>
-</div>
-<a id="af0d8329309d89f85d0432a205da0410c" name="af0d8329309d89f85d0432a205da0410c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0d8329309d89f85d0432a205da0410c">&#9670;&#160;</a></span>postUpdateCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d8/d1f/a04450.html">Lib::BSP::DigitalPeripheralBase::PortBase</a>&lt; T_DERIVED &gt;::postUpdateCallback </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Closes the bus so that the other port can take it over. </p>
-
-</div>
-</div>
-<a id="a1d3c38e42b94c8d721e78fa712c003b9" name="a1d3c38e42b94c8d721e78fa712c003b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d3c38e42b94c8d721e78fa712c003b9">&#9670;&#160;</a></span>preUpdateCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d8/d1f/a04450.html">Lib::BSP::DigitalPeripheralBase::PortBase</a>&lt; T_DERIVED &gt;::preUpdateCallback </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Applies the SPI timing of this port and opens the bus for it. </p>
-
-</div>
-</div>
-<a id="a819a0deaed30808011035c3403fbf93c" name="a819a0deaed30808011035c3403fbf93c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a819a0deaed30808011035c3403fbf93c">&#9670;&#160;</a></span>setup()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d8/d1f/a04450.html">Lib::BSP::DigitalPeripheralBase::PortBase</a>&lt; T_DERIVED &gt;::setup </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Brings the pins and buffers into their idle state, without touching the SPI bus. </p>
-
-</div>
-</div>
-<a id="a0dbdc066a75d16333220b562e8d17b2a" name="a0dbdc066a75d16333220b562e8d17b2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0dbdc066a75d16333220b562e8d17b2a">&#9670;&#160;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d8/d1f/a04450.html">Lib::BSP::DigitalPeripheralBase::PortBase</a>&lt; T_DERIVED &gt;::update </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Performs one SPI exchange with the expander chain. </p>
+<p>Default tick period, in RTOS ticks. </p>
 
 </div>
 </div>
@@ -367,7 +225,7 @@ template&lt;typename T_DERIVED&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/de6/a01063.html">BSP</a></li><li class="navelem"><a href="../../d9/d36/a04430.html">DigitalPeripheralBase</a></li><li class="navelem"><a href="../../d8/d1f/a04450.html">PortBase</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../da/d73/a01090.html">BSP</a></li><li class="navelem"><a href="../../d8/d1f/a04450.html">DeviceManager</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

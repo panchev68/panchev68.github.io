@@ -1,8 +1,9 @@
 var a05526 =
 [
-    [ "data", "d0/d22/a05526.html#a251018af6590442834ab27f31949ac0c", null ],
-    [ "frameType", "d0/d22/a05526.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
-    [ "id", "d0/d22/a05526.html#ac603c73011aa584e9a004fabd2239743", null ],
-    [ "idType", "d0/d22/a05526.html#ac4029cba49776e6f2942debd3ed78f58", null ],
-    [ "length", "d0/d22/a05526.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
+    [ "alignment", "d0/d22/a05526.html#af07ad322a750d286737a52e1bdddfb31", null ],
+    [ "font", "d0/d22/a05526.html#ab5edca785b9579756e559d327c812754", null ],
+    [ "isOn", "d0/d22/a05526.html#af2039fbf263f5e338ac2a40e86e86efd", null ],
+    [ "position", "d0/d22/a05526.html#a54029d4f028b9841cd01c51b4f5ad669", null ],
+    [ "scale", "d0/d22/a05526.html#a3a3b00eeb965dc88b5d63ace306a7da5", null ],
+    [ "width", "d0/d22/a05526.html#a6016e5ae8576459b5a2c9d45cd131d0f", null ]
 ];

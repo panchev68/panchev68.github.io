@@ -1,11 +1,19 @@
 var a04654 =
 [
-    [ "Files", "d2/d33/a04654.html#a32bb043cb678f854f5dc82cba11ce9b5", null ],
-    [ "exists", "d2/d33/a04654.html#acdeb9b2ee2aa50ce02467af8f47f6efc", null ],
-    [ "getFreeSpace", "d2/d33/a04654.html#a42a3c07dbf7258cf065d87c71b70789e", null ],
-    [ "getSize", "d2/d33/a04654.html#a55ba36349934ad39c2b7a49be4d94d9d", null ],
-    [ "getStorage", "d2/d33/a04654.html#aaec7f88b45cdde1197ee733af3b68a87", null ],
-    [ "read", "d2/d33/a04654.html#a784a6d3798784d545630794b0d373972", null ],
-    [ "remove", "d2/d33/a04654.html#a4b8b47fe473b142b38344e359b9c2f6b", null ],
-    [ "write", "d2/d33/a04654.html#a4c6ad03d6f8d73995700115490d2f279", null ]
+    [ "Command", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10", [
+      [ "WRITE_ENABLE", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "WRITE_DISABLE", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
+      [ "READ_STATUS_REGISTER1", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "READ_DATA", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
+      [ "PAGE_PROGRAM", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
+      [ "SECTOR_ERASE", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d2/d33/a04654.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

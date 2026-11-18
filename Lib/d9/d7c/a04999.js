@@ -1,12 +1,13 @@
 var a04999 =
 [
-    [ "Digest", "d9/d7c/a04999.html#ae6533eeb24732d598c786e990b0ce82b", null ],
-    [ "WolfSSLSHA256", "d9/d7c/a04999.html#a8f2c459bcc74bbdc491240db0f521ccd", null ],
-    [ "~WolfSSLSHA256", "d9/d7c/a04999.html#a620161254dd9ca7e42a2f0b9798f8183", null ],
-    [ "WolfSSLSHA256", "d9/d7c/a04999.html#ac39e90d775c56d5a9b1687171716062b", null ],
-    [ "WolfSSLSHA256", "d9/d7c/a04999.html#a22497c39de4e0ee61b131f66c1b5eba4", null ],
-    [ "finish", "d9/d7c/a04999.html#a895fb7dee0bfd3914e319bc385f61a00", null ],
-    [ "operator=", "d9/d7c/a04999.html#a74d113ca6e8dc2b3fb10b5c6ec2f561e", null ],
-    [ "operator=", "d9/d7c/a04999.html#a72a5c7983a98133e879c4dc9e7bf1680", null ],
-    [ "update", "d9/d7c/a04999.html#a01e3e0e3e2d58bdd234797c040bc8321", null ]
+    [ "WolfSSHServer", "d9/d7c/a04999.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
+    [ "~WolfSSHServer", "d9/d7c/a04999.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
+    [ "WolfSSHServer", "d9/d7c/a04999.html#ad8f53deb42abb7890bd933f530e30e99", null ],
+    [ "WolfSSHServer", "d9/d7c/a04999.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
+    [ "accept", "d9/d7c/a04999.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
+    [ "operator=", "d9/d7c/a04999.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
+    [ "operator=", "d9/d7c/a04999.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
+    [ "read", "d9/d7c/a04999.html#ac07508d68f41b64e463fdd58db57558b", null ],
+    [ "send", "d9/d7c/a04999.html#a034957692d48053e848ee6d77605fe2f", null ],
+    [ "shutdown", "d9/d7c/a04999.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
 ];

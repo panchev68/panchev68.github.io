@@ -1,4 +1,4 @@
 var a00287 =
 [
-    [ "Lib::BSP::EEPROM::FlashEmulation", "d0/d3d/a04539.html", "d0/d3d/a04539" ]
+    [ "Lib::BSP::EEPROM::I2C::M24C64W", "d9/d73/a04542.html", "d9/d73/a04542" ]
 ];

@@ -1,15 +1,8 @@
 var a05567 =
 [
-    [ "CANPortBase", "d2/d72/a05567.html#a49874a4fadbeed6acb5df1cd34d8b425", null ],
-    [ "CANPortBase", "d2/d72/a05567.html#a36fdf7b60492dfecc0b7bba144d57de0", null ],
-    [ "CANPortBase", "d2/d72/a05567.html#a3758c35d87fdeafd08f0cc9845888bea", null ],
-    [ "~CANPortBase", "d2/d72/a05567.html#afe0c3c29da222264a12b2ade136c866c", null ],
-    [ "close", "d2/d72/a05567.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
-    [ "getFreeTxMailboxCount", "d2/d72/a05567.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getRxFifoFillLevel", "d2/d72/a05567.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "d2/d72/a05567.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
-    [ "operator=", "d2/d72/a05567.html#a9d5120e2646e18222b7569d1caeda00e", null ],
-    [ "operator=", "d2/d72/a05567.html#a472090855651f87bac97104e8a80dee6", null ],
-    [ "read", "d2/d72/a05567.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "write", "d2/d72/a05567.html#a65aa681fa591b2d0956e06e67e990b15", null ]
+    [ "data", "d2/d72/a05567.html#a251018af6590442834ab27f31949ac0c", null ],
+    [ "frameType", "d2/d72/a05567.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
+    [ "id", "d2/d72/a05567.html#ac603c73011aa584e9a004fabd2239743", null ],
+    [ "idType", "d2/d72/a05567.html#ac4029cba49776e6f2942debd3ed78f58", null ],
+    [ "length", "d2/d72/a05567.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
 ];

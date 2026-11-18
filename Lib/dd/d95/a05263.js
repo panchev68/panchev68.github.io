@@ -1,8 +1,8 @@
 var a05263 =
 [
-    [ "Frame0x81", "dd/d95/a05263.html#ab6c2582c9c22d8b4b3e34d5c6e73e8b8", null ],
-    [ "option", "dd/d95/a05263.html#a9514d0309e3844c8659d92c660c71a2b", null ],
-    [ "rfData", "dd/d95/a05263.html#a17639b9161591eee69ff2916356f4f5f", null ],
-    [ "rssi", "dd/d95/a05263.html#af6b4d51bb9e62729e45af3c4c973f0f4", null ],
-    [ "srcAddr16", "dd/d95/a05263.html#a44c2e0a72745be88823b58901a37b73b", null ]
+    [ "Frame0x80", "dd/d95/a05263.html#a6a35178c345302fc3fd7e0e797ecd87f", null ],
+    [ "option", "dd/d95/a05263.html#abbdc105cf84ccfae7ac49dcad817a495", null ],
+    [ "rfData", "dd/d95/a05263.html#acdd1182b90bc45f91b6d50fd4a0ff3eb", null ],
+    [ "rssi", "dd/d95/a05263.html#a75c9b510bbf5bbdfae41d3f2cfff6428", null ],
+    [ "srcAddr64", "dd/d95/a05263.html#a2ef2d6ca731ff433131e9a82b31ff492", null ]
 ];

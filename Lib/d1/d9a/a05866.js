@@ -1,9 +1,19 @@
 var a05866 =
 [
-    [ "name", "d1/d9a/a05866.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "d1/d9a/a05866.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "d1/d9a/a05866.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "d1/d9a/a05866.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "d1/d9a/a05866.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "d1/d9a/a05866.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "USBHostPortBase", "d1/d9a/a05866.html#ac0f4ceb9b0f8b8a506fd172cb3ce4566", null ],
+    [ "USBHostPortBase", "d1/d9a/a05866.html#aa89066f8aa5102a47badafbc732bf444", null ],
+    [ "USBHostPortBase", "d1/d9a/a05866.html#a6ab4021b54519845f9f116d64637e8b3", null ],
+    [ "~USBHostPortBase", "d1/d9a/a05866.html#a78ed9071852127d2096ce7ef2b2a5f8e", null ],
+    [ "close", "d1/d9a/a05866.html#aff332f8bc49d112c37f829db7d9b78c1", null ],
+    [ "closeChannel", "d1/d9a/a05866.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
+    [ "getFrame", "d1/d9a/a05866.html#aa5a82053bf356261f139d027918f7a98", null ],
+    [ "getSpeed", "d1/d9a/a05866.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
+    [ "getTransferCount", "d1/d9a/a05866.html#aeafad19d337548bb5ef919dd44723b5f", null ],
+    [ "open", "d1/d9a/a05866.html#ab20db0d8a9ceb5b527bc5b4ff065717f", null ],
+    [ "openChannel", "d1/d9a/a05866.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
+    [ "operator=", "d1/d9a/a05866.html#a58f84861a9e04f0260bf39e31c926931", null ],
+    [ "operator=", "d1/d9a/a05866.html#a9dea26483778c8eacb80952819421b30", null ],
+    [ "resetPort", "d1/d9a/a05866.html#a4be20887571f3bd3694a79bb349979f8", null ],
+    [ "start", "d1/d9a/a05866.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
+    [ "stop", "d1/d9a/a05866.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ]
 ];

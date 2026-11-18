@@ -1,8 +1,7 @@
 var a05242 =
 [
-    [ "Frame0x8b", "d6/d63/a05242.html#acc41ed2fe2b266bab2e062bcc97b33cc", null ],
-    [ "deliveryStatus", "d6/d63/a05242.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
-    [ "discoveryStatus", "d6/d63/a05242.html#a7b5c383aff55a80124e65ff4565eb114", null ],
-    [ "frameId", "d6/d63/a05242.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
-    [ "transmitRetryCount", "d6/d63/a05242.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
+    [ "writeTo", "d6/d63/a05242.html#a7822cbb27fa7495fd67556a0afaed75f", null ],
+    [ "atCommand", "d6/d63/a05242.html#ae3e6e306d54297473f78f320425df58b", null ],
+    [ "frameId", "d6/d63/a05242.html#af2345c092e4bb001e18ac86d718196a4", null ],
+    [ "parameterValue", "d6/d63/a05242.html#a060767a4f172791aa4d493bf2ba4ac6d", null ]
 ];

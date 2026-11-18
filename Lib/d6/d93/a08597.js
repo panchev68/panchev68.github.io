@@ -1,4 +1,4 @@
 var a08597 =
 [
-    [ "Lib::Communication::Modbus::Slave", "d0/dca/a04906.html", "d0/dca/a04906" ]
+    [ "Lib::Helper::Exception", "dd/d7b/a05939.html", "dd/d7b/a05939" ]
 ];

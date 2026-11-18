@@ -1,6 +1,25 @@
 var a06230 =
 [
-    [ "configuration", "d6/d60/a06230.html#a207811e42d707051b821430532e14dca", null ],
-    [ "produceDate", "d6/d60/a06230.html#a15a774d40f9912978af06fa0b55e5e6a", null ],
-    [ "saleDate", "d6/d60/a06230.html#ae15be586be491076f57ec2f103f5ed81", null ]
+    [ "TickType", "d6/d60/a06230.html#a0285ec57b08218404301d71335490923", null ],
+    [ "Timeout", "d6/d60/a06230.html#a605a58d31953c1321b0571cfbf7809d8", null ],
+    [ "Timeout", "d6/d60/a06230.html#a56b69bed0df74101bf61b909cf9b564c", null ],
+    [ "Timeout", "d6/d60/a06230.html#ae6b31491258f8ac7db42a85c8a6410e3", null ],
+    [ "Timeout", "d6/d60/a06230.html#a3f457e44fdcf7ebe8be8e8c9f6281949", null ],
+    [ "disable", "d6/d60/a06230.html#a9f4c1790b62b338de5ee47cad756a53e", null ],
+    [ "getDuration", "d6/d60/a06230.html#a65bc60adcb34ab1336e932540580c545", null ],
+    [ "getElapsedTicks", "d6/d60/a06230.html#ace6d54a64c2dfa18c104111c9dfd1cb9", null ],
+    [ "getElapsedTime", "d6/d60/a06230.html#a5093d0c2c7d1f0fc3e6085c212a4f042", null ],
+    [ "getRemaining", "d6/d60/a06230.html#ab0740e27e7ef4e9e54410d06e32581d2", null ],
+    [ "getRemainingTicks", "d6/d60/a06230.html#a9960d8cda67ce72d1c02dcd7d3608066", null ],
+    [ "isDisabled", "d6/d60/a06230.html#a1262697a55934e1758ed633db12ff84b", null ],
+    [ "isExpired", "d6/d60/a06230.html#a4264c550073d457fa8f6ca89e591a0e6", null ],
+    [ "operator TickType", "d6/d60/a06230.html#a80beeb50cf335b4edd9b288f67fcbf31", null ],
+    [ "operator+=", "d6/d60/a06230.html#a4dc9099a6f012b5028a3156341c3d564", null ],
+    [ "operator-=", "d6/d60/a06230.html#aa7f234cb8c3ed2a313f76a323f75b10a", null ],
+    [ "operator=", "d6/d60/a06230.html#a572bb22f958387f0e5ef0f331553278a", null ],
+    [ "operator=", "d6/d60/a06230.html#a0459e730221c4ff43cd418ffcef83c24", null ],
+    [ "operator==", "d6/d60/a06230.html#a2823f4f34a13bb76fb12f52f16521b4e", null ],
+    [ "reset", "d6/d60/a06230.html#a4f719fdc728f4b1e2a6a3b33c747c32e", null ],
+    [ "set", "d6/d60/a06230.html#a776dc5dd77cf73624f452e0be0e32b8f", null ],
+    [ "set", "d6/d60/a06230.html#a859711fa5327754ac08a5a5f7b6175ba", null ]
 ];

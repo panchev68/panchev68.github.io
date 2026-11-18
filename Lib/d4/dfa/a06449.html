@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::Timer::TimOutputCompare</title>
+<title>IAR EWARM Library: Lib::HAL::LPTimer</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,83 +129,70 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/dfa/a06449.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOutputCompare</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::LPTimer</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Generates a timed event with <a class="el" href="../../d4/dfa/a06449.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>.</p>
-<p>Generates a timed event with <a class="el" href="../../d4/dfa/a06449.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a>. The timer raises an interrupt when its counter matches the compare value of the channel, which wakes the task blocked in <a class="el" href="../../d2/d2d/a05775.html#a18804c13963fca99f8037034a6d4e7ec" title="Lib::HAL::Timer::TimOutputCompare::waitCompare()">Lib::HAL::Timer::TimOutputCompare::waitCompare()</a>. The task then sets the next compare value with <a class="el" href="../../d2/d2d/a05775.html#a14b6982f85b9be41e24886a8a1c7445d" title="Lib::HAL::Timer::TimOutputCompare::setCompare()">Lib::HAL::Timer::TimOutputCompare::setCompare()</a>. Call <a class="el" href="../../d2/d2d/a05775.html#a63482b7958cd7171218c959b2b5df044" title="Lib::HAL::Timer::TimOutputCompare::start()">Lib::HAL::Timer::TimOutputCompare::start()</a> from the waiting task, because it binds that task.</p>
-<p>The header defines the HAL callback <b>HAL_TIM_OC_DelayElapsedCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; the compare value is changed in the task.</p>
+<p>Arms a low-power timeout with <a class="el" href="../../d4/dfa/a06449.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> and waits for it from a task.</p>
+<p>Arms a low-power timeout with <a class="el" href="../../d4/dfa/a06449.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> and waits for it from a task. <a class="el" href="../../d0/df9/a05758.html#af87c45b091cb7b10192ce86953eba07a" title="Lib::HAL::LPTimer::startTimeoutInterrupt()">Lib::HAL::LPTimer::startTimeoutInterrupt()</a> converts a millisecond timeout into a prescaled LPTIM period, and the autoreload match callback sets an event bit that <a class="el" href="../../d0/df9/a05758.html#a8f6329f1b312d263381f3738aacd64b8" title="Lib::HAL::LPTimer::waitForEvent()">Lib::HAL::LPTimer::waitForEvent()</a> waits on. <a class="el" href="../../d0/df9/a05758.html#a4fc71247da21a5d02602615eb66c4256" title="Lib::HAL::LPTimer::getElapsedRtosTicks()">Lib::HAL::LPTimer::getElapsedRtosTicks()</a> reports how much of the timeout has passed, in RTOS ticks.</p>
+<p>The LPTIM interrupt path is handled by the class: its callback is registered with the HAL in <a class="el" href="../../d0/df9/a05758.html#a1a9d936e6ff40316674eb1bb6293d5eb" title="Lib::HAL::LPTimer::open()">Lib::HAL::LPTimer::open()</a>. The CubeMX-generated <b>LPTIM1_IRQHandler()</b> must still call <b>HAL_LPTIM_IRQHandler()</b> for that callback to run.</p>
+<dl class="section important"><dt>Important</dt><dd>The class is written for the STM32U5 LPTIM: its instance limit and clock-source table follow that series. It requires the LPTIM peripheral and <em class="arg">USE_HAL_LPTIM_REGISTER_CALLBACKS</em> set to <b>1</b>. The header is guarded by <em class="arg">HAL_LPTIM_MODULE_ENABLED</em> and <em class="arg">LPTIM1</em>; on the STM32F407 target, LPTIM1 does not exist, so the header compiles to nothing. <a class="el" href="../../d0/d64/a06535.html" title="RTOS::PowerManager">RTOS::PowerManager</a> uses this class for tickless sleep under the same guard.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timoc_usage_hw"></a>
+<h3 class="doxsection"><a class="anchor" id="lptim_usage_hw"></a>
 Hardware and CubeMX assumptions</h3>
 <ul>
-<li>Timer channel (here <em class="arg">TIM4</em>, <em class="arg">TIM_CHANNEL_2</em>) set to Output Compare mode with its interrupt enabled in the NVIC. The output pin is optional for this use.</li>
-<li>Timer clock and prescaler are set in CubeMX; the compare value is in timer ticks.</li>
-<li>One <a class="el" href="../../d4/dfa/a06449.html" title="Lib::HAL::Timer::TimOutputCompare">Lib::HAL::Timer::TimOutputCompare</a> per timer handle.</li>
+<li>LPTIM1 enabled in CubeMX with its clock source (LSE, LSI or MSIK) set; the frequency table inside the class must match the CubeMX clock tree.</li>
+<li><em class="arg">USE_HAL_LPTIM_REGISTER_CALLBACKS</em> set to <b>1</b> in the HAL configuration header.</li>
+<li>Up to two instances (one per LPTIM handle). A third one asserts.</li>
 </ul>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timoc_usage_delay"></a>
-Scheduling a compare event in a task</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d2d/a00815.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="lptim_usage_timeout"></a>
+Waiting for a timeout in a task</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d7c/a01073.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d80/a01076.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>DelayedEvent final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">explicit</span> DelayedEvent(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) noexcept :</div>
-<div class="line">        compare(timHandle, <a id="_a1" name="_a1"></a><a class="code hl_defineRef" target="_blank" href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a>),</div>
-<div class="line">        task(<a id="_a2" name="_a2"></a><a class="code hl_struct" href="../../d6/d4c/a06195.html">RTOS::Task::Config</a>(<span class="stringliteral">&quot;Delayed&quot;</span>, 512, <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>), [<span class="keyword">this</span>]() { run(); }) {</div>
+<div class="line"><span class="keywordtype">bool</span> waitForTimeout(<a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d0/df9/a05758.html">Lib::HAL::LPTimer</a> &amp; timer, uint32_t timeoutMs) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (!timer.startTimeoutInterrupt(timeoutMs)) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    <span class="keyword">const</span> uint32_t bits = timer.waitForEvent(HAL_LPTIM_AUTORELOAD_MATCH_CB_ID, portMAX_DELAY);</div>
+<div class="line">    timer.stopInterrupt();</div>
+<div class="line">    <span class="keywordflow">return</span> bits != 0U;</div>
+<div class="line">}</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a4" name="_a4"></a><a class="code hl_class" href="../../d2/d2d/a05775.html">Lib::HAL::Timer::TimOutputCompare</a> compare; <span class="comment">// Constructed before the task starts using it.</span></div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d0/dca/a06175.html">RTOS::Task</a> task;                           <span class="comment">// Must stay the last member.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> run() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!compare.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d2/d2d/a05775.html#a63482b7958cd7171218c959b2b5df044">start</a>()) {</div>
-<div class="line">            assert(!<span class="stringliteral">&quot;DelayedEvent: output compare failed to start&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="comment">// Fire 1000 ticks after the current counter value.</span></div>
-<div class="line">            compare.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d2/d2d/a05775.html#a14b6982f85b9be41e24886a8a1c7445d">setCompare</a>(compare.<a id="a8" name="a8"></a><a class="code hl_function" href="../../d2/d2d/a05775.html#afaf7f01f359523e9b30110fdbf8b175b">getCounter</a>() + 1000U);</div>
-<div class="line"> </div>
-<div class="line">            <span class="keywordflow">if</span> (compare.<a id="a9" name="a9"></a><a class="code hl_function" href="../../d2/d2d/a05775.html#a18804c13963fca99f8037034a6d4e7ec">waitCompare</a>(<a id="_a10" name="_a10"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(500))) {</div>
-<div class="line">                <span class="comment">// The compare event fired; run the delayed action here.</span></div>
-<div class="line">            }</div>
-<div class="line">        }</div>
+<div class="line"><span class="keywordtype">void</span> setup(LPTIM_HandleTypeDef * lptimHandle) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <a class="code hl_class" href="../../d0/df9/a05758.html">Lib::HAL::LPTimer</a> timer(lptimHandle, LPTIM_CHANNEL_1);</div>
+<div class="line">    <span class="keywordflow">if</span> (!timer.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
-<div class="ttc" id="aa00254_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00254.html">cassert</a></div></div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(waitForTimeout(timer, 500U));</div>
+<div class="line">}</div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00815_html"><div class="ttname"><a href="../../d8/d2d/a00815.html">TimOutputCompare.hpp</a></div><div class="ttdoc">Configures an event-driven, hardware Output Compare interface using STM32 Timers.</div></div>
-<div class="ttc" id="aa01073_html"><div class="ttname"><a href="../../d9/d7c/a01073.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa01114_html_ga33e02d43345a7ac5886f01b39e4f7ccd"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d6/d40/a01114.html#ga33e02d43345a7ac5886f01b39e4f7ccd">TIM_CHANNEL_2</a></div><div class="ttdeci">#define TIM_CHANNEL_2</div></div>
-<div class="ttc" id="aa01584_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a></div></div>
-<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
-<div class="ttc" id="aa05775_html"><div class="ttname"><a href="../../d2/d2d/a05775.html">Lib::HAL::Timer::TimOutputCompare</a></div><div class="ttdoc">Controls one hardware timer channel configured under an active output compare profile.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:40</div></div>
-<div class="ttc" id="aa05775_html_a14b6982f85b9be41e24886a8a1c7445d"><div class="ttname"><a href="../../d2/d2d/a05775.html#a14b6982f85b9be41e24886a8a1c7445d">Lib::HAL::Timer::TimOutputCompare::setCompare</a></div><div class="ttdeci">void setCompare(uint32_t compareValue) noexcept</div><div class="ttdoc">Sets the counter value at which the output changes state, in the channel&#39;s CCRx register.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:148</div></div>
-<div class="ttc" id="aa05775_html_a18804c13963fca99f8037034a6d4e7ec"><div class="ttname"><a href="../../d2/d2d/a05775.html#a18804c13963fca99f8037034a6d4e7ec">Lib::HAL::Timer::TimOutputCompare::waitCompare</a></div><div class="ttdeci">bool waitCompare(TickType timeout=portMAX_DELAY) const noexcept</div><div class="ttdoc">Blocks the task that called start() until the counter next matches the compare value.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:119</div></div>
-<div class="ttc" id="aa05775_html_a63482b7958cd7171218c959b2b5df044"><div class="ttname"><a href="../../d2/d2d/a05775.html#a63482b7958cd7171218c959b2b5df044">Lib::HAL::Timer::TimOutputCompare::start</a></div><div class="ttdeci">bool start() noexcept</div><div class="ttdoc">Starts the channel with its compare interrupt; the calling task becomes the one waitCompare() serves.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:81</div></div>
-<div class="ttc" id="aa05775_html_afaf7f01f359523e9b30110fdbf8b175b"><div class="ttname"><a href="../../d2/d2d/a05775.html#afaf7f01f359523e9b30110fdbf8b175b">Lib::HAL::Timer::TimOutputCompare::getCounter</a></div><div class="ttdeci">uint32_t getCounter() const noexcept</div><div class="ttdoc">Reads the running counter.</div><div class="ttdef"><b>Definition</b> TimOutputCompare.hpp:167</div></div>
-<div class="ttc" id="aa06175_html"><div class="ttname"><a href="../../d0/dca/a06175.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:56</div></div>
-<div class="ttc" id="aa06179_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../dd/d16/a06179.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:89</div></div>
-<div class="ttc" id="aa06195_html"><div class="ttname"><a href="../../d6/d4c/a06195.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:638</div></div>
+<div class="ttc" id="aa00800_html"><div class="ttname"><a href="../../df/d0e/a00800.html">LPTimer.hpp</a></div><div class="ttdoc">Low-power timer peripheral driver for STM32 architectures.</div></div>
+<div class="ttc" id="aa01076_html"><div class="ttname"><a href="../../d6/d80/a01076.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa05758_html"><div class="ttname"><a href="../../d0/df9/a05758.html">Lib::HAL::LPTimer</a></div><div class="ttdoc">Manages LPTIM peripheral configuration and interrupt-driven timeout events.</div><div class="ttdef"><b>Definition</b> LPTimer.hpp:50</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timoc_usage_stop"></a>
-Stopping</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d2d/a00815.html">Lib/HAL/TIM/TimOutputCompare.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="lptim_usage_ticks"></a>
+Converting elapsed time to RTOS ticks</h3>
+<p><a class="el" href="../../d0/df9/a05758.html#a4fc71247da21a5d02602615eb66c4256" title="Lib::HAL::LPTimer::getElapsedRtosTicks()">Lib::HAL::LPTimer::getElapsedRtosTicks()</a> returns the full armed timeout once the match fired, and the current counter scaled to RTOS ticks otherwise. Pass the same timeout (in milliseconds) that was armed.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> cancelDelay(<a class="code hl_class" href="../../d2/d2d/a05775.html">Lib::HAL::Timer::TimOutputCompare</a> &amp; compare) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(compare.stop());</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line">uint32_t elapsedTicks(<span class="keyword">const</span> <a class="code hl_class" href="../../d0/df9/a05758.html">Lib::HAL::LPTimer</a> &amp; timer, uint32_t armedTimeoutMs) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> timer.getElapsedRtosTicks(armedTimeoutMs);</div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="lptim_usage_close"></a>
+Closing</h3>
+<p><a class="el" href="../../d0/df9/a05758.html#a6295b01535aa1df83366d83b9426ff7d" title="Lib::HAL::LPTimer::close()">Lib::HAL::LPTimer::close()</a> de-initializes the LPTIM; the destructor calls it as well.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d0e/a00800.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> shutdown(<a class="code hl_class" href="../../d0/df9/a05758.html">Lib::HAL::LPTimer</a> &amp; timer) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(timer.close());</div>
 <div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->

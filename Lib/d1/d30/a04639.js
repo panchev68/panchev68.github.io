@@ -1,17 +1,11 @@
 var a04639 =
 [
-    [ "DriverBase", "d1/d30/a04639.html#a5eafa5f0d53866cb78471368f7297754", null ],
-    [ "~DriverBase", "d1/d30/a04639.html#a5205dedf63ce60a8439a4fdd8ff7950b", null ],
-    [ "close", "d1/d30/a04639.html#a71f952f5639e0a0d0d7c1af2c3f0dbc0", null ],
-    [ "eraseChip", "d1/d30/a04639.html#a32148377b4274abf28db1beb3d12ea11", null ],
-    [ "eraseSector", "d1/d30/a04639.html#a23c3062b24d15e58237ddb109c474b74", null ],
-    [ "getInfo", "d1/d30/a04639.html#ad6c747b02c7f3e3781d0bb8d4da5a8c2", null ],
-    [ "getStatus", "d1/d30/a04639.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
-    [ "open", "d1/d30/a04639.html#a5d093e457b6ea6877ea0bfccc4007122", null ],
-    [ "read", "d1/d30/a04639.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
-    [ "write", "d1/d30/a04639.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
-    [ "info", "d1/d30/a04639.html#aca8a7487175e31060363fe99270e69a3", null ],
-    [ "nss", "d1/d30/a04639.html#a6cad70d123e273b88f244598cc93a22b", null ],
-    [ "spiPort", "d1/d30/a04639.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
-    [ "status", "d1/d30/a04639.html#af95471bb260264403e3df2dc07b80419", null ]
+    [ "capacityBytes", "d1/d30/a04639.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
+    [ "chipId", "d1/d30/a04639.html#a51f97ba3d60d343706487241e08e252e", null ],
+    [ "manufacturerId", "d1/d30/a04639.html#a5c3278897e2a6732479c70a4efed141c", null ],
+    [ "pageCount", "d1/d30/a04639.html#af9ad76ca92b33af38466c11344584476", null ],
+    [ "pageSize", "d1/d30/a04639.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
+    [ "pagesPerSector", "d1/d30/a04639.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
+    [ "sectorCount", "d1/d30/a04639.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
+    [ "sectorSize", "d1/d30/a04639.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
 ];

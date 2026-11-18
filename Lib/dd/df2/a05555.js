@@ -1,19 +1,19 @@
 var a05555 =
 [
-    [ "Event", "d6/d63/a05559.html", null ],
-    [ "CANPort", "dd/df2/a05555.html#a4477b4c95db49ce0b556d568b2d879a0", null ],
-    [ "~CANPort", "dd/df2/a05555.html#a6f6a6f1c91dc26fef9f74ef07f013b2c", null ],
-    [ "CANPort", "dd/df2/a05555.html#abe29825ceeac4153d36a08a6cb3adf7f", null ],
-    [ "CANPort", "dd/df2/a05555.html#af568e7e4043e0b195db174dab37c5dc9", null ],
-    [ "close", "dd/df2/a05555.html#a4ec7ae44fe2e374d256f3fd66767dbc7", null ],
+    [ "CANPort", "dd/df2/a05555.html#adc087231856d1ec6bde6f97494503899", null ],
+    [ "~CANPort", "dd/df2/a05555.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
+    [ "CANPort", "dd/df2/a05555.html#afceeecde4eb91455d12a7305342e889a", null ],
+    [ "CANPort", "dd/df2/a05555.html#a91653fb9445c55c224e60742c91718a2", null ],
+    [ "close", "dd/df2/a05555.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
     [ "getFreeTxMailboxCount", "dd/df2/a05555.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getHandle", "dd/df2/a05555.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "dd/df2/a05555.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getHandle", "dd/df2/a05555.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
+    [ "getHandle", "dd/df2/a05555.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
     [ "getRxFifoFillLevel", "dd/df2/a05555.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "dd/df2/a05555.html#a591e40ed78afa5d73704475e00c55060", null ],
-    [ "operator=", "dd/df2/a05555.html#aa58c9c3ab70cdf4e842716686aaa8c40", null ],
-    [ "operator=", "dd/df2/a05555.html#a8edeb615d6ad0c65bcf55d3d8f8fdce0", null ],
+    [ "open", "dd/df2/a05555.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
+    [ "operator=", "dd/df2/a05555.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
+    [ "operator=", "dd/df2/a05555.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
     [ "read", "dd/df2/a05555.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "waitForEvent", "dd/df2/a05555.html#a1c4fcd17767b405bdecda984747567ed", null ],
-    [ "write", "dd/df2/a05555.html#a65aa681fa591b2d0956e06e67e990b15", null ]
+    [ "readBlocking", "dd/df2/a05555.html#a49854c8fa3a47517562c6761363bb281", null ],
+    [ "write", "dd/df2/a05555.html#a65aa681fa591b2d0956e06e67e990b15", null ],
+    [ "writeBlocking", "dd/df2/a05555.html#a290a918dfefeea6aab3500acb68b90de", null ]
 ];

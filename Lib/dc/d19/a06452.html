@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::MutexGuard</title>
+<title>IAR EWARM Library: Lib::HAL::Reset</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -116,60 +129,42 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/d19/a06452.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::MutexGuard</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Reset</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows scope-based locking with <a class="el" href="../../dc/d19/a06452.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope.</p>
-<p>Shows scope-based locking with <a class="el" href="../../dc/d19/a06452.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope. It covers an indefinite lock and a timed lock, and checks the guard state after construction.</p>
-<p>The example runs in a task context with the FreeRTOS scheduler running. A mutex must never be locked or unlocked from an ISR. The first guard blocks indefinitely, because it uses the default <a class="el" href="../../d6/d02/a06082.html#acb650bbb5d2ae6ae2bab2490d29712be" title="RTOS::Mutex::WAIT_FOREVER">RTOS::Mutex::WAIT_FOREVER</a> timeout.</p>
+<p>Reads the cause of the last reset with <a class="el" href="../../dd/de0/a05711.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> and requests a system reset with <a class="el" href="../../dd/de0/a05711.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">Lib::HAL::Reset::resetSystem()</a>.</p>
+<p>Reads the cause of the last reset with <a class="el" href="../../dd/de0/a05711.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> and requests a system reset with <a class="el" href="../../dd/de0/a05711.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">.Both</a> members are static; the class has no state and no instance. <a class="el" href="../../dd/de0/a05711.html#a1cb344701ab8751dd646298cb07d5957" title="Lib::HAL::Reset::getResetState()">Lib::HAL::Reset::getResetState()</a> clears the RCC reset flags on every call, so read it once, early in start-up, and keep the result. A later call reports <a class="el" href="../../dd/de0/a05711.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3" title="Lib::HAL::Reset::State::UNKNOWN">Lib::HAL::Reset::State::UNKNOWN</a> unless a new reset has occurred since.</p>
+<p>The class has no HAL module guard, so it needs no module enabled in 'stm32f4xx_hal_conf.h'; it depends on the CMSIS and RCC definitions only. The reset flags it maps differ between families; the power-on flag <em class="arg">RCC_FLAG_PORRST</em> is used only where the device defines it.</p>
+<dl class="section warning"><dt>Warning</dt><dd><a class="el" href="../../dd/de0/a05711.html#a6fd6f2776e6c5decf3577c484f08a1c0" title="Lib::HAL::Reset::resetSystem()">Lib::HAL::Reset::resetSystem()</a> does not return. Flush logs, close files and stop peripherals that must finish first, because the reset discards everything else.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_scope"></a>
-Scoped lock with an indefinite wait</h3>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d6c/a00977.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="reset_usage_cause"></a>
+Report the cause of the last reset</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dba/a00773.html">Lib/HAL/Reset.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> lockedSection() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/d02/a06082.html">RTOS::Mutex</a> mutex(<a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../d6/d02/a06082.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a>);</div>
-<div class="line">    <span class="keywordflow">if</span> (!mutex.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d6/d02/a06082.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    {</div>
-<div class="line">        <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d2/d6d/a06086.html">RTOS::MutexGuard</a> guard(mutex); <span class="comment">// Locks on construction, waits forever.</span></div>
-<div class="line">        <span class="keywordflow">if</span> (guard.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d2/d6d/a06086.html#a3f156fd8fcb57426c142acbd54ddb267">isLocked</a>()) {</div>
-<div class="line">            <span class="comment">// Critical section protected by &#39;mutex&#39;.</span></div>
-<div class="line">        }</div>
-<div class="line">    } <span class="comment">// Guard destroyed here; the mutex is unlocked only if it was locked.</span></div>
-<div class="line"> </div>
-<div class="line">    mutex.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d6/d02/a06082.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_enumeration" href="../../dd/de0/a05711.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a> bootReset() noexcept {</div>
+<div class="line">    <span class="comment">// Call once from start-up, before any watchdog is started.</span></div>
+<div class="line">    <span class="keywordflow">return</span> <a id="a1" name="a1"></a><a class="code hl_function" href="../../dd/de0/a05711.html#a1cb344701ab8751dd646298cb07d5957">Lib::HAL::Reset::getResetState</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00974_html"><div class="ttname"><a href="../../df/dce/a00974.html">Mutex.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS mutex and recursive mutex synchronization primitives.</div></div>
-<div class="ttc" id="aa00977_html"><div class="ttname"><a href="../../d5/d6c/a00977.html">MutexGuard.hpp</a></div><div class="ttdoc">RAII wrapper for safe, exception-free mutex acquisition and release.</div></div>
-<div class="ttc" id="aa06082_html"><div class="ttname"><a href="../../d6/d02/a06082.html">RTOS::Mutex</a></div><div class="ttdoc">Priority-inheriting mutual exclusion lock, normal or recursive.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:50</div></div>
-<div class="ttc" id="aa06082_html_a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="../../d6/d02/a06082.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Standard non-recursive priority-inheritance mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:62</div></div>
-<div class="ttc" id="aa06082_html_a9f2abf5c8b3442dd741bac7c15e5726a"><div class="ttname"><a href="../../d6/d02/a06082.html#a9f2abf5c8b3442dd741bac7c15e5726a">RTOS::Mutex::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the underlying FreeRTOS mutex handle, if not already open.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:145</div></div>
-<div class="ttc" id="aa06082_html_acae6fb03115a857672d114638e6da0cb"><div class="ttname"><a href="../../d6/d02/a06082.html#acae6fb03115a857672d114638e6da0cb">RTOS::Mutex::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the underlying FreeRTOS handle and marks the mutex closed.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:203</div></div>
-<div class="ttc" id="aa06086_html"><div class="ttname"><a href="../../d2/d6d/a06086.html">RTOS::MutexGuard</a></div><div class="ttdoc">Scope-based lock guard for RTOS::Mutex, in the style of std::lock_guard.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:45</div></div>
-<div class="ttc" id="aa06086_html_a3f156fd8fcb57426c142acbd54ddb267"><div class="ttname"><a href="../../d2/d6d/a06086.html#a3f156fd8fcb57426c142acbd54ddb267">RTOS::MutexGuard::isLocked</a></div><div class="ttdeci">bool isLocked() const noexcept</div><div class="ttdoc">Checks if the guard currently holds the lock.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:150</div></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> wasWatchdogReset(<a class="code hl_enumeration" href="../../dd/de0/a05711.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a> state) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> state == <a id="_a2" name="_a2"></a><a class="code hl_enumvalue" href="../../dd/de0/a05711.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9">Lib::HAL::Reset::State::INDEPENDENT_WATCHDOG</a> ||</div>
+<div class="line">           state == <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../dd/de0/a05711.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368">Lib::HAL::Reset::State::WINDOW_WATCHDOG</a>;</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00773_html"><div class="ttname"><a href="../../d8/dba/a00773.html">Reset.hpp</a></div><div class="ttdoc">Reports the cause of the last system reset and triggers a new one.</div></div>
+<div class="ttc" id="aa05711_html_a1cb344701ab8751dd646298cb07d5957"><div class="ttname"><a href="../../dd/de0/a05711.html#a1cb344701ab8751dd646298cb07d5957">Lib::HAL::Reset::getResetState</a></div><div class="ttdeci">static State getResetState() noexcept</div><div class="ttdoc">Reads the cause of the last system reset and clears the reset-flag register for the next one.</div><div class="ttdef"><b>Definition</b> Reset.hpp:68</div></div>
+<div class="ttc" id="aa05711_html_ae9f0fa1c20664b577fc615da59211d91"><div class="ttname"><a href="../../dd/de0/a05711.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a></div><div class="ttdeci">State</div><div class="ttdoc">Cause of the last system reset, as latched by the RCC reset-flag register.</div><div class="ttdef"><b>Definition</b> Reset.hpp:47</div></div>
+<div class="ttc" id="aa05711_html_ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9"><div class="ttname"><a href="../../dd/de0/a05711.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9">Lib::HAL::Reset::State::INDEPENDENT_WATCHDOG</a></div><div class="ttdeci">@ INDEPENDENT_WATCHDOG</div><div class="ttdoc">Independent watchdog reset.</div><div class="ttdef"><b>Definition</b> Reset.hpp:53</div></div>
+<div class="ttc" id="aa05711_html_ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368"><div class="ttname"><a href="../../dd/de0/a05711.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368">Lib::HAL::Reset::State::WINDOW_WATCHDOG</a></div><div class="ttdeci">@ WINDOW_WATCHDOG</div><div class="ttdoc">Window watchdog reset.</div><div class="ttdef"><b>Definition</b> Reset.hpp:54</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_timed"></a>
-Timed lock</h3>
-<p>The guard converts the <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> to ticks. When the lock times out, the critical section is not protected and nothing is unlocked.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d6c/a00977.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="reset_usage_request"></a>
+Request a software reset</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/dba/a00773.html">Lib/HAL/Reset.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> timedSection(<a class="code hl_class" href="../../d6/d02/a06082.html">RTOS::Mutex</a> &amp; mutex) {</div>
-<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_class" href="../../d2/d6d/a06086.html">RTOS::MutexGuard</a> guard(mutex, 10ms); guard) {</div>
-<div class="line">        <span class="comment">// Lock acquired within 10 ms.</span></div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// Timed out: the critical section is not protected.</span></div>
-<div class="line">    }</div>
+<div class="line"><span class="keywordtype">void</span> restartAfterFault() noexcept {</div>
+<div class="line">    <span class="comment">// Record the fault in backup storage or a log before resetting.</span></div>
+<div class="line">    <a id="a4" name="a4"></a><a class="code hl_function" href="../../dd/de0/a05711.html#a6fd6f2776e6c5decf3577c484f08a1c0">Lib::HAL::Reset::resetSystem</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
+<div class="ttc" id="aa05711_html_a6fd6f2776e6c5decf3577c484f08a1c0"><div class="ttname"><a href="../../dd/de0/a05711.html#a6fd6f2776e6c5decf3577c484f08a1c0">Lib::HAL::Reset::resetSystem</a></div><div class="ttdeci">static void resetSystem() noexcept</div><div class="ttdoc">Resets the microcontroller through the CMSIS system-reset intrinsic.</div><div class="ttdef"><b>Definition</b> Reset.hpp:87</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

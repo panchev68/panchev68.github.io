@@ -1,17 +1,10 @@
 var a05642 =
 [
-    [ "OSPIPort", "d9/d43/a05642.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
-    [ "~OSPIPort", "d9/d43/a05642.html#a08e56728c9a64f13a22b89d6b482b132", null ],
-    [ "OSPIPort", "d9/d43/a05642.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
-    [ "OSPIPort", "d9/d43/a05642.html#a50425950532682614be81eb8bb5216b7", null ],
-    [ "close", "d9/d43/a05642.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
-    [ "command", "d9/d43/a05642.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
-    [ "getHandle", "d9/d43/a05642.html#a696d949d69359bb54440fe22e1de963f", null ],
-    [ "getHandle", "d9/d43/a05642.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
-    [ "isBusy", "d9/d43/a05642.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "open", "d9/d43/a05642.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
-    [ "operator=", "d9/d43/a05642.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
-    [ "operator=", "d9/d43/a05642.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
-    [ "receive", "d9/d43/a05642.html#aef7cf93602718e2d14816e122f15f3be", null ],
-    [ "transmit", "d9/d43/a05642.html#a10d2dc1da9553992110c3752aa39e058", null ]
+    [ "Sha256Digest", "d9/d43/a05642.html#add4d9f33ecf447251492399927b27da5", null ],
+    [ "HASHPort", "d9/d43/a05642.html#ad7c67ca7392509b46ee7d33aa8ac4615", null ],
+    [ "close", "d9/d43/a05642.html#aea9707fb978271d6f7346e2eacd3d206", null ],
+    [ "getHandle", "d9/d43/a05642.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d9/d43/a05642.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "open", "d9/d43/a05642.html#ae9dc794f4ad8b52c9c6ecdd73468f030", null ],
+    [ "sha256", "d9/d43/a05642.html#ac83a5444340025355f8b0986799c34fc", null ]
 ];

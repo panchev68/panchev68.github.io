@@ -1,5 +1,4 @@
 var a08661 =
 [
-    [ "Lib::USB::SerialPort", "dc/d3f/a06331.html", "dc/d3f/a06331" ],
-    [ "Lib::USB::SerialPort::Config", "d3/db3/a06335.html", "d3/db3/a06335" ]
+    [ "Lib::Communication::Modbus::ReceiveCallback", "da/d4e/a01106.html#abfc1dda559e8602043925d03e6581d22", null ]
 ];

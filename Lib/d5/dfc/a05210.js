@@ -1,7 +1,13 @@
 var a05210 =
 [
-    [ "operator std::vector< uint8_t >", "d5/dfc/a05210.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
-    [ "view", "d5/dfc/a05210.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
-    [ "data", "d5/dfc/a05210.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
-    [ "size", "d5/dfc/a05210.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
+    [ "Command", "d5/dfc/a05210.html#ad7de9040ab35a62c524e02edb5857497", null ],
+    [ "LocalAtCommand", "d5/dfc/a05210.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
+    [ "LocalAtCommand", "d5/dfc/a05210.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
+    [ "close", "d5/dfc/a05210.html#a5c97cd2a002f63083302783169a633fb", null ],
+    [ "isOpen", "d5/dfc/a05210.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
+    [ "open", "d5/dfc/a05210.html#a01489f683e248d7c2af355b8f1cd8992", null ],
+    [ "operator=", "d5/dfc/a05210.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
+    [ "receive", "d5/dfc/a05210.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
+    [ "send", "d5/dfc/a05210.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
+    [ "send", "d5/dfc/a05210.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
 ];

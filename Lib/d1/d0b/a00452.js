@@ -1,4 +1,4 @@
 var a00452 =
 [
-    [ "Lib::Digi::Core::Checksum", "d1/d90/a05159.html", "d1/d90/a05159" ]
+    [ "Lib::Digi::Core::AtCommandString", "d1/dab/a05162.html", "d1/dab/a05162" ]
 ];

@@ -1,10 +1,7 @@
 var a06027 =
 [
-    [ "Median", "db/dc9/a06027.html#ad5e26881f53db8464f4730b9dcf744b5", null ],
-    [ "~Median", "db/dc9/a06027.html#aea9355b7d00464b38c606b8df68914df", null ],
-    [ "getCount", "db/dc9/a06027.html#a49c79d04e33477161726151b8df8482b", null ],
-    [ "getMedian", "db/dc9/a06027.html#ab228c4f547df75df80aff7092407d40c", null ],
-    [ "isFull", "db/dc9/a06027.html#a0ce772c5c1103723077c83ef31016e1d", null ],
-    [ "operator()", "db/dc9/a06027.html#ae635f57134348fe6c30da3865e529a72", null ],
-    [ "reset", "db/dc9/a06027.html#a8980bab4cbb1b238203aa16eae0881d5", null ]
+    [ "estimatedError", "db/dc9/a06027.html#aa627467e596e97925629cac77c51da24", null ],
+    [ "processNoise", "db/dc9/a06027.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
+    [ "sensorNoise", "db/dc9/a06027.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
+    [ "value", "db/dc9/a06027.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
 ];

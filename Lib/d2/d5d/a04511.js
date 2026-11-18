@@ -1,5 +1,27 @@
 var a04511 =
 [
-    [ "i2cPort", "d2/d5d/a04511.html#a3b55875b743fb08270235d09326f8b6a", null ],
-    [ "isAlternateAddress", "d2/d5d/a04511.html#a3c0de4348ea532681819d86b1056ea11", null ]
+    [ "Config", "dc/da4/a04515.html", "dc/da4/a04515" ],
+    [ "SSD1306", "d2/d5d/a04511.html#aaa8c222c1e8b284b8f55e9e9ec37ec18", null ],
+    [ "~SSD1306", "d2/d5d/a04511.html#a96d9ba465e570de50e896f0d9d068ab2", null ],
+    [ "SSD1306", "d2/d5d/a04511.html#ad02a2ae6a81ced3e7717f56f3051b5d3", null ],
+    [ "SSD1306", "d2/d5d/a04511.html#a53a749d1a056f5326c358e78f583084a", null ],
+    [ "clear", "d2/d5d/a04511.html#a22aed91c76d2fdf103a08117770086c7", null ],
+    [ "close", "d2/d5d/a04511.html#a852885f8fccb9ee0d80c0c6a6b28960b", null ],
+    [ "drawBitmap", "d2/d5d/a04511.html#af7aa47ba1aec2c201c139407b0e4ef80", null ],
+    [ "drawLine", "d2/d5d/a04511.html#a8b231a6861c6388bb275586ce0ca4c1f", null ],
+    [ "drawRect", "d2/d5d/a04511.html#a2312321f9942151e10d52ef210434652", null ],
+    [ "fill", "d2/d5d/a04511.html#a692b533ba3d55466bf91425eaf77e415", null ],
+    [ "fillRect", "d2/d5d/a04511.html#a0139f6d0cfa7cabc2e02f133d89cba3c", null ],
+    [ "flush", "d2/d5d/a04511.html#a78e2063e1bbdae46606ac701753d8ca0", null ],
+    [ "getFrameBuffer", "d2/d5d/a04511.html#a08e534c1d48f4b10637b704173b17931", null ],
+    [ "getFrameBuffer", "d2/d5d/a04511.html#abf92a7167b03b012676e6cbb36a2e44a", null ],
+    [ "getPixel", "d2/d5d/a04511.html#ad162ef0d1404e932870e7c7c51b3325a", null ],
+    [ "open", "d2/d5d/a04511.html#ae77696c6301f7d64ab392726dc732210", null ],
+    [ "operator=", "d2/d5d/a04511.html#af15c7ec0c59083e465009eda1b9ebe37", null ],
+    [ "operator=", "d2/d5d/a04511.html#a1d58172f24a7023108da3364760ac6e4", null ],
+    [ "setContrast", "d2/d5d/a04511.html#a858b67a451ec6884719d48e5ab447c2c", null ],
+    [ "setDisplayOn", "d2/d5d/a04511.html#aa48f24527e78509ffd16a3ecb722e75d", null ],
+    [ "setInverted", "d2/d5d/a04511.html#a4ed4920dbd2f15212ffe50168db31e78", null ],
+    [ "setPixel", "d2/d5d/a04511.html#a5d6fc5a1b1b7ed7ba95f019e7e9dbdb4", null ],
+    [ "setRotated", "d2/d5d/a04511.html#a97bd343d36134fb1ae784a669a501b16", null ]
 ];

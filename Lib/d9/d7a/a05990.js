@@ -1,20 +1,15 @@
 var a05990 =
 [
-    [ "Point", "de/d1f/a05994.html", "de/d1f/a05994" ],
-    [ "BoundaryType", "d9/d7a/a05990.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "d9/d7a/a05990.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "d9/d7a/a05990.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "d9/d7a/a05990.html#ab036a2fd8ca103e4758c6df093edaf14", null ],
-    [ "CubicInterpolation", "d9/d7a/a05990.html#a4a43a32405ea514da8602d0b35b84868", null ],
-    [ "addPoint", "d9/d7a/a05990.html#ac25d98350678032e22250cfb3e5d6f6c", null ],
-    [ "addPoint", "d9/d7a/a05990.html#a0b929d4a4af7056b393a4e6c90611819", null ],
-    [ "clear", "d9/d7a/a05990.html#ae0955a5674c3c10f5eab1eb0fff390a5", null ],
-    [ "getDerivative", "d9/d7a/a05990.html#a8cbe3d4cea98501bacb9f4d5e69fedef", null ],
-    [ "getPoint", "d9/d7a/a05990.html#af3ef54431ffd69abd9b51302ad670f87", null ],
-    [ "getPointCount", "d9/d7a/a05990.html#a85e1404919ead5d47edb147006232b3e", null ],
-    [ "interpolate", "d9/d7a/a05990.html#a1e9efb980eff0b0bf4d45b23b118a437", null ],
-    [ "isEmpty", "d9/d7a/a05990.html#a552b92b0ae650ee4098030fa28a91528", null ],
-    [ "setBoundaryConditions", "d9/d7a/a05990.html#aad89790e19eeff17d5af45f4201e9430", null ],
-    [ "sortPoints", "d9/d7a/a05990.html#a9e8759ad8a98c3f4108e3d59ac52577e", null ]
+    [ "TickType", "d9/d7a/a05990.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
+    [ "TimePeriod", "d9/d7a/a05990.html#a096466d88bfa78ef18f074937a43f63f", null ],
+    [ "elapsed", "d9/d7a/a05990.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
+    [ "elapsedFromISR", "d9/d7a/a05990.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
+    [ "elapsedTime", "d9/d7a/a05990.html#aea37e1feea05928a3dfd98f79e82c449", null ],
+    [ "elapsedTimeFromISR", "d9/d7a/a05990.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
+    [ "isRunning", "d9/d7a/a05990.html#aa4477fa15b16c620396b69b2935bf2de", null ],
+    [ "reset", "d9/d7a/a05990.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
+    [ "start", "d9/d7a/a05990.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
+    [ "startFromISR", "d9/d7a/a05990.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
+    [ "stop", "d9/d7a/a05990.html#a12059cd59e97f3575d46ed98120763a2", null ],
+    [ "stopFromISR", "d9/d7a/a05990.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
 ];

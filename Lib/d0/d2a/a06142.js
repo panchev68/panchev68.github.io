@@ -1,7 +1,8 @@
 var a06142 =
 [
-    [ "Config", "d0/d2a/a06142.html#a3dd0c854864c93e37dcf898eac213cf9", null ],
-    [ "name", "d0/d2a/a06142.html#a573525e01a356a23378c06c203754517", null ],
-    [ "priority", "d0/d2a/a06142.html#a5d982f29a32e7d0b156f2ea79f36ef74", null ],
-    [ "stackSize", "d0/d2a/a06142.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
+    [ "allocations", "d0/d2a/a06142.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
+    [ "freeHeap", "d0/d2a/a06142.html#a944d10ce32d8114a8a1349e2582022bd", null ],
+    [ "frees", "d0/d2a/a06142.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
+    [ "minimumFreeHeap", "d0/d2a/a06142.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
+    [ "totalHeap", "d0/d2a/a06142.html#a83580325c3df5098f79f23bd212fb20a", null ]
 ];

@@ -1,12 +1,13 @@
 var a05002 =
 [
-    [ "State", "d5/dc0/a05006.html", "d5/dc0/a05006" ],
-    [ "Quality", "d8/d79/a05010.html", "d8/d79/a05010" ],
-    [ "Info", "dc/d66/a05014.html", "dc/d66/a05014" ],
-    [ "Connection", "d7/daf/a05002.html#ac3f7cec3bac26ebbbdfd93dc9d339f48", null ],
-    [ "Connection", "d7/daf/a05002.html#afaa8af957c71adc2bf6b63d902caedf2", null ],
-    [ "operator=", "d7/daf/a05002.html#a6bed4ce5a085f4b0a9bbeb1131272236", null ],
-    [ "info", "d7/daf/a05002.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
-    [ "quality", "d7/daf/a05002.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
-    [ "state", "d7/daf/a05002.html#a79f4aecc9bd038f5938e6373412ed099", null ]
+    [ "WolfSSHServer", "d7/daf/a05002.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
+    [ "~WolfSSHServer", "d7/daf/a05002.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
+    [ "WolfSSHServer", "d7/daf/a05002.html#ad8f53deb42abb7890bd933f530e30e99", null ],
+    [ "WolfSSHServer", "d7/daf/a05002.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
+    [ "accept", "d7/daf/a05002.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
+    [ "operator=", "d7/daf/a05002.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
+    [ "operator=", "d7/daf/a05002.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
+    [ "read", "d7/daf/a05002.html#ac07508d68f41b64e463fdd58db57558b", null ],
+    [ "send", "d7/daf/a05002.html#a034957692d48053e848ee6d77605fe2f", null ],
+    [ "shutdown", "d7/daf/a05002.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
 ];

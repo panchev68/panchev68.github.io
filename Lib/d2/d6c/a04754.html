@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::SK6812::Ring&lt; T_COUNT &gt;</title>
+<title>IAR EWARM Library: Lib::BSP::RFID::NTAG21x::OriginalitySignature</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,327 +130,113 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/d6c/a04754.
 
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../da/d9d/a04751.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::SK6812::Ring&lt; T_COUNT &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::RFID::NTAG21x::OriginalitySignature<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;size_t T_COUNT&gt;<br />
-class Lib::BSP::SK6812::Ring&lt; T_COUNT &gt;</div><p>Fixed number of SK6812 LEDs sharing one contiguous compare buffer for a single DMA transfer. </p>
-<p>The buffer is a member, so no heap is used and every LED slice stays valid for the ring's lifetime. Pass <a class="el" href="#a897e123e376e08a2741c3498d764166d" title="getData()">getData()</a> and <a class="el" href="#abc62b9f95eec80b7b24f428ecb35349b" title="getSize()">getSize()</a> to the PWM DMA start call.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_COUNT</td><td>Number of LEDs; must be greater than 0. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d70/a06344.html#_a1">Lib::BSP::SK6812</a>.</dd>
-</dl>
+<div class="textblock"><p>Verifies that a card UID carries a genuine NXP originality signature. </p>
+<p>Every genuine NTAG21x carries a 32-byte ECDSA (<em class="arg">secp128r1</em>) signature of NXP over its 7-byte UID, readable with <em class="arg">READ_SIG</em> (<b>0x3C</b>, see NXP AN11350). A card whose signature does not verify against the fixed NXP public key is not a genuine NXP chip, for example a UID-changeable clone. The signed message is the UID itself, not a hash of it.</p>
+<p>This does not stop a full emulation of a genuine card (UID, signature and an issuer record all copied); catching that is the issuer's responsibility, for example with a signed record or a blocklist.</p>
+<p>Needs micro-ecc configured for <em class="arg">secp128r1</em> and reachable as 'ThirdParty/micro-ecc/uECC_config.h' (<a href="https://github.com/kmackay/micro-ecc">https://github.com/kmackay/micro-ecc</a>); the header compiles to nothing where that is missing.</p>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://nxp.com/docs/en/data-sheet/NTAG213_215_216.pdf" target="_blank">NTAG213/215/216 datasheet (NXP)</a></dd></dl>
+<hr  />
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/RFID/NTAG21x/NTAG21x.md" target="_blank">Detail Description</a> </dd>
+<dd>
+<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/RFID/NTAG21x/OriginalitySignature.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a162946918a210436d07b8649948e2939" id="r_a162946918a210436d07b8649948e2939"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a162946918a210436d07b8649948e2939">Ring</a> () noexcept</td></tr>
-<tr class="memdesc:a162946918a210436d07b8649948e2939"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the ring with every LED switched off.  <br /></td></tr>
-<tr class="memitem:a893e2b866ecc019f8b11cf06afd82f88" id="r_a893e2b866ecc019f8b11cf06afd82f88"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a893e2b866ecc019f8b11cf06afd82f88">Ring</a> (const Ring &amp;)=delete</td></tr>
-<tr class="memdesc:a893e2b866ecc019f8b11cf06afd82f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the LEDs point into this instance's buffer.  <br /></td></tr>
-<tr class="memitem:a1b86238c581aff7462e775d7fe6d20a8" id="r_a1b86238c581aff7462e775d7fe6d20a8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1b86238c581aff7462e775d7fe6d20a8">Ring</a> (Ring &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a1b86238c581aff7462e775d7fe6d20a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the LEDs point into this instance's buffer.  <br /></td></tr>
-<tr class="memitem:a3b42427dd22bff92b102320fdf83a671" id="r_a3b42427dd22bff92b102320fdf83a671"><td class="memItemLeft">Ring &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3b42427dd22bff92b102320fdf83a671">operator=</a> (const Ring &amp;)=delete</td></tr>
-<tr class="memdesc:a3b42427dd22bff92b102320fdf83a671"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the LEDs point into this instance's buffer.  <br /></td></tr>
-<tr class="memitem:a46361d21fc1fac5baecd1f41fc3fe955" id="r_a46361d21fc1fac5baecd1f41fc3fe955"><td class="memItemLeft">Ring &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a46361d21fc1fac5baecd1f41fc3fe955">operator=</a> (Ring &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a46361d21fc1fac5baecd1f41fc3fe955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the LEDs point into this instance's buffer.  <br /></td></tr>
-<tr class="memitem:abc5ff1e835ae3842b0d596484b2d2399" id="r_abc5ff1e835ae3842b0d596484b2d2399"><td class="memItemLeft"><a class="el" href="../../dc/d64/a04750.html#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abc5ff1e835ae3842b0d596484b2d2399">operator[]</a> (size_t index) noexcept</td></tr>
-<tr class="memdesc:abc5ff1e835ae3842b0d596484b2d2399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the LED at a ring position.  <br /></td></tr>
-<tr class="memitem:a897e123e376e08a2741c3498d764166d" id="r_a897e123e376e08a2741c3498d764166d"><td class="memItemLeft">uint32_t *&#160;</td><td class="memItemRight"><a class="el" href="#a897e123e376e08a2741c3498d764166d">getData</a> () noexcept</td></tr>
-<tr class="memdesc:a897e123e376e08a2741c3498d764166d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the compare buffer for the DMA transfer.  <br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af4a392521ab650682a14d889199c50c1" id="r_af4a392521ab650682a14d889199c50c1"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#af4a392521ab650682a14d889199c50c1">count</a> () noexcept</td></tr>
-<tr class="memdesc:af4a392521ab650682a14d889199c50c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of LEDs.  <br /></td></tr>
-<tr class="memitem:abc62b9f95eec80b7b24f428ecb35349b" id="r_abc62b9f95eec80b7b24f428ecb35349b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#abc62b9f95eec80b7b24f428ecb35349b">getSize</a> () noexcept</td></tr>
-<tr class="memdesc:abc62b9f95eec80b7b24f428ecb35349b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the length of the compare buffer.  <br /></td></tr>
+<tr class="memitem:af56142d138ec3896ba8dcfc8373b93d0" id="r_af56142d138ec3896ba8dcfc8373b93d0"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#af56142d138ec3896ba8dcfc8373b93d0">verify</a> (const <a class="el" href="../../d4/da7/a01102.html#a435a19683e1fb32e426add14e68d0076">Uid</a> &amp;uid, const <a class="el" href="#acf64c338747cbf1779eff24fba71054c">Bytes</a> &amp;signature) noexcept</td></tr>
+<tr class="memdesc:af56142d138ec3896ba8dcfc8373b93d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies the signature of a card UID.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ab4b0050c0ce808f0dab961e3f78bec97" id="r_ab4b0050c0ce808f0dab961e3f78bec97"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ab4b0050c0ce808f0dab961e3f78bec97">SIZE</a> = 32U</td></tr>
+<tr class="memdesc:ab4b0050c0ce808f0dab961e3f78bec97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signature length, r || s.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a162946918a210436d07b8649948e2939" name="a162946918a210436d07b8649948e2939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a162946918a210436d07b8649948e2939">&#9670;&#160;</a></span>Ring() <span class="overload">[1/3]</span></h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="acf64c338747cbf1779eff24fba71054c" name="acf64c338747cbf1779eff24fba71054c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf64c338747cbf1779eff24fba71054c">&#9670;&#160;</a></span>Bytes</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_COUNT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d2/d6c/a04754.html">Lib::BSP::SK6812::Ring</a>&lt; T_COUNT &gt;::Ring </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="memname">using <a class="el" href="#acf64c338747cbf1779eff24fba71054c">Lib::BSP::RFID::NTAG21x::OriginalitySignature::Bytes</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#ab4b0050c0ce808f0dab961e3f78bec97">SIZE</a>&gt;</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Creates the ring with every LED switched off. </p>
-
-</div>
-</div>
-<a id="a893e2b866ecc019f8b11cf06afd82f88" name="a893e2b866ecc019f8b11cf06afd82f88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a893e2b866ecc019f8b11cf06afd82f88">&#9670;&#160;</a></span>Ring() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_COUNT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d2/d6c/a04754.html">Lib::BSP::SK6812::Ring</a>&lt; T_COUNT &gt;::Ring </td>
-          <td>(</td>
-          <td class="paramtype">const Ring&lt; T_COUNT &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: the LEDs point into this instance's buffer. </p>
-
-</div>
-</div>
-<a id="a1b86238c581aff7462e775d7fe6d20a8" name="a1b86238c581aff7462e775d7fe6d20a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b86238c581aff7462e775d7fe6d20a8">&#9670;&#160;</a></span>Ring() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_COUNT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d2/d6c/a04754.html">Lib::BSP::SK6812::Ring</a>&lt; T_COUNT &gt;::Ring </td>
-          <td>(</td>
-          <td class="paramtype">Ring&lt; T_COUNT &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: the LEDs point into this instance's buffer. </p>
+<p>Raw signature. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="af4a392521ab650682a14d889199c50c1" name="af4a392521ab650682a14d889199c50c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4a392521ab650682a14d889199c50c1">&#9670;&#160;</a></span>count()</h2>
+<a id="af56142d138ec3896ba8dcfc8373b93d0" name="af56142d138ec3896ba8dcfc8373b93d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af56142d138ec3896ba8dcfc8373b93d0">&#9670;&#160;</a></span>verify()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_COUNT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr size_t <a class="el" href="../../d2/d6c/a04754.html">Lib::BSP::SK6812::Ring</a>&lt; T_COUNT &gt;::count </td>
+          <td class="memname">bool Lib::BSP::RFID::NTAG21x::OriginalitySignature::verify </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d4/da7/a01102.html#a435a19683e1fb32e426add14e68d0076">Uid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uid</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the number of LEDs. </p>
-<dl class="section return"><dt>Returns</dt><dd><em class="arg">T_COUNT</em>. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d70/a06344.html#a5">Lib::BSP::SK6812</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a897e123e376e08a2741c3498d764166d" name="a897e123e376e08a2741c3498d764166d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a897e123e376e08a2741c3498d764166d">&#9670;&#160;</a></span>getData()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_COUNT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">uint32_t * <a class="el" href="../../d2/d6c/a04754.html">Lib::BSP::SK6812::Ring</a>&lt; T_COUNT &gt;::getData </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="#acf64c338747cbf1779eff24fba71054c">Bytes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>signature</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the compare buffer for the DMA transfer. </p>
-<dl class="section return"><dt>Returns</dt><dd>First word of the buffer. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d70/a06344.html#a9">Lib::BSP::SK6812</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="abc62b9f95eec80b7b24f428ecb35349b" name="abc62b9f95eec80b7b24f428ecb35349b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc62b9f95eec80b7b24f428ecb35349b">&#9670;&#160;</a></span>getSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_COUNT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr size_t <a class="el" href="../../d2/d6c/a04754.html">Lib::BSP::SK6812::Ring</a>&lt; T_COUNT &gt;::getSize </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the length of the compare buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Buffer length, in 32-bit words. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d70/a06344.html#a10">Lib::BSP::SK6812</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a3b42427dd22bff92b102320fdf83a671" name="a3b42427dd22bff92b102320fdf83a671"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b42427dd22bff92b102320fdf83a671">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_COUNT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Ring &amp; <a class="el" href="../../d2/d6c/a04754.html">Lib::BSP::SK6812::Ring</a>&lt; T_COUNT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype">const Ring&lt; T_COUNT &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: the LEDs point into this instance's buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a46361d21fc1fac5baecd1f41fc3fe955" name="a46361d21fc1fac5baecd1f41fc3fe955"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46361d21fc1fac5baecd1f41fc3fe955">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_COUNT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Ring &amp; <a class="el" href="../../d2/d6c/a04754.html">Lib::BSP::SK6812::Ring</a>&lt; T_COUNT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype">Ring&lt; T_COUNT &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: the LEDs point into this instance's buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="abc5ff1e835ae3842b0d596484b2d2399" name="abc5ff1e835ae3842b0d596484b2d2399"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc5ff1e835ae3842b0d596484b2d2399">&#9670;&#160;</a></span>operator[]()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_COUNT&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d64/a04750.html#a713fbeedeb85ff82f1097b206afd7918">SK6812</a> &amp; <a class="el" href="../../d2/d6c/a04754.html">Lib::BSP::SK6812::Ring</a>&lt; T_COUNT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>[] </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the LED at a ring position. </p>
+<p>Verifies the signature of a card UID. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>Position; must be less than <em class="arg">T_COUNT</em>, not checked. </td></tr>
+    <tr><td class="paramname">uid</td><td>UID of the card. </td></tr>
+    <tr><td class="paramname">signature</td><td>Signature read with <em class="arg">READ_SIG</em>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>LED at that position. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if NXP signed this UID. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ab4b0050c0ce808f0dab961e3f78bec97" name="ab4b0050c0ce808f0dab961e3f78bec97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4b0050c0ce808f0dab961e3f78bec97">&#9670;&#160;</a></span>SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::BSP::RFID::NTAG21x::OriginalitySignature::SIZE = 32U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signature length, r || s. </p>
 
 </div>
 </div>
@@ -448,7 +247,7 @@ template&lt;size_t T_COUNT&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/de6/a01063.html">BSP</a></li><li class="navelem"><a href="../../dc/d64/a04750.html">SK6812</a></li><li class="navelem"><a href="../../d2/d6c/a04754.html">Ring</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../da/d73/a01090.html">BSP</a></li><li class="navelem"><a href="../../de/d99/a01101.html">RFID</a></li><li class="navelem"><a href="../../d4/da7/a01102.html">NTAG21x</a></li><li class="navelem"><a href="../../d2/d6c/a04754.html">OriginalitySignature</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

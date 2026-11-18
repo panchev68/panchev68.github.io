@@ -1,4 +1,4 @@
 var a00686 =
 [
-    [ "Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;", "d0/d52/a05583.html", "d0/d52/a05583" ]
+    [ "Lib::HAL::toHalTimeout", "db/d32/a01122.html#a55be7e95dba53e09a7b9b5e29bcc3840", null ]
 ];

@@ -1,9 +1,7 @@
 var a05239 =
 [
-    [ "writeTo", "d5/d5a/a05239.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
-    [ "atCommand", "d5/d5a/a05239.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
-    [ "dstAddr", "d5/d5a/a05239.html#a15159440eb1dacb4ae4b49aa36144863", null ],
-    [ "frameId", "d5/d5a/a05239.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
-    [ "parameters", "d5/d5a/a05239.html#a69a8b0f293677febe578417b21dbba6b", null ],
-    [ "remoteCommandOption", "d5/d5a/a05239.html#ae4922577edd7679e2964fb14f35bc919", null ]
+    [ "writeTo", "d5/d5a/a05239.html#a7822cbb27fa7495fd67556a0afaed75f", null ],
+    [ "atCommand", "d5/d5a/a05239.html#ae3e6e306d54297473f78f320425df58b", null ],
+    [ "frameId", "d5/d5a/a05239.html#af2345c092e4bb001e18ac86d718196a4", null ],
+    [ "parameterValue", "d5/d5a/a05239.html#a060767a4f172791aa4d493bf2ba4ac6d", null ]
 ];

@@ -1,6 +1,5 @@
 var a05903 =
 [
-    [ "operator==", "db/d12/a05903.html#a0384dbed539af8588014927e2cc2611e", null ],
-    [ "position", "db/d12/a05903.html#a1e9e29c6bb250746612836ecee4e0f57", null ],
-    [ "value", "db/d12/a05903.html#a036bbd4435de7509f8854ca2adf96d41", null ]
+    [ "DecimalDigits", "db/d12/a05903.html#a7f58f0c943d4e885231b11dbd0697d08", null ],
+    [ "HexDigits", "db/d12/a05903.html#a73d7051255379fed271d86e4b50887f4", null ]
 ];

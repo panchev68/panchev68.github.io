@@ -1,19 +1,14 @@
 var a05607 =
 [
-    [ "ExtInterrupt", "db/de6/a05607.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
-    [ "~ExtInterrupt", "db/de6/a05607.html#a0500efb3e0dbde6f95fd02948060723b", null ],
-    [ "ExtInterrupt", "db/de6/a05607.html#a0896646faa35c4149a6fb3f8360da15b", null ],
-    [ "ExtInterrupt", "db/de6/a05607.html#af65b4789b35500d9539e56a75d90c71c", null ],
-    [ "bindCallback", "db/de6/a05607.html#a716641ce172d66ad1226056de77e00f3", null ],
-    [ "isHigh", "db/de6/a05607.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "db/de6/a05607.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "db/de6/a05607.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "db/de6/a05607.html#a89f184dfbf150b77ab08f3bf7a9078ca", null ],
-    [ "operator=", "db/de6/a05607.html#a29b2dfe4158fc5f27e352ab72f1a11fe", null ],
-    [ "read", "db/de6/a05607.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "unbindCallback", "db/de6/a05607.html#a436fbfef93e09cd205ebb36284da5374", null ],
-    [ "void::HAL_GPIO_EXTI_Callback", "db/de6/a05607.html#a7b34f0451fb5f0d0f5077ea7594eb5bb", null ],
-    [ "void::HAL_GPIO_EXTI_Falling_Callback", "db/de6/a05607.html#a608244a38c1095888d60a17b77ae5ed4", null ],
-    [ "void::HAL_GPIO_EXTI_Rising_Callback", "db/de6/a05607.html#aa8068c433729122f23f40e6bfa77659f", null ],
-    [ "handle", "db/de6/a05607.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "FlashInterface", "db/de6/a05607.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
+    [ "~FlashInterface", "db/de6/a05607.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
+    [ "FlashInterface", "db/de6/a05607.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
+    [ "FlashInterface", "db/de6/a05607.html#a1c805cbd8158ca094182032c42fa8a68", null ],
+    [ "eraseSector", "db/de6/a05607.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
+    [ "lock", "db/de6/a05607.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
+    [ "operator=", "db/de6/a05607.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
+    [ "operator=", "db/de6/a05607.html#a2e5471c04f3069860252fdf10e53270a", null ],
+    [ "unlock", "db/de6/a05607.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
+    [ "writeBuffer", "db/de6/a05607.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
+    [ "writeWord", "db/de6/a05607.html#ad771befb1be3db0d319c46507a7896ca", null ]
 ];

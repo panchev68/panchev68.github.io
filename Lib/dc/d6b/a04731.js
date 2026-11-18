@@ -1,27 +1,14 @@
 var a04731 =
 [
-    [ "Config", "d9/d06/a04735.html", "d9/d06/a04735" ],
-    [ "Diagnostics", "d5/d13/a04739.html", "d5/d13/a04739" ],
-    [ "CardActivatedCallback", "dc/d6b/a04731.html#aaa9dd3ae634e7a69d4f917e7bd454305", null ],
-    [ "ReadBuffer", "dc/d6b/a04731.html#a5f65acf300f17deb99c963ab374432b3", null ],
-    [ "Reader", "dc/d6b/a04731.html#a6701c6a8809d64b58d6f2572a5d5e3db", null ],
-    [ "SignatureBuffer", "dc/d6b/a04731.html#afea6f0e2a71e2700aba290c8c12dcbcc", null ],
-    [ "State", "dc/d6b/a04731.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9c", [
-      [ "IDLE", "dc/d6b/a04731.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5daf7f2ebbba4975d61dab1c40188c7", null ],
-      [ "POLL_REQA", "dc/d6b/a04731.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca85c5b813825733ffaddba38ff01013d9", null ],
-      [ "POLL_ANTICOL", "dc/d6b/a04731.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9cad5dc3be53612bd06503c0bbfad204df3", null ],
-      [ "POLL_SELECT", "dc/d6b/a04731.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4", null ],
-      [ "CARD_ACTIVATED", "dc/d6b/a04731.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11", null ]
-    ] ],
-    [ "NfcManager", "dc/d6b/a04731.html#a4e43b591f0d6680b5fdacd85a2858caf", null ],
-    [ "~NfcManager", "dc/d6b/a04731.html#a99dc2c6cf10e46e8158d7e15504f0cc5", null ],
-    [ "getDiagnostics", "dc/d6b/a04731.html#a0fc17fc5e17c79eac24ad7d9d6fb72ab", null ],
-    [ "getState", "dc/d6b/a04731.html#a3b2d0421ba5761b21a2c806ae6480bbf", null ],
-    [ "getWakeupADCRange", "dc/d6b/a04731.html#a2c7d71eee5f6187585aba0f69b39c3f6", null ],
-    [ "readPages", "dc/d6b/a04731.html#a4c81d15f935d8e1c2dd13d993975f940", null ],
-    [ "readSignature", "dc/d6b/a04731.html#abdbd4ef43ac6798f86fb0f05d695d011", null ],
-    [ "resetWakeupADCRange", "dc/d6b/a04731.html#aca5c8406388ff9e1c1f7808fd7c5b4c4", null ],
-    [ "start", "dc/d6b/a04731.html#a347e0188a1c8207e8d11268d607aa763", null ],
-    [ "stop", "dc/d6b/a04731.html#ae7bf77d346d29fc8a4da4226fc32e640", null ],
-    [ "writePage", "dc/d6b/a04731.html#aa61c13d6b4df75e3243f862a1e8af3d5", null ]
+    [ "Mifare", "dc/d6b/a04731.html#a32c5c26548db5a62c135d462408f7eb8", null ],
+    [ "~Mifare", "dc/d6b/a04731.html#ab9292dbd07d2f2f0a579729beadce81a", null ],
+    [ "adjustValue", "dc/d6b/a04731.html#ae63c40816081c83b32237540fa351d20", null ],
+    [ "authenticate", "dc/d6b/a04731.html#a646ed2b83f740acca2902cf2bd94584a", null ],
+    [ "decrement", "dc/d6b/a04731.html#ad4aef0d4dd5dd87530916fd4e7899410", null ],
+    [ "formatValueBlock", "dc/d6b/a04731.html#ae321e9f7437818d3481f77afa3da63ec", null ],
+    [ "increment", "dc/d6b/a04731.html#a419ae2e457e93dfb3ad77a301758f796", null ],
+    [ "readBlock", "dc/d6b/a04731.html#ac2dfd03cabc019b9f3bf484f8affa113", null ],
+    [ "restore", "dc/d6b/a04731.html#a7dee5ed9db810229e38b0299ec1ed31a", null ],
+    [ "transfer", "dc/d6b/a04731.html#a7eac216ac4049cd65471896003a0d925", null ],
+    [ "writeBlock", "dc/d6b/a04731.html#a602509a99b488ae6354b4c75e9335610", null ]
 ];

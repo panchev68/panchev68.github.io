@@ -1,13 +1,6 @@
 var a05163 =
 [
-    [ "Config", "df/daa/a05167.html", "df/daa/a05167" ],
-    [ "ComDriver", "d7/d05/a05163.html#ababf68659e9af31a588761f3b7019ee4", null ],
-    [ "ComDriver", "d7/d05/a05163.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
-    [ "~ComDriver", "d7/d05/a05163.html#ac84fd480c15423c989d3f9f367f99045", null ],
-    [ "init", "d7/d05/a05163.html#a43649d6474cd7c536e4e76c7a3374725", null ],
-    [ "operator=", "d7/d05/a05163.html#a39956162d031d237c8741f20d1de0b4d", null ],
-    [ "reset", "d7/d05/a05163.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
-    [ "send", "d7/d05/a05163.html#adb3898389cd892854bac73d239b647fc", null ],
-    [ "diagnostic", "d7/d05/a05163.html#a567a1a6ed97de4267cfec4531f60a373", null ],
-    [ "xrst", "d7/d05/a05163.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
+    [ "Checksum", "d7/d05/a05163.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
+    [ "Checksum", "d7/d05/a05163.html#a804971de0300d66401e3f2ed94f306dc", null ],
+    [ "operator uint8_t", "d7/d05/a05163.html#add4f353a37e719b8e2439c490fa552b8", null ]
 ];

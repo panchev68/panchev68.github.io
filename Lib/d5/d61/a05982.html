@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Math::HammingCode</title>
+<title>IAR EWARM Library: Lib::Helper::SwapBytes</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -118,42 +131,33 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d61/a05982.
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d6/d0c/a05979.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Math::HammingCode</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::SwapBytes<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Hamming(21,16) error-correcting code implementation. </p>
-<p>Encodes 16-bit data into a 21-bit codeword with 5 parity bits and decodes codewords back to data, correcting any single-bit error. Codeword positions are numbered from 1: the parity bits sit at the power-of-two positions 1, 2, 4, 8 and 16, the data bits fill the other positions in order, and the parity bit at position 2^k covers every position whose number has bit k set. All operations are constexpr, so they can also build lookup tables at compile time.</p>
+<div class="textblock"><p>Helpers for byte-order manipulation. </p>
+<p>Provides constexpr byte swapping for integral types, reading swapped values from unaligned memory and in-place buffer reversal.</p>
+<p><b>std::byteswap</b> is C++23 and is not shipped by this libc++ (a probe with the project flags fails with Pe135). IAR does not recognise the shift-and-mask idiom as a single instruction, so at run time the swap is done with the Cortex-M <em class="arg">REV</em> and <em class="arg">REV16</em> intrinsics, and in a constant expression with the portable shift-and-mask form.</p>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Math/HammingCode.hpp" target="_blank">Source</a> </dd>
-<dd>
-<a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Math/doc/HammingCode.md" target="_blank">Detail Description</a> </dd></dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Helper/SwapBytes.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad9d4101cb404a5c8eaff5d9592047d0a" id="r_ad9d4101cb404a5c8eaff5d9592047d0a"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ad9d4101cb404a5c8eaff5d9592047d0a">encode</a> (uint16_t value) noexcept</td></tr>
-<tr class="memdesc:ad9d4101cb404a5c8eaff5d9592047d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a 16-bit value into a Hamming(21,16) codeword.  <br /></td></tr>
-<tr class="memitem:a4191c3eb813016d80f65ff66f6f13b80" id="r_a4191c3eb813016d80f65ff66f6f13b80"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a4191c3eb813016d80f65ff66f6f13b80">decode</a> (uint32_t value) noexcept</td></tr>
-<tr class="memdesc:a4191c3eb813016d80f65ff66f6f13b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes and corrects a Hamming(21,16) codeword.  <br /></td></tr>
-<tr class="memitem:a840a90d96caceeafec7fb6ebaf51b8e1" id="r_a840a90d96caceeafec7fb6ebaf51b8e1"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a840a90d96caceeafec7fb6ebaf51b8e1">syndrome</a> (uint32_t value) noexcept</td></tr>
-<tr class="memdesc:a840a90d96caceeafec7fb6ebaf51b8e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the error syndrome of a codeword.  <br /></td></tr>
-<tr class="memitem:a913e4f9bbfd5bbfe99493a28c8124527" id="r_a913e4f9bbfd5bbfe99493a28c8124527"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a913e4f9bbfd5bbfe99493a28c8124527">canCorrect</a> (uint32_t syndrome) noexcept</td></tr>
-<tr class="memdesc:a913e4f9bbfd5bbfe99493a28c8124527"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a syndrome value indicates a correctable error position.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a7815b3007ea3f4155c630ee1c6f10c37" id="r_a7815b3007ea3f4155c630ee1c6f10c37"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a7815b3007ea3f4155c630ee1c6f10c37">CODE_BITS</a> = 21U</td></tr>
-<tr class="memdesc:a7815b3007ea3f4155c630ee1c6f10c37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total number of bits in a codeword.  <br /></td></tr>
-<tr class="memitem:a647d37385b963452363628f518227d3b" id="r_a647d37385b963452363628f518227d3b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a647d37385b963452363628f518227d3b">DATA_BITS</a> = 16U</td></tr>
-<tr class="memdesc:a647d37385b963452363628f518227d3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of payload bits carried by a codeword.  <br /></td></tr>
-<tr class="memitem:aab153ec6e8d90ef5dc6aa49d2ef8d0ad" id="r_aab153ec6e8d90ef5dc6aa49d2ef8d0ad"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aab153ec6e8d90ef5dc6aa49d2ef8d0ad">PARITY_BITS</a> = 5U</td></tr>
-<tr class="memdesc:aab153ec6e8d90ef5dc6aa49d2ef8d0ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of parity bits appended to the payload.  <br /></td></tr>
+<tr class="memitem:a1c867a7097efa978b004b658ce29a0bf" id="r_a1c867a7097efa978b004b658ce29a0bf"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; <br />
+requires (sizeof(T) == 1U || sizeof(T) == 2U || sizeof(T) == 4U || sizeof(T) == 8U)</td></tr>
+<tr class="memitem:a1c867a7097efa978b004b658ce29a0bf template"><td class="memItemLeft">static constexpr T&#160;</td><td class="memItemRight"><a class="el" href="#a1c867a7097efa978b004b658ce29a0bf">swap</a> (T value) noexcept</td></tr>
+<tr class="memdesc:a1c867a7097efa978b004b658ce29a0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swaps the byte order of an integral value of 1, 2, 4 or 8 bytes; a 1-byte value is returned unchanged.  <br /></td></tr>
+<tr class="memitem:af22202c759aed77ce9d844024595d1a2" id="r_af22202c759aed77ce9d844024595d1a2"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; <br />
+requires (sizeof(T) == 1U || sizeof(T) == 2U || sizeof(T) == 4U || sizeof(T) == 8U)</td></tr>
+<tr class="memitem:af22202c759aed77ce9d844024595d1a2 template"><td class="memItemLeft">static T&#160;</td><td class="memItemRight"><a class="el" href="#af22202c759aed77ce9d844024595d1a2">fromPointer</a> (const void *source) noexcept</td></tr>
+<tr class="memdesc:af22202c759aed77ce9d844024595d1a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads an integral value from a possibly unaligned pointer and returns its byte-swapped representation.  <br /></td></tr>
+<tr class="memitem:a18a51cae29bca7273e983bb2ab96310a" id="r_a18a51cae29bca7273e983bb2ab96310a"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a18a51cae29bca7273e983bb2ab96310a">buffer</a> (void *data, size_t size) noexcept</td></tr>
+<tr class="memdesc:a18a51cae29bca7273e983bb2ab96310a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverses the bytes of a buffer in place.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a913e4f9bbfd5bbfe99493a28c8124527" name="a913e4f9bbfd5bbfe99493a28c8124527"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a913e4f9bbfd5bbfe99493a28c8124527">&#9670;&#160;</a></span>canCorrect()</h2>
+<a id="a18a51cae29bca7273e983bb2ab96310a" name="a18a51cae29bca7273e983bb2ab96310a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18a51cae29bca7273e983bb2ab96310a">&#9670;&#160;</a></span>buffer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -162,9 +166,94 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool Lib::Math::HammingCode::canCorrect </td>
+          <td class="memname">void Lib::Helper::SwapBytes::buffer </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>syndrome</em></span></td><td>)</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reverses the bytes of a buffer in place. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Pointer to the buffer to reverse; if null, the function returns immediately. </td></tr>
+    <tr><td class="paramname">size</td><td>Size of the buffer in bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af22202c759aed77ce9d844024595d1a2" name="af22202c759aed77ce9d844024595d1a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af22202c759aed77ce9d844024595d1a2">&#9670;&#160;</a></span>fromPointer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::integral T&gt; <br />
+requires (sizeof(T) == 1U || sizeof(T) == 2U || sizeof(T) == 4U || sizeof(T) == 8U)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T Lib::Helper::SwapBytes::fromPointer </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads an integral value from a possibly unaligned pointer and returns its byte-swapped representation. </p>
+<p>The bytes are copied with std::memcpy() into a byte array that is then reinterpreted with std::bit_cast(), which is well defined for unaligned or packed data.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Integral type to read and swap. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>Pointer to source memory containing the value; must not be null. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Swapped value read from <em class="arg">source</em>, or <b>0</b> when <em class="arg">source</em> is null. </dd></dl>
+
+</div>
+</div>
+<a id="a1c867a7097efa978b004b658ce29a0bf" name="a1c867a7097efa978b004b658ce29a0bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c867a7097efa978b004b658ce29a0bf">&#9670;&#160;</a></span>swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::integral T&gt; <br />
+requires (sizeof(T) == 1U || sizeof(T) == 2U || sizeof(T) == 4U || sizeof(T) == 8U)</div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr T Lib::Helper::SwapBytes::swap </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -175,201 +264,20 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks whether a syndrome value indicates a correctable error position. </p>
-<p>A syndrome of 0 indicates no error; a non-zero syndrome in the range [1, <a class="el" href="#a7815b3007ea3f4155c630ee1c6f10c37" title="CODE_BITS">CODE_BITS</a>] indicates a correctable single-bit error at that position. Syndromes outside this range are uncorrectable.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">syndrome</td><td>Error syndrome computed from parity checks. </td></tr>
+<p>Swaps the byte order of an integral value of 1, 2, 4 or 8 bytes; a 1-byte value is returned unchanged. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Integral type to swap. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <em class="arg">syndrome</em> is in the correctable range [1, 21], <b>false</b> otherwise. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d30/a06434.html#_a4">Lib::Math::HammingCode</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a4191c3eb813016d80f65ff66f6f13b80" name="a4191c3eb813016d80f65ff66f6f13b80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4191c3eb813016d80f65ff66f6f13b80">&#9670;&#160;</a></span>decode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint16_t Lib::Math::HammingCode::decode </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Decodes and corrects a Hamming(21,16) codeword. </p>
-<p>Computes the syndrome with syndrome(), which is the position of a single flipped bit, corrects that bit and extracts the original 16 data bits. A codeword with two or more flipped bits is not reliably detected and may decode to wrong data. Call syndrome() and <a class="el" href="#a913e4f9bbfd5bbfe99493a28c8124527" title="canCorrect()">canCorrect()</a> first to learn whether the codeword was clean, corrected or uncorrectable.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>21-bit Hamming codeword, possibly with a single-bit error. </td></tr>
+    <tr><td class="paramname">value</td><td>Value whose byte order will be reversed. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Corrected 16-bit original data. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d30/a06434.html#a2">Lib::Math::HammingCode</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="ad9d4101cb404a5c8eaff5d9592047d0a" name="ad9d4101cb404a5c8eaff5d9592047d0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9d4101cb404a5c8eaff5d9592047d0a">&#9670;&#160;</a></span>encode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint32_t Lib::Math::HammingCode::encode </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Encodes a 16-bit value into a Hamming(21,16) codeword. </p>
-<p>Moves the 16 data bits to the non-parity positions of the codeword, then sets each of the 5 parity bits so that the positions it covers hold an even number of ones.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>16-bit unsigned data to encode. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>21-bit Hamming codeword with error correction capability. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d30/a06434.html#a0">Lib::Math::HammingCode</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a840a90d96caceeafec7fb6ebaf51b8e1" name="a840a90d96caceeafec7fb6ebaf51b8e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a840a90d96caceeafec7fb6ebaf51b8e1">&#9670;&#160;</a></span>syndrome()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr uint32_t Lib::Math::HammingCode::syndrome </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the error syndrome of a codeword. </p>
-<p>The syndrome is 0 for a clean codeword. A value in [1, <a class="el" href="#a7815b3007ea3f4155c630ee1c6f10c37" title="CODE_BITS">CODE_BITS</a>] is the position of the flipped bit when exactly one bit is wrong. A value above <a class="el" href="#a7815b3007ea3f4155c630ee1c6f10c37" title="CODE_BITS">CODE_BITS</a> can only come from a corrupted codeword with two or more flipped bits and is uncorrectable; a double-bit error can also produce a value in the correctable range, which Hamming(21,16) cannot tell apart from a single-bit error.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>21-bit Hamming codeword. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error syndrome, in the range [0, 31]. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d30/a06434.html#a3">Lib::Math::HammingCode</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a7815b3007ea3f4155c630ee1c6f10c37" name="a7815b3007ea3f4155c630ee1c6f10c37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7815b3007ea3f4155c630ee1c6f10c37">&#9670;&#160;</a></span>CODE_BITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::Math::HammingCode::CODE_BITS = 21U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Total number of bits in a codeword. </p>
-
-</div>
-</div>
-<a id="a647d37385b963452363628f518227d3b" name="a647d37385b963452363628f518227d3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a647d37385b963452363628f518227d3b">&#9670;&#160;</a></span>DATA_BITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::Math::HammingCode::DATA_BITS = 16U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Number of payload bits carried by a codeword. </p>
-
-</div>
-</div>
-<a id="aab153ec6e8d90ef5dc6aa49d2ef8d0ad" name="aab153ec6e8d90ef5dc6aa49d2ef8d0ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab153ec6e8d90ef5dc6aa49d2ef8d0ad">&#9670;&#160;</a></span>PARITY_BITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::Math::HammingCode::PARITY_BITS = 5U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Number of parity bits appended to the payload. </p>
+<dl class="section return"><dt>Returns</dt><dd>Value with reversed byte order. </dd></dl>
 
 </div>
 </div>
@@ -380,7 +288,7 @@ Static Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/d99/a01101.html">Math</a></li><li class="navelem"><a href="../../d5/d61/a05982.html">HammingCode</a></li>
+    <li class="navelem"><a href="../../d9/df5/a01086.html">Lib</a></li><li class="navelem"><a href="../../db/d32/a01122.html">Helper</a></li><li class="navelem"><a href="../../d5/d61/a05982.html">SwapBytes</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

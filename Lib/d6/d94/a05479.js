@@ -1,8 +1,11 @@
 var a05479 =
 [
-    [ "isSet", "d6/d94/a05479.html#ae6f8f68f57700d79a72e26081bf75543", null ],
-    [ "bytes", "d6/d94/a05479.html#a6a98e0fa6690c8bcb1e9c5c0482d5867", null ],
-    [ "height", "d6/d94/a05479.html#a42bb71b2b248a369bfc59775e0db8367", null ],
-    [ "layout", "d6/d94/a05479.html#a4e35e0da1f33d02ad712520d84633e72", null ],
-    [ "width", "d6/d94/a05479.html#ac5a0674021000edab1d4e0edd3861507", null ]
+    [ "data", "d6/d94/a05479.html#a4011c0d2a9e1dc425493c3022880d3b3", null ],
+    [ "firstChar", "d6/d94/a05479.html#a9583bcba34a0a8af86b083bec80391bf", null ],
+    [ "height", "d6/d94/a05479.html#afc25dfb115dabb7e9e983163a4c3c229", null ],
+    [ "isPacked", "d6/d94/a05479.html#a722a95c62e5af09cbdae6b531cc268ff", null ],
+    [ "lastChar", "d6/d94/a05479.html#a29666fcf44521b5921f449878e13be02", null ],
+    [ "layout", "d6/d94/a05479.html#a15c5e5f45325eebb346875c15db0d46f", null ],
+    [ "width", "d6/d94/a05479.html#a3319f660c960089ded960cd0fde3492d", null ],
+    [ "widths", "d6/d94/a05479.html#adc2e8e8ec70be4007a6ad049fa3f88d5", null ]
 ];

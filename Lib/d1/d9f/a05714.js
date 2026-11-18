@@ -1,19 +1,13 @@
 var a05714 =
 [
-    [ "CallbackID", "d1/d9f/a05714.html#ab366d4fa77363e661ad71c424eb4faaf", null ],
-    [ "Handle", "d1/d9f/a05714.html#ac948323fb2eef4212aaa06df202dfbdc", null ],
-    [ "LPTimer", "d1/d9f/a05714.html#a6520e9a177a61a7f1a6cecc9b582e5fc", null ],
-    [ "~LPTimer", "d1/d9f/a05714.html#add3250c704445e43eb5798c76d514cd0", null ],
-    [ "LPTimer", "d1/d9f/a05714.html#a694916ba4b3b845dc40a55807a3c010a", null ],
-    [ "LPTimer", "d1/d9f/a05714.html#a0151830764f6149bcd064718e12efa9d", null ],
-    [ "close", "d1/d9f/a05714.html#a6295b01535aa1df83366d83b9426ff7d", null ],
-    [ "getElapsedRtosTicks", "d1/d9f/a05714.html#a4fc71247da21a5d02602615eb66c4256", null ],
-    [ "getHandle", "d1/d9f/a05714.html#add82be5171e6f5f28baaba0aea38a0de", null ],
-    [ "hasExpired", "d1/d9f/a05714.html#abaedcebf007dff3863b7fd1eec8fd303", null ],
-    [ "open", "d1/d9f/a05714.html#a1a9d936e6ff40316674eb1bb6293d5eb", null ],
-    [ "operator=", "d1/d9f/a05714.html#a3ab3ebd892230fa7165da48b1196d7a5", null ],
-    [ "operator=", "d1/d9f/a05714.html#ac4e8a52cdf24942a7b3ca487f0fa2022", null ],
-    [ "startTimeoutInterrupt", "d1/d9f/a05714.html#af87c45b091cb7b10192ce86953eba07a", null ],
-    [ "stopInterrupt", "d1/d9f/a05714.html#a524f65747a660c2243dfe55d318bb083", null ],
-    [ "waitForEvent", "d1/d9f/a05714.html#a8f6329f1b312d263381f3738aacd64b8", null ]
+    [ "State", "d1/d9f/a05714.html#ae9f0fa1c20664b577fc615da59211d91", [
+      [ "UNKNOWN", "d1/d9f/a05714.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "POWER_ON", "d1/d9f/a05714.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
+      [ "BROWNOUT", "d1/d9f/a05714.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
+      [ "PIN", "d1/d9f/a05714.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
+      [ "SOFTWARE", "d1/d9f/a05714.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
+      [ "INDEPENDENT_WATCHDOG", "d1/d9f/a05714.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
+      [ "WINDOW_WATCHDOG", "d1/d9f/a05714.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
+      [ "LOW_POWER", "d1/d9f/a05714.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
+    ] ]
 ];

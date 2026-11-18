@@ -1,8 +1,10 @@
 var a04771 =
 [
-    [ "operator==", "d8/def/a04771.html#ada8e55f2f00e1f0256475c584eb863d5", null ],
-    [ "display4", "d8/def/a04771.html#a190805124006c5599e92dd544db486f4", null ],
-    [ "inPhaseAdc", "d8/def/a04771.html#a4dc0e13ddf52631bc23c4bf09f726650", null ],
-    [ "quadratureAdc", "d8/def/a04771.html#ad47ff67b3f90ab4180e577fa6d842ec9", null ],
-    [ "status", "d8/def/a04771.html#af495ab17ed6e1a39e137c8fd834ac9f3", null ]
+    [ "operator==", "d8/def/a04771.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "d8/def/a04771.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "d8/def/a04771.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "d8/def/a04771.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "d8/def/a04771.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "d8/def/a04771.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "d8/def/a04771.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

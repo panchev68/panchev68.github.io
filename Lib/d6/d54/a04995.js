@@ -1,13 +1,14 @@
 var a04995 =
 [
-    [ "WolfSSHServer", "d6/d54/a04995.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
-    [ "~WolfSSHServer", "d6/d54/a04995.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
-    [ "WolfSSHServer", "d6/d54/a04995.html#ad8f53deb42abb7890bd933f530e30e99", null ],
-    [ "WolfSSHServer", "d6/d54/a04995.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
-    [ "accept", "d6/d54/a04995.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
-    [ "operator=", "d6/d54/a04995.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
-    [ "operator=", "d6/d54/a04995.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
-    [ "read", "d6/d54/a04995.html#ac07508d68f41b64e463fdd58db57558b", null ],
-    [ "send", "d6/d54/a04995.html#a034957692d48053e848ee6d77605fe2f", null ],
-    [ "shutdown", "d6/d54/a04995.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
+    [ "PasswordAuthHandler", "d6/d54/a04995.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
+    [ "WolfSSHServerContext", "d6/d54/a04995.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
+    [ "~WolfSSHServerContext", "d6/d54/a04995.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
+    [ "WolfSSHServerContext", "d6/d54/a04995.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
+    [ "WolfSSHServerContext", "d6/d54/a04995.html#a41d71d3b7597c69631a274d39e0fa345", null ],
+    [ "native", "d6/d54/a04995.html#a188293485b26e63785504b3f63d346fe", null ],
+    [ "operator=", "d6/d54/a04995.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
+    [ "operator=", "d6/d54/a04995.html#ac889915b8b230867843bb316a9bad1fc", null ],
+    [ "setBanner", "d6/d54/a04995.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
+    [ "setPasswordAuthHandler", "d6/d54/a04995.html#a72301d8027efc740d10b7d0d660c198f", null ],
+    [ "usePrivateKey", "d6/d54/a04995.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
 ];

@@ -1,9 +1,12 @@
 var a05883 =
 [
-    [ "CityHash", "df/df8/a05883.html#a15e433a2ca8afc2454c0b9ee95e7fea7", null ],
-    [ "CityHash", "df/df8/a05883.html#a15b35a0b560f8789aa9ee2094ab202c0", null ],
-    [ "CityHash", "df/df8/a05883.html#a74cd5ecd399d3ab6143d6ce1d372250c", null ],
-    [ "operator uint32_t", "df/df8/a05883.html#a59dabbcd8725156de559846906b1d2d2", null ],
-    [ "operator=", "df/df8/a05883.html#a9686208520746297f398d6e4c46879ec", null ],
-    [ "operator=", "df/df8/a05883.html#a92c9de43df76b5194aa1da56c05e07fd", null ]
+    [ "BitSet", "df/df8/a05883.html#a16d91d28edc897acf8833de8df82699f", null ],
+    [ "BitSet", "df/df8/a05883.html#addc6ad14e596e534eb7fd2a018719985", null ],
+    [ "getBit", "df/df8/a05883.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
+    [ "getValue", "df/df8/a05883.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
+    [ "operator uint32_t", "df/df8/a05883.html#ab085297affb7e2df90201d7e6cdd1172", null ],
+    [ "operator=", "df/df8/a05883.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
+    [ "operator[]", "df/df8/a05883.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
+    [ "setBit", "df/df8/a05883.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
+    [ "setValue", "df/df8/a05883.html#a2505d1f74074939a87d45d3343d8bea3", null ]
 ];

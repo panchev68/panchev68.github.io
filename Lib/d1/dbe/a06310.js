@@ -1,17 +1,9 @@
 var a06310 =
 [
-    [ "Status", "d1/dbe/a06310.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "d1/dbe/a06310.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "d1/dbe/a06310.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "d1/dbe/a06310.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "d1/dbe/a06310.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
-    ] ],
-    [ "Value64Handle", "d1/dbe/a06310.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "d1/dbe/a06310.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "d1/dbe/a06310.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "d1/dbe/a06310.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "d1/dbe/a06310.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "d1/dbe/a06310.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "d1/dbe/a06310.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "d1/dbe/a06310.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "VersionString", "d1/dbe/a06310.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
+    [ "Base", "d1/dbe/a06310.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
+    [ "getSubVersion", "d1/dbe/a06310.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
+    [ "operator uint32_t", "d1/dbe/a06310.html#a463ebb1b62a72aab04d6b128c567109a", null ],
+    [ "operator VersionString", "d1/dbe/a06310.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
+    [ "subVersion", "d1/dbe/a06310.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
 ];

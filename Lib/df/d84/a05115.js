@@ -1,13 +1,8 @@
 var a05115 =
 [
-    [ "Config", "d3/d91/a05119.html", "d3/d91/a05119" ],
-    [ "Params", "df/d84/a05115.html#aa0a4f2bbe579882088ad1235acfe6fd9", null ],
-    [ "PairService", "df/d84/a05115.html#a5a54bddc9780ee25cf4d3807f36e1f12", null ],
-    [ "PairService", "df/d84/a05115.html#a469a4f643d4fa5a75c530cb6d7ec49d5", null ],
-    [ "close", "df/d84/a05115.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "isRunning", "df/d84/a05115.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "df/d84/a05115.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "df/d84/a05115.html#a115a3537a0189cfcd83c231d716c0bb5", null ],
-    [ "process", "df/d84/a05115.html#a0747f885e5a9feba10647c760353f395", null ],
-    [ "update", "df/d84/a05115.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "Node", "df/d84/a05115.html#ae77243ef5154f0127b188cb07ee7b730", null ],
+    [ "Node", "df/d84/a05115.html#ade2b76a4bad3907d0779b98753dbe88b", null ],
+    [ "macAddress", "df/d84/a05115.html#ab4f01a998762165160e1c5f287e33b36", null ],
+    [ "nodeAddr16", "df/d84/a05115.html#a047c25d839ad49f40c973b610050fa18", null ],
+    [ "nodeIdentifier", "df/d84/a05115.html#a66f046134b60cff03864ca23d0ff54fa", null ]
 ];

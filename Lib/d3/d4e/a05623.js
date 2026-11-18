@@ -1,14 +1,9 @@
 var a05623 =
 [
-    [ "Input", "d3/d4e/a05623.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
-    [ "~Input", "d3/d4e/a05623.html#a95f707a268014333f78d7378dd579ea4", null ],
-    [ "Input", "d3/d4e/a05623.html#aba23478206e067c578a2081a0ba4d1ee", null ],
-    [ "Input", "d3/d4e/a05623.html#a01d95887913602ed10325b5b07f8cef5", null ],
-    [ "isHigh", "d3/d4e/a05623.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d3/d4e/a05623.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d3/d4e/a05623.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "d3/d4e/a05623.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
-    [ "operator=", "d3/d4e/a05623.html#aac4da8195bb51d393df961046635bfc0", null ],
-    [ "read", "d3/d4e/a05623.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "handle", "d3/d4e/a05623.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "Handle", "d3/d4e/a05623.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
+    [ "Handle", "d3/d4e/a05623.html#a2ff88e41407c02b9858a201f579b32a1", null ],
+    [ "getPinNumber", "d3/d4e/a05623.html#a8d29716bb6bcc278e753e55560639c17", null ],
+    [ "getPort", "d3/d4e/a05623.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
+    [ "getPort", "d3/d4e/a05623.html#a717fa8fdec63c64bef95cffab50ed478", null ],
+    [ "operator==", "d3/d4e/a05623.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
 ];

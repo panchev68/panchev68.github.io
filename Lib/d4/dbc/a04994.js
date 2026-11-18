@@ -1,36 +1,10 @@
 var a04994 =
 [
-    [ "Config", "d4/dbc/a04994.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
-    [ "DeliveryStatus", "d4/dbc/a04994.html#a576edf4b8ae391861cbaa752fb59d0ca", null ],
-    [ "State", "d4/dbc/a04994.html#a71f91e486ebbe685b8ef04a85df9816e", [
-      [ "NO_INIT", "d4/dbc/a04994.html#a71f91e486ebbe685b8ef04a85df9816ea72144f138e8a9f73854d58b59deca26d", null ],
-      [ "INIT", "d4/dbc/a04994.html#a71f91e486ebbe685b8ef04a85df9816eafaee4ca3c30ee18148ce3ada37466498", null ],
-      [ "RUNNING", "d4/dbc/a04994.html#a71f91e486ebbe685b8ef04a85df9816ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "PAUSE", "d4/dbc/a04994.html#a71f91e486ebbe685b8ef04a85df9816ea291554596c183e837f0a6bec3767c891", null ],
-      [ "ERROR", "d4/dbc/a04994.html#a71f91e486ebbe685b8ef04a85df9816eabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "ApplicationBase", "d4/dbc/a04994.html#ae7a5214333e9d8618cb245a8cc7ddcbb", null ],
-    [ "~ApplicationBase", "d4/dbc/a04994.html#aa45585216830206a91e6af0fc0536c72", null ],
-    [ "ApplicationBase", "d4/dbc/a04994.html#adda1596cd3f9a312e1026143e9c791a0", null ],
-    [ "ApplicationBase", "d4/dbc/a04994.html#a8b1df5d741e2d4c0918922d625639335", null ],
-    [ "cancelDeliveryStatus", "d4/dbc/a04994.html#a78fdfc652fb70b0f86d4526c707d817a", null ],
-    [ "derived", "d4/dbc/a04994.html#aa3265db7f30e4f55497da0f9e658c34b", null ],
-    [ "getModuleInstance", "d4/dbc/a04994.html#af8063d3ad104519c1331b65494eea01b", null ],
-    [ "getModulePresent", "d4/dbc/a04994.html#abefa9599b01a774884c7f5f1a8578084", null ],
-    [ "getState", "d4/dbc/a04994.html#a569078f4b1701fb0579efd9d8e10655d", null ],
-    [ "operator=", "d4/dbc/a04994.html#a3c7bb9925052a655291300fa07677acc", null ],
-    [ "operator=", "d4/dbc/a04994.html#a1fbc27f730a25077183c6615b0da2393", null ],
-    [ "pause", "d4/dbc/a04994.html#a069f63d8ece09ad92a97696e558290b3", null ],
-    [ "receiveDeliveryStatus", "d4/dbc/a04994.html#ae4ad19477c169ee00f27854975375c36", null ],
-    [ "receiveMessage", "d4/dbc/a04994.html#ac66ab1f5a250cf97db618a39536baefa", null ],
-    [ "resume", "d4/dbc/a04994.html#abbf1050f972e12e9f892cbb50f712298", null ],
-    [ "sendData", "d4/dbc/a04994.html#a6aaebab36c38a48068097817eea1f5d0", null ],
-    [ "start", "d4/dbc/a04994.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
-    [ "channelScanner", "d4/dbc/a04994.html#abcae86ac3f99158551b91f88f0c88de7", null ],
-    [ "connection", "d4/dbc/a04994.html#a6cc363b4c00520c96b5d228aab8301b8", null ],
-    [ "diagnostic", "d4/dbc/a04994.html#a6d0f2ae6cd2c2076945ec0be3c66436c", null ],
-    [ "modemStatus", "d4/dbc/a04994.html#a3aed113d4e636bcad17894b64f1e5734", null ],
-    [ "networkDiscovery", "d4/dbc/a04994.html#a1936fa3a20798013fd230a5b9ae5a651", null ],
-    [ "parameters", "d4/dbc/a04994.html#a3a40ec0220eb721e07f56c02a206f485", null ],
-    [ "spectrumAnalyzer", "d4/dbc/a04994.html#a94172a0bb6588a8bad00411e1e6ce038", null ]
+    [ "WolfSSH", "d4/dbc/a04994.html#acda587d771e0b88270bdf9263d156fd0", null ],
+    [ "~WolfSSH", "d4/dbc/a04994.html#ad07d509cc2a825d9165ab30739d84515", null ],
+    [ "WolfSSH", "d4/dbc/a04994.html#ab03771dcd75546ec452cb768b0a29da5", null ],
+    [ "WolfSSH", "d4/dbc/a04994.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
+    [ "isOpen", "d4/dbc/a04994.html#aac3ff36b57e422860d83792bb84c84f3", null ],
+    [ "operator=", "d4/dbc/a04994.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
+    [ "operator=", "d4/dbc/a04994.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
 ];

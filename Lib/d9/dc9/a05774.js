@@ -1,12 +1,17 @@
 var a05774 =
 [
-    [ "Sunset", "d9/dc9/a05774.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "d9/dc9/a05774.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
-    [ "calculateSunTime", "d9/dc9/a05774.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
-    [ "computeHourAngle", "d9/dc9/a05774.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
-    [ "setCurrentDate", "d9/dc9/a05774.html#a0598ea08f953291be6bd331b39254b2a", null ],
-    [ "setCurrentDate", "d9/dc9/a05774.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "d9/dc9/a05774.html#afbc858a5944c47609616f459b657339b", null ],
-    [ "sunrise", "d9/dc9/a05774.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
-    [ "sunset", "d9/dc9/a05774.html#a3bea9bb96761c55203633434195d87c4", null ]
+    [ "Manager", "d9/dc9/a05774.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d9/dc9/a05774.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimInputCapture", "d9/dc9/a05774.html#abfe70b316d617c0b779207aebafd9fb9", null ],
+    [ "~TimInputCapture", "d9/dc9/a05774.html#a3b3c0bd5c909651c9a4de95e888d86da", null ],
+    [ "bindWorker", "d9/dc9/a05774.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getCapture", "d9/dc9/a05774.html#ac7f8fd84985b45a4db579b480aaf5251", null ],
+    [ "getHandle", "d9/dc9/a05774.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "d9/dc9/a05774.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "start", "d9/dc9/a05774.html#add28b2f0b32350281b1f47c4e4e25e84", null ],
+    [ "stop", "d9/dc9/a05774.html#a6d1e0aa45356b048a97c7390802d142a", null ],
+    [ "waitCapture", "d9/dc9/a05774.html#a1fc8b61efbe101b5e3e019e16d73f707", null ],
+    [ "waitCapture", "d9/dc9/a05774.html#a2732cd4549f6b1ca08da0cbcb462f404", null ],
+    [ "waitEvent", "d9/dc9/a05774.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "void::HAL_TIM_IC_CaptureCallback", "d9/dc9/a05774.html#a4e452b46ec2394148f37767c37e5b374", null ]
 ];

@@ -1,5 +1,6 @@
 var a08625 =
 [
-    [ "Lib::Canbus::Service&lt; Mode::CLIENT &gt;", "d1/d89/a04875.html", "d1/d89/a04875" ],
-    [ "Lib::Canbus::ClientBase", "de/d99/a01101.html#a6a342d3a95a10dc45d846c70f8fd7fb9", null ]
+    [ "Lib::BSP::W25Q128JVSIQ", "d4/de8/a04646.html", "d4/de8/a04646" ],
+    [ "Lib::BSP::W25Q128JVSIQ::Register", "db/de2/a04650.html", "db/de2/a04650" ],
+    [ "Lib::BSP::W25Q128JVSIQ::Info", "d2/d33/a04654.html", "d2/d33/a04654" ]
 ];

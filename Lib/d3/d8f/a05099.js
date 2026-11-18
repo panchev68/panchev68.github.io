@@ -1,20 +1,20 @@
 var a05099 =
 [
-    [ "Channel", "d8/d5e/a05103.html", "d8/d5e/a05103" ],
-    [ "ChannelArray", "d3/d8f/a05099.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
-    [ "QualityMode", "d3/d8f/a05099.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
-    [ "Error", "d3/d8f/a05099.html#acb54f9ec6751a18eda393e2c5bd0675c", [
-      [ "NONE", "d3/d8f/a05099.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "MODULE_IS_NOT_CONNECTED", "d3/d8f/a05099.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
-      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d3/d8f/a05099.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
-    ] ],
-    [ "ChannelScanner", "d3/d8f/a05099.html#a4e65a2b73399e5ba18d5090993f64487", null ],
-    [ "ChannelScanner", "d3/d8f/a05099.html#a1b11f5df668c4629836c71101e686990", null ],
-    [ "close", "d3/d8f/a05099.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "getChannels", "d3/d8f/a05099.html#a124a962ad28c0688ab38329f7a7b034e", null ],
-    [ "isRunning", "d3/d8f/a05099.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d3/d8f/a05099.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "d3/d8f/a05099.html#aed5af8462cac9a996e73489e369434d3", null ],
-    [ "update", "d3/d8f/a05099.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
-    [ "onError", "d3/d8f/a05099.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
+    [ "Config", "d3/d8f/a05099.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
+    [ "State", "d3/d8f/a05099.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
+    [ "ServerBase", "d3/d8f/a05099.html#a024c8654b0689cd8af2775cba7efc9ca", null ],
+    [ "~ServerBase", "d3/d8f/a05099.html#a7f9293f66a2b9cd19fb019f38e743049", null ],
+    [ "getModuleInstance", "d3/d8f/a05099.html#af8063d3ad104519c1331b65494eea01b", null ],
+    [ "getModulePresent", "d3/d8f/a05099.html#abefa9599b01a774884c7f5f1a8578084", null ],
+    [ "getState", "d3/d8f/a05099.html#a569078f4b1701fb0579efd9d8e10655d", null ],
+    [ "pause", "d3/d8f/a05099.html#a069f63d8ece09ad92a97696e558290b3", null ],
+    [ "resume", "d3/d8f/a05099.html#abbf1050f972e12e9f892cbb50f712298", null ],
+    [ "start", "d3/d8f/a05099.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
+    [ "channelScanner", "d3/d8f/a05099.html#abcae86ac3f99158551b91f88f0c88de7", null ],
+    [ "connection", "d3/d8f/a05099.html#a6cc363b4c00520c96b5d228aab8301b8", null ],
+    [ "diagnostic", "d3/d8f/a05099.html#a6d0f2ae6cd2c2076945ec0be3c66436c", null ],
+    [ "modemStatus", "d3/d8f/a05099.html#a3aed113d4e636bcad17894b64f1e5734", null ],
+    [ "networkDiscovery", "d3/d8f/a05099.html#a1936fa3a20798013fd230a5b9ae5a651", null ],
+    [ "parameters", "d3/d8f/a05099.html#a3a40ec0220eb721e07f56c02a206f485", null ],
+    [ "spectrumAnalyzer", "d3/d8f/a05099.html#a94172a0bb6588a8bad00411e1e6ce038", null ]
 ];

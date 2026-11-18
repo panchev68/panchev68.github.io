@@ -1,4 +1,5 @@
 var a08574 =
 [
-    [ "Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;", "d5/da0/a05575.html", "d5/da0/a05575" ]
+    [ "Lib::BSP::DeviceManager", "dc/da0/a04446.html", "dc/da0/a04446" ],
+    [ "Lib::BSP::DeviceManager::DeviceBase", "d8/d1f/a04450.html", "d8/d1f/a04450" ]
 ];

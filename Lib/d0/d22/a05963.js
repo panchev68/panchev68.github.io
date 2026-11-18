@@ -1,31 +1,22 @@
 var a05963 =
 [
-    [ "TransferMode", "d0/d22/a05963.html#aa23cc1803af6341d29a2fd130530914c", [
-      [ "PARTIAL", "d0/d22/a05963.html#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19", null ],
-      [ "ALL", "d0/d22/a05963.html#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d", null ]
+    [ "Date", "d0/d22/a05963.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
+    [ "Phase", "d0/d22/a05963.html#a5567988b4297dec26d3237506884f6a5", [
+      [ "NEW_MOON", "d0/d22/a05963.html#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446", null ],
+      [ "WAXING_CRESCENT", "d0/d22/a05963.html#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd", null ],
+      [ "FIRST_QUARTER", "d0/d22/a05963.html#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404", null ],
+      [ "WAXING_GIBBOUS", "d0/d22/a05963.html#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651", null ],
+      [ "FULL_MOON", "d0/d22/a05963.html#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1", null ],
+      [ "WANING_GIBBOUS", "d0/d22/a05963.html#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6", null ],
+      [ "LAST_QUARTER", "d0/d22/a05963.html#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18", null ],
+      [ "WANING_CRESCENT", "d0/d22/a05963.html#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39", null ]
     ] ],
-    [ "RingBuffer", "d0/d22/a05963.html#a90e56f1bb6c70b02947f83ebf3123417", null ],
-    [ "RingBuffer", "d0/d22/a05963.html#ad1cdbedc5516901d8c9139809a3fbef7", null ],
-    [ "RingBuffer", "d0/d22/a05963.html#a1d9fb75c4c8143ec1b6fe200253b8197", null ],
-    [ "advance", "d0/d22/a05963.html#a18fc2b9e414d300e7fba07ffb189c7e2", null ],
-    [ "available", "d0/d22/a05963.html#a8ab973e4fda57588b6a238c8d7537b60", null ],
-    [ "clear", "d0/d22/a05963.html#aecba3227be66614ad5db50f238e8970f", null ],
-    [ "find", "d0/d22/a05963.html#a487f0704a4c18ab43bc1ca7b17207604", null ],
-    [ "front", "d0/d22/a05963.html#a6b6348d736c026af7bfe86e8f178c5dd", null ],
-    [ "front", "d0/d22/a05963.html#abee3c56eacd254c643cb51f9cd4a7839", null ],
-    [ "getLinearReadBlock", "d0/d22/a05963.html#ad539c026bf02e5545168b2182f0a89f3", null ],
-    [ "getLinearWriteBlock", "d0/d22/a05963.html#a7c67da9354083f337c51e4e0c60c3938", null ],
-    [ "isEmpty", "d0/d22/a05963.html#ae898513d6e4fff77f261633e9d739da7", null ],
-    [ "isFull", "d0/d22/a05963.html#acbbdeea50582b8f5ecdae7259746e571", null ],
-    [ "moveFrom", "d0/d22/a05963.html#ae57e9627fe4a5aba889a59c0a7d0ecdc", null ],
-    [ "operator=", "d0/d22/a05963.html#ab2ab8845bd1a8a943917d668efa8ff90", null ],
-    [ "operator=", "d0/d22/a05963.html#a005ffd7b8657f70cb1ed18f0c1488e8e", null ],
-    [ "overwrite", "d0/d22/a05963.html#ab0835299e7ff3714143b1196743a174f", null ],
-    [ "peek", "d0/d22/a05963.html#ac8f19fd1bbb63ee4460be1de5658cdf3", null ],
-    [ "pop", "d0/d22/a05963.html#a8355cafc3456b4a8c5f5122ea38ca0d8", null ],
-    [ "push", "d0/d22/a05963.html#a15a0e34223bfa6bb69410c75ff946f0c", null ],
-    [ "push", "d0/d22/a05963.html#a99986517429df0512c8d2ecb01411fc0", null ],
-    [ "read", "d0/d22/a05963.html#a03a48e3cd8a1b0b70db7a640e62a3bd7", null ],
-    [ "skip", "d0/d22/a05963.html#a5c9a29852441fa6ed23a28ce0ec0c8db", null ],
-    [ "write", "d0/d22/a05963.html#a4eb0599938edcdc26882c4a3b9ba7d98", null ]
+    [ "MoonPhase", "d0/d22/a05963.html#ac58c9ddf6d8f37e3f317e4f702ac00a5", null ],
+    [ "MoonPhase", "d0/d22/a05963.html#acd603bf923907f139f3479a3fe0c6723", null ],
+    [ "calculate", "d0/d22/a05963.html#a47ac4868563998363835de249a5814a9", null ],
+    [ "index", "d0/d22/a05963.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
+    [ "name", "d0/d22/a05963.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
+    [ "operator std::string_view", "d0/d22/a05963.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
+    [ "operator uint32_t", "d0/d22/a05963.html#a64022e97a09da5fcaa242d39634aafbf", null ],
+    [ "phase", "d0/d22/a05963.html#a6ddb8be8e68814a16313e0824662b5c9", null ]
 ];

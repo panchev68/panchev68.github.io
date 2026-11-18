@@ -1,27 +1,25 @@
 var a04650 =
 [
-    [ "Mode", "db/de2/a04650.html#a1daedc54cbed94813a3f5a28788f02ee", [
-      [ "READ", "db/de2/a04650.html#a1daedc54cbed94813a3f5a28788f02eea3466fab4975481651940ed328aa990e4", null ],
-      [ "WRITE", "db/de2/a04650.html#a1daedc54cbed94813a3f5a28788f02eead4b9e47f65b6e79b010582f15785867e", null ],
-      [ "APPEND", "db/de2/a04650.html#a1daedc54cbed94813a3f5a28788f02eea375ffb668aa90f1c7fcae55e9734a752", null ]
-    ] ],
-    [ "Origin", "db/de2/a04650.html#a24d9949178c04dbff8a51a46404f5274", [
-      [ "BEGIN", "db/de2/a04650.html#a24d9949178c04dbff8a51a46404f5274a19aad9f2fe3ce0023298ab83f7e75775", null ],
-      [ "CURRENT", "db/de2/a04650.html#a24d9949178c04dbff8a51a46404f5274aa2770969c827f0f2910f6179418462df", null ],
-      [ "END", "db/de2/a04650.html#a24d9949178c04dbff8a51a46404f5274ab1a326c06d88bf042f73d70f50197905", null ]
-    ] ],
-    [ "File", "db/de2/a04650.html#a82552ae5d2d082b01cc048b6d5f28504", null ],
-    [ "~File", "db/de2/a04650.html#a8d5bf6c606ffd1d8d17f5d6bba29157a", null ],
-    [ "File", "db/de2/a04650.html#a25edad5fbc94c04a5121f75434361dfe", null ],
-    [ "File", "db/de2/a04650.html#ab85d612b0acb279719a29f07ec991d48", null ],
-    [ "close", "db/de2/a04650.html#a7c0a91066586518abbef60479f08ec66", null ],
-    [ "isOpen", "db/de2/a04650.html#a90b350290b06d5ee2cf1d7b325804454", null ],
-    [ "open", "db/de2/a04650.html#a96670932bba49251bcc459dac43017a1", null ],
-    [ "operator=", "db/de2/a04650.html#a095369cd880af04d889d44d6edb4ffe4", null ],
-    [ "operator=", "db/de2/a04650.html#adff8a97f3267437e7baa45a767cf3a3c", null ],
-    [ "read", "db/de2/a04650.html#ab53db1c5f8ccb661295ce0203e34d7ec", null ],
-    [ "seek", "db/de2/a04650.html#a66b6ed3c3e1e592174dc4ff92dfe8cd5", null ],
-    [ "size", "db/de2/a04650.html#ae432dc9450887014c08de3cc35287be2", null ],
-    [ "tell", "db/de2/a04650.html#aca9142e54a9033aeac167cdd5a56cd8b", null ],
-    [ "write", "db/de2/a04650.html#ad841aa788c7ebf36c0d12b1ded803d60", null ]
+    [ "Register", "d2/d33/a04654.html", "d2/d33/a04654" ],
+    [ "Info", "d0/d70/a04658.html", "d0/d70/a04658" ],
+    [ "Config", "db/de2/a04650.html#a91b48bf59f61c3580e5ead3149d91443", null ],
+    [ "W25Q128JVSIQ", "db/de2/a04650.html#af1b755c474085a41e554dcb38ad9056a", null ],
+    [ "~W25Q128JVSIQ", "db/de2/a04650.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
+    [ "close", "db/de2/a04650.html#a949717933a1c298041adcf500a7d8f9d", null ],
+    [ "eraseChip", "db/de2/a04650.html#a32148377b4274abf28db1beb3d12ea11", null ],
+    [ "eraseChipImpl", "db/de2/a04650.html#a9cfe72e525626e2236219608c53725d8", null ],
+    [ "eraseSector", "db/de2/a04650.html#a23c3062b24d15e58237ddb109c474b74", null ],
+    [ "eraseSectorImpl", "db/de2/a04650.html#ac379792562904225e5deb12f3820112b", null ],
+    [ "getInfo", "db/de2/a04650.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
+    [ "getStatus", "db/de2/a04650.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
+    [ "isPresent", "db/de2/a04650.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
+    [ "open", "db/de2/a04650.html#a419e720a0a366e322b172d234eccd202", null ],
+    [ "read", "db/de2/a04650.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
+    [ "readImpl", "db/de2/a04650.html#ac37211819c0d5e4f3072dae655065868", null ],
+    [ "write", "db/de2/a04650.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
+    [ "writeImpl", "db/de2/a04650.html#a00a39954e6187f8b4b393ed390f97239", null ],
+    [ "info", "db/de2/a04650.html#aca8a7487175e31060363fe99270e69a3", null ],
+    [ "nss", "db/de2/a04650.html#a6cad70d123e273b88f244598cc93a22b", null ],
+    [ "spiPort", "db/de2/a04650.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
+    [ "status", "db/de2/a04650.html#af95471bb260264403e3df2dc07b80419", null ]
 ];

@@ -1,10 +1,8 @@
 var a00374 =
 [
-    [ "Lib::Digi::API::Connection", "d9/d75/a04934.html", "d9/d75/a04934" ],
-    [ "Lib::Digi::API::Connection::State", "d4/d47/a04938.html", "d4/d47/a04938" ],
-    [ "Lib::Digi::API::Connection::Quality", "da/d88/a04942.html", "da/d88/a04942" ],
-    [ "Lib::Digi::API::Connection::Info", "d5/d41/a04946.html", "d5/d41/a04946" ],
-    [ "Lib::Digi::API::Connection::Info::Counter", "df/d1b/a04950.html", "df/d1b/a04950" ],
-    [ "Lib::Digi::API::Connection::Info::Period", "d2/d68/a04954.html", "d2/d68/a04954" ],
-    [ "Lib::Digi::API::Connection::Info::SignalStrength", "d1/dd4/a04958.html", "d1/dd4/a04958" ]
+    [ "Lib::BSP::Voltmeter&lt; T_DERIVED &gt;", "d5/d8e/a04874.html", "d5/d8e/a04874" ],
+    [ "Lib::BSP::Voltmeter&lt; T_DERIVED &gt;::Config", "dd/d60/a04878.html", "dd/d60/a04878" ],
+    [ "Lib::BSP::AdcPort", "da/d73/a01090.html#a85b379ca2a4d7d2956ae5317961081ba", null ],
+    [ "Lib::BSP::Integrator", "da/d73/a01090.html#a345fa3420ca34ddf02b2c56c8705554b", null ],
+    [ "Lib::BSP::Interpolator", "da/d73/a01090.html#a2cacda540ff04115fe891c00364a43a6", null ]
 ];

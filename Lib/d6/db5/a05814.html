@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::HAL::USBHostPortAsync&lt; T_DERIVED &gt;</title>
+<title>IAR EWARM Library: Lib::HAL::UARTPortAsync&lt; T_DERIVED &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -118,113 +131,67 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/db5/a05814.
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
 <a href="../../da/d30/a05811.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::HAL::USBHostPortAsync&lt; T_DERIVED &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::UARTPortAsync&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
-class Lib::HAL::USBHostPortAsync&lt; T_DERIVED &gt;</div><p>CRTP foundation for the interrupt-driven USB host modes. </p>
-<p>Owns the start-then-wait channel transfers, HAL callback registration and the event handler hook; the RTOS event group and the <a class="el" href="../../d9/d8d/a06364.html" title="Lib::HAL::DeviceManager">Lib::HAL::DeviceManager</a> wiring come from <a class="el" href="../../dd/d66/a05534.html" title="Lib::HAL::AsyncPortCore">Lib::HAL::AsyncPortCore</a>. A mode specialization only supplies the HAL call that starts a transfer (<em class="arg">startTransfer()</em>), as in <a class="el" href="../../d2/d90/a05770.html" title="Lib::HAL::UARTPortAsync">Lib::HAL::UARTPortAsync</a>. The last URB state of every channel is kept, so <a class="el" href="#a3bcff372802df7955ce5761f4e32e420" title="Lib::HAL::USBHostPortAsync::transfer()">Lib::HAL::USBHostPortAsync::transfer()</a> can tell a completed transfer from NAK, STALL and an error. Every HAL callback, and therefore the event handler, runs in interrupt context.</p>
+class Lib::HAL::UARTPortAsync&lt; T_DERIVED &gt;</div><p>CRTP foundation for the interrupt-driven UART modes. </p>
+<p>Owns the logic both modes would otherwise duplicate: the start-then-wait transfer sequence, <a class="el" href="#ac0f3ec8c2a5d8ad83c45e752232f2005" title="abort()">abort()</a> and the HAL callbacks. The open/close sequence comes from <a class="el" href="../../d4/de2/a05578.html" title="AsyncPortCore">AsyncPortCore</a>. A mode specialization only supplies the two HAL calls that start a transfer (<em class="arg">startTransmit()</em> and <em class="arg">startReceive()</em>). Transmit and receive use separate event bits, so one task may send while another receives on the same port.</p>
+<p>Transfers, <a class="el" href="#ac0f3ec8c2a5d8ad83c45e752232f2005" title="abort()">abort()</a> and the lifecycle calls are task context only; the HAL callbacks that complete a transfer run in interrupt context and only set event bits.</p>
+<dl class="section important"><dt>Important</dt><dd>Requires <em class="arg">USE_HAL_UART_REGISTER_CALLBACKS</em> set to 1 in the HAL configuration; the header fails to compile otherwise.</dd></dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing 'startTransfer(uint8_t, USBDirection, USBEndpointType, bool,
-std::span&lt;uint8_t&gt;)', returning <em class="arg">true</em> once the HAL accepted the transfer.</td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing <em class="arg">startTransmit()</em> taking a std::span of const bytes and <em class="arg">startReceive()</em> taking a std::span of bytes, both returning <em class="arg">true</em> once the HAL accepted the transfer.</td></tr>
   </table>
   </dd>
 </dl>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/USB/USBHostPortAsync.hpp" target="_blank">Source</a> </dd>
-<dd>
-<a href="https://github.com/panchev68-Library/IAR/blob/3.08/.doxygen/HAL/md/USB.md" target="_blank">Detail Description</a> </dd></dl>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/HAL/UART/UARTPortAsync.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a031aa9b48caa98516825b7f35468b627" id="r_a031aa9b48caa98516825b7f35468b627"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a031aa9b48caa98516825b7f35468b627">setEventHandler</a> (<a class="el" href="#a10761412c20341dee385767eac673248">EventHandler</a> newHandler, void *newContext) noexcept</td></tr>
-<tr class="memdesc:a031aa9b48caa98516825b7f35468b627"><td class="mdescLeft">&#160;</td><td class="mdescRight">Installs the handler that receives every event in interrupt context.  <br /></td></tr>
-<tr class="memitem:a3f0b1b6f781d9750119863a0ef5c1332" id="r_a3f0b1b6f781d9750119863a0ef5c1332"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a3f0b1b6f781d9750119863a0ef5c1332 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3f0b1b6f781d9750119863a0ef5c1332">waitForEvent</a> (<a class="el" href="../../de/d6d/a01095.html#a53f17b15be5eab9c94b2c21a10f050fd">USBHostEvent</a> event, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a3f0b1b6f781d9750119863a0ef5c1332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for a bus event.  <br /></td></tr>
-<tr class="memitem:a3bcff372802df7955ce5761f4e32e420" id="r_a3bcff372802df7955ce5761f4e32e420"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a3bcff372802df7955ce5761f4e32e420 template"><td class="memItemLeft"><a class="el" href="../../de/d6d/a01095.html#a62152c846403f6b93d0f2e9ff14adafe">USBHostTransferResult</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3bcff372802df7955ce5761f4e32e420">transfer</a> (uint8_t channel, <a class="el" href="../../de/d6d/a01095.html#a0feace7a2249d65bd2313f48bf07ba0b">USBDirection</a> direction, <a class="el" href="../../de/d6d/a01095.html#ae1783f3c88baf78f222c313659cf4a98">USBEndpointType</a> type, bool isSetup, std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a3bcff372802df7955ce5761f4e32e420"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs one transfer on a channel and waits for its end.  <br /></td></tr>
-<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dd/d66/a05534.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
-<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order.  <br /></td></tr>
-<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dd/d66/a05534.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
+<tr class="memitem:aa6f2b7746c93553e8ba0a2fda3c494bc" id="r_aa6f2b7746c93553e8ba0a2fda3c494bc"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:aa6f2b7746c93553e8ba0a2fda3c494bc template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa6f2b7746c93553e8ba0a2fda3c494bc">send</a> (std::span&lt; const uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:aa6f2b7746c93553e8ba0a2fda3c494bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits a buffer and waits for completion.  <br /></td></tr>
+<tr class="memitem:a3c10830f8d93936773f64d95201bc7da" id="r_a3c10830f8d93936773f64d95201bc7da"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a3c10830f8d93936773f64d95201bc7da template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3c10830f8d93936773f64d95201bc7da">receive</a> (std::span&lt; uint8_t &gt; data, <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a3c10830f8d93936773f64d95201bc7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives exactly the size of the buffer in bytes and waits for completion.  <br /></td></tr>
+<tr class="memitem:ac0f3ec8c2a5d8ad83c45e752232f2005" id="r_ac0f3ec8c2a5d8ad83c45e752232f2005"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac0f3ec8c2a5d8ad83c45e752232f2005">abort</a> () noexcept</td></tr>
+<tr class="memdesc:ac0f3ec8c2a5d8ad83c45e752232f2005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts any ongoing transmission and reception immediately.  <br /></td></tr>
+<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/de2/a05578.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order.  <br /></td></tr>
+<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/de2/a05578.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
 <tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
-<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dd/d66/a05534.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
+<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/de2/a05578.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
 <tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
-<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">HCD_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../dc/df9/a05542.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d20/a05586.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
 <tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const HCD_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../dc/df9/a05542.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
+<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d20/a05586.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
 <tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
-<tr class="memitem:ae2eed5f70766aca444ca11eb3ab9d1ad" id="r_ae2eed5f70766aca444ca11eb3ab9d1ad"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d6f/a05826.html#ae2eed5f70766aca444ca11eb3ab9d1ad">start</a> () noexcept</td></tr>
-<tr class="memdesc:ae2eed5f70766aca444ca11eb3ab9d1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the controller interrupts and powers the port, so a device can be attached.  <br /></td></tr>
-<tr class="memitem:abb99db8a0c5b9c1c35ae04c3fcc63818" id="r_abb99db8a0c5b9c1c35ae04c3fcc63818"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d6f/a05826.html#abb99db8a0c5b9c1c35ae04c3fcc63818">stop</a> () noexcept</td></tr>
-<tr class="memdesc:abb99db8a0c5b9c1c35ae04c3fcc63818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the controller interrupts and the port.  <br /></td></tr>
-<tr class="memitem:a4be20887571f3bd3694a79bb349979f8" id="r_a4be20887571f3bd3694a79bb349979f8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d6f/a05826.html#a4be20887571f3bd3694a79bb349979f8">resetPort</a> () noexcept</td></tr>
-<tr class="memdesc:a4be20887571f3bd3694a79bb349979f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drives a bus reset on the port, as the first step after a device is attached.  <br /></td></tr>
-<tr class="memitem:aa013c6f71e1233cd4ef77f9d22d951f1" id="r_aa013c6f71e1233cd4ef77f9d22d951f1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d6f/a05826.html#aa013c6f71e1233cd4ef77f9d22d951f1">openChannel</a> (uint8_t channel, uint8_t endpointNumber, uint8_t deviceAddress, <a class="el" href="../../de/d6d/a01095.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a> speed, <a class="el" href="../../de/d6d/a01095.html#ae1783f3c88baf78f222c313659cf4a98">USBEndpointType</a> type, uint16_t maxPacketSize) noexcept</td></tr>
-<tr class="memdesc:aa013c6f71e1233cd4ef77f9d22d951f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a host channel for one endpoint of the attached device.  <br /></td></tr>
-<tr class="memitem:a8f20ce05eb27e7ffc1854d4318e1cd9f" id="r_a8f20ce05eb27e7ffc1854d4318e1cd9f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d6f/a05826.html#a8f20ce05eb27e7ffc1854d4318e1cd9f">closeChannel</a> (uint8_t channel) noexcept</td></tr>
-<tr class="memdesc:a8f20ce05eb27e7ffc1854d4318e1cd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Halts a host channel, so its transfer stops and the channel can be reused.  <br /></td></tr>
-<tr class="memitem:aeafad19d337548bb5ef919dd44723b5f" id="r_aeafad19d337548bb5ef919dd44723b5f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d6f/a05826.html#aeafad19d337548bb5ef919dd44723b5f">getTransferCount</a> (uint8_t channel) const noexcept</td></tr>
-<tr class="memdesc:aeafad19d337548bb5ef919dd44723b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bytes a channel transferred in its last transfer.  <br /></td></tr>
-<tr class="memitem:a606a97ab7752495ff5b4874b04c54cc5" id="r_a606a97ab7752495ff5b4874b04c54cc5"><td class="memItemLeft"><a class="el" href="../../de/d6d/a01095.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a>&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d6f/a05826.html#a606a97ab7752495ff5b4874b04c54cc5">getSpeed</a> () noexcept</td></tr>
-<tr class="memdesc:a606a97ab7752495ff5b4874b04c54cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the speed of the attached device, as detected at the last bus reset.  <br /></td></tr>
-<tr class="memitem:aa5a82053bf356261f139d027918f7a98" id="r_aa5a82053bf356261f139d027918f7a98"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="../../d7/d6f/a05826.html#aa5a82053bf356261f139d027918f7a98">getFrame</a> () noexcept</td></tr>
-<tr class="memdesc:aa5a82053bf356261f139d027918f7a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current frame number, for scheduling.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a1408a15ce86dc735091663f5aae98d4b" id="r_a1408a15ce86dc735091663f5aae98d4b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a1408a15ce86dc735091663f5aae98d4b">MAX_CHANNELS</a> = 16U</td></tr>
-<tr class="memdesc:a1408a15ce86dc735091663f5aae98d4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Channels that can be waited on (the event group has 24 bits).  <br /></td></tr>
+<tr class="memitem:aa69f87ceff32286dc0ce857ef84e314c" id="r_aa69f87ceff32286dc0ce857ef84e314c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../da/d1d/a05822.html#aa69f87ceff32286dc0ce857ef84e314c">setBaudRate</a> (uint32_t baudRate) noexcept</td></tr>
+<tr class="memdesc:aa69f87ceff32286dc0ce857ef84e314c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconfigures the baud rate at runtime.  <br /></td></tr>
+<tr class="memitem:ad81fdaf9c82d0a48e796139d2d6241ea" id="r_ad81fdaf9c82d0a48e796139d2d6241ea"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../da/d1d/a05822.html#ad81fdaf9c82d0a48e796139d2d6241ea">isBusy</a> () const noexcept</td></tr>
+<tr class="memdesc:ad81fdaf9c82d0a48e796139d2d6241ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates whether a transfer is in flight in either direction.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a0eb76333730406f2b4eb1c25a840e786" id="r_a0eb76333730406f2b4eb1c25a840e786"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a> (HCD_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:a0eb76333730406f2b4eb1c25a840e786"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle.  <br /></td></tr>
+<tr class="memitem:ae3dfd1d49bf2eb3ae572e5482852a106" id="r_ae3dfd1d49bf2eb3ae572e5482852a106"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *handle) noexcept</td></tr>
+<tr class="memdesc:ae3dfd1d49bf2eb3ae572e5482852a106"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle; the port starts closed.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../dd/d66/a05534.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (HCD_HandleTypeDef *handle) noexcept</td></tr>
+<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/de2/a05578.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *handle) noexcept</td></tr>
 <tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a HAL handle.  <br /></td></tr>
-<tr class="memitem:ac1e436d02537a9e4b651277ba21762f9" id="r_ac1e436d02537a9e4b651277ba21762f9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="../../dd/d66/a05534.html#ac1e436d02537a9e4b651277ba21762f9">signalFromISR</a> (HCD_HandleTypeDef *handle, uint32_t bits) noexcept</td></tr>
-<tr class="memdesc:ac1e436d02537a9e4b651277ba21762f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits on the port owning a HAL handle; called from interrupt context.  <br /></td></tr>
+<tr class="memitem:af06d4ec7b0ee7c9bf66b862ec812eb28" id="r_af06d4ec7b0ee7c9bf66b862ec812eb28"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="../../da/d1d/a05822.html#af06d4ec7b0ee7c9bf66b862ec812eb28">isValidTransferSize</a> (size_t size) noexcept</td></tr>
+<tr class="memdesc:af06d4ec7b0ee7c9bf66b862ec812eb28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a transfer buffer is non-empty and fits the 16-bit length every HAL UART call takes.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a10761412c20341dee385767eac673248" name="a10761412c20341dee385767eac673248"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10761412c20341dee385767eac673248">&#9670;&#160;</a></span>EventHandler</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d6/db5/a05814.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::EventHandler = void (*)(void * context, <a class="el" href="../../de/d6d/a01095.html#a53f17b15be5eab9c94b2c21a10f050fd">USBHostEvent</a> event, uint8_t channel) noexcept</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Handler called in interrupt context for every bus and channel event. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">context</td><td>Pointer given to <a class="el" href="#a031aa9b48caa98516825b7f35468b627" title="Lib::HAL::USBHostPortAsync::setEventHandler()">Lib::HAL::USBHostPortAsync::setEventHandler()</a>. </td></tr>
-    <tr><td class="paramname">event</td><td>The event. </td></tr>
-    <tr><td class="paramname">channel</td><td>Channel number for <a class="el" href="../../de/d6d/a01095.html#a53f17b15be5eab9c94b2c21a10f050fda8fd93f85d871681d2952ca6d872c14d0" title="Lib::HAL::USBHostEvent::CHANNEL_DONE">Lib::HAL::USBHostEvent::CHANNEL_DONE</a>, <em class="arg">0</em> otherwise. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0eb76333730406f2b4eb1c25a840e786" name="a0eb76333730406f2b4eb1c25a840e786"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0eb76333730406f2b4eb1c25a840e786">&#9670;&#160;</a></span>USBHostPortAsync()</h2>
+<a id="ae3dfd1d49bf2eb3ae572e5482852a106" name="ae3dfd1d49bf2eb3ae572e5482852a106"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3dfd1d49bf2eb3ae572e5482852a106">&#9670;&#160;</a></span>UARTPortAsync()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,9 +202,9 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/db5/a05814.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::USBHostPortAsync </td>
+          <td class="memname"><a class="el" href="../../d6/db5/a05814.html">Lib::HAL::UARTPortAsync</a>&lt; T_DERIVED &gt;::UARTPortAsync </td>
           <td>(</td>
-          <td class="paramtype">HCD_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -248,7 +215,7 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the port to its native handle. </p>
+<p>Binds the port to its native handle; the port starts closed. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
@@ -259,6 +226,37 @@ template&lt;typename T_DERIVED&gt; </div>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ac0f3ec8c2a5d8ad83c45e752232f2005" name="ac0f3ec8c2a5d8ad83c45e752232f2005"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f3ec8c2a5d8ad83c45e752232f2005">&#9670;&#160;</a></span>abort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/db5/a05814.html">Lib::HAL::UARTPortAsync</a>&lt; T_DERIVED &gt;::abort </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Aborts any ongoing transmission and reception immediately. </p>
+<p>Wakes a task blocked in <a class="el" href="#aa6f2b7746c93553e8ba0a2fda3c494bc" title="send()">send()</a> or <a class="el" href="#a3c10830f8d93936773f64d95201bc7da" title="receive()">receive()</a>, which then reports failure. Task context only. Asserts if called from an ISR or on a closed port.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the hardware stopped processing safely, <b>false</b> otherwise or if the port is closed. </dd></dl>
+
+</div>
+</div>
 <a id="a03c62c024b148a264f9a6a0077198302" name="a03c62c024b148a264f9a6a0077198302"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a03c62c024b148a264f9a6a0077198302">&#9670;&#160;</a></span>close()</h2>
 
@@ -269,7 +267,7 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../dd/d66/a05534.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, HCD_HandleTypeDef, <a class="el" href="../../d7/d6f/a05826.html">USBHostPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a>&lt; T_DERIVED &gt; &gt;::close </td>
+          <td class="memname">bool <a class="el" href="../../d4/de2/a05578.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a>, <a class="el" href="../../da/d1d/a05822.html">UARTPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a>&lt; T_DERIVED &gt; &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -288,42 +286,6 @@ template&lt;typename T_DERIVED&gt; </div>
 
 </div>
 </div>
-<a id="a8f20ce05eb27e7ffc1854d4318e1cd9f" name="a8f20ce05eb27e7ffc1854d4318e1cd9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f20ce05eb27e7ffc1854d4318e1cd9f">&#9670;&#160;</a></span>closeChannel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d7/d6f/a05826.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::closeChannel </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Halts a host channel, so its transfer stops and the channel can be reused. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">channel</td><td>Channel number. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the halt, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
 <a id="a66f47e9670feddc6fb679436b07a1680" name="a66f47e9670feddc6fb679436b07a1680"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a66f47e9670feddc6fb679436b07a1680">&#9670;&#160;</a></span>findPort()</h2>
 
@@ -334,9 +296,9 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T_DERIVED * <a class="el" href="../../dd/d66/a05534.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, HCD_HandleTypeDef, <a class="el" href="../../d7/d6f/a05826.html">USBHostPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a>&lt; T_DERIVED &gt; &gt;::findPort </td>
+          <td class="memname">T_DERIVED * <a class="el" href="../../d4/de2/a05578.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a>, <a class="el" href="../../da/d1d/a05822.html">UARTPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a>&lt; T_DERIVED &gt; &gt;::findPort </td>
           <td>(</td>
-          <td class="paramtype">HCD_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -358,36 +320,6 @@ template&lt;typename T_DERIVED&gt; </div>
 
 </div>
 </div>
-<a id="aa5a82053bf356261f139d027918f7a98" name="aa5a82053bf356261f139d027918f7a98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5a82053bf356261f139d027918f7a98">&#9670;&#160;</a></span>getFrame()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t <a class="el" href="../../d7/d6f/a05826.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::getFrame </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the current frame number, for scheduling. </p>
-<dl class="section return"><dt>Returns</dt><dd>Frame number. </dd></dl>
-
-</div>
-</div>
 <a id="af92f93241be20a3c9a32286ed19dc4cf" name="af92f93241be20a3c9a32286ed19dc4cf"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af92f93241be20a3c9a32286ed19dc4cf">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
 
@@ -398,7 +330,7 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const HCD_HandleTypeDef * <a class="el" href="../../dc/df9/a05542.html">Lib::HAL::Device</a>&lt; T_DERIVED, HCD_HandleTypeDef &gt;::getHandle </td>
+          <td class="memname">const <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> * <a class="el" href="../../d4/d20/a05586.html">Lib::HAL::Device</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -426,7 +358,7 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">HCD_HandleTypeDef * <a class="el" href="../../dc/df9/a05542.html">Lib::HAL::Device</a>&lt; T_DERIVED, HCD_HandleTypeDef &gt;::getHandle </td>
+          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> * <a class="el" href="../../d4/d20/a05586.html">Lib::HAL::Device</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a> &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -444,8 +376,8 @@ template&lt;typename T_DERIVED&gt; </div>
 
 </div>
 </div>
-<a id="a606a97ab7752495ff5b4874b04c54cc5" name="a606a97ab7752495ff5b4874b04c54cc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a606a97ab7752495ff5b4874b04c54cc5">&#9670;&#160;</a></span>getSpeed()</h2>
+<a id="ad81fdaf9c82d0a48e796139d2d6241ea" name="ad81fdaf9c82d0a48e796139d2d6241ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad81fdaf9c82d0a48e796139d2d6241ea">&#9670;&#160;</a></span>isBusy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -456,39 +388,9 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d6d/a01095.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a> <a class="el" href="../../d7/d6f/a05826.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::getSpeed </td>
+          <td class="memname">bool <a class="el" href="../../da/d1d/a05822.html">Lib::HAL::UARTPortBase</a>&lt; T_DERIVED &gt;::isBusy </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the speed of the attached device, as detected at the last bus reset. </p>
-<dl class="section return"><dt>Returns</dt><dd>Speed of the port as an <a class="el" href="../../de/d6d/a01095.html#a8cde9e5e92df1421df294fcb1a50b4e7" title="Lib::HAL::USBSpeed">Lib::HAL::USBSpeed</a> value. </dd></dl>
-
-</div>
-</div>
-<a id="aeafad19d337548bb5ef919dd44723b5f" name="aeafad19d337548bb5ef919dd44723b5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeafad19d337548bb5ef919dd44723b5f">&#9670;&#160;</a></span>getTransferCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../d7/d6f/a05826.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::getTransferCount </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -499,14 +401,8 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of bytes a channel transferred in its last transfer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">channel</td><td>Channel number. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Transferred byte count. </dd></dl>
+<p>Evaluates whether a transfer is in flight in either direction. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the peripheral is transmitting, receiving, or both, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -520,7 +416,7 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../dd/d66/a05534.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, HCD_HandleTypeDef, <a class="el" href="../../d7/d6f/a05826.html">USBHostPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a>&lt; T_DERIVED &gt; &gt;::isOpened </td>
+          <td class="memname">bool <a class="el" href="../../d4/de2/a05578.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a>, <a class="el" href="../../da/d1d/a05822.html">UARTPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a>&lt; T_DERIVED &gt; &gt;::isOpened </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -534,7 +430,43 @@ template&lt;typename T_DERIVED&gt; </div>
 </div><div class="memdoc">
 
 <p>Checks whether the port is open. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="../../dd/d66/a05534.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../dd/d66/a05534.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="../../d4/de2/a05578.html#a3822bc9b87b9e299982b230e2c029f35" title="open()">open()</a> and <a class="el" href="../../d4/de2/a05578.html#a03c62c024b148a264f9a6a0077198302" title="close()">close()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="af06d4ec7b0ee7c9bf66b862ec812eb28" name="af06d4ec7b0ee7c9bf66b862ec812eb28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af06d4ec7b0ee7c9bf66b862ec812eb28">&#9670;&#160;</a></span>isValidTransferSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool <a class="el" href="../../da/d1d/a05822.html">Lib::HAL::UARTPortBase</a>&lt; T_DERIVED &gt;::isValidTransferSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks that a transfer buffer is non-empty and fits the 16-bit length every HAL UART call takes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Buffer size in bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the size is usable, <b>false</b> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -548,7 +480,7 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../dd/d66/a05534.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, HCD_HandleTypeDef, <a class="el" href="../../d7/d6f/a05826.html">USBHostPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a>&lt; T_DERIVED &gt; &gt;::open </td>
+          <td class="memname">bool <a class="el" href="../../d4/de2/a05578.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, <a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d02/a01149.html#ga5de4a49eb132735325e706f406c69d6e">UART_HandleTypeDef</a>, <a class="el" href="../../da/d1d/a05822.html">UARTPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a>&lt; T_DERIVED &gt; &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -561,249 +493,14 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Opens the port: event group, peripheral, <a class="el" href="../../df/de9/a05538.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order. </p>
+<p>Opens the port: event group, peripheral, <a class="el" href="../../df/da8/a05582.html" title="DeviceManager">DeviceManager</a> slot and HAL callbacks, in that order. </p>
 <p>Task context only; asserts when called from an interrupt and on an unbound handle. A failure undoes the earlier steps, so the port stays closed.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if every step succeeded, or if the port was already open. </dd></dl>
 
 </div>
 </div>
-<a id="aa013c6f71e1233cd4ef77f9d22d951f1" name="aa013c6f71e1233cd4ef77f9d22d951f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa013c6f71e1233cd4ef77f9d22d951f1">&#9670;&#160;</a></span>openChannel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d7/d6f/a05826.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::openChannel </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>endpointNumber</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>deviceAddress</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../de/d6d/a01095.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a></td>          <td class="paramname"><span class="paramname"><em>speed</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../de/d6d/a01095.html#ae1783f3c88baf78f222c313659cf4a98">USBEndpointType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>maxPacketSize</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initializes a host channel for one endpoint of the attached device. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">channel</td><td>Channel number, below the number the controller has. </td></tr>
-    <tr><td class="paramname">endpointNumber</td><td>Endpoint number of the device (without the direction bit). </td></tr>
-    <tr><td class="paramname">deviceAddress</td><td>Address of the device on the bus (0 before SET_ADDRESS). </td></tr>
-    <tr><td class="paramname">speed</td><td>Bus speed of the device. </td></tr>
-    <tr><td class="paramname">type</td><td>Transfer type of the endpoint. </td></tr>
-    <tr><td class="paramname">maxPacketSize</td><td>Maximum packet size of the endpoint, in bytes. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the channel, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a4be20887571f3bd3694a79bb349979f8" name="a4be20887571f3bd3694a79bb349979f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4be20887571f3bd3694a79bb349979f8">&#9670;&#160;</a></span>resetPort()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d7/d6f/a05826.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::resetPort </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Drives a bus reset on the port, as the first step after a device is attached. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the reset, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a031aa9b48caa98516825b7f35468b627" name="a031aa9b48caa98516825b7f35468b627"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a031aa9b48caa98516825b7f35468b627">&#9670;&#160;</a></span>setEventHandler()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d6/db5/a05814.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::setEventHandler </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a10761412c20341dee385767eac673248">EventHandler</a></td>          <td class="paramname"><span class="paramname"><em>newHandler</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>newContext</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Installs the handler that receives every event in interrupt context. </p>
-<p>Call it before starting the port with <a class="el" href="../../d7/d6f/a05826.html#ae2eed5f70766aca444ca11eb3ab9d1ad" title="Lib::HAL::USBHostPortBase::start()">Lib::HAL::USBHostPortBase::start()</a>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">newHandler</td><td>Function to call, or <em class="arg">nullptr</em> to remove it. </td></tr>
-    <tr><td class="paramname">newContext</td><td>Pointer passed back to the handler as its first argument. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ac1e436d02537a9e4b651277ba21762f9" name="ac1e436d02537a9e4b651277ba21762f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1e436d02537a9e4b651277ba21762f9">&#9670;&#160;</a></span>signalFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../dd/d66/a05534.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, HCD_HandleTypeDef, <a class="el" href="../../d7/d6f/a05826.html">USBHostPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a0eb76333730406f2b4eb1c25a840e786">USBHostPortAsync</a>&lt; T_DERIVED &gt; &gt;::signalFromISR </td>
-          <td>(</td>
-          <td class="paramtype">HCD_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>bits</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets event bits on the port owning a HAL handle; called from interrupt context. </p>
-<p>Does nothing when no open port uses the handle.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>HAL handle reported by the interrupt module. </td></tr>
-    <tr><td class="paramname">bits</td><td>Event bits to set. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="ae2eed5f70766aca444ca11eb3ab9d1ad" name="ae2eed5f70766aca444ca11eb3ab9d1ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae2eed5f70766aca444ca11eb3ab9d1ad">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d7/d6f/a05826.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Enables the controller interrupts and powers the port, so a device can be attached. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the start, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="abb99db8a0c5b9c1c35ae04c3fcc63818" name="abb99db8a0c5b9c1c35ae04c3fcc63818"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb99db8a0c5b9c1c35ae04c3fcc63818">&#9670;&#160;</a></span>stop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d7/d6f/a05826.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::stop </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Disables the controller interrupts and the port. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the HAL accepted the stop, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a3bcff372802df7955ce5761f4e32e420" name="a3bcff372802df7955ce5761f4e32e420"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bcff372802df7955ce5761f4e32e420">&#9670;&#160;</a></span>transfer()</h2>
+<a id="a3c10830f8d93936773f64d95201bc7da" name="a3c10830f8d93936773f64d95201bc7da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c10830f8d93936773f64d95201bc7da">&#9670;&#160;</a></span>receive()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -816,28 +513,8 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d6d/a01095.html#a62152c846403f6b93d0f2e9ff14adafe">USBHostTransferResult</a> <a class="el" href="../../d6/db5/a05814.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::transfer </td>
+          <td class="memname">bool <a class="el" href="../../d6/db5/a05814.html">Lib::HAL::UARTPortAsync</a>&lt; T_DERIVED &gt;::receive </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../de/d6d/a01095.html#a0feace7a2249d65bd2313f48bf07ba0b">USBDirection</a></td>          <td class="paramname"><span class="paramname"><em>direction</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../de/d6d/a01095.html#ae1783f3c88baf78f222c313659cf4a98">USBEndpointType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isSetup</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
         <tr>
@@ -853,9 +530,9 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Runs one transfer on a channel and waits for its end. </p>
+<p>Receives exactly the size of the buffer in bytes and waits for completion. </p>
 <p>Task context only.</p>
-<p>For an OUT transfer the buffer is only read. A transfer that ends with NAK is reported as <a class="el" href="../../de/d6d/a01095.html#a62152c846403f6b93d0f2e9ff14adafea9455b42e74acb2ec1c7292e54d28aff2" title="Lib::HAL::USBHostTransferResult::NOT_READY">Lib::HAL::USBHostTransferResult::NOT_READY</a> and is not repeated here, so the caller chooses its own retry policy. On timeout the channel is halted, so the HAL never uses <em class="arg">data</em> after this returns. Violating a precondition asserts in debug builds.</p>
+<p>On timeout or error the reception is aborted, so the HAL never writes <em class="arg">data</em> after this returns.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -865,21 +542,17 @@ template&lt;typename Rep, typename Period&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">channel</td><td>Channel number, opened with <a class="el" href="../../d7/d6f/a05826.html#aa013c6f71e1233cd4ef77f9d22d951f1" title="Lib::HAL::USBHostPortBase::openChannel()">Lib::HAL::USBHostPortBase::openChannel()</a>. </td></tr>
-    <tr><td class="paramname">direction</td><td>Data direction of the transfer. </td></tr>
-    <tr><td class="paramname">type</td><td>Transfer type of the endpoint. </td></tr>
-    <tr><td class="paramname">isSetup</td><td><em class="arg">true</em> for the setup stage of a control transfer, <em class="arg">false</em> for data and status stages. </td></tr>
-    <tr><td class="paramname">data</td><td>Source (OUT) or destination (IN) buffer, up to 65535 bytes; empty for a zero-length packet. </td></tr>
+    <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>How the transfer ended; <a class="el" href="../../d7/d6f/a05826.html#aeafad19d337548bb5ef919dd44723b5f" title="Lib::HAL::USBHostPortBase::getTransferCount()">Lib::HAL::USBHostPortBase::getTransferCount()</a> tells how many bytes moved. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
 
 </div>
 </div>
-<a id="a3f0b1b6f781d9750119863a0ef5c1332" name="a3f0b1b6f781d9750119863a0ef5c1332"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f0b1b6f781d9750119863a0ef5c1332">&#9670;&#160;</a></span>waitForEvent()</h2>
+<a id="aa6f2b7746c93553e8ba0a2fda3c494bc" name="aa6f2b7746c93553e8ba0a2fda3c494bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6f2b7746c93553e8ba0a2fda3c494bc">&#9670;&#160;</a></span>send()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -892,9 +565,9 @@ template&lt;typename Rep, typename Period&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d6/db5/a05814.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::waitForEvent </td>
+          <td class="memname">bool <a class="el" href="../../d6/db5/a05814.html">Lib::HAL::UARTPortAsync</a>&lt; T_DERIVED &gt;::send </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../de/d6d/a01095.html#a53f17b15be5eab9c94b2c21a10f050fd">USBHostEvent</a></td>          <td class="paramname"><span class="paramname"><em>event</em></span>, </td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -909,8 +582,9 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Waits for a bus event. </p>
+<p>Transmits a buffer and waits for completion. </p>
 <p>Task context only.</p>
+<p>On timeout or error the transmission is aborted, so the HAL never reads <em class="arg">data</em> after this returns.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
@@ -920,18 +594,17 @@ template&lt;typename Rep, typename Period&gt; </div>
 </dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">event</td><td>One of <a class="el" href="../../de/d6d/a01095.html#a53f17b15be5eab9c94b2c21a10f050fdab57e2519e26151feacdbe52076bc39ec" title="Lib::HAL::USBHostEvent::CONNECT">Lib::HAL::USBHostEvent::CONNECT</a>, <a class="el" href="../../de/d6d/a01095.html#a53f17b15be5eab9c94b2c21a10f050fdadd7cd0eb57db08d4f98abc48e5593462" title="Lib::HAL::USBHostEvent::DISCONNECT">Lib::HAL::USBHostEvent::DISCONNECT</a>, <a class="el" href="../../de/d6d/a01095.html#a53f17b15be5eab9c94b2c21a10f050fda5bcb737b3b015475d3595f95b82f6604" title="Lib::HAL::USBHostEvent::PORT_ENABLED">Lib::HAL::USBHostEvent::PORT_ENABLED</a> or <a class="el" href="../../de/d6d/a01095.html#a53f17b15be5eab9c94b2c21a10f050fda877d4ba1f8ca996dcc530ffa2210acc5" title="Lib::HAL::USBHostEvent::PORT_DISABLED">Lib::HAL::USBHostEvent::PORT_DISABLED</a>. </td></tr>
+    <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
     <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the event happened since the last wait for it (the event is cleared), <b>false</b> on timeout or when the port is closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the transfer completed successfully, <b>false</b> on initiation failure, error or timeout. </dd></dl>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a1408a15ce86dc735091663f5aae98d4b" name="a1408a15ce86dc735091663f5aae98d4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1408a15ce86dc735091663f5aae98d4b">&#9670;&#160;</a></span>MAX_CHANNELS</h2>
+<a id="aa69f87ceff32286dc0ce857ef84e314c" name="aa69f87ceff32286dc0ce857ef84e314c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa69f87ceff32286dc0ce857ef84e314c">&#9670;&#160;</a></span>setBaudRate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -942,17 +615,28 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d6/db5/a05814.html">Lib::HAL::USBHostPortAsync</a>&lt; T_DERIVED &gt;::MAX_CHANNELS = 16U</td>
+          <td class="memname">bool <a class="el" href="../../da/d1d/a05822.html">Lib::HAL::UARTPortBase</a>&lt; T_DERIVED &gt;::setBaudRate </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>baudRate</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Channels that can be waited on (the event group has 24 bits). </p>
+<p>Reconfigures the baud rate at runtime. </p>
+<p>The HAL exposes no dedicated runtime setter, so the handle's init structure is updated and re-applied through <b>HAL_UART_Init()</b>. Registered HAL callbacks survive the re-initialization. Available in every transfer mode. Asserts on a <em class="arg">nullptr</em> native handle.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">baudRate</td><td>New baud rate to apply, in bits per second. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the reconfiguration succeeded, <b>false</b> while a transfer is in flight or if the HAL rejected it. </dd></dl>
 
 </div>
 </div>
@@ -963,7 +647,7 @@ template&lt;typename T_DERIVED&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/d6d/a01095.html">HAL</a></li><li class="navelem"><a href="../../d6/db5/a05814.html">USBHostPortAsync</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../db/d32/a01122.html">HAL</a></li><li class="navelem"><a href="../../d6/db5/a05814.html">UARTPortAsync</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

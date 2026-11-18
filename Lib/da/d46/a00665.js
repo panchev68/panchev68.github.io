@@ -1,7 +1,5 @@
 var a00665 =
 [
-    [ "Lib::HAL::DriverDataDirection", "de/d6d/a01095.html#a82754326f2fd3bd32ea447c756ec2825", [
-      [ "Lib::HAL::DriverDataDirection::RX", "de/d6d/a01095.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046", null ],
-      [ "Lib::HAL::DriverDataDirection::TX", "de/d6d/a01095.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49", null ]
-    ] ]
+    [ "Lib::HAL::CANFrame", "d0/d5e/a05570.html", "d0/d5e/a05570" ],
+    [ "Lib::HAL::CANPortBase&lt; T_DERIVED &gt;", "d3/d27/a05574.html", "d3/d27/a05574" ]
 ];

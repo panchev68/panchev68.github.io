@@ -1,5 +1,6 @@
 var a05075 =
 [
-    [ "channel", "d6/d32/a05075.html#accbe3e59202cfc52dc94acb73e4342e2", null ],
-    [ "id", "d6/d32/a05075.html#a0765ed0261b9be43580c85bf3aa4e8c7", null ]
+    [ "operator uint64_t", "d6/d32/a05075.html#aebc72338217669721612422f138da4e6", null ],
+    [ "leastSignificant", "d6/d32/a05075.html#af020cae181d7b432faf85061911c84dd", null ],
+    [ "mostSignificant", "d6/d32/a05075.html#abd19bd98e154f92791c281037281c222", null ]
 ];

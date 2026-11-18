@@ -1,9 +1,30 @@
 var a06115 =
 [
-    [ "Lock", "db/d9d/a06119.html", "db/d9d/a06119" ],
-    [ "State", "db/d41/a06115.html#a329f49803f7880dc5d4e70b422ef08ff", [
-      [ "SUSPENDED", "db/d41/a06115.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
-      [ "NOT_STARTED", "db/d41/a06115.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
-      [ "RUNNING", "db/d41/a06115.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
-    ] ]
+    [ "Bits", "db/d41/a06115.html#a27fe7bec268decd9b548d4ad2375ca34", null ],
+    [ "Handle", "db/d41/a06115.html#a8f85547a426b02f14d6e4ea12fe668d3", null ],
+    [ "TickType", "db/d41/a06115.html#ad148e5ad55c065d22eaa6d5c10ce0768", null ],
+    [ "EventGroup", "db/d41/a06115.html#a56df016b3829e560ce9e75a007e6e26c", null ],
+    [ "EventGroup", "db/d41/a06115.html#ae83c0e347985e554dbffd399d6749c28", null ],
+    [ "~EventGroup", "db/d41/a06115.html#a28986dc28cf1e996b6c98f1020f26294", null ],
+    [ "EventGroup", "db/d41/a06115.html#a674ca6cf44432becf24267dda94e547d", null ],
+    [ "clearAllEvents", "db/d41/a06115.html#a9e46ac55649d284c4950d9c85142bdcf", null ],
+    [ "clearBits", "db/d41/a06115.html#a564e679e348f400f7840978d5ae63d7f", null ],
+    [ "clearBitsFromISR", "db/d41/a06115.html#a32ff3286f958a78cacaa0f4b80b9711b", null ],
+    [ "clearFromISR", "db/d41/a06115.html#a1a5e45f94b4b856ab55ff24bdef9595d", null ],
+    [ "close", "db/d41/a06115.html#a86f5d90cf8de78fe435b35460bef5edd", null ],
+    [ "createStatic", "db/d41/a06115.html#ae027cdcf3b41026b6a3cb3a70310c298", null ],
+    [ "getBits", "db/d41/a06115.html#ad61d21c064aaec70b93bbe5a12ce9436", null ],
+    [ "getBitsFromISR", "db/d41/a06115.html#ac0074ec5d598a7d397984ff86e110e4a", null ],
+    [ "getHandle", "db/d41/a06115.html#aec13a03913c66d345ec02187dbe579ec", null ],
+    [ "isOpen", "db/d41/a06115.html#a14d4bddd8e6249a20ac2ae9f18e2caee", null ],
+    [ "open", "db/d41/a06115.html#ae966e8d3efe519e3138fedaa3108a300", null ],
+    [ "operator=", "db/d41/a06115.html#a81801feadd715f46e582f2bd0c8d2c99", null ],
+    [ "operator=", "db/d41/a06115.html#a2576c192353ebd4e1261f2a0908f1946", null ],
+    [ "setBits", "db/d41/a06115.html#a154c164a4617cf8553683bb42f04ff11", null ],
+    [ "setBitsFromISR", "db/d41/a06115.html#a13c55cc45daa6d96a1f21460a4c71626", null ],
+    [ "setBitsFromISR", "db/d41/a06115.html#a8145a3ffbcf914aa872e193c0368e43b", null ],
+    [ "sync", "db/d41/a06115.html#af47921ebb5a21fcedea78389027fec71", null ],
+    [ "sync", "db/d41/a06115.html#aa6e6dd0a0b50af7c854cce6e6f0be0c9", null ],
+    [ "wait", "db/d41/a06115.html#a98eed0f8fde6aee2a7c1df202f1807fa", null ],
+    [ "wait", "db/d41/a06115.html#ac933f049ba3d9d3e242bdc243dea3482", null ]
 ];

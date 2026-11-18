@@ -1,14 +1,12 @@
 var a05882 =
 [
-    [ "Time", "d8/d1d/a05886.html", "d8/d1d/a05886" ],
-    [ "Date", "d7/d86/a05890.html", "d7/d86/a05890" ],
-    [ "DateTime", "dc/df8/a05882.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "dc/df8/a05882.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "dc/df8/a05882.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "dc/df8/a05882.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "dc/df8/a05882.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "dc/df8/a05882.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "dc/df8/a05882.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "dc/df8/a05882.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "dc/df8/a05882.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "WindowWatchdog", "dc/df8/a05882.html#aedbc081389ab6197c5a334fcff249dc9", null ],
+    [ "~WindowWatchdog", "dc/df8/a05882.html#abf0355eeac54b8e2df2436417ae430c8", null ],
+    [ "WindowWatchdog", "dc/df8/a05882.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
+    [ "WindowWatchdog", "dc/df8/a05882.html#a94de72071a208a3a396313415af9df3a", null ],
+    [ "open", "dc/df8/a05882.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
+    [ "operator=", "dc/df8/a05882.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
+    [ "operator=", "dc/df8/a05882.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
+    [ "refresh", "dc/df8/a05882.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
+    [ "setWindow", "dc/df8/a05882.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
 ];

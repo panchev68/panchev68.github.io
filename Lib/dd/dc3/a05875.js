@@ -1,12 +1,11 @@
 var a05875 =
 [
-    [ "WindowWatchdog", "dd/dc3/a05875.html#aedbc081389ab6197c5a334fcff249dc9", null ],
-    [ "~WindowWatchdog", "dd/dc3/a05875.html#abf0355eeac54b8e2df2436417ae430c8", null ],
-    [ "WindowWatchdog", "dd/dc3/a05875.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
-    [ "WindowWatchdog", "dd/dc3/a05875.html#a94de72071a208a3a396313415af9df3a", null ],
-    [ "open", "dd/dc3/a05875.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
-    [ "operator=", "dd/dc3/a05875.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
-    [ "operator=", "dd/dc3/a05875.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
-    [ "refresh", "dd/dc3/a05875.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
-    [ "setWindow", "dd/dc3/a05875.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
+    [ "getDirection", "dd/dc3/a05875.html#a68335ce20908e5937884bf601bb4b90e", null ],
+    [ "getRecipient", "dd/dc3/a05875.html#ae7283011b9493caacbbe6081ca48b217", null ],
+    [ "getType", "dd/dc3/a05875.html#a2e0f40dbc98143b97268fbfa4a39bd3a", null ],
+    [ "index", "dd/dc3/a05875.html#a042e36be625640c409835eeb4ca30c8a", null ],
+    [ "length", "dd/dc3/a05875.html#a2e7f6964058d59cf704c5534a3b64cae", null ],
+    [ "request", "dd/dc3/a05875.html#a8f0551503e5416ac2f9eaaa0bef3a08f", null ],
+    [ "requestType", "dd/dc3/a05875.html#a87ecd5c19387a9761e2548aba162728d", null ],
+    [ "value", "dd/dc3/a05875.html#aeb95036baf576efe55bbdca1daf8c864", null ]
 ];

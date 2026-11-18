@@ -1,19 +1,17 @@
 var a04610 =
 [
-    [ "Command", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10", [
-      [ "WRITE_ENABLE", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "WRITE_DISABLE", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
-      [ "READ_STATUS_REGISTER1", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "READ_DATA", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
-      [ "PAGE_PROGRAM", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
-      [ "SECTOR_ERASE", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "d9/d98/a04610.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "Config", "d2/dc4/a04614.html", "d2/dc4/a04614" ],
+    [ "Interface", "d9/d98/a04610.html#a381267cd26262085628dc52296d42a8c", null ],
+    [ "~Interface", "d9/d98/a04610.html#aef76c4d4ab040fbe9b344444f1ca1f25", null ],
+    [ "close", "d9/d98/a04610.html#a4a3a734f32c1aa4414ad9067d7cb157f", null ],
+    [ "deselect", "d9/d98/a04610.html#a0b87868f20232885a5b0a2ef5c8d1bcf", null ],
+    [ "lock", "d9/d98/a04610.html#a1e411e237b03ed440a7c1b468aefd254", null ],
+    [ "open", "d9/d98/a04610.html#ae082eeea2b4df228729740f9945df189", null ],
+    [ "read", "d9/d98/a04610.html#a59f57dc88e37b6d81e93ccffd01ee9ed", null ],
+    [ "read", "d9/d98/a04610.html#a50584766a7982887fc9dec5defbeb2b6", null ],
+    [ "readWrite", "d9/d98/a04610.html#ae591bbd92b46b72f8129af300a672a5a", null ],
+    [ "select", "d9/d98/a04610.html#ab62e9728d2b5fca07cb024578f579484", null ],
+    [ "unlock", "d9/d98/a04610.html#a731e79a38afda2e92585da34cbf9b7ea", null ],
+    [ "write", "d9/d98/a04610.html#af4430f4b29907dbbc81a1c4df8783b4d", null ],
+    [ "write", "d9/d98/a04610.html#adfad30fd3c2f39252488033eab8522f4", null ]
 ];

@@ -1,5 +1,5 @@
 var a05798 =
 [
-    [ "body", "d5/db7/a05798.html#aec3889bdd99fa05f2af29dfcb56c5ace", null ],
-    [ "statusCode", "d5/db7/a05798.html#a5c7bf28c88b7a994c33f96fecbd5b4a3", null ]
+    [ "bufferSize", "d5/db7/a05798.html#a565287d190c89dc4ebbd3a819f704e43", null ],
+    [ "handle", "d5/db7/a05798.html#afcc0548a263d067f4642271c486ed229", null ]
 ];

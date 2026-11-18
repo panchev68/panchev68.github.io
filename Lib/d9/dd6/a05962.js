@@ -1,11 +1,14 @@
 var a05962 =
 [
-    [ "Client", "d9/dd6/a05962.html#afbf556ac8abd6b5e8b12958b7b7e8e87", null ],
-    [ "Client", "d9/dd6/a05962.html#a893ac5643ef917f5ca701fabbe75a429", null ],
-    [ "Client", "d9/dd6/a05962.html#a207055b9f6a7daac509985f971a0e14f", null ],
-    [ "get", "d9/dd6/a05962.html#aabf7e35c74111468fdd296e6931b047f", null ],
-    [ "operator=", "d9/dd6/a05962.html#a19375415236ef7e6b214f897791eeb09", null ],
-    [ "operator=", "d9/dd6/a05962.html#a3b9c27f75842a31365c97eaaa607d452", null ],
-    [ "post", "d9/dd6/a05962.html#aee5955fa4ffad931d4418d2f59af2880", null ],
-    [ "request", "d9/dd6/a05962.html#aff0df8d671c191feb30e91ba3a1053a7", null ]
+    [ "JaggedArrayBase", "d9/dd6/a05962.html#ae79ec88b260154126e7ec280a136c14a", null ],
+    [ "addItem", "d9/dd6/a05962.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
+    [ "addItems", "d9/dd6/a05962.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
+    [ "clearItems", "d9/dd6/a05962.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
+    [ "getElements", "d9/dd6/a05962.html#a428409a8385b8547bfa65d04a71565b1", null ],
+    [ "getElements", "d9/dd6/a05962.html#a718f7db994c254bce01246ea32b1d653", null ],
+    [ "getSize", "d9/dd6/a05962.html#afca6ed09d7865e2bac45430fda768aae", null ],
+    [ "operator[]", "d9/dd6/a05962.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
+    [ "operator[]", "d9/dd6/a05962.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
+    [ "removeItem", "d9/dd6/a05962.html#a819041f4264ebfce07665c548d5dd7bc", null ],
+    [ "elementList", "d9/dd6/a05962.html#a319cd6aae084f711db14582ed55929a5", null ]
 ];

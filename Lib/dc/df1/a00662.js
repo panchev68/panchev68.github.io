@@ -1,5 +1,5 @@
 var a00662 =
 [
-    [ "Lib::HAL::CANFrame", "d5/d7e/a05563.html", "d5/d7e/a05563" ],
-    [ "Lib::HAL::CANPortBase&lt; T_DERIVED &gt;", "d2/d72/a05567.html", "d2/d72/a05567" ]
+    [ "Lib::HAL::CANPort&lt; DriverMode::IT &gt;", "d0/db7/a05562.html", "d0/db7/a05562" ],
+    [ "Lib::HAL::CANPort&lt; DriverMode::IT &gt;::Event", "d8/d89/a05566.html", null ]
 ];

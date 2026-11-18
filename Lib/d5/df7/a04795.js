@@ -1,15 +1,10 @@
 var a04795 =
 [
-    [ "TimerHandler", "d5/d6b/a04799.html", "d5/d6b/a04799" ],
-    [ "Config", "d9/d62/a04803.html", "d9/d62/a04803" ],
-    [ "PinHandle", "d5/df7/a04795.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
-    [ "Base", "d5/df7/a04795.html#af14f0b64c88d8857e32beeba9d6c6493", null ],
-    [ "~Base", "d5/df7/a04795.html#a07a6568f25502674c91a864497867548", null ],
-    [ "beginReceiveData", "d5/df7/a04795.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
-    [ "endReceivedData", "d5/df7/a04795.html#a63785a9b88d7556f54e1e71118a760d4", null ],
-    [ "start", "d5/df7/a04795.html#a5413ce6c3ea6e0e7f1a36a6835ca9247", null ],
-    [ "startupImpulse", "d5/df7/a04795.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
-    [ "waitForComplete", "d5/df7/a04795.html#a9b5b96a6106c15c974463750529471d0", null ],
-    [ "writePinState", "d5/df7/a04795.html#a049430e063b46db8f7e7401c0af75df7", null ],
-    [ "config", "d5/df7/a04795.html#a3b31347dab82ede045f6e076046e5762", null ]
+    [ "Ring", "d5/df7/a04795.html#a162946918a210436d07b8649948e2939", null ],
+    [ "Ring", "d5/df7/a04795.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
+    [ "Ring", "d5/df7/a04795.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
+    [ "getData", "d5/df7/a04795.html#a897e123e376e08a2741c3498d764166d", null ],
+    [ "operator=", "d5/df7/a04795.html#a3b42427dd22bff92b102320fdf83a671", null ],
+    [ "operator=", "d5/df7/a04795.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
+    [ "operator[]", "d5/df7/a04795.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
 ];

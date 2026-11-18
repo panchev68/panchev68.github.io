@@ -1,5 +1,5 @@
 var a00977 =
 [
-    [ "Lib::Pneumatics::RotationCylinder", "d8/d7a/a06083.html", "d8/d7a/a06083" ],
-    [ "Lib::Pneumatics::RotationCylinder::Config", "df/df6/a06087.html", "df/df6/a06087" ]
+    [ "Lib::Pneumatics::Cylinder", "d4/dc6/a06094.html", "d4/dc6/a06094" ],
+    [ "Lib::Pneumatics::Cylinder::Config", "d7/d79/a06098.html", "d7/d79/a06098" ]
 ];

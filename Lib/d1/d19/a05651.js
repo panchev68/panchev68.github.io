@@ -1,19 +1,12 @@
 var a05651 =
 [
-    [ "I2CPort", "d1/d19/a05651.html#a70dc562f520726340c2c942ee7753b17", null ],
-    [ "~I2CPort", "d1/d19/a05651.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
-    [ "I2CPort", "d1/d19/a05651.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
-    [ "I2CPort", "d1/d19/a05651.html#a6c227decd7ea7b8ff23e032025761259", null ],
-    [ "close", "d1/d19/a05651.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
-    [ "getHandle", "d1/d19/a05651.html#a57df6990634d2cba4b86d8cf193f4050", null ],
-    [ "getHandle", "d1/d19/a05651.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
-    [ "isBusy", "d1/d19/a05651.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
-    [ "isReady", "d1/d19/a05651.html#a14c943a270b82f4b76faffc2822e1408", null ],
-    [ "masterMemRead", "d1/d19/a05651.html#aff45c6ae44d78ac3f07f800383374359", null ],
-    [ "masterMemWrite", "d1/d19/a05651.html#ae89e0f492119ac05671af0cdca2b90de", null ],
-    [ "masterReceive", "d1/d19/a05651.html#a165d3958b26f38d4c513160a447bcfaf", null ],
-    [ "masterTransmit", "d1/d19/a05651.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
-    [ "open", "d1/d19/a05651.html#ae5b5ff9d68d55b14be794ede22903816", null ],
-    [ "operator=", "d1/d19/a05651.html#aae592f22809df591ac07e2cd47f3969b", null ],
-    [ "operator=", "d1/d19/a05651.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
+    [ "Sha256Digest", "d1/d19/a05651.html#add4d9f33ecf447251492399927b27da5", null ],
+    [ "HASHPortBase", "d1/d19/a05651.html#a402b74d9e249e868a6fb33cc93e1c08a", null ],
+    [ "HASHPortBase", "d1/d19/a05651.html#a7309c31d1f17d06b52ed35b24816f30f", null ],
+    [ "HASHPortBase", "d1/d19/a05651.html#a362af192b07fc68f58947d01ce37d8f2", null ],
+    [ "~HASHPortBase", "d1/d19/a05651.html#a97d7a142991358197ddc449c08d06925", null ],
+    [ "close", "d1/d19/a05651.html#aea9707fb978271d6f7346e2eacd3d206", null ],
+    [ "open", "d1/d19/a05651.html#ae9dc794f4ad8b52c9c6ecdd73468f030", null ],
+    [ "operator=", "d1/d19/a05651.html#a50692e19ce033e67c57e1581aeff1be4", null ],
+    [ "operator=", "d1/d19/a05651.html#a910cff9c471be2aa82ac50da02b2027e", null ]
 ];

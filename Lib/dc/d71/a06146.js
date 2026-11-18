@@ -1,31 +1,15 @@
 var a06146 =
 [
-    [ "Config", "d6/d30/a06150.html", "d6/d30/a06150" ],
-    [ "TickType", "dc/d71/a06146.html#adc76fba01b70e91209e1f25d9dd7f1ce", null ],
-    [ "TickClient", "dc/d71/a06146.html#a3e885923e858b4dbbb6896a511cb5166", null ],
-    [ "~TickClient", "dc/d71/a06146.html#aa081d1530901d0d5cca0f29807ada39a", null ],
-    [ "TickClient", "dc/d71/a06146.html#a6a64e7b4307315ae1a1a0e8ee2214b4b", null ],
-    [ "TickClient", "dc/d71/a06146.html#a32f321fa2b51b5909c7f4a3302e1bc77", null ],
-    [ "changePeriod", "dc/d71/a06146.html#a0db43688ea792433fe8d94ebfcab20ca", null ],
-    [ "changePeriod", "dc/d71/a06146.html#aef2ed6cb01e9bb34542b767662c88bd3", null ],
-    [ "changePeriodFromISR", "dc/d71/a06146.html#a7c8017e24f2f8306cca30515802f61de", null ],
-    [ "changePeriodFromISR", "dc/d71/a06146.html#ad20836d70197059eab8a5694eededa40", null ],
-    [ "getExpiryTime", "dc/d71/a06146.html#af5207bfd2383a7f0cf5bc9d5e370acba", null ],
-    [ "getPeriod", "dc/d71/a06146.html#ae8047f3e345b144287a23699cfebebcc", null ],
-    [ "isActive", "dc/d71/a06146.html#a084f884000ac866e97a7de170367ac6f", null ],
-    [ "isStarted", "dc/d71/a06146.html#aa3419504803e71b4605ae5f4765608db", null ],
-    [ "isValid", "dc/d71/a06146.html#a408eb1aee05259b64d9d520fecbad54f", null ],
-    [ "operator=", "dc/d71/a06146.html#a8cbfad05ae465784059e104778632821", null ],
-    [ "operator=", "dc/d71/a06146.html#a206dc99dd3e2606043f77ede19d83bf5", null ],
-    [ "reset", "dc/d71/a06146.html#a7a4396772c0f38c13c4159eda24dad0d", null ],
-    [ "resetFromISR", "dc/d71/a06146.html#abc6e0b22a8ccbaefc9c2c961b59b81f1", null ],
-    [ "resetFromISR", "dc/d71/a06146.html#ad88e49d6dba20d768779b274c73eeaaf", null ],
-    [ "setup", "dc/d71/a06146.html#af079f0ff38c9abbb17860ae663c665df", null ],
-    [ "setup", "dc/d71/a06146.html#a95568f125f0eac00c1b1668b017ae662", null ],
-    [ "start", "dc/d71/a06146.html#a59730ccf7ef04d00837d566cd5184305", null ],
-    [ "startFromISR", "dc/d71/a06146.html#a7c3baef45d5c6e812ec90241dd97ff6c", null ],
-    [ "startFromISR", "dc/d71/a06146.html#adf87e93a9e774ae37b684423c1f2acde", null ],
-    [ "stop", "dc/d71/a06146.html#a63fcbf5699a2025dba2c058bc0715c62", null ],
-    [ "stopFromISR", "dc/d71/a06146.html#ab9f24e9be6431fa9de927ef5b39ce61e", null ],
-    [ "stopFromISR", "dc/d71/a06146.html#a950094a7c5c23bac35a8dfa0472dbd02", null ]
+    [ "Status", "dc/d71/a06146.html#a12545d9824f6613ee89191861f120584", [
+      [ "SUCCESS", "dc/d71/a06146.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "INVALID_SIZE", "dc/d71/a06146.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
+      [ "OUT_OF_MEMORY", "dc/d71/a06146.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
+      [ "SIZE_TOO_LARGE", "dc/d71/a06146.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
+    ] ],
+    [ "MemoryManager", "dc/d71/a06146.html#a11985e607e9d0df1a66531314e37b38b", null ],
+    [ "~MemoryManager", "dc/d71/a06146.html#a71e750b42ae7c18640c58654a6e54687", null ],
+    [ "MemoryManager", "dc/d71/a06146.html#a7045943a317adab019e38e7c6bf2de73", null ],
+    [ "MemoryManager", "dc/d71/a06146.html#a89bca016476ef966223eb6841d5cc034", null ],
+    [ "operator=", "dc/d71/a06146.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
+    [ "operator=", "dc/d71/a06146.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
 ];

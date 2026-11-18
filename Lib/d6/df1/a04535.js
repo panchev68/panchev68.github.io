@@ -1,8 +1,8 @@
 var a04535 =
 [
-    [ "Config", "d6/df1/a04535.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
-    [ "M24C64W", "d6/df1/a04535.html#a961e9014542ac6f768bd548fa1d15598", null ],
-    [ "~M24C64W", "d6/df1/a04535.html#a786bcea2331bd895b693fa1cf2fb0e6b", null ],
+    [ "Config", "d6/df1/a04535.html#a71f90ba5852d744d364d627c9200231e", null ],
+    [ "M24C16", "d6/df1/a04535.html#a82d789de030a0346864f88543d0512e5", null ],
+    [ "~M24C16", "d6/df1/a04535.html#a0db0fe864ae86e17a1406e2180d119af", null ],
     [ "close", "d6/df1/a04535.html#a379c6a49e0b3c1c663020582e61d6887", null ],
     [ "getChipSize", "d6/df1/a04535.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
     [ "open", "d6/df1/a04535.html#ababf497720b16b51762103ca82e56f49", null ],
@@ -12,5 +12,5 @@ var a04535 =
     [ "write", "d6/df1/a04535.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
     [ "write16", "d6/df1/a04535.html#a1736b59146de0f5cacdb663197cd061e", null ],
     [ "write8", "d6/df1/a04535.html#a299a926321f0db8d9eac8527198f28fc", null ],
-    [ "Driver< M24C64W >", "d6/df1/a04535.html#a389c035ca7d606c8426542af2e4b7d70", null ]
+    [ "Driver< M24C16 >", "d6/df1/a04535.html#abc7b2f2488b46308e0ee7a50e8b5c26b", null ]
 ];

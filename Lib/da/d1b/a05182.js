@@ -1,10 +1,11 @@
 var a05182 =
 [
-    [ "Frame0x97", "da/d1b/a05182.html#a8d6d58095dc72605b19af99d9a4c2097", null ],
-    [ "atCommand", "da/d1b/a05182.html#a965406599165a7744ecbe01f6054fc9d", null ],
-    [ "commandStatus", "da/d1b/a05182.html#a1ffffd99f0fd3d9c4529ae8fd2d2f069", null ],
-    [ "frameId", "da/d1b/a05182.html#ae5cbfb88fbca17299b374c0b207128d0", null ],
-    [ "parameters", "da/d1b/a05182.html#a0716b11170a5695a6ff94920635fb32f", null ],
-    [ "srcAddr16", "da/d1b/a05182.html#a4dcf22e4dd07f8d0c0764bebb9e23721", null ],
-    [ "srcAddr64", "da/d1b/a05182.html#a146e6de04eded1ed1426630c73a3ad17", null ]
+    [ "ignoredMessagesByTimeout", "da/d1b/a05182.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "da/d1b/a05182.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "da/d1b/a05182.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "da/d1b/a05182.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "da/d1b/a05182.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "da/d1b/a05182.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "da/d1b/a05182.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "da/d1b/a05182.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

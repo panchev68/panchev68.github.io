@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::Display::SSD1306&lt; T_WIDTH, T_HEIGHT &gt;</title>
+<title>IAR EWARM Library: Lib::BSP::DigitalPeripheralBase::Outputs</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,119 +130,64 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/dd2/a04486.
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../dd/d0a/a04483.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::BSP::Display::SSD1306&lt; T_WIDTH, T_HEIGHT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::DigitalPeripheralBase::Outputs<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt;<br />
-class Lib::BSP::Display::SSD1306&lt; T_WIDTH, T_HEIGHT &gt;</div><p>Monochrome OLED display driven by an SSD1306 controller over I²C, drawn into a RAM frame buffer. </p>
-<p>All drawing calls only change the frame buffer; <a class="el" href="#a78e2063e1bbdae46606ac701753d8ca0" title="Lib::BSP::Display::SSD1306::flush()">Lib::BSP::Display::SSD1306::flush()</a> sends it to the panel in one transfer. Coordinates start at the top-left corner, <em class="arg">x</em> to the right and <em class="arg">y</em> downwards, and anything outside the panel is clipped. The I²C port is shared and not guarded here: call the driver from one task, or serialize the callers.</p>
-<p>The frame buffer is organized in pages of eight rows: byte <em>x + (y / 8) * T_WIDTH</em> holds the pixel in bit <em>y % 8</em>. It lives inside the object, so a <em>128 x 64</em> panel needs <em>1 KiB</em> of RAM and no heap.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_WIDTH</td><td>Panel width in pixels, <em>1 to 128</em>. </td></tr>
-    <tr><td class="paramname">T_HEIGHT</td><td>Panel height in pixels, a multiple of 8 from <em>16 to 64</em> (typically 64 or 32).</td></tr>
-  </table>
-  </dd>
-</dl>
-<hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://www.solomon-systech.com/?p=5534" target="_blank">SSD1306 product page (Solomon Systech)</a></dd></dl>
-<hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/BSP/Display/SSD1306.hpp" target="_blank">Source</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d1b/a06326.html#_a1">Lib::BSP::Display::TouchGFX_BW</a>, and <a class="el" href="../../dc/df9/a06354.html#_a1">Lib::GUI::Context</a>.</dd>
-</dl>
+<div class="textblock"><p>Output port driving a daisy chain of MC33879 low-side switches. </p>
+<p>Every frame starts with a sequence byte that travels through the whole chain and must come back as the last received byte; a mismatch means a broken chain. Drivers are enabled only after the first successful frame, so they never switch on with undefined data. </p>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d5/d47/a04490.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bus binding of the display.  <a href="../../d5/d47/a04490.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aaa8c222c1e8b284b8f55e9e9ec37ec18" id="r_aaa8c222c1e8b284b8f55e9e9ec37ec18"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">SSD1306</a> (const <a class="el" href="../../d5/d47/a04490.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:aaa8c222c1e8b284b8f55e9e9ec37ec18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the driver to its I²C port and clears the frame buffer.  <br /></td></tr>
-<tr class="memitem:a96d9ba465e570de50e896f0d9d068ab2" id="r_a96d9ba465e570de50e896f0d9d068ab2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a96d9ba465e570de50e896f0d9d068ab2">~SSD1306</a> () noexcept=default</td></tr>
-<tr class="memdesc:a96d9ba465e570de50e896f0d9d068ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Does not close the shared port; call <a class="el" href="#a852885f8fccb9ee0d80c0c6a6b28960b" title="Lib::BSP::Display::SSD1306::close()">Lib::BSP::Display::SSD1306::close()</a> first.  <br /></td></tr>
-<tr class="memitem:ad02a2ae6a81ced3e7717f56f3051b5d3" id="r_ad02a2ae6a81ced3e7717f56f3051b5d3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad02a2ae6a81ced3e7717f56f3051b5d3">SSD1306</a> (const SSD1306 &amp;other)=delete</td></tr>
-<tr class="memdesc:ad02a2ae6a81ced3e7717f56f3051b5d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the driver holds a reference to a shared port.  <br /></td></tr>
-<tr class="memitem:a53a749d1a056f5326c358e78f583084a" id="r_a53a749d1a056f5326c358e78f583084a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a53a749d1a056f5326c358e78f583084a">SSD1306</a> (SSD1306 &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a53a749d1a056f5326c358e78f583084a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the driver holds a reference to a shared port.  <br /></td></tr>
-<tr class="memitem:af15c7ec0c59083e465009eda1b9ebe37" id="r_af15c7ec0c59083e465009eda1b9ebe37"><td class="memItemLeft"><a class="el" href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">SSD1306</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af15c7ec0c59083e465009eda1b9ebe37">operator=</a> (const <a class="el" href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">SSD1306</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:af15c7ec0c59083e465009eda1b9ebe37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the driver holds a reference to a shared port.  <br /></td></tr>
-<tr class="memitem:a1d58172f24a7023108da3364760ac6e4" id="r_a1d58172f24a7023108da3364760ac6e4"><td class="memItemLeft"><a class="el" href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">SSD1306</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1d58172f24a7023108da3364760ac6e4">operator=</a> (<a class="el" href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">SSD1306</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a1d58172f24a7023108da3364760ac6e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the driver holds a reference to a shared port.  <br /></td></tr>
-<tr class="memitem:ae77696c6301f7d64ab392726dc732210" id="r_ae77696c6301f7d64ab392726dc732210"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae77696c6301f7d64ab392726dc732210">open</a> () noexcept</td></tr>
-<tr class="memdesc:ae77696c6301f7d64ab392726dc732210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the I²C port, initializes the controller and shows a blank screen.  <br /></td></tr>
-<tr class="memitem:a852885f8fccb9ee0d80c0c6a6b28960b" id="r_a852885f8fccb9ee0d80c0c6a6b28960b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a852885f8fccb9ee0d80c0c6a6b28960b">close</a> () noexcept</td></tr>
-<tr class="memdesc:a852885f8fccb9ee0d80c0c6a6b28960b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches the panel off and closes the I²C port.  <br /></td></tr>
-<tr class="memitem:a78e2063e1bbdae46606ac701753d8ca0" id="r_a78e2063e1bbdae46606ac701753d8ca0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a78e2063e1bbdae46606ac701753d8ca0">flush</a> () noexcept</td></tr>
-<tr class="memdesc:a78e2063e1bbdae46606ac701753d8ca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the frame buffer to the panel.  <br /></td></tr>
-<tr class="memitem:a858b67a451ec6884719d48e5ab447c2c" id="r_a858b67a451ec6884719d48e5ab447c2c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a858b67a451ec6884719d48e5ab447c2c">setContrast</a> (const uint8_t contrast) noexcept</td></tr>
-<tr class="memdesc:a858b67a451ec6884719d48e5ab447c2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the contrast, which is the panel brightness.  <br /></td></tr>
-<tr class="memitem:aa48f24527e78509ffd16a3ecb722e75d" id="r_aa48f24527e78509ffd16a3ecb722e75d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa48f24527e78509ffd16a3ecb722e75d">setDisplayOn</a> (const bool isOn) noexcept</td></tr>
-<tr class="memdesc:aa48f24527e78509ffd16a3ecb722e75d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches the panel on or off; the display RAM is kept while off.  <br /></td></tr>
-<tr class="memitem:a4ed4920dbd2f15212ffe50168db31e78" id="r_a4ed4920dbd2f15212ffe50168db31e78"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4ed4920dbd2f15212ffe50168db31e78">setInverted</a> (const bool isInverted) noexcept</td></tr>
-<tr class="memdesc:a4ed4920dbd2f15212ffe50168db31e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inverts the panel: lit pixels become dark and the other way round.  <br /></td></tr>
-<tr class="memitem:a97bd343d36134fb1ae784a669a501b16" id="r_a97bd343d36134fb1ae784a669a501b16"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a97bd343d36134fb1ae784a669a501b16">setRotated</a> (const bool isRotated) noexcept</td></tr>
-<tr class="memdesc:a97bd343d36134fb1ae784a669a501b16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns the image by <em>180°</em>.  <br /></td></tr>
-<tr class="memitem:a692b533ba3d55466bf91425eaf77e415" id="r_a692b533ba3d55466bf91425eaf77e415"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a692b533ba3d55466bf91425eaf77e415">fill</a> (const bool isOn) noexcept</td></tr>
-<tr class="memdesc:a692b533ba3d55466bf91425eaf77e415"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets every pixel of the frame buffer to one state.  <br /></td></tr>
-<tr class="memitem:a22aed91c76d2fdf103a08117770086c7" id="r_a22aed91c76d2fdf103a08117770086c7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a22aed91c76d2fdf103a08117770086c7">clear</a> () noexcept</td></tr>
-<tr class="memdesc:a22aed91c76d2fdf103a08117770086c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the frame buffer.  <br /></td></tr>
-<tr class="memitem:a5d6fc5a1b1b7ed7ba95f019e7e9dbdb4" id="r_a5d6fc5a1b1b7ed7ba95f019e7e9dbdb4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5d6fc5a1b1b7ed7ba95f019e7e9dbdb4">setPixel</a> (const int32_t x, const int32_t y, const bool isOn) noexcept</td></tr>
-<tr class="memdesc:a5d6fc5a1b1b7ed7ba95f019e7e9dbdb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets one pixel; a position outside the panel is ignored.  <br /></td></tr>
-<tr class="memitem:ad162ef0d1404e932870e7c7c51b3325a" id="r_ad162ef0d1404e932870e7c7c51b3325a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad162ef0d1404e932870e7c7c51b3325a">getPixel</a> (const int32_t x, const int32_t y) const noexcept</td></tr>
-<tr class="memdesc:ad162ef0d1404e932870e7c7c51b3325a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets one pixel of the frame buffer.  <br /></td></tr>
-<tr class="memitem:a8b231a6861c6388bb275586ce0ca4c1f" id="r_a8b231a6861c6388bb275586ce0ca4c1f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8b231a6861c6388bb275586ce0ca4c1f">drawLine</a> (int32_t x0, int32_t y0, const int32_t x1, const int32_t y1, const bool isOn) noexcept</td></tr>
-<tr class="memdesc:a8b231a6861c6388bb275586ce0ca4c1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a straight line between two points, ends included.  <br /></td></tr>
-<tr class="memitem:a2312321f9942151e10d52ef210434652" id="r_a2312321f9942151e10d52ef210434652"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a2312321f9942151e10d52ef210434652">drawRect</a> (const int32_t x, const int32_t y, const int32_t width, const int32_t height, const bool isOn) noexcept</td></tr>
-<tr class="memdesc:a2312321f9942151e10d52ef210434652"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws the outline of a rectangle.  <br /></td></tr>
-<tr class="memitem:a0139f6d0cfa7cabc2e02f133d89cba3c" id="r_a0139f6d0cfa7cabc2e02f133d89cba3c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0139f6d0cfa7cabc2e02f133d89cba3c">fillRect</a> (const int32_t x, const int32_t y, const int32_t width, const int32_t height, const bool isOn) noexcept</td></tr>
-<tr class="memdesc:a0139f6d0cfa7cabc2e02f133d89cba3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a filled rectangle.  <br /></td></tr>
-<tr class="memitem:af7aa47ba1aec2c201c139407b0e4ef80" id="r_af7aa47ba1aec2c201c139407b0e4ef80"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af7aa47ba1aec2c201c139407b0e4ef80">drawBitmap</a> (const int32_t x, const int32_t y, const size_t width, const size_t height, const std::span&lt; const uint8_t &gt; bitmap) noexcept</td></tr>
-<tr class="memdesc:af7aa47ba1aec2c201c139407b0e4ef80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draws a one-bit bitmap.  <br /></td></tr>
-<tr class="memitem:a08e534c1d48f4b10637b704173b17931" id="r_a08e534c1d48f4b10637b704173b17931"><td class="memItemLeft">std::span&lt; const uint8_t, <a class="el" href="#a9e1ce4f95af9f2756a382f4c90a58bb6">BUFFER_SIZE</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a08e534c1d48f4b10637b704173b17931">getFrameBuffer</a> () const noexcept</td></tr>
-<tr class="memdesc:a08e534c1d48f4b10637b704173b17931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the frame buffer.  <br /></td></tr>
-<tr class="memitem:abf92a7167b03b012676e6cbb36a2e44a" id="r_abf92a7167b03b012676e6cbb36a2e44a"><td class="memItemLeft">std::span&lt; uint8_t, <a class="el" href="#a9e1ce4f95af9f2756a382f4c90a58bb6">BUFFER_SIZE</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abf92a7167b03b012676e6cbb36a2e44a">getFrameBuffer</a> () noexcept</td></tr>
-<tr class="memdesc:abf92a7167b03b012676e6cbb36a2e44a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the frame buffer for writing.  <br /></td></tr>
+<tr class="memitem:a247cd7c1b9224f24326b3776838b272f" id="r_a247cd7c1b9224f24326b3776838b272f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a247cd7c1b9224f24326b3776838b272f">Outputs</a> (const <a class="el" href="../../dc/d50/a04474.html">Config::Outputs</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a247cd7c1b9224f24326b3776838b272f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its SPI bus, chip-select, output-enable and pin map.  <br /></td></tr>
+<tr class="memitem:aeee2211d23c7dfc940b0d3f16ff4e531" id="r_aeee2211d23c7dfc940b0d3f16ff4e531"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aeee2211d23c7dfc940b0d3f16ff4e531">setup</a> () noexcept</td></tr>
+<tr class="memdesc:aeee2211d23c7dfc940b0d3f16ff4e531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deselects the chain, enables all driver channels and schedules the first frame.  <br /></td></tr>
+<tr class="memitem:a6a6877af80563061eddc23c9bb71746d" id="r_a6a6877af80563061eddc23c9bb71746d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6a6877af80563061eddc23c9bb71746d">setValue</a> (uint64_t newValue) noexcept</td></tr>
+<tr class="memdesc:a6a6877af80563061eddc23c9bb71746d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests a new output state, sent on the next update.  <br /></td></tr>
+<tr class="memitem:adfeabb3ecc2b63a7d2fdaef8972422d2" id="r_adfeabb3ecc2b63a7d2fdaef8972422d2"><td class="memItemLeft">uint64_t&#160;</td><td class="memItemRight"><a class="el" href="#adfeabb3ecc2b63a7d2fdaef8972422d2">getValue</a> () const noexcept</td></tr>
+<tr class="memdesc:adfeabb3ecc2b63a7d2fdaef8972422d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last requested output state.  <br /></td></tr>
+<tr class="memitem:a5390728a76821a9b72e0bf604b09462e" id="r_a5390728a76821a9b72e0bf604b09462e"><td class="memItemLeft">uint64_t&#160;</td><td class="memItemRight"><a class="el" href="#a5390728a76821a9b72e0bf604b09462e">getStatus</a> () const noexcept</td></tr>
+<tr class="memdesc:a5390728a76821a9b72e0bf604b09462e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last status reported by the drivers.  <br /></td></tr>
+<tr class="memitem:a20ce1721d96d5e27bdd04a0e1952f3fb" id="r_a20ce1721d96d5e27bdd04a0e1952f3fb"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a20ce1721d96d5e27bdd04a0e1952f3fb">getChangesCounter</a> () const noexcept</td></tr>
+<tr class="memdesc:a20ce1721d96d5e27bdd04a0e1952f3fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns how many times a new output state has been sent.  <br /></td></tr>
+<tr class="memitem:a577114566b65889dd42c95c3e3350b1a" id="r_a577114566b65889dd42c95c3e3350b1a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a577114566b65889dd42c95c3e3350b1a">hasSpiError</a> () const noexcept</td></tr>
+<tr class="memdesc:a577114566b65889dd42c95c3e3350b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the chain has ever failed a transfer or its sequence-byte check.  <br /></td></tr>
+<tr class="memitem:a785e5cd7daaf7419e296aaa67f4d785c" id="r_a785e5cd7daaf7419e296aaa67f4d785c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a785e5cd7daaf7419e296aaa67f4d785c">preUpdateCallback</a> () noexcept</td></tr>
+<tr class="memdesc:a785e5cd7daaf7419e296aaa67f4d785c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies the output SPI timing and opens the bus for this port.  <br /></td></tr>
+<tr class="memitem:aae51811f331f09bf179cc6f2d9c2b974" id="r_aae51811f331f09bf179cc6f2d9c2b974"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aae51811f331f09bf179cc6f2d9c2b974">update</a> () noexcept</td></tr>
+<tr class="memdesc:aae51811f331f09bf179cc6f2d9c2b974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a frame when the output state changed or the refresh period elapsed, then evaluates the answer.  <br /></td></tr>
+<tr class="memitem:a369ec8b311dd4871503593f3fd91e103" id="r_a369ec8b311dd4871503593f3fd91e103"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a369ec8b311dd4871503593f3fd91e103">postUpdateCallback</a> () noexcept</td></tr>
+<tr class="memdesc:a369ec8b311dd4871503593f3fd91e103"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the bus so that the input port can take it over.  <br /></td></tr>
+<tr class="memitem:a95099752d786b9afd12743cfed8e8f39" id="r_a95099752d786b9afd12743cfed8e8f39"><td class="memItemLeft"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> *&#160;</td><td class="memItemRight"><a class="el" href="#a95099752d786b9afd12743cfed8e8f39">getSpiHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:a95099752d786b9afd12743cfed8e8f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the native SPI handle of the port.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a4621f517abfcbd26627e5953d333546d" id="r_a4621f517abfcbd26627e5953d333546d"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a4621f517abfcbd26627e5953d333546d">WIDTH</a> = T_WIDTH</td></tr>
-<tr class="memdesc:a4621f517abfcbd26627e5953d333546d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Panel width in pixels.  <br /></td></tr>
-<tr class="memitem:ab41ff54b42cf79d380b4a33236aad50b" id="r_ab41ff54b42cf79d380b4a33236aad50b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ab41ff54b42cf79d380b4a33236aad50b">HEIGHT</a> = T_HEIGHT</td></tr>
-<tr class="memdesc:ab41ff54b42cf79d380b4a33236aad50b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Panel height in pixels.  <br /></td></tr>
-<tr class="memitem:a0337cba1d37711b5161a0fb3cb247fb0" id="r_a0337cba1d37711b5161a0fb3cb247fb0"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a0337cba1d37711b5161a0fb3cb247fb0">PAGE_COUNT</a> = T_HEIGHT / 8U</td></tr>
-<tr class="memdesc:a0337cba1d37711b5161a0fb3cb247fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of eight-row pages.  <br /></td></tr>
-<tr class="memitem:a9e1ce4f95af9f2756a382f4c90a58bb6" id="r_a9e1ce4f95af9f2756a382f4c90a58bb6"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a9e1ce4f95af9f2756a382f4c90a58bb6">BUFFER_SIZE</a> = T_WIDTH * <a class="el" href="#a0337cba1d37711b5161a0fb3cb247fb0">PAGE_COUNT</a></td></tr>
-<tr class="memdesc:a9e1ce4f95af9f2756a382f4c90a58bb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame buffer size in bytes.  <br /></td></tr>
-<tr class="memitem:a35fe0f1611653d3f4a6566de01dc0241" id="r_a35fe0f1611653d3f4a6566de01dc0241"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a35fe0f1611653d3f4a6566de01dc0241">MAX_CONTRAST</a> = 0xFFU</td></tr>
-<tr class="memdesc:a35fe0f1611653d3f4a6566de01dc0241"><td class="mdescLeft">&#160;</td><td class="mdescRight">Highest contrast value.  <br /></td></tr>
-<tr class="memitem:a70231efb9c4d10a9be92e44df378f954" id="r_a70231efb9c4d10a9be92e44df378f954"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a70231efb9c4d10a9be92e44df378f954">I2C_TIMEOUT</a> {100}</td></tr>
-<tr class="memdesc:a70231efb9c4d10a9be92e44df378f954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time limit of one command transfer.  <br /></td></tr>
-<tr class="memitem:ad4031d22f194172a53c232ad8422b1d2" id="r_ad4031d22f194172a53c232ad8422b1d2"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad4031d22f194172a53c232ad8422b1d2">FLUSH_TIMEOUT</a> {200}</td></tr>
-<tr class="memdesc:ad4031d22f194172a53c232ad8422b1d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time limit of one frame transfer.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aeeff5cb2652ef6ff0541b09d96f4579c" id="r_aeeff5cb2652ef6ff0541b09d96f4579c"><td class="memItemLeft"><a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt; void(const uint64_t &amp;)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#aeeff5cb2652ef6ff0541b09d96f4579c">onValueChanged</a></td></tr>
+<tr class="memdesc:aeeff5cb2652ef6ff0541b09d96f4579c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called from the update task after a new state is sent.  <br /></td></tr>
+<tr class="memitem:a931c2b178d43f30e3aad9ebdabe094d9" id="r_a931c2b178d43f30e3aad9ebdabe094d9"><td class="memItemLeft"><a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt; void(const uint64_t &amp;)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a931c2b178d43f30e3aad9ebdabe094d9">onStatusChanged</a></td></tr>
+<tr class="memdesc:a931c2b178d43f30e3aad9ebdabe094d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called from the update task on a driver status change.  <br /></td></tr>
+<tr class="memitem:ac1712a00bda5093ed106f6f7924d6c54" id="r_ac1712a00bda5093ed106f6f7924d6c54"><td class="memItemLeft"><a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt; void()&gt;&#160;</td><td class="memItemRight"><a class="el" href="#ac1712a00bda5093ed106f6f7924d6c54">onSpiError</a></td></tr>
+<tr class="memdesc:ac1712a00bda5093ed106f6f7924d6c54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called from the update task on the first SPI error.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aaa8c222c1e8b284b8f55e9e9ec37ec18" name="aaa8c222c1e8b284b8f55e9e9ec37ec18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">&#9670;&#160;</a></span>SSD1306() <span class="overload">[1/3]</span></h2>
+<a id="a247cd7c1b9224f24326b3776838b272f" name="a247cd7c1b9224f24326b3776838b272f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a247cd7c1b9224f24326b3776838b272f">&#9670;&#160;</a></span>Outputs()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::SSD1306 </td>
+          <td class="memname">Lib::BSP::DigitalPeripheralBase::Outputs::Outputs </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d5/d47/a04490.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../dc/d50/a04474.html">Config::Outputs</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -240,109 +198,10 @@ template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the driver to its I²C port and clears the frame buffer. </p>
+<p>Binds the port to its SPI bus, chip-select, output-enable and pin map. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Bus binding of the display. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a96d9ba465e570de50e896f0d9d068ab2" name="a96d9ba465e570de50e896f0d9d068ab2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96d9ba465e570de50e896f0d9d068ab2">&#9670;&#160;</a></span>~SSD1306()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::~<a class="el" href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">SSD1306</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Does not close the shared port; call <a class="el" href="#a852885f8fccb9ee0d80c0c6a6b28960b" title="Lib::BSP::Display::SSD1306::close()">Lib::BSP::Display::SSD1306::close()</a> first. </p>
-
-</div>
-</div>
-<a id="ad02a2ae6a81ced3e7717f56f3051b5d3" name="ad02a2ae6a81ced3e7717f56f3051b5d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad02a2ae6a81ced3e7717f56f3051b5d3">&#9670;&#160;</a></span>SSD1306() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::SSD1306 </td>
-          <td>(</td>
-          <td class="paramtype">const SSD1306&lt; T_WIDTH, T_HEIGHT &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: the driver holds a reference to a shared port. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a53a749d1a056f5326c358e78f583084a" name="a53a749d1a056f5326c358e78f583084a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53a749d1a056f5326c358e78f583084a">&#9670;&#160;</a></span>SSD1306() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::SSD1306 </td>
-          <td>(</td>
-          <td class="paramtype">SSD1306&lt; T_WIDTH, T_HEIGHT &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: the driver holds a reference to a shared port. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+    <tr><td class="paramname">config</td><td>Hardware binding of the output chain. </td></tr>
   </table>
   </dd>
 </dl>
@@ -350,378 +209,17 @@ template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a22aed91c76d2fdf103a08117770086c7" name="a22aed91c76d2fdf103a08117770086c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22aed91c76d2fdf103a08117770086c7">&#9670;&#160;</a></span>clear()</h2>
+<a id="a20ce1721d96d5e27bdd04a0e1952f3fb" name="a20ce1721d96d5e27bdd04a0e1952f3fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20ce1721d96d5e27bdd04a0e1952f3fb">&#9670;&#160;</a></span>getChangesCounter()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::clear </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Clears the frame buffer. </p>
-
-</div>
-</div>
-<a id="a852885f8fccb9ee0d80c0c6a6b28960b" name="a852885f8fccb9ee0d80c0c6a6b28960b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a852885f8fccb9ee0d80c0c6a6b28960b">&#9670;&#160;</a></span>close()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::close </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Switches the panel off and closes the I²C port. </p>
-<p>The frame buffer is kept.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the panel was switched off and the port shut down cleanly, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="af7aa47ba1aec2c201c139407b0e4ef80" name="af7aa47ba1aec2c201c139407b0e4ef80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7aa47ba1aec2c201c139407b0e4ef80">&#9670;&#160;</a></span>drawBitmap()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::drawBitmap </td>
-          <td>(</td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const size_t</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>bitmap</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Draws a one-bit bitmap. </p>
-<p>The bitmap is stored row by row, every row padded to whole bytes, the leftmost pixel in the most significant bit. A set bit lights the pixel, a clear bit leaves the pixel under it unchanged.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>Column of the top-left corner. </td></tr>
-    <tr><td class="paramname">y</td><td>Row of the top-left corner. </td></tr>
-    <tr><td class="paramname">width</td><td>Bitmap width in pixels. </td></tr>
-    <tr><td class="paramname">height</td><td>Bitmap height in pixels. </td></tr>
-    <tr><td class="paramname">bitmap</td><td>Bitmap data; at least <em>((width + 7) / 8) * height</em> bytes. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a8b231a6861c6388bb275586ce0ca4c1f" name="a8b231a6861c6388bb275586ce0ca4c1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b231a6861c6388bb275586ce0ca4c1f">&#9670;&#160;</a></span>drawLine()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::drawLine </td>
-          <td>(</td>
-          <td class="paramtype">int32_t</td>          <td class="paramname"><span class="paramname"><em>x0</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t</td>          <td class="paramname"><span class="paramname"><em>y0</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>isOn</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Draws a straight line between two points, ends included. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x0</td><td>Column of the first point. </td></tr>
-    <tr><td class="paramname">y0</td><td>Row of the first point. </td></tr>
-    <tr><td class="paramname">x1</td><td>Column of the second point. </td></tr>
-    <tr><td class="paramname">y1</td><td>Row of the second point. </td></tr>
-    <tr><td class="paramname">isOn</td><td><em class="arg">true</em> to light the pixels, <em class="arg">false</em> to clear them. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a2312321f9942151e10d52ef210434652" name="a2312321f9942151e10d52ef210434652"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2312321f9942151e10d52ef210434652">&#9670;&#160;</a></span>drawRect()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::drawRect </td>
-          <td>(</td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>isOn</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Draws the outline of a rectangle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>Column of the top-left corner. </td></tr>
-    <tr><td class="paramname">y</td><td>Row of the top-left corner. </td></tr>
-    <tr><td class="paramname">width</td><td>Width in pixels; nothing is drawn for 0. </td></tr>
-    <tr><td class="paramname">height</td><td>Height in pixels; nothing is drawn for 0. </td></tr>
-    <tr><td class="paramname">isOn</td><td><em class="arg">true</em> to light the pixels, <em class="arg">false</em> to clear them. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a692b533ba3d55466bf91425eaf77e415" name="a692b533ba3d55466bf91425eaf77e415"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a692b533ba3d55466bf91425eaf77e415">&#9670;&#160;</a></span>fill()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::fill </td>
-          <td>(</td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>isOn</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets every pixel of the frame buffer to one state. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">isOn</td><td><em class="arg">true</em> to light all pixels, <em class="arg">false</em> to clear them. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a0139f6d0cfa7cabc2e02f133d89cba3c" name="a0139f6d0cfa7cabc2e02f133d89cba3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0139f6d0cfa7cabc2e02f133d89cba3c">&#9670;&#160;</a></span>fillRect()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::fillRect </td>
-          <td>(</td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>width</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>isOn</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Draws a filled rectangle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>Column of the top-left corner. </td></tr>
-    <tr><td class="paramname">y</td><td>Row of the top-left corner. </td></tr>
-    <tr><td class="paramname">width</td><td>Width in pixels; nothing is drawn for 0. </td></tr>
-    <tr><td class="paramname">height</td><td>Height in pixels; nothing is drawn for 0. </td></tr>
-    <tr><td class="paramname">isOn</td><td><em class="arg">true</em> to light the pixels, <em class="arg">false</em> to clear them. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a78e2063e1bbdae46606ac701753d8ca0" name="a78e2063e1bbdae46606ac701753d8ca0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78e2063e1bbdae46606ac701753d8ca0">&#9670;&#160;</a></span>flush()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::flush </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends the frame buffer to the panel. </p>
-<p>Task context only. Blocks until the transfer ends.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the whole frame was transferred, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a08e534c1d48f4b10637b704173b17931" name="a08e534c1d48f4b10637b704173b17931"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08e534c1d48f4b10637b704173b17931">&#9670;&#160;</a></span>getFrameBuffer() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::span&lt; const uint8_t, <a class="el" href="#a9e1ce4f95af9f2756a382f4c90a58bb6">BUFFER_SIZE</a> &gt; <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::getFrameBuffer </td>
+          <td class="memname">uint32_t Lib::BSP::DigitalPeripheralBase::Outputs::getChangesCounter </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -734,322 +232,138 @@ template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the frame buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Read-only view of the page-organized frame buffer, for example to copy or compare it. </dd></dl>
+<p>Returns how many times a new output state has been sent. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of changes since construction. </dd></dl>
 
 </div>
 </div>
-<a id="abf92a7167b03b012676e6cbb36a2e44a" name="abf92a7167b03b012676e6cbb36a2e44a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf92a7167b03b012676e6cbb36a2e44a">&#9670;&#160;</a></span>getFrameBuffer() <span class="overload">[2/2]</span></h2>
+<a id="a95099752d786b9afd12743cfed8e8f39" name="a95099752d786b9afd12743cfed8e8f39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95099752d786b9afd12743cfed8e8f39">&#9670;&#160;</a></span>getSpiHandle()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::span&lt; uint8_t, <a class="el" href="#a9e1ce4f95af9f2756a382f4c90a58bb6">BUFFER_SIZE</a> &gt; <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::getFrameBuffer </td>
+          <td class="memname"><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d1/de6/a01068.html#gab633e49dd034de2f3a1fe79853d78d18">SPI_HandleTypeDef</a> * Lib::BSP::DigitalPeripheralBase::Outputs::getSpiHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the native SPI handle of the port. </p>
+<dl class="section return"><dt>Returns</dt><dd>SPI handle given in the configuration. </dd></dl>
+
+</div>
+</div>
+<a id="a5390728a76821a9b72e0bf604b09462e" name="a5390728a76821a9b72e0bf604b09462e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5390728a76821a9b72e0bf604b09462e">&#9670;&#160;</a></span>getStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t Lib::BSP::DigitalPeripheralBase::Outputs::getStatus </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the last status reported by the drivers. </p>
+<dl class="section return"><dt>Returns</dt><dd>Status bitmask, bit 0 being logical pin 0. </dd></dl>
+
+</div>
+</div>
+<a id="adfeabb3ecc2b63a7d2fdaef8972422d2" name="adfeabb3ecc2b63a7d2fdaef8972422d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfeabb3ecc2b63a7d2fdaef8972422d2">&#9670;&#160;</a></span>getValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t Lib::BSP::DigitalPeripheralBase::Outputs::getValue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the last requested output state. </p>
+<dl class="section return"><dt>Returns</dt><dd>Output bitmask, bit 0 being logical pin 0. </dd></dl>
+
+</div>
+</div>
+<a id="a577114566b65889dd42c95c3e3350b1a" name="a577114566b65889dd42c95c3e3350b1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a577114566b65889dd42c95c3e3350b1a">&#9670;&#160;</a></span>hasSpiError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::DigitalPeripheralBase::Outputs::hasSpiError </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the chain has ever failed a transfer or its sequence-byte check. </p>
+<p>The flag latches; it is not cleared by later successful frames.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> after the first SPI error. </dd></dl>
+
+</div>
+</div>
+<a id="a369ec8b311dd4871503593f3fd91e103" name="a369ec8b311dd4871503593f3fd91e103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a369ec8b311dd4871503593f3fd91e103">&#9670;&#160;</a></span>postUpdateCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::BSP::DigitalPeripheralBase::Outputs::postUpdateCallback </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the frame buffer for writing. </p>
-<p>Lets a bridge, such as <a class="el" href="../../d1/d1b/a06326.html" title="Lib::BSP::Display::TouchGFX_BW">Lib::BSP::Display::TouchGFX_BW</a>, fill the pages directly; the pixels appear on the panel with the next <a class="el" href="#a78e2063e1bbdae46606ac701753d8ca0" title="Lib::BSP::Display::SSD1306::flush()">Lib::BSP::Display::SSD1306::flush()</a>.</p>
-<dl class="section return"><dt>Returns</dt><dd>Writable view of the page-organized frame buffer. </dd></dl>
-
-</div>
-</div>
-<a id="ad162ef0d1404e932870e7c7c51b3325a" name="ad162ef0d1404e932870e7c7c51b3325a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad162ef0d1404e932870e7c7c51b3325a">&#9670;&#160;</a></span>getPixel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::getPixel </td>
-          <td>(</td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets one pixel of the frame buffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>Column, 0 at the left. </td></tr>
-    <tr><td class="paramname">y</td><td>Row, 0 at the top. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the pixel is lit, <b>false</b> if it is dark or outside the panel. </dd></dl>
-
-</div>
-</div>
-<a id="ae77696c6301f7d64ab392726dc732210" name="ae77696c6301f7d64ab392726dc732210"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae77696c6301f7d64ab392726dc732210">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::open </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Opens the I²C port, initializes the controller and shows a blank screen. </p>
-<p>Probes the slave address first. A failed probe leaves the port open, since other devices on the same bus may already use it. The controller is set up for horizontal addressing with the internal charge pump enabled.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the display acknowledged and was initialized, <b>false</b> otherwise. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d1b/a06326.html#a6">Lib::BSP::Display::TouchGFX_BW</a>, and <a class="el" href="../../dc/df9/a06354.html#a5">Lib::GUI::Context</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="af15c7ec0c59083e465009eda1b9ebe37" name="af15c7ec0c59083e465009eda1b9ebe37"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af15c7ec0c59083e465009eda1b9ebe37">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">SSD1306</a> &amp; <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: the driver holds a reference to a shared port. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this driver. </dd></dl>
-
-</div>
-</div>
-<a id="a1d58172f24a7023108da3364760ac6e4" name="a1d58172f24a7023108da3364760ac6e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d58172f24a7023108da3364760ac6e4">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">SSD1306</a> &amp; <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#aaa8c222c1e8b284b8f55e9e9ec37ec18">SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: the driver holds a reference to a shared port. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this driver. </dd></dl>
-
-</div>
-</div>
-<a id="a858b67a451ec6884719d48e5ab447c2c" name="a858b67a451ec6884719d48e5ab447c2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a858b67a451ec6884719d48e5ab447c2c">&#9670;&#160;</a></span>setContrast()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::setContrast </td>
-          <td>(</td>
-          <td class="paramtype">const uint8_t</td>          <td class="paramname"><span class="paramname"><em>contrast</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the contrast, which is the panel brightness. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">contrast</td><td>Contrast from 0 to <a class="el" href="#a35fe0f1611653d3f4a6566de01dc0241" title="Lib::BSP::Display::SSD1306::MAX_CONTRAST">Lib::BSP::Display::SSD1306::MAX_CONTRAST</a>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the command was sent, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="aa48f24527e78509ffd16a3ecb722e75d" name="aa48f24527e78509ffd16a3ecb722e75d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa48f24527e78509ffd16a3ecb722e75d">&#9670;&#160;</a></span>setDisplayOn()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::setDisplayOn </td>
-          <td>(</td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>isOn</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Switches the panel on or off; the display RAM is kept while off. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">isOn</td><td><em class="arg">true</em> to light the panel, <em class="arg">false</em> for sleep mode. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the command was sent, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a4ed4920dbd2f15212ffe50168db31e78" name="a4ed4920dbd2f15212ffe50168db31e78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ed4920dbd2f15212ffe50168db31e78">&#9670;&#160;</a></span>setInverted()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::setInverted </td>
-          <td>(</td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>isInverted</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Inverts the panel: lit pixels become dark and the other way round. </p>
-<p>Works on the display RAM, so it takes effect at once without a flush.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">isInverted</td><td><em class="arg">true</em> for inverted output, <em class="arg">false</em> for normal output. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the command was sent, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a5d6fc5a1b1b7ed7ba95f019e7e9dbdb4" name="a5d6fc5a1b1b7ed7ba95f019e7e9dbdb4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d6fc5a1b1b7ed7ba95f019e7e9dbdb4">&#9670;&#160;</a></span>setPixel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::setPixel </td>
-          <td>(</td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int32_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>isOn</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -1059,235 +373,171 @@ template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Sets one pixel; a position outside the panel is ignored. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x</td><td>Column, 0 at the left. </td></tr>
-    <tr><td class="paramname">y</td><td>Row, 0 at the top. </td></tr>
-    <tr><td class="paramname">isOn</td><td><em class="arg">true</em> to light the pixel, <em class="arg">false</em> to clear it. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Closes the bus so that the input port can take it over. </p>
 
 </div>
 </div>
-<a id="a97bd343d36134fb1ae784a669a501b16" name="a97bd343d36134fb1ae784a669a501b16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97bd343d36134fb1ae784a669a501b16">&#9670;&#160;</a></span>setRotated()</h2>
+<a id="a785e5cd7daaf7419e296aaa67f4d785c" name="a785e5cd7daaf7419e296aaa67f4d785c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a785e5cd7daaf7419e296aaa67f4d785c">&#9670;&#160;</a></span>preUpdateCallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::setRotated </td>
+          <td class="memname">void Lib::BSP::DigitalPeripheralBase::Outputs::preUpdateCallback </td>
           <td>(</td>
-          <td class="paramtype">const bool</td>          <td class="paramname"><span class="paramname"><em>isRotated</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Turns the image by <em>180°</em>. </p>
-<p>Mirrors both axes in the controller, so it takes effect at once without a flush.</p>
+<p>Applies the output SPI timing and opens the bus for this port. </p>
+
+</div>
+</div>
+<a id="aeee2211d23c7dfc940b0d3f16ff4e531" name="aeee2211d23c7dfc940b0d3f16ff4e531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeee2211d23c7dfc940b0d3f16ff4e531">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::BSP::DigitalPeripheralBase::Outputs::setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deselects the chain, enables all driver channels and schedules the first frame. </p>
+
+</div>
+</div>
+<a id="a6a6877af80563061eddc23c9bb71746d" name="a6a6877af80563061eddc23c9bb71746d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a6877af80563061eddc23c9bb71746d">&#9670;&#160;</a></span>setValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::BSP::DigitalPeripheralBase::Outputs::setValue </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>newValue</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Requests a new output state, sent on the next update. </p>
+<p>Safe to call from any task.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">isRotated</td><td><em class="arg">true</em> to turn the image upside down, <em class="arg">false</em> for the default orientation. </td></tr>
+    <tr><td class="paramname">newValue</td><td>Output bitmask, bit 0 being logical pin 0. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the commands were sent, <b>false</b> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="aae51811f331f09bf179cc6f2d9c2b974" name="aae51811f331f09bf179cc6f2d9c2b974"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae51811f331f09bf179cc6f2d9c2b974">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::BSP::DigitalPeripheralBase::Outputs::update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a frame when the output state changed or the refresh period elapsed, then evaluates the answer. </p>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a9e1ce4f95af9f2756a382f4c90a58bb6" name="a9e1ce4f95af9f2756a382f4c90a58bb6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e1ce4f95af9f2756a382f4c90a58bb6">&#9670;&#160;</a></span>BUFFER_SIZE</h2>
+<a id="ac1712a00bda5093ed106f6f7924d6c54" name="ac1712a00bda5093ed106f6f7924d6c54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1712a00bda5093ed106f6f7924d6c54">&#9670;&#160;</a></span>onSpiError</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::BUFFER_SIZE = T_WIDTH * <a class="el" href="#a0337cba1d37711b5161a0fb3cb247fb0">PAGE_COUNT</a></td>
+          <td class="memname"><a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt;void()&gt; Lib::BSP::DigitalPeripheralBase::Outputs::onSpiError</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Frame buffer size in bytes. </p>
+<p>Called from the update task on the first SPI error. </p>
 
 </div>
 </div>
-<a id="ad4031d22f194172a53c232ad8422b1d2" name="ad4031d22f194172a53c232ad8422b1d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4031d22f194172a53c232ad8422b1d2">&#9670;&#160;</a></span>FLUSH_TIMEOUT</h2>
+<a id="a931c2b178d43f30e3aad9ebdabe094d9" name="a931c2b178d43f30e3aad9ebdabe094d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a931c2b178d43f30e3aad9ebdabe094d9">&#9670;&#160;</a></span>onStatusChanged</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::FLUSH_TIMEOUT {200}</td>
+          <td class="memname"><a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt;void(const uint64_t &amp;)&gt; Lib::BSP::DigitalPeripheralBase::Outputs::onStatusChanged</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Time limit of one frame transfer. </p>
+<p>Called from the update task on a driver status change. </p>
 
 </div>
 </div>
-<a id="ab41ff54b42cf79d380b4a33236aad50b" name="ab41ff54b42cf79d380b4a33236aad50b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab41ff54b42cf79d380b4a33236aad50b">&#9670;&#160;</a></span>HEIGHT</h2>
+<a id="aeeff5cb2652ef6ff0541b09d96f4579c" name="aeeff5cb2652ef6ff0541b09d96f4579c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeff5cb2652ef6ff0541b09d96f4579c">&#9670;&#160;</a></span>onValueChanged</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::HEIGHT = T_HEIGHT</td>
+          <td class="memname"><a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt;void(const uint64_t &amp;)&gt; Lib::BSP::DigitalPeripheralBase::Outputs::onValueChanged</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Panel height in pixels. </p>
-
-</div>
-</div>
-<a id="a70231efb9c4d10a9be92e44df378f954" name="a70231efb9c4d10a9be92e44df378f954"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70231efb9c4d10a9be92e44df378f954">&#9670;&#160;</a></span>I2C_TIMEOUT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::I2C_TIMEOUT {100}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Time limit of one command transfer. </p>
-
-</div>
-</div>
-<a id="a35fe0f1611653d3f4a6566de01dc0241" name="a35fe0f1611653d3f4a6566de01dc0241"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35fe0f1611653d3f4a6566de01dc0241">&#9670;&#160;</a></span>MAX_CONTRAST</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::MAX_CONTRAST = 0xFFU</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Highest contrast value. </p>
-
-</div>
-</div>
-<a id="a0337cba1d37711b5161a0fb3cb247fb0" name="a0337cba1d37711b5161a0fb3cb247fb0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0337cba1d37711b5161a0fb3cb247fb0">&#9670;&#160;</a></span>PAGE_COUNT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::PAGE_COUNT = T_HEIGHT / 8U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Number of eight-row pages. </p>
-
-</div>
-</div>
-<a id="a4621f517abfcbd26627e5953d333546d" name="a4621f517abfcbd26627e5953d333546d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4621f517abfcbd26627e5953d333546d">&#9670;&#160;</a></span>WIDTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../df/dd2/a04486.html">Lib::BSP::Display::SSD1306</a>&lt; T_WIDTH, T_HEIGHT &gt;::WIDTH = T_WIDTH</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Panel width in pixels. </p>
+<p>Called from the update task after a new state is sent. </p>
 
 </div>
 </div>
@@ -1298,7 +548,7 @@ template&lt;size_t T_WIDTH = 128U, size_t T_HEIGHT = 64U&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../de/de6/a01063.html">BSP</a></li><li class="navelem"><a href="../../d9/db3/a01064.html">Display</a></li><li class="navelem"><a href="../../df/dd2/a04486.html">SSD1306</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../da/d73/a01090.html">BSP</a></li><li class="navelem"><a href="../../d8/df5/a04458.html">DigitalPeripheralBase</a></li><li class="navelem"><a href="../../df/dd2/a04486.html">Outputs</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

@@ -1,11 +1,15 @@
 var a05666 =
 [
-    [ "OTP", "da/d64/a05666.html#aaff496f8bf89080e84c1fbda6b0904c3", null ],
-    [ "OTP", "da/d64/a05666.html#a7bc9c9e1f02016880f00d3a1182e5e71", null ],
-    [ "lock", "da/d64/a05666.html#ab4c2e78575458526b83be6e259aa1f93", null ],
-    [ "operator=", "da/d64/a05666.html#ad631f9069ef7f1c2f316505e7b391885", null ],
-    [ "operator=", "da/d64/a05666.html#af5af865ec6e520ce53d21e6c9ecd7221", null ],
-    [ "read", "da/d64/a05666.html#acff397156950347f6f452dec2c94af43", null ],
-    [ "unlock", "da/d64/a05666.html#a220a07c58647557d8a81402260eacfb5", null ],
-    [ "write", "da/d64/a05666.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
+    [ "I2CPort", "da/d64/a05666.html#a5ed7014d6c1bb4669c90ada1b61bbffe", null ],
+    [ "~I2CPort", "da/d64/a05666.html#a28d64cb04bd2cd5f1648ac33b94bf4ec", null ],
+    [ "abort", "da/d64/a05666.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "close", "da/d64/a05666.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "da/d64/a05666.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "da/d64/a05666.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "da/d64/a05666.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "masterMemRead", "da/d64/a05666.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "da/d64/a05666.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "da/d64/a05666.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "da/d64/a05666.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "da/d64/a05666.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

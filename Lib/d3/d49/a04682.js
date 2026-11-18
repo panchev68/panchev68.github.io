@@ -1,8 +1,13 @@
 var a04682 =
 [
-    [ "chipSelectPin", "d3/d49/a04682.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
-    [ "irqPin", "d3/d49/a04682.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
-    [ "resetPin", "d3/d49/a04682.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
-    [ "rxGain", "d3/d49/a04682.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
-    [ "spiHandle", "d3/d49/a04682.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
+    [ "Power", "d3/d49/a04682.html#af2064ef23cdc3d14a2a9a5e5c9ab2b8e", null ],
+    [ "hardReset", "d3/d49/a04682.html#a4a97d410838feb9faea50b34948d313d", null ],
+    [ "isAsleep", "d3/d49/a04682.html#a146b6c17667d99ba4b4d919d98959641", null ],
+    [ "isOn", "d3/d49/a04682.html#a2cc49b087c846d65af5aaab43d0b4803", null ],
+    [ "isStatusHigh", "d3/d49/a04682.html#acfea3f32a8e3c53a7ce0118d81ed3d20", null ],
+    [ "off", "d3/d49/a04682.html#a00662a719223d2d8dea3e0567d1cc7a8", null ],
+    [ "on", "d3/d49/a04682.html#a9ef3fdbe071a7ca9a6d48b660c068c44", null ],
+    [ "setSavingMode", "d3/d49/a04682.html#a181f9d4d8e952e84f202734e77c8cb85", null ],
+    [ "sleep", "d3/d49/a04682.html#a3100efc86fbfd79c1db3d66caeda4b3e", null ],
+    [ "wakeUp", "d3/d49/a04682.html#aca2cbd553202896c84c23e75d49ddd9e", null ]
 ];

@@ -1,8 +1,6 @@
 var a06166 =
 [
-    [ "Config", "d0/d64/a06166.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
-    [ "callback", "d0/d64/a06166.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
-    [ "mode", "d0/d64/a06166.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
-    [ "name", "d0/d64/a06166.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
-    [ "period", "d0/d64/a06166.html#ae81cad8de025f71497b5b241c41da1eb", null ]
+    [ "deepSleepCount", "d0/d64/a06166.html#ae80981e088a11d9e03983df5989a0c57", null ],
+    [ "deepSleepTicks", "d0/d64/a06166.html#a1db12ec46a399abd96da0e8362daeb40", null ],
+    [ "lightSleepCount", "d0/d64/a06166.html#a01c394457f049509658022904e7ace56", null ]
 ];

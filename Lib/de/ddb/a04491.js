@@ -1,7 +1,11 @@
 var a04491 =
 [
-    [ "diPinHandle", "de/ddb/a04491.html#ac1b56409fb324181fdf949402d46b876", null ],
-    [ "nrstPinHandle", "de/ddb/a04491.html#af72580eea93e2646b3f6eb5efbbce47f", null ],
-    [ "nssPinHandle", "de/ddb/a04491.html#a8dc8520c47e27de48c5b73a8870cda54", null ],
-    [ "spiHandle", "de/ddb/a04491.html#ab178d2536db34733af537ae7bec2353c", null ]
+    [ "Config", "db/dd8/a04495.html", "db/dd8/a04495" ],
+    [ "Driver", "de/ddb/a04491.html#a1485030ad4d5221083358bb976d4f6a9", null ],
+    [ "~Driver", "de/ddb/a04491.html#a02b3a6700a07d6ec290c3b84098c3389", null ],
+    [ "handleTransferCompleteEvent", "de/ddb/a04491.html#a16f81d6e044e814af3071d70b3bfd029", null ],
+    [ "setBacklight", "de/ddb/a04491.html#a5c3019cb4ef6b0af87fb89c9b1e25ca4", null ],
+    [ "setRotation", "de/ddb/a04491.html#aa82bca6d7225f8fb51714daaa7b44ee1", null ],
+    [ "setup", "de/ddb/a04491.html#ae80e1a0a03b141829f376e2309e65a30", null ],
+    [ "transmitBlock", "de/ddb/a04491.html#a7c3b10e802400c9d45d7467ee59a7562", null ]
 ];

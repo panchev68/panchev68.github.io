@@ -1,14 +1,27 @@
 var a06182 =
 [
-    [ "Config", "d4/dc1/a06186.html", "d4/dc1/a06186" ],
-    [ "Measurement", "d9/dac/a06190.html", "d9/dac/a06190" ],
-    [ "Direction", "d4/dfc/a06182.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
-      [ "DOWN", "d4/dfc/a06182.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
-      [ "UP", "d4/dfc/a06182.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
-    ] ],
-    [ "PerturbAndObserve", "d4/dfc/a06182.html#a7e1626362f778f8b7e085cdc41794a67", null ],
-    [ "getVoltageSetpoint", "d4/dfc/a06182.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
-    [ "reset", "d4/dfc/a06182.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
-    [ "setStepSize", "d4/dfc/a06182.html#a121c7b229d119d0ee55cd0b855065350", null ],
-    [ "update", "d4/dfc/a06182.html#ab0587469fdbaa626d9f751ef04255627", null ]
+    [ "Handle", "d4/dfc/a06182.html#a4b0fa065d254b79172dce084d987b8d4", null ],
+    [ "TickType", "d4/dfc/a06182.html#a052c7fc009c89fd8f8542c6014405b43", null ],
+    [ "SemaphoreBase", "d4/dfc/a06182.html#a7717ea389a92a9878d51dfde3869dd64", null ],
+    [ "SemaphoreBase", "d4/dfc/a06182.html#ae0c09f0d483b3959297f30bd3909de83", null ],
+    [ "SemaphoreBase", "d4/dfc/a06182.html#aa8eb9e59c8d7eea278876d3a562dd4f0", null ],
+    [ "~SemaphoreBase", "d4/dfc/a06182.html#a15508562779df713e9be104d41d7664d", null ],
+    [ "close", "d4/dfc/a06182.html#ac6a74e3af35fe243ff32a8ae89fd4214", null ],
+    [ "getCountFromISR", "d4/dfc/a06182.html#aa25056dd49c8d19a9f388b97f02c5291", null ],
+    [ "getDerived", "d4/dfc/a06182.html#a2cd2d582d5bec19cc64612f8c4c5cd8c", null ],
+    [ "getDerived", "d4/dfc/a06182.html#a431358a0063bbdcb40d09537a2babe3a", null ],
+    [ "getHandle", "d4/dfc/a06182.html#a9cd3c80279acde60a0701a674eecc148", null ],
+    [ "give", "d4/dfc/a06182.html#a5682e0c5d8eb6b2076978634963b4020", null ],
+    [ "giveFromISR", "d4/dfc/a06182.html#aa210564f44d72420fb519ca27f12d9a1", null ],
+    [ "giveFromISR", "d4/dfc/a06182.html#adc665ae88781c6a32668f430f0425eac", null ],
+    [ "isOpen", "d4/dfc/a06182.html#a8fe23c2cca8f01687c58c3aa1b257649", null ],
+    [ "operator=", "d4/dfc/a06182.html#aaba790805ac420c6d1b347ab01b9550a", null ],
+    [ "operator=", "d4/dfc/a06182.html#aaa0c4d93b7bd73160f68f700b6d86e26", null ],
+    [ "take", "d4/dfc/a06182.html#adba0e9091ed738abab54ed798d53a7ca", null ],
+    [ "take", "d4/dfc/a06182.html#a320bbbf470cde849ac2b5405273ff10d", null ],
+    [ "take", "d4/dfc/a06182.html#a0c09ee6fc8a221b811abbd57ac9d0071", null ],
+    [ "takeFromISR", "d4/dfc/a06182.html#a64003ee333dc11bd7ed7dff2d14e4145", null ],
+    [ "takeFromISR", "d4/dfc/a06182.html#a351bf0854e0c48d82c1a078a39e02879", null ],
+    [ "tryTake", "d4/dfc/a06182.html#a99e434d16d327ee8039d19a7feb75f8b", null ],
+    [ "semaphoreHandle", "d4/dfc/a06182.html#a9f2ff1e57e66e99707d4107fa4c19812", null ]
 ];

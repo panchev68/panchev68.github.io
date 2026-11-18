@@ -1,6 +1,5 @@
 var a05079 =
 [
-    [ "getIdentifier", "dd/d78/a05079.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
-    [ "setIdentifier", "dd/d78/a05079.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
-    [ "identifier", "dd/d78/a05079.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
+    [ "channel", "dd/d78/a05079.html#accbe3e59202cfc52dc94acb73e4342e2", null ],
+    [ "id", "dd/d78/a05079.html#a0765ed0261b9be43580c85bf3aa4e8c7", null ]
 ];

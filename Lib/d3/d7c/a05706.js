@@ -1,20 +1,12 @@
 var a05706 =
 [
-    [ "Point", "d4/d00/a05710.html", "d4/d00/a05710" ],
-    [ "BoundaryType", "d3/d7c/a05706.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "d3/d7c/a05706.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "d3/d7c/a05706.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "d3/d7c/a05706.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "d3/d7c/a05706.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "d3/d7c/a05706.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "d3/d7c/a05706.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "d3/d7c/a05706.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "d3/d7c/a05706.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "d3/d7c/a05706.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "d3/d7c/a05706.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "d3/d7c/a05706.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "d3/d7c/a05706.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "d3/d7c/a05706.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "d3/d7c/a05706.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "OSPIPortBase", "d3/d7c/a05706.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "d3/d7c/a05706.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "d3/d7c/a05706.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "d3/d7c/a05706.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "d3/d7c/a05706.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "d3/d7c/a05706.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d3/d7c/a05706.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d3/d7c/a05706.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "d3/d7c/a05706.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

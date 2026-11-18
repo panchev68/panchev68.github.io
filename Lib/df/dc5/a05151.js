@@ -1,16 +1,16 @@
 var a05151 =
 [
-    [ "Command", "df/dc5/a05151.html#aeec1806cc51651aec7c65df97f20824f", [
-      [ "INPUTS", "df/dc5/a05151.html#aeec1806cc51651aec7c65df97f20824fac7cab40575826be2d11c65614ca65692", null ],
-      [ "GET_PARAMETERS", "df/dc5/a05151.html#aeec1806cc51651aec7c65df97f20824fad87e3170f16eba85483569bdf04166c1", null ],
-      [ "OUTPUTS", "df/dc5/a05151.html#aeec1806cc51651aec7c65df97f20824fa1ca47bf72b5f3be73e90beeed7a36a70", null ],
-      [ "SET_PARAMETERS", "df/dc5/a05151.html#aeec1806cc51651aec7c65df97f20824fa8e883255aa1108c276e166cd0bde2307", null ]
-    ] ],
-    [ "UserProtocol", "df/dc5/a05151.html#aa1cf835574b826afcd369ebf2d028ea7", null ],
-    [ "~UserProtocol", "df/dc5/a05151.html#ad7f787cb3b60753ed4352d4a34e8a9a7", null ],
-    [ "handleGetParameters", "df/dc5/a05151.html#a1675e1b5fd15fd1500a5d996f87dfd46", null ],
-    [ "handleInputsUpdate", "df/dc5/a05151.html#a667d3ff5b042410546dc2212f46897b3", null ],
-    [ "handleOutputsUpdate", "df/dc5/a05151.html#a0da8607e6d55446f6dfa2edb7431481f", null ],
-    [ "handleSetParameters", "df/dc5/a05151.html#afc05283afd3c88f8eee7d0c94e969ab4", null ],
-    [ "parse", "df/dc5/a05151.html#a4d3b6c9250019cb601e8256f0167da64", null ]
+    [ "ChannelArray", "df/dc5/a05151.html#aa2fed2d2a6f2ce38866cce0b42f0fc1d", null ],
+    [ "SpectrumAnalyzer", "df/dc5/a05151.html#acffb15e4dc1a3f0ff7c89bc48f895f8e", null ],
+    [ "SpectrumAnalyzer", "df/dc5/a05151.html#a2c4d3982ffc82582c07ab45464cd9a9f", null ],
+    [ "close", "df/dc5/a05151.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
+    [ "getAverageArray", "df/dc5/a05151.html#a9a039ecee938e04e07e4fcb9227ae878", null ],
+    [ "getCurrentArray", "df/dc5/a05151.html#a8839a8b30ad3060298b6867566c1aa6d", null ],
+    [ "getMaxArray", "df/dc5/a05151.html#a8fa9bbae67bd369d3c4dcfd522299a06", null ],
+    [ "isNewData", "df/dc5/a05151.html#a2788be420fbb2acb1168d7aa21759804", null ],
+    [ "isRunning", "df/dc5/a05151.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "df/dc5/a05151.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "df/dc5/a05151.html#a9ca130f09d902c6ce140e87b155e8d00", null ],
+    [ "resetData", "df/dc5/a05151.html#a219916036b1120cc272129041d937770", null ],
+    [ "update", "df/dc5/a05151.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
 ];

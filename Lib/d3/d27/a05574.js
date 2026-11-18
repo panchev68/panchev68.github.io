@@ -1,17 +1,15 @@
 var a05574 =
 [
-    [ "Manager", "d3/d27/a05574.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "d3/d27/a05574.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimOnePulse", "d3/d27/a05574.html#ae287fccac43cfbccd505d62c3450d886", null ],
-    [ "~TimOnePulse", "d3/d27/a05574.html#a1e04591efe0469a8ca79694006f138e6", null ],
-    [ "bindWorker", "d3/d27/a05574.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
-    [ "getHandle", "d3/d27/a05574.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "notifyWorkerFromISR", "d3/d27/a05574.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "setTiming", "d3/d27/a05574.html#adcd5d98b02d7d70c3dbcd75ab4f117b6", null ],
-    [ "start", "d3/d27/a05574.html#a4dd784ca9da4b8c662101a2b232a1f61", null ],
-    [ "stop", "d3/d27/a05574.html#a2ab7da84b6cafce46167eeca602289ac", null ],
-    [ "waitEvent", "d3/d27/a05574.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
-    [ "waitPulseStart", "d3/d27/a05574.html#a16dbc64b1db27612373f5d95fe8fe6ed", null ],
-    [ "waitPulseStart", "d3/d27/a05574.html#aeba87dc02428bea360275fd39706fa18", null ],
-    [ "void::HAL_TIM_PWM_PulseFinishedCallback", "d3/d27/a05574.html#a5e91f9ca8a9abc6255b583f8225f7478", null ]
+    [ "CANPortBase", "d3/d27/a05574.html#a49874a4fadbeed6acb5df1cd34d8b425", null ],
+    [ "CANPortBase", "d3/d27/a05574.html#a36fdf7b60492dfecc0b7bba144d57de0", null ],
+    [ "CANPortBase", "d3/d27/a05574.html#a3758c35d87fdeafd08f0cc9845888bea", null ],
+    [ "~CANPortBase", "d3/d27/a05574.html#afe0c3c29da222264a12b2ade136c866c", null ],
+    [ "close", "d3/d27/a05574.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
+    [ "getFreeTxMailboxCount", "d3/d27/a05574.html#ac88a1857130f01ccafcb72baae483a84", null ],
+    [ "getRxFifoFillLevel", "d3/d27/a05574.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
+    [ "open", "d3/d27/a05574.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
+    [ "operator=", "d3/d27/a05574.html#a9d5120e2646e18222b7569d1caeda00e", null ],
+    [ "operator=", "d3/d27/a05574.html#a472090855651f87bac97104e8a80dee6", null ],
+    [ "read", "d3/d27/a05574.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
+    [ "write", "d3/d27/a05574.html#a65aa681fa591b2d0956e06e67e990b15", null ]
 ];

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Semaphore</title>
+<title>IAR EWARM Library: Lib::MQTT::Client</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,66 +129,122 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/d4b/a06519.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Semaphore</div></div>
+  <div class="headertitle"><div class="title">Lib::MQTT::Client</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows signalling between a task and an ISR with a binary <a class="el" href="../../d9/d4b/a06519.html" title="RTOS::Semaphore">RTOS::Semaphore</a>.</p>
-<p>Shows signalling between a task and an ISR with a binary <a class="el" href="../../d9/d4b/a06519.html" title="RTOS::Semaphore">RTOS::Semaphore</a>. Covers opening the semaphore, a task waiting for an event with a timeout, and an interrupt handler that gives the semaphore from ISR context. <a class="el" href="../../d3/d61/a06163.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> and <a class="el" href="../../d3/d61/a06163.html#a5682e0c5d8eb6b2076978634963b4020" title="RTOS::SemaphoreBase::give()">RTOS::SemaphoreBase::give()</a> assert when called from an ISR, so the handler uses the FromISR variant.</p>
-<dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="../../d9/d40/a06159.html#a4f3a14ce62c98f7ce5520ce3e91b2322" title="RTOS::Semaphore::open()">RTOS::Semaphore::open()</a> from task context before the interrupt is enabled.</dd></dl>
+<p>Connects to an MQTT broker, subscribes, publishes and receives with <a class="el" href="../../d9/d4b/a06519.html" title="Lib::MQTT::Client">Lib::MQTT::Client</a> over a caller-supplied TCP transport.</p>
+<p>Connects to an MQTT broker, subscribes, publishes and receives with <a class="el" href="../../d9/d4b/a06519.html" title="Lib::MQTT::Client">Lib::MQTT::Client</a> over a caller-supplied TCP transport.The client does not open a socket itself: pass a transport that satisfies <a class="el" href="../../d8/d59/a06394.html" title="Lib::MQTT::MqttTransport">Lib::MQTT::MqttTransport</a>, for example a thin adapter over a Wiznet socket or a modem data-mode stream. All methods may be called from any task; incoming messages reach the handler from inside <b>process()</b>, so run it from one task. Nothing here may be called from an ISR.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_usage_open"></a>
-Creating the semaphore</h3>
-<p>The semaphore is created empty (taken), so the first <a class="el" href="../../d3/d61/a06163.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> blocks until the ISR gives it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d2b/a01010.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="mqtt_usage_transport"></a>
+Transport</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dce/a08725.html">Lib/MQTT/Client.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/d40/a06159.html">RTOS::Semaphore</a> dataReady;</div>
-<div class="line">}</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/d80/a01076.html">RTOS.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> createDataReady() noexcept {</div>
-<div class="line">    <span class="keywordflow">return</span> dataReady.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d9/d40/a06159.html#a4f3a14ce62c98f7ce5520ce3e91b2322">open</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa01010_html"><div class="ttname"><a href="../../d0/d2b/a01010.html">Semaphore.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS binary semaphores.</div></div>
-<div class="ttc" id="aa06159_html"><div class="ttname"><a href="../../d9/d40/a06159.html">RTOS::Semaphore</a></div><div class="ttdoc">Binary semaphore resource manager for task and ISR synchronization.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:45</div></div>
-<div class="ttc" id="aa06159_html_a4f3a14ce62c98f7ce5520ce3e91b2322"><div class="ttname"><a href="../../d9/d40/a06159.html#a4f3a14ce62c98f7ce5520ce3e91b2322">RTOS::Semaphore::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Allocates the native FreeRTOS binary semaphore handle, if not already open.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:120</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_usage_isr"></a>
-Signalling from the interrupt</h3>
-<p>The handler runs in ISR context, so it calls the <a class="el" href="../../d3/d61/a06163.html#aa210564f44d72420fb519ca27f12d9a1" title="RTOS::SemaphoreBase::giveFromISR()">RTOS::SemaphoreBase::giveFromISR()</a> variant, which requests the context switch itself.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d2b/a01010.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00308.html">cstdio</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../d9/d40/a06159.html">RTOS::Semaphore</a> dataReady;</div>
-<div class="line">}</div>
+<div class="line"><span class="keyword">class </span>TcpTransport final {</div>
+<div class="line"><span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> EXTI_DataReady_Callback() noexcept {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dataReady.giveFromISR());</div>
-<div class="line">}</div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="semaphore_usage_task"></a>
-Waiting in a task</h3>
-<p><a class="el" href="../../d9/d40/a06159.html#a4a7b4e66593bcbcf465ddf9458cee540" title="RTOS::Semaphore::takeMs()">RTOS::Semaphore::takeMs()</a> returns <em class="arg">false</em> when no event arrives within the timeout.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d2b/a01010.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <a class="code hl_class" href="../../d9/d40/a06159.html">RTOS::Semaphore</a> dataReady;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> consumerTask(<span class="keywordtype">void</span> * parameters) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!dataReady.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    <span class="keywordtype">bool</span> connect(<span class="keyword">const</span> <span class="keywordtype">char</span> * host, uint16_t port, <a id="_a0" name="_a0"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>) <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="comment">// Open a TCP socket to host:port within timeout.</span></div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="keywordtype">int</span> send(std::span&lt;const uint8_t&gt; <a id="_a1" name="_a1"></a><a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>) <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="comment">// Write the bytes to the socket; return how many went out, 0 on timeout, negative on failure.</span></div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_functionRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a>.size());</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">int</span> receive(std::span&lt;uint8_t&gt; buffer, <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>) <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="comment">// Read from the socket; return how many arrived, 0 on timeout, negative on failure.</span></div>
+<div class="line">        <span class="keywordflow">return</span> 0;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordtype">bool</span> disconnect() <span class="keyword">noexcept</span> {</div>
+<div class="line">        <span class="comment">// Close the socket.</span></div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using </span>Mqtt = <a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d6/d02/a06082.html">Lib::MQTT::Client&lt;TcpTransport, 512U, 512U&gt;</a>;</div>
+<div class="ttc" id="aa00308_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00308.html">cstdio</a></div></div>
+<div class="ttc" id="aa01076_html"><div class="ttname"><a href="../../d6/d80/a01076.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
+<div class="ttc" id="aa01612_html_gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">cv_status::timeout</a></div><div class="ttdeci">@ timeout</div></div>
+<div class="ttc" id="aa01692_html_aba9b31054eec50310ef02c998663e27b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aba9b31054eec50310ef02c998663e27b">data</a></div><div class="ttdeci">constexpr auto data(_Container &amp;__cont) noexcept(noexcept(__cont.data())) -&gt; decltype(__cont.data())</div></div>
+<div class="ttc" id="aa06082_html"><div class="ttname"><a href="../../d6/d02/a06082.html">Lib::MQTT::Client</a></div><div class="ttdoc">MQTT 3.1.1 client over any MqttTransport, built on wolfMQTT, without heap or exceptions.</div><div class="ttdef"><b>Definition</b> MQTT/Client.hpp:107</div></div>
+<div class="ttc" id="aa08725_html"><div class="ttname"><a href="../../d5/dce/a08725.html">Client.hpp</a></div><div class="ttdoc">Declares Lib::MQTT::Client, the C++ wrapper over the wolfMQTT client, and the transport concept it ru...</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="mqtt_usage_session"></a>
+Connecting and subscribing</h3>
+<p>The handler gets every fragment of an incoming message. A message larger than the receive buffer arrives in several calls: the topic and the total size are valid from the first one, and the payload is valid only during the call.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> onMessage(<span class="keyword">const</span> Mqtt::Message &amp; message) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (message.isFirst) {</div>
+<div class="line">        <span class="comment">// A new message starts: message.topic and message.totalSize are valid.</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="comment">// Copy or parse message.payload now.</span></div>
+<div class="line">    <span class="keywordflow">if</span> (message.isLast) {</div>
+<div class="line">        <span class="comment">// The message is complete.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> startSession(Mqtt &amp; mqtt) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">if</span> (mqtt.setMessageHandler(Mqtt::MessageHandler::fromFunction(&amp;onMessage)) != <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c">Lib::MQTT::Status::SUCCESS</a>) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    Mqtt::Config config{};</div>
+<div class="line">    config.host = <span class="stringliteral">&quot;broker.example.com&quot;</span>;</div>
+<div class="line">    config.port = 1883U;</div>
+<div class="line">    config.clientId = <span class="stringliteral">&quot;device-01&quot;</span>;</div>
+<div class="line">    config.keepAlive = <a id="a4" name="a4"></a><a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(30);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (mqtt.connect(config) != <a class="code hl_enumvalue" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c">Lib::MQTT::Status::SUCCESS</a>) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> mqtt.subscribe(<span class="stringliteral">&quot;devices/device-01/commands&quot;</span>, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa8a610169f5ba87add07619920e2013ec">Lib::MQTT::QoS::AT_LEAST_ONCE</a>) == <a class="code hl_enumvalue" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c">Lib::MQTT::Status::SUCCESS</a>;</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01130_html_a558215c5def6103919fb81a700443eafa8a610169f5ba87add07619920e2013ec"><div class="ttname"><a href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa8a610169f5ba87add07619920e2013ec">Lib::MQTT::QoS::AT_LEAST_ONCE</a></div><div class="ttdeci">@ AT_LEAST_ONCE</div><div class="ttdoc">Acknowledged by the broker; may be delivered more than once.</div><div class="ttdef"><b>Definition</b> MQTT/Client.hpp:45</div></div>
+<div class="ttc" id="aa01130_html_ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c">Lib::MQTT::Status::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">The operation completed.</div><div class="ttdef"><b>Definition</b> MQTT/Client.hpp:53</div></div>
+<div class="ttc" id="aa01610_html_ga2872cfa04b6162d31b737f1e21fefb3b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a></div><div class="ttdeci">duration&lt; int64_t &gt; seconds</div></div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="mqtt_usage_publish"></a>
+Publishing</h3>
+<p>With <a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa8a610169f5ba87add07619920e2013ec" title="Lib::MQTT::QoS::AT_LEAST_ONCE">Lib::MQTT::QoS::AT_LEAST_ONCE</a> the call returns after the broker acknowledged the message. It can run in another task than <b>process()</b>, because the client serializes the access.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> publishReading(Mqtt &amp; mqtt, <span class="keywordtype">float</span> celsius) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordtype">char</span> text[16];</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span> length = std::snprintf(text, <span class="keyword">sizeof</span>(text), <span class="stringliteral">&quot;%.1f&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(celsius));</div>
+<div class="line">    <span class="keyword">const</span> std::span&lt;const uint8_t&gt; payload(<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>uint8_t *<span class="keyword">&gt;</span>(text), <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(length));</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(mqtt.publish(<span class="stringliteral">&quot;devices/device-01/temperature&quot;</span>, payload, <a class="code hl_enumvalue" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa8a610169f5ba87add07619920e2013ec">Lib::MQTT::QoS::AT_LEAST_ONCE</a>));</div>
+<div class="line">}</div>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="mqtt_usage_task"></a>
+Receiving task with keep-alive</h3>
+<p><b>process()</b> waits in short slices, so the task can also send the periodic ping. <a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aa070a0fb40f6c308ab544b227660aadff" title="Lib::MQTT::Status::TIMEOUT">Lib::MQTT::Status::TIMEOUT</a> only means that nothing arrived; any other failure means the connection is gone and has to be rebuilt.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> receiveTask(Mqtt &amp; mqtt) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keyword">constexpr</span> <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a> KEEP_ALIVE_PERIOD{20};</div>
+<div class="line">    <a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d6/d60/a06230.html">RTOS::Timeout</a> pingDue{KEEP_ALIVE_PERIOD};</div>
 <div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="keywordflow">if</span> (dataReady.takeMs(100U)) {</div>
-<div class="line">            <span class="comment">// New data available.</span></div>
-<div class="line">        } <span class="keywordflow">else</span> {</div>
-<div class="line">            <span class="comment">// No event within 100 ms.</span></div>
+<div class="line">        <span class="keyword">const</span> <a id="_a7" name="_a7"></a><a class="code hl_enumeration" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Lib::MQTT::Status</a> status = mqtt.process(<a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(200));</div>
+<div class="line">        <span class="keywordflow">if</span> ((status != <a class="code hl_enumvalue" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c">Lib::MQTT::Status::SUCCESS</a>) &amp;&amp; (status != <a id="_a8" name="_a8"></a><a class="code hl_enumvalue" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aa070a0fb40f6c308ab544b227660aadff">Lib::MQTT::Status::TIMEOUT</a>)) {</div>
+<div class="line">            <span class="comment">// The connection failed: reconnect with startSession() after a pause.</span></div>
+<div class="line">            <a id="a9" name="a9"></a><a class="code hl_function" href="../../d6/de6/a01132.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(<a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a>(5));</div>
+<div class="line">            <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(startSession(mqtt));</div>
+<div class="line">            <span class="keywordflow">continue</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">if</span> (pingDue.<a id="a10" name="a10"></a><a class="code hl_function" href="../../d6/d60/a06230.html#a4264c550073d457fa8f6ca89e591a0e6">isExpired</a>()) {</div>
+<div class="line">            <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(mqtt.ping());</div>
+<div class="line">            pingDue.<a id="a11" name="a11"></a><a class="code hl_function" href="../../d6/d60/a06230.html#a4f719fdc728f4b1e2a6a3b33c747c32e">reset</a>();</div>
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">}</div>
+<div class="ttc" id="aa01130_html_ab7e60372fdf56022a36e3313976f7f1a"><div class="ttname"><a href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Lib::MQTT::Status</a></div><div class="ttdeci">Status</div><div class="ttdoc">Result of an MQTT operation.</div><div class="ttdef"><b>Definition</b> MQTT/Client.hpp:52</div></div>
+<div class="ttc" id="aa01130_html_ab7e60372fdf56022a36e3313976f7f1aa070a0fb40f6c308ab544b227660aadff"><div class="ttname"><a href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aa070a0fb40f6c308ab544b227660aadff">Lib::MQTT::Status::TIMEOUT</a></div><div class="ttdeci">@ TIMEOUT</div><div class="ttdoc">Nothing arrived or completed in time; for Client::process() this is the normal idle result.</div><div class="ttdef"><b>Definition</b> MQTT/Client.hpp:58</div></div>
+<div class="ttc" id="aa01132_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d6/de6/a01132.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:610</div></div>
+<div class="ttc" id="aa06230_html"><div class="ttname"><a href="../../d6/d60/a06230.html">RTOS::Timeout</a></div><div class="ttdoc">Helper for tracking time-based event timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:36</div></div>
+<div class="ttc" id="aa06230_html_a4264c550073d457fa8f6ca89e591a0e6"><div class="ttname"><a href="../../d6/d60/a06230.html#a4264c550073d457fa8f6ca89e591a0e6">RTOS::Timeout::isExpired</a></div><div class="ttdeci">bool isExpired() const noexcept</div><div class="ttdoc">Checks if the timeout duration has elapsed.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:143</div></div>
+<div class="ttc" id="aa06230_html_a4f719fdc728f4b1e2a6a3b33c747c32e"><div class="ttname"><a href="../../d6/d60/a06230.html#a4f719fdc728f4b1e2a6a3b33c747c32e">RTOS::Timeout::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdoc">Restarts the clock at the current tick, keeping the configured duration; does nothing if disabled.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:128</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

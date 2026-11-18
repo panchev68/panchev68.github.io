@@ -1,9 +1,21 @@
 var a06079 =
 [
-    [ "name", "d9/db8/a06079.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "d9/db8/a06079.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "d9/db8/a06079.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "d9/db8/a06079.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "d9/db8/a06079.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "d9/db8/a06079.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "Config", "d8/d7a/a06083.html", "d8/d7a/a06083" ],
+    [ "Message", "df/df6/a06087.html", "df/df6/a06087" ],
+    [ "MessageHandler", "d9/db8/a06079.html#aba22ad60f4c6ff56027a1d17470bbb66", null ],
+    [ "Client", "d9/db8/a06079.html#a62b554a45090fbdd76ca7f0ba2f896f6", null ],
+    [ "~Client", "d9/db8/a06079.html#ad5e2547ba7eea3d1dbbd07405d21c650", null ],
+    [ "Client", "d9/db8/a06079.html#ace8b0de3731f9455aea4152b24e8860d", null ],
+    [ "Client", "d9/db8/a06079.html#a17e501973a2e5e8cf69bb7c22507a70e", null ],
+    [ "connect", "d9/db8/a06079.html#a0ca29f648609f692935fb6424c6e29b3", null ],
+    [ "disconnect", "d9/db8/a06079.html#ae985c49a2f9a991e4650107af5c3f9a4", null ],
+    [ "isConnected", "d9/db8/a06079.html#a41c421475f578b60d2795fcb936a2dd3", null ],
+    [ "operator=", "d9/db8/a06079.html#a52d024ca254dc0bc48ca5b7c9f433fe5", null ],
+    [ "operator=", "d9/db8/a06079.html#a75c0af1e9a0a14e54faf62e70bbaef68", null ],
+    [ "ping", "d9/db8/a06079.html#a838a1a374e21713a4734bb81249821fe", null ],
+    [ "process", "d9/db8/a06079.html#a66b863b6c80dc5f690c218c4b196763a", null ],
+    [ "publish", "d9/db8/a06079.html#a05ab7fdaa6690ade7b45b990618c0a31", null ],
+    [ "setMessageHandler", "d9/db8/a06079.html#a87cff1b9a4fc6db7e9cb7d7dfeaff86a", null ],
+    [ "subscribe", "d9/db8/a06079.html#ab691ac00ffa0e82fbd43aff058284945", null ],
+    [ "unsubscribe", "d9/db8/a06079.html#a60575d6ae30a429ca8756223844f8172", null ]
 ];

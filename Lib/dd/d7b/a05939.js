@@ -1,10 +1,10 @@
 var a05939 =
 [
-    [ "PeakInfo", "d3/d4c/a05943.html", "d3/d4c/a05943" ],
-    [ "FindPeaks", "dd/d7b/a05939.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
-    [ "addSample", "dd/d7b/a05939.html#af68c408bdc213c13c758fceb90fdf51e", null ],
-    [ "getCount", "dd/d7b/a05939.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
-    [ "getFallingPeak", "dd/d7b/a05939.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
-    [ "getRisingPeak", "dd/d7b/a05939.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
-    [ "reset", "dd/d7b/a05939.html#a176df2aab4c0e044fe550ca813f88168", null ]
+    [ "TerminateHandler", "dd/d7b/a05939.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
+    [ "Exception", "dd/d7b/a05939.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
+    [ "Exception", "dd/d7b/a05939.html#a25551a21318cf9b33efd57e954f91490", null ],
+    [ "Exception", "dd/d7b/a05939.html#a461b0e6ef36fdc66e5f458bcf27a1383", null ],
+    [ "~Exception", "dd/d7b/a05939.html#aab05c0efba4581a5739c344c1d848c87", null ],
+    [ "operator=", "dd/d7b/a05939.html#ad477244906cbefa6a8d9d3a1e960e124", null ],
+    [ "what", "dd/d7b/a05939.html#ad1278467b92ab31659263c92c3c292e1", null ]
 ];

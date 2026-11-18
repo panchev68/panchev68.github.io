@@ -1,14 +1,14 @@
 var a04975 =
 [
-    [ "SharedSecret", "de/d42/a04975.html#a7fbb5355ccfc526d83b2d67eadb425c8", null ],
-    [ "WolfSSLEcc", "de/d42/a04975.html#a19debb4d33bed3fade556263320330f7", null ],
-    [ "~WolfSSLEcc", "de/d42/a04975.html#ab882988b2ec1b1494dbe8f30062bd13e", null ],
-    [ "WolfSSLEcc", "de/d42/a04975.html#acfed6fbd26a4fb663e7aec5f8408e3f4", null ],
-    [ "WolfSSLEcc", "de/d42/a04975.html#ab7483aff9567983a99ff831e7bfcf284", null ],
-    [ "generateKey", "de/d42/a04975.html#a17edfaa1f02adf3fdd3a15dacc409b5d", null ],
-    [ "operator=", "de/d42/a04975.html#a3309d37d1e7115e7a81b80cee385c0f3", null ],
-    [ "operator=", "de/d42/a04975.html#a251a0fe821d569d4e0f785056ced42d7", null ],
-    [ "sharedSecret", "de/d42/a04975.html#a6c37442161fbe64b4d931ffc6a6f8997", null ],
-    [ "sign", "de/d42/a04975.html#ad2b17e604dc8ee9188ffc9a54dc87b46", null ],
-    [ "verify", "de/d42/a04975.html#a22a3ef4290390aa55282ade89d4bd8e4", null ]
+    [ "Subscriber", "de/d42/a04975.html#a3f40221ae5736ac688a612345a14a8e4", null ],
+    [ "MulticastDelegate", "de/d42/a04975.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
+    [ "add", "de/d42/a04975.html#a7b2551280da180b1f1dda5c6981737cd", null ],
+    [ "clear", "de/d42/a04975.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
+    [ "invoke", "de/d42/a04975.html#abfd30810b143472b8393b53f898dbcd5", null ],
+    [ "isEmpty", "de/d42/a04975.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
+    [ "operator()", "de/d42/a04975.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
+    [ "operator+=", "de/d42/a04975.html#a6dbac05fdf70d7b6ea7c1223f90eb0f3", null ],
+    [ "operator-=", "de/d42/a04975.html#abf65efccd32893eb2f7b5adfc53f8536", null ],
+    [ "remove", "de/d42/a04975.html#adb01252450a4c8f5a57794062eef97da", null ],
+    [ "size", "de/d42/a04975.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
 ];

@@ -1,12 +1,14 @@
 var a05610 =
 [
-    [ "Sha256Digest", "d6/dea/a05610.html#add4d9f33ecf447251492399927b27da5", null ],
-    [ "HASHPortBase", "d6/dea/a05610.html#a402b74d9e249e868a6fb33cc93e1c08a", null ],
-    [ "HASHPortBase", "d6/dea/a05610.html#a7309c31d1f17d06b52ed35b24816f30f", null ],
-    [ "HASHPortBase", "d6/dea/a05610.html#a362af192b07fc68f58947d01ce37d8f2", null ],
-    [ "~HASHPortBase", "d6/dea/a05610.html#a97d7a142991358197ddc449c08d06925", null ],
-    [ "close", "d6/dea/a05610.html#aea9707fb978271d6f7346e2eacd3d206", null ],
-    [ "open", "d6/dea/a05610.html#ae9dc794f4ad8b52c9c6ecdd73468f030", null ],
-    [ "operator=", "d6/dea/a05610.html#a50692e19ce033e67c57e1581aeff1be4", null ],
-    [ "operator=", "d6/dea/a05610.html#a910cff9c471be2aa82ac50da02b2027e", null ]
+    [ "FlashInterface", "d6/dea/a05610.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
+    [ "~FlashInterface", "d6/dea/a05610.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
+    [ "FlashInterface", "d6/dea/a05610.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
+    [ "FlashInterface", "d6/dea/a05610.html#a1c805cbd8158ca094182032c42fa8a68", null ],
+    [ "eraseSector", "d6/dea/a05610.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
+    [ "lock", "d6/dea/a05610.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
+    [ "operator=", "d6/dea/a05610.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
+    [ "operator=", "d6/dea/a05610.html#a2e5471c04f3069860252fdf10e53270a", null ],
+    [ "unlock", "d6/dea/a05610.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
+    [ "writeBuffer", "d6/dea/a05610.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
+    [ "writeWord", "d6/dea/a05610.html#ad771befb1be3db0d319c46507a7896ca", null ]
 ];

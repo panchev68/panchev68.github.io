@@ -1,5 +1,6 @@
 var a04667 =
 [
-    [ "total", "da/d19/a04667.html#aca264bc9cdc62b63f4c5ed1b37a4f09f", null ],
-    [ "used", "da/d19/a04667.html#a2631ea3e071aabeb8d98b27969896ddc", null ]
+    [ "accuracy", "da/d19/a04667.html#ad3d2682afcb43e675b8f3cbabc396c5a", null ],
+    [ "latitude", "da/d19/a04667.html#ae085bdce89024977660a075ff6c32e28", null ],
+    [ "longitude", "da/d19/a04667.html#a598eac7a26a3bed28cafe3a51274e95d", null ]
 ];

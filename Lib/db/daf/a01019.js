@@ -1,4 +1,4 @@
 var a01019 =
 [
-    [ "RTOS::StreamBuffer", "d1/d90/a06171.html", "d1/d90/a06171" ]
+    [ "RTOS::SemaphoreCounting", "d4/dc1/a06186.html", "d4/dc1/a06186" ]
 ];

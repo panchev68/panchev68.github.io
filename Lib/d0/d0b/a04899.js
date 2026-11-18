@@ -1,13 +1,9 @@
 var a04899 =
 [
-    [ "Tag", "d0/d0b/a04899.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
-    [ "WolfSSLAesGcm", "d0/d0b/a04899.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
-    [ "~WolfSSLAesGcm", "d0/d0b/a04899.html#a032c38854a99ed5c5a281809583c4bad", null ],
-    [ "WolfSSLAesGcm", "d0/d0b/a04899.html#a0948de3456c47ec4fcfdda7f14014566", null ],
-    [ "WolfSSLAesGcm", "d0/d0b/a04899.html#ae6206c63d09568b82e1efae3379c82d7", null ],
-    [ "decrypt", "d0/d0b/a04899.html#a70889db1697fa4212becb3acfb87a2a4", null ],
-    [ "encrypt", "d0/d0b/a04899.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
-    [ "open", "d0/d0b/a04899.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
-    [ "operator=", "d0/d0b/a04899.html#ab46183fdc3c915e95383d1216aac9109", null ],
-    [ "operator=", "d0/d0b/a04899.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
+    [ "errorCode", "d0/d0b/a04899.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
+    [ "errorCounter", "d0/d0b/a04899.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
+    [ "receivedMessages", "d0/d0b/a04899.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
+    [ "rxFifoFullCounter", "d0/d0b/a04899.html#ae1980d93ca6461dabf615247c5043049", null ],
+    [ "sentMessages", "d0/d0b/a04899.html#a71de4cab31423207b05a464ff4024347", null ],
+    [ "txMailboxAbortCounter", "d0/d0b/a04899.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
 ];

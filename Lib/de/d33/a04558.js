@@ -1,13 +1,17 @@
 var a04558 =
 [
-    [ "Power", "de/d33/a04558.html#af2064ef23cdc3d14a2a9a5e5c9ab2b8e", null ],
-    [ "hardReset", "de/d33/a04558.html#a4a97d410838feb9faea50b34948d313d", null ],
-    [ "isAsleep", "de/d33/a04558.html#a146b6c17667d99ba4b4d919d98959641", null ],
-    [ "isOn", "de/d33/a04558.html#a2cc49b087c846d65af5aaab43d0b4803", null ],
-    [ "isStatusHigh", "de/d33/a04558.html#acfea3f32a8e3c53a7ce0118d81ed3d20", null ],
-    [ "off", "de/d33/a04558.html#a00662a719223d2d8dea3e0567d1cc7a8", null ],
-    [ "on", "de/d33/a04558.html#a9ef3fdbe071a7ca9a6d48b660c068c44", null ],
-    [ "setSavingMode", "de/d33/a04558.html#a181f9d4d8e952e84f202734e77c8cb85", null ],
-    [ "sleep", "de/d33/a04558.html#a3100efc86fbfd79c1db3d66caeda4b3e", null ],
-    [ "wakeUp", "de/d33/a04558.html#aca2cbd553202896c84c23e75d49ddd9e", null ]
+    [ "Config", "dd/d5b/a04562.html", "dd/d5b/a04562" ],
+    [ "FlashEmulationF4", "de/d33/a04558.html#ad4bbada9bc6a2af1c867241a14b86143", null ],
+    [ "FlashEmulationF4", "de/d33/a04558.html#a90029c8c44f3c4cb598e732a78ff8462", null ],
+    [ "FlashEmulationF4", "de/d33/a04558.html#ad564397cd5d71a2875d17ef20547a23f", null ],
+    [ "close", "de/d33/a04558.html#a6346c239e63111e820ae7e36c13ce912", null ],
+    [ "getFreeSpace", "de/d33/a04558.html#a7e523e9aa4a58e12cfea76a6675fe033", null ],
+    [ "getMaxValueSize", "de/d33/a04558.html#a00c766da3764b8b923fc316bf543704e", null ],
+    [ "getUsedSpace", "de/d33/a04558.html#a27cda86fd955cdae40e9228879e80cea", null ],
+    [ "isOpen", "de/d33/a04558.html#a10cdb6c86428014150ad8bab075bd0e5", null ],
+    [ "open", "de/d33/a04558.html#a6b7d16dd69a3f98b4b91448cac004903", null ],
+    [ "operator=", "de/d33/a04558.html#a6fd14d0960d51d426dc3f3d652147318", null ],
+    [ "operator=", "de/d33/a04558.html#a2f18264f7ff9df2096b8d69c428394a3", null ],
+    [ "read", "de/d33/a04558.html#aec049dbf918bed6868f9cce8c045af65", null ],
+    [ "write", "de/d33/a04558.html#a5863d644bc7b08caf327f4dba28f017c", null ]
 ];

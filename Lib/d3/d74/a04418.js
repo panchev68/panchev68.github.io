@@ -1,7 +1,9 @@
 var a04418 =
 [
-    [ "correction", "d3/d74/a04418.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
-    [ "i2cAddr", "d3/d74/a04418.html#ae3266da82296416f02f68de0c610a2f9", null ],
-    [ "i2cPort", "d3/d74/a04418.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
-    [ "shuntResistorOhms", "d3/d74/a04418.html#a9808e99c30c4516f65cdae3a889ec038", null ]
+    [ "Config", "d0/d4c/a04422.html", "d0/d4c/a04422" ],
+    [ "Backlight", "d3/d74/a04418.html#aa256a4d5fc394db1a9afed11974b96ef", null ],
+    [ "~Backlight", "d3/d74/a04418.html#a5516d16616d30b6214626e963873f08a", null ],
+    [ "get", "d3/d74/a04418.html#a50a810c2a297031558286c9c20bb51ea", null ],
+    [ "operator=", "d3/d74/a04418.html#a6b38c863109edd503a2e5e78f170f0bd", null ],
+    [ "set", "d3/d74/a04418.html#a666c0e0466ea2c644c087fc5a3eaa625", null ]
 ];

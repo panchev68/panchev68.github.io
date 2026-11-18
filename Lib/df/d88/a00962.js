@@ -1,4 +1,4 @@
 var a00962 =
 [
-    [ "Lib::Math::HammingCode", "d1/de4/a06035.html", null ]
+    [ "Lib::Math::Filter::MovingAverage&lt; T_TYPE, T_SIZE &gt;", "dd/d4e/a06038.html", "dd/d4e/a06038" ]
 ];

@@ -1,12 +1,23 @@
 var a05039 =
 [
-    [ "State", "d2/d61/a05043.html", "d2/d61/a05043" ],
-    [ "Quality", "d3/dd5/a05047.html", "d3/dd5/a05047" ],
-    [ "Info", "d6/d32/a05051.html", "d6/d32/a05051" ],
-    [ "Connection", "d4/d6b/a05039.html#ac3f7cec3bac26ebbbdfd93dc9d339f48", null ],
-    [ "Connection", "d4/d6b/a05039.html#afaa8af957c71adc2bf6b63d902caedf2", null ],
-    [ "operator=", "d4/d6b/a05039.html#a6bed4ce5a085f4b0a9bbeb1131272236", null ],
-    [ "info", "d4/d6b/a05039.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
-    [ "quality", "d4/d6b/a05039.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
-    [ "state", "d4/d6b/a05039.html#a79f4aecc9bd038f5938e6373412ed099", null ]
+    [ "Config", "d4/d6b/a05039.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
+    [ "DeliveryStatus", "d4/d6b/a05039.html#a576edf4b8ae391861cbaa752fb59d0ca", null ],
+    [ "State", "d4/d6b/a05039.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
+    [ "ClientBase", "d4/d6b/a05039.html#ab66c6aedfa1a9361e96ba2a3e11af2b2", null ],
+    [ "~ClientBase", "d4/d6b/a05039.html#a3ec52c83a6ed8e15bca3f6ff2bb92e22", null ],
+    [ "cancelDeliveryStatus", "d4/d6b/a05039.html#a78fdfc652fb70b0f86d4526c707d817a", null ],
+    [ "getModuleInstance", "d4/d6b/a05039.html#af8063d3ad104519c1331b65494eea01b", null ],
+    [ "getModulePresent", "d4/d6b/a05039.html#abefa9599b01a774884c7f5f1a8578084", null ],
+    [ "getState", "d4/d6b/a05039.html#a569078f4b1701fb0579efd9d8e10655d", null ],
+    [ "pause", "d4/d6b/a05039.html#a069f63d8ece09ad92a97696e558290b3", null ],
+    [ "receiveDeliveryStatus", "d4/d6b/a05039.html#ae4ad19477c169ee00f27854975375c36", null ],
+    [ "resume", "d4/d6b/a05039.html#abbf1050f972e12e9f892cbb50f712298", null ],
+    [ "start", "d4/d6b/a05039.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
+    [ "channelScanner", "d4/d6b/a05039.html#abcae86ac3f99158551b91f88f0c88de7", null ],
+    [ "connection", "d4/d6b/a05039.html#a6cc363b4c00520c96b5d228aab8301b8", null ],
+    [ "diagnostic", "d4/d6b/a05039.html#a6d0f2ae6cd2c2076945ec0be3c66436c", null ],
+    [ "modemStatus", "d4/d6b/a05039.html#a3aed113d4e636bcad17894b64f1e5734", null ],
+    [ "networkDiscovery", "d4/d6b/a05039.html#a1936fa3a20798013fd230a5b9ae5a651", null ],
+    [ "parameters", "d4/d6b/a05039.html#a3a40ec0220eb721e07f56c02a206f485", null ],
+    [ "spectrumAnalyzer", "d4/d6b/a05039.html#a94172a0bb6588a8bad00411e1e6ce038", null ]
 ];

@@ -1,15 +1,7 @@
 var a05359 =
 [
-    [ "Error", "d1/dab/a05359.html#a9d7546738e259f57d9e431d88a39ac23", null ],
-    [ "Handlers", "d1/dab/a05359.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
-    [ "FoE", "d1/dab/a05359.html#ad7dd21bafde30794cef6a653baacc862", null ],
-    [ "~FoE", "d1/dab/a05359.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
-    [ "FoE", "d1/dab/a05359.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
-    [ "FoE", "d1/dab/a05359.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
-    [ "handle", "d1/dab/a05359.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
-    [ "isBusy", "d1/dab/a05359.html#a4463e44a62dae7598614225dc069e03c", null ],
-    [ "operator=", "d1/dab/a05359.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
-    [ "operator=", "d1/dab/a05359.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
-    [ "reset", "d1/dab/a05359.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
-    [ "setHandlers", "d1/dab/a05359.html#a39b767747ef43947171f73021ee9dd76", null ]
+    [ "close", "d1/dab/a05359.html#ab9d284c5cdff31383f99dea75c7f9e89", null ],
+    [ "open", "d1/dab/a05359.html#a2f27b571e2674aeb90f9773efe5d47c5", null ],
+    [ "read", "d1/dab/a05359.html#a53a2f54f254565a80c92924936564fb0", null ],
+    [ "write", "d1/dab/a05359.html#ae649720e51a2f29cd3f226e0c91e40f4", null ]
 ];

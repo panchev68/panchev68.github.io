@@ -1,8 +1,12 @@
 var a04783 =
 [
-    [ "operator==", "d0/d9d/a04783.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
-    [ "blue", "d0/d9d/a04783.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
-    [ "green", "d0/d9d/a04783.html#aaac4b49f8ced6f8a10842162f110217d", null ],
-    [ "red", "d0/d9d/a04783.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
-    [ "white", "d0/d9d/a04783.html#a272f822cae4bd3b8e993080e2317636e", null ]
+    [ "Data", "d2/df3/a04787.html", "d2/df3/a04787" ],
+    [ "Color", "d0/d9d/a04783.html#a50992f4d62f0c135ac06fb09295272a9", null ],
+    [ "Color", "d0/d9d/a04783.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
+    [ "Color", "d0/d9d/a04783.html#a484309c52934f9c23460c4fe57f45530", null ],
+    [ "clear", "d0/d9d/a04783.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
+    [ "get", "d0/d9d/a04783.html#a4ad28e997f34f1873bf233a5d004e340", null ],
+    [ "getPacked", "d0/d9d/a04783.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
+    [ "set", "d0/d9d/a04783.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
+    [ "set", "d0/d9d/a04783.html#ac8926773deb153f9281f4e235896e4a0", null ]
 ];

@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Mutex</title>
+<title>IAR EWARM Library: Lib::MQTT::Client&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,135 +130,115 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d02/a06082.
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="../../d9/db8/a06079.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">RTOS::Mutex<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::MQTT::Client&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Priority-inheriting mutual exclusion lock, normal or recursive. </p>
-<p>Every <a class="el" href="#a2b2c30777cc3c44739df34e98fc05d0f" title="lock()">lock()</a> that returns <em class="arg">true</em> must be paired with exactly one <a class="el" href="#a55031b1cdaf584950893279ceac8ff93" title="unlock()">unlock()</a> by the same task; prefer <a class="el" href="../../dc/d19/a06452.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a> to get that pairing automatically. Mutexes have an owner task and priority inheritance, so they are task-context only and must never be locked or unlocked from an ISR.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt;<br />
+class Lib::MQTT::Client&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;</div><p>MQTT 3.1.1 client over any <a class="el" href="../../d8/d59/a06394.html" title="MqttTransport">MqttTransport</a>, built on wolfMQTT, without heap or exceptions. </p>
+<p>Owns the wolfMQTT client state and the transmit and receive buffers; the transport is bound by reference. Operations block the calling task until the broker answers or the timeout expires. Incoming messages are delivered to the handler from inside <a class="el" href="#a66b863b6c80dc5f690c218c4b196763a" title="process()">process()</a>. A payload larger than the receive buffer arrives in several fragments (see <a class="el" href="../../dc/d9a/a06090.html#aea5ee79d7c141aaf127b47db327805d0" title="Message::isFirst">Message::isFirst</a> and <a class="el" href="../../dc/d9a/a06090.html#a1e6fc88a5e7cf2768bebc548c1900aad" title="Message::isLast">Message::isLast</a>).</p>
+<p>Every method may be called from any task: a mutex serializes the access to the wolfMQTT state. <a class="el" href="#a66b863b6c80dc5f690c218c4b196763a" title="process()">process()</a> waits in short slices and releases the mutex between them, so a <a class="el" href="#a05ab7fdaa6690ade7b45b990618c0a31" title="publish()">publish()</a> from another task is delayed by at most one slice plus its own network exchange.</p>
+<p>TLS is the wolfMQTT built-in one: set <a class="el" href="../../d2/d6d/a06086.html#af572a84b129cac0076fe045380174dd8" title="Config::useTls">Config::useTls</a> and, when needed, a <a class="el" href="../../d2/d6d/a06086.html#a495e27080389f86e5ec95f2ef1a884b5" title="Config::tlsCallback">Config::tlsCallback</a> that configures the wolfSSL context. A transport that already encrypts (for example one built on the project's wolfSSL transport) leaves <a class="el" href="../../d2/d6d/a06086.html#af572a84b129cac0076fe045380174dd8" title="Config::useTls">Config::useTls</a> cleared.</p>
+<dl class="section important"><dt>Important</dt><dd>The message handler runs while the client lock is held, so it must not call back into the client; hand the message to another task instead. None of the methods may be called from an interrupt.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_TRANSPORT</td><td>Connected-stream transport satisfying <a class="el" href="../../d8/d59/a06394.html" title="MqttTransport">MqttTransport</a>. </td></tr>
+    <tr><td class="paramname">T_TX_SIZE</td><td>Transmit buffer size in bytes; limits the largest packet the client sends. </td></tr>
+    <tr><td class="paramname">T_RX_SIZE</td><td>Receive buffer size in bytes; limits the payload fragment handed to the handler.</td></tr>
+  </table>
+  </dd>
+</dl>
 <hr  />
- <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/RTOS/FreeRTOS/Mutex.hpp" target="_blank">Source</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d9c/a06450.html#_a0">RTOS::Mutex</a>, <a class="el" href="../../dc/d19/a06452.html#_a0">RTOS::MutexGuard</a>, and <a class="el" href="../../df/d3c/a06464.html#_a8">RTOS::StreamBuffer</a>.</dd>
+ <dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/MQTT/Client.hpp" target="_blank">Source</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d4b/a06519.html#_a2">Lib::MQTT::Client</a>.</dd>
 </dl>
 </div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d2/d6d/a06086.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parameters of the broker connection.  <a href="../../d2/d6d/a06086.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Message" id="r_Message"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d9a/a06090.html">Message</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">One incoming message, or one fragment of a large one.  <a href="../../dc/d9a/a06090.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a85140f0dfb31c3d5a8a27ce01e98fdc6" id="r_a85140f0dfb31c3d5a8a27ce01e98fdc6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> (<a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a> mutexType=<a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">Type::NORMAL</a>) noexcept</td></tr>
-<tr class="memdesc:a85140f0dfb31c3d5a8a27ce01e98fdc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a mutex wrapper without allocating the underlying FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:a301698c6b87d5cd81fda2792e6f14b4c" id="r_a301698c6b87d5cd81fda2792e6f14b4c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a301698c6b87d5cd81fda2792e6f14b4c">Mutex</a> (Mutex &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:a301698c6b87d5cd81fda2792e6f14b4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfers ownership of the underlying handle from another mutex.  <br /></td></tr>
-<tr class="memitem:a032031894c38dfb5861f1be4a7e247dd" id="r_a032031894c38dfb5861f1be4a7e247dd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a032031894c38dfb5861f1be4a7e247dd">~Mutex</a> () noexcept</td></tr>
-<tr class="memdesc:a032031894c38dfb5861f1be4a7e247dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the mutex and releases the underlying FreeRTOS handle, if open.  <br /></td></tr>
-<tr class="memitem:acce47428aedbea4c3597ab4b07a0dc16" id="r_acce47428aedbea4c3597ab4b07a0dc16"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acce47428aedbea4c3597ab4b07a0dc16">Mutex</a> (const Mutex &amp;)=delete</td></tr>
-<tr class="memdesc:acce47428aedbea4c3597ab4b07a0dc16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:a1e606324a490dacaed78d56b0f2e463f" id="r_a1e606324a490dacaed78d56b0f2e463f"><td class="memItemLeft"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1e606324a490dacaed78d56b0f2e463f">operator=</a> (const <a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a1e606324a490dacaed78d56b0f2e463f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:aa0480ec896a8ce6959a8fe0069fc4a0f" id="r_aa0480ec896a8ce6959a8fe0069fc4a0f"><td class="memItemLeft"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa0480ec896a8ce6959a8fe0069fc4a0f">operator=</a> (<a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:aa0480ec896a8ce6959a8fe0069fc4a0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes this mutex and takes ownership of another mutex's handle.  <br /></td></tr>
-<tr class="memitem:a9f2abf5c8b3442dd741bac7c15e5726a" id="r_a9f2abf5c8b3442dd741bac7c15e5726a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a">open</a> () noexcept</td></tr>
-<tr class="memdesc:a9f2abf5c8b3442dd741bac7c15e5726a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the underlying FreeRTOS mutex handle, if not already open.  <br /></td></tr>
-<tr class="memitem:a4a72a94370a00b530eb26b466ed373bc" id="r_a4a72a94370a00b530eb26b466ed373bc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4a72a94370a00b530eb26b466ed373bc">createStatic</a> (StaticSemaphore_t &amp;buffer) noexcept</td></tr>
-<tr class="memdesc:a4a72a94370a00b530eb26b466ed373bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the underlying FreeRTOS mutex in caller-provided static memory, if not already open.  <br /></td></tr>
-<tr class="memitem:acae6fb03115a857672d114638e6da0cb" id="r_acae6fb03115a857672d114638e6da0cb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acae6fb03115a857672d114638e6da0cb">close</a> () noexcept</td></tr>
-<tr class="memdesc:acae6fb03115a857672d114638e6da0cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the underlying FreeRTOS handle and marks the mutex closed.  <br /></td></tr>
-<tr class="memitem:a2b2c30777cc3c44739df34e98fc05d0f" id="r_a2b2c30777cc3c44739df34e98fc05d0f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2b2c30777cc3c44739df34e98fc05d0f">lock</a> (<a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> timeout=<a class="el" href="#acb650bbb5d2ae6ae2bab2490d29712be">WAIT_FOREVER</a>) noexcept</td></tr>
-<tr class="memdesc:a2b2c30777cc3c44739df34e98fc05d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the mutex, blocking the calling task for up to the given number of ticks.  <br /></td></tr>
-<tr class="memitem:a9249f5e17ed3dc3621afb504a94f51c4" id="r_a9249f5e17ed3dc3621afb504a94f51c4"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a9249f5e17ed3dc3621afb504a94f51c4 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9249f5e17ed3dc3621afb504a94f51c4">lock</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a9249f5e17ed3dc3621afb504a94f51c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the mutex, blocking the calling task for up to the given duration.  <br /></td></tr>
-<tr class="memitem:a80b2989f05e4378994f3eb8e811d9a2b" id="r_a80b2989f05e4378994f3eb8e811d9a2b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a80b2989f05e4378994f3eb8e811d9a2b">lock</a> (const <a class="el" href="../../d6/d0c/a06158.html">Timeout</a> &amp;timeout) noexcept</td></tr>
-<tr class="memdesc:a80b2989f05e4378994f3eb8e811d9a2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the mutex, blocking for at most the time remaining on a shared <a class="el" href="../../db/de0/a06472.html" title="RTOS::Timeout">RTOS::Timeout</a> budget.  <br /></td></tr>
-<tr class="memitem:a18a279e5ed19c174389ad7be7fb2264d" id="r_a18a279e5ed19c174389ad7be7fb2264d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a18a279e5ed19c174389ad7be7fb2264d">tryLock</a> () noexcept</td></tr>
-<tr class="memdesc:a18a279e5ed19c174389ad7be7fb2264d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to lock the mutex without blocking.  <br /></td></tr>
-<tr class="memitem:a55031b1cdaf584950893279ceac8ff93" id="r_a55031b1cdaf584950893279ceac8ff93"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a55031b1cdaf584950893279ceac8ff93">unlock</a> () noexcept</td></tr>
-<tr class="memdesc:a55031b1cdaf584950893279ceac8ff93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks a previously acquired mutex.  <br /></td></tr>
-<tr class="memitem:a616ca3c51747ccb7932dab4363b40ef5" id="r_a616ca3c51747ccb7932dab4363b40ef5"><td class="memItemLeft">TaskHandle_t&#160;</td><td class="memItemRight"><a class="el" href="#a616ca3c51747ccb7932dab4363b40ef5">getHolder</a> () const noexcept</td></tr>
-<tr class="memdesc:a616ca3c51747ccb7932dab4363b40ef5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the task that currently holds the lock.  <br /></td></tr>
-<tr class="memitem:a4442eb3b200cdfba2f9780f45b293ee4" id="r_a4442eb3b200cdfba2f9780f45b293ee4"><td class="memItemLeft">TaskHandle_t&#160;</td><td class="memItemRight"><a class="el" href="#a4442eb3b200cdfba2f9780f45b293ee4">getHolderFromISR</a> () const noexcept</td></tr>
-<tr class="memdesc:a4442eb3b200cdfba2f9780f45b293ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the task that currently holds the lock, from an ISR context.  <br /></td></tr>
-<tr class="memitem:a7797096bb17dedbd7f2dc83952a87ad0" id="r_a7797096bb17dedbd7f2dc83952a87ad0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7797096bb17dedbd7f2dc83952a87ad0">isLocked</a> () const noexcept</td></tr>
-<tr class="memdesc:a7797096bb17dedbd7f2dc83952a87ad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether any task currently holds the lock.  <br /></td></tr>
-<tr class="memitem:a0fe980766d5bb3fb9f27336981430a6f" id="r_a0fe980766d5bb3fb9f27336981430a6f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0fe980766d5bb3fb9f27336981430a6f">isOwnedByCurrentTask</a> () const noexcept</td></tr>
-<tr class="memdesc:a0fe980766d5bb3fb9f27336981430a6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the calling task currently holds the lock.  <br /></td></tr>
-<tr class="memitem:a2a35fb03473deda78f602d516fb9b09c" id="r_a2a35fb03473deda78f602d516fb9b09c"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a2a35fb03473deda78f602d516fb9b09c">isValid</a> () const noexcept</td></tr>
-<tr class="memdesc:a2a35fb03473deda78f602d516fb9b09c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the underlying FreeRTOS handle has been created.  <br /></td></tr>
-<tr class="memitem:a38014af85379eee8f59569c75f075995" id="r_a38014af85379eee8f59569c75f075995"><td class="memItemLeft">constexpr SemaphoreHandle_t&#160;</td><td class="memItemRight"><a class="el" href="#a38014af85379eee8f59569c75f075995">getNativeHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:a38014af85379eee8f59569c75f075995"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the native FreeRTOS handle for interop with raw FreeRTOS APIs.  <br /></td></tr>
-<tr class="memitem:a4625bbff147fffc8861b3478c8430f94" id="r_a4625bbff147fffc8861b3478c8430f94"><td class="memItemLeft">constexpr <a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4625bbff147fffc8861b3478c8430f94">getType</a> () const noexcept</td></tr>
-<tr class="memdesc:a4625bbff147fffc8861b3478c8430f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the locking mode configured at construction.  <br /></td></tr>
+<tr class="memitem:a62b554a45090fbdd76ca7f0ba2f896f6" id="r_a62b554a45090fbdd76ca7f0ba2f896f6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a62b554a45090fbdd76ca7f0ba2f896f6">Client</a> (T_TRANSPORT &amp;transport) noexcept</td></tr>
+<tr class="memdesc:a62b554a45090fbdd76ca7f0ba2f896f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the client to a transport and prepares the wolfMQTT state.  <br /></td></tr>
+<tr class="memitem:ad5e2547ba7eea3d1dbbd07405d21c650" id="r_ad5e2547ba7eea3d1dbbd07405d21c650"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad5e2547ba7eea3d1dbbd07405d21c650">~Client</a> () noexcept</td></tr>
+<tr class="memdesc:ad5e2547ba7eea3d1dbbd07405d21c650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnects if still connected and releases the wolfMQTT state.  <br /></td></tr>
+<tr class="memitem:ace8b0de3731f9455aea4152b24e8860d" id="r_ace8b0de3731f9455aea4152b24e8860d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ace8b0de3731f9455aea4152b24e8860d">Client</a> (const Client &amp;)=delete</td></tr>
+<tr class="memdesc:ace8b0de3731f9455aea4152b24e8860d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the client owns the wolfMQTT state and the buffers it points into.  <br /></td></tr>
+<tr class="memitem:a75c0af1e9a0a14e54faf62e70bbaef68" id="r_a75c0af1e9a0a14e54faf62e70bbaef68"><td class="memItemLeft"><a class="el" href="#a62b554a45090fbdd76ca7f0ba2f896f6">Client</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a75c0af1e9a0a14e54faf62e70bbaef68">operator=</a> (const <a class="el" href="#a62b554a45090fbdd76ca7f0ba2f896f6">Client</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a75c0af1e9a0a14e54faf62e70bbaef68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the client owns the wolfMQTT state and the buffers it points into.  <br /></td></tr>
+<tr class="memitem:a17e501973a2e5e8cf69bb7c22507a70e" id="r_a17e501973a2e5e8cf69bb7c22507a70e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a17e501973a2e5e8cf69bb7c22507a70e">Client</a> (Client &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a17e501973a2e5e8cf69bb7c22507a70e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the wolfMQTT state points into this object.  <br /></td></tr>
+<tr class="memitem:a52d024ca254dc0bc48ca5b7c9f433fe5" id="r_a52d024ca254dc0bc48ca5b7c9f433fe5"><td class="memItemLeft"><a class="el" href="#a62b554a45090fbdd76ca7f0ba2f896f6">Client</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a52d024ca254dc0bc48ca5b7c9f433fe5">operator=</a> (<a class="el" href="#a62b554a45090fbdd76ca7f0ba2f896f6">Client</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a52d024ca254dc0bc48ca5b7c9f433fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the wolfMQTT state points into this object.  <br /></td></tr>
+<tr class="memitem:a87cff1b9a4fc6db7e9cb7d7dfeaff86a" id="r_a87cff1b9a4fc6db7e9cb7d7dfeaff86a"><td class="memItemLeft"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a87cff1b9a4fc6db7e9cb7d7dfeaff86a">setMessageHandler</a> (const <a class="el" href="#aba22ad60f4c6ff56027a1d17470bbb66">MessageHandler</a> &amp;newHandler) noexcept</td></tr>
+<tr class="memdesc:a87cff1b9a4fc6db7e9cb7d7dfeaff86a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the handler that receives incoming messages.  <br /></td></tr>
+<tr class="memitem:a0ca29f648609f692935fb6424c6e29b3" id="r_a0ca29f648609f692935fb6424c6e29b3"><td class="memItemLeft"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0ca29f648609f692935fb6424c6e29b3">connect</a> (const <a class="el" href="../../d2/d6d/a06086.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a0ca29f648609f692935fb6424c6e29b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the transport and the MQTT session.  <br /></td></tr>
+<tr class="memitem:ae985c49a2f9a991e4650107af5c3f9a4" id="r_ae985c49a2f9a991e4650107af5c3f9a4"><td class="memItemLeft"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae985c49a2f9a991e4650107af5c3f9a4">disconnect</a> () noexcept</td></tr>
+<tr class="memdesc:ae985c49a2f9a991e4650107af5c3f9a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ends the MQTT session and closes the transport.  <br /></td></tr>
+<tr class="memitem:a41c421475f578b60d2795fcb936a2dd3" id="r_a41c421475f578b60d2795fcb936a2dd3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a41c421475f578b60d2795fcb936a2dd3">isConnected</a> () const noexcept</td></tr>
+<tr class="memdesc:a41c421475f578b60d2795fcb936a2dd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a session is established.  <br /></td></tr>
+<tr class="memitem:a05ab7fdaa6690ade7b45b990618c0a31" id="r_a05ab7fdaa6690ade7b45b990618c0a31"><td class="memItemLeft"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a05ab7fdaa6690ade7b45b990618c0a31">publish</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> topic, std::span&lt; const uint8_t &gt; payload, <a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eaf">QoS</a> qos=<a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa2b6f564503731fa9a542562f629c76ed">QoS::AT_MOST_ONCE</a>, bool retain=false) noexcept</td></tr>
+<tr class="memdesc:a05ab7fdaa6690ade7b45b990618c0a31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publishes a message to a topic.  <br /></td></tr>
+<tr class="memitem:ab691ac00ffa0e82fbd43aff058284945" id="r_ab691ac00ffa0e82fbd43aff058284945"><td class="memItemLeft"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab691ac00ffa0e82fbd43aff058284945">subscribe</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> filter, <a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eaf">QoS</a> qos=<a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa2b6f564503731fa9a542562f629c76ed">QoS::AT_MOST_ONCE</a>) noexcept</td></tr>
+<tr class="memdesc:ab691ac00ffa0e82fbd43aff058284945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribes to a topic filter.  <br /></td></tr>
+<tr class="memitem:a60575d6ae30a429ca8756223844f8172" id="r_a60575d6ae30a429ca8756223844f8172"><td class="memItemLeft"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a60575d6ae30a429ca8756223844f8172">unsubscribe</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a> filter) noexcept</td></tr>
+<tr class="memdesc:a60575d6ae30a429ca8756223844f8172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels a subscription.  <br /></td></tr>
+<tr class="memitem:a838a1a374e21713a4734bb81249821fe" id="r_a838a1a374e21713a4734bb81249821fe"><td class="memItemLeft"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a838a1a374e21713a4734bb81249821fe">ping</a> () noexcept</td></tr>
+<tr class="memdesc:a838a1a374e21713a4734bb81249821fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a keep-alive ping and waits for the answer.  <br /></td></tr>
+<tr class="memitem:a66b863b6c80dc5f690c218c4b196763a" id="r_a66b863b6c80dc5f690c218c4b196763a"><td class="memItemLeft"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#a66b863b6c80dc5f690c218c4b196763a">process</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
+<tr class="memdesc:a66b863b6c80dc5f690c218c4b196763a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for incoming packets and hands published messages to the handler.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a0779d3c4040c3be238b715fcd6786a4f" id="r_a0779d3c4040c3be238b715fcd6786a4f"><td class="memItemLeft">static constexpr <a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0779d3c4040c3be238b715fcd6786a4f">NO_WAIT</a> = 0U</td></tr>
-<tr class="memdesc:a0779d3c4040c3be238b715fcd6786a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block time that makes a lock non-blocking.  <br /></td></tr>
-<tr class="memitem:acb650bbb5d2ae6ae2bab2490d29712be" id="r_acb650bbb5d2ae6ae2bab2490d29712be"><td class="memItemLeft">static constexpr <a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#acb650bbb5d2ae6ae2bab2490d29712be">WAIT_FOREVER</a> = portMAX_DELAY</td></tr>
-<tr class="memdesc:acb650bbb5d2ae6ae2bab2490d29712be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block time that waits indefinitely.  <br /></td></tr>
+<tr class="memitem:a05b0a7cc434b8141581964895d63f114" id="r_a05b0a7cc434b8141581964895d63f114"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a05b0a7cc434b8141581964895d63f114">MAX_TOPIC_LENGTH</a> = 128U</td></tr>
+<tr class="memdesc:a05b0a7cc434b8141581964895d63f114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest topic kept; longer incoming ones are truncated.  <br /></td></tr>
+<tr class="memitem:a5e6ee0c869bd932b6c69978bef8b93d7" id="r_a5e6ee0c869bd932b6c69978bef8b93d7"><td class="memItemLeft">static constexpr <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5e6ee0c869bd932b6c69978bef8b93d7">PROCESS_SLICE</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50)</td></tr>
+<tr class="memdesc:a5e6ee0c869bd932b6c69978bef8b93d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest single wait inside <a class="el" href="#a66b863b6c80dc5f690c218c4b196763a" title="process()">process()</a>.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="adc2e1b449462bfc5e02a4ee323b012e5" name="adc2e1b449462bfc5e02a4ee323b012e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc2e1b449462bfc5e02a4ee323b012e5">&#9670;&#160;</a></span>TickType</h2>
+<a id="aba22ad60f4c6ff56027a1d17470bbb66" name="aba22ad60f4c6ff56027a1d17470bbb66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba22ad60f4c6ff56027a1d17470bbb66">&#9670;&#160;</a></span>MessageHandler</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">RTOS::Mutex::TickType</a> = TickType_t</td>
+          <td class="memname">using <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::MessageHandler = <a class="el" href="../../d2/d68/a04954.html">FunctionRef</a>&lt;void(const <a class="el" href="../../dc/d9a/a06090.html">Message</a> &amp;)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Scheduler tick count type. </p>
-
-</div>
-</div>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a32944cdf5acfc817c79a3b60e03bbc38" name="a32944cdf5acfc817c79a3b60e03bbc38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32944cdf5acfc817c79a3b60e03bbc38">&#9670;&#160;</a></span>Type</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">RTOS::Mutex::Type</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Locking behavior of a mutex instance. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051" name="a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"></a>NORMAL&#160;</td><td class="fielddoc"><p>Standard non-recursive priority-inheritance mutex. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638" name="a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638"></a>RECURSIVE&#160;</td><td class="fielddoc"><p>Recursive mutex allowing nested lock acquisitions by the same task. </p>
-</td></tr>
-</table>
+<p>Callback receiving incoming messages. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a85140f0dfb31c3d5a8a27ce01e98fdc6" name="a85140f0dfb31c3d5a8a27ce01e98fdc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">&#9670;&#160;</a></span>Mutex() <span class="overload">[1/3]</span></h2>
+<a id="a62b554a45090fbdd76ca7f0ba2f896f6" name="a62b554a45090fbdd76ca7f0ba2f896f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62b554a45090fbdd76ca7f0ba2f896f6">&#9670;&#160;</a></span>Client() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::Mutex::Mutex </td>
+          <td class="memname"><a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::Client </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a></td>          <td class="paramname"><span class="paramname"><em>mutexType</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">Type::NORMAL</a></span></td><td>)</td>
+          <td class="paramtype">T_TRANSPORT &amp;</td>          <td class="paramname"><span class="paramname"><em>transport</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -256,503 +249,29 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a mutex wrapper without allocating the underlying FreeRTOS handle. </p>
-<p>Call <a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a" title="open()">open()</a> before the mutex can be locked.</p>
+<p>Binds the client to a transport and prepares the wolfMQTT state. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">mutexType</td><td>Locking mode to use once opened. </td></tr>
+    <tr><td class="paramname">transport</td><td>Transport the broker is reached over; must outlive this client. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a301698c6b87d5cd81fda2792e6f14b4c" name="a301698c6b87d5cd81fda2792e6f14b4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a301698c6b87d5cd81fda2792e6f14b4c">&#9670;&#160;</a></span>Mutex() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">RTOS::Mutex::Mutex </td>
-          <td>(</td>
-          <td class="paramtype">Mutex &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Transfers ownership of the underlying handle from another mutex. </p>
-<p>The source must not be locked or have waiting tasks, since they refer to the native handle, not the wrapper.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Mutex to move from; left closed afterward. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a032031894c38dfb5861f1be4a7e247dd" name="a032031894c38dfb5861f1be4a7e247dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a032031894c38dfb5861f1be4a7e247dd">&#9670;&#160;</a></span>~Mutex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">RTOS::Mutex::~Mutex </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Closes the mutex and releases the underlying FreeRTOS handle, if open. </p>
-
-</div>
-</div>
-<a id="acce47428aedbea4c3597ab4b07a0dc16" name="acce47428aedbea4c3597ab4b07a0dc16"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acce47428aedbea4c3597ab4b07a0dc16">&#9670;&#160;</a></span>Mutex() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">RTOS::Mutex::Mutex </td>
-          <td>(</td>
-          <td class="paramtype">const Mutex &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: owns a unique FreeRTOS handle. </p>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="acae6fb03115a857672d114638e6da0cb" name="acae6fb03115a857672d114638e6da0cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acae6fb03115a857672d114638e6da0cb">&#9670;&#160;</a></span>close()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::Mutex::close </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Deletes the underlying FreeRTOS handle and marks the mutex closed. </p>
-<p>Does nothing if already closed. The mutex must not be locked or have waiting tasks when it is closed. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d9c/a06450.html#a5">RTOS::Mutex</a>, and <a class="el" href="../../dc/d19/a06452.html#a5">RTOS::MutexGuard</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a4a72a94370a00b530eb26b466ed373bc" name="a4a72a94370a00b530eb26b466ed373bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a72a94370a00b530eb26b466ed373bc">&#9670;&#160;</a></span>createStatic()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::createStatic </td>
-          <td>(</td>
-          <td class="paramtype">StaticSemaphore_t &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates the underlying FreeRTOS mutex in caller-provided static memory, if not already open. </p>
-<p>Task context only.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Static control structure; must outlive the mutex. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the mutex is open (newly created or already open), <b>false</b> if creation failed or the configured type is disabled by the FreeRTOS configuration. </dd></dl>
-
-</div>
-</div>
-<a id="a616ca3c51747ccb7932dab4363b40ef5" name="a616ca3c51747ccb7932dab4363b40ef5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a616ca3c51747ccb7932dab4363b40ef5">&#9670;&#160;</a></span>getHolder()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TaskHandle_t RTOS::Mutex::getHolder </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the task that currently holds the lock. </p>
-<p>Task context only.</p>
-<p>Requires <em class="arg">INCLUDE_xSemaphoreGetMutexHolder</em>. The answer can be stale by the time it is used, unless the caller is the holder itself, so use it for diagnostics or ownership checks only.</p>
-<dl class="section return"><dt>Returns</dt><dd>Handle of the holding task, or <b>nullptr</b> if the mutex is free or not open. </dd></dl>
-
-</div>
-</div>
-<a id="a4442eb3b200cdfba2f9780f45b293ee4" name="a4442eb3b200cdfba2f9780f45b293ee4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4442eb3b200cdfba2f9780f45b293ee4">&#9670;&#160;</a></span>getHolderFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">TaskHandle_t RTOS::Mutex::getHolderFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the task that currently holds the lock, from an ISR context. </p>
-<p>Requires <em class="arg">INCLUDE_xSemaphoreGetMutexHolder</em>.</p>
-<dl class="section return"><dt>Returns</dt><dd>Handle of the holding task, or <b>nullptr</b> if the mutex is free or not open. </dd></dl>
-
-</div>
-</div>
-<a id="a38014af85379eee8f59569c75f075995" name="a38014af85379eee8f59569c75f075995"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38014af85379eee8f59569c75f075995">&#9670;&#160;</a></span>getNativeHandle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">SemaphoreHandle_t RTOS::Mutex::getNativeHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the native FreeRTOS handle for interop with raw FreeRTOS APIs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native semaphore handle, or <b>nullptr</b> if not open. </dd></dl>
-
-</div>
-</div>
-<a id="a4625bbff147fffc8861b3478c8430f94" name="a4625bbff147fffc8861b3478c8430f94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4625bbff147fffc8861b3478c8430f94">&#9670;&#160;</a></span>getType()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a32944cdf5acfc817c79a3b60e03bbc38">Type</a> RTOS::Mutex::getType </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the locking mode configured at construction. </p>
-<dl class="section return"><dt>Returns</dt><dd>Configured locking mode. </dd></dl>
-
-</div>
-</div>
-<a id="a7797096bb17dedbd7f2dc83952a87ad0" name="a7797096bb17dedbd7f2dc83952a87ad0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7797096bb17dedbd7f2dc83952a87ad0">&#9670;&#160;</a></span>isLocked()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::isLocked </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether any task currently holds the lock. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if open and held by some task. </dd></dl>
-
-</div>
-</div>
-<a id="a0fe980766d5bb3fb9f27336981430a6f" name="a0fe980766d5bb3fb9f27336981430a6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0fe980766d5bb3fb9f27336981430a6f">&#9670;&#160;</a></span>isOwnedByCurrentTask()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::isOwnedByCurrentTask </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the calling task currently holds the lock. </p>
-<p>Task context only.</p>
-<p>Requires <em class="arg">INCLUDE_xSemaphoreGetMutexHolder</em> and <em class="arg">INCLUDE_xTaskGetCurrentTaskHandle</em>.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if open and held by the calling task, <b>false</b> otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a2a35fb03473deda78f602d516fb9b09c" name="a2a35fb03473deda78f602d516fb9b09c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a35fb03473deda78f602d516fb9b09c">&#9670;&#160;</a></span>isValid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::isValid </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the underlying FreeRTOS handle has been created. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if <a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a" title="open()">open()</a> has succeeded and <a class="el" href="#acae6fb03115a857672d114638e6da0cb" title="close()">close()</a> has not since been called. </dd></dl>
-
-</div>
-</div>
-<a id="a80b2989f05e4378994f3eb8e811d9a2b" name="a80b2989f05e4378994f3eb8e811d9a2b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80b2989f05e4378994f3eb8e811d9a2b">&#9670;&#160;</a></span>lock() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::lock </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d6/d0c/a06158.html">Timeout</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Locks the mutex, blocking for at most the time remaining on a shared <a class="el" href="../../db/de0/a06472.html" title="RTOS::Timeout">RTOS::Timeout</a> budget. </p>
-<p>Task context only.</p>
-<p>An expired budget makes the call non-blocking and a disabled one waits indefinitely.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>The shared timeout budget. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the lock was acquired, <b>false</b> on timeout or if the mutex is not open. </dd></dl>
-
-</div>
-</div>
-<a id="a9249f5e17ed3dc3621afb504a94f51c4" name="a9249f5e17ed3dc3621afb504a94f51c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9249f5e17ed3dc3621afb504a94f51c4">&#9670;&#160;</a></span>lock() <span class="overload">[2/3]</span></h2>
+<a id="ad5e2547ba7eea3d1dbbd07405d21c650" name="ad5e2547ba7eea3d1dbbd07405d21c650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5e2547ba7eea3d1dbbd07405d21c650">&#9670;&#160;</a></span>~Client()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Mutex::lock </td>
-          <td>(</td>
-          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Locks the mutex, blocking the calling task for up to the given duration. </p>
-<p>Task context only.</p>
-<p>The duration is rounded up to whole ticks, so the wait is never shorter than requested.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the duration. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the duration. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait for the lock. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the lock was acquired, <b>false</b> on timeout or if the mutex is not open. </dd></dl>
-
-</div>
-</div>
-<a id="a2b2c30777cc3c44739df34e98fc05d0f" name="a2b2c30777cc3c44739df34e98fc05d0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b2c30777cc3c44739df34e98fc05d0f">&#9670;&#160;</a></span>lock() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::lock </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#acb650bbb5d2ae6ae2bab2490d29712be">WAIT_FOREVER</a></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Locks the mutex, blocking the calling task for up to the given number of ticks. </p>
-<p>Task context only.</p>
-<p>The mutex must already be open via <a class="el" href="#a9f2abf5c8b3442dd741bac7c15e5726a" title="open()">open()</a>; calling this while closed returns <em class="arg">false</em> without attempting to create the underlying handle, since lazily creating a synchronization primitive from within itself is not thread-safe. A recursive mutex may be locked again by its owner; every lock needs its own <a class="el" href="#a55031b1cdaf584950893279ceac8ff93" title="unlock()">unlock()</a>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait for the lock, in ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the lock was acquired, <b>false</b> on timeout or if the mutex is not open. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d9c/a06450.html#a3">RTOS::Mutex</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a9f2abf5c8b3442dd741bac7c15e5726a" name="a9f2abf5c8b3442dd741bac7c15e5726a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f2abf5c8b3442dd741bac7c15e5726a">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Mutex::open </td>
+          <td class="memname"><a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::~<a class="el" href="#a62b554a45090fbdd76ca7f0ba2f896f6">Client</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -760,32 +279,31 @@ template&lt;typename Rep, typename Period&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the underlying FreeRTOS mutex handle, if not already open. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the mutex is open (newly created or already open), <b>false</b> if creation failed or the configured type is disabled by the FreeRTOS configuration. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d9c/a06450.html#a2">RTOS::Mutex</a>, and <a class="el" href="../../dc/d19/a06452.html#a2">RTOS::MutexGuard</a>.</dd>
-</dl>
+<p>Disconnects if still connected and releases the wolfMQTT state. </p>
+<p>No other task may use the client while it is destroyed. </p>
 
 </div>
 </div>
-<a id="a1e606324a490dacaed78d56b0f2e463f" name="a1e606324a490dacaed78d56b0f2e463f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e606324a490dacaed78d56b0f2e463f">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="ace8b0de3731f9455aea4152b24e8860d" name="ace8b0de3731f9455aea4152b24e8860d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace8b0de3731f9455aea4152b24e8860d">&#9670;&#160;</a></span>Client() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp; RTOS::Mutex::operator= </td>
+          <td class="memname"><a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::Client </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const Client&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -796,24 +314,92 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: owns a unique FreeRTOS handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Non-copyable: the client owns the wolfMQTT state and the buffers it points into. </p>
 
 </div>
 </div>
-<a id="aa0480ec896a8ce6959a8fe0069fc4a0f" name="aa0480ec896a8ce6959a8fe0069fc4a0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0480ec896a8ce6959a8fe0069fc4a0f">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a17e501973a2e5e8cf69bb7c22507a70e" name="a17e501973a2e5e8cf69bb7c22507a70e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a17e501973a2e5e8cf69bb7c22507a70e">&#9670;&#160;</a></span>Client() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp; RTOS::Mutex::operator= </td>
+          <td class="memname"><a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::Client </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a85140f0dfb31c3d5a8a27ce01e98fdc6">Mutex</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">Client&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the wolfMQTT state points into this object. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a0ca29f648609f692935fb6424c6e29b3" name="a0ca29f648609f692935fb6424c6e29b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ca29f648609f692935fb6424c6e29b3">&#9670;&#160;</a></span>connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a> <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::connect </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d2/d6d/a06086.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opens the transport and the MQTT session. </p>
+<p>Connects the transport, optionally runs the TLS handshake and sends CONNECT. Any earlier session is closed first.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Broker address, identity and timing. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the broker accepted the connection; <a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aa392253eaea22aafdb199bc238bafc082" title="Status::REFUSED">Status::REFUSED</a> if it refused it. </dd></dl>
+
+</div>
+</div>
+<a id="ae985c49a2f9a991e4650107af5c3f9a4" name="ae985c49a2f9a991e4650107af5c3f9a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae985c49a2f9a991e4650107af5c3f9a4">&#9670;&#160;</a></span>disconnect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a> <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::disconnect </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -824,28 +410,115 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Closes this mutex and takes ownership of another mutex's handle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Mutex to move from; left closed afterward. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Ends the MQTT session and closes the transport. </p>
+<p>Does nothing when not connected.</p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>, or the status of the first failing step; the transport is closed in every case. </dd></dl>
 
 </div>
 </div>
-<a id="a18a279e5ed19c174389ad7be7fb2264d" name="a18a279e5ed19c174389ad7be7fb2264d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18a279e5ed19c174389ad7be7fb2264d">&#9670;&#160;</a></span>tryLock()</h2>
+<a id="a41c421475f578b60d2795fcb936a2dd3" name="a41c421475f578b60d2795fcb936a2dd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41c421475f578b60d2795fcb936a2dd3">&#9670;&#160;</a></span>isConnected()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Mutex::tryLock </td>
+          <td class="memname">bool <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::isConnected </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether a session is established. </p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> between a successful <a class="el" href="#a0ca29f648609f692935fb6424c6e29b3" title="connect()">connect()</a> and <a class="el" href="#ae985c49a2f9a991e4650107af5c3f9a4" title="disconnect()">disconnect()</a> or a failed exchange. </dd></dl>
+
+</div>
+</div>
+<a id="a52d024ca254dc0bc48ca5b7c9f433fe5" name="a52d024ca254dc0bc48ca5b7c9f433fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52d024ca254dc0bc48ca5b7c9f433fe5">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a62b554a45090fbdd76ca7f0ba2f896f6">Client</a> &amp; <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a62b554a45090fbdd76ca7f0ba2f896f6">Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the wolfMQTT state points into this object. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a75c0af1e9a0a14e54faf62e70bbaef68" name="a75c0af1e9a0a14e54faf62e70bbaef68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75c0af1e9a0a14e54faf62e70bbaef68">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a62b554a45090fbdd76ca7f0ba2f896f6">Client</a> &amp; <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a62b554a45090fbdd76ca7f0ba2f896f6">Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: the client owns the wolfMQTT state and the buffers it points into. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a838a1a374e21713a4734bb81249821fe" name="a838a1a374e21713a4734bb81249821fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a838a1a374e21713a4734bb81249821fe">&#9670;&#160;</a></span>ping()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a> <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::ping </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -858,57 +531,229 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Attempts to lock the mutex without blocking. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the lock was acquired immediately, <b>false</b> if it is held by another task or the mutex is not open. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d9c/a06450.html#a7">RTOS::Mutex</a>.</dd>
-</dl>
+<p>Sends a keep-alive ping and waits for the answer. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the broker answered. </dd></dl>
 
 </div>
 </div>
-<a id="a55031b1cdaf584950893279ceac8ff93" name="a55031b1cdaf584950893279ceac8ff93"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55031b1cdaf584950893279ceac8ff93">&#9670;&#160;</a></span>unlock()</h2>
+<a id="a66b863b6c80dc5f690c218c4b196763a" name="a66b863b6c80dc5f690c218c4b196763a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66b863b6c80dc5f690c218c4b196763a">&#9670;&#160;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void RTOS::Mutex::unlock </td>
+          <td class="memname"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a> <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::process </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Unlocks a previously acquired mutex. </p>
-<p>Task context only.</p>
-<p>Must be called by the task that holds the lock, once per successful <a class="el" href="#a2b2c30777cc3c44739df34e98fc05d0f" title="lock()">lock()</a>; anything else is a programming error that FreeRTOS answers with <b>configASSERT()</b> or a silent failure. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d9c/a06450.html#a4">RTOS::Mutex</a>.</dd>
+<p>Waits for incoming packets and hands published messages to the handler. </p>
+<p>The wait is split into slices of <a class="el" href="#a5e6ee0c869bd932b6c69978bef8b93d7" title="PROCESS_SLICE">PROCESS_SLICE</a> and the client lock is released between them, so other tasks can use the client while this one waits. The wait may overshoot <em class="arg">timeout</em> by up to one slice.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Longest time to wait for a packet. </td></tr>
+  </table>
+  </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if a packet was processed; <a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aa070a0fb40f6c308ab544b227660aadff" title="Status::TIMEOUT">Status::TIMEOUT</a> if nothing arrived (not a failure). </dd></dl>
+
+</div>
+</div>
+<a id="a05ab7fdaa6690ade7b45b990618c0a31" name="a05ab7fdaa6690ade7b45b990618c0a31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05ab7fdaa6690ade7b45b990618c0a31">&#9670;&#160;</a></span>publish()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a> <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::publish </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>topic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eaf">QoS</a></td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa2b6f564503731fa9a542562f629c76ed">QoS::AT_MOST_ONCE</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>retain</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Publishes a message to a topic. </p>
+<p>For <a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa8a610169f5ba87add07619920e2013ec" title="QoS::AT_LEAST_ONCE">QoS::AT_LEAST_ONCE</a> and <a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa9bb97c271adfb3b33950598cf05da7ef" title="QoS::EXACTLY_ONCE">QoS::EXACTLY_ONCE</a> the call returns after the broker acknowledged the message.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">topic</td><td>Topic name; must not be empty. </td></tr>
+    <tr><td class="paramname">payload</td><td>Message bytes; must stay valid during the call, may be empty. </td></tr>
+    <tr><td class="paramname">qos</td><td>Delivery guarantee. </td></tr>
+    <tr><td class="paramname">retain</td><td><em class="arg">true</em> to ask the broker to keep the message for future subscribers. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the message was sent and, for <em class="arg">qos</em> above <a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa2b6f564503731fa9a542562f629c76ed" title="QoS::AT_MOST_ONCE">QoS::AT_MOST_ONCE</a>, acknowledged. </dd></dl>
+
+</div>
+</div>
+<a id="a87cff1b9a4fc6db7e9cb7d7dfeaff86a" name="a87cff1b9a4fc6db7e9cb7d7dfeaff86a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87cff1b9a4fc6db7e9cb7d7dfeaff86a">&#9670;&#160;</a></span>setMessageHandler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a> <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::setMessageHandler </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#aba22ad60f4c6ff56027a1d17470bbb66">MessageHandler</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newHandler</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the handler that receives incoming messages. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newHandler</td><td>Handler called from <a class="el" href="#a66b863b6c80dc5f690c218c4b196763a" title="process()">process()</a>; an empty one drops incoming messages. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a>, or <a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aa36fc6065a3e970bc3e6b2e59da52bf2a" title="Status::FAILURE">Status::FAILURE</a> if the client lock could not be taken. </dd></dl>
+
+</div>
+</div>
+<a id="ab691ac00ffa0e82fbd43aff058284945" name="ab691ac00ffa0e82fbd43aff058284945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab691ac00ffa0e82fbd43aff058284945">&#9670;&#160;</a></span>subscribe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a> <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::subscribe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>filter</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eaf">QoS</a></td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d0/d61/a01130.html#a558215c5def6103919fb81a700443eafa2b6f564503731fa9a542562f629c76ed">QoS::AT_MOST_ONCE</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subscribes to a topic filter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filter</td><td>Topic filter, possibly with wildcards; must not be empty. </td></tr>
+    <tr><td class="paramname">qos</td><td>Highest delivery guarantee requested. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the broker accepted the subscription; <a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aa392253eaea22aafdb199bc238bafc082" title="Status::REFUSED">Status::REFUSED</a> if it rejected the filter. </dd></dl>
+
+</div>
+</div>
+<a id="a60575d6ae30a429ca8756223844f8172" name="a60575d6ae30a429ca8756223844f8172"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60575d6ae30a429ca8756223844f8172">&#9670;&#160;</a></span>unsubscribe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1a">Status</a> <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::unsubscribe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html">std::string_view</a></td>          <td class="paramname"><span class="paramname"><em>filter</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cancels a subscription. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filter</td><td>Topic filter given to <a class="el" href="#ab691ac00ffa0e82fbd43aff058284945" title="subscribe()">subscribe()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d61/a01130.html#ab7e60372fdf56022a36e3313976f7f1aad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the broker confirmed. </dd></dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a0779d3c4040c3be238b715fcd6786a4f" name="a0779d3c4040c3be238b715fcd6786a4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0779d3c4040c3be238b715fcd6786a4f">&#9670;&#160;</a></span>NO_WAIT</h2>
+<a id="a05b0a7cc434b8141581964895d63f114" name="a05b0a7cc434b8141581964895d63f114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05b0a7cc434b8141581964895d63f114">&#9670;&#160;</a></span>MAX_TOPIC_LENGTH</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> RTOS::Mutex::NO_WAIT = 0U</td>
+          <td class="memname">size_t <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::MAX_TOPIC_LENGTH = 128U</td>
         </tr>
       </table>
   </td>
@@ -918,21 +763,23 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Block time that makes a lock non-blocking. </p>
+<p>Longest topic kept; longer incoming ones are truncated. </p>
 
 </div>
 </div>
-<a id="acb650bbb5d2ae6ae2bab2490d29712be" name="acb650bbb5d2ae6ae2bab2490d29712be"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb650bbb5d2ae6ae2bab2490d29712be">&#9670;&#160;</a></span>WAIT_FOREVER</h2>
+<a id="a5e6ee0c869bd932b6c69978bef8b93d7" name="a5e6ee0c869bd932b6c69978bef8b93d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e6ee0c869bd932b6c69978bef8b93d7">&#9670;&#160;</a></span>PROCESS_SLICE</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;MqttTransport T_TRANSPORT, size_t T_TX_SIZE = 512U, size_t T_RX_SIZE = 512U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#adc2e1b449462bfc5e02a4ee323b012e5">TickType</a> RTOS::Mutex::WAIT_FOREVER = portMAX_DELAY</td>
+          <td class="memname"><a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> <a class="el" href="../../d6/d02/a06082.html">Lib::MQTT::Client</a>&lt; T_TRANSPORT, T_TX_SIZE, T_RX_SIZE &gt;::PROCESS_SLICE = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(50)</td>
         </tr>
       </table>
   </td>
@@ -942,7 +789,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Block time that waits indefinitely. </p>
+<p>Longest single wait inside <a class="el" href="#a66b863b6c80dc5f690c218c4b196763a" title="process()">process()</a>. </p>
 
 </div>
 </div>
@@ -953,7 +800,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dd/dcb/a01104.html">RTOS</a></li><li class="navelem"><a href="../../d6/d02/a06082.html">Mutex</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../d0/d61/a01130.html">MQTT</a></li><li class="navelem"><a href="../../d6/d02/a06082.html">Client</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

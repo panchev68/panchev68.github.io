@@ -1,20 +1,13 @@
 var a05554 =
 [
-    [ "Event", "da/d7e/a05558.html", null ],
-    [ "DataAlignment", "d4/d74/a05554.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
-    [ "DACPort", "d4/d74/a05554.html#ae36ab0485cc108ac7f0082068d118518", null ],
-    [ "~DACPort", "d4/d74/a05554.html#a38af62d642471553e5aa356e673ad171", null ],
-    [ "DACPort", "d4/d74/a05554.html#afe60fcad137acbac62467215f81e262a", null ],
-    [ "DACPort", "d4/d74/a05554.html#a6befbf3fd6e387b958c474127b15a55e", null ],
-    [ "close", "d4/d74/a05554.html#a2b221635f62446099dbe5e86e8065288", null ],
-    [ "getChannel", "d4/d74/a05554.html#abb9c3299abda744064d8d8e8d44f825b", null ],
-    [ "getHandle", "d4/d74/a05554.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d4/d74/a05554.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "open", "d4/d74/a05554.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
-    [ "operator=", "d4/d74/a05554.html#a8669eba366ce1c94494df43dfaccc690", null ],
-    [ "operator=", "d4/d74/a05554.html#ae0483104f828bd3464839de4f4880b4a", null ],
-    [ "setValue", "d4/d74/a05554.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
-    [ "start", "d4/d74/a05554.html#a6c386654350eba5ab306e4764474af96", null ],
-    [ "stop", "d4/d74/a05554.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
-    [ "waitForUnderrun", "d4/d74/a05554.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
+    [ "BackupRamDomain", "d4/d74/a05554.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "d4/d74/a05554.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "d4/d74/a05554.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "d4/d74/a05554.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "d4/d74/a05554.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "d4/d74/a05554.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "d4/d74/a05554.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "d4/d74/a05554.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "d4/d74/a05554.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "d4/d74/a05554.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

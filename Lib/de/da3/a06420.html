@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Helper::Exception</title>
+<title>IAR EWARM Library: Lib::Crypto::SHA256</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -116,40 +129,62 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/da3/a06420.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Exception</div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::SHA256</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows installing a terminate handler and reading the message of a <a class="el" href="../../de/da3/a06420.html" title="Lib::Helper::Exception">Lib::Helper::Exception</a> instance.</p>
-<p>Shows installing a terminate handler and reading the message of a <a class="el" href="../../de/da3/a06420.html" title="Lib::Helper::Exception">Lib::Helper::Exception</a> instance.The project builds with '&ndash;no_exceptions', so nothing is ever thrown or caught. The class serves as a non-allocating error description and as the access point for the terminate handler (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01632.html#ga2f2f9edd9cd5d903b65cce6ccb977fdd" title="std::terminate_handler">std::terminate_handler</a>), which must never return. The message pointer is stored as is, so pass a string literal.</p>
+<p>Demonstrates hashing a message in one call and in pieces with the software engine, and with the STM32 HASH peripheral.</p>
+<p>Demonstrates hashing a message in one call and in pieces with the software engine, and with the STM32 HASH peripheral.The software engine needs no hardware and is available in every project, so <a class="el" href="../../de/da3/a06420.html" title="Lib::Crypto::SHA256">Lib::Crypto::SHA256</a> with empty angle brackets selects it. The hardware engine, 'SHA256&lt;SHA256Engine::HARDWARE&gt;', needs a device with the HASH peripheral, the module enabled in 'stm32f4xx_hal_conf.h' ('HAL_HASH_MODULE_ENABLED') and a caller-owned <b>HASH_HandleTypeDef</b> such as <b>hhash</b>. The STM32F407xx has no HASH peripheral (its CMSIS device header defines no HASH registers), and this project's 'stm32f4xx_hal_conf.h' has the module commented out, so on this target the hardware engine is compiled out and the hardware example below does not build. The engine is never selected automatically, so every declaration names it explicitly. Both engines feed data through Lib::Crypto::SHA256::update() and end with Lib::Crypto::SHA256::finish().</p>
+<dl class="section warning"><dt>Warning</dt><dd>Call the hardware engine only from a task, never from an ISR, and use one instance for the lifetime of one digest: every call is a blocking HAL transaction on a shared peripheral.</dd></dl>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="exception_usage_terminate"></a>
-Installing a terminate handler</h3>
-<p><a class="el" href="../../d2/ddb/a05898.html#ae8803b234100fe8e98fb21aa01083805" title="Lib::Helper::Exception::setTerminateHandler()">Lib::Helper::Exception::setTerminateHandler()</a> installs the handler for the whole program. Passing 'nullptr' restores the implementation default.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dc7/a08501.html">Lib/Helper/Exception.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="sha256_usage_software"></a>
+Hashing with the software engine</h3>
+<p>A one-shot call fits a message that is already in one buffer; the streaming form fits a message that arrives in pieces. Do not update a hasher after Lib::Crypto::SHA256::finish().</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/d98/a00407.html">Lib/Crypto/SHA256.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">[[noreturn]] <span class="keywordtype">void</span> onTerminate() noexcept {</div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="comment">// Log the fault, then halt here or reset the MCU.</span></div>
-<div class="line">    }</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../de/d4a/a01107.html">Lib::Crypto</a>;</div>
+<div class="line"> </div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/d34/a04979.html">SHA256&lt;&gt;::Digest</a> hashMessage(std::span&lt;const uint8_t&gt; message) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code hl_class" href="../../d4/d34/a04979.html">SHA256&lt;&gt;::hash</a>(message);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> installTerminateHandler() noexcept {</div>
-<div class="line">    <a id="a0" name="a0"></a><a class="code hl_function" href="../../d2/ddb/a05898.html#ae8803b234100fe8e98fb21aa01083805">Lib::Helper::Exception::setTerminateHandler</a>(onTerminate);</div>
+<div class="line"><a class="code hl_class" href="../../d4/d34/a04979.html">SHA256&lt;&gt;::Digest</a> hashPieces(std::span&lt;const uint8_t&gt; header, std::span&lt;const uint8_t&gt; body) <span class="keyword">noexcept</span> {</div>
+<div class="line">    <a class="code hl_class" href="../../d4/d34/a04979.html">SHA256&lt;&gt;</a> hasher;</div>
+<div class="line">    hasher.update(header);</div>
+<div class="line">    hasher.update(body);</div>
+<div class="line">    <span class="keywordflow">return</span> hasher.finish();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05898_html_ae8803b234100fe8e98fb21aa01083805"><div class="ttname"><a href="../../d2/ddb/a05898.html#ae8803b234100fe8e98fb21aa01083805">Lib::Helper::Exception::setTerminateHandler</a></div><div class="ttdeci">static void setTerminateHandler(TerminateHandler handler) noexcept</div><div class="ttdoc">Install a new global terminate handler.</div><div class="ttdef"><b>Definition</b> Lib/Helper/Exception.hpp:42</div></div>
-<div class="ttc" id="aa08501_html"><div class="ttname"><a href="../../dd/dc7/a08501.html">Exception.hpp</a></div><div class="ttdoc">Declares a freestanding exception type and terminate-handler helpers for the library.</div></div>
+<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
+<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
+<div class="ttc" id="aa00407_html"><div class="ttname"><a href="../../d1/d98/a00407.html">SHA256.hpp</a></div><div class="ttdoc">Declares Lib::Crypto::SHA256, the SHA-256 message digest (FIPS 180-4) with a portable software engine...</div></div>
+<div class="ttc" id="aa01107_html"><div class="ttname"><a href="../../de/d4a/a01107.html">Lib::Crypto</a></div><div class="ttdoc">Cryptographic primitives and optional TLS/SSH client wrappers.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:20</div></div>
+<div class="ttc" id="aa04979_html"><div class="ttname"><a href="../../d4/d34/a04979.html">Lib::Crypto::SHA256</a></div><div class="ttdoc">SHA-256 hasher; SHA256Engine lists the available implementations.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:44</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="exception_usage_message"></a>
-Reading the message</h3>
-<p><a class="el" href="../../d2/ddb/a05898.html#ad1278467b92ab31659263c92c3c292e1" title="Lib::Helper::Exception::what()">Lib::Helper::Exception::what()</a> never returns 'nullptr'; a null message passed to the constructor is replaced by <em>Null Exception</em>.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dc7/a08501.html">Lib/Helper/Exception.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="sha256_usage_hardware"></a>
+Hashing with the HASH peripheral</h3>
+<p>This subsection applies only to a device with the HASH peripheral, see the lead. The peripheral accepts whole 32-bit words mid-stream, so the hasher buffers up to 3 trailing bytes of each update internally; any piece length works. A HAL failure in Lib::Crypto::SHA256::update() means the hasher must not be used again. Lib::Crypto::SHA256::finish() returns no value on a HAL failure. The class also offers a one-shot static 'hash(handle, data)' for a message held in one buffer.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d1/d98/a00407.html">Lib/Crypto/SHA256.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">const</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d2/ddb/a05898.html">Lib::Helper::Exception</a> flashError{<span class="stringliteral">&quot;Flash write failed&quot;</span>};</div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span> * describe(<span class="keyword">const</span> <a class="code hl_class" href="../../d2/ddb/a05898.html">Lib::Helper::Exception</a> &amp; error) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> error.what();</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../de/d4a/a01107.html">Lib::Crypto</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> hashWithPeripheral(HASH_HandleTypeDef * handle, std::span&lt;const uint8_t&gt; message, <a class="code hl_class" href="../../d4/d34/a04979.html">SHA256&lt;SHA256Engine::HARDWARE&gt;::Digest</a> &amp; digest) {</div>
+<div class="line">    <a class="code hl_class" href="../../d4/d34/a04979.html">SHA256&lt;SHA256Engine::HARDWARE&gt;</a> hasher(handle);</div>
+<div class="line">    <span class="keywordflow">if</span> (!hasher.update(message)) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> result = hasher.finish();</div>
+<div class="line">    <span class="keywordflow">if</span> (!result) {</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">    digest = *result;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa05898_html"><div class="ttname"><a href="../../d2/ddb/a05898.html">Lib::Helper::Exception</a></div><div class="ttdoc">Lightweight exception that stores a C-string message without allocating.</div><div class="ttdef"><b>Definition</b> Lib/Helper/Exception.hpp:27</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

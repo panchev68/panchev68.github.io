@@ -1,14 +1,10 @@
 var a06038 =
 [
-    [ "Config", "d5/de8/a06042.html", "d5/de8/a06042" ],
-    [ "State", "dd/d4e/a06038.html#a7063555b30fb75832750a0361328040e", [
-      [ "ACTIVE", "dd/d4e/a06038.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "INACTIVE", "dd/d4e/a06038.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
-      [ "DISABLED", "dd/d4e/a06038.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
-    ] ],
-    [ "Sensor", "dd/d4e/a06038.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
-    [ "getName", "dd/d4e/a06038.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
-    [ "isActive", "dd/d4e/a06038.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
-    [ "isPresent", "dd/d4e/a06038.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
-    [ "read", "dd/d4e/a06038.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
+    [ "MovingAverage", "dd/d4e/a06038.html#a8510d234d514c7e0cce11de72a76efa9", null ],
+    [ "~MovingAverage", "dd/d4e/a06038.html#a1475bc793d6f5d0efd3961a1752bde27", null ],
+    [ "getAverage", "dd/d4e/a06038.html#a6253a2f3564edfd4e2007c31e220a8f0", null ],
+    [ "getCount", "dd/d4e/a06038.html#ad37bfac14689d022b3c70fc9ad6f90e0", null ],
+    [ "isFull", "dd/d4e/a06038.html#aaf4c6d357fb792f439055171bc67e56b", null ],
+    [ "operator()", "dd/d4e/a06038.html#a3dcd298d77375acddce6844d1394fa9a", null ],
+    [ "reset", "dd/d4e/a06038.html#a581a63a6d58adc1a6d6929fece577f99", null ]
 ];

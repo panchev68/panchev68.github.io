@@ -1,12 +1,15 @@
 var a05662 =
 [
-    [ "OSPIPortBase", "d7/dde/a05662.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
-    [ "OSPIPortBase", "d7/dde/a05662.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
-    [ "OSPIPortBase", "d7/dde/a05662.html#a18048dab4e848ea5529076be672ccc7c", null ],
-    [ "~OSPIPortBase", "d7/dde/a05662.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
-    [ "close", "d7/dde/a05662.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
-    [ "isBusy", "d7/dde/a05662.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "open", "d7/dde/a05662.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
-    [ "operator=", "d7/dde/a05662.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
-    [ "operator=", "d7/dde/a05662.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
+    [ "I2CPort", "d7/dde/a05662.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
+    [ "~I2CPort", "d7/dde/a05662.html#aa13047282a809658f54818a9b352d7bf", null ],
+    [ "abort", "d7/dde/a05662.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "close", "d7/dde/a05662.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d7/dde/a05662.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d7/dde/a05662.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d7/dde/a05662.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "masterMemRead", "d7/dde/a05662.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d7/dde/a05662.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d7/dde/a05662.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d7/dde/a05662.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "d7/dde/a05662.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

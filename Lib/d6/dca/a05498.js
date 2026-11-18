@@ -1,19 +1,10 @@
 var a05498 =
 [
-    [ "Event", "d3/dc0/a05502.html", null ],
-    [ "ADCPort", "d6/dca/a05498.html#a4367ca9803f69b785980f81032d2b4e5", null ],
-    [ "~ADCPort", "d6/dca/a05498.html#aef75242b0f88129467c7f469f87adbdd", null ],
-    [ "ADCPort", "d6/dca/a05498.html#a0c76f40278dd8828f6c5d929122ab108", null ],
-    [ "ADCPort", "d6/dca/a05498.html#a3defd155b3695109fe259c5ab8b702ba", null ],
-    [ "close", "d6/dca/a05498.html#a5701c9da4db47e937bec19f3d29c9855", null ],
-    [ "getHandle", "d6/dca/a05498.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d6/dca/a05498.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "getValue", "d6/dca/a05498.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "d6/dca/a05498.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
-    [ "operator=", "d6/dca/a05498.html#a3a51d3196eaa9489df8eda029877ee83", null ],
-    [ "operator=", "d6/dca/a05498.html#abebb56cf09bf035f43b898c284835ccd", null ],
-    [ "read", "d6/dca/a05498.html#ada05318e458485bb7ae8564156216202", null ],
-    [ "start", "d6/dca/a05498.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
-    [ "stop", "d6/dca/a05498.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
-    [ "waitForEvent", "d6/dca/a05498.html#a780888659faa909e3e3228c427e5969e", null ]
+    [ "font", "d6/dca/a05498.html#a2c3e1b6f550a2d80e71d282a25b6cff0", null ],
+    [ "height", "d6/dca/a05498.html#a6e78f99e5d65f305938c1e8626f89c2d", null ],
+    [ "items", "d6/dca/a05498.html#a19ff97a7731479d5305472a41eec6ef2", null ],
+    [ "scale", "d6/dca/a05498.html#af17da82f2f476f88d591253fbfff920b", null ],
+    [ "width", "d6/dca/a05498.html#ad685942ca97f523f6413bca2e202584a", null ],
+    [ "x", "d6/dca/a05498.html#adf4e46d8ec8c73c8c2715cbd25eb6599", null ],
+    [ "y", "d6/dca/a05498.html#ae98dfadd8efc895e551adccb18ea6357", null ]
 ];

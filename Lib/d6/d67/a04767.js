@@ -1,10 +1,8 @@
 var a04767 =
 [
-    [ "operator==", "d6/d67/a04767.html#a76f4384c25c5a26bc057858df3c55875", null ],
-    [ "inPhaseAdc", "d6/d67/a04767.html#ae284e93d7297470825441d553589ac6f", null ],
-    [ "inPhaseCalibration", "d6/d67/a04767.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
-    [ "inPhaseReference", "d6/d67/a04767.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
-    [ "quadratureAdc", "d6/d67/a04767.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
-    [ "quadratureCalibration", "d6/d67/a04767.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
-    [ "quadratureReference", "d6/d67/a04767.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
+    [ "operator==", "d6/d67/a04767.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
+    [ "inPhaseMax", "d6/d67/a04767.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
+    [ "inPhaseMin", "d6/d67/a04767.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
+    [ "quadratureMax", "d6/d67/a04767.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
+    [ "quadratureMin", "d6/d67/a04767.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
 ];

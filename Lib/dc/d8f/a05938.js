@@ -1,9 +1,7 @@
 var a05938 =
 [
-    [ "DeepSleepLock", "dc/d8f/a05938.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
-    [ "~DeepSleepLock", "dc/d8f/a05938.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
-    [ "DeepSleepLock", "dc/d8f/a05938.html#a40925e50ac0805b094e04973ed61f50b", null ],
-    [ "DeepSleepLock", "dc/d8f/a05938.html#a653104e321c6b159eb7b5e5385d286ac", null ],
-    [ "operator=", "dc/d8f/a05938.html#a3523f9fd591310866af37223de2c32d3", null ],
-    [ "operator=", "dc/d8f/a05938.html#a10ab5d18c8a969841a27a2688604c55c", null ]
+    [ "Delay", "dc/d8f/a05938.html#ae05989164bd1c17d9508a274c9c8efc6", null ],
+    [ "~Delay", "dc/d8f/a05938.html#abab8b5337f9a0a494dc33f550b7d898b", null ],
+    [ "Delay", "dc/d8f/a05938.html#a1cb3786f2784e6c6c42979b9860a5c4b", null ],
+    [ "operator=", "dc/d8f/a05938.html#a62e0ff423d0e589d0757d35725eaf0b2", null ]
 ];

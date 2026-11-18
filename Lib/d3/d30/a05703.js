@@ -1,11 +1,12 @@
 var a05703 =
 [
-    [ "OTP", "d3/d30/a05703.html#aaff496f8bf89080e84c1fbda6b0904c3", null ],
-    [ "OTP", "d3/d30/a05703.html#a7bc9c9e1f02016880f00d3a1182e5e71", null ],
-    [ "lock", "d3/d30/a05703.html#ab4c2e78575458526b83be6e259aa1f93", null ],
-    [ "operator=", "d3/d30/a05703.html#ad631f9069ef7f1c2f316505e7b391885", null ],
-    [ "operator=", "d3/d30/a05703.html#af5af865ec6e520ce53d21e6c9ecd7221", null ],
-    [ "read", "d3/d30/a05703.html#acff397156950347f6f452dec2c94af43", null ],
-    [ "unlock", "d3/d30/a05703.html#a220a07c58647557d8a81402260eacfb5", null ],
-    [ "write", "d3/d30/a05703.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
+    [ "OSPIPortBase", "d3/d30/a05703.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "d3/d30/a05703.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "d3/d30/a05703.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "d3/d30/a05703.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "d3/d30/a05703.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "d3/d30/a05703.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d3/d30/a05703.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d3/d30/a05703.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "d3/d30/a05703.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

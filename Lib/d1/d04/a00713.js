@@ -1,4 +1,4 @@
 var a00713 =
 [
-    [ "Lib::HAL::GPIO::Output", "da/da1/a05627.html", "da/da1/a05627" ]
+    [ "Lib::HAL::GPIO::Input", "d6/df7/a05630.html", "d6/df7/a05630" ]
 ];

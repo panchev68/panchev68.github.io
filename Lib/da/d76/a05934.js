@@ -1,12 +1,18 @@
 var a05934 =
 [
-    [ "Sunset", "da/d76/a05934.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "da/d76/a05934.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
-    [ "calculateSunTime", "da/d76/a05934.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
-    [ "computeHourAngle", "da/d76/a05934.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
-    [ "setCurrentDate", "da/d76/a05934.html#a0598ea08f953291be6bd331b39254b2a", null ],
-    [ "setCurrentDate", "da/d76/a05934.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "da/d76/a05934.html#afbc858a5944c47609616f459b657339b", null ],
-    [ "sunrise", "da/d76/a05934.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
-    [ "sunset", "da/d76/a05934.html#a3bea9bb96761c55203633434195d87c4", null ]
+    [ "DateString", "da/d76/a05934.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
+    [ "Date", "da/d76/a05934.html#a93def70969fc16974f55e56219a01b0f", null ],
+    [ "Date", "da/d76/a05934.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
+    [ "getDayOfWeek", "da/d76/a05934.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
+    [ "getDayOfYear", "da/d76/a05934.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
+    [ "isValid", "da/d76/a05934.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
+    [ "operator<=>", "da/d76/a05934.html#a7a7ccaefa33e38ba99be918a93731119", null ],
+    [ "operator==", "da/d76/a05934.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
+    [ "toString", "da/d76/a05934.html#a70ecfff686d88d444a44393965b296e5", null ],
+    [ "toSysDays", "da/d76/a05934.html#a59f67718a1b057bca29012a393547479", null ],
+    [ "toYearMonthDay", "da/d76/a05934.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
+    [ "DateTime", "da/d76/a05934.html#ae3d4a8787eced68c65a23f5906c11add", null ],
+    [ "day", "da/d76/a05934.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
+    [ "month", "da/d76/a05934.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
+    [ "year", "da/d76/a05934.html#a1026d89f27e48fd23eccde7a9850b302", null ]
 ];

@@ -1,7 +1,14 @@
 var a06195 =
 [
-    [ "Config", "d6/d4c/a06195.html#a3dd0c854864c93e37dcf898eac213cf9", null ],
-    [ "name", "d6/d4c/a06195.html#a573525e01a356a23378c06c203754517", null ],
-    [ "priority", "d6/d4c/a06195.html#a5d982f29a32e7d0b156f2ea79f36ef74", null ],
-    [ "stackSize", "d6/d4c/a06195.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
+    [ "Level", "d6/d4c/a06195.html#a47d1302bb72530432eb0072fc7286e69", [
+      [ "IDLE", "d6/d4c/a06195.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
+      [ "LOW", "d6/d4c/a06195.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
+      [ "NORMAL", "d6/d4c/a06195.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
+      [ "HIGH", "d6/d4c/a06195.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
+      [ "REALTIME", "d6/d4c/a06195.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
+    ] ],
+    [ "Priority", "d6/d4c/a06195.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
+    [ "get", "d6/d4c/a06195.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
+    [ "getFromISR", "d6/d4c/a06195.html#a077686e91e7ea468ac484026c09fe001", null ],
+    [ "set", "d6/d4c/a06195.html#a458e98cafe1842d218c9640b76bde004", null ]
 ];

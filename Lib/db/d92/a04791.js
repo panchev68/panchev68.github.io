@@ -1,10 +1,15 @@
 var a04791 =
 [
-    [ "Ring", "db/d92/a04791.html#a162946918a210436d07b8649948e2939", null ],
-    [ "Ring", "db/d92/a04791.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
-    [ "Ring", "db/d92/a04791.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
-    [ "getData", "db/d92/a04791.html#a897e123e376e08a2741c3498d764166d", null ],
-    [ "operator=", "db/d92/a04791.html#a3b42427dd22bff92b102320fdf83a671", null ],
-    [ "operator=", "db/d92/a04791.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
-    [ "operator[]", "db/d92/a04791.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
+    [ "Ring", "d5/df7/a04795.html", "d5/df7/a04795" ],
+    [ "Slice", "db/d92/a04791.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
+    [ "SK6812", "db/d92/a04791.html#a713fbeedeb85ff82f1097b206afd7918", null ],
+    [ "SK6812", "db/d92/a04791.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
+    [ "SK6812", "db/d92/a04791.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
+    [ "clear", "db/d92/a04791.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
+    [ "getColor", "db/d92/a04791.html#a1a0907fe121161268c1b859d90232628", null ],
+    [ "operator=", "db/d92/a04791.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
+    [ "operator=", "db/d92/a04791.html#aa21ec5517b393c1649c2045e822978e7", null ],
+    [ "setColor", "db/d92/a04791.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
+    [ "setColor", "db/d92/a04791.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
+    [ "setColor", "db/d92/a04791.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
 ];

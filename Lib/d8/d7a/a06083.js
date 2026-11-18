@@ -1,23 +1,13 @@
 var a06083 =
 [
-    [ "Config", "df/df6/a06087.html", "df/df6/a06087" ],
-    [ "Command", "d8/d7a/a06083.html#a0b7ad8b7773fc15de07047754f3794f9", [
-      [ "OFF", "d8/d7a/a06083.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "d8/d7a/a06083.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
-    ] ],
-    [ "Status", "d8/d7a/a06083.html#a9f826713fcf7511db5c43ef6f27173af", [
-      [ "IS_OFF", "d8/d7a/a06083.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
-      [ "IS_ON", "d8/d7a/a06083.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
-      [ "IN_MOTION", "d8/d7a/a06083.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
-    ] ],
-    [ "RotationCylinder", "d8/d7a/a06083.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
-    [ "RotationCylinder", "d8/d7a/a06083.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
-    [ "command", "d8/d7a/a06083.html#a8ca6acca72dbe8c542856371e956e058", null ],
-    [ "getName", "d8/d7a/a06083.html#a480be139cc8704be72afb69d2456281f", null ],
-    [ "getStatus", "d8/d7a/a06083.html#aba16d8727149fd2debf8b51fff5438bd", null ],
-    [ "isOff", "d8/d7a/a06083.html#a90f1e56010dee19b0f66350351127712", null ],
-    [ "isOn", "d8/d7a/a06083.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
-    [ "operator=", "d8/d7a/a06083.html#a44c71110f315e89203746b05fd4ab10a", null ],
-    [ "setup", "d8/d7a/a06083.html#a659c7989f745a79aeecb1c24004acba6", null ],
-    [ "update", "d8/d7a/a06083.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
+    [ "cleanSession", "d8/d7a/a06083.html#aca2633962537fdfbc256ea6493ae69ac", null ],
+    [ "clientId", "d8/d7a/a06083.html#a8bdbd74c72a026ab15dd2f460049083d", null ],
+    [ "host", "d8/d7a/a06083.html#a7aad736399f00bf7cd2f0f738788b8bb", null ],
+    [ "keepAlive", "d8/d7a/a06083.html#a531d7dc097361d1f5546f4d672d53c38", null ],
+    [ "password", "d8/d7a/a06083.html#a9c63d90ca1d94ad14cbbb9c00c32082e", null ],
+    [ "port", "d8/d7a/a06083.html#a3694bfb8beb60098b95ebc54f76fb903", null ],
+    [ "timeout", "d8/d7a/a06083.html#a780f61f32c05dede4949ffaceab2e9d1", null ],
+    [ "tlsCallback", "d8/d7a/a06083.html#a495e27080389f86e5ec95f2ef1a884b5", null ],
+    [ "username", "d8/d7a/a06083.html#a2298e8c4712e58d4023644c4234052e7", null ],
+    [ "useTls", "d8/d7a/a06083.html#af572a84b129cac0076fe045380174dd8", null ]
 ];

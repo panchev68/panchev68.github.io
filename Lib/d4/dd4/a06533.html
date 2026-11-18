@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: RTOS::Timer</title>
+<title>IAR EWARM Library: RTOS::MutexGuard</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,77 +129,60 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/dd4/a06533.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Timer</div></div>
+  <div class="headertitle"><div class="title">RTOS::MutexGuard</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Shows a software timer that runs a callback from the FreeRTOS timer daemon task.</p>
-<p>Shows a software timer that runs a callback from the FreeRTOS timer daemon task.Covers an auto-reload timer that toggles an LED every 500 ms and a one-shot timer that is started on demand. Callbacks run in the timer daemon task context, not in an ISR, so they must not block for long. The timer objects must outlive their callbacks, so they are kept in namespace scope here; destroying a timer stops it.</p>
-<dl class="section warning"><dt>Warning</dt><dd>The callback is stored as a non-owning 'FunctionRef': the function it points to must outlive the timer.</dd></dl>
+<p>Shows scope-based locking with <a class="el" href="../../d4/dd4/a06533.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope.</p>
+<p>Shows scope-based locking with <a class="el" href="../../d4/dd4/a06533.html" title="RTOS::MutexGuard">RTOS::MutexGuard</a>, which unlocks the mutex automatically when the guard leaves scope. It covers an indefinite lock and a timed lock, and checks the guard state after construction.</p>
+<p>The example runs in a task context with the FreeRTOS scheduler running. A mutex must never be locked or unlocked from an ISR. The first guard blocks indefinitely, because it uses the default <a class="el" href="../../de/d33/a06154.html#acb650bbb5d2ae6ae2bab2490d29712be" title="RTOS::Mutex::WAIT_FOREVER">RTOS::Mutex::WAIT_FOREVER</a> timeout.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="timer_usage_blink"></a>
-Auto-reload timer</h3>
-<p><a class="el" href="../../d0/d65/a06215.html#a3570e42c41aad69f4a39549a4f79eb09" title="RTOS::Timer::make()">RTOS::Timer::make()</a> returns an empty optional when the native timer cannot be created.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/d91/a01034.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_scope"></a>
+Scoped lock with an indefinite wait</h3>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d9a/a00998.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d59/a01001.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <span class="keywordtype">void</span> toggleLed() {</div>
-<div class="line">        <span class="comment">// Toggle the LED from the timer daemon task.</span></div>
+<div class="line"><span class="keywordtype">void</span> lockedSection() {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../de/d33/a06154.html">RTOS::Mutex</a> mutex(<a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../de/d33/a06154.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a>);</div>
+<div class="line">    <span class="keywordflow">if</span> (!mutex.<a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d33/a06154.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;RTOS::Timer&gt;</a> blink;</div>
-<div class="line">}</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">const</span> <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d6/d0c/a06158.html">RTOS::MutexGuard</a> guard(mutex); <span class="comment">// Locks on construction, waits forever.</span></div>
+<div class="line">        <span class="keywordflow">if</span> (guard.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d6/d0c/a06158.html#a3f156fd8fcb57426c142acbd54ddb267">isLocked</a>()) {</div>
+<div class="line">            <span class="comment">// Critical section protected by &#39;mutex&#39;.</span></div>
+<div class="line">        }</div>
+<div class="line">    } <span class="comment">// Guard destroyed here; the mutex is unlocked only if it was locked.</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startBlink() {</div>
-<div class="line">    blink = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d0/d65/a06215.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a>(<a id="_a2" name="_a2"></a><a class="code hl_function" href="../../d9/d20/a06219.html#afffb77404217246e78520eb888dd7afe">RTOS::Timer::Config::fromMs</a>(<span class="stringliteral">&quot;Blink&quot;</span>, &amp;toggleLed, 500U));</div>
-<div class="line">    <span class="keywordflow">if</span> (blink.has_value() &amp;&amp; blink-&gt;start() == <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../d0/d65/a06215.html#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c">RTOS::Timer::Status::SUCCESS</a>) {</div>
-<div class="line">        <span class="comment">// Blinking until blink is stopped or destroyed.</span></div>
-<div class="line">    }</div>
+<div class="line">    mutex.<a id="a5" name="a5"></a><a class="code hl_function" href="../../de/d33/a06154.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa01034_html"><div class="ttname"><a href="../../de/d91/a01034.html">Timer.hpp</a></div><div class="ttdoc">C++20 RAII wrapper for FreeRTOS Software Timers.</div></div>
-<div class="ttc" id="aa06215_html_a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c"><div class="ttname"><a href="../../d0/d65/a06215.html#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c">RTOS::Timer::Status::SUCCESS</a></div><div class="ttdeci">@ SUCCESS</div><div class="ttdoc">Operation completed successfully.</div><div class="ttdef"><b>Definition</b> Timer.hpp:66</div></div>
-<div class="ttc" id="aa06215_html_a3570e42c41aad69f4a39549a4f79eb09"><div class="ttname"><a href="../../d0/d65/a06215.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a></div><div class="ttdeci">static std::optional&lt; Timer &gt; make(const Config &amp;config) noexcept</div><div class="ttdoc">Attempts to construct a Timer from the given configuration.</div><div class="ttdef"><b>Definition</b> Timer.hpp:224</div></div>
-<div class="ttc" id="aa06219_html_afffb77404217246e78520eb888dd7afe"><div class="ttname"><a href="../../d9/d20/a06219.html#afffb77404217246e78520eb888dd7afe">RTOS::Timer::Config::fromMs</a></div><div class="ttdeci">static Config fromMs(std::string_view name, Callback timerCallback, uint32_t periodMs, Mode timerMode=Mode::AUTO_RELOAD) noexcept</div><div class="ttdoc">Creates a configuration with the period given in milliseconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:179</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
+<div class="ttc" id="aa00998_html"><div class="ttname"><a href="../../d9/d9a/a00998.html">Mutex.hpp</a></div><div class="ttdoc">Declares RTOS::Mutex, an owning wrapper of a FreeRTOS mutex, normal or recursive.</div></div>
+<div class="ttc" id="aa01001_html"><div class="ttname"><a href="../../df/d59/a01001.html">MutexGuard.hpp</a></div><div class="ttdoc">Declares RTOS::MutexGuard, a scope-based lock guard for RTOS::Mutex.</div></div>
+<div class="ttc" id="aa06154_html"><div class="ttname"><a href="../../de/d33/a06154.html">RTOS::Mutex</a></div><div class="ttdoc">Priority-inheriting mutual exclusion lock, normal or recursive.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:48</div></div>
+<div class="ttc" id="aa06154_html_a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="../../de/d33/a06154.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Standard non-recursive priority-inheritance mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:60</div></div>
+<div class="ttc" id="aa06154_html_a9f2abf5c8b3442dd741bac7c15e5726a"><div class="ttname"><a href="../../de/d33/a06154.html#a9f2abf5c8b3442dd741bac7c15e5726a">RTOS::Mutex::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the underlying FreeRTOS mutex handle, if not already open.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:143</div></div>
+<div class="ttc" id="aa06154_html_acae6fb03115a857672d114638e6da0cb"><div class="ttname"><a href="../../de/d33/a06154.html#acae6fb03115a857672d114638e6da0cb">RTOS::Mutex::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the underlying FreeRTOS handle and marks the mutex closed.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:201</div></div>
+<div class="ttc" id="aa06158_html"><div class="ttname"><a href="../../d6/d0c/a06158.html">RTOS::MutexGuard</a></div><div class="ttdoc">Scope-based lock guard for RTOS::Mutex, in the style of std::lock_guard.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:45</div></div>
+<div class="ttc" id="aa06158_html_a3f156fd8fcb57426c142acbd54ddb267"><div class="ttname"><a href="../../d6/d0c/a06158.html#a3f156fd8fcb57426c142acbd54ddb267">RTOS::MutexGuard::isLocked</a></div><div class="ttdeci">bool isLocked() const noexcept</div><div class="ttdoc">Checks if the guard currently holds the lock.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:150</div></div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timer_usage_oneshot"></a>
-One-shot timer</h3>
-<p>A one-shot timer runs its callback once after each <a class="el" href="../../d0/d65/a06215.html#a1265d75e62308e7d74fbc52532f7c9b4" title="RTOS::Timer::start()">RTOS::Timer::start()</a>. The period is given in seconds here.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/d91/a01034.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="mutexguard_usage_timed"></a>
+Timed lock</h3>
+<p>The guard converts the <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html" title="std::chrono::duration">std::chrono::duration</a> to ticks. When the lock times out, the critical section is not protected and nothing is unlocked.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d9a/a00998.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d59/a01001.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <span class="keywordtype">void</span> timeoutHandler() {</div>
-<div class="line">        <span class="comment">// Runs once, 3 s after the timer is started.</span></div>
-<div class="line">    }</div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;RTOS::Timer&gt;</a> <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>;</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startTimeout() {</div>
-<div class="line">    <a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a> = <a class="code hl_function" href="../../d0/d65/a06215.html#a3570e42c41aad69f4a39549a4f79eb09">RTOS::Timer::make</a>(</div>
-<div class="line">        <a id="_a4" name="_a4"></a><a class="code hl_function" href="../../d9/d20/a06219.html#a509c3109c5fe880023442429b1229c81">RTOS::Timer::Config::fromSeconds</a>(<span class="stringliteral">&quot;Timeout&quot;</span>, &amp;timeoutHandler, 3U, <a id="_a5" name="_a5"></a><a class="code hl_enumvalue" href="../../d0/d65/a06215.html#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d">RTOS::Timer::Mode::ONE_SHOT</a>));</div>
-<div class="line">    <span class="keywordflow">if</span> (<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>.has_value()) {</div>
-<div class="line">        <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(<a class="code hl_enumvalueRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">timeout</a>-&gt;start());</div>
+<div class="line"><span class="keywordtype">void</span> timedSection(<a class="code hl_class" href="../../de/d33/a06154.html">RTOS::Mutex</a> &amp; mutex) {</div>
+<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> <a class="code hl_class" href="../../d6/d0c/a06158.html">RTOS::MutexGuard</a> guard(mutex, 10ms); guard) {</div>
+<div class="line">        <span class="comment">// Lock acquired within 10 ms.</span></div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Timed out: the critical section is not protected.</span></div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa01612_html_gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01612.html#gad3ce465ffb10e354aa30c4ce93b68beea90272dda245ae1fb3cf197e91a8689dc">cv_status::timeout</a></div><div class="ttdeci">@ timeout</div></div>
-<div class="ttc" id="aa06215_html_a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d"><div class="ttname"><a href="../../d0/d65/a06215.html#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d">RTOS::Timer::Mode::ONE_SHOT</a></div><div class="ttdeci">@ ONE_SHOT</div><div class="ttdoc">Timer runs once and stops.</div><div class="ttdef"><b>Definition</b> Timer.hpp:76</div></div>
-<div class="ttc" id="aa06219_html_a509c3109c5fe880023442429b1229c81"><div class="ttname"><a href="../../d9/d20/a06219.html#a509c3109c5fe880023442429b1229c81">RTOS::Timer::Config::fromSeconds</a></div><div class="ttdeci">static Config fromSeconds(std::string_view name, Callback timerCallback, uint32_t periodSec, Mode timerMode=Mode::AUTO_RELOAD) noexcept</div><div class="ttdoc">Creates a configuration with the period given in seconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:192</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="timer_usage_period"></a>
-Changing the period at run time</h3>
-<p><a class="el" href="../../d0/d65/a06215.html#a331c5e9a5b7f5977af306617b8c42cb7" title="RTOS::Timer::setPeriodMs()">RTOS::Timer::setPeriodMs()</a> changes the period of the timer. FreeRTOS also starts a stopped timer as a side effect, so call <a class="el" href="../../d0/d65/a06215.html#a798530d43191f94bd5cd6f8cfea846b3" title="RTOS::Timer::stop()">RTOS::Timer::stop()</a> afterwards if the timer must stay stopped.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/d91/a01034.html">Lib/RTOS/FreeRTOS/Timer.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> blinkFaster(<a id="_a6" name="_a6"></a><a class="code hl_class" href="../../d0/d65/a06215.html">RTOS::Timer</a> &amp; blink) {</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(blink.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d0/d65/a06215.html#a331c5e9a5b7f5977af306617b8c42cb7">setPeriodMs</a>(250U));</div>
-<div class="line">}</div>
-<div class="ttc" id="aa06215_html"><div class="ttname"><a href="../../d0/d65/a06215.html">RTOS::Timer</a></div><div class="ttdoc">RAII wrapper for managing FreeRTOS software timer resources.</div><div class="ttdef"><b>Definition</b> Timer.hpp:52</div></div>
-<div class="ttc" id="aa06215_html_a331c5e9a5b7f5977af306617b8c42cb7"><div class="ttname"><a href="../../d0/d65/a06215.html#a331c5e9a5b7f5977af306617b8c42cb7">RTOS::Timer::setPeriodMs</a></div><div class="ttdeci">Status setPeriodMs(uint32_t periodMs, TickType blockTime=DEFAULT_BLOCK_TIME) noexcept</div><div class="ttdoc">Sets period in milliseconds.</div><div class="ttdef"><b>Definition</b> Timer.hpp:508</div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00065.html">chrono</a></div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

@@ -1,14 +1,29 @@
 var a06183 =
 [
-    [ "Label", "df/d46/a06183.html#a98d823750bde45aebd4db31f4086821e", [
-      [ "RUNNING", "df/d46/a06183.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "READY", "df/d46/a06183.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "BLOCKED", "df/d46/a06183.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
-      [ "SUSPENDED", "df/d46/a06183.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
-      [ "DELETED", "df/d46/a06183.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
-      [ "INVALID", "df/d46/a06183.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
-    ] ],
-    [ "State", "df/d46/a06183.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
-    [ "get", "df/d46/a06183.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
-    [ "operator Label", "df/d46/a06183.html#a3c30086da2d01872c5cdccdba1874c74", null ]
+    [ "Handle", "df/d46/a06183.html#a4b0fa065d254b79172dce084d987b8d4", null ],
+    [ "TickType", "df/d46/a06183.html#a052c7fc009c89fd8f8542c6014405b43", null ],
+    [ "SemaphoreCounting", "df/d46/a06183.html#a34360dc9fc24d07df2ef16080a21c61e", null ],
+    [ "SemaphoreCounting", "df/d46/a06183.html#a28b01c517b6b58ec1c1dcdff28c2a50c", null ],
+    [ "SemaphoreCounting", "df/d46/a06183.html#a7e497551b91db5e404470925688a3ea2", null ],
+    [ "close", "df/d46/a06183.html#ac6a74e3af35fe243ff32a8ae89fd4214", null ],
+    [ "createStatic", "df/d46/a06183.html#a4a3a3bf0955b317a1d871ee838f5ea59", null ],
+    [ "getCount", "df/d46/a06183.html#ac1348d8967c750e28e7a6ba4f84d6061", null ],
+    [ "getCountFromISR", "df/d46/a06183.html#aa25056dd49c8d19a9f388b97f02c5291", null ],
+    [ "getDerived", "df/d46/a06183.html#a431358a0063bbdcb40d09537a2babe3a", null ],
+    [ "getHandle", "df/d46/a06183.html#a9cd3c80279acde60a0701a674eecc148", null ],
+    [ "getInitialCount", "df/d46/a06183.html#abe4488af469ef47e32e09e2d38a602b1", null ],
+    [ "getMaxCount", "df/d46/a06183.html#addd31c2ffd410bd866e7365497d65280", null ],
+    [ "getRemainingCapacity", "df/d46/a06183.html#a1bf7a6046c23fcaf2dcab086b735f624", null ],
+    [ "give", "df/d46/a06183.html#a5682e0c5d8eb6b2076978634963b4020", null ],
+    [ "giveFromISR", "df/d46/a06183.html#adc665ae88781c6a32668f430f0425eac", null ],
+    [ "isAtMaxCount", "df/d46/a06183.html#aa49210c40edb460f5b64e0a7db0d87e8", null ],
+    [ "isEmpty", "df/d46/a06183.html#a7d8026113d6006885360edd9ff77068d", null ],
+    [ "isOpen", "df/d46/a06183.html#a8fe23c2cca8f01687c58c3aa1b257649", null ],
+    [ "open", "df/d46/a06183.html#abc57684576686004799b4afa06460768", null ],
+    [ "operator=", "df/d46/a06183.html#a1ef840e684e45e8065fa31c8b3690d52", null ],
+    [ "operator=", "df/d46/a06183.html#ac13d24083bc909c7813fb3367712fe95", null ],
+    [ "take", "df/d46/a06183.html#a0c09ee6fc8a221b811abbd57ac9d0071", null ],
+    [ "takeFromISR", "df/d46/a06183.html#a351bf0854e0c48d82c1a078a39e02879", null ],
+    [ "tryTake", "df/d46/a06183.html#a99e434d16d327ee8039d19a7feb75f8b", null ],
+    [ "semaphoreHandle", "df/d46/a06183.html#a9f2ff1e57e66e99707d4107fa4c19812", null ]
 ];

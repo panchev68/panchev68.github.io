@@ -1,8 +1,8 @@
 var a04726 =
 [
-    [ "operator==", "d4/dea/a04726.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
-    [ "inPhaseMax", "d4/dea/a04726.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
-    [ "inPhaseMin", "d4/dea/a04726.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
-    [ "quadratureMax", "d4/dea/a04726.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
-    [ "quadratureMin", "d4/dea/a04726.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
+    [ "chipSelectPin", "d4/dea/a04726.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
+    [ "irqPin", "d4/dea/a04726.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
+    [ "resetPin", "d4/dea/a04726.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
+    [ "rxGain", "d4/dea/a04726.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
+    [ "spiHandle", "d4/dea/a04726.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
 ];

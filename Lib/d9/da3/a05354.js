@@ -1,10 +1,6 @@
 var a05354 =
 [
-    [ "MacString", "d9/da3/a05354.html#a8d2931e8aadff5cd62c7538659cd0b5f", null ],
-    [ "MacAddress", "d9/da3/a05354.html#a1f0169e55ffd6342fdac1722c1a5a969", null ],
-    [ "MacAddress", "d9/da3/a05354.html#aa300b2a042efd76f66f61db709b5b736", null ],
-    [ "data", "d9/da3/a05354.html#ab4ba32f79afc750e8e1702d652a14ed4", null ],
-    [ "operator[]", "d9/da3/a05354.html#a85452ad134f85dbeb0c8bcced1916eeb", null ],
-    [ "size", "d9/da3/a05354.html#a64f89fcca5dea4f1c032848f71589c3a", null ],
-    [ "toString", "d9/da3/a05354.html#a83b7f1a52401d479dea270cbe112b88c", null ]
+    [ "frameReceived", "d9/da3/a05354.html#ac8bfe015a954f64ad27486a7f7b82059", null ],
+    [ "getParameters", "d9/da3/a05354.html#af5c689938685464a5e8331e943afbf47", null ],
+    [ "setParameters", "d9/da3/a05354.html#a4dbee9575ed5dc6f641f59c022b6b4d3", null ]
 ];

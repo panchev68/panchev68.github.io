@@ -1,13 +1,16 @@
 var a05670 =
 [
-    [ "State", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91", [
-      [ "UNKNOWN", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "POWER_ON", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
-      [ "BROWNOUT", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
-      [ "PIN", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
-      [ "SOFTWARE", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
-      [ "INDEPENDENT_WATCHDOG", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
-      [ "WINDOW_WATCHDOG", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
-      [ "LOW_POWER", "d7/d23/a05670.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
-    ] ]
+    [ "I2CPortAsync", "d7/d23/a05670.html#a97738073feff35b79d6bb11c9bd2f351", null ],
+    [ "abort", "d7/d23/a05670.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "close", "d7/d23/a05670.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d7/d23/a05670.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d7/d23/a05670.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isBusy", "d7/d23/a05670.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isOpened", "d7/d23/a05670.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "isReady", "d7/d23/a05670.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "masterMemRead", "d7/d23/a05670.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d7/d23/a05670.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d7/d23/a05670.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d7/d23/a05670.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "d7/d23/a05670.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

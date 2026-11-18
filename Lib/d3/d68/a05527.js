@@ -1,18 +1,17 @@
 var a05527 =
 [
-    [ "Event", "d1/d01/a05531.html", null ],
-    [ "ADCPort", "d3/d68/a05527.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
-    [ "~ADCPort", "d3/d68/a05527.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
-    [ "ADCPort", "d3/d68/a05527.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
-    [ "ADCPort", "d3/d68/a05527.html#af963171787341304aeec9ad771e5f523", null ],
-    [ "close", "d3/d68/a05527.html#a91651451878e1931de2457be52f68c92", null ],
-    [ "getHandle", "d3/d68/a05527.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d3/d68/a05527.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "ADCPort", "d3/d68/a05527.html#ad3590b6cb223a01016ad98732fcce676", null ],
+    [ "~ADCPort", "d3/d68/a05527.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
+    [ "ADCPort", "d3/d68/a05527.html#a9e044644fe3be9918072830d224a30df", null ],
+    [ "ADCPort", "d3/d68/a05527.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
+    [ "close", "d3/d68/a05527.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getHandle", "d3/d68/a05527.html#a5614da14358698185ca50bab6f0ffb90", null ],
+    [ "getHandle", "d3/d68/a05527.html#a67ec812f689c32e443b0f0b0693c358a", null ],
     [ "getValue", "d3/d68/a05527.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "d3/d68/a05527.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
-    [ "operator=", "d3/d68/a05527.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
-    [ "operator=", "d3/d68/a05527.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
-    [ "start", "d3/d68/a05527.html#a97c4921b9e22a517072028d001c86ef1", null ],
-    [ "stop", "d3/d68/a05527.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
-    [ "waitForEvent", "d3/d68/a05527.html#af0c975bbd0a66ffabc210d52ec971714", null ]
+    [ "open", "d3/d68/a05527.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "d3/d68/a05527.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
+    [ "operator=", "d3/d68/a05527.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
+    [ "poll", "d3/d68/a05527.html#a7f4263cc22040a8ca759022ba6097646", null ],
+    [ "start", "d3/d68/a05527.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
+    [ "stop", "d3/d68/a05527.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
 ];

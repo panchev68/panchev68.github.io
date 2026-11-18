@@ -1,9 +1,9 @@
 var a04415 =
 [
-    [ "dimmerMaxValue", "d0/dc5/a04415.html#a4f8b7a66b8c7a9f4517dade719803f4b", null ],
-    [ "dimmerMinValue", "d0/dc5/a04415.html#af51bd0ae2fb6abc537b29f613ed0b1ad", null ],
-    [ "fadeStep", "d0/dc5/a04415.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
-    [ "sleepTimeout", "d0/dc5/a04415.html#a7da153a96dbc9b64a78b1e5fc7e6691e", null ],
-    [ "timChannel", "d0/dc5/a04415.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
-    [ "timHandle", "d0/dc5/a04415.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
+    [ "Config", "d8/d38/a04419.html", "d8/d38/a04419" ],
+    [ "Backlight", "d0/dc5/a04415.html#aa256a4d5fc394db1a9afed11974b96ef", null ],
+    [ "~Backlight", "d0/dc5/a04415.html#a5516d16616d30b6214626e963873f08a", null ],
+    [ "get", "d0/dc5/a04415.html#a50a810c2a297031558286c9c20bb51ea", null ],
+    [ "operator=", "d0/dc5/a04415.html#a6b38c863109edd503a2e5e78f170f0bd", null ],
+    [ "set", "d0/dc5/a04415.html#a666c0e0466ea2c644c087fc5a3eaa625", null ]
 ];

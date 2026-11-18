@@ -1,12 +1,12 @@
 var a05886 =
 [
-    [ "Time", "d8/d1d/a05886.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "d8/d1d/a05886.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "d8/d1d/a05886.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "d8/d1d/a05886.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "d8/d1d/a05886.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "d8/d1d/a05886.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "d8/d1d/a05886.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "d8/d1d/a05886.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "d8/d1d/a05886.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "BitSet", "d8/d1d/a05886.html#a16d91d28edc897acf8833de8df82699f", null ],
+    [ "BitSet", "d8/d1d/a05886.html#addc6ad14e596e534eb7fd2a018719985", null ],
+    [ "getBit", "d8/d1d/a05886.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
+    [ "getValue", "d8/d1d/a05886.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
+    [ "operator uint32_t", "d8/d1d/a05886.html#ab085297affb7e2df90201d7e6cdd1172", null ],
+    [ "operator=", "d8/d1d/a05886.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
+    [ "operator[]", "d8/d1d/a05886.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
+    [ "setBit", "d8/d1d/a05886.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
+    [ "setValue", "d8/d1d/a05886.html#a2505d1f74074939a87d45d3343d8bea3", null ]
 ];

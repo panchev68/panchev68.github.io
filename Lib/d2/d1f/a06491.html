@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Math::Filter::MovingAverage</title>
+<title>IAR EWARM Library: Lib::Helper::Convert::Percent</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -129,89 +129,55 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/d1f/a06491.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Math::Filter::MovingAverage</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Convert::Percent</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Smooths a noisy measurement such as a digital thermometer or an ADC reading with <a class="el" href="../../d2/d1f/a06491.html" title="Lib::Math::Filter::MovingAverage">Lib::Math::Filter::MovingAverage</a>.</p>
-<p>Smooths a noisy measurement such as a digital thermometer or an ADC reading with <a class="el" href="../../d2/d1f/a06491.html" title="Lib::Math::Filter::MovingAverage">Lib::Math::Filter::MovingAverage</a>. The filter averages the last window of samples kept in a ring buffer: every call of its call operator takes a new sample and returns the average. It owns no heap memory, accepts an integral or a floating-point sample type and is not thread-safe, so call it from one context only.</p>
+<p>Shows converting between a percentage and a dBm value with the <a class="el" href="../../d2/d1f/a06491.html" title="Lib::Helper::Convert::Percent">Lib::Helper::Convert::Percent</a> class.</p>
+<p>Shows converting between a percentage and a dBm value with the <a class="el" href="../../d2/d1f/a06491.html" title="Lib::Helper::Convert::Percent">Lib::Helper::Convert::Percent</a> class.The mapping is linear between <b>-100</b> dBm (<b>0%</b>) and <b>-50</b> dBm (<b>100%</b>), and both directions clamp their input to that range.</p>
+<p>The helpers are 'static constexpr' and 'noexcept', so they also run at compile time and touch no RTOS object.</p>
 <hr  />
-<h3 class="doxsection"><a class="anchor" id="movingaverage_usage_filter"></a>
-Filtering a temperature</h3>
-<p>The window length is a template argument. A longer window smooths more and follows a real change later: a step reaches the output completely after one window of samples. An integral type is averaged exactly and the result is truncated towards zero.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d40/a00959.html">Lib/Math/Filter/MovingAverage.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="percent_usage_todbm"></a>
+Percentage to dBm</h3>
+<p><a class="el" href="../../de/dec/a05914.html#a17ab1d104e41c1134039e580c5dc5d85" title="Lib::Helper::Convert::Percent::toDBm()">Lib::Helper::Convert::Percent::toDBm()</a> clamps the percentage to <b>100</b> first, so <b>150%</b> yields <b>-50</b> dBm.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/Helper/Convert/Percent.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Temperature in 0.1 degC, averaged over the last 8 readings.</span></div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d8/da2/a06031.html">Lib::Math::Filter::MovingAverage&lt;int16_t, 8U&gt;</a> temperatureFilter;</div>
+<div class="line"><span class="keywordtype">void</span> printPercentAsDbm() {</div>
+<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../de/dec/a05914.html">Lib::Helper::Convert::Percent</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Called from the task that receives the thermometer readings.</span></div>
-<div class="line">int16_t onReading(int16_t reading) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> temperatureFilter(reading);</div>
+<div class="line">    <span class="keyword">const</span> int8_t dbm = Percent::toDBm(80U);</div>
+<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;80% -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dbm) &lt;&lt; <span class="stringliteral">&quot; dBm\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">const</span> int8_t clampedDbm = Percent::toDBm(150U);</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;150% -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(clampedDbm) &lt;&lt; <span class="stringliteral">&quot; dBm\n&quot;</span>;</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00116_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00959_html"><div class="ttname"><a href="../../db/d40/a00959.html">MovingAverage.hpp</a></div><div class="ttdoc">Fixed-window moving average filter for smoothing a noisy signal.</div></div>
-<div class="ttc" id="aa06031_html"><div class="ttname"><a href="../../d8/da2/a06031.html">Lib::Math::Filter::MovingAverage</a></div><div class="ttdoc">Average of the last T_SIZE samples, kept in a ring buffer.</div><div class="ttdef"><b>Definition</b> MovingAverage.hpp:37</div></div>
-</div><!-- fragment --><p>Result for the readings <em>200</em>, <em>202</em> and <em>204</em>:</p>
-<div class="fragment"><div class="line">200</div>
-<div class="line">201</div>
-<div class="line">202</div>
+<div class="ttc" id="aa00905_html"><div class="ttname"><a href="../../da/d5b/a00905.html">Percent.hpp</a></div><div class="ttdoc">Declares Lib::Helper::Convert::Percent, which converts between a 0..100 percentage and an approximate...</div></div>
+<div class="ttc" id="aa01692_html_aaf93fdf0812752e0e02c501dea1b38f0"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a></div><div class="ttdeci">ostream cout</div></div>
+<div class="ttc" id="aa05914_html"><div class="ttname"><a href="../../de/dec/a05914.html">Lib::Helper::Convert::Percent</a></div><div class="ttdoc">Linear mapping between a 0..100 percentage and the dBm range [-100, -50].</div><div class="ttdef"><b>Definition</b> Percent.hpp:29</div></div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">80% -&gt; -60 dBm</div>
+<div class="line">150% -&gt; -50 dBm</div>
 </div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="movingaverage_usage_full"></a>
-Waiting for a full window</h3>
-<p>Until the window is full the average covers only the samples received so far. <a class="el" href="../../d8/da2/a06031.html#aaf4c6d357fb792f439055171bc67e56b" title="Lib::Math::Filter::MovingAverage::isFull()">Lib::Math::Filter::MovingAverage::isFull()</a> tells when the output has its full smoothing, so a value that must be reliable can wait for it.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d40/a00959.html">Lib/Math/Filter/MovingAverage.hpp</a>&gt;</span></div>
+<h3 class="doxsection"><a class="anchor" id="percent_usage_fromdbm"></a>
+dBm to percentage</h3>
+<p><a class="el" href="../../de/dec/a05914.html#a8889cfb30e5e7a0d3e10fbab4e022ba6" title="Lib::Helper::Convert::Percent::fromDBm()">Lib::Helper::Convert::Percent::fromDBm()</a> clamps the dBm value to the range from <b>-100</b> to <b>-50</b>, so <b>-100</b> dBm yields <b>0%</b>.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d5b/a00905.html">Lib/Helper/Convert/Percent.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00116.html">iostream</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_class" href="../../d8/da2/a06031.html">Lib::Math::Filter::MovingAverage&lt;int16_t, 8U&gt;</a> filter;</div>
+<div class="line"><span class="keywordtype">void</span> printDbmAsPercent() {</div>
+<div class="line">    <span class="keyword">using </span><a class="code hl_class" href="../../de/dec/a05914.html">Lib::Helper::Convert::Percent</a>;</div>
 <div class="line"> </div>
-<div class="line"><a id="_a1" name="_a1"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional&lt;int16_t&gt;</a> addReading(int16_t reading) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keyword">const</span> int16_t average = filter(reading);</div>
-<div class="line">    <span class="keywordflow">if</span> (!filter.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d8/da2/a06031.html#aaf4c6d357fb792f439055171bc67e56b">isFull</a>()) {</div>
-<div class="line">        <span class="keywordflow">return</span> <a id="_a3" name="_a3"></a><a class="code hl_classRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html">std::nullopt</a>;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> average;</div>
+<div class="line">    <span class="keyword">const</span> uint8_t percentage = Percent::fromDBm(-100);</div>
+<div class="line">    <a class="code hl_variableRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#aaf93fdf0812752e0e02c501dea1b38f0">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;-100 dBm -&gt; &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(percentage) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00155.html">optional</a></div></div>
-<div class="ttc" id="aa01662_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html">std::nullopt</a></div></div>
-<div class="ttc" id="aa06031_html_aaf4c6d357fb792f439055171bc67e56b"><div class="ttname"><a href="../../d8/da2/a06031.html#aaf4c6d357fb792f439055171bc67e56b">Lib::Math::Filter::MovingAverage::isFull</a></div><div class="ttdeci">bool isFull() const noexcept</div><div class="ttdoc">Reports whether the window holds WINDOW_SIZE samples.</div><div class="ttdef"><b>Definition</b> MovingAverage.hpp:75</div></div>
-<div class="ttc" id="aa10574_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a></div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="movingaverage_usage_reset"></a>
-Reset</h3>
-<p><a class="el" href="../../d8/da2/a06031.html#a581a63a6d58adc1a6d6929fece577f99" title="Lib::Math::Filter::MovingAverage::reset()">Lib::Math::Filter::MovingAverage::reset()</a> forgets all samples, for example after the link to the sensor was lost, so old readings do not mix with new ones. <a class="el" href="../../d8/da2/a06031.html#a6253a2f3564edfd4e2007c31e220a8f0" title="Lib::Math::Filter::MovingAverage::getAverage()">Lib::Math::Filter::MovingAverage::getAverage()</a> reads the average without adding a sample.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d40/a00959.html">Lib/Math/Filter/MovingAverage.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> onLinkLost(<a class="code hl_class" href="../../d8/da2/a06031.html">Lib::Math::Filter::MovingAverage&lt;int16_t, 8U&gt;</a> &amp; filter) <span class="keyword">noexcept</span> {</div>
-<div class="line">    filter.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d8/da2/a06031.html#a581a63a6d58adc1a6d6929fece577f99">reset</a>();</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line">int16_t showAverage(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/da2/a06031.html">Lib::Math::Filter::MovingAverage&lt;int16_t, 8U&gt;</a> &amp; filter) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> filter.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d8/da2/a06031.html#a6253a2f3564edfd4e2007c31e220a8f0">getAverage</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa06031_html_a581a63a6d58adc1a6d6929fece577f99"><div class="ttname"><a href="../../d8/da2/a06031.html#a581a63a6d58adc1a6d6929fece577f99">Lib::Math::Filter::MovingAverage::reset</a></div><div class="ttdeci">void reset() noexcept</div><div class="ttdoc">Forgets all samples, so the next sample starts a new window.</div><div class="ttdef"><b>Definition</b> MovingAverage.hpp:61</div></div>
-<div class="ttc" id="aa06031_html_a6253a2f3564edfd4e2007c31e220a8f0"><div class="ttname"><a href="../../d8/da2/a06031.html#a6253a2f3564edfd4e2007c31e220a8f0">Lib::Math::Filter::MovingAverage::getAverage</a></div><div class="ttdeci">T_TYPE getAverage() const noexcept</div><div class="ttdoc">Gets the average of the samples in the window without adding a sample.</div><div class="ttdef"><b>Definition</b> MovingAverage.hpp:93</div></div>
-</div><!-- fragment --><hr  />
-<h3 class="doxsection"><a class="anchor" id="movingaverage_usage_chain"></a>
-Removing spikes first</h3>
-<p>The average does not reject a single wild sample, it spreads it over the whole window. Put a <a class="el" href="../../d0/d7b/a06489.html" title="Lib::Math::Filter::Median">Lib::Math::Filter::Median</a> in front of it to drop the spikes first.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/de5/a00956.html">Lib/Math/Filter/Median.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d40/a00959.html">Lib/Math/Filter/MovingAverage.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><a id="_a6" name="_a6"></a><a class="code hl_class" href="../../db/dc9/a06027.html">Lib::Math::Filter::Median&lt;int16_t, 5U&gt;</a> spikeFilter;</div>
-<div class="line"><a class="code hl_class" href="../../d8/da2/a06031.html">Lib::Math::Filter::MovingAverage&lt;int16_t, 8U&gt;</a> noiseFilter;</div>
-<div class="line"> </div>
-<div class="line">int16_t onReading(int16_t reading) <span class="keyword">noexcept</span> {</div>
-<div class="line">    <span class="keywordflow">return</span> noiseFilter(spikeFilter(reading));</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00956_html"><div class="ttname"><a href="../../d3/de5/a00956.html">Median.hpp</a></div><div class="ttdoc">Fixed-window median filter that rejects isolated wild samples.</div></div>
-<div class="ttc" id="aa06027_html"><div class="ttname"><a href="../../db/dc9/a06027.html">Lib::Math::Filter::Median</a></div><div class="ttdoc">Median of the last T_SIZE samples, kept in a ring buffer.</div><div class="ttdef"><b>Definition</b> Median.hpp:37</div></div>
+</div><!-- fragment --><p>Result:</p>
+<div class="fragment"><div class="line">-100 dBm -&gt; 0%</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

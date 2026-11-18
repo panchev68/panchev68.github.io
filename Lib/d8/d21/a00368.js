@@ -1,6 +1,6 @@
 var a00368 =
 [
-    [ "Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt; T_MODE &gt;", "d9/d87/a04855.html", "d9/d87/a04855" ],
-    [ "Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt; T_MODE &gt;::Config", "da/d9f/a04859.html", "da/d9f/a04859" ],
-    [ "Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt; T_MODE &gt;::TransducerDiagnostics", "df/d6c/a04863.html", "df/d6c/a04863" ]
+    [ "Lib::BSP::XPT2046", "df/dcf/a04842.html", "df/dcf/a04842" ],
+    [ "Lib::BSP::XPT2046::Config", "de/d25/a04846.html", "de/d25/a04846" ],
+    [ "Lib::BSP::XPT2046::Parameters", "d5/dab/a04850.html", "d5/dab/a04850" ]
 ];

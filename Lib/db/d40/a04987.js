@@ -1,10 +1,11 @@
 var a04987 =
 [
-    [ "WolfSSH", "db/d40/a04987.html#acda587d771e0b88270bdf9263d156fd0", null ],
-    [ "~WolfSSH", "db/d40/a04987.html#ad07d509cc2a825d9165ab30739d84515", null ],
-    [ "WolfSSH", "db/d40/a04987.html#ab03771dcd75546ec452cb768b0a29da5", null ],
-    [ "WolfSSH", "db/d40/a04987.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
-    [ "isOpen", "db/d40/a04987.html#aac3ff36b57e422860d83792bb84c84f3", null ],
-    [ "operator=", "db/d40/a04987.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
-    [ "operator=", "db/d40/a04987.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
+    [ "Digest", "db/d40/a04987.html#a64f2dc888ae92e9d62a6cb46920ecbfc", null ],
+    [ "SHA256", "db/d40/a04987.html#ae261512ec5be0bfb16ede1ff9b2265d0", null ],
+    [ "SHA256", "db/d40/a04987.html#a03a051c073cce9b452a28fb40f911e88", null ],
+    [ "SHA256", "db/d40/a04987.html#a9bab9e477aeea4a1eb3091299eddc9c6", null ],
+    [ "finish", "db/d40/a04987.html#a5cd0fa14a06cde89274eea1d00a22c46", null ],
+    [ "operator=", "db/d40/a04987.html#ad5bdebc14ab4ffb181a07e57b3f42abc", null ],
+    [ "operator=", "db/d40/a04987.html#a7114367adabcd60f21fa613f649f47a3", null ],
+    [ "update", "db/d40/a04987.html#a12912b60a4fe22b09e7a961671550704", null ]
 ];

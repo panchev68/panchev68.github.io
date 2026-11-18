@@ -1,18 +1,18 @@
 var a05534 =
 [
-    [ "EventBits", "dd/d66/a05534.html#a3c55c6775abc08a42ba3fb85ac9404c9", null ],
-    [ "AsyncPortCore", "dd/d66/a05534.html#a9e0e2e3d307485d3bc6cc4c54a4a9790", null ],
-    [ "AsyncPortCore", "dd/d66/a05534.html#ae4c323f8431fa6f03e914d953c4306c2", null ],
-    [ "AsyncPortCore", "dd/d66/a05534.html#a3fea82834797dbd505ac308e4ebe58a2", null ],
-    [ "~AsyncPortCore", "dd/d66/a05534.html#aa73910a82d1814199dbe1ec58c46f450", null ],
-    [ "close", "dd/d66/a05534.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "derived", "dd/d66/a05534.html#a3dbece6116a65776aa72cb7a95e4a79a", null ],
+    [ "Event", "df/de9/a05538.html", null ],
+    [ "ADCPort", "dd/d66/a05534.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
+    [ "~ADCPort", "dd/d66/a05534.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
+    [ "ADCPort", "dd/d66/a05534.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
+    [ "ADCPort", "dd/d66/a05534.html#af963171787341304aeec9ad771e5f523", null ],
+    [ "close", "dd/d66/a05534.html#a91651451878e1931de2457be52f68c92", null ],
     [ "getHandle", "dd/d66/a05534.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "dd/d66/a05534.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "dd/d66/a05534.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "dd/d66/a05534.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "operator=", "dd/d66/a05534.html#af7a0ea878376b289ff08600fa9477026", null ],
-    [ "operator=", "dd/d66/a05534.html#a83e0efb939206ab305b7b0c0b80a27e5", null ],
-    [ "events", "dd/d66/a05534.html#abb56ddd8ed19246084e1242e9075982f", null ],
-    [ "isOpen", "dd/d66/a05534.html#aa533ddd5b800443ba9ea9687a78b720e", null ]
+    [ "getValue", "dd/d66/a05534.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "dd/d66/a05534.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
+    [ "operator=", "dd/d66/a05534.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
+    [ "operator=", "dd/d66/a05534.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
+    [ "start", "dd/d66/a05534.html#a97c4921b9e22a517072028d001c86ef1", null ],
+    [ "stop", "dd/d66/a05534.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
+    [ "waitForEvent", "dd/d66/a05534.html#af0c975bbd0a66ffabc210d52ec971714", null ]
 ];

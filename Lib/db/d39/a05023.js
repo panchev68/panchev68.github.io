@@ -1,13 +1,15 @@
 var a05023 =
 [
-    [ "Config", "d1/d82/a05027.html", "d1/d82/a05027" ],
-    [ "WolfSSLDh", "db/d39/a05023.html#acaf8aa4b45471efcfd3e472780e7b31f", null ],
-    [ "~WolfSSLDh", "db/d39/a05023.html#a6d03ea454eff6ec49352184b945a04e2", null ],
-    [ "WolfSSLDh", "db/d39/a05023.html#aabb6311ca11dc1faceab33055d97c824", null ],
-    [ "WolfSSLDh", "db/d39/a05023.html#a0d9f73abb840322aea3f49d8eac3f8ce", null ],
-    [ "agree", "db/d39/a05023.html#a76b96df40bf320de9d7254054ad2ab18", null ],
-    [ "generateKeyPair", "db/d39/a05023.html#ae0c35d84959cb6078b1d7ce38d4c2c02", null ],
-    [ "open", "db/d39/a05023.html#ad8c4f4476d3d1e1746d3db4fe86cf82a", null ],
-    [ "operator=", "db/d39/a05023.html#a2e951b9b4363af4a96e6e7426382c1d3", null ],
-    [ "operator=", "db/d39/a05023.html#a050501c01119e2aa82565a060075ee61", null ]
+    [ "WolfSSLRsa", "db/d39/a05023.html#a1308729d8ff35f469e9f9b371d525d28", null ],
+    [ "~WolfSSLRsa", "db/d39/a05023.html#ab6ae34e7912a123c6835ee6840762239", null ],
+    [ "WolfSSLRsa", "db/d39/a05023.html#acc7f398f326414a4d2f5bea6b308a0b0", null ],
+    [ "WolfSSLRsa", "db/d39/a05023.html#a3814f988249760683546ddc093b8ba4e", null ],
+    [ "decrypt", "db/d39/a05023.html#a690ac94f5fdb51b1a82a680b427e80f6", null ],
+    [ "encrypt", "db/d39/a05023.html#a5e86c36f992625c03945c115ab436f54", null ],
+    [ "encryptedSize", "db/d39/a05023.html#a8886d49ea9dc962dd7e5dfded3314703", null ],
+    [ "generateKey", "db/d39/a05023.html#a43de0d37ba0f47417c537dba6ce37ad4", null ],
+    [ "operator=", "db/d39/a05023.html#a0767271bfdf8f54002f922c2ee09944a", null ],
+    [ "operator=", "db/d39/a05023.html#a09d6b1e65a5e85ce8c839c0001917c96", null ],
+    [ "sign", "db/d39/a05023.html#aaa7fa629597c530db9a29c108a50c076", null ],
+    [ "verify", "db/d39/a05023.html#a8efa778b2f9627a75054ee625e3a5c2e", null ]
 ];

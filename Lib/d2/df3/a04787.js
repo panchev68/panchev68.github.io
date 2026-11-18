@@ -1,15 +1,8 @@
 var a04787 =
 [
-    [ "Ring", "db/d92/a04791.html", "db/d92/a04791" ],
-    [ "Slice", "d2/df3/a04787.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
-    [ "SK6812", "d2/df3/a04787.html#a713fbeedeb85ff82f1097b206afd7918", null ],
-    [ "SK6812", "d2/df3/a04787.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
-    [ "SK6812", "d2/df3/a04787.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
-    [ "clear", "d2/df3/a04787.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
-    [ "getColor", "d2/df3/a04787.html#a1a0907fe121161268c1b859d90232628", null ],
-    [ "operator=", "d2/df3/a04787.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
-    [ "operator=", "d2/df3/a04787.html#aa21ec5517b393c1649c2045e822978e7", null ],
-    [ "setColor", "d2/df3/a04787.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
-    [ "setColor", "d2/df3/a04787.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
-    [ "setColor", "d2/df3/a04787.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
+    [ "operator==", "d2/df3/a04787.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
+    [ "blue", "d2/df3/a04787.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
+    [ "green", "d2/df3/a04787.html#aaac4b49f8ced6f8a10842162f110217d", null ],
+    [ "red", "d2/df3/a04787.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
+    [ "white", "d2/df3/a04787.html#a272f822cae4bd3b8e993080e2317636e", null ]
 ];

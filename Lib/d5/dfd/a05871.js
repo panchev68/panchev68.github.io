@@ -1,11 +1,14 @@
 var a05871 =
 [
-    [ "getDirection", "d5/dfd/a05871.html#a68335ce20908e5937884bf601bb4b90e", null ],
-    [ "getRecipient", "d5/dfd/a05871.html#ae7283011b9493caacbbe6081ca48b217", null ],
-    [ "getType", "d5/dfd/a05871.html#a2e0f40dbc98143b97268fbfa4a39bd3a", null ],
-    [ "index", "d5/dfd/a05871.html#a042e36be625640c409835eeb4ca30c8a", null ],
-    [ "length", "d5/dfd/a05871.html#a2e7f6964058d59cf704c5534a3b64cae", null ],
-    [ "request", "d5/dfd/a05871.html#a8f0551503e5416ac2f9eaaa0bef3a08f", null ],
-    [ "requestType", "d5/dfd/a05871.html#a87ecd5c19387a9761e2548aba162728d", null ],
-    [ "value", "d5/dfd/a05871.html#aeb95036baf576efe55bbdca1daf8c864", null ]
+    [ "USBOtgPort", "d5/dfd/a05871.html#a94591d5e8c2febc4e287510cbbe8fdd3", null ],
+    [ "~USBOtgPort", "d5/dfd/a05871.html#a277068fa3df6459bf52aac65457f31d6", null ],
+    [ "USBOtgPort", "d5/dfd/a05871.html#a996c0c11f55b66f27d118a91eb700a30", null ],
+    [ "USBOtgPort", "d5/dfd/a05871.html#ab276be300ebf7d87066609fd80b78336", null ],
+    [ "getDevice", "d5/dfd/a05871.html#a023ac50c5d201c51c5b288f17fc86ec9", null ],
+    [ "getHost", "d5/dfd/a05871.html#a5e5a4a2c6e79efb76f4ef3bbd18fbdfa", null ],
+    [ "getRole", "d5/dfd/a05871.html#a1bcb32f40cc65b5e6e7e2103f39f683f", null ],
+    [ "operator=", "d5/dfd/a05871.html#a78acf6354843aa38ea86734991fe89b2", null ],
+    [ "operator=", "d5/dfd/a05871.html#ab1fe3b9f1189d474ddf9fe136989041e", null ],
+    [ "release", "d5/dfd/a05871.html#ae01129b71b69271e84ae03dfd2b17bb1", null ],
+    [ "setRole", "d5/dfd/a05871.html#aec9af265280bdd162bad2fc3ab471564", null ]
 ];

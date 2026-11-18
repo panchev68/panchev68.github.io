@@ -1,17 +1,14 @@
 var a05783 =
 [
-    [ "Manager", "d6/d37/a05783.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "d6/d37/a05783.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimTimebase", "d6/d37/a05783.html#a2c242b351c880239ebc508905c1cb177", null ],
-    [ "~TimTimebase", "d6/d37/a05783.html#a90c3f44e84cfcfed7135d75abee0a2e1", null ],
-    [ "bindWorker", "d6/d37/a05783.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
-    [ "getHandle", "d6/d37/a05783.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "notifyWorkerFromISR", "d6/d37/a05783.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "setPeriod", "d6/d37/a05783.html#a29d9a9e5c9f5213605679a13c42aa764", null ],
-    [ "start", "d6/d37/a05783.html#ab552a6aca3293c0ecdd0ce26d6668663", null ],
-    [ "stop", "d6/d37/a05783.html#afffbfe2b0fcf27e6081cc6983d06e626", null ],
-    [ "waitEvent", "d6/d37/a05783.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
-    [ "waitPeriod", "d6/d37/a05783.html#a2b19392b62c66b845538ec09abd31354", null ],
-    [ "waitPeriod", "d6/d37/a05783.html#a12ce8677b8ff16469cb2f21c9a1eb5bb", null ],
-    [ "void::Lib_HAL_TimTimebase_PeriodElapsed", "d6/d37/a05783.html#ae72687d02451939bdec7c3aaba269a45", null ]
+    [ "TimPwmOutput", "d6/d37/a05783.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
+    [ "~TimPwmOutput", "d6/d37/a05783.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
+    [ "TimPwmOutput", "d6/d37/a05783.html#a422a9009ca77380721da2502794a00a0", null ],
+    [ "TimPwmOutput", "d6/d37/a05783.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
+    [ "close", "d6/d37/a05783.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
+    [ "getPeriod", "d6/d37/a05783.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
+    [ "open", "d6/d37/a05783.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
+    [ "operator=", "d6/d37/a05783.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
+    [ "operator=", "d6/d37/a05783.html#a686c13d106e6d8d754e3020b7107d262", null ],
+    [ "setPeriod", "d6/d37/a05783.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
+    [ "setPulse", "d6/d37/a05783.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
 ];

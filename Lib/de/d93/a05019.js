@@ -1,15 +1,14 @@
 var a05019 =
 [
-    [ "WolfSSLRsa", "de/d93/a05019.html#a1308729d8ff35f469e9f9b371d525d28", null ],
-    [ "~WolfSSLRsa", "de/d93/a05019.html#ab6ae34e7912a123c6835ee6840762239", null ],
-    [ "WolfSSLRsa", "de/d93/a05019.html#acc7f398f326414a4d2f5bea6b308a0b0", null ],
-    [ "WolfSSLRsa", "de/d93/a05019.html#a3814f988249760683546ddc093b8ba4e", null ],
-    [ "decrypt", "de/d93/a05019.html#a690ac94f5fdb51b1a82a680b427e80f6", null ],
-    [ "encrypt", "de/d93/a05019.html#a5e86c36f992625c03945c115ab436f54", null ],
-    [ "encryptedSize", "de/d93/a05019.html#a8886d49ea9dc962dd7e5dfded3314703", null ],
-    [ "generateKey", "de/d93/a05019.html#a43de0d37ba0f47417c537dba6ce37ad4", null ],
-    [ "operator=", "de/d93/a05019.html#a0767271bfdf8f54002f922c2ee09944a", null ],
-    [ "operator=", "de/d93/a05019.html#a09d6b1e65a5e85ce8c839c0001917c96", null ],
-    [ "sign", "de/d93/a05019.html#aaa7fa629597c530db9a29c108a50c076", null ],
-    [ "verify", "de/d93/a05019.html#a8efa778b2f9627a75054ee625e3a5c2e", null ]
+    [ "SharedSecret", "de/d93/a05019.html#a7fbb5355ccfc526d83b2d67eadb425c8", null ],
+    [ "WolfSSLEcc", "de/d93/a05019.html#a19debb4d33bed3fade556263320330f7", null ],
+    [ "~WolfSSLEcc", "de/d93/a05019.html#ab882988b2ec1b1494dbe8f30062bd13e", null ],
+    [ "WolfSSLEcc", "de/d93/a05019.html#acfed6fbd26a4fb663e7aec5f8408e3f4", null ],
+    [ "WolfSSLEcc", "de/d93/a05019.html#ab7483aff9567983a99ff831e7bfcf284", null ],
+    [ "generateKey", "de/d93/a05019.html#a17edfaa1f02adf3fdd3a15dacc409b5d", null ],
+    [ "operator=", "de/d93/a05019.html#a3309d37d1e7115e7a81b80cee385c0f3", null ],
+    [ "operator=", "de/d93/a05019.html#a251a0fe821d569d4e0f785056ced42d7", null ],
+    [ "sharedSecret", "de/d93/a05019.html#a6c37442161fbe64b4d931ffc6a6f8997", null ],
+    [ "sign", "de/d93/a05019.html#ad2b17e604dc8ee9188ffc9a54dc87b46", null ],
+    [ "verify", "de/d93/a05019.html#a22a3ef4290390aa55282ade89d4bd8e4", null ]
 ];

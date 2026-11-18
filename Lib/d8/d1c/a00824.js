@@ -1,5 +1,5 @@
 var a00824 =
 [
-    [ "Lib::HAL::StreamSerialPort", "d0/d25/a05787.html", "d0/d25/a05787" ],
-    [ "Lib::HAL::StreamSerialPort::Config", "d8/df0/a05791.html", "d8/df0/a05791" ]
+    [ "Lib::HAL::Timer::TimTimebase", "d3/d09/a05790.html", "d3/d09/a05790" ],
+    [ "Lib_HAL_TimTimebase_PeriodElapsed", "d8/d1c/a00824.html#a4bdf692c90345bac5c917adfba250469", null ]
 ];

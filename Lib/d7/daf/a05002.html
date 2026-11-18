@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::Digi::API::Connection</title>
+<title>IAR EWARM Library: Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -117,56 +130,100 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/daf/a05002.
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="../../d9/d7c/a04999.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Digi::API::Connection<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Aggregates the state, the link quality assessment and the statistics of one XBee link. </p>
-<p>Non-copyable: "quality" keeps a back-pointer to its owning connection. </p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;</div><p>CRTP base for a single server-side SSH session (CubeMX: wolfSSH Core). </p>
+<p>A derived class implements the byte transport the session runs over: <em class="arg">ioReceive()</em> and <em class="arg">ioSend()</em>, each returning the number of bytes transferred, 0 when none are available yet, or a negative WS_CBIO_ERR_* code. wolfSSH reaches them through a void pointer context dispatched back to this instance, not through a virtual table, so CRTP replaces the vtable a transport-agnostic design would otherwise need.</p>
+<p>One instance is one connection: construct it after accepting a connection on the underlying transport (e.g. a TCP socket or a UART link), destroy it when the connection ends. Not thread-safe: service one session from one task.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete session type implementing <em class="arg">ioReceive()</em> and <em class="arg">ioSend()</em>; publicly inherits from this class.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/panchev68-Library/IAR/blob/3.08/inc/Lib/Crypto/WolfSSH.hpp" target="_blank">Source</a> </dd></dl>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:State" id="r_State"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/dc0/a05006.html">State</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connection state value with a connect/disconnect notification.  <a href="../../d5/dc0/a05006.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Quality" id="r_Quality"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d79/a05010.html">Quality</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes link quality from the packet delivery ratio (PDR) and the RSSI link margin.  <a href="../../d8/d79/a05010.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Info" id="r_Info"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d66/a05014.html">Info</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime statistics: signal strength, transmit period and event counters.  <a href="../../dc/d66/a05014.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac3f7cec3bac26ebbbdfd93dc9d339f48" id="r_ac3f7cec3bac26ebbbdfd93dc9d339f48"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> () noexcept=default</td></tr>
-<tr class="memdesc:ac3f7cec3bac26ebbbdfd93dc9d339f48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a connection in "State::INIT" with empty statistics.  <br /></td></tr>
-<tr class="memitem:afaa8af957c71adc2bf6b63d902caedf2" id="r_afaa8af957c71adc2bf6b63d902caedf2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afaa8af957c71adc2bf6b63d902caedf2">Connection</a> (const Connection &amp;)=delete</td></tr>
-<tr class="memdesc:afaa8af957c71adc2bf6b63d902caedf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: "quality" points back to its owning connection.  <br /></td></tr>
-<tr class="memitem:a6bed4ce5a085f4b0a9bbeb1131272236" id="r_a6bed4ce5a085f4b0a9bbeb1131272236"><td class="memItemLeft"><a class="el" href="#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6bed4ce5a085f4b0a9bbeb1131272236">operator=</a> (const <a class="el" href="#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a6bed4ce5a085f4b0a9bbeb1131272236"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: "quality" points back to its owning connection.  <br /></td></tr>
+<tr class="memitem:a0bcf921f4ac87d3d5ec8ed5bad282b6c" id="r_a0bcf921f4ac87d3d5ec8ed5bad282b6c"><td class="memItemLeft"><a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c">accept</a> () noexcept</td></tr>
+<tr class="memdesc:a0bcf921f4ac87d3d5ec8ed5bad282b6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs (or resumes) the SSH handshake and authentication.  <br /></td></tr>
+<tr class="memitem:ac07508d68f41b64e463fdd58db57558b" id="r_ac07508d68f41b64e463fdd58db57558b"><td class="memItemLeft"><a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac07508d68f41b64e463fdd58db57558b">read</a> (std::span&lt; uint8_t &gt; buffer, size_t &amp;bytesRead) noexcept</td></tr>
+<tr class="memdesc:ac07508d68f41b64e463fdd58db57558b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from the session's shell channel.  <br /></td></tr>
+<tr class="memitem:a034957692d48053e848ee6d77605fe2f" id="r_a034957692d48053e848ee6d77605fe2f"><td class="memItemLeft"><a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a034957692d48053e848ee6d77605fe2f">send</a> (std::span&lt; const uint8_t &gt; buffer, size_t &amp;bytesSent) noexcept</td></tr>
+<tr class="memdesc:a034957692d48053e848ee6d77605fe2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data over the session's shell channel.  <br /></td></tr>
+<tr class="memitem:a47906cc0c3be3035aefe35c6b6ca9c36" id="r_a47906cc0c3be3035aefe35c6b6ca9c36"><td class="memItemLeft"><a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a47906cc0c3be3035aefe35c6b6ca9c36">shutdown</a> () noexcept</td></tr>
+<tr class="memdesc:a47906cc0c3be3035aefe35c6b6ca9c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the SSH disconnect message, ending the session gracefully.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a79f4aecc9bd038f5938e6373412ed099" id="r_a79f4aecc9bd038f5938e6373412ed099"><td class="memItemLeft"><a class="el" href="../../d5/dc0/a05006.html">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a79f4aecc9bd038f5938e6373412ed099">state</a></td></tr>
-<tr class="memdesc:a79f4aecc9bd038f5938e6373412ed099"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connection state.  <br /></td></tr>
-<tr class="memitem:a2f83b837e560618fd6d59cdb1aa8cbe3" id="r_a2f83b837e560618fd6d59cdb1aa8cbe3"><td class="memItemLeft"><a class="el" href="../../d8/d79/a05010.html">Quality</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2f83b837e560618fd6d59cdb1aa8cbe3">quality</a> {this}</td></tr>
-<tr class="memdesc:a2f83b837e560618fd6d59cdb1aa8cbe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Link quality evaluator.  <br /></td></tr>
-<tr class="memitem:a566d10b4610db522b6cb8cbe0b66a545" id="r_a566d10b4610db522b6cb8cbe0b66a545"><td class="memItemLeft"><a class="el" href="../../dc/d66/a05014.html">Info</a>&#160;</td><td class="memItemRight"><a class="el" href="#a566d10b4610db522b6cb8cbe0b66a545">info</a></td></tr>
-<tr class="memdesc:a566d10b4610db522b6cb8cbe0b66a545"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime statistics.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a41bf7bcd105beca0973ac47f04d4e3ff" id="r_a41bf7bcd105beca0973ac47f04d4e3ff"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> (<a class="el" href="../../d3/d2d/a04998.html">WolfSSHServerContext</a> &amp;context) noexcept</td></tr>
+<tr class="memdesc:a41bf7bcd105beca0973ac47f04d4e3ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a session from a server context and binds its I/O and authentication dispatch to this instance.  <br /></td></tr>
+<tr class="memitem:a54cb791a164ecc14c00ccdb1f935d00e" id="r_a54cb791a164ecc14c00ccdb1f935d00e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a54cb791a164ecc14c00ccdb1f935d00e">~WolfSSHServer</a> () noexcept</td></tr>
+<tr class="memdesc:a54cb791a164ecc14c00ccdb1f935d00e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfSSH session.  <br /></td></tr>
+<tr class="memitem:ad8f53deb42abb7890bd933f530e30e99" id="r_ad8f53deb42abb7890bd933f530e30e99"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad8f53deb42abb7890bd933f530e30e99">WolfSSHServer</a> (const WolfSSHServer &amp;)=delete</td></tr>
+<tr class="memdesc:ad8f53deb42abb7890bd933f530e30e99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: it owns a wolfSSH session bound to this instance.  <br /></td></tr>
+<tr class="memitem:a70a5a24b9fc9dd898d62c01766f9ba85" id="r_a70a5a24b9fc9dd898d62c01766f9ba85"><td class="memItemLeft"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a70a5a24b9fc9dd898d62c01766f9ba85">operator=</a> (const <a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a70a5a24b9fc9dd898d62c01766f9ba85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: it owns a wolfSSH session bound to this instance.  <br /></td></tr>
+<tr class="memitem:ab4aaf2c785967e67853db50c9501bfc3" id="r_ab4aaf2c785967e67853db50c9501bfc3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab4aaf2c785967e67853db50c9501bfc3">WolfSSHServer</a> (WolfSSHServer &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:ab4aaf2c785967e67853db50c9501bfc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: it owns a wolfSSH session bound to this instance.  <br /></td></tr>
+<tr class="memitem:a68435d90ada80b3d688783d3a0a20ab5" id="r_a68435d90ada80b3d688783d3a0a20ab5"><td class="memItemLeft"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a68435d90ada80b3d688783d3a0a20ab5">operator=</a> (<a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a68435d90ada80b3d688783d3a0a20ab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: it owns a wolfSSH session bound to this instance.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac3f7cec3bac26ebbbdfd93dc9d339f48" name="ac3f7cec3bac26ebbbdfd93dc9d339f48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3f7cec3bac26ebbbdfd93dc9d339f48">&#9670;&#160;</a></span>Connection() <span class="overload">[1/2]</span></h2>
+<a id="a41bf7bcd105beca0973ac47f04d4e3ff" name="a41bf7bcd105beca0973ac47f04d4e3ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41bf7bcd105beca0973ac47f04d4e3ff">&#9670;&#160;</a></span>WolfSSHServer() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Digi::API::Connection::Connection </td>
+          <td class="memname"><a class="el" href="../../d7/daf/a05002.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::WolfSSHServer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d2d/a04998.html">WolfSSHServerContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>context</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a session from a server context and binds its I/O and authentication dispatch to this instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">context</td><td>Server context to create the session from; must outlive this session. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a54cb791a164ecc14c00ccdb1f935d00e" name="a54cb791a164ecc14c00ccdb1f935d00e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54cb791a164ecc14c00ccdb1f935d00e">&#9670;&#160;</a></span>~WolfSSHServer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/daf/a05002.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -174,117 +231,273 @@ Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates a connection in "State::INIT" with empty statistics. </p>
+<p>Releases the wolfSSH session. </p>
 
 </div>
 </div>
-<a id="afaa8af957c71adc2bf6b63d902caedf2" name="afaa8af957c71adc2bf6b63d902caedf2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaa8af957c71adc2bf6b63d902caedf2">&#9670;&#160;</a></span>Connection() <span class="overload">[2/2]</span></h2>
+<a id="ad8f53deb42abb7890bd933f530e30e99" name="ad8f53deb42abb7890bd933f530e30e99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f53deb42abb7890bd933f530e30e99">&#9670;&#160;</a></span>WolfSSHServer() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Digi::API::Connection::Connection </td>
+          <td class="memname"><a class="el" href="../../d7/daf/a05002.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::WolfSSHServer </td>
           <td>(</td>
-          <td class="paramtype">const Connection &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const WolfSSHServer&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: "quality" points back to its owning connection. </p>
+<p>Non-copyable: it owns a wolfSSH session bound to this instance. </p>
+
+</div>
+</div>
+<a id="ab4aaf2c785967e67853db50c9501bfc3" name="ab4aaf2c785967e67853db50c9501bfc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4aaf2c785967e67853db50c9501bfc3">&#9670;&#160;</a></span>WolfSSHServer() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/daf/a05002.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::WolfSSHServer </td>
+          <td>(</td>
+          <td class="paramtype">WolfSSHServer&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: it owns a wolfSSH session bound to this instance. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a6bed4ce5a085f4b0a9bbeb1131272236" name="a6bed4ce5a085f4b0a9bbeb1131272236"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bed4ce5a085f4b0a9bbeb1131272236">&#9670;&#160;</a></span>operator=()</h2>
+<a id="a0bcf921f4ac87d3d5ec8ed5bad282b6c" name="a0bcf921f4ac87d3d5ec8ed5bad282b6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c">&#9670;&#160;</a></span>accept()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> &amp; Lib::Digi::API::Connection::operator= </td>
+          <td class="memname"><a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../d7/daf/a05002.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::accept </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: "quality" points back to its owning connection. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this connection. </dd></dl>
+<p>Runs (or resumes) the SSH handshake and authentication. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c" title="WolfSSHStatus::SUCCESS">WolfSSHStatus::SUCCESS</a> once the session is ready for <a class="el" href="#ac07508d68f41b64e463fdd58db57558b" title="read()">read()</a> and <a class="el" href="#a034957692d48053e848ee6d77605fe2f" title="send()">send()</a>, <a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3aabb57fd8245067368ea2a5cfb5577614" title="WolfSSHStatus::WOULD_BLOCK">WolfSSHStatus::WOULD_BLOCK</a> if the transport needs to be retried, <a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3abb1ca97ec761fc37101737ba0aa2e7c5" title="WolfSSHStatus::ERROR">WolfSSHStatus::ERROR</a> otherwise. </dd></dl>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a566d10b4610db522b6cb8cbe0b66a545" name="a566d10b4610db522b6cb8cbe0b66a545"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a566d10b4610db522b6cb8cbe0b66a545">&#9670;&#160;</a></span>info</h2>
+<a id="a70a5a24b9fc9dd898d62c01766f9ba85" name="a70a5a24b9fc9dd898d62c01766f9ba85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70a5a24b9fc9dd898d62c01766f9ba85">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d66/a05014.html">Info</a> Lib::Digi::API::Connection::info</td>
+          <td class="memname"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp; <a class="el" href="../../d7/daf/a05002.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Runtime statistics. </p>
+<p>Non-copyable: it owns a wolfSSH session bound to this instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="a2f83b837e560618fd6d59cdb1aa8cbe3" name="a2f83b837e560618fd6d59cdb1aa8cbe3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f83b837e560618fd6d59cdb1aa8cbe3">&#9670;&#160;</a></span>quality</h2>
+<a id="a68435d90ada80b3d688783d3a0a20ab5" name="a68435d90ada80b3d688783d3a0a20ab5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68435d90ada80b3d688783d3a0a20ab5">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/d79/a05010.html">Quality</a> Lib::Digi::API::Connection::quality {this}</td>
+          <td class="memname"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp; <a class="el" href="../../d7/daf/a05002.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01606.html#ga6d348df5a49f0642b6260a9f0bb89126">::operator</a>= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Link quality evaluator. </p>
+<p>Non-movable: it owns a wolfSSH session bound to this instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
-<a id="a79f4aecc9bd038f5938e6373412ed099" name="a79f4aecc9bd038f5938e6373412ed099"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79f4aecc9bd038f5938e6373412ed099">&#9670;&#160;</a></span>state</h2>
+<a id="ac07508d68f41b64e463fdd58db57558b" name="ac07508d68f41b64e463fdd58db57558b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac07508d68f41b64e463fdd58db57558b">&#9670;&#160;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/dc0/a05006.html">State</a> Lib::Digi::API::Connection::state</td>
+          <td class="memname"><a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../d7/daf/a05002.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>bytesRead</em></span>&#160;)</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Connection state. </p>
+<p>Reads data from the session's shell channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">buffer</td><td>Destination buffer. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bytesRead</td><td>Bytes actually read; valid only when this method returns <a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c" title="WolfSSHStatus::SUCCESS">WolfSSHStatus::SUCCESS</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the read; see <a class="el" href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c" title="accept()">accept()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a034957692d48053e848ee6d77605fe2f" name="a034957692d48053e848ee6d77605fe2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034957692d48053e848ee6d77605fe2f">&#9670;&#160;</a></span>send()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../d7/daf/a05002.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::send </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>bytesSent</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends data over the session's shell channel. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Data to send. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bytesSent</td><td>Bytes actually sent; valid only when this method returns <a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c" title="WolfSSHStatus::SUCCESS">WolfSSHStatus::SUCCESS</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the send; see <a class="el" href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c" title="accept()">accept()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="a47906cc0c3be3035aefe35c6b6ca9c36" name="a47906cc0c3be3035aefe35c6b6ca9c36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47906cc0c3be3035aefe35c6b6ca9c36">&#9670;&#160;</a></span>shutdown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d3d/a01110.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../d7/daf/a05002.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::shutdown </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends the SSH disconnect message, ending the session gracefully. </p>
+<dl class="section return"><dt>Returns</dt><dd>Status of the shutdown; see <a class="el" href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c" title="accept()">accept()</a>. </dd></dl>
 
 </div>
 </div>
@@ -295,7 +508,7 @@ Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8a/a01062.html">Lib</a></li><li class="navelem"><a href="../../da/d93/a01084.html">Digi</a></li><li class="navelem"><a href="../../d2/df3/a01085.html">API</a></li><li class="navelem"><a href="../../d7/daf/a05002.html">Connection</a></li>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../d1/d3d/a01110.html">Crypto</a></li><li class="navelem"><a href="../../d7/daf/a05002.html">WolfSSHServer</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>

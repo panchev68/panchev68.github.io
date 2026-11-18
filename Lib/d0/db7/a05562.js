@@ -1,17 +1,19 @@
 var a05562 =
 [
-    [ "DataAlignment", "d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46", [
-      [ "RIGHT_12_BITS", "d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
-      [ "LEFT_12_BITS", "d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
-      [ "RIGHT_8_BITS", "d0/db7/a05562.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
-    ] ],
-    [ "DACPortBase", "d0/db7/a05562.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
-    [ "DACPortBase", "d0/db7/a05562.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
-    [ "DACPortBase", "d0/db7/a05562.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
-    [ "~DACPortBase", "d0/db7/a05562.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
-    [ "close", "d0/db7/a05562.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
-    [ "open", "d0/db7/a05562.html#ae527315d8794d0bcdbd7b686839e4630", null ],
-    [ "operator=", "d0/db7/a05562.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
-    [ "operator=", "d0/db7/a05562.html#abfba06342b098e48cbd2ecf0d159497c", null ],
-    [ "setValue", "d0/db7/a05562.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
+    [ "Event", "d8/d89/a05566.html", null ],
+    [ "CANPort", "d0/db7/a05562.html#a4477b4c95db49ce0b556d568b2d879a0", null ],
+    [ "~CANPort", "d0/db7/a05562.html#a6f6a6f1c91dc26fef9f74ef07f013b2c", null ],
+    [ "CANPort", "d0/db7/a05562.html#abe29825ceeac4153d36a08a6cb3adf7f", null ],
+    [ "CANPort", "d0/db7/a05562.html#af568e7e4043e0b195db174dab37c5dc9", null ],
+    [ "close", "d0/db7/a05562.html#a4ec7ae44fe2e374d256f3fd66767dbc7", null ],
+    [ "getFreeTxMailboxCount", "d0/db7/a05562.html#ac88a1857130f01ccafcb72baae483a84", null ],
+    [ "getHandle", "d0/db7/a05562.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d0/db7/a05562.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getRxFifoFillLevel", "d0/db7/a05562.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
+    [ "open", "d0/db7/a05562.html#a591e40ed78afa5d73704475e00c55060", null ],
+    [ "operator=", "d0/db7/a05562.html#aa58c9c3ab70cdf4e842716686aaa8c40", null ],
+    [ "operator=", "d0/db7/a05562.html#a8edeb615d6ad0c65bcf55d3d8f8fdce0", null ],
+    [ "read", "d0/db7/a05562.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
+    [ "waitForEvent", "d0/db7/a05562.html#a1c4fcd17767b405bdecda984747567ed", null ],
+    [ "write", "d0/db7/a05562.html#a65aa681fa591b2d0956e06e67e990b15", null ]
 ];

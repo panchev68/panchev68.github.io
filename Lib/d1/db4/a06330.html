@@ -1,3 +1,4 @@
+<!-- HTML header for doxygen 1.18.0-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -5,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR EWARM Library: Lib::BSP::EEPROM::FlashEmulation</title>
+<title>IAR EWARM Library: Lib::USB::CDCDevice::Config</title>
 <link rel="icon" href="../../doxygen_icon_inverted_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -23,6 +24,18 @@
 <link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
 <link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
 <link href="../../Font.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+<script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+<script type="text/javascript">
+    DoxygenAwesomeFragmentCopyButton.init()
+    DoxygenAwesomeDarkModeToggle.init()
+    DoxygenAwesomeParagraphLink.init()
+    DoxygenAwesomeInteractiveToc.init()
+    DoxygenAwesomeTabs.init()
+</script>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -93,7 +106,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/db4/a06330.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/db4/a06330.html','../../','d4/d7c/a06327'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -116,84 +129,245 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/db4/a06330.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::EEPROM::FlashEmulation</div></div>
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d4/d7c/a06327.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::USB::CDCDevice::Config</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Keeps a boot counter and a calibration structure in the two flash pages reserved for the emulated EEPROM.</p>
-<p>Keeps a boot counter and a calibration structure in the two flash pages reserved for the emulated EEPROM.Each value has its own 16-bit key and its own length, so the counter and the calibration are stored side by side. A missing key reads as <b>0</b> bytes, which lets the first boot start from defaults. Every <a class="el" href="../../d3/dae/a04518.html#a063c0d9941fea672cb74a10cb66f281e" title="Lib::BSP::EEPROM::FlashEmulation::write()">Lib::BSP::EEPROM::FlashEmulation::write()</a> of a changed value appends a record, and the emulation compacts the pages when the active one is full.</p>
-<dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="../../d3/dae/a04518.html#a8947a65dd4bc123a43147aadad6d5328" title="Lib::BSP::EEPROM::FlashEmulation::open()">Lib::BSP::EEPROM::FlashEmulation::open()</a> before the first read() or write(); calling it again is harmless. Call it only from a task, never from an ISR.</dd>
-<dd>
-Target: STM32U5 with <em class="arg">HAL_FLASH_MODULE_ENABLED</em> defined. The header is written for the STM32U5 flash layout (16-byte quadword programming, page and bank addressing); it is not a supported driver on STM32F407.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Each boot writes the counter once, so frequent resets wear the flash. Store the counter less often when the device restarts many times.</dd></dl>
-<hr  />
-<h3 class="doxsection"><a class="anchor" id="flashemu_usage_values"></a>
-Boot counter and calibration</h3>
-<p>A key read as <b>0</b> bytes starts from the default value. Read the value into a buffer of its size, compare the returned length with that size, and write back only what changed.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d5d/a00278.html">Lib/BSP/EEPROM/Internal/FlashEmulation.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00314.html">cstring</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">constexpr</span> uint16_t KEY_BOOT_COUNT = 1U;  <span class="comment">// Number of boots, 4 bytes.</span></div>
-<div class="line">    <span class="keyword">constexpr</span> uint16_t KEY_CALIBRATION = 2U; <span class="comment">// Calibration structure.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">struct </span>Calibration {</div>
-<div class="line">        int16_t offset; <span class="comment">// Sensor offset in millimetres.</span></div>
-<div class="line">        uint16_t gain;  <span class="comment">// Gain in 1/1000 units.</span></div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Reserve the two pages in the linker script; the base must be page aligned and both pages must lie in one bank.</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d3/dae/a04518.html">Lib::BSP::EEPROM::FlashEmulation</a> eeprom{0x081FC000U};</div>
-<div class="line"> </div>
-<div class="line">} <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startup() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!eeprom.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// The area could not be prepared; run with the default settings.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Boot counter: a missing key reads as 0 bytes, so the first boot starts from 0.</span></div>
-<div class="line">    uint32_t bootCount = 0U;</div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <span class="keyword">sizeof</span>(bootCount)&gt; rawCount{};</div>
-<div class="line">    <span class="keywordflow">if</span> (eeprom.read(KEY_BOOT_COUNT, rawCount) == rawCount.size()) {</div>
-<div class="line">        std::memcpy(&amp;bootCount, rawCount.data(), <span class="keyword">sizeof</span>(bootCount));</div>
-<div class="line">    }</div>
-<div class="line">    ++bootCount;</div>
-<div class="line">    std::memcpy(rawCount.data(), &amp;bootCount, <span class="keyword">sizeof</span>(bootCount));</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(eeprom.write(KEY_BOOT_COUNT, rawCount));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Calibration: read it, or keep the defaults when it is missing or of another size.</span></div>
-<div class="line">    Calibration calibration{0, 1000U};</div>
-<div class="line">    <a class="code hl_structRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <span class="keyword">sizeof</span>(Calibration)&gt; rawCalibration{};</div>
-<div class="line">    <span class="keywordflow">if</span> (eeprom.read(KEY_CALIBRATION, rawCalibration) == rawCalibration.size()) {</div>
-<div class="line">        std::memcpy(&amp;calibration, rawCalibration.data(), <span class="keyword">sizeof</span>(calibration));</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Store a new calibration after the user changes it.</span></div>
-<div class="line">    calibration.offset = 12;</div>
-<div class="line">    std::memcpy(rawCalibration.data(), &amp;calibration, <span class="keyword">sizeof</span>(calibration));</div>
-<div class="line">    <span class="keywordflow">if</span> (!eeprom.write(KEY_CALIBRATION, rawCalibration)) {</div>
-<div class="line">        <span class="comment">// The flash refused the record; keep the value in RAM and report the fault.</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00047_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00047.html">array</a></div></div>
-<div class="ttc" id="aa00278_html"><div class="ttname"><a href="../../dc/d5d/a00278.html">FlashEmulation.hpp</a></div><div class="ttdoc">EEPROM emulation in the internal flash of an STM32U5 microcontroller, for small key-value settings an...</div></div>
-<div class="ttc" id="aa00302_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00302.html">cstddef</a></div></div>
-<div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
-<div class="ttc" id="aa00314_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00314.html">cstring</a></div></div>
-<div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-<div class="ttc" id="aa04518_html"><div class="ttname"><a href="../../d3/dae/a04518.html">Lib::BSP::EEPROM::FlashEmulation</a></div><div class="ttdoc">Stores 16-bit keyed records in two erasable flash pages, appended as a log and compacted when a page ...</div><div class="ttdef"><b>Definition</b> FlashEmulation.hpp:61</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Parameters of the device and its buffers. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/d84/a06521.html#_a5">Lib::USB::CDCDevice</a>.</dd>
+</dl>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:aaf78772f776ce31d0da23466cc5000f9" id="r_aaf78772f776ce31d0da23466cc5000f9"><td class="memItemLeft"><a class="el" href="../../d1/d1b/a06326.html#ad99e2d8bd81a2c357380c4a3319320f8">Port</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aaf78772f776ce31d0da23466cc5000f9">port</a></td></tr>
+<tr class="memdesc:aaf78772f776ce31d0da23466cc5000f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Port to run on; must not be open yet.  <br /></td></tr>
+<tr class="memitem:a901d8fbdeedadd519352ef01e124ebaa" id="r_a901d8fbdeedadd519352ef01e124ebaa"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a901d8fbdeedadd519352ef01e124ebaa">vendorId</a></td></tr>
+<tr class="memdesc:a901d8fbdeedadd519352ef01e124ebaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">USB vendor ID.  <br /></td></tr>
+<tr class="memitem:a79f4483e676366581d5b0d0dfde54302" id="r_a79f4483e676366581d5b0d0dfde54302"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a79f4483e676366581d5b0d0dfde54302">productId</a></td></tr>
+<tr class="memdesc:a79f4483e676366581d5b0d0dfde54302"><td class="mdescLeft">&#160;</td><td class="mdescRight">USB product ID.  <br /></td></tr>
+<tr class="memitem:a9cad8695fc2df220e8e749ca17a46b1e" id="r_a9cad8695fc2df220e8e749ca17a46b1e"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a9cad8695fc2df220e8e749ca17a46b1e">releaseNumber</a></td></tr>
+<tr class="memdesc:a9cad8695fc2df220e8e749ca17a46b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device release number in BCD (<em class="arg">0x0100</em> is <em class="arg">1.00</em>).  <br /></td></tr>
+<tr class="memitem:a744ec90dd85932ef887d50642ebe38d7" id="r_a744ec90dd85932ef887d50642ebe38d7"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a744ec90dd85932ef887d50642ebe38d7">manufacturer</a></td></tr>
+<tr class="memdesc:a744ec90dd85932ef887d50642ebe38d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manufacturer string (ASCII, up to <em class="arg">30</em> characters), or <em class="arg">nullptr</em>.  <br /></td></tr>
+<tr class="memitem:ab780a9d88218c535e886fb1f2062438e" id="r_ab780a9d88218c535e886fb1f2062438e"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#ab780a9d88218c535e886fb1f2062438e">product</a></td></tr>
+<tr class="memdesc:ab780a9d88218c535e886fb1f2062438e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Product string (ASCII, up to <em class="arg">30</em> characters), or <em class="arg">nullptr</em>.  <br /></td></tr>
+<tr class="memitem:a9fb3962389441b192d0dbf27d5c7d570" id="r_a9fb3962389441b192d0dbf27d5c7d570"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a9fb3962389441b192d0dbf27d5c7d570">serialNumber</a></td></tr>
+<tr class="memdesc:a9fb3962389441b192d0dbf27d5c7d570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serial number string (ASCII, up to <em class="arg">30</em> characters), or <em class="arg">nullptr</em>.  <br /></td></tr>
+<tr class="memitem:ade2ac000564c55d1878eb4fb1755891f" id="r_ade2ac000564c55d1878eb4fb1755891f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ade2ac000564c55d1878eb4fb1755891f">rxBufferSize</a> = 512U</td></tr>
+<tr class="memdesc:ade2ac000564c55d1878eb4fb1755891f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bytes of the receive stream buffer; at least two packets.  <br /></td></tr>
+<tr class="memitem:a230b63ee56cf949511afd69dcfbc7b07" id="r_a230b63ee56cf949511afd69dcfbc7b07"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a230b63ee56cf949511afd69dcfbc7b07">rxFifoWords</a> = 0x80U</td></tr>
+<tr class="memdesc:a230b63ee56cf949511afd69dcfbc7b07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive FIFO of the controller, in 32-bit words.  <br /></td></tr>
+<tr class="memitem:abe18c856018762f3999b3364d7007211" id="r_abe18c856018762f3999b3364d7007211"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#abe18c856018762f3999b3364d7007211">ep0FifoWords</a> = 0x40U</td></tr>
+<tr class="memdesc:abe18c856018762f3999b3364d7007211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit FIFO of endpoint 0, in 32-bit words.  <br /></td></tr>
+<tr class="memitem:a0ed8db5411c1921c529630d3a44f7360" id="r_a0ed8db5411c1921c529630d3a44f7360"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a0ed8db5411c1921c529630d3a44f7360">bulkInFifoWords</a> = 0x80U</td></tr>
+<tr class="memdesc:a0ed8db5411c1921c529630d3a44f7360"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit FIFO of the bulk IN endpoint, in 32-bit words.  <br /></td></tr>
+<tr class="memitem:a9c483b42f1b4a8e9b20622f07d264bdf" id="r_a9c483b42f1b4a8e9b20622f07d264bdf"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a9c483b42f1b4a8e9b20622f07d264bdf">notifyFifoWords</a> = 0x20U</td></tr>
+<tr class="memdesc:a9c483b42f1b4a8e9b20622f07d264bdf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit FIFO of the notification endpoint, in 32-bit words.  <br /></td></tr>
+</table>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a0ed8db5411c1921c529630d3a44f7360" name="a0ed8db5411c1921c529630d3a44f7360"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ed8db5411c1921c529630d3a44f7360">&#9670;&#160;</a></span>bulkInFifoWords</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Lib::USB::CDCDevice::Config::bulkInFifoWords = 0x80U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transmit FIFO of the bulk IN endpoint, in 32-bit words. </p>
+
+</div>
+</div>
+<a id="abe18c856018762f3999b3364d7007211" name="abe18c856018762f3999b3364d7007211"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe18c856018762f3999b3364d7007211">&#9670;&#160;</a></span>ep0FifoWords</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Lib::USB::CDCDevice::Config::ep0FifoWords = 0x40U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transmit FIFO of endpoint 0, in 32-bit words. </p>
+
+</div>
+</div>
+<a id="a744ec90dd85932ef887d50642ebe38d7" name="a744ec90dd85932ef887d50642ebe38d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a744ec90dd85932ef887d50642ebe38d7">&#9670;&#160;</a></span>manufacturer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* Lib::USB::CDCDevice::Config::manufacturer</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Manufacturer string (ASCII, up to <em class="arg">30</em> characters), or <em class="arg">nullptr</em>. </p>
+
+</div>
+</div>
+<a id="a9c483b42f1b4a8e9b20622f07d264bdf" name="a9c483b42f1b4a8e9b20622f07d264bdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c483b42f1b4a8e9b20622f07d264bdf">&#9670;&#160;</a></span>notifyFifoWords</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Lib::USB::CDCDevice::Config::notifyFifoWords = 0x20U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Transmit FIFO of the notification endpoint, in 32-bit words. </p>
+
+</div>
+</div>
+<a id="aaf78772f776ce31d0da23466cc5000f9" name="aaf78772f776ce31d0da23466cc5000f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf78772f776ce31d0da23466cc5000f9">&#9670;&#160;</a></span>port</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/d1b/a06326.html#ad99e2d8bd81a2c357380c4a3319320f8">Port</a>&amp; Lib::USB::CDCDevice::Config::port</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Port to run on; must not be open yet. </p>
+
+</div>
+</div>
+<a id="ab780a9d88218c535e886fb1f2062438e" name="ab780a9d88218c535e886fb1f2062438e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab780a9d88218c535e886fb1f2062438e">&#9670;&#160;</a></span>product</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* Lib::USB::CDCDevice::Config::product</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Product string (ASCII, up to <em class="arg">30</em> characters), or <em class="arg">nullptr</em>. </p>
+
+</div>
+</div>
+<a id="a79f4483e676366581d5b0d0dfde54302" name="a79f4483e676366581d5b0d0dfde54302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79f4483e676366581d5b0d0dfde54302">&#9670;&#160;</a></span>productId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Lib::USB::CDCDevice::Config::productId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>USB product ID. </p>
+
+</div>
+</div>
+<a id="a9cad8695fc2df220e8e749ca17a46b1e" name="a9cad8695fc2df220e8e749ca17a46b1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cad8695fc2df220e8e749ca17a46b1e">&#9670;&#160;</a></span>releaseNumber</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Lib::USB::CDCDevice::Config::releaseNumber</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Device release number in BCD (<em class="arg">0x0100</em> is <em class="arg">1.00</em>). </p>
+
+</div>
+</div>
+<a id="ade2ac000564c55d1878eb4fb1755891f" name="ade2ac000564c55d1878eb4fb1755891f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade2ac000564c55d1878eb4fb1755891f">&#9670;&#160;</a></span>rxBufferSize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::USB::CDCDevice::Config::rxBufferSize = 512U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Bytes of the receive stream buffer; at least two packets. </p>
+
+</div>
+</div>
+<a id="a230b63ee56cf949511afd69dcfbc7b07" name="a230b63ee56cf949511afd69dcfbc7b07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a230b63ee56cf949511afd69dcfbc7b07">&#9670;&#160;</a></span>rxFifoWords</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Lib::USB::CDCDevice::Config::rxFifoWords = 0x80U</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Receive FIFO of the controller, in 32-bit words. </p>
+
+</div>
+</div>
+<a id="a9fb3962389441b192d0dbf27d5c7d570" name="a9fb3962389441b192d0dbf27d5c7d570"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fb3962389441b192d0dbf27d5c7d570">&#9670;&#160;</a></span>serialNumber</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* Lib::USB::CDCDevice::Config::serialNumber</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Serial number string (ASCII, up to <em class="arg">30</em> characters), or <em class="arg">nullptr</em>. </p>
+
+</div>
+</div>
+<a id="a901d8fbdeedadd519352ef01e124ebaa" name="a901d8fbdeedadd519352ef01e124ebaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a901d8fbdeedadd519352ef01e124ebaa">&#9670;&#160;</a></span>vendorId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Lib::USB::CDCDevice::Config::vendorId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>USB vendor ID. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d3/dc4/a01089.html">Lib</a></li><li class="navelem"><a href="../../de/de4/a01135.html">USB</a></li><li class="navelem"><a href="../../d1/d1b/a06326.html">CDCDevice</a></li><li class="navelem"><a href="../../d1/db4/a06330.html">Config</a></li>
     <li class="footer">Generated <span class="datetime"></span></li>
   </ul>
 </div>
